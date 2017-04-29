@@ -1,0 +1,4 @@
+drush:
+  aliases:
+    remote: 'chew.${project.machine_name}.dev'
+    local: 'chew.${project.machine_name}.local'
