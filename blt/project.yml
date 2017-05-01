@@ -57,4 +57,5 @@ multisite:
   name:
     - default
     - chew
+    - pathways
 

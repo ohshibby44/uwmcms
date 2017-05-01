@@ -1,0 +1,4 @@
+drush:
+  aliases:
+    remote: 'pathways.${project.machine_name}.dev'
+    local: 'pathways.${project.machine_name}.local'

@@ -55,3 +55,4 @@
  */
 
 $sites['chew.uwmed.local'] = 'chew';
+$sites['pathways.uwmed.local'] = 'pathways';
