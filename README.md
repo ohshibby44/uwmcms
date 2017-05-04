@@ -4,19 +4,31 @@ A Drupal multisite installation powering the UW Medicine Enterprise CMS.
 
 This project was created with [Acquia BLT (Build and Launch Tool)](http://blt.readthedocs.io/en/latest/) and is maintained by the UW Medicine Strategic Marketing & Communications Web Team at the University of Washington.
 
-## Commit Taxonomy
+## Commit Message Conventions
 
-BLT has a `commit-msg` hook that is typically used to associate commits with JIRA issues. Since work on this project is distributed and many teams are participating, we've modified the `commit-msg` format to include a prefix to identify the website the commit impacts.
+BLT comes with a `commit-msg` hook that forces commits to include a prefix that associates commits with JIRA issues. Since work on this project is distributed across many teams and there is no centralized project management tool, we've modified the `commit-msg` format to include a prefix that identifies which website the commit impacts.
 
-A valid `commit-msg` follows this format `UWM-PREFIX: Commit message text.` where the prefix is chosen from the list below and the commit message text is at least 20 characters.
+A valid `commit-msg` follows this format `UWM-PREFIX: Imperative commit subject line` where the prefix is chosen from the table below, the subject line text is at least 15 characters, and the subject doesn't end in a period.
+
+We generally follow Chris Beams' rules for [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/). The most important to us is [#5 Use the imperative mood in the subject line](https://chris.beams.io/posts/git-commit/#imperative). See Chris' blog post for examples and more explanation. We're fine with subject lines up to 72 characters since the prefix takes up at least 9 characters.
+
+The summary list of rules is:
+
+1. Separate subject from body with a blank line
+1. Limit the subject line to 72 characters
+1. Capitalize the subject line
+1. Do not end the subject line with a period
+1. Use the imperative mood in the subject line
+1. Wrap the body at 72 characters
+1. Use the body to explain what and why vs. how
 
 ### Commit Message Prefixes
 
-| PREFIX | Description |
+| PREFIX | Multisite Affiliation |
 | --- | --- |
-| UWM-CMS | Commits that modify global platform code |
-| UWM-CHEW | Commits related to the Consumer Health Engagement Website (CHEW) |
-| UWM-PATH | Commits related to Pathways, the internal communications website |
+| UWM-CMS | Entire Platform |
+| UWM-CHEW | Consumer Health Engagement Website (CHEW) |
+| UWM-PATH | Pathways (Employee Communications Website) |
 
 ## Contributing
 
@@ -34,18 +46,18 @@ The general process for getting set up to contribute code on this platform is be
 
 All code for this project must follow [Drupal Coding Standards](https://www.drupal.org/docs/develop/standards/coding-standards). Commits must pass PHP Code Sniffer, Twig validation, and composer validation tests before they will be merged. There's a git pre-commit hook that comes with BLT and is also replicated in the [git-config/hooks](git-config/hooks) directory. 
 
-If you're working on this project, but not using BLT (not recommended), you can use the `pre-commit` hook supplied as a template for getting the necessary tests to run.
+If you're working on this project, but not using BLT (not recommended), you can use the `pre-commit` hook supplied in the hooks directory as a template for getting the necessary tests to run.
 
 ### Local Development
 
-The recommended local setup for contributing to this project is to use BLT with Drupal VM. If you already have a local *AMP stack or other environment you want to use you can (and should) still use BLT. 
+The recommended local setup for contributing to this project is to use BLT with Drupal VM. If you already have a local *AMP stack or other environment, you can (and should) still use BLT. 
 
 The BLT docs provide detailed instructions for getting up and running.  
 
 1. [BLT installation](https://blt.readthedocs.io/en/8.x/INSTALL/)
 1. [Onboarding](https://blt.readthedocs.io/en/8.x/readme/onboarding/)
 
-For setups not using Drupal VM, see: [Local development](https://blt.readthedocs.io/en/8.x/readme/local-development/).
+For setups not using Drupal VM, see: [Local development](https://blt.readthedocs.io/en/8.x/readme/local-development/) in the BLT docs.
 
 ### Custom Git Hooks
 
