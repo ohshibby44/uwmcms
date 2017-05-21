@@ -5,7 +5,16 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "acquia/blt": "^8.3"
+        "acquia/blt": "^8.3",
+        "drupal/redirect": "^1.0@alpha",
+        "drupal/admin_toolbar": "^1.19",
+        "drupal/webform": "^5.0@beta",
+        "drupal/sharethis": "^2.0@beta",
+        "drupal/breakpoints": "^1.1",
+        "drupal/simple_sitemap": "^2.9",
+        "drupal/amp": "^1.0",
+        "drupal/adminimal_admin_toolbar": "^1.4",
+        "drupal/trash": "^1.0@alpha"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
