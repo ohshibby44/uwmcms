@@ -1,0 +1,19 @@
+;node.type.publication_reference.yml
+
+uuid: 6cadc4d3-17e3-4f77-afb4-f262f9358c76
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Publication Reference'
+type: publication_reference
+description: 'A publication reference is a news appearance on outside media - for example, US News or the WSJ - and includes a pub date, link and PDF attachment. '
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false
