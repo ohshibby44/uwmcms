@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.article.field_categories
     - field.field.node.article.field_date
     - field.field.node.article.field_images
+    - field.field.node.article.field_long_summary
     - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
     - node.type.article
   module:
     - panelizer
@@ -34,4 +36,6 @@ hidden:
   field_categories: true
   field_date: true
   field_images: true
+  field_long_summary: true
   field_sections: true
+  field_short_summary: true

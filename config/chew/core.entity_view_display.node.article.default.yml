@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.article.field_categories
     - field.field.node.article.field_date
     - field.field.node.article.field_images
+    - field.field.node.article.field_long_summary
     - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
     - node.type.article
   module:
     - datetime
@@ -73,4 +75,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_long_summary: true
+  field_short_summary: true
