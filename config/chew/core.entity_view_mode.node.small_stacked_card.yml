@@ -1,0 +1,14 @@
+uuid: fb4e71a4-050d-4a91-9f97-5717adc541d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.small_stacked_card
+label: 'Small Stacked Card'
+targetEntityType: node
+cache: true
