@@ -3,16 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.minimum
+    - entity_browser.browser.media_browser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_date
-    - field.field.node.article.field_images
     - field.field.node.article.field_long_summary
+    - field.field.node.article.field_primary_media
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
     - datetime
+    - entity_browser
     - inline_entity_form
     - paragraphs
     - path
@@ -57,19 +60,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_images:
-    type: inline_entity_form_complex
-    weight: 4
-    settings:
-      form_mode: default
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: true
-      match_operator: CONTAINS
-      override_labels: false
-    third_party_settings: {  }
-    region: content
   field_long_summary:
     weight: 6
     settings:
@@ -77,6 +67,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_primary_media:
+    type: entity_browser_entity_reference
+    weight: 4
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+    third_party_settings: {  }
     region: content
   field_sections:
     type: entity_reference_paragraphs
