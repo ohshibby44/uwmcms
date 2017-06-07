@@ -11,12 +11,12 @@ _core:
   default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
 name: media_browser
 label: 'Media browser'
-display: iframe
+display: modal
 display_configuration:
-  width: 100%
+  width: ''
   height: '640'
-  link_text: 'Select entities'
-  auto_open: true
+  link_text: 'Add media'
+  auto_open: false
   path: /media-browser
 selection_display: no_display
 selection_display_configuration: {  }
@@ -26,12 +26,12 @@ widgets:
   134808d9-d854-4a0b-8699-d5eba006b8b7:
     settings:
       view: media
-      view_display: entity_browser_1
-      submit_text: Place
+      view_display: entity_browser_2
+      submit_text: Select
       auto_select: false
     uuid: 134808d9-d854-4a0b-8699-d5eba006b8b7
     weight: -10
-    label: Library
+    label: 'Existing Image'
     id: view
   8b142f33-59d1-47b1-9e3a-4ae85d8376fa:
     settings:
@@ -43,10 +43,10 @@ widgets:
     id: embed_code
   044d2af7-314b-4830-8b6d-64896bbb861e:
     settings:
-      submit_text: Place
+      submit_text: Save
       form_mode: media_browser
-      return_file: false
+      return_file: 0
     uuid: 044d2af7-314b-4830-8b6d-64896bbb861e
     weight: -9
-    label: Upload
+    label: 'Upload Image'
     id: file_upload
