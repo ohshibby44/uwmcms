@@ -20,7 +20,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: ''
+  file_directory: 'images/[current-date:custom:Y]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''
@@ -30,8 +30,7 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: null
-    fid: 0
+    uuid: ''
     alt: ''
     title: ''
     width: null
