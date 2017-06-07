@@ -19,9 +19,6 @@ settings:
           items:
             - Bold
             - Italic
-            - Strike
-            - Superscript
-            - Subscript
             - '-'
             - RemoveFormat
         -
@@ -29,18 +26,12 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
+            - Linkit
         -
           name: Lists
           items:
             - BulletedList
             - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - Table
-            - HorizontalRule
-            - media_browser
         -
           name: 'Block Formatting'
           items:
@@ -50,11 +41,19 @@ settings:
           items:
             - ShowBlocks
             - Source
+        -
+          name: 'Copy and Paste'
+          items:
+            - Cut
+            - Copy
+            - Paste
   plugins:
     language:
       language_list: un
     stylescombo:
       styles: ''
+    linkit:
+      linkit_profile: default
 image_upload:
   status: true
   scheme: public

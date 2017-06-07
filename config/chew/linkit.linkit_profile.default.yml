@@ -1,0 +1,22 @@
+uuid: 3a80dda1-1212-447e-8431-1992a4a07fa9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default
+label: Default
+description: ''
+attributes: {  }
+matchers:
+  dd786df9-d466-4a9b-ab59-1451ce01017f:
+    uuid: dd786df9-d466-4a9b-ab59-1451ce01017f
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles:
+        article: article
+        page: page
+      group_by_bundle: false
+      include_unpublished: false
