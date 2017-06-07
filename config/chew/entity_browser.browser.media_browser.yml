@@ -35,18 +35,28 @@ widgets:
     id: view
   8b142f33-59d1-47b1-9e3a-4ae85d8376fa:
     settings:
-      submit_text: Place
+      submit_text: Save
       form_mode: media_browser
     uuid: 8b142f33-59d1-47b1-9e3a-4ae85d8376fa
-    weight: -8
-    label: 'Create embed'
+    weight: -7
+    label: 'New Video'
     id: embed_code
-  044d2af7-314b-4830-8b6d-64896bbb861e:
+  8621119e-a4a4-40e5-ae47-d541eadc5822:
+    settings:
+      view: media
+      view_display: entity_browser_3
+      submit_text: Select
+      auto_select: false
+    uuid: 8621119e-a4a4-40e5-ae47-d541eadc5822
+    weight: -8
+    label: 'Existing Video'
+    id: view
+  fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407:
     settings:
       submit_text: Save
       form_mode: media_browser
       return_file: 0
-    uuid: 044d2af7-314b-4830-8b6d-64896bbb861e
+    uuid: fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407
     weight: -9
-    label: 'Upload Image'
+    label: 'New Image'
     id: file_upload
