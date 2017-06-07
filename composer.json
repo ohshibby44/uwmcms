@@ -22,7 +22,9 @@
         "drupal/simple_sitemap": "^2.9",
         "drupal/amp": "^1.0",
         "drupal/paragraphs": "^1.1",
-        "drupal/trash": "^1.0@alpha"
+        "drupal/trash": "^1.0@alpha",
+        "drupal/bootstrap": "^3.5",
+        "drupal/linkit": "^4.3"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"

@@ -1,0 +1,36 @@
+uuid: ffe33080-e558-4ae3-adcf-11872afdb621
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pull_quote.field_quote_attribution
+    - field.field.paragraph.pull_quote.field_quote_text
+    - paragraphs.paragraphs_type.pull_quote
+  module:
+    - text
+    - workbench_moderation
+id: paragraph.pull_quote.default
+targetEntityType: paragraph
+bundle: pull_quote
+mode: default
+content:
+  field_quote_attribution:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_quote_text:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

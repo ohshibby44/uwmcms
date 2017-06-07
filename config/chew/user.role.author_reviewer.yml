@@ -1,0 +1,18 @@
+uuid: 7e6df333-c731-40d1-9633-e1c86e4684f7
+langcode: en
+status: true
+dependencies: {  }
+id: author_reviewer
+label: 'Author reviewer'
+weight: 10
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any author content'
+  - 'edit any author content'
+  - 'use draft_published transition'
+  - 'use needs_review_draft transition'
+  - 'use needs_review_published transition'
+  - 'use published_archived transition'
+  - 'use published_published transition'
+  - 'view moderation states'

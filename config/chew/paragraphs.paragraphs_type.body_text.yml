@@ -1,0 +1,7 @@
+uuid: 747724e9-4865-4a12-8ff6-8eaa185e0999
+langcode: en
+status: true
+dependencies: {  }
+id: body_text
+label: 'Body Text'
+behavior_plugins: {  }
