@@ -1,0 +1,14 @@
+uuid: 606dea07-e395-4715-9016-5835af964903
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media_entity
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.medium
+label: Medium
+targetEntityType: media
+cache: true

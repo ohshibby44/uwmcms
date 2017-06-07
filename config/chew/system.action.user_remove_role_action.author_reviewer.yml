@@ -1,0 +1,14 @@
+uuid: 3268f876-f8a5-43d6-b204-2c04b0640478
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.author_reviewer
+  module:
+    - user
+id: user_remove_role_action.author_reviewer
+label: 'Remove the Author reviewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: author_reviewer

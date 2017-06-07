@@ -1,0 +1,21 @@
+uuid: 7da5498e-ecbf-4b85-94b8-079eb144e081
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_heading
+    - paragraphs.paragraphs_type.callout
+  module:
+    - text
+id: paragraph.callout.field_callout_heading
+field_name: field_callout_heading
+entity_type: paragraph
+bundle: callout
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

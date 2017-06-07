@@ -1,0 +1,14 @@
+uuid: 01daa98b-e70f-4038-9741-a112f428c4ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'This view mode displays the minimum fields required for a content type. It is especially useful when adding nodes using Inline Entity Reference widgets. '
+id: node.minimum
+label: Minimum
+targetEntityType: node
+cache: true

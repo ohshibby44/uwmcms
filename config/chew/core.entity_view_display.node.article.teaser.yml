@@ -1,0 +1,41 @@
+uuid: f1c38c3e-c2bd-47b6-9e7e-3f8cb60ee6f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.article.field_author
+    - field.field.node.article.field_categories
+    - field.field.node.article.field_date
+    - field.field.node.article.field_long_summary
+    - field.field.node.article.field_primary_media
+    - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
+    - node.type.article
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.teaser
+targetEntityType: node
+bundle: article
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_author: true
+  field_categories: true
+  field_date: true
+  field_long_summary: true
+  field_primary_media: true
+  field_sections: true
+  field_short_summary: true

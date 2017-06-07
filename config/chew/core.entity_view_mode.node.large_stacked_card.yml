@@ -1,0 +1,14 @@
+uuid: 04b34f09-a72c-4ee1-968c-59292f87a233
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.large_stacked_card
+label: 'Large Stacked Card'
+targetEntityType: node
+cache: true
