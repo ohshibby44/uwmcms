@@ -4,11 +4,21 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_date
+    - field.field.node.article.field_images
+    - field.field.node.article.field_sections
     - node.type.article
   module:
+    - panelizer
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.article.teaser
 targetEntityType: node
 bundle: article
@@ -17,6 +27,11 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_author: true
   field_categories: true
   field_date: true
+  field_images: true
+  field_sections: true
