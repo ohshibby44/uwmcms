@@ -1,17 +1,18 @@
-uuid: cba35007-c294-43a7-8c40-b90b4b7916ce
+uuid: 26d08347-642b-4d87-a9ca-4d3c359d09c8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_images
+    - field.storage.node.field_primary_media
     - media_entity.bundle.image
+    - media_entity.bundle.video
     - node.type.article
-id: node.article.field_images
-field_name: field_images
+id: node.article.field_primary_media
+field_name: field_primary_media
 entity_type: node
 bundle: article
-label: Images
-description: 'The first image will be considered the primary one.'
+label: 'Primary Media'
+description: ''
 required: false
 translatable: false
 default_value: {  }
@@ -21,8 +22,9 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      video: video
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: image
 field_type: entity_reference
