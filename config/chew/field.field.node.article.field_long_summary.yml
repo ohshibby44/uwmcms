@@ -1,0 +1,21 @@
+uuid: 301828b8-ce6c-48ec-944c-68bf45641bf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_long_summary
+    - node.type.article
+  module:
+    - text
+id: node.article.field_long_summary
+field_name: field_long_summary
+entity_type: node
+bundle: article
+label: 'Long Summary'
+description: 'Enter a summary of the article’s content. It should be 20-40 words in length.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
