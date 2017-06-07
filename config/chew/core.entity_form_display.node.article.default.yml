@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.article.field_categories
     - field.field.node.article.field_date
+    - field.field.node.article.field_images
     - field.field.node.article.field_sections
     - node.type.article
   module:
     - datetime
+    - inline_entity_form
     - paragraphs
     - path
     - workbench_moderation
@@ -19,7 +21,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -35,9 +37,22 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_images:
+    type: inline_entity_form_complex
+    weight: 3
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+    third_party_settings: {  }
+    region: content
   field_sections:
     type: entity_reference_paragraphs
-    weight: 3
+    weight: 4
     settings:
       title: Section
       title_plural: Sections
@@ -49,7 +64,7 @@ content:
     region: content
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -63,7 +78,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
