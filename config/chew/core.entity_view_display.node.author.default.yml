@@ -1,0 +1,26 @@
+uuid: cfb9e7b6-567b-46d4-b2e1-79a178aa7264
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.author.body
+    - node.type.author
+  module:
+    - text
+    - user
+id: node.author.default
+targetEntityType: node
+bundle: author
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
