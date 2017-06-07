@@ -63,10 +63,10 @@ content:
   field_long_summary:
     weight: 6
     settings:
-      rows: 5
+      size: 120
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: text_textfield
     region: content
   field_primary_media:
     type: entity_browser_entity_reference
@@ -97,10 +97,10 @@ content:
   field_short_summary:
     weight: 7
     settings:
-      rows: 5
+      size: 120
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: text_textfield
     region: content
   path:
     type: path
