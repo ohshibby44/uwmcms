@@ -29,13 +29,13 @@ content:
   field_author:
     weight: 2
     settings:
-      form_mode: default
-      label_singular: ''
-      label_plural: ''
+      form_mode: minimum
+      override_labels: true
+      label_singular: Author
+      label_plural: Authors
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
-      override_labels: false
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
