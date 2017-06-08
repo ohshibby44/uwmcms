@@ -39,7 +39,7 @@ The general process for getting set up to contribute code on this platform is be
 1. `composer install` and `blt local:setup` in your local clone
 1. Set git to use our custom hooks `git config core.hooksPath ./git-config/hooks`
 1. Dev locally using the [Gitflow Workflow](https://blt.readthedocs.io/en/8.x/readme/dev-workflow/#gitflow-workflow)
-1. Submit a pull request on the `develop` branch
+1. Submit a pull request on the `master` branch
 1. Resolve any [merge conflicts](https://blt.readthedocs.io/en/8.x/readme/dev-workflow/#resolving-merge-conflicts)
 
 ### Coding Standards
