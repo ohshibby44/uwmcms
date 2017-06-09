@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
     - image.style.medium
@@ -43,4 +45,6 @@ content:
     region: content
 hidden:
   created: true
+  field_caption: true
+  field_credit: true
   uid: true
