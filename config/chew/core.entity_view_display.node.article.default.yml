@@ -5,14 +5,12 @@ dependencies:
   config:
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
-    - field.field.node.article.field_date
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
-    - datetime
     - entity_reference_revisions
     - panelizer
     - user
@@ -42,15 +40,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_date:
-    weight: 2
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: long
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_primary_media:
     weight: 3

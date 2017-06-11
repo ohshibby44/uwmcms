@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
-    - field.field.node.article.field_date
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_sections
@@ -34,7 +33,6 @@ content:
 hidden:
   field_author: true
   field_categories: true
-  field_date: true
   field_long_summary: true
   field_primary_media: true
   field_sections: true
