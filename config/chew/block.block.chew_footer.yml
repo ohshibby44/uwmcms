@@ -1,4 +1,4 @@
-uuid: 81dd9659-f38b-4208-9537-fab6393bfcda
+uuid: 55b30eb9-b696-4cd6-9573-b3066ed835c5
 langcode: en
 status: true
 dependencies:
@@ -7,12 +7,12 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
+    - chew
 _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
-id: bartik_footer
-theme: bartik
-region: footer_fifth
+id: chew_footer
+theme: chew
+region: navigation
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'

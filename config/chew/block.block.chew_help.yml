@@ -1,0 +1,22 @@
+uuid: a6ef39c2-c10e-4be7-a09f-736461112681
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - chew
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: chew_help
+theme: chew
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

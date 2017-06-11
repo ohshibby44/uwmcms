@@ -1,4 +1,4 @@
-uuid: e23ca75e-6f6a-4cc3-9786-d10979ee420e
+uuid: 3371a60e-559d-4323-80ed-2a94e8c198d7
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - system
     - views
   theme:
-    - bartik
+    - chew
 _core:
   default_config_hash: UDHpza-uTXT90uUqIrgPDBW4XrHBA1XpzSBQyyRB2Yg
-id: bartik_search
-theme: bartik
+id: chew_search
+theme: chew
 region: content
 weight: 0
 provider: null

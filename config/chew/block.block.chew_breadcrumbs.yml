@@ -1,16 +1,16 @@
-uuid: f958440b-375a-4d3f-952a-f8906bcf0634
+uuid: a503a814-a335-4f08-a4b1-2479e6de9af0
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - bartik
+    - chew
 _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
-id: bartik_breadcrumbs
-theme: bartik
-region: breadcrumb
+id: chew_breadcrumbs
+theme: chew
+region: navigation
 weight: 0
 provider: null
 plugin: system_breadcrumb_block
