@@ -9,7 +9,7 @@ var
       'node_modules/bootstrap-sass/assets/stylesheets'
     ],
     javascriptFiles: [
-      'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+      'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
     ]
   };
 

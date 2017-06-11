@@ -18,5 +18,5 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
-  - 'chew/global-styling'
+  - 'chew/global-styles'
   - 'chew/bootstrap-scripts'
