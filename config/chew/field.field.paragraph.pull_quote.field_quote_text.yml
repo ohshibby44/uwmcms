@@ -6,7 +6,13 @@ dependencies:
     - field.storage.paragraph.field_quote_text
     - paragraphs.paragraphs_type.pull_quote
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
 id: paragraph.pull_quote.field_quote_text
 field_name: field_quote_text
 entity_type: paragraph

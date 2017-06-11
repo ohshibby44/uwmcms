@@ -6,7 +6,13 @@ dependencies:
     - field.storage.node.field_short_summary
     - node.type.article
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
 id: node.article.field_short_summary
 field_name: field_short_summary
 entity_type: node
