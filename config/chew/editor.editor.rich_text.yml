@@ -47,6 +47,8 @@ settings:
             - Cut
             - Copy
             - Paste
+            - PasteText
+            - PasteFromWord
   plugins:
     language:
       language_list: un
