@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
+    - allowed_formats
     - entity_browser
     - inline_entity_form
     - paragraphs
@@ -57,7 +58,10 @@ content:
     settings:
       size: 120
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   field_primary_media:
@@ -91,7 +95,10 @@ content:
     settings:
       size: 120
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   path:
