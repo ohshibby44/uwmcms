@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.author.field_person_name
     - node.type.author
   module:
     - panelizer
@@ -19,8 +20,9 @@ bundle: author
 mode: default
 content:
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_person_name: true
