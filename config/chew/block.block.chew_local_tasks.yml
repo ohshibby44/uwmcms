@@ -1,0 +1,22 @@
+uuid: 6c45f932-320b-4e1c-b0ce-a90a0cd2990a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - chew
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: chew_local_tasks
+theme: chew
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,19 @@
+global-styles:
+  css:
+    theme:
+      css/style.css: {}
+
+bootstrap-scripts:
+  js:
+    js/vendor/affix.js: {}
+    js/vendor/alert.js: {}
+    js/vendor/button.js: {}
+    js/vendor/carousel.js: {}
+    js/vendor/collapse.js: {}
+    js/vendor/dropdown.js: {}
+    js/vendor/modal.js: {}
+    js/vendor/tooltip.js: {}
+    js/vendor/popover.js: {}
+    js/vendor/scrollspy.js: {}
+    js/vendor/tab.js: {}
+    js/vendor/transition.js: {}

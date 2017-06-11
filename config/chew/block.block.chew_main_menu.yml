@@ -1,4 +1,4 @@
-uuid: 425009b1-daf7-49bb-8f37-145a9ada96b7
+uuid: 0fdebd06-5eed-467a-8d74-8870ff7e52e7
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
+    - chew
 _core:
   default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
-id: bartik_main_menu
-theme: bartik
-region: primary_menu
-weight: 0
+id: chew_main_menu
+theme: chew
+region: navigation
+weight: -4
 provider: null
 plugin: 'system_menu_block:main'
 settings:
