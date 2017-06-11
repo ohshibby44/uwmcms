@@ -45,6 +45,7 @@ permissions:
   - 'revert landing_page revisions'
   - 'revert page revisions'
   - 'update media'
+  - 'use text format minimal_html'
   - 'use text format rich_text'
   - 'view all revisions'
   - 'view any unpublished content'
