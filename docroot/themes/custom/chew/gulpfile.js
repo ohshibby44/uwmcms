@@ -10,6 +10,9 @@ var
     ],
     javascriptFiles: [
       'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
+    ],
+    fontFiles: [
+      'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
     ]
   };
 
@@ -29,8 +32,13 @@ gulp.task('javascript', function() {
     .pipe(gulp.dest('./js/vendor'));
 });
 
-gulp.task('default', ['sass', 'javascript']);
+gulp.task('fonts', function() {
+  return gulp.src(config.fontFiles)
+    .pipe(gulp.dest('./fonts/vendor'));
+});
 
-gulp.task('watch', ['sass', 'javascript'], function() {
+gulp.task('default', ['sass', 'javascript', 'fonts']);
+
+gulp.task('watch', ['sass', 'javascript', 'fonts'], function() {
   gulp.watch('scss/**/*.scss', ['sass']);
 });
