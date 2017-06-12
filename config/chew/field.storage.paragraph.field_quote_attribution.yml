@@ -1,0 +1,20 @@
+uuid: 8bb11c59-4f88-41b8-85ef-a75f963735d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_quote_attribution
+field_name: field_quote_attribution
+entity_type: paragraph
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

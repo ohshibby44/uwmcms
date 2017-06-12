@@ -1,0 +1,28 @@
+uuid: cfb9e7b6-567b-46d4-b2e1-79a178aa7264
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.author.field_person_name
+    - node.type.author
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.author.default
+targetEntityType: node
+bundle: author
+mode: default
+content:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_person_name: true

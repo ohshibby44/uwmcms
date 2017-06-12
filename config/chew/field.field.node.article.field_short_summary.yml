@@ -1,0 +1,27 @@
+uuid: 6d755f4e-32ca-4ed9-a419-153d696c8430
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_summary
+    - node.type.article
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
+id: node.article.field_short_summary
+field_name: field_short_summary
+entity_type: node
+bundle: article
+label: 'Short Summary'
+description: 'Enter a short summary of the article’s content. It should be 10-20 words in length.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

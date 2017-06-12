@@ -1,0 +1,62 @@
+uuid: c70ec4d7-416e-4903-8051-7ac8d75fe5d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media
+  module:
+    - lightning_media
+    - views
+_core:
+  default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
+name: media_browser
+label: 'Media browser'
+display: modal
+display_configuration:
+  width: ''
+  height: '640'
+  link_text: 'Add media'
+  auto_open: false
+  path: /media-browser
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  134808d9-d854-4a0b-8699-d5eba006b8b7:
+    settings:
+      view: media
+      view_display: entity_browser_2
+      submit_text: Select
+      auto_select: false
+    uuid: 134808d9-d854-4a0b-8699-d5eba006b8b7
+    weight: -10
+    label: 'Existing Image'
+    id: view
+  8b142f33-59d1-47b1-9e3a-4ae85d8376fa:
+    settings:
+      submit_text: Save
+      form_mode: media_browser
+    uuid: 8b142f33-59d1-47b1-9e3a-4ae85d8376fa
+    weight: -7
+    label: 'New Video'
+    id: embed_code
+  8621119e-a4a4-40e5-ae47-d541eadc5822:
+    settings:
+      view: media
+      view_display: entity_browser_3
+      submit_text: Select
+      auto_select: false
+    uuid: 8621119e-a4a4-40e5-ae47-d541eadc5822
+    weight: -8
+    label: 'Existing Video'
+    id: view
+  fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407:
+    settings:
+      submit_text: Save
+      form_mode: media_browser
+      return_file: 0
+    uuid: fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407
+    weight: -9
+    label: 'New Image'
+    id: file_upload
