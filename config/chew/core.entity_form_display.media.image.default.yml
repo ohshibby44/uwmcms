@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
     - image.style.thumbnail
@@ -17,6 +19,22 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_caption:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_credit:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_media_in_library:
     type: boolean_checkbox
     weight: 4
@@ -34,7 +52,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 3
+    weight: 1
     settings:
       size: 60
       placeholder: ''

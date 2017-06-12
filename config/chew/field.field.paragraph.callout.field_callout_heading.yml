@@ -6,7 +6,13 @@ dependencies:
     - field.storage.paragraph.field_callout_heading
     - paragraphs.paragraphs_type.callout
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
 id: paragraph.callout.field_callout_heading
 field_name: field_callout_heading
 entity_type: paragraph

@@ -7,14 +7,13 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
-    - field.field.node.article.field_date
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
-    - datetime
+    - allowed_formats
     - entity_browser
     - inline_entity_form
     - paragraphs
@@ -54,18 +53,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_date:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_long_summary:
     weight: 6
     settings:
       size: 120
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   field_primary_media:
@@ -99,7 +95,10 @@ content:
     settings:
       size: 120
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   path:
