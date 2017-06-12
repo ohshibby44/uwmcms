@@ -374,7 +374,15 @@ $aliases['chew.uwmed.local'] = array(
 $aliases['pathways.uwmed.local'] = array(
   'root' => '/var/www/uwmed/docroot',
   'uri' => 'http://pathways.uwmed.local',
-  );
+);
+
+$aliases['calendar.uwmed.local'] = array(
+  'root' => '/var/www/uwmed/docroot',
+  'uri' => 'http://calendar.uwmed.local',
+);
+
+
+
 
 // Add remote connection options when alias is used outside VM.
 if ('vagrant' != $_SERVER['USER']) {
@@ -396,6 +404,14 @@ if ('vagrant' != $_SERVER['USER']) {
 if ('vagrant' != $_SERVER['USER']) {
   $aliases['pathways.uwmed.local'] += array(
     'remote-host' => 'pathways.uwmed.local',
+    'remote-user' => 'vagrant',
+    'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
+  );
+}
+
+if ('vagrant' != $_SERVER['USER']) {
+  $aliases['calendar.uwmed.local'] += array(
+    'remote-host' => 'calendar.uwmed.local',
     'remote-user' => 'vagrant',
     'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
   );
