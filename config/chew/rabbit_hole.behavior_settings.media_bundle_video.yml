@@ -1,0 +1,9 @@
+uuid: 794691d8-eebd-4f28-af20-64f2429df75d
+langcode: en
+status: true
+dependencies: {  }
+id: media_bundle_video
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
