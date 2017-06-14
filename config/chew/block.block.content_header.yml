@@ -1,0 +1,23 @@
+uuid: 9eeb2623-c550-47d3-be83-86668241a6a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+  theme:
+    - chew
+id: content_header
+theme: chew
+region: content_header
+weight: 0
+provider: null
+plugin: 'entity_view:node'
+settings:
+  id: 'entity_view:node'
+  label: 'Content Header'
+  provider: ctools
+  label_display: '0'
+  view_mode: content_header
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility: {  }

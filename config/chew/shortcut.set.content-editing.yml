@@ -1,0 +1,6 @@
+uuid: 1c35a2ae-99c4-4682-ae4d-901d6a2437c7
+langcode: en
+status: true
+dependencies: {  }
+id: content-editing
+label: 'Content Editing'

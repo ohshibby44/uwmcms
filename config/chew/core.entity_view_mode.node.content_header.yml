@@ -1,0 +1,14 @@
+uuid: 84cefefa-d179-4fec-b280-39ce9b01649e
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'This content will appear in the Content Header region.'
+id: node.content_header
+label: 'Content Header'
+targetEntityType: node
+cache: true

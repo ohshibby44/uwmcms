@@ -1,0 +1,32 @@
+{
+  "name": "sstf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "install": "^0.8.9",
+    "jquery": "^3.2.1",
+    "jquery.easing": "^1.4.1",
+    "npm": "^4.6.1",
+    "tether": "^1.4.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-header": "1.8.8",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "modularscale-sass": "^3.0.2",
+    "yargs": "^7.1.0"
+  }
+}

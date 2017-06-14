@@ -1,0 +1,7 @@
+uuid: 2fd5f8ef-629a-49ba-bac2-3dd6924ad761
+langcode: en
+status: true
+dependencies: {  }
+id: callout
+label: Callout
+behavior_plugins: {  }

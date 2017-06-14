@@ -65,3 +65,10 @@ $sites['pathways.cms.uwmedicine.org'] = 'pathways';
 $sites['pathways.cmsdev.uwmedicine.org'] = 'pathways';
 $sites['pathways.cmsstage.uwmedicine.org'] = 'pathways';
 $sites['pathways.cmsra.uwmedicine.org'] = 'pathways';
+
+
+$sites['calendar.uwmed.local'] = 'calendar';
+$sites['calendar.cms.uwmedicine.org'] = 'calendar';
+$sites['calendar.cmsdev.uwmedicine.org'] = 'calendar';
+$sites['calendar.cmsstage.uwmedicine.org'] = 'calendar';
+$sites['calendar.cmsra.uwmedicine.org'] = 'calendar';

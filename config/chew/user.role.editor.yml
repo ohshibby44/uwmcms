@@ -1,0 +1,42 @@
+uuid: 33cd340b-0ca4-443f-afa4-89c454925f8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Has access to only certain content types and not taxonomy. '
+id: editor
+label: Editor
+weight: -6
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access image_browser entity browser pages'
+  - 'access media overview'
+  - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'administer meta tags'
+  - 'create article content'
+  - 'create author content'
+  - 'create media'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete own article content'
+  - 'delete own author content'
+  - 'edit own article content'
+  - 'edit own author content'
+  - 'edit own page content'
+  - 'revert article revisions'
+  - 'revert author revisions'
+  - 'revert page revisions'
+  - 'update media'
+  - 'use text format minimal_html'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view author revisions'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view page revisions'

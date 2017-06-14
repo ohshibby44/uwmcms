@@ -1,0 +1,21 @@
+uuid: 3199f271-bcb0-4132-aab4-e2a7ade851e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_body
+    - paragraphs.paragraphs_type.callout
+  module:
+    - text
+id: paragraph.callout.field_callout_body
+field_name: field_callout_body
+entity_type: paragraph
+bundle: callout
+label: Body
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
