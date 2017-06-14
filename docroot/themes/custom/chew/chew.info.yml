@@ -20,3 +20,4 @@ regions:
 libraries:
   - 'chew/global-styles'
   - 'chew/bootstrap-scripts'
+  - 'chew/google-fonts'

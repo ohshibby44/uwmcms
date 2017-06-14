@@ -17,3 +17,8 @@ bootstrap-scripts:
     js/vendor/scrollspy.js: {}
     js/vendor/tab.js: {}
     js/vendor/transition.js: {}
+
+google-fonts:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Lora:400,400i,700,700i: { type: external }
