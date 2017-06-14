@@ -10,6 +10,7 @@ regions:
   header: 'Top Bar'
   highlighted: 'Highlighted'
   help: 'Help'
+  content_header: 'Content Header'
   content: 'Content'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
@@ -20,3 +21,4 @@ regions:
 libraries:
   - 'chew/global-styles'
   - 'chew/bootstrap-scripts'
+  - 'chew/google-fonts'

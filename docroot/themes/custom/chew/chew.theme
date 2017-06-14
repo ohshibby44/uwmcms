@@ -2,7 +2,15 @@
 
 /**
  * @file
- * Bootstrap sub-theme.
- *
- * Place your custom PHP code in this file.
+ * Custom PHP code for the CHEW theme.
  */
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ */
+function chew_theme_suggestions_page_alter(&$suggestions, $variables) {
+  // Add content type suggestions.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+  }
+}

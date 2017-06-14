@@ -1360,9 +1360,9 @@ display:
           plugin_id: field
         entity_browser_select:
           id: entity_browser_select
-          table: file_managed
+          table: media
           field: entity_browser_select
-          relationship: image_target_id
+          relationship: none
           group_type: group
           admin_label: ''
           label: ''
@@ -1400,14 +1400,13 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: visually-hidden
-          element_default_classes: false
+          element_wrapper_class: ''
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          selection_type: radio
-          entity_type: file
+          entity_type: media
           plugin_id: entity_browser_select
       filters:
         status:
