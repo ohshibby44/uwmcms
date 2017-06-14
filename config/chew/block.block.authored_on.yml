@@ -1,0 +1,39 @@
+uuid: 5338cf5e-a768-42d6-bc76-58440532e160
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - ctools_block
+  theme:
+    - chew
+id: authored_on
+theme: chew
+region: content_header
+weight: 0
+provider: null
+plugin: 'entity_field:node:created'
+settings:
+  id: 'entity_field:node:created'
+  label: 'Authored on'
+  provider: ctools_block
+  label_display: '0'
+  formatter:
+    label: hidden
+    type: timestamp
+    settings:
+      date_format: long
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 0
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
