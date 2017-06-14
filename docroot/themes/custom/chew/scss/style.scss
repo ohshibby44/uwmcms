@@ -1,6 +1,9 @@
 // Variables.
 @import "variables";
 
+// Custom mixins
+@import 'util/_mixins';
+
 // Bootstrap Framework.
 // Core variables and mixins
 @import "bootstrap/variables";
