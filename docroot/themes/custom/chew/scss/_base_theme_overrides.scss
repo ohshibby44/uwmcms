@@ -1,19 +1,19 @@
 // @todo these should be their own CSS files and only included when
 // specific Drupal libraries are used.
-@import "component/alert";
-@import "component/ajax";
-@import "component/field";
-@import "component/file";
-@import "component/filter";
-@import "component/form";
-@import "component/icon";
-@import "component/navbar";
-@import "component/node";
-@import "component/panel";
-@import "component/progress-bar";
-@import "component/table-drag";
-@import "component/tabs";
-@import "component/toolbar";
+@import "base_theme_overrides/alert";
+@import "base_theme_overrides/ajax";
+@import "base_theme_overrides/field";
+@import "base_theme_overrides/file";
+@import "base_theme_overrides/filter";
+@import "base_theme_overrides/form";
+@import "base_theme_overrides/icon";
+@import "base_theme_overrides/navbar";
+@import "base_theme_overrides/node";
+@import "base_theme_overrides/panel";
+@import "base_theme_overrides/progress-bar";
+@import "base_theme_overrides/table-drag";
+@import "base_theme_overrides/tabs";
+@import "base_theme_overrides/toolbar";
 
 // jQuery UI style overrides.
 @import "jquery-ui/autocomplete";
