@@ -1,0 +1,14 @@
+uuid: 6d21f06c-8b87-41b8-8319-9a64d2a0a5a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.calendar_event_creator
+  module:
+    - user
+id: user_remove_role_action.calendar_event_creator
+label: 'Remove the Calendar Event creator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: calendar_event_creator

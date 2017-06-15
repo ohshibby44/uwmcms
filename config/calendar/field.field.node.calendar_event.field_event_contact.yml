@@ -1,0 +1,19 @@
+uuid: fe05bd9c-573a-4dda-a656-265b0e24397f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_contact
+    - node.type.calendar_event
+id: node.calendar_event.field_event_contact
+field_name: field_event_contact
+entity_type: node
+bundle: calendar_event
+label: 'Event Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

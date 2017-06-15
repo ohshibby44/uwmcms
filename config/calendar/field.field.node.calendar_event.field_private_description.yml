@@ -1,0 +1,21 @@
+uuid: df37ce53-2bda-4151-babf-4590c793b935
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_private_description
+    - node.type.calendar_event
+  module:
+    - text
+id: node.calendar_event.field_private_description
+field_name: field_private_description
+entity_type: node
+bundle: calendar_event
+label: 'Private Description'
+description: 'Description information viewable only to site editors and content managers. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
