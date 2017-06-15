@@ -1,0 +1,37 @@
+uuid: ea3e8ad8-2a66-4a33-b8d0-44df7f13cf4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools_block
+    - node
+  theme:
+    - chew
+id: field_categories
+theme: chew
+region: content_header
+weight: -2
+provider: null
+plugin: 'entity_field:node:field_categories'
+settings:
+  id: 'entity_field:node:field_categories'
+  label: Categories
+  provider: ctools_block
+  label_display: '0'
+  formatter:
+    label: hidden
+    type: entity_reference_label_first
+    settings:
+      link: 1
+    third_party_settings: {  }
+    weight: 0
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
