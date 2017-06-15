@@ -34,7 +34,11 @@
         "drupal/focal_point": "^1.0@beta",
         "drupal/name": "^1.0@beta",
         "drupal/rabbit_hole": "^1.0@beta",
-        "drupal/simplify": "^1.0"
+        "drupal/simplify": "^1.0",
+        "drupal/editor_advanced_link": "^1.4",
+        "drupal/poll": "^1.1",
+        "drupal/recaptcha": "^2.2",
+        "drupal/address": "^1.0"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
