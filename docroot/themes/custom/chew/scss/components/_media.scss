@@ -1,0 +1,17 @@
+.media-image {
+  .field--name-field-caption {
+    font-size: ceil(($font-size-base * 0.888888889));
+    display: inline-block;
+  }
+  .field--name-field-credit {
+    font-size: ceil(($font-size-base * 0.777777778));
+    font-family: $font-family-sans-serif;
+    color: $gray-light;
+    display: inline-block;
+    margin-left: 1em;
+    white-space: nowrap;
+  }
+  &.view-mode-large {
+    margin-bottom: $line-height-computed;
+  }
+}
