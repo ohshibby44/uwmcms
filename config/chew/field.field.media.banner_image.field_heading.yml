@@ -1,0 +1,27 @@
+uuid: 301e0ef8-b185-4605-a113-8e9cc5207de2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_heading
+    - media_entity.bundle.banner_image
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
+id: media.banner_image.field_heading
+field_name: field_heading
+entity_type: media
+bundle: banner_image
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
