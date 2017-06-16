@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.callout.field_body
     - field.field.paragraph.callout.field_callout_body
     - field.field.paragraph.callout.field_heading
     - paragraphs.paragraphs_type.callout
@@ -14,13 +15,14 @@ targetEntityType: paragraph
 bundle: callout
 mode: preview
 content:
-  field_callout_body:
+  field_body:
+    type: text_trimmed
     weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
   field_heading:
     type: text_default
     weight: 0
@@ -28,4 +30,5 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_callout_body: true
