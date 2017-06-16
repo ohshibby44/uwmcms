@@ -1,0 +1,32 @@
+uuid: dab2b247-ef6e-4d33-8f8d-cb4393038427
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.quick_read.field_body
+    - field.field.paragraph.quick_read.field_heading
+    - paragraphs.paragraphs_type.quick_read
+  module:
+    - text
+id: paragraph.quick_read.preview
+targetEntityType: paragraph
+bundle: quick_read
+mode: preview
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

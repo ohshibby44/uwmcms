@@ -1,0 +1,7 @@
+uuid: 61dad8bc-ec8a-49db-835f-31be7ef3cda5
+langcode: en
+status: true
+dependencies: {  }
+id: quick_read
+label: 'Quick Read'
+behavior_plugins: {  }

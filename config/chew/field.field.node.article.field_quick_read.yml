@@ -1,0 +1,45 @@
+uuid: 37217f3d-e4c5-4fdb-909d-5485170ed971
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quick_read
+    - node.type.article
+    - paragraphs.paragraphs_type.quick_read
+  module:
+    - entity_reference_revisions
+id: node.article.field_quick_read
+field_name: field_quick_read
+entity_type: node
+bundle: article
+label: 'Quick Read'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      quick_read: quick_read
+    target_bundles_drag_drop:
+      quick_read:
+        enabled: true
+        weight: 7
+      aside:
+        weight: 8
+        enabled: false
+      body_text:
+        weight: 9
+        enabled: false
+      callout:
+        weight: 10
+        enabled: false
+      media:
+        weight: 11
+        enabled: false
+      pull_quote:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions
