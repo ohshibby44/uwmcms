@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_quick_read
@@ -56,6 +57,7 @@ content:
 hidden:
   field_author: true
   field_categories: true
+  field_feature_category: true
   field_long_summary: true
   field_short_summary: true
   links: true

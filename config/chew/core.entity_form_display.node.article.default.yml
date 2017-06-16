@@ -7,6 +7,7 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_quick_read
@@ -28,7 +29,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -54,8 +55,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_feature_category:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_long_summary:
-    weight: 6
+    weight: 7
     settings:
       size: 120
       placeholder: ''
@@ -67,7 +76,7 @@ content:
     region: content
   field_primary_media:
     type: entity_browser_entity_reference
-    weight: 3
+    weight: 4
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
@@ -81,7 +90,7 @@ content:
     region: content
   field_quick_read:
     type: entity_reference_paragraphs
-    weight: 4
+    weight: 5
     settings:
       title: 'Quick Read'
       title_plural: 'Quick Reads'
@@ -93,7 +102,7 @@ content:
     region: content
   field_sections:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 6
     settings:
       title: Section
       title_plural: Sections
@@ -104,7 +113,7 @@ content:
     third_party_settings: {  }
     region: content
   field_short_summary:
-    weight: 7
+    weight: 8
     settings:
       size: 120
       placeholder: ''
@@ -116,7 +125,7 @@ content:
     region: content
   path:
     type: path
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -130,7 +139,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
