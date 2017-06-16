@@ -3,8 +3,7 @@
     a {
       border-bottom: 1px solid $brand-primary;
       &:hover, &:active, &:focus {
-        color: $gray-base;
-        border-bottom-color: darken($brand-primary, 20%);
+        color: $brand-primary;
       }
     }
   }

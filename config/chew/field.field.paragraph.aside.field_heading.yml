@@ -1,10 +1,10 @@
-uuid: 7da5498e-ecbf-4b85-94b8-079eb144e081
+uuid: f2aa72af-6ad1-46a3-ac4f-d8f90737a5bb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_callout_heading
-    - paragraphs.paragraphs_type.callout
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.aside
   module:
     - allowed_formats
     - text
@@ -13,14 +13,14 @@ third_party_settings:
     minimal_html: minimal_html
     rich_text: '0'
     plain_text: '0'
-id: paragraph.callout.field_callout_heading
-field_name: field_callout_heading
+id: paragraph.aside.field_heading
+field_name: field_heading
 entity_type: paragraph
-bundle: callout
+bundle: aside
 label: Heading
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

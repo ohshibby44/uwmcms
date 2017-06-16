@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_categories
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
+    - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
@@ -32,7 +33,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 2
+    weight: 1
     settings:
       form_mode: minimum
       override_labels: true
@@ -45,7 +46,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_categories:
-    weight: 3
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -66,7 +67,7 @@ content:
     region: content
   field_primary_media:
     type: entity_browser_entity_reference
-    weight: 4
+    weight: 3
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
@@ -76,6 +77,18 @@ content:
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: thumbnail
+    third_party_settings: {  }
+    region: content
+  field_quick_read:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: 'Quick Read'
+      title_plural: 'Quick Reads'
+      edit_mode: preview
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: quick_read
     third_party_settings: {  }
     region: content
   field_sections:

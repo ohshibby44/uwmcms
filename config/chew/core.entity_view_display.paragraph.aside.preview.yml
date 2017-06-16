@@ -1,32 +1,31 @@
-uuid: 945b6cfb-eb55-4c18-92a3-299845a2855b
+uuid: 7c6b51a6-013c-421b-ada7-bcf05d78bc13
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.callout.field_body
-    - field.field.paragraph.callout.field_heading
-    - paragraphs.paragraphs_type.callout
+    - field.field.paragraph.aside.field_body
+    - field.field.paragraph.aside.field_heading
+    - paragraphs.paragraphs_type.aside
   module:
     - text
-id: paragraph.callout.preview
+id: paragraph.aside.preview
 targetEntityType: paragraph
-bundle: callout
+bundle: aside
 mode: preview
 content:
   field_body:
-    type: text_trimmed
     weight: 1
-    region: content
-    label: hidden
-    settings:
-      trim_length: 200
-    third_party_settings: {  }
-  field_heading:
-    type: text_default
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
 hidden: {  }

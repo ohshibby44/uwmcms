@@ -1,0 +1,27 @@
+uuid: 32faed5f-d88a-409a-b17d-bf4c79c9346f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.quick_read
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
+id: paragraph.quick_read.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: quick_read
+label: Heading
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

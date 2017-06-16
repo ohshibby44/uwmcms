@@ -1,0 +1,27 @@
+uuid: bad84225-4763-4efc-9584-225a7f893b38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.callout
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    minimal_html: '0'
+    plain_text: '0'
+id: paragraph.callout.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: callout
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

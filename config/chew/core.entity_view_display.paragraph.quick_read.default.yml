@@ -1,16 +1,16 @@
-uuid: f11302ed-4745-4739-9aab-b9f652f37618
+uuid: b8597575-b130-475f-a35f-755d50e445f2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.callout.field_body
-    - field.field.paragraph.callout.field_heading
-    - paragraphs.paragraphs_type.callout
+    - field.field.paragraph.quick_read.field_body
+    - field.field.paragraph.quick_read.field_heading
+    - paragraphs.paragraphs_type.quick_read
   module:
     - text
-id: paragraph.callout.default
+id: paragraph.quick_read.default
 targetEntityType: paragraph
-bundle: callout
+bundle: quick_read
 mode: default
 content:
   field_body:

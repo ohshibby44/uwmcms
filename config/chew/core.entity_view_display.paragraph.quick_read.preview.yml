@@ -1,32 +1,32 @@
-uuid: 945b6cfb-eb55-4c18-92a3-299845a2855b
+uuid: dab2b247-ef6e-4d33-8f8d-cb4393038427
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.callout.field_body
-    - field.field.paragraph.callout.field_heading
-    - paragraphs.paragraphs_type.callout
+    - field.field.paragraph.quick_read.field_body
+    - field.field.paragraph.quick_read.field_heading
+    - paragraphs.paragraphs_type.quick_read
   module:
     - text
-id: paragraph.callout.preview
+id: paragraph.quick_read.preview
 targetEntityType: paragraph
-bundle: callout
+bundle: quick_read
 mode: preview
 content:
   field_body:
-    type: text_trimmed
     weight: 1
-    region: content
     label: hidden
     settings:
       trim_length: 200
     third_party_settings: {  }
-  field_heading:
-    type: text_default
-    weight: 0
+    type: text_trimmed
     region: content
+  field_heading:
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    type: text_default
+    region: content
 hidden: {  }

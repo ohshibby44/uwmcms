@@ -1,12 +1,12 @@
-uuid: 67ca01fe-392a-44b0-b586-abfac178f586
+uuid: 65da6267-c682-448c-a915-126239f79274
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
     - text
-id: paragraph.field_callout_heading
-field_name: field_callout_heading
+id: paragraph.field_heading
+field_name: field_heading
 entity_type: paragraph
 type: text
 settings:
