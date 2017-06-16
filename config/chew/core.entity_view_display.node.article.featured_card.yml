@@ -1,9 +1,9 @@
-uuid: f1c38c3e-c2bd-47b6-9e7e-3f8cb60ee6f1
+uuid: dd76f3d1-aa19-40b1-bf7b-0f43255e4fb1
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.featured_card
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
@@ -23,31 +23,39 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.article.teaser
+id: node.article.featured_card
 targetEntityType: node
 bundle: article
-mode: teaser
+mode: featured_card
 content:
-  field_long_summary:
-    type: text_default
-    weight: 1
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_primary_media:
-    type: entity_reference_label
+  field_feature_category:
+    type: string
     weight: 0
     region: content
     label: hidden
     settings:
-      link: true
+      link_to_entity: false
+    third_party_settings: {  }
+  field_primary_media:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: large
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_short_summary:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_author: true
   field_categories: true
-  field_feature_category: true
+  field_long_summary: true
   field_quick_read: true
   field_sections: true
-  field_short_summary: true
   links: true
