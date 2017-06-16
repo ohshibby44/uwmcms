@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.callout.field_callout_body
-    - field.field.paragraph.callout.field_callout_heading
+    - field.field.paragraph.callout.field_heading
     - paragraphs.paragraphs_type.callout
   module:
     - text
@@ -21,11 +21,11 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_callout_heading:
+  field_heading:
+    type: text_default
     weight: 0
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
 hidden: {  }

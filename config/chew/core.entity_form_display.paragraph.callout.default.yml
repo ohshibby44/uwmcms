@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.callout.field_callout_body
-    - field.field.paragraph.callout.field_callout_heading
+    - field.field.paragraph.callout.field_heading
     - paragraphs.paragraphs_type.callout
   module:
     - allowed_formats
@@ -16,15 +16,15 @@ bundle: callout
 mode: default
 content:
   field_callout_body:
-    weight: 7
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_callout_heading:
-    weight: 6
+  field_heading:
+    weight: 0
     settings:
       size: 60
       placeholder: ''

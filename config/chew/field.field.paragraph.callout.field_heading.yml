@@ -1,9 +1,9 @@
-uuid: 7da5498e-ecbf-4b85-94b8-079eb144e081
+uuid: 71ff0eaf-b2f5-4e61-9f00-5e163d7a77e1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_callout_heading
+    - field.storage.paragraph.field_heading
     - paragraphs.paragraphs_type.callout
   module:
     - allowed_formats
@@ -13,8 +13,8 @@ third_party_settings:
     minimal_html: minimal_html
     rich_text: '0'
     plain_text: '0'
-id: paragraph.callout.field_callout_heading
-field_name: field_callout_heading
+id: paragraph.callout.field_heading
+field_name: field_heading
 entity_type: paragraph
 bundle: callout
 label: Heading
