@@ -1,0 +1,31 @@
+uuid: 7c6b51a6-013c-421b-ada7-bcf05d78bc13
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.aside.field_body
+    - field.field.paragraph.aside.field_heading
+    - paragraphs.paragraphs_type.aside
+  module:
+    - text
+id: paragraph.aside.preview
+targetEntityType: paragraph
+bundle: aside
+mode: preview
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

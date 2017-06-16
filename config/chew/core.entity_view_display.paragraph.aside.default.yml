@@ -1,0 +1,31 @@
+uuid: 8d015869-42a1-49a8-8030-0f01be913a78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.aside.field_body
+    - field.field.paragraph.aside.field_heading
+    - paragraphs.paragraphs_type.aside
+  module:
+    - text
+id: paragraph.aside.default
+targetEntityType: paragraph
+bundle: aside
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_sections
     - node.type.article
+    - paragraphs.paragraphs_type.aside
     - paragraphs.paragraphs_type.body_text
     - paragraphs.paragraphs_type.callout
     - paragraphs.paragraphs_type.media
@@ -29,6 +30,7 @@ settings:
       pull_quote: pull_quote
       callout: callout
       media: media
+      aside: aside
     target_bundles_drag_drop:
       body_text:
         enabled: true
@@ -42,4 +44,7 @@ settings:
       media:
         enabled: true
         weight: -6
+      aside:
+        enabled: true
+        weight: 6
 field_type: entity_reference_revisions
