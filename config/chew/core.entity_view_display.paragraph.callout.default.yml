@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.callout.field_body
-    - field.field.paragraph.callout.field_callout_body
     - field.field.paragraph.callout.field_heading
     - paragraphs.paragraphs_type.callout
   module:
@@ -28,5 +27,4 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-hidden:
-  field_callout_body: true
+hidden: {  }
