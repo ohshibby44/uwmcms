@@ -36,12 +36,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_primary_media:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      link: true
+      view_mode: small
+      link: false
     third_party_settings: {  }
 hidden:
   field_author: true
