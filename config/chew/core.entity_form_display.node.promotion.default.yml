@@ -1,0 +1,74 @@
+uuid: dfdd8794-fdf9-4610-ba0f-8d6eaacee14a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_browser
+    - field.field.node.promotion.field_promotion_image
+    - node.type.promotion
+  module:
+    - inline_entity_form
+    - path
+    - workbench_moderation
+id: node.promotion.default
+targetEntityType: node
+bundle: promotion
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_promotion_image:
+    type: inline_entity_form_complex
+    weight: 1
+    settings:
+      form_mode: media_browser
+      override_labels: true
+      label_singular: Image
+      label_plural: Images
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

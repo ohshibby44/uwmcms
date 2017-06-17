@@ -1,0 +1,28 @@
+uuid: 2aea556e-7ade-4854-9d0c-61323351ef73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promotion_image
+    - media_entity.bundle.promotion_image
+    - node.type.promotion
+id: node.promotion.field_promotion_image
+field_name: field_promotion_image
+entity_type: node
+bundle: promotion
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      promotion_image: promotion_image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
