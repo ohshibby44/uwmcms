@@ -1,0 +1,49 @@
+uuid: 7c1e058d-18d0-4f5d-a9d2-04124b35105a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.mini_horizontal
+    - field.field.node.article.field_author
+    - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
+    - field.field.node.article.field_long_summary
+    - field.field.node.article.field_primary_media
+    - field.field.node.article.field_quick_read
+    - field.field.node.article.field_related_articles
+    - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
+    - node.type.article
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.mini_horizontal
+targetEntityType: node
+bundle: article
+mode: mini_horizontal
+content:
+  field_primary_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: mini_square
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_author: true
+  field_categories: true
+  field_feature_category: true
+  field_long_summary: true
+  field_quick_read: true
+  field_related_articles: true
+  field_sections: true
+  field_short_summary: true
+  links: true

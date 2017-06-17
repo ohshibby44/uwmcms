@@ -1,0 +1,7 @@
+uuid: 5784bf37-9b6f-4482-9018-5d3f0b3ff5c0
+langcode: en
+status: true
+dependencies: {  }
+name: mini_square
+label: 'Mini (Square)'
+effects: {  }
