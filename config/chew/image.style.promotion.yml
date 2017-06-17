@@ -1,0 +1,15 @@
+uuid: 6ff6deaa-210d-4c42-91eb-eae07d11a288
+langcode: en
+status: true
+dependencies: {  }
+name: promotion
+label: Promotion
+effects:
+  b6f97a87-3878-4962-a539-a8d14a6ca60e:
+    uuid: b6f97a87-3878-4962-a539-a8d14a6ca60e
+    id: image_scale
+    weight: 1
+    data:
+      width: 500
+      height: null
+      upscale: false
