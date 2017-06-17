@@ -1,9 +1,9 @@
-uuid: 571afc87-cce7-420b-9db7-22059ae4c39f
+uuid: 51c8ad14-2e00-4af5-af80-e958892e46f3
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.small_stacked_card
+    - core.entity_view_mode.node.full
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
+    - entity_reference_revisions
     - panelizer
     - user
 third_party_settings:
@@ -22,33 +23,42 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.article.small_stacked_card
+id: node.article.full
 targetEntityType: node
 bundle: article
-mode: small_stacked_card
+mode: full
 content:
-  field_categories:
-    type: entity_reference_label
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
   field_primary_media:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
-      view_mode: small
+      view_mode: large
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_quick_read:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_sections:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
 hidden:
   field_author: true
+  field_categories: true
   field_feature_category: true
   field_long_summary: true
-  field_quick_read: true
-  field_sections: true
   field_short_summary: true
   links: true

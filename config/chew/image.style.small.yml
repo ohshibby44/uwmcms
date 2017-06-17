@@ -1,0 +1,16 @@
+uuid: 923cee6a-6528-461c-8db2-51f7b5d170fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: small
+label: Small
+effects:
+  a2faca83-a4ea-4036-9b3f-aa8c586f61f4:
+    uuid: a2faca83-a4ea-4036-9b3f-aa8c586f61f4
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 400
