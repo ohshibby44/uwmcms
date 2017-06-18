@@ -1,25 +1,25 @@
-uuid: 9c22beaa-bfe6-408f-b992-5329ab3526b6
+uuid: 87cd4ea7-9707-4228-86da-eccc2cf2d40d
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.latest_articles
+    - views.view.highlighted_article
   module:
     - system
     - views
   theme:
     - chew
-id: views_block__latest_articles_block
+id: views_block__highlighted_article_block
 theme: chew
 region: content
-weight: -6
+weight: -7
 provider: null
-plugin: 'views_block:latest_articles-block'
+plugin: 'views_block:highlighted_article-block'
 settings:
-  id: 'views_block:latest_articles-block'
+  id: 'views_block:highlighted_article-block'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
   items_per_page: none
 visibility:
