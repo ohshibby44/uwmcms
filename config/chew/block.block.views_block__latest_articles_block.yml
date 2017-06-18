@@ -1,22 +1,22 @@
-uuid: dbb80387-a3e5-4263-92a5-d80144a95f1e
+uuid: 9c22beaa-bfe6-408f-b992-5329ab3526b6
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.articles
+    - views.view.latest_articles
   module:
     - system
     - views
   theme:
     - chew
-id: views_block__articles_latest_block
+id: views_block__latest_articles_block
 theme: chew
 region: content
 weight: -7
 provider: null
-plugin: 'views_block:articles-latest_block'
+plugin: 'views_block:latest_articles-block'
 settings:
-  id: 'views_block:articles-latest_block'
+  id: 'views_block:latest_articles-block'
   label: ''
   provider: views
   label_display: visible
