@@ -49,6 +49,7 @@ hidden:
   field_categories: true
   field_feature_category: true
   field_quick_read: true
+  field_related_articles: true
   field_sections: true
   field_short_summary: true
   links: true
