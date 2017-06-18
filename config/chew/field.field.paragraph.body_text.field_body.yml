@@ -6,7 +6,13 @@ dependencies:
     - field.storage.paragraph.field_body
     - paragraphs.paragraphs_type.body_text
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    rich_text: rich_text
+    minimal_html: '0'
+    plain_text: '0'
 id: paragraph.body_text.field_body
 field_name: field_body
 entity_type: paragraph
