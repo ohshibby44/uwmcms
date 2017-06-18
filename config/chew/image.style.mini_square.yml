@@ -1,7 +1,16 @@
 uuid: 5784bf37-9b6f-4482-9018-5d3f0b3ff5c0
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: mini_square
 label: 'Mini (Square)'
-effects: {  }
+effects:
+  856ea44e-185d-431e-97f1-0008dc8f5c3f:
+    uuid: 856ea44e-185d-431e-97f1-0008dc8f5c3f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200
