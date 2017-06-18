@@ -7,7 +7,6 @@ base theme: bootstrap
 regions:
   branding: 'Branding'
   navigation: 'Navigation'
-  navigation_collapsible: 'Navigation (Collapsible)'
   highlighted: 'Highlighted'
   help: 'Help'
   content_header: 'Content Header'
