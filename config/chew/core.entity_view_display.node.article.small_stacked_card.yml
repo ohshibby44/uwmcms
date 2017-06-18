@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_quick_read
+    - field.field.node.article.field_related_articles
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
+    - hierarchical_term_formatter
     - panelizer
     - user
 third_party_settings:
@@ -28,12 +30,16 @@ bundle: article
 mode: small_stacked_card
 content:
   field_categories:
-    type: entity_reference_label
+    type: hierarchical_term_formatter
     weight: 0
     region: content
     label: hidden
     settings:
-      link: true
+      display: root
+      link: '1'
+      wrap: none
+      separator: ' » '
+      reverse: 0
     third_party_settings: {  }
   field_primary_media:
     weight: 1
@@ -49,6 +55,7 @@ hidden:
   field_feature_category: true
   field_long_summary: true
   field_quick_read: true
+  field_related_articles: true
   field_sections: true
   field_short_summary: true
   links: true

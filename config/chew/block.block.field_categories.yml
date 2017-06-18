@@ -20,9 +20,13 @@ settings:
   label_display: '0'
   formatter:
     label: hidden
-    type: entity_reference_label_first
+    type: hierarchical_term_formatter
     settings:
+      display: all
       link: 1
+      reverse: 0
+      wrap: span
+      separator: ' | '
     third_party_settings: {  }
     weight: 0
   context_mapping:
