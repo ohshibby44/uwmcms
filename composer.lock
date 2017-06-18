@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "afeaa7831815e4c946409848e0e3d6fe",
+    "content-hash": "db419c43fa4295b8f96130b4a721847f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1719,7 +1719,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/address-8.x-1.0.zip",
-                "reference": null,
+                "reference": "8.x-1.0",
                 "shasum": "2be22f841f8e4af2ba23b6bc9983e013c167c520"
             },
             "require": {
@@ -2240,6 +2240,54 @@
             "homepage": "https://www.drupal.org/project/captcha",
             "support": {
                 "source": "http://cgit.drupalcode.org/captcha"
+            }
+        },
+        {
+            "name": "drupal/ckeditor_liststyle",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ckeditor_liststyle",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor_liststyle-8.x-1.1.zip",
+                "reference": null,
+                "shasum": "3117c878bc709fe649cf5fdf044a509bbe4b4d9d"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1483281843"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Osman Gormus (osman)",
+                    "homepage": "https://www.drupal.org/u/osman",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This plugin adds numbered list and ordered list properties dialogs (available in context menu) in CKEditor.",
+            "homepage": "http://drupal.org/project/ckeditor_liststyle",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/ckeditor_liststyle",
+                "issues": "http://drupal.org/project/issues/ckeditor_liststyle"
             }
         },
         {
@@ -3910,6 +3958,57 @@
             "homepage": "https://www.drupal.org/project/focal_point",
             "support": {
                 "source": "http://cgit.drupalcode.org/focal_point"
+            }
+        },
+        {
+            "name": "drupal/hierarchical_term_formatter",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/hierarchical_term_formatter",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/hierarchical_term_formatter-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "843b4a869b6a02c851d6c5cce573a6daf97a24be"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1488319983"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "awolfey",
+                    "homepage": "https://www.drupal.org/user/277371"
+                },
+                {
+                    "name": "ibustos",
+                    "homepage": "https://www.drupal.org/user/2476894"
+                },
+                {
+                    "name": "zoo33",
+                    "homepage": "https://www.drupal.org/user/37075"
+                }
+            ],
+            "description": "Provides hierarchical term formatters for taxonomy reference fields.",
+            "homepage": "https://www.drupal.org/project/hierarchical_term_formatter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/hierarchical_term_formatter"
             }
         },
         {
@@ -11963,6 +12062,7 @@
         "drupal/focal_point": 10,
         "drupal/name": 10,
         "drupal/rabbit_hole": 10,
+        "drupal/hierarchical_term_formatter": 15,
         "drupal/memcache": 20
     },
     "prefer-stable": true,
