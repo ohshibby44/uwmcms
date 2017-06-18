@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_preview_image
     - media_entity.bundle.video
   module:
+    - image
     - user
     - video_embed_field
 _core:
@@ -32,10 +34,19 @@ content:
     label: hidden
     settings:
       responsive: true
-      width: '854'
-      height: '480'
+      width: 854
+      height: 480
       autoplay: true
     third_party_settings: {  }
+    region: content
+  field_preview_image:
+    weight: 4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   name:
     label: hidden
