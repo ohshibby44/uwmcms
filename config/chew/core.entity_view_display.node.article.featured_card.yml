@@ -55,6 +55,7 @@ content:
 hidden:
   field_author: true
   field_categories: true
+  field_long_summary: true
   field_quick_read: true
   field_related_articles: true
   field_sections: true
