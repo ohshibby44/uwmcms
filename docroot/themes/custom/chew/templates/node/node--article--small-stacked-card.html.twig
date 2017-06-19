@@ -79,8 +79,10 @@
 
   {{ content.field_categories.0 }}
   {{ content.field_primary_media }}
+  <div class="article-created-date">
+    {{ node.getCreatedTime|format_date('long') }}
+  </div>
   {{ title_prefix }}
-  {{ node.getCreatedTime|format_date('long') }}
   <h3{{ title_attributes }}>
   <a href="{{ url }}" rel="bookmark">{{ label }}</a>
   </h3>
