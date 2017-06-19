@@ -84,7 +84,9 @@
   <a href="{{ url }}" rel="bookmark">{{ label }}</a>
   </h3>
   {{ title_suffix }}
-  {{ node.getCreatedTime|format_date('long') }}
+  <div class="article-created-date">
+    {{ node.getCreatedTime|format_date('long') }}
+  </div>
   {{ content.field_long_summary }}
 
 </article>
