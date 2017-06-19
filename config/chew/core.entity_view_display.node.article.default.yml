@@ -16,6 +16,7 @@ dependencies:
   module:
     - entity_reference_revisions
     - panelizer
+    - text
     - user
 third_party_settings:
   panelizer:
@@ -28,6 +29,13 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  field_long_summary:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_primary_media:
     weight: 0
     label: hidden
@@ -59,7 +67,6 @@ hidden:
   field_author: true
   field_categories: true
   field_feature_category: true
-  field_long_summary: true
   field_related_articles: true
   field_short_summary: true
   links: true

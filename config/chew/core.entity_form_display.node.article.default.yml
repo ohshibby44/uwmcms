@@ -67,13 +67,13 @@ content:
   field_long_summary:
     weight: 7
     settings:
-      size: 120
+      rows: 2
       placeholder: ''
     third_party_settings:
       allowed_formats:
         hide_help: '1'
         hide_guidelines: '1'
-    type: text_textfield
+    type: text_textarea
     region: content
   field_primary_media:
     type: entity_browser_entity_reference
@@ -125,7 +125,7 @@ content:
   field_short_summary:
     weight: 8
     settings:
-      size: 120
+      size: 180
       placeholder: ''
     third_party_settings:
       allowed_formats:
