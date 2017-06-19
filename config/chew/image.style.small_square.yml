@@ -1,0 +1,16 @@
+uuid: 5fbe2f16-7a85-471a-8051-f0a029eef415
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: small_square
+label: 'Small (Square)'
+effects:
+  41406356-fcb0-4759-ad99-b9b3c7bdc8b9:
+    uuid: 41406356-fcb0-4759-ad99-b9b3c7bdc8b9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400

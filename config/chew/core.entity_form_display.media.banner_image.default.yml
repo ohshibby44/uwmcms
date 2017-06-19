@@ -1,0 +1,54 @@
+uuid: fb49509c-3eff-4c44-9e64-b39caac12b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image_browser
+    - field.field.media.banner_image.field_heading
+    - field.field.media.banner_image.field_media_in_library
+    - field.field.media.banner_image.field_subheading
+    - field.field.media.banner_image.image
+    - media_entity.bundle.banner_image
+  module:
+    - entity_browser
+    - text
+    - workbench_moderation
+id: media.banner_image.default
+targetEntityType: media
+bundle: banner_image
+mode: default
+content:
+  field_heading:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_subheading:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  image:
+    type: entity_browser_file
+    weight: 0
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  name: true
+  uid: true

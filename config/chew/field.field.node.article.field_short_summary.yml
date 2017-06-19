@@ -18,7 +18,7 @@ field_name: field_short_summary
 entity_type: node
 bundle: article
 label: 'Short Summary'
-description: 'Enter a short summary of the article’s content. It should be 10-20 words in length.'
+description: 'Enter a short summary of the article’s content. This is used in the Latest Articles block on the front page.'
 required: false
 translatable: false
 default_value: {  }

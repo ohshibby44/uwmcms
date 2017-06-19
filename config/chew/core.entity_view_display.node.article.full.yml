@@ -1,0 +1,64 @@
+uuid: 51c8ad14-2e00-4af5-af80-e958892e46f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.article.field_author
+    - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
+    - field.field.node.article.field_primary_media
+    - field.field.node.article.field_quick_read
+    - field.field.node.article.field_related_articles
+    - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
+    - node.type.article
+  module:
+    - entity_reference_revisions
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.full
+targetEntityType: node
+bundle: article
+mode: full
+content:
+  field_primary_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: large
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_quick_read:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_sections:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_author: true
+  field_categories: true
+  field_feature_category: true
+  field_related_articles: true
+  field_short_summary: true
+  links: true

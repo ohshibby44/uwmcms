@@ -5,15 +5,18 @@ dependencies:
   config:
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
     - field.field.node.article.field_long_summary
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_quick_read
+    - field.field.node.article.field_related_articles
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
     - entity_reference_revisions
     - panelizer
+    - text
     - user
 third_party_settings:
   panelizer:
@@ -26,6 +29,13 @@ targetEntityType: node
 bundle: article
 mode: default
 content:
+  field_long_summary:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_primary_media:
     weight: 0
     label: hidden
@@ -56,6 +66,7 @@ content:
 hidden:
   field_author: true
   field_categories: true
-  field_long_summary: true
+  field_feature_category: true
+  field_related_articles: true
   field_short_summary: true
   links: true

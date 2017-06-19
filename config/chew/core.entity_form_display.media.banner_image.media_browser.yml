@@ -1,0 +1,50 @@
+uuid: 50c4e737-acd9-4ec6-a744-78615eda4697
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_browser
+    - field.field.media.banner_image.field_heading
+    - field.field.media.banner_image.field_media_in_library
+    - field.field.media.banner_image.field_subheading
+    - field.field.media.banner_image.image
+    - image.style.thumbnail
+    - media_entity.bundle.banner_image
+  module:
+    - lightning_media
+    - text
+    - workbench_moderation
+id: media.banner_image.media_browser
+targetEntityType: media
+bundle: banner_image
+mode: media_browser
+content:
+  field_heading:
+    type: text_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subheading:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  image:
+    type: image_immutable
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  name: true
+  uid: true

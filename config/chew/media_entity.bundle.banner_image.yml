@@ -1,0 +1,20 @@
+uuid: 8ade1aac-b187-4026-b9a5-b6441c9fe0bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - media_entity_image
+third_party_settings:
+  crop:
+    image_field: null
+id: banner_image
+label: 'Banner Image'
+description: ''
+type: image
+queue_thumbnail_downloads: false
+new_revision: false
+type_configuration:
+  source_field: ''
+  gather_exif: false
+field_map: {  }

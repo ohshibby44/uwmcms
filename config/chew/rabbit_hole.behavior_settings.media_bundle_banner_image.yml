@@ -1,0 +1,9 @@
+uuid: 5fe1d71e-bddc-43b2-9415-e7e94e415acc
+langcode: en
+status: true
+dependencies: {  }
+id: media_bundle_banner_image
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

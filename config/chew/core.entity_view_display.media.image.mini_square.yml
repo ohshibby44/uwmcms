@@ -1,0 +1,38 @@
+uuid: 2aabc695-8da6-4282-b1c8-1d8eddf084b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.mini_square
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.image
+    - image.style.mini_square
+    - media_entity.bundle.image
+  module:
+    - image
+_core:
+  default_config_hash: Zn9LsLt7n0fzyEwtBMqioYJzhnU9RvIcfVef1gs51-Y
+id: media.image.mini_square
+targetEntityType: media
+bundle: image
+mode: mini_square
+content:
+  image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: mini_square
+      image_link: content
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_caption: true
+  field_credit: true
+  field_media_in_library: true
+  name: true
+  thumbnail: true
+  uid: true

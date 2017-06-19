@@ -1,4 +1,4 @@
-uuid: cfd463ae-3ad0-486f-bc18-7d89a7770ab8
+uuid: a3e87066-c7a0-44a8-8c29-b340ff13d439
 langcode: en
 status: true
 dependencies:
@@ -18,10 +18,10 @@ field_name: field_long_summary
 entity_type: node
 bundle: article
 label: 'Long Summary'
-description: 'Enter a summary of the article’s content. It should be 20-40 words in length.'
+description: 'Enter a summary of the article’s content. This is used in the Highlighted Article block on the front page and in the Teaser block on category pages.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: text_long

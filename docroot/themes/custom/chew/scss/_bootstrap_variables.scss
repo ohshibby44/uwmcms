@@ -59,7 +59,7 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-serif;
 
 $font-size-base:          18px;
-$font-size-large:         ceil(($font-size-base * 1.25));
+$font-size-large:         ceil(($font-size-base * 2));
 $font-size-small:         ceil(($font-size-base * 0.85));
 
 $font-size-h1:            floor(($font-size-base * 1.5));
@@ -77,7 +77,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base));
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
 $headings-font-weight:    500;
-$headings-line-height:    1.1111;
+$headings-line-height:    1.25;
 $headings-color:          $gray-base;
 
 
@@ -373,14 +373,14 @@ $container-lg:                 $container-large-desktop;
 // Basics of a navbar
 $navbar-height:                    50px;
 $navbar-margin-bottom:             $line-height-computed;
-$navbar-border-radius:             $border-radius-base;
-$navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
+$navbar-border-radius:             0;
+$navbar-padding-horizontal:        0;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
 $navbar-collapse-max-height:       340px;
 
 $navbar-default-color:             #777;
-$navbar-default-bg:                #f8f8f8;
-$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+$navbar-default-bg:                $body-bg;
+$navbar-default-border:            none;
 
 // Navbar links
 $navbar-default-link-color:                #777;

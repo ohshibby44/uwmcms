@@ -1,0 +1,21 @@
+.article.small-stacked-card {
+  margin: 0 0 3rem 0;
+  .hierarchical-term-field {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 .5rem 0;
+  }
+  .media-image {
+    margin: 0 0 .5rem 0;
+  }
+  .article-created-date {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 .5rem 0;
+  }
+  h3 {
+    font-size: ceil(($font-size-base * 1.25));
+    margin: 0;
+  }
+}
