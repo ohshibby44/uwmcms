@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * General functionality and hook implementations.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_node_insert().
+ */
+function uwmcms_chew_misc_node_insert(EntityInterface $node) {
+  if ($node->bundle() == 'article') {
+    _uwmcms_chew_misc_unique_sticky_article($node);
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function uwmcms_chew_misc_node_update(EntityInterface $node) {
+  if ($node->bundle() == 'article') {
+    _uwmcms_chew_misc_unique_sticky_article($node);
+  }
+}
+
+/**
+ * Remove the sticky flag from any other articles.
+ */
+function _uwmcms_chew_misc_unique_sticky_article(EntityInterface $node) {
+  $sticky = $node->sticky->getValue();
+
+  if (isset($sticky[0]['value']) && $sticky[0]['value'] == 1) {
+    $query = \Drupal::entityQuery('node');
+    $query->condition('sticky', 1);
+    $query->condition('type', 'article');
+    $query->condition('nid', $node->id(), '!=');
+    $nids = $query->execute();
+    foreach (array_keys($nids) as $nid) {
+      $other_node = \Drupal\node\Entity\Node::load($nid);
+      $other_node->sticky = 0;
+      $other_node->save();
+    }
+  }
+}
