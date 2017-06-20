@@ -1,0 +1,24 @@
+uuid: a738cedf-1078-4ffc-a0c6-71e47f0bb508
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.award
+_core:
+  default_config_hash: Wwx0f91bJLYqvLAOcLvX4KjVfH8rycBCUseTudwYI3c
+id: node.award.status
+field_name: status
+entity_type: node
+bundle: award
+label: 'Publishing status'
+description: 'A boolean indicating the published state.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

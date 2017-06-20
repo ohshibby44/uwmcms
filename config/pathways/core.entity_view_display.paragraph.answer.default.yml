@@ -1,0 +1,48 @@
+uuid: 730b6e81-c907-4ac7-b428-c1b11178e0d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.answer.field_body
+    - field.field.paragraph.answer.field_full_name
+    - field.field.paragraph.answer.field_location
+    - field.field.paragraph.answer.field_title
+    - paragraphs.paragraphs_type.answer
+  module:
+    - text
+_core:
+  default_config_hash: TRqB6agxfM2w6cHDUfYjtOKkqfy5l1sgwOG88C7WCoY
+id: paragraph.answer.default
+targetEntityType: paragraph
+bundle: answer
+mode: default
+content:
+  field_body:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_full_name:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_location:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,9 @@
+uuid: 3740fe03-be7a-4119-9f96-de8a9559be4b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Z4AAbyJcHsLQrZoPvcsP8tHgJ1vIK5cMk56jdgXFFJ8
+id: sidebar
+label: Sidebar
+behavior_plugins: {  }
