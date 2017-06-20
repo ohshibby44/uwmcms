@@ -1,9 +1,0 @@
-uuid: 085572cf-c273-4450-b0dd-b76dbef4c4fc
-langcode: en
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: mo4ZRrX3nLJV5SP8Lkzbz5NjZ-ABEaKk3_OPRPlT9og
-id: simple
-label: 'Simple content with sidebar'
-behavior_plugins: {  }

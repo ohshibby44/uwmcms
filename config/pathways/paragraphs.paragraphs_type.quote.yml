@@ -1,9 +1,0 @@
-uuid: 93e074f0-26b6-4011-a2ee-f6d28ee5e76c
-langcode: en
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: adnKCztl0Sf6zkPpONzsaUWiEH_eXZQKfd6QkhwiDcw
-id: quote
-label: 'Pull quote'
-behavior_plugins: {  }

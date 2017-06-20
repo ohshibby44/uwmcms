@@ -1,9 +1,0 @@
-uuid: 31dea6dc-0b4d-4302-af22-72c3017ed9fc
-langcode: en
-status: true
-dependencies: {  }
-_core:
-  default_config_hash: TSivB5IDdESpsDC6Ji0Rst09T8xwbvEaB7b1nDNfk4E
-id: image
-label: 'Image (left or right) with caption'
-behavior_plugins: {  }
