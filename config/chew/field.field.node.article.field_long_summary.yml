@@ -18,7 +18,7 @@ field_name: field_long_summary
 entity_type: node
 bundle: article
 label: 'Long Summary'
-description: 'Enter a summary of the article’s content that would be displayed as teasers on the landing pages. It should be 20-40 words in length.'
+description: 'Enter a summary of the article’s content. This is used in the Featured Article block on the front page and in the Teaser block on category pages.'
 required: false
 translatable: false
 default_value: {  }
