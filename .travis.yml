@@ -36,7 +36,7 @@ cache:
 
 addons:
   ssh_known_hosts:
-  - svn-23450.prod.hosting.acquia.com:uwmed.git
+  - svn-23450.prod.hosting.acquia.com
   - staging-23664.prod.hosting.acquia.com
 
 # @see https://docs.travis-ci.com/user/notifications
