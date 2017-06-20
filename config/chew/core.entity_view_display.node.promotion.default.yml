@@ -20,16 +20,13 @@ bundle: promotion
 mode: default
 content:
   field_promotion_image:
-    weight: 101
-    label: above
+    weight: 0
+    label: hidden
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
