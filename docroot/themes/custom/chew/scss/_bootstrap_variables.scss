@@ -59,10 +59,10 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-serif;
 
 $font-size-base:          18px;
-$font-size-large:         ceil(($font-size-base * 2));
+$font-size-large:         ceil(($font-size-base * 1.777777778));
 $font-size-small:         ceil(($font-size-base * 0.85));
 
-$font-size-h1:            floor(($font-size-base * 1.5));
+$font-size-h1:            $font-size-large;
 $font-size-h2:            floor(($font-size-base * 1));
 $font-size-h3:            ceil(($font-size-base * 1));
 $font-size-h4:            ceil(($font-size-base * 1));
@@ -306,21 +306,21 @@ $screen-phone:               $screen-xs-min;
 
 // Small screen / tablet
 //** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  600px;
+$screen-sm:                  900px;
 $screen-sm-min:              $screen-sm;
 //** Deprecated `$screen-tablet` as of v3.0.1
 $screen-tablet:              $screen-sm-min;
 
 // Medium screen / desktop
 //** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  900px;
+$screen-md:                  1200px;
 $screen-md-min:              $screen-md;
 //** Deprecated `$screen-desktop` as of v3.0.1
 $screen-desktop:             $screen-md-min;
 
 // Large screen / wide desktop
 //** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1440px;
+$screen-lg:                  1600px;
 $screen-lg-min:              $screen-lg;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min;
@@ -341,7 +341,7 @@ $grid-columns:              12;
 $grid-gutter-width:         60px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint:     $screen-sm-min;
+$grid-float-breakpoint:     $screen-md-min;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 
@@ -351,12 +351,12 @@ $grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 //## Define the maximum width of `.container` for different screen sizes.
 
 // Small screen / tablet
-$container-tablet:             (540px + $grid-gutter-width);
+$container-tablet:             (740px + $grid-gutter-width);
 //** For `$screen-sm-min` and up.
 $container-sm:                 $container-tablet;
 
 // Medium screen / desktop
-$container-desktop:            (840px + $grid-gutter-width);
+$container-desktop:            (1020px + $grid-gutter-width);
 //** For `$screen-md-min` and up.
 $container-md:                 $container-desktop;
 

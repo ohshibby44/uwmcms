@@ -1,35 +1,35 @@
-uuid: be711291-925f-4e97-90dc-9e3f613ab8f1
+uuid: fdcad1bc-a055-4bed-96b4-c835df511141
 langcode: en
 status: true
 dependencies:
   module:
+    - ctools
     - ctools_block
-    - node
   theme:
     - chew
-id: related_articles
+id: promotion
 theme: chew
 region: sidebar_second
-weight: -7
+weight: -6
 provider: null
-plugin: 'entity_field:node:field_related_articles'
+plugin: 'entity_field:node:field_promotion'
 settings:
-  id: 'entity_field:node:field_related_articles'
-  label: Related
+  id: 'entity_field:node:field_promotion'
+  label: Promotion
   provider: ctools_block
-  label_display: visible
+  label_display: '0'
   formatter:
     label: hidden
     type: entity_reference_entity_view
     settings:
-      view_mode: mini_horizontal
+      view_mode: default
     third_party_settings: {  }
     weight: 0
   context_mapping:
     entity: '@node.node_route_context:node'
 visibility:
-  node_type:
-    id: node_type
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     bundles:
       article: article
     negate: false

@@ -1,0 +1,8 @@
+.paragraph--type--quick-read {
+  margin-bottom: ceil(($font-size-base * 2));
+  border: 2px solid $gray-light;
+  padding: $grid-gutter-width * .75;
+  .field--name-field-heading {
+    margin-top: 0;
+  }
+}

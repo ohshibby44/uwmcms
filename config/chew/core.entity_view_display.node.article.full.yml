@@ -59,6 +59,7 @@ hidden:
   field_author: true
   field_categories: true
   field_feature_category: true
+  field_long_summary: true
   field_related_articles: true
   field_short_summary: true
   links: true

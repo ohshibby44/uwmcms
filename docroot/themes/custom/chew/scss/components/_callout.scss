@@ -3,9 +3,10 @@
   margin-bottom: ceil(($font-size-base * 2));
   margin-left: ceil(($font-size-base * 4));
   padding-left: ceil(($font-size-base * 1.5));
-  border-left: 1px solid $brand-secondary;
+  border-left: 2px solid $brand-secondary;
   .field--name-field-heading {
-    font-size: $font-size-large;
+    font-size: ceil(($font-size-base * 1.5));
+    font-weight: normal;
     color: $brand-secondary;
   }
   .field--name-field-body {
