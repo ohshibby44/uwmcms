@@ -59,6 +59,9 @@ install:
 script:
   - source $BLT_DIR/scripts/travis/run_tests
 
+before_deploy:
+  - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_deploy
+
 deploy:
    - provider: script
      script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_branch"
