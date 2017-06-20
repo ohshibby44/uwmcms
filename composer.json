@@ -39,7 +39,12 @@
         "drupal/poll": "^1.1",
         "drupal/recaptcha": "^2.2",
         "drupal/address": "^1.0",
-        "drupal/field_permissions": "^1.0@beta"
+        "drupal/field_permissions": "^1.0@beta",
+        "drupal/permissions_by_term": "^1.19",
+        "drupal/views_taxonomy_term_name_depth": "^1.2",
+        "drupal/date": "1.x-dev",
+        "drupal/calendar": "1.x-dev",
+        "drupal/better_exposed_filters": "^3.0@alpha"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
