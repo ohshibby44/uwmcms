@@ -1,0 +1,30 @@
+uuid: 4a34f62e-b76c-4e6c-a81b-6a554a1e92f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_location
+    - paragraphs.paragraphs_type.answer
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+_core:
+  default_config_hash: Msbk3vr_DzLs6M6TLxAYxvMejOjocqUkxb31nQhMdgc
+id: paragraph.answer.field_location
+field_name: field_location
+entity_type: paragraph
+bundle: answer
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

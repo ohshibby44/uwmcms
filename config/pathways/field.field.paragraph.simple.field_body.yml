@@ -1,0 +1,23 @@
+uuid: 6d5261e2-19bb-41e0-9337-3f5eed66ff94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.simple
+  module:
+    - text
+_core:
+  default_config_hash: Gi_TfVGaXhJ8T3iXVLCnYg5ZQtWhEvVcMjWMpJTuh6Q
+id: paragraph.simple.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: simple
+label: Body
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

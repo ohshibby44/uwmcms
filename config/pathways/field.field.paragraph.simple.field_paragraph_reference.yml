@@ -1,0 +1,38 @@
+uuid: d9eb370c-2fcb-4522-a387-037ec98b85ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_reference
+    - paragraphs.paragraphs_type.sidebar
+    - paragraphs.paragraphs_type.simple
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: UbVNJAciflKuRFZXcpPUrbs9eFHjb3TuLJtlklhWuw4
+id: paragraph.simple.field_paragraph_reference
+field_name: field_paragraph_reference
+entity_type: paragraph
+bundle: simple
+label: Sidebar
+description: 'An optional sidebar that appears to the right of this content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sidebar: sidebar
+    target_bundles_drag_drop:
+      image:
+        weight: 4
+        enabled: false
+      sidebar:
+        enabled: true
+        weight: 5
+      simple:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

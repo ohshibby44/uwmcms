@@ -1,0 +1,23 @@
+uuid: 2b601631-4909-4451-9854-a83f68448325
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attribution
+    - paragraphs.paragraphs_type.quote
+  module:
+    - text
+_core:
+  default_config_hash: vgKn009vilVgPPT8r3kIaPpGctYeVbcVmnAsGyBQwAI
+id: paragraph.quote.field_attribution
+field_name: field_attribution
+entity_type: paragraph
+bundle: quote
+label: 'Attribution / name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

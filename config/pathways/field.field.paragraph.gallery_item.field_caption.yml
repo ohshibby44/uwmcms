@@ -1,0 +1,23 @@
+uuid: b325b022-7d14-41be-8fb5-91a4ddda40c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - text
+_core:
+  default_config_hash: mmCaqYfL44aY2juKu2pD0u5cPpnTL7iwTarJqcPjGGA
+id: paragraph.gallery_item.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: gallery_item
+label: Caption
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

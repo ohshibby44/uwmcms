@@ -1,0 +1,23 @@
+uuid: 5d2b7876-8e07-4d7f-a5aa-f0ad04fad3d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.video
+  module:
+    - text
+_core:
+  default_config_hash: W5xhSr66f6mB3tiwy7E54qdeoL4Ds5d69RSyMvDZBdE
+id: paragraph.video.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: video
+label: 'Video embed'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

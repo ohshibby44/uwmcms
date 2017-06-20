@@ -1,0 +1,30 @@
+uuid: 09c3c068-6684-48fa-b270-c26aead67018
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.answer
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+_core:
+  default_config_hash: GB0WnndoU3o1Nb63zHhAYk0hznIRB6q_PLcSKXDyTG8
+id: paragraph.answer.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: answer
+label: 'Optional title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

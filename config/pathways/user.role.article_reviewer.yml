@@ -1,0 +1,18 @@
+uuid: 80718a5e-7691-425f-8b20-7c068b929025
+langcode: en
+status: true
+dependencies: {  }
+id: article_reviewer
+label: 'Article reviewer'
+weight: 8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any article content'
+  - 'edit any article content'
+  - 'use draft_published transition'
+  - 'use needs_review_draft transition'
+  - 'use needs_review_published transition'
+  - 'use published_archived transition'
+  - 'use published_published transition'
+  - 'view moderation states'

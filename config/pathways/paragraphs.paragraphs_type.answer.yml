@@ -1,0 +1,9 @@
+uuid: b45627ab-da54-47cd-9415-a0234b342a6a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PKWSV2rYeLB_yHrZ7lZysOXK1VM0ca2E9XyPpU5jjfk
+id: answer
+label: Answer
+behavior_plugins: {  }

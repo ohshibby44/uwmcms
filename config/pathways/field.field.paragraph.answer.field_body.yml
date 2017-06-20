@@ -1,0 +1,23 @@
+uuid: 4a1eebd8-b0af-4d5c-8a5b-19099140db81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.answer
+  module:
+    - text
+_core:
+  default_config_hash: jrI0udu65Gh61QKdjvzrxSskL9J_7gO68neISg3OpGs
+id: paragraph.answer.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: answer
+label: 'Answer body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

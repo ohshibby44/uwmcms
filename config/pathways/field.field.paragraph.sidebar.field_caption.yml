@@ -1,0 +1,23 @@
+uuid: 32900b6a-4378-4789-8af5-dc27fc991a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.sidebar
+  module:
+    - text
+_core:
+  default_config_hash: pwRz4RSwEfNlajBBW494-Z8CbgcCX_jpq5e6uX4nJks
+id: paragraph.sidebar.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: sidebar
+label: Caption
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
