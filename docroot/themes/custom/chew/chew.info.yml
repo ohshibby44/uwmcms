@@ -21,4 +21,3 @@ libraries:
   - 'chew/global-styles'
   - 'chew/bootstrap-scripts'
   - 'chew/google-fonts'
-  - 'chew/global-scripts'
