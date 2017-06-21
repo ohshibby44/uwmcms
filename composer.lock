@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db419c43fa4295b8f96130b4a721847f",
+    "content-hash": "2e75b23c523cef178b8360ba5136455e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1649,7 +1649,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.10",
-                    "datestamp": "1493037542"
+                    "datestamp": "1495479183"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2253,7 +2253,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/ckeditor_liststyle-8.x-1.1.zip",
-                "reference": null,
+                "reference": "8.x-1.1",
                 "shasum": "3117c878bc709fe649cf5fdf044a509bbe4b4d9d"
             },
             "require": {
@@ -2351,7 +2351,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.7",
-                    "datestamp": "1490994483"
+                    "datestamp": "1497039842"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2364,12 +2364,20 @@
                     "homepage": "https://www.drupal.org/user/277818"
                 },
                 {
+                    "name": "elm45",
+                    "homepage": "https://www.drupal.org/user/805178"
+                },
+                {
                     "name": "grasmash",
                     "homepage": "https://www.drupal.org/user/455714"
                 },
                 {
                     "name": "jenter",
                     "homepage": "https://www.drupal.org/user/186584"
+                },
+                {
+                    "name": "littlekope0903",
+                    "homepage": "https://www.drupal.org/user/2867321"
                 },
                 {
                     "name": "sarahjean",
@@ -2486,7 +2494,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta5",
-                    "datestamp": "1494175684"
+                    "datestamp": "1496912342"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2657,7 +2665,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta8",
-                    "datestamp": "1476400139"
+                    "datestamp": "1497478742"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3716,7 +3724,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.2",
-                    "datestamp": "1485790085"
+                    "datestamp": "1495814284"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4462,7 +4470,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.3",
-                    "datestamp": "1494333185"
+                    "datestamp": "1495556283"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4495,6 +4503,58 @@
             "homepage": "https://www.drupal.org/project/media_entity_instagram",
             "support": {
                 "source": "http://cgit.drupalcode.org/media_entity_instagram"
+            }
+        },
+        {
+            "name": "drupal/media_entity_soundcloud",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/media_entity_soundcloud",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_entity_soundcloud-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "73dd02bfe15131b1a5fb54af1f67e69cfdad33cd"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/media_entity": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1496248743"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "arshadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                }
+            ],
+            "description": "Media entity soundcloud provider.",
+            "homepage": "https://www.drupal.org/project/media_entity_soundcloud",
+            "support": {
+                "source": "http://cgit.drupalcode.org/media_entity_soundcloud"
             }
         },
         {
@@ -4606,6 +4666,61 @@
             "time": "2017-04-12 19:23:14"
         },
         {
+            "name": "drupal/menu_block",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/menu_block",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_block-8.x-1.4.zip",
+                "reference": null,
+                "shasum": "fd8d559452a9e1e07de6fefd9955df6feadc943a"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1473063239"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "JohnAlbin",
+                    "homepage": "https://www.drupal.org/user/32095"
+                },
+                {
+                    "name": "kim.pepper",
+                    "homepage": "https://www.drupal.org/user/370574"
+                },
+                {
+                    "name": "rrrob",
+                    "homepage": "https://www.drupal.org/user/273533"
+                }
+            ],
+            "description": "Provides configurable blocks of menu links.",
+            "homepage": "https://www.drupal.org/project/menu_block",
+            "support": {
+                "source": "http://cgit.drupalcode.org/menu_block"
+            }
+        },
+        {
             "name": "drupal/metatag",
             "version": "1.0.0",
             "source": {
@@ -4634,7 +4749,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0",
-                    "datestamp": "1485902197"
+                    "datestamp": "1496286243"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5900,6 +6015,117 @@
             }
         },
         {
+            "name": "drupal/taxonomy_menu",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/taxonomy_menu",
+                "reference": "8.x-3.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_menu-8.x-3.3.zip",
+                "reference": "8.x-3.3",
+                "shasum": "26492e3210430d44822de242449baa8e658568cf"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.3",
+                    "datestamp": "1479916742"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Afief",
+                    "homepage": "https://www.drupal.org/user/237472"
+                },
+                {
+                    "name": "Barrett",
+                    "homepage": "https://www.drupal.org/user/52745"
+                },
+                {
+                    "name": "BrockBoland",
+                    "homepage": "https://www.drupal.org/user/660472"
+                },
+                {
+                    "name": "JonBob",
+                    "homepage": "https://www.drupal.org/user/831"
+                },
+                {
+                    "name": "New Zeal",
+                    "homepage": "https://www.drupal.org/user/93571"
+                },
+                {
+                    "name": "RobRoy",
+                    "homepage": "https://www.drupal.org/user/22975"
+                },
+                {
+                    "name": "Steve Dondley",
+                    "homepage": "https://www.drupal.org/user/4131"
+                },
+                {
+                    "name": "ax",
+                    "homepage": "https://www.drupal.org/user/8"
+                },
+                {
+                    "name": "brmassa",
+                    "homepage": "https://www.drupal.org/user/67164"
+                },
+                {
+                    "name": "derhasi",
+                    "homepage": "https://www.drupal.org/user/83474"
+                },
+                {
+                    "name": "dstol",
+                    "homepage": "https://www.drupal.org/user/329570"
+                },
+                {
+                    "name": "fmizzell",
+                    "homepage": "https://www.drupal.org/user/1312210"
+                },
+                {
+                    "name": "hles",
+                    "homepage": "https://www.drupal.org/user/913420"
+                },
+                {
+                    "name": "indytechcook",
+                    "homepage": "https://www.drupal.org/user/245817"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                },
+                {
+                    "name": "serhii.ua",
+                    "homepage": "https://www.drupal.org/user/2609506"
+                },
+                {
+                    "name": "tim.plunkett",
+                    "homepage": "https://www.drupal.org/user/241634"
+                }
+            ],
+            "description": "Creates menu items based on associations to taxonomy vocabularies",
+            "homepage": "http://drupal.org/project/taxonomy_menu",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/taxonomy_menu",
+                "issues": "http://drupal.org/project/taxonomy_menu"
+            }
+        },
+        {
             "name": "drupal/token",
             "version": "1.0.0",
             "source": {
@@ -6150,7 +6376,7 @@
                 },
                 "drupal": {
                     "version": "8.x-5.0-beta12",
-                    "datestamp": "1492798443"
+                    "datestamp": "1496265842"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -12063,6 +12289,7 @@
         "drupal/name": 10,
         "drupal/rabbit_hole": 10,
         "drupal/hierarchical_term_formatter": 15,
+        "drupal/media_entity_soundcloud": 5,
         "drupal/memcache": 20
     },
     "prefer-stable": true,
