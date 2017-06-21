@@ -1,0 +1,31 @@
+uuid: 3389482f-009e-4f5f-8198-691998b85e27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.promotion_image.field_media_in_library
+    - field.field.media.promotion_image.image
+    - image.style.promotion
+    - media_entity.bundle.promotion_image
+  module:
+    - image
+id: media.promotion_image.default
+targetEntityType: media
+bundle: promotion_image
+mode: default
+content:
+  image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: promotion
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  name: true
+  thumbnail: true
+  uid: true

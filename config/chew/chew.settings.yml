@@ -1,0 +1,34 @@
+cdn_provider: ''
+_core:
+  default_config_hash: _5qrDuRmWmRVjW00si3U1s1NrgrocA4N653EYGRfgEE
+schemas:
+  bootstrap: 8000
+  chew: 8000
+region_wells:
+  branding: ''
+  navigation: ''
+  navigation_collapsible: ''
+  highlighted: ''
+  help: ''
+  content_header: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer: ''
+fluid_container: 0
+table_responsive: '-1'
+table: ''
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: profiles/contrib/lightning/favicon.ico
+  url: 'http://chew.uwmed.local/profiles/contrib/lightning/favicon.ico'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: profiles/contrib/lightning/lightning.png
+  url: ''
+  use_default: false

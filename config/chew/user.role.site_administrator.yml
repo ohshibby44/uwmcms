@@ -1,0 +1,57 @@
+uuid: 24aacb6a-3525-4e81-a7ea-5a081a44e456
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Can add and edit all content types and edit taxonomy. '
+id: site_administrator
+label: 'Site Administrator'
+weight: -7
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access image_browser entity browser pages'
+  - 'access media overview'
+  - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'administer meta tags'
+  - 'administer taxonomy'
+  - 'create article content'
+  - 'create author content'
+  - 'create landing_page content'
+  - 'create media'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any article content'
+  - 'delete any author content'
+  - 'delete any landing_page content'
+  - 'delete any page content'
+  - 'delete article revisions'
+  - 'delete author revisions'
+  - 'delete landing_page revisions'
+  - 'delete media'
+  - 'delete page revisions'
+  - 'delete terms in categories'
+  - 'edit any article content'
+  - 'edit any author content'
+  - 'edit any landing_page content'
+  - 'edit any page content'
+  - 'edit terms in categories'
+  - 'revert article revisions'
+  - 'revert author revisions'
+  - 'revert landing_page revisions'
+  - 'revert page revisions'
+  - 'update media'
+  - 'use text format minimal_html'
+  - 'use text format rich_text'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view author revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view page revisions'

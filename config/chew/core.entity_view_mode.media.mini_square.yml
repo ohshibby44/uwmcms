@@ -1,0 +1,14 @@
+uuid: 00b4c67a-26ed-4caf-a806-72d9b21f5eab
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media_entity
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.mini_square
+label: 'Mini (Square)'
+targetEntityType: media
+cache: true

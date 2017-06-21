@@ -1,0 +1,9 @@
+uuid: 4a954e82-450f-4b02-bbf2-bf8903b806aa
+langcode: en
+status: true
+dependencies: {  }
+id: node_type_promotion
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

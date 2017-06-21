@@ -1,0 +1,30 @@
+uuid: b8597575-b130-475f-a35f-755d50e445f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quick_read.field_body
+    - field.field.paragraph.quick_read.field_heading
+    - paragraphs.paragraphs_type.quick_read
+  module:
+    - text
+id: paragraph.quick_read.default
+targetEntityType: paragraph
+bundle: quick_read
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

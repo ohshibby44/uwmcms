@@ -1,0 +1,8 @@
+node_type_author_status: '1'
+node_type_author_pattern: '[node:field_person_name]'
+node_type_author_php: 0
+submit: 'Save configuration'
+form_build_id: form-RQnIPyw4yvybwGpMmczB9552oWZrTDJhM_PV4CK6gqg
+form_token: AdFRdyxUDrPopySJsNdc1lItIdBjamKBVwXjsLtrGFo
+form_id: auto_entitylabel_settings_form
+op: 'Save configuration'

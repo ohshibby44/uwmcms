@@ -1,0 +1,33 @@
+uuid: e30d8af0-9f17-41da-a2d0-ff6fad99939d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured_card
+    - field.field.node.promotion.field_promotion_image
+    - node.type.promotion
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.promotion.featured_card
+targetEntityType: node
+bundle: promotion
+mode: featured_card
+content:
+  field_promotion_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  links: true

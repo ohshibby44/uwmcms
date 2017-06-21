@@ -1,0 +1,10 @@
+uuid: 658bef8a-d78e-48fd-954d-201bdafe966c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5N4Lrj45h6tIUqWciaAffKs8j6pycVwVm8NrXquNEFc
+id: uwm_date_format_short
+label: 'UWM Date Format - Short'
+locked: false
+pattern: 'M d'

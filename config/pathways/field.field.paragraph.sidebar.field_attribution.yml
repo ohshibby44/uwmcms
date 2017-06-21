@@ -1,0 +1,23 @@
+uuid: e12b4a43-f532-4248-a14f-e04f2604b7a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attribution
+    - paragraphs.paragraphs_type.sidebar
+  module:
+    - text
+_core:
+  default_config_hash: JO_0z11k-1sqWCZBNQJNy4mANbOykpd5BqEyKQe_x4I
+id: paragraph.sidebar.field_attribution
+field_name: field_attribution
+entity_type: paragraph
+bundle: sidebar
+label: Attribution
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

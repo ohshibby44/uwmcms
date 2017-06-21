@@ -1,0 +1,23 @@
+uuid: 88962a8f-4829-4925-80a5-db776b84bbaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.sidebar
+  module:
+    - text
+_core:
+  default_config_hash: jbYpdwMi0Qss-14SH8unJY0Yh3vRVC4z2QxCTzSXkSg
+id: paragraph.sidebar.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: sidebar
+label: 'Sidebar title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

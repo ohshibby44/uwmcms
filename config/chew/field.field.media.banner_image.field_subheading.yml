@@ -1,0 +1,27 @@
+uuid: 716bd8b6-5fc9-4245-9d49-c60d2756c786
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_subheading
+    - media_entity.bundle.banner_image
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
+id: media.banner_image.field_subheading
+field_name: field_subheading
+entity_type: media
+bundle: banner_image
+label: Subheading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

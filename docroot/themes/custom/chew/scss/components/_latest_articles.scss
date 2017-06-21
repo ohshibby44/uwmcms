@@ -1,0 +1,30 @@
+.block-views-blocklatest-articles-block {
+  .block-title {
+    font-size: $font-size-base * 1.5;
+    margin: 0 0 .75em 0;
+    padding: 0 0 .375em 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+.view-latest-articles {
+  .view-content {
+    @include make-row();
+    .views-row {
+      @include make-md-column(6);
+      @include make-lg-column(4);
+      @media (min-width: $screen-md-min) {
+        &:nth-child(2n+3) {
+          clear: both;
+        }
+      }
+      @media (min-width: $screen-lg-min) {
+        &:nth-child(2n+3) {
+          clear: none;
+        }
+        &:nth-child(3n+4) {
+          clear: both;
+        }
+      }
+    }
+  }
+}

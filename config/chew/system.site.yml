@@ -1,0 +1,14 @@
+uuid: da60b2ea-44d4-478c-8473-c8b5d91331ce
+name: 'UW Medicine Chew'
+mail: uwmweb@uw.edu
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo

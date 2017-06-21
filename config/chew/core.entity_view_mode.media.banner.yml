@@ -1,0 +1,14 @@
+uuid: 662ccb29-1181-4371-8fcc-ee7755e3512a
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media_entity
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.banner
+label: Banner
+targetEntityType: media
+cache: true

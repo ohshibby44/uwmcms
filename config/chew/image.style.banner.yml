@@ -1,0 +1,16 @@
+uuid: dd4dfd49-90b4-4081-854f-ec891259908e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner
+label: Banner
+effects:
+  1f6663da-64e4-4a51-b67c-737516d1406a:
+    uuid: 1f6663da-64e4-4a51-b67c-737516d1406a
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 3600
+      height: 1200

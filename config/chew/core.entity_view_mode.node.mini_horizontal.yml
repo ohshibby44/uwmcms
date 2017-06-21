@@ -1,0 +1,14 @@
+uuid: cb5841be-9b19-44a3-b16d-2a0d9e70a1d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.mini_horizontal
+label: 'Mini Horizontal'
+targetEntityType: node
+cache: true

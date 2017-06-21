@@ -1,0 +1,30 @@
+uuid: 87cd4ea7-9707-4228-86da-eccc2cf2d40d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.highlighted_article
+  module:
+    - system
+    - views
+  theme:
+    - chew
+id: views_block__highlighted_article_block
+theme: chew
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:highlighted_article-block'
+settings:
+  id: 'views_block:highlighted_article-block'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,27 @@
+uuid: f2aa72af-6ad1-46a3-ac4f-d8f90737a5bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.aside
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    rich_text: '0'
+    plain_text: '0'
+id: paragraph.aside.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: aside
+label: Heading
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,68 @@
+uuid: 13713bc9-3dd6-4380-8e57-84f0381890d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.large_stacked_card
+    - field.field.node.article.field_author
+    - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
+    - field.field.node.article.field_long_summary
+    - field.field.node.article.field_primary_media
+    - field.field.node.article.field_quick_read
+    - field.field.node.article.field_related_articles
+    - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
+    - node.type.article
+  module:
+    - hierarchical_term_formatter
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.large_stacked_card
+targetEntityType: node
+bundle: article
+mode: large_stacked_card
+content:
+  field_categories:
+    type: hierarchical_term_formatter
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      display: root
+      link: '1'
+      wrap: none
+      separator: ' » '
+      reverse: 0
+    third_party_settings: {  }
+  field_long_summary:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_primary_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: large
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_author: true
+  field_feature_category: true
+  field_quick_read: true
+  field_related_articles: true
+  field_sections: true
+  field_short_summary: true
+  links: true
