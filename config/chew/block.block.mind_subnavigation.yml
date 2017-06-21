@@ -1,0 +1,33 @@
+uuid: e1ce235a-372d-4f0c-9f71-69253d1f60af
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - chew
+id: mind_subnavigation
+theme: chew
+region: content
+weight: -4
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Mind Subnavigation'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.6'
+  suggestion: category_subnavigation
+visibility:
+  request_path:
+    id: request_path
+    pages: "/mind\r\n/mind/*"
+    negate: false
+    context_mapping: {  }

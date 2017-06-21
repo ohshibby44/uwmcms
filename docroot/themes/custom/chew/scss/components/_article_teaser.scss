@@ -1,0 +1,21 @@
+.article.teaser {
+  margin: 0 0 3rem 0;
+  h2 {
+    font-size: ceil(($font-size-base * 1.25));
+    font-weight: normal;
+    margin: 0 0 .75rem 0;
+  }
+  .article-created-date {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 .75rem 0;
+  }
+
+  //.media {
+  //  width: 100%;
+  //}
+  //.media-image {
+  //  margin: 0 0 .75rem 0;
+  //}
+}

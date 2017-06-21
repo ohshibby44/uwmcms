@@ -1,0 +1,11 @@
+#block-chew-main-menu {
+  .navbar-nav {
+    > li {
+      font-size: floor(($font-size-base * 1.556));
+      > a {
+        padding: 10px 0;
+        margin: 0 0 0 60px;
+      }
+    }
+  }
+}

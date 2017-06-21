@@ -3,6 +3,10 @@ global-styles:
     theme:
       css/style.css: {}
 
+global-scripts:
+  js:
+    js/global.js: {}
+
 bootstrap-scripts:
   js:
     js/vendor/affix.js: {}
