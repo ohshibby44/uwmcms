@@ -44,7 +44,10 @@
         "drupal/views_taxonomy_term_name_depth": "^1.2",
         "drupal/date": "1.x-dev",
         "drupal/calendar": "1.x-dev",
-        "drupal/better_exposed_filters": "^3.0@alpha"
+        "drupal/better_exposed_filters": "^3.0@alpha",
+        "drupal/jsonapi": "^1.0",
+        "drupal/migrate_plus": "^2.0",
+        "drupal/migrate_tools": "^2.0"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"

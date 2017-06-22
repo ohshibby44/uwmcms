@@ -36,6 +36,7 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  jsonapi: 0
   layout_discovery: 0
   lightning_contact_form: 0
   lightning_core: 0
@@ -59,6 +60,9 @@ module:
   media_entity_twitter: 0
   menu_ui: 0
   metatag: 0
+  migrate: 0
+  migrate_plus: 0
+  migrate_tools: 0
   node: 0
   options: 0
   page_cache: 0
@@ -71,11 +75,13 @@ module:
   permissions_by_term: 0
   quickedit: 0
   rdf: 0
+  rest: 0
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
   search_api_views_taxonomy: 0
   seckit: 0
+  serialization: 0
   shortcut: 0
   system: 0
   taxonomy: 0
@@ -84,6 +90,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  uwmcms_calendar: 0
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
