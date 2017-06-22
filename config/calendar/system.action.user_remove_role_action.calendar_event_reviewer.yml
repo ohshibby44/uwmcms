@@ -1,0 +1,14 @@
+uuid: cc96d802-b711-4a70-b73c-47efb868a64c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.calendar_event_reviewer
+  module:
+    - user
+id: user_remove_role_action.calendar_event_reviewer
+label: 'Remove the Calendar Event reviewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: calendar_event_reviewer

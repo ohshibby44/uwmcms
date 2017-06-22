@@ -1,0 +1,14 @@
+uuid: 0502b8c3-77f3-4bab-98cd-9487fcbd427a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.calendar_event_creator
+  module:
+    - user
+id: user_add_role_action.calendar_event_creator
+label: 'Add the Calendar Event creator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: calendar_event_creator

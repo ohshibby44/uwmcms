@@ -1,0 +1,8 @@
+name: UWMCMS Calendar
+description: Provides base functionality for calendaring site. 
+package: Custom
+
+type: module
+core: 8.x
+
+
