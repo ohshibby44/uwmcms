@@ -1,0 +1,32 @@
+uuid: 72f4380b-4431-44ef-85aa-4a507bd71ec4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.latest_articles_by_category
+  module:
+    - ctools
+    - views
+  theme:
+    - chew
+id: views_block__latest_articles_by_category_block_1
+theme: chew
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:latest_articles_by_category-block_1'
+settings:
+  id: 'views_block:latest_articles_by_category-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

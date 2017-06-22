@@ -2,9 +2,6 @@
   .paragraph--type--body-text {
     a {
       border-bottom: 1px solid $brand-primary;
-      &:hover, &:active, &:focus {
-        color: $brand-primary;
-      }
     }
   }
 }

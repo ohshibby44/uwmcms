@@ -1,36 +1,36 @@
-uuid: ea81fa3f-8c01-4efb-a510-27cbe9836b32
+uuid: 4923f928-ddf8-4160-b301-671436fe6d28
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.mini_square
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_preview_image
+    - image.style.mini_square
     - media_entity.bundle.video
   module:
-    - video_embed_field
+    - image
 _core:
   default_config_hash: '-RZEOZOlYJMw_KvH2fvrIyLled2qHf0AkdQVeO82COQ'
-id: media.video.default
+id: media.video.mini_square
 targetEntityType: media
 bundle: video
-mode: default
+mode: mini_square
 content:
-  field_media_video_embed_field:
-    type: video_embed_field_video
+  field_preview_image:
     weight: 0
-    region: content
     label: hidden
     settings:
-      autoplay: true
-      responsive: true
-      width: 854
-      height: 480
+      image_style: mini_square
+      image_link: ''
     third_party_settings: {  }
+    type: image
+    region: content
 hidden:
   created: true
   field_media_in_library: true
-  field_preview_image: true
+  field_media_video_embed_field: true
   name: true
   thumbnail: true
   uid: true

@@ -77,6 +77,12 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
+  {% if content.field_link %}
+    <a href="{{ content.field_link }}">
+  {% endif %}
   {{ content.field_promotion_image }}
+  {% if content.field_link %}
+    </a>
+  {% endif %}
 
 </article>

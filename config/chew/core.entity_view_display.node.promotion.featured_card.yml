@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.featured_card
+    - field.field.node.promotion.field_link
     - field.field.node.promotion.field_promotion_image
     - node.type.promotion
   module:
+    - link
     - panelizer
     - user
 third_party_settings:
@@ -20,6 +22,18 @@ targetEntityType: node
 bundle: promotion
 mode: featured_card
 content:
+  field_link:
+    type: link
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
   field_promotion_image:
     weight: 0
     label: hidden
