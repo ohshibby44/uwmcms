@@ -1,0 +1,33 @@
+uuid: bad6536c-b50d-41e0-b37d-1e87750d97d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - chew
+id: body_subnavigation
+theme: chew
+region: content
+weight: -7
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Body Subnavigation'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.1'
+  suggestion: category_subnavigation
+visibility:
+  request_path:
+    id: request_path
+    pages: "/body\r\n/body/*"
+    negate: false
+    context_mapping: {  }

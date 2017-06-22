@@ -64,11 +64,14 @@
 @import 'base/typography';
 
 // Components
+@import 'components/navbar';
+@import 'components/main_menu';
 @import 'components/article';
 @import 'components/highlighted_article';
 @import 'components/featured_content';
 @import 'components/latest_articles';
 @import 'components/related_articles';
+@import 'components/article_teaser';
 @import 'components/article_large_stacked_card';
 @import 'components/article_small_stacked_card';
 @import 'components/article_featured_card';

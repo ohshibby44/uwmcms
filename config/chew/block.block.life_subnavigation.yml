@@ -1,0 +1,33 @@
+uuid: eda01630-c4a6-4b46-9a95-b1d263bee48a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - chew
+id: life_subnavigation
+theme: chew
+region: content
+weight: -5
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Life Subnavigation'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.11'
+  suggestion: category_subnavigation
+visibility:
+  request_path:
+    id: request_path
+    pages: "/life\r\n/life/*"
+    negate: false
+    context_mapping: {  }

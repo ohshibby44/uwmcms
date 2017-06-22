@@ -40,7 +40,10 @@
         "drupal/recaptcha": "^2.2",
         "drupal/address": "^1.0",
         "drupal/hierarchical_term_formatter": "^1.0@alpha",
-        "drupal/ckeditor_liststyle": "^1.1"
+        "drupal/ckeditor_liststyle": "^1.1",
+        "drupal/media_entity_soundcloud": "^1.0@RC",
+        "drupal/taxonomy_menu": "^3.3",
+        "drupal/menu_block": "^1.4"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"

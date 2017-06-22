@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * General functionality and hook implementation for fields.
+ */
+
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FormatterInterface;
+use Drupal\Core\Form\FormStateInterface;
+

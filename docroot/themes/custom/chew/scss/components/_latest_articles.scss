@@ -10,9 +10,9 @@
   .view-content {
     @include make-row();
     .views-row {
-      @include make-md-column(6);
+      @include make-sm-column(6);
       @include make-lg-column(4);
-      @media (min-width: $screen-md-min) {
+      @media (min-width: $screen-sm-min) {
         &:nth-child(2n+3) {
           clear: both;
         }
