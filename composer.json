@@ -42,6 +42,8 @@
         "drupal/hierarchical_term_formatter": "^1.0@alpha",
         "drupal/ckeditor_liststyle": "^1.1",
         "drupal/media_entity_soundcloud": "^1.0@RC",
+        "drupal/taxonomy_menu": "^3.3",
+        "drupal/menu_block": "^1.4",
         "drupal/field_permissions": "^1.0@beta",
         "drupal/permissions_by_term": "^1.19",
         "drupal/views_taxonomy_term_name_depth": "^1.2",
