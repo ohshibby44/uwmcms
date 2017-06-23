@@ -9,7 +9,7 @@ _core:
 id: chew_local_tasks
 theme: chew
 region: content_header
-weight: -3
+weight: -9
 provider: null
 plugin: local_tasks_block
 settings:

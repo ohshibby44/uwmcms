@@ -11,8 +11,8 @@ dependencies:
     - chew
 id: mind_subnavigation
 theme: chew
-region: content
-weight: -4
+region: content_header
+weight: -5
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -28,6 +28,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/mind\r\n/mind/*"
+    pages: "/mind\r\n/mind/mental-health\r\n/mind/stress\r\n/mind/wellness"
     negate: false
     context_mapping: {  }

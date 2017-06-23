@@ -12,7 +12,7 @@ dependencies:
 id: views_block__latest_articles_block
 theme: chew
 region: content
-weight: -9
+weight: -10
 provider: null
 plugin: 'views_block:latest_articles-block'
 settings:

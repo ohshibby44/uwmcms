@@ -69,18 +69,6 @@ display:
             previous: ‹‹
             next: ››
       sorts:
-        sticky:
-          id: sticky
-          table: taxonomy_index
-          field: sticky
-          order: DESC
-          plugin_id: standard
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
         created:
           id: created
           table: taxonomy_index
@@ -245,6 +233,7 @@ display:
       display_extenders: {  }
       link_url: ''
       link_display: page_1
+      group_by: true
     cache_metadata:
       contexts:
         - 'languages:language_interface'

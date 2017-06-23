@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\pathauto\PathautoPatternInterface;
 
 /**
  * Implements hook_node_insert().
@@ -22,6 +23,25 @@ function uwmcms_chew_misc_node_insert(EntityInterface $node) {
 function uwmcms_chew_misc_node_update(EntityInterface $node) {
   if ($node->bundle() == 'article') {
     _uwmcms_chew_misc_unique_sticky_article($node);
+  }
+}
+
+/**
+ * Implements hook_pathauto_pattern_alter().
+ */
+function uwmcms_chew_misc_pathauto_pattern_alter(PathautoPatternInterface &$pattern, array $context) {
+  if ($pattern->id() == 'article') {
+    if (isset($context['data']['node'])) {
+      $node = $context['data']['node'];
+      $category = $node->field_categories->entity;
+      $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
+      if (!empty($parents)) {
+        $parent = array_shift($parents);
+        $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
+        $altered_pattern =$parent_part . '/' . $pattern->getPattern();
+        $pattern->setPattern($altered_pattern);
+      }
+    }
   }
 }
 

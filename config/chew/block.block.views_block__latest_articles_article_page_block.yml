@@ -1,22 +1,22 @@
-uuid: 72f4380b-4431-44ef-85aa-4a507bd71ec4
+uuid: befb5832-33f9-4168-aabe-28fafaf12db4
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.latest_articles_by_category
+    - views.view.latest_articles
   module:
     - ctools
     - views
   theme:
     - chew
-id: views_block__latest_articles_by_category_block_1
+id: views_block__latest_articles_article_page_block
 theme: chew
 region: sidebar_second
 weight: 0
 provider: null
-plugin: 'views_block:latest_articles_by_category-block_1'
+plugin: 'views_block:latest_articles-article_page_block'
 settings:
-  id: 'views_block:latest_articles_by_category-block_1'
+  id: 'views_block:latest_articles-article_page_block'
   label: ''
   provider: views
   label_display: visible

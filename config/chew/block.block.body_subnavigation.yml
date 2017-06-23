@@ -11,7 +11,7 @@ dependencies:
     - chew
 id: body_subnavigation
 theme: chew
-region: content
+region: content_header
 weight: -7
 provider: null
 plugin: 'menu_block:main'
@@ -28,6 +28,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/body\r\n/body/*"
+    pages: "/body\r\n/body/food\r\n/body/healthy-weight\r\n/body/movement\r\n/body/rest"
     negate: false
     context_mapping: {  }

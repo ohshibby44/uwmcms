@@ -11,8 +11,8 @@ dependencies:
     - chew
 id: life_subnavigation
 theme: chew
-region: content
-weight: -5
+region: content_header
+weight: -6
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -28,6 +28,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/life\r\n/life/*"
+    pages: "/life\r\n/life/family-friends\r\n/life/love-sex\r\n/life/pnw\r\n/life/tech\r\n/life/work"
     negate: false
     context_mapping: {  }

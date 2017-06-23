@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_promotion
     - field.field.node.article.field_quick_read
-    - field.field.node.article.field_related_articles
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
@@ -52,7 +51,6 @@ hidden:
   field_feature_category: true
   field_promotion: true
   field_quick_read: true
-  field_related_articles: true
   field_sections: true
   field_short_summary: true
   links: true

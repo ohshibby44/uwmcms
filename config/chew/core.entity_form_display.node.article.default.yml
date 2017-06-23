@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_promotion
     - field.field.node.article.field_quick_read
-    - field.field.node.article.field_related_articles
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - node.type.article
@@ -31,7 +30,6 @@ third_party_settings:
       children:
         - field_short_summary
         - field_feature_category
-        - field_promotion
       parent_name: ''
       weight: 8
       format_type: fieldset
@@ -44,6 +42,7 @@ third_party_settings:
     group_right_sidebar:
       children:
         - field_related_articles
+        - field_promotion
       parent_name: ''
       weight: 7
       format_type: fieldset
@@ -121,7 +120,7 @@ content:
     region: content
   field_promotion:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -139,15 +138,6 @@ content:
       form_display_mode: default
       default_paragraph_type: quick_read
     third_party_settings: {  }
-    region: content
-  field_related_articles:
-    weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_sections:
     type: entity_reference_paragraphs
