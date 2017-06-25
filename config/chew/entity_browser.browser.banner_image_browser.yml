@@ -1,0 +1,41 @@
+uuid: 0c624df2-938c-4e56-a55e-6b9de451909b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media
+  module:
+    - lightning_media
+    - views
+name: banner_image_browser
+label: 'Banner Image Browser'
+display: iframe
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select image(s)'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  012a43de-1d4a-48ec-b84b-88ee64163d58:
+    settings:
+      view: media
+      view_display: entity_browser_4
+      submit_text: Select
+      auto_select: false
+    uuid: 012a43de-1d4a-48ec-b84b-88ee64163d58
+    weight: 1
+    label: 'Existing Banner'
+    id: view
+  4f4786c5-9f9d-426f-ba08-721cf79ea8f5:
+    settings:
+      submit_text: Save
+      form_mode: media_browser
+      return_file: false
+    uuid: 4f4786c5-9f9d-426f-ba08-721cf79ea8f5
+    weight: 2
+    label: 'New Banner'
+    id: file_upload

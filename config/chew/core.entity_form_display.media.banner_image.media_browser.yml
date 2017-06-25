@@ -19,16 +19,29 @@ targetEntityType: media
 bundle: banner_image
 mode: media_browser
 content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_heading:
     type: text_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_media_in_library:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_subheading:
-    weight: 2
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -37,14 +50,27 @@ content:
     region: content
   image:
     type: image_immutable
-    weight: 0
+    weight: 1
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
     third_party_settings: {  }
     region: content
-hidden:
-  created: true
-  field_media_in_library: true
-  name: true
-  uid: true
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

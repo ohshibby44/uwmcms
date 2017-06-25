@@ -290,7 +290,7 @@ display:
       query:
         type: views_query
         options: {  }
-      path: taxonomy/term/%
+      path: TEMP/taxonomy/term/%
       display_extenders: {  }
     cache_metadata:
       contexts:

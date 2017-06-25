@@ -66,6 +66,8 @@
 // Components
 @import 'components/navbar';
 @import 'components/main_menu';
+@import 'components/category_banner';
+@import 'components/category_subnavigation';
 @import 'components/article';
 @import 'components/highlighted_article';
 @import 'components/featured_content';
@@ -82,5 +84,8 @@
 @import 'components/quick_read';
 @import 'components/pull_quote';
 @import 'components/callout';
+@import 'components/footer';
+@import 'components/follow_us';
+@import 'components/make_appointment';
 
 @import 'overrides';

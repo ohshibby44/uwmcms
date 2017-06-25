@@ -1,0 +1,30 @@
+.category-banner {
+  height: 480px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 0 4rem 0 ;
+  padding: 0 0 60px 0;
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .banner-heading {
+    .field--name-field-heading {
+      color: #fff;
+      font-size: $font-size-large * 1.5;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0,0,0,.6);
+      line-height: 1.25;
+    }
+    .field--name-field-subheading {
+      color: #fff;
+      font-size: $font-size-large * .75;
+      font-weight: normal;
+      text-shadow: 3px 3px 6px rgba(0,0,0,.6);
+      line-height: 1.25;
+    }
+  }
+}

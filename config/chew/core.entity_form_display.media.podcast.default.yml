@@ -1,0 +1,55 @@
+uuid: bf050f26-ea42-4d40-8976-b6f7abce48b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.podcast.field_media_in_library
+    - field.field.media.podcast.field_url
+    - media_entity.bundle.podcast
+  module:
+    - link
+    - workbench_moderation
+id: media.podcast.default
+targetEntityType: media
+bundle: podcast
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_media_in_library:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    third_party_settings: {  }
+    region: content
+  field_url:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

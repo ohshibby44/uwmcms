@@ -1,0 +1,30 @@
+#block-follow-us {
+  @include make-md-column(8);
+  @include clearfix();
+  margin-top: 20px;
+  .block-title {
+    float: left;
+    margin: 15px 20px 0 0;
+    padding: 0;
+    font-size: $font-size-base;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    color: $gray;
+  }
+  .field--name-body {
+    float: left;
+  }
+  .social-media-link {
+    display: inline-block;
+    width: 30px;
+    margin: 0 10px 0 0;
+    img {
+      max-width: 100%;
+    }
+  }
+  @media (min-width: $screen-sm-min) {
+    .social-media-link {
+      width: 50px;
+    }
+  }
+}

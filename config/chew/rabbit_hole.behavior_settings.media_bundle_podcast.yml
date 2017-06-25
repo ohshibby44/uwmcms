@@ -1,8 +1,8 @@
-uuid: 6ecbb445-8905-4103-a19f-0b7378943bdc
+uuid: 6612be9f-fa25-47d0-b7ea-a28154eaa527
 langcode: en
 status: true
 dependencies: {  }
-id: media_bundle_promotion_image
+id: media_bundle_podcast
 action: page_not_found
 allow_override: 0
 redirect: ''

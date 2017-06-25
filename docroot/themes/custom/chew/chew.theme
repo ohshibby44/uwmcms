@@ -5,6 +5,10 @@
  * Custom PHP code for the CHEW theme.
  */
 
+use Drupal\image\Entity\ImageStyle;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\TermInterface;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -16,7 +20,77 @@ function chew_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter() for hierarchical term formatter templates.
+ * Implements hook_preprocess_HOOK() for taxonomy term page templates.
  */
-function chew_theme_suggestions_hierarchical_term_formatter_alter(&$suggestions, $variables) {
+function chew_preprocess_page__taxonomy__term(&$variables) {
+  // Get the term ID from the current path.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_parts = explode('/', $current_path);
+  $term_id = array_pop($path_parts);
+
+  // Load the term.
+  $term = Term::load($term_id);
+
+  if ($term) {
+    $term_banner = _chew_get_term_banner($term);
+
+    // If there is no term banner, see if the term's parent has one.
+    if (!$term_banner) {
+      $parents = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadParents($term_id);
+      if (!empty($parents)) {
+        $parent = array_shift($parents);
+        $term_banner = _chew_get_term_banner($parent);
+      }
+    }
+    $variables['banner'] = $term_banner;
+  }
+}
+
+/**
+ * Helper function to get a banner for a taxonomy term.
+ *
+ * @param \Drupal\taxonomy\TermInterface $term
+ *   The term in which to look for a banner field.
+ *
+ * @return array|null
+ *   The banner field data or NULL.
+ */
+function _chew_get_term_banner(TermInterface $term) {
+  $banner = [];
+
+  // Get the Banner Image media entity.
+  if (empty($term->field_banner || empty($term->field_banner->entity))) {
+
+    return NULL;
+  }
+  $banner_entity = $term->field_banner->entity;
+
+  // Get the image field.
+  if (empty($banner_entity->image)) {
+    return NULL;
+  }
+  $banner_image = $banner_entity->image;
+
+  // Get the URI for the image.
+  $image_uri = $banner_image->entity->getFileUri();
+  if (empty($image_uri)) {
+    return NULL;
+  }
+
+  // Get the image URL for the Banner image style.
+  $banner['image_url'] = ImageStyle::load('banner')->buildUrl($image_uri);
+
+  // Get the banner heading.
+  if (!empty($banner_entity->field_heading)) {
+    $banner['heading'] = $banner_entity->field_heading->view('banner');
+  }
+
+  // Get the banner subheading.
+  if (!empty($banner_entity->field_subheading)) {
+    $banner['subheading'] = $banner_entity->field_subheading->view('banner');
+  }
+
+  return $banner;
 }

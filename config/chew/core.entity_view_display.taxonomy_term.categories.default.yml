@@ -1,0 +1,38 @@
+uuid: 088513d5-d3b1-476e-98e3-7cf9ae4f3fb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.categories.field_banner
+    - taxonomy.vocabulary.categories
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.categories.default
+targetEntityType: taxonomy_term
+bundle: categories
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

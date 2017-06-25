@@ -1,0 +1,22 @@
+#block-make-appointment {
+  @include make-md-column(4);
+  .make-appointment__link {
+    float: right;
+    display: inline-block;
+    background-color: $uw_purple;
+    padding: 1rem 4rem;
+    text-align: center;
+    color: #fff;
+  }
+  .make-appointment__what {
+    text-transform: uppercase;
+    font-family: $font-family-sans-serif;
+    font-size: ceil($font-size-base * .722);
+    line-height: 1.25;
+    letter-spacing: 1px;
+  }
+  .make-appointment__where {
+    font-size: ceil($font-size-base * 1.125);
+    line-height: 1.25;
+  }
+}

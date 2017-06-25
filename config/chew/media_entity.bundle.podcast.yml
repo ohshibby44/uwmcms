@@ -1,20 +1,19 @@
-uuid: 79d0b0ca-6e99-450e-bbac-9ad14c3b0f7d
+uuid: cd237513-8a35-46dd-885a-583bfc2a932d
 langcode: en
 status: true
 dependencies:
   module:
     - crop
-    - media_entity_image
+    - media_entity_soundcloud
 third_party_settings:
   crop:
-    image_field: image
-id: promotion_image
-label: 'Promotion Image'
+    image_field: null
+id: podcast
+label: Podcast
 description: ''
-type: image
+type: soundcloud
 queue_thumbnail_downloads: false
 new_revision: false
 type_configuration:
-  source_field: image
-  gather_exif: false
+  source_url_field: field_url
 field_map: {  }

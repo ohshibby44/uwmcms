@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.image_browser
     - field.field.media.banner_image.field_heading
     - field.field.media.banner_image.field_media_in_library
     - field.field.media.banner_image.field_subheading
     - field.field.media.banner_image.image
+    - image.style.thumbnail
     - media_entity.bundle.banner_image
   module:
-    - entity_browser
+    - image
     - text
     - workbench_moderation
 id: media.banner_image.default
@@ -18,15 +18,13 @@ targetEntityType: media
 bundle: banner_image
 mode: default
 content:
-  field_heading:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
+  created:
+    type: datetime_timestamp
+    weight: 5
     region: content
-  field_subheading:
+    settings: {  }
+    third_party_settings: {  }
+  field_heading:
     weight: 2
     settings:
       size: 60
@@ -34,21 +32,44 @@ content:
     third_party_settings: {  }
     type: text_textfield
     region: content
-  image:
-    type: entity_browser_file
-    weight: 0
+  field_media_in_library:
+    type: boolean_checkbox
+    weight: 4
+    region: content
     settings:
-      entity_browser: image_browser
-      field_widget_edit: true
-      field_widget_remove: true
-      view_mode: default
+      display_label: true
+    third_party_settings: {  }
+  field_subheading:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  image:
+    type: image_image
+    weight: 1
+    settings:
       preview_image_style: thumbnail
-      open: true
-      selection_mode: selection_append
+      progress_indicator: throbber
     third_party_settings: {  }
     region: content
-hidden:
-  created: true
-  field_media_in_library: true
-  name: true
-  uid: true
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
