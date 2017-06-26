@@ -1,0 +1,7 @@
+#block-copyright-notice {
+  @include make-md-column(4);
+  text-align: right;
+  font-family: $font-family-sans-serif;
+  font-size: ceil($font-size-base * .722);
+  color: $gray;
+}

@@ -47,7 +47,7 @@
         {{ link(item.title, item.url) }}
       {% endif %}
       {% if item.below %}
-        {{ menus.menu_links(item.below, attributes.removeClass('nav', 'nav-pills'), menu_level + 1) }}
+        {{ menus.menu_links(item.below, attributes.removeClass('nav'), menu_level + 1) }}
       {% endif %}
       </li>
     {% endfor %}

@@ -1,0 +1,23 @@
+#block-chew-footer {
+  @include make-md-column(8);
+  clear: both;
+  .menu.nav {
+    > li {
+      float: none;
+      display: inline-block;
+      font-family: $font-family-sans-serif;
+      font-size: ceil($font-size-base * .722);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 2em 0 0;
+      > a {
+        padding: 0;
+        color: $gray;
+        &:hover, &:active, &:focus {
+          color: $brand-primary;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
