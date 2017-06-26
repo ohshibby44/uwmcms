@@ -1,0 +1,25 @@
+uuid: c3b44c79-d056-4931-b30f-ea75c0d3d6d0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:046bc3ae-e8fb-45dc-b272-736c61ab391e'
+  module:
+    - block_content
+  theme:
+    - chew
+id: make_appointment
+theme: chew
+region: footer
+weight: -11
+provider: null
+plugin: 'block_content:046bc3ae-e8fb-45dc-b272-736c61ab391e'
+settings:
+  id: 'block_content:046bc3ae-e8fb-45dc-b272-736c61ab391e'
+  label: 'Make an Appointment'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
