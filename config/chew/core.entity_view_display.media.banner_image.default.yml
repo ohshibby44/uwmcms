@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.banner_image.field_media_in_library
     - field.field.media.banner_image.field_subheading
     - field.field.media.banner_image.image
-    - image.style.banner
+    - image.style.medium
     - media_entity.bundle.banner_image
   module:
     - image
@@ -35,7 +35,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: banner
+      image_style: medium
       image_link: ''
     third_party_settings: {  }
     type: image

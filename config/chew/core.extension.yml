@@ -20,6 +20,7 @@ module:
   diff: 0
   draggableviews: 0
   editor: 0
+  editor_advanced_link: 0
   embed: 0
   entity: 0
   entity_block: 0

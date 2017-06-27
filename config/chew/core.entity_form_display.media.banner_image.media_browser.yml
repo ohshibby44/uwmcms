@@ -11,6 +11,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.banner_image
   module:
+    - allowed_formats
     - lightning_media
     - text
     - workbench_moderation
@@ -19,12 +20,6 @@ targetEntityType: media
 bundle: banner_image
 mode: media_browser
 content:
-  created:
-    type: datetime_timestamp
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_heading:
     type: text_textfield
     weight: 2
@@ -32,7 +27,10 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
   field_media_in_library:
     type: boolean_checkbox
     weight: 4
@@ -45,12 +43,15 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   image:
     type: image_immutable
-    weight: 1
+    weight: 0
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -58,19 +59,12 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  uid: true

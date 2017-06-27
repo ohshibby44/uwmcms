@@ -10,6 +10,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.banner_image
   module:
+    - allowed_formats
     - image
     - text
     - workbench_moderation
@@ -29,7 +30,10 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   field_media_in_library:
@@ -44,7 +48,10 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   image:
