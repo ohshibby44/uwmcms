@@ -85,9 +85,12 @@
               {% endblock %}
             {% endif %}
           </div>
-          {% if page.navigation %}
+          {% if page.navigation or page.header %}
             <div id="navbar-collapse" class="navbar-collapse collapse">
-              {{ page.navigation }}
+              <div class="navigation-header">
+                {{ page.navigation }}
+                {{ page.header }}
+              </div>
             </div>
           {% endif %}
         </div>
