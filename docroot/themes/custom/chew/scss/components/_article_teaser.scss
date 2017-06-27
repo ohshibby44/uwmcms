@@ -1,9 +1,23 @@
 .article.teaser {
-  margin: 0 0 3rem 0;
+  margin-top: 0;
+  margin-bottom: 4rem;
+  .col-md-9 {
+    @media (min-width: $screen-md-min) {
+      padding-left: 0;
+    }
+  }
   h2 {
     font-size: ceil(($font-size-base * 1.25));
     font-weight: normal;
     margin: 0 0 .75rem 0;
+  }
+  .field--name-field-primary-media {
+    max-width: 360px;
+    margin-bottom: 1rem;
+    @media (min-width: $screen-md-min) {
+      max-width: inherit;
+      margin-bottom: 0;
+    }
   }
   .article-created-date {
     font-family: $font-family-sans-serif;

@@ -463,15 +463,15 @@ $nav-pills-active-link-hover-color:         $component-active-color;
 
 $pagination-color:                     $link-color;
 $pagination-bg:                        #fff;
-$pagination-border:                    #ddd;
+$pagination-border:                    none;
 
-$pagination-hover-color:               $link-hover-color;
-$pagination-hover-bg:                  $gray-lighter;
-$pagination-hover-border:              #ddd;
+$pagination-hover-color:               $brand-primary;
+$pagination-hover-bg:                  transparent;
+$pagination-hover-border:              none;
 
-$pagination-active-color:              #fff;
-$pagination-active-bg:                 $brand-primary;
-$pagination-active-border:             $brand-primary;
+$pagination-active-color:              $brand-primary;
+$pagination-active-bg:                 transparent;
+$pagination-active-border:             none;
 
 $pagination-disabled-color:            $gray-light;
 $pagination-disabled-bg:               #fff;
@@ -484,7 +484,7 @@ $pagination-disabled-border:           #ddd;
 
 $pager-bg:                             $pagination-bg;
 $pager-border:                         $pagination-border;
-$pager-border-radius:                  15px;
+$pager-border-radius:                  0;
 
 $pager-hover-bg:                       $pagination-hover-bg;
 
