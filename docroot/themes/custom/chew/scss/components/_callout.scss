@@ -4,14 +4,24 @@
   margin-left: ceil(($font-size-base * 4));
   padding-left: ceil(($font-size-base * 1.5));
   border-left: 2px solid $dark-green;
+  @media (max-width: $screen-xs) {
+    margin-left: 0;
+    padding-left: ceil(($font-size-base-xs * 1.5));
+  }
   .field--name-field-heading {
     font-size: ceil(($font-size-base * 1.5));
     font-weight: normal;
     color: $dark-green;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.5;
+    }
   }
   .field--name-field-body {
     font-family: $font-family-sans-serif;
     font-size: $font-size-small;
-    color: $gray-light;
+    color: $gray;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-small * .875;
+    }
   }
 }

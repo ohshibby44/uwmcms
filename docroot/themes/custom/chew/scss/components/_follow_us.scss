@@ -10,7 +10,10 @@
     font-size: $font-size-base;
     font-family: $font-family-sans-serif;
     text-transform: uppercase;
-    color: $gray;
+    color: $gray-dark;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs;
+    }
   }
   .field--name-body {
     float: left;

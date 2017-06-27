@@ -5,8 +5,8 @@
   margin: 0 0 6rem 0;
   .menu.nav {
     text-align: center;
-    border-top: 1px solid $gray-lighter;
-    border-bottom: 1px solid $gray-lighter;
+    border-top: 1px solid $gray-light;
+    border-bottom: 1px solid $gray-light;
     padding: 1rem 0;
     > li {
       float: none;
@@ -14,8 +14,13 @@
       font-family: $font-family-sans-serif;
       font-weight: bold;
       text-transform: uppercase;
-      //border-left: 1px solid $gray-lighter;
       padding: 0 2rem;
+      @media (min-width: $screen-md-min) {
+        border-left: 1px solid $gray-light;
+        &:first-child {
+          border-left: none;
+        }
+      }
       > a {
         &:hover, &:active, &:focus, &.is-active {
           color: $brand-primary;
@@ -27,9 +32,9 @@
           color: $brand-primary;
         }
       }
-      //&:first-child {
-      //  border-left: none;
-      //}
     }
+  }
+  @media (max-width: $screen-xs) {
+    display: none;
   }
 }
