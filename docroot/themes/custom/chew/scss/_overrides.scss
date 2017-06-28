@@ -1,0 +1,6 @@
+/* Overrides for very small screens */
+@media (max-width: $screen-xs) {
+  body {
+    font-size: $font-size-base-xs;
+  }
+}

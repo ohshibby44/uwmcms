@@ -1,0 +1,31 @@
+uuid: 3ec33bfe-8914-4c6d-85ec-c0925ad12b4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_superheading
+    - paragraphs.paragraphs_type.quick_read
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    minimal_html: minimal_html
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: paragraph.quick_read.field_superheading
+field_name: field_superheading
+entity_type: paragraph
+bundle: quick_read
+label: Superheading
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Quick Read'
+    format: minimal_html
+default_value_callback: ''
+settings: {  }
+field_type: text

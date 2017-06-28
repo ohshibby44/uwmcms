@@ -8,8 +8,6 @@ dependencies:
     - field.field.media.video.field_preview_image
     - media_entity.bundle.video
   module:
-    - image
-    - user
     - video_embed_field
 _core:
   default_config_hash: '-RZEOZOlYJMw_KvH2fvrIyLled2qHf0AkdQVeO82COQ'
@@ -18,51 +16,21 @@ targetEntityType: media
 bundle: video
 mode: default
 content:
-  created:
-    label: hidden
-    type: timestamp
-    weight: 1
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
-    region: content
   field_media_video_embed_field:
     type: video_embed_field_video
-    weight: 3
+    weight: 0
+    region: content
     label: hidden
     settings:
+      autoplay: true
       responsive: true
       width: 854
       height: 480
-      autoplay: true
     third_party_settings: {  }
-    region: content
-  field_preview_image:
-    weight: 4
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  name:
-    label: hidden
-    type: string
-    weight: 0
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-  uid:
-    label: hidden
-    type: author
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  created: true
   field_media_in_library: true
+  field_preview_image: true
+  name: true
   thumbnail: true
+  uid: true

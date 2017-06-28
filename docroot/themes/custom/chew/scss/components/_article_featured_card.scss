@@ -9,6 +9,9 @@
   h3 {
     font-size: ceil(($font-size-base * 1.25));
     margin: 0 0 .5rem 0;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.25;
+    }
   }
   .article-created-date {
     font-family: $font-family-sans-serif;

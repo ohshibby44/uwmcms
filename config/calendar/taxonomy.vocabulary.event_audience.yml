@@ -1,0 +1,9 @@
+uuid: fab01c90-43d3-40f3-b3f9-2b1dedd5a272
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Audience'
+vid: event_audience
+description: 'Sets the permissions and audience for created events. '
+hierarchy: 0
+weight: 0

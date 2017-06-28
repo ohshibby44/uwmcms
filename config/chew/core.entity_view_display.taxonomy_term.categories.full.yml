@@ -1,0 +1,24 @@
+uuid: 90568cc1-3fb5-46f3-b4e9-0d76c8a76eda
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - field.field.taxonomy_term.categories.field_banner
+    - taxonomy.vocabulary.categories
+  module:
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.categories.full
+targetEntityType: taxonomy_term
+bundle: categories
+mode: full
+content: {  }
+hidden:
+  description: true
+  field_banner: true

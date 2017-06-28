@@ -10,7 +10,7 @@ project:
 git:
   default_branch: master
   remotes:
-    - uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git
+    - 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
 drush:
   aliases:
     remote: '${project.machine_name}.dev'

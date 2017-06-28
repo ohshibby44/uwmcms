@@ -69,18 +69,6 @@ display:
             previous: ‹‹
             next: ››
       sorts:
-        sticky:
-          id: sticky
-          table: taxonomy_index
-          field: sticky
-          order: DESC
-          plugin_id: standard
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
         created:
           id: created
           table: taxonomy_index
@@ -95,16 +83,16 @@ display:
             label: ''
           granularity: second
       arguments:
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
           relationship: none
           group_type: group
           admin_label: ''
           default_action: 'not found'
           exception:
-            value: ''
+            value: all
             title_enable: false
             title: All
           title_enable: true
@@ -131,11 +119,11 @@ display:
             operation: view
             multiple: 0
             bundles: {  }
+          depth: 1
           break_phrase: false
-          add_table: false
-          require_value: false
-          reduce_duplicates: false
-          plugin_id: taxonomy_index_tid
+          use_taxonomy_term_path: false
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
       filters:
         langcode:
           id: langcode
@@ -245,6 +233,7 @@ display:
       display_extenders: {  }
       link_url: ''
       link_display: page_1
+      group_by: true
     cache_metadata:
       contexts:
         - 'languages:language_interface'
@@ -301,7 +290,7 @@ display:
       query:
         type: views_query
         options: {  }
-      path: taxonomy/term/%
+      path: TEMP/taxonomy/term/%
       display_extenders: {  }
     cache_metadata:
       contexts:

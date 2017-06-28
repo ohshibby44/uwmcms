@@ -18,11 +18,11 @@ $bootstrap-sass-asset-helper: false;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base:              #000;
-$gray-darker:            lighten($gray-base, 13.5%);
-$gray-dark:              lighten($gray-base, 20%);
-$gray:                   lighten($gray-base, 33.5%);
-$gray-light:             lighten($gray-base, 46.7%);
-$gray-lighter:           lighten($gray-base, 93.5%);
+$gray-darker:            #444;
+$gray-dark:              #777;
+$gray:                   #ccc;
+$gray-light:             #ddd;
+$gray-lighter:           #eee;
 
 $brand-primary:         #3c76bb;
 $brand-success:         #5cb85c;
@@ -38,12 +38,12 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark;
+$text-color:            $gray-darker;
 
 //** Global textual link color.
 $link-color:            $text-color;
-//** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%);
+//** Link hover color.
+$link-hover-color:      $brand-primary;
 //** Link hover decoration.
 $link-hover-decoration: none;
 
@@ -59,8 +59,8 @@ $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-serif;
 
 $font-size-base:          18px;
-$font-size-large:         ceil(($font-size-base * 1.777777778));
-$font-size-small:         ceil(($font-size-base * 0.85));
+$font-size-large:         ceil(($font-size-base * 1.778));
+$font-size-small:         floor(($font-size-base * 0.889));
 
 $font-size-h1:            $font-size-large;
 $font-size-h2:            floor(($font-size-base * 1));
@@ -255,9 +255,9 @@ $dropdown-fallback-border:       #ccc;
 $dropdown-divider-bg:            #e5e5e5;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $gray-dark;
+$dropdown-link-color:            $gray-darker;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      darken($gray-dark, 5%);
+$dropdown-link-hover-color:      darken($gray-darker, 5%);
 //** Hover background for dropdown links.
 $dropdown-link-hover-bg:         #f5f5f5;
 
@@ -383,11 +383,11 @@ $navbar-default-bg:                $body-bg;
 $navbar-default-border:            none;
 
 // Navbar links
-$navbar-default-link-color:                #777;
-$navbar-default-link-hover-color:          #333;
+$navbar-default-link-color:                $text-color;
+$navbar-default-link-hover-color:          $brand-primary;
 $navbar-default-link-hover-bg:             transparent;
-$navbar-default-link-active-color:         #555;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%);
+$navbar-default-link-active-color:         $brand-primary;
+$navbar-default-link-active-bg:            transparent;
 $navbar-default-link-disabled-color:       #ccc;
 $navbar-default-link-disabled-bg:          transparent;
 
@@ -463,15 +463,15 @@ $nav-pills-active-link-hover-color:         $component-active-color;
 
 $pagination-color:                     $link-color;
 $pagination-bg:                        #fff;
-$pagination-border:                    #ddd;
+$pagination-border:                    none;
 
-$pagination-hover-color:               $link-hover-color;
-$pagination-hover-bg:                  $gray-lighter;
-$pagination-hover-border:              #ddd;
+$pagination-hover-color:               $brand-primary;
+$pagination-hover-bg:                  transparent;
+$pagination-hover-border:              none;
 
-$pagination-active-color:              #fff;
-$pagination-active-bg:                 $brand-primary;
-$pagination-active-border:             $brand-primary;
+$pagination-active-color:              $brand-primary;
+$pagination-active-bg:                 transparent;
+$pagination-active-border:             none;
 
 $pagination-disabled-color:            $gray-light;
 $pagination-disabled-bg:               #fff;
@@ -484,7 +484,7 @@ $pagination-disabled-border:           #ddd;
 
 $pager-bg:                             $pagination-bg;
 $pager-border:                         $pagination-border;
-$pager-border-radius:                  15px;
+$pager-border-radius:                  0;
 
 $pager-hover-bg:                       $pagination-hover-bg;
 
@@ -726,7 +726,7 @@ $panel-border-radius:         $border-radius-base;
 $panel-inner-border:          #ddd;
 $panel-footer-bg:             #f5f5f5;
 
-$panel-default-text:          $gray-dark;
+$panel-default-text:          $gray-darker;
 $panel-default-border:        #ddd;
 $panel-default-heading-bg:    #f5f5f5;
 

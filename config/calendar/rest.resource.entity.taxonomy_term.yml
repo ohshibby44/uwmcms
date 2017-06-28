@@ -1,0 +1,20 @@
+uuid: 05d9651c-3120-4d82-975b-bbe849ef2671
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - taxonomy
+    - user
+_core:
+  default_config_hash: AYulvivWNZXKqaXTTXtieoapZ8-cjtNzldFsbSvlFNY
+id: entity.taxonomy_term
+plugin_id: 'entity:taxonomy_term'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

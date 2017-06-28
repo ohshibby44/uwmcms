@@ -1,0 +1,8 @@
+name: 'UW Medicine CHEW Views'
+description: 'Views customizations for UW Medicine CHEW.'
+type: module
+core: 8.x
+package: 'UWMCMS'
+
+dependencies:
+  - views

@@ -10,7 +10,7 @@ dependencies:
 id: field_categories
 theme: chew
 region: content_header
-weight: -2
+weight: -4
 provider: null
 plugin: 'entity_field:node:field_categories'
 settings:
@@ -26,7 +26,7 @@ settings:
       link: 1
       reverse: 0
       wrap: span
-      separator: ' | '
+      separator: ' '
     third_party_settings: {  }
     weight: 0
   context_mapping:

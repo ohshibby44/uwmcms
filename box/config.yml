@@ -125,6 +125,9 @@ mysql_databases:
   - name: pathways
     encoding: utf8
     collation: utf8_general_ci
+  - name: calendar
+    encoding: utf8
+    collation: utf8_general_ci
 
 mysql_users:
   - name: drupal

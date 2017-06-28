@@ -1,0 +1,36 @@
+uuid: 4923f928-ddf8-4160-b301-671436fe6d28
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.mini_square
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_preview_image
+    - image.style.mini_square
+    - media_entity.bundle.video
+  module:
+    - image
+_core:
+  default_config_hash: '-RZEOZOlYJMw_KvH2fvrIyLled2qHf0AkdQVeO82COQ'
+id: media.video.mini_square
+targetEntityType: media
+bundle: video
+mode: mini_square
+content:
+  field_preview_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: mini_square
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  field_media_video_embed_field: true
+  name: true
+  thumbnail: true
+  uid: true
