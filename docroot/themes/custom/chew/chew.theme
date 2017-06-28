@@ -49,6 +49,19 @@ function chew_preprocess_page__taxonomy__term(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for article author field templates.
+ */
+function chew_preprocess_field__node__field_author__article(&$variables) {
+  if (isset($variables['items'])) {
+    foreach ($variables['items'] as $id => $item) {
+      if (isset($item['content']['#plain_text'])) {
+        $variables['items'][$id]['content']['#plain_text'] = t('By @author', ['@author' => $variables['items'][$id]['content']['#plain_text']]);
+      }
+    }
+  }
+}
+
+/**
  * Helper function to get a banner for a taxonomy term.
  *
  * @param \Drupal\taxonomy\TermInterface $term

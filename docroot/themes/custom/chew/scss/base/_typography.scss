@@ -7,6 +7,9 @@ h2 {
   font-weight: bold;
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
+  @media (max-width: $screen-xs) {
+    font-size: 16px;
+  }
 }
 p {
   margin-bottom: $line-height-computed;

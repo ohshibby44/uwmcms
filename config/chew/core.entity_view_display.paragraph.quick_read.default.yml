@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.quick_read.field_body
     - field.field.paragraph.quick_read.field_heading
+    - field.field.paragraph.quick_read.field_superheading
     - paragraphs.paragraphs_type.quick_read
   module:
     - text
@@ -14,13 +15,20 @@ bundle: quick_read
 mode: default
 content:
   field_body:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_heading:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_superheading:
     weight: 0
     label: hidden
     settings: {  }
