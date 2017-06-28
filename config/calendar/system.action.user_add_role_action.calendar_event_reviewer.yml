@@ -1,0 +1,14 @@
+uuid: ffbc974e-9f0d-4f31-8918-b0dfa42b2bed
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.calendar_event_reviewer
+  module:
+    - user
+id: user_add_role_action.calendar_event_reviewer
+label: 'Add the Calendar Event reviewer role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: calendar_event_reviewer

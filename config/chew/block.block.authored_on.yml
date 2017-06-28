@@ -10,7 +10,7 @@ dependencies:
 id: authored_on
 theme: chew
 region: content_header
-weight: 0
+weight: -1
 provider: null
 plugin: 'entity_field:node:created'
 settings:

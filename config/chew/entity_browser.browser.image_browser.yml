@@ -11,10 +11,10 @@ _core:
   default_config_hash: CtX33aXTrSjk88TmWW-MLn2cIfuBbj-k7y8XHFs5Nsw
 name: image_browser
 label: 'Image Browser'
-display: modal
+display: iframe
 display_configuration:
-  width: ''
-  height: ''
+  width: '800'
+  height: '640'
   link_text: 'Select Image(s)'
   auto_open: false
 selection_display: no_display

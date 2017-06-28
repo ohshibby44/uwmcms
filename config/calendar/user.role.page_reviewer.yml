@@ -1,0 +1,20 @@
+uuid: ebe360b9-8412-4b48-8df6-f8eaf526a8b2
+langcode: en
+status: true
+dependencies: {  }
+id: page_reviewer
+label: 'Basic page reviewer'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any page content'
+  - 'edit any page content'
+  - 'edit field_private_description'
+  - 'use draft_published transition'
+  - 'use needs_review_draft transition'
+  - 'use needs_review_published transition'
+  - 'use published_archived transition'
+  - 'use published_published transition'
+  - 'view field_private_description'
+  - 'view moderation states'

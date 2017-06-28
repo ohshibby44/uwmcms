@@ -1,6 +1,6 @@
-.region-sidebar-second {
-  height: 240px;
-  span {
-    display: none;
+/* Overrides for very small screens */
+@media (max-width: $screen-xs) {
+  body {
+    font-size: $font-size-base-xs;
   }
 }

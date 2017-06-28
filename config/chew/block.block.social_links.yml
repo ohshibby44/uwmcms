@@ -1,0 +1,25 @@
+uuid: f2a170fd-ba65-40ec-9a08-3eddf9668c30
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:962c80cf-b6d9-4cad-93de-3c0e95ab3e1c'
+  module:
+    - block_content
+  theme:
+    - chew
+id: social_links
+theme: chew
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:962c80cf-b6d9-4cad-93de-3c0e95ab3e1c'
+settings:
+  id: 'block_content:962c80cf-b6d9-4cad-93de-3c0e95ab3e1c'
+  label: 'Social Links'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

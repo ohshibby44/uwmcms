@@ -1,0 +1,20 @@
+uuid: acd8021b-1253-4853-b317-2db86d63b5b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_entity
+    - taxonomy
+id: taxonomy_term.field_banner
+field_name: field_banner
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,30 @@
+uuid: 3e6c4d2c-96d8-4b52-bedb-53f07f632c17
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles_by_category
+  module:
+    - system
+    - views
+  theme:
+    - chew
+id: views_block__articles_by_category_block
+theme: chew
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:articles_by_category-block'
+settings:
+  id: 'views_block:articles_by_category-block'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/taxonomy/term/*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: b508c690-bb7f-42bb-9617-3331fac956d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.quote
+  module:
+    - text
+_core:
+  default_config_hash: iWvGZOD8kDUhRS5c5Rv7uJcqkz6fy1OxPxtd8i7UVTE
+id: paragraph.quote.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: quote
+label: Quote
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

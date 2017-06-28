@@ -1,0 +1,23 @@
+uuid: 839659d6-5d5e-429a-9735-cddd31a74d7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.simple
+  module:
+    - text
+_core:
+  default_config_hash: 5xbt89m3X2LQvfK8bZiyRBwFhZIOhcYwrXhR_EqXf2c
+id: paragraph.simple.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: simple
+label: Subtitle
+description: 'The subtitle is optional.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

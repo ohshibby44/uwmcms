@@ -1,0 +1,23 @@
+uuid: b96cc373-80f0-4f78-b4d9-236a4259f743
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.image
+  module:
+    - text
+_core:
+  default_config_hash: KXLdsxCv-QPcTzLYFnV2PUZz_JYJM5rZIGf4fhbRNNc
+id: paragraph.image.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: image
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

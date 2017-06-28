@@ -1,0 +1,28 @@
+uuid: ede01c41-12b3-4987-9969-b8a8c2b931de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_banner
+    - media_entity.bundle.banner_image
+    - taxonomy.vocabulary.categories
+id: taxonomy_term.categories.field_banner
+field_name: field_banner
+entity_type: taxonomy_term
+bundle: categories
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      banner_image: banner_image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

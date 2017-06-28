@@ -11,9 +11,9 @@ _core:
   default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
 name: media_browser
 label: 'Media browser'
-display: modal
+display: iframe
 display_configuration:
-  width: ''
+  width: '800'
   height: '640'
   link_text: 'Add media'
   auto_open: false
@@ -55,7 +55,7 @@ widgets:
     settings:
       submit_text: Save
       form_mode: media_browser
-      return_file: 0
+      return_file: false
     uuid: fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407
     weight: -9
     label: 'New Image'

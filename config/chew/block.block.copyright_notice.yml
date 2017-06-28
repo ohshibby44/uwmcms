@@ -1,0 +1,25 @@
+uuid: 74ce3bc6-9857-4df2-afdf-b0a401fd6e1e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4674f255-37c0-4a11-8ab8-91b2f32b281d'
+  module:
+    - block_content
+  theme:
+    - chew
+id: copyright_notice
+theme: chew
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:4674f255-37c0-4a11-8ab8-91b2f32b281d'
+settings:
+  id: 'block_content:4674f255-37c0-4a11-8ab8-91b2f32b281d'
+  label: 'Copyright Notice'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

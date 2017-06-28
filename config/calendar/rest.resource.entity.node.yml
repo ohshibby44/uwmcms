@@ -1,0 +1,20 @@
+uuid: a7b179f9-33a1-48ea-ab72-38547893237e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - serialization
+    - user
+_core:
+  default_config_hash: KH2-61T4fwnDDhH-jNPGnUz5n0Axqb0QrO7uR0r_cYg
+id: entity.node
+plugin_id: 'entity:node'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - basic_auth
+      - cookie

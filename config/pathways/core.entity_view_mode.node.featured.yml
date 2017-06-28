@@ -1,0 +1,12 @@
+uuid: ced6cdc9-add1-4341-a732-b77b01b9a7e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Xyt1_V-dwx24vZGHP2t5p5BItHFYw5fD_H6seBu3Hp0
+id: node.featured
+label: 'Featured content'
+targetEntityType: node
+cache: true
