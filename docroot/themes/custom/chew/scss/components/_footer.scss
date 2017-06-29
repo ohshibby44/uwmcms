@@ -1,3 +1,9 @@
-.region-footer {
-  @include make-row();
+.footer {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: none;
+  .row {
+    border-top: 1px solid $gray-light;
+    padding-top: 30px;
+  }
 }
