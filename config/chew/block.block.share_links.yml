@@ -1,0 +1,33 @@
+uuid: a58285f8-03c2-4ae6-811f-4936492ad13f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c83e76b4-d099-41fa-a70c-ff8afb6f58b3'
+  module:
+    - block_content
+    - ctools
+  theme:
+    - chew
+id: share_links
+theme: chew
+region: sidebar_second
+weight: -11
+provider: null
+plugin: 'block_content:c83e76b4-d099-41fa-a70c-ff8afb6f58b3'
+settings:
+  id: 'block_content:c83e76b4-d099-41fa-a70c-ff8afb6f58b3'
+  label: Share
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -10,8 +10,8 @@ _core:
   default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
 id: chew_help
 theme: chew
-region: content_header
-weight: -11
+region: highlighted
+weight: -12
 provider: null
 plugin: help_block
 settings:

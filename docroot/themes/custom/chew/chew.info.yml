@@ -20,6 +20,5 @@ regions:
 
 libraries:
   - 'chew/global-styles'
-  - 'chew/sharethis-script'
   - 'chew/bootstrap-scripts'
   - 'chew/google-fonts'

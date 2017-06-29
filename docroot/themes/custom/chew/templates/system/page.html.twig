@@ -101,6 +101,16 @@
   {% endblock %}
 {% endif %}
 
+{# Content #}
+{%
+  set content_classes = [
+    'col-sm-12',
+    page.sidebar_first and page.sidebar_second ? 'col-md-4 col-lg-6',
+    page.sidebar_first and page.sidebar_second is empty ? 'col-md-8 col-lg-9',
+    page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9',
+  ]
+%}
+
 {# Main #}
 {% block main %}
   <div role="main" class="main-container {{ container }} js-quickedit-main-content">
@@ -133,8 +143,10 @@
             {{ page.help }}
           {% endblock %}
         {% endif %}
+      </div>
 
-        <a id="main-content"></a>
+      <a id="main-content"></a>
+      <div class="{{ content_classes|join(' ') }}">
         {{ page.content_header }}
       </div>
 

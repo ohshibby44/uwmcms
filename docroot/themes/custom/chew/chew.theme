@@ -20,6 +20,18 @@ function chew_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function chew_preprocess_page(&$variables) {
+  // If this is an Article node page, add the chew/sharethis library.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    if ($node->getType() == 'article') {
+      $variables['#attached']['library'][] = 'chew/sharethis';
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for taxonomy term page templates.
  */
 function chew_preprocess_page__taxonomy__term(&$variables) {
