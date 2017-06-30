@@ -1,19 +1,18 @@
-uuid: f6fcffbd-6042-4bde-aac0-b668af77294e
+uuid: b49c63e8-8647-4bce-b4a0-4970c9132c94
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.content
+    - search_api.index.articles
   module:
     - search_api
-_core:
-  default_config_hash: EFeSonDEYlJ87HtC9TY2EUkUhXoN8fEwoW4wdzOq7cQ
-id: search
-label: Search
+    - user
+id: search_articles
+label: 'Search Articles'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_content
+base_table: search_api_index_articles
 base_field: search_api_id
 core: 8.x
 display:
@@ -24,15 +23,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
-      cache:
-        type: search_api_time
+        type: perm
         options:
-          results_lifespan: 3600
-          results_lifespan_custom: 0
-          output_lifespan: 3600
-          output_lifespan_custom: 0
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
       query:
         type: views_query
         options:
@@ -45,18 +41,23 @@ display:
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Enter keywords to search the site.'
-          text_input_required_format: rich_text
+          text_input_required: ''
+          text_input_required_format: full_html
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -65,9 +66,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: default
         options:
@@ -76,23 +75,17 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: search_api
+        type: fields
         options:
-          view_modes:
-            'entity:node':
-              article: search_result
-              author: teaser
-              landing_page: teaser
-              page: teaser
-              promotion: default
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
-        rendered:
-          table: search_api_index_content
-          field: rendered
-          id: rendered
-          entity_type: null
-          entity_field: null
-          plugin_id: search_api
+        label:
+          id: label
+          table: search_api_index_articles
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -129,7 +122,59 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: true
+          multi_type: separator
+          multi_separator: ', '
+          plugin_id: search_api
+        search_api_excerpt:
+          id: search_api_excerpt
+          table: search_api_index_articles
+          field: search_api_excerpt
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -140,10 +185,11 @@ display:
           link_to_item: false
           multi_type: separator
           multi_separator: ', '
+          plugin_id: search_api
       filters:
         search_api_fulltext:
           id: search_api_fulltext
-          table: search_api_index_content
+          table: search_api_index_articles
           field: search_api_fulltext
           relationship: none
           group_type: group
@@ -154,11 +200,11 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: Keywords
+            label: Search
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: keywords
+            identifier: search
             required: false
             remember: false
             multiple: false
@@ -166,15 +212,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              layout_manager: '0'
-              media_creator: '0'
-              media_manager: '0'
-              page_creator: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              workspace_creator: '0'
-              workspace_reviewer: '0'
+              site_administrator: '0'
+              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -188,13 +227,13 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           parse_mode: terms
-          min_length: 2
+          min_length: null
           fields: {  }
           plugin_id: search_api_fulltext
       sorts:
         search_api_relevance:
           id: search_api_relevance
-          table: search_api_index_content
+          table: search_api_index_articles
           field: search_api_relevance
           relationship: none
           group_type: group
@@ -223,13 +262,14 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: Search
+      title: 'Search Articles'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }
   page:
     display_plugin: page
@@ -238,7 +278,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: search-core
+      path: search
       exposed_block: true
     cache_metadata:
       max-age: -1
@@ -246,4 +286,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }

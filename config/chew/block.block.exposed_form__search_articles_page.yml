@@ -1,27 +1,25 @@
-uuid: 3371a60e-559d-4323-80ed-2a94e8c198d7
+uuid: 04623ec5-3ff2-41b0-8738-ab9989efe67b
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.search
+    - views.view.search_articles
   module:
     - system
     - views
   theme:
     - chew
-_core:
-  default_config_hash: UDHpza-uTXT90uUqIrgPDBW4XrHBA1XpzSBQyyRB2Yg
-id: chew_search
+id: exposed_form__search_articles_page
 theme: chew
 region: content
-weight: -9
+weight: -12
 provider: null
-plugin: 'views_exposed_filter_block:search-page'
+plugin: 'views_exposed_filter_block:search_articles-page'
 settings:
-  id: 'views_exposed_filter_block:search-page'
+  id: 'views_exposed_filter_block:search_articles-page'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
 visibility:
   request_path:

@@ -7,18 +7,4 @@
 .region-header {
   clear: right;
   float: right;
-  .social-media-links {
-    display: none;
-    @media (min-width: $screen-md-min) {
-      display: block;
-    }
-  }
-  .social-media-link {
-    display: inline-block;
-    width: 30px;
-    margin: 0 0 0 5px;
-    img {
-      max-width: 100%;
-    }
-  }
 }

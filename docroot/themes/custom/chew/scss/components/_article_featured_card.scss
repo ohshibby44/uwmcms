@@ -8,6 +8,7 @@
   }
   h3 {
     font-size: ceil(($font-size-base * 1.25));
+    font-weight: normal;
     margin: 0 0 .5rem 0;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.25;

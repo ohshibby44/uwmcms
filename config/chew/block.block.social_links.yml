@@ -11,7 +11,7 @@ dependencies:
 id: social_links
 theme: chew
 region: header
-weight: 0
+weight: -14
 provider: null
 plugin: 'block_content:962c80cf-b6d9-4cad-93de-3c0e95ab3e1c'
 settings:
