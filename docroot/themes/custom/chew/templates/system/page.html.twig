@@ -187,12 +187,19 @@
   </div>
 {% endblock %}
 
-{% if page.footer %}
+{% if page.footer_first or page.footer_second %}
   {% block footer %}
     <footer class="footer {{ container }}" role="contentinfo">
-      <div class="row">
-        {{ page.footer }}
-      </div>
+      {% if page.footer_first %}
+        <div class="row">
+          {{ page.footer_first }}
+        </div>
+      {% endif %}
+      {% if page.footer_second %}
+        <div class="row">
+          {{ page.footer_second }}
+        </div>
+      {% endif %}
     </footer>
   {% endblock %}
 {% endif %}

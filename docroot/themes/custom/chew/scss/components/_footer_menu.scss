@@ -1,6 +1,9 @@
 #block-chew-footer {
   @include make-md-column(8);
   clear: both;
+  @media (min-width: $screen-md) {
+    padding-left: 0;
+  }
   .menu.nav {
     > li {
       float: none;

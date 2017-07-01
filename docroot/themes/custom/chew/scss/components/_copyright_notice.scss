@@ -4,4 +4,7 @@
   font-family: $font-family-sans-serif;
   font-size: ceil($font-size-base * .722);
   color: $gray-dark;
+  @media (min-width: $screen-md) {
+    padding-right: 0;
+  }
 }

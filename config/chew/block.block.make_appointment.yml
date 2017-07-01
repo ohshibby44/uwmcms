@@ -10,8 +10,8 @@ dependencies:
     - chew
 id: make_appointment
 theme: chew
-region: footer
-weight: -12
+region: footer_first
+weight: -13
 provider: null
 plugin: 'block_content:046bc3ae-e8fb-45dc-b272-736c61ab391e'
 settings:

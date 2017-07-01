@@ -1,0 +1,41 @@
+uuid: 32d7fb20-fbbc-4b56-a079-e4c487d80044
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media
+  module:
+    - lightning_media
+    - views
+name: promotion_image_browser
+label: 'Promotion Image Browser'
+display: iframe
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  4870933f-9074-48c1-805a-c92aa5e2b4fc:
+    settings:
+      view: media
+      view_display: entity_browser_5
+      submit_text: Select
+      auto_select: false
+    uuid: 4870933f-9074-48c1-805a-c92aa5e2b4fc
+    weight: 1
+    label: 'Existing Promotion Image'
+    id: view
+  f663566c-a75f-4952-9f75-cd9476a8b221:
+    settings:
+      submit_text: Save
+      form_mode: media_browser
+      return_file: false
+    uuid: f663566c-a75f-4952-9f75-cd9476a8b221
+    weight: 2
+    label: 'New Promotion Image'
+    id: file_upload

@@ -7,5 +7,6 @@ _core:
 id: node
 label: Content
 tags:
-  title: '[node:title] | [site:name]'
   description: '[node:summary]'
+  title: '[node:title] | [site:name]'
+  og_title: '[node:title]'
