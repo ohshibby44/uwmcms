@@ -28,7 +28,10 @@
   .field--name-field-short-summary {
     float: left;
     width: 61%;
-    font-size: 16px;
+    font-size: $font-size-base;
     line-height: 1.25;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs;
+    }
   }
 }

@@ -21,5 +21,6 @@ regions:
 
 libraries:
   - 'chew/global-styles'
+  - 'chew/global-scripts'
   - 'chew/bootstrap-scripts'
   - 'chew/google-fonts'
