@@ -166,6 +166,7 @@
           page.sidebar_first and page.sidebar_second ? 'col-md-4 col-lg-6',
           page.sidebar_first and page.sidebar_second is empty ? 'col-md-8 col-lg-9',
           page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9',
+          page.sidebar_second and page.sidebar_first is empty ? 'main-column-bordered',
         ]
       %}
       <section{{ content_attributes.addClass(content_classes) }}>
