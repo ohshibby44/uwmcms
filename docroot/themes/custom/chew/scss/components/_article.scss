@@ -12,8 +12,7 @@
     .taxonomy-term.count-1 {
       font-size: $font-size-base * 1.25;
       font-weight: bold;
-      border-right: 1px solid $gray-light;
-      padding-right: .5em;
+      padding-right: .25em;
       @media (max-width: $screen-xs) {
         font-size: $font-size-base-xs * 1.25;
       }
@@ -21,8 +20,9 @@
     .taxonomy-term.count-2 {
       font-family: $font-family-sans-serif;
       text-transform: uppercase;
-      padding-left: .25em;
+      padding-left: .625em;
       font-size: .875em;
+      border-left: 1px solid $gray-light;
       a {
         color: $gray-dark;
       }

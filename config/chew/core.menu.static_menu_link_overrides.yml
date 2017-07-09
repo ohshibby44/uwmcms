@@ -23,5 +23,35 @@ definitions:
     parent: ''
     expanded: true
     enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__categories__86':
+    weight: -49
+    menu_name: main
+    parent: 'taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.16'
+    expanded: true
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__categories__91':
+    weight: -48
+    menu_name: main
+    parent: 'taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.16'
+    expanded: true
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__categories__81':
+    weight: -47
+    menu_name: main
+    parent: 'taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.16'
+    expanded: true
+    enabled: true
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__categories__101':
+    menu_name: main
+    parent: ''
+    enabled: true
+    expanded: true
+    weight: -46
+  'taxonomy_menu__menu_link:taxonomy_menu__menu_link__categories__96':
+    menu_name: main
+    parent: ''
+    weight: -45
+    expanded: true
+    enabled: true
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

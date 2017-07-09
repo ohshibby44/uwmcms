@@ -1,22 +1,22 @@
-uuid: 87cd4ea7-9707-4228-86da-eccc2cf2d40d
+uuid: 667ec37b-a6c8-4c50-9aca-2b78248fc781
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.highlighted_article
+    - views.view.featured_content
   module:
     - system
     - views
   theme:
     - chew
-id: views_block__highlighted_article_block
+id: views_block__featured_content_first_featured_block
 theme: chew
 region: content
 weight: -14
 provider: null
-plugin: 'views_block:highlighted_article-block'
+plugin: 'views_block:featured_content-first_featured_block'
 settings:
-  id: 'views_block:highlighted_article-block'
+  id: 'views_block:featured_content-first_featured_block'
   label: ''
   provider: views
   label_display: '0'

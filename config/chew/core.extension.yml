@@ -17,6 +17,7 @@ module:
   ctools_block: 0
   datetime: 0
   dblog: 0
+  devel: 0
   diff: 0
   draggableviews: 0
   editor: 0
@@ -87,12 +88,11 @@ module:
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
-  shield: 0
+  seckit: 0
   shortcut: 0
   simplify: 0
   system: 0
   taxonomy: 0
-  taxonomy_menu: 0
   text: 0
   token: 0
   toolbar: 0

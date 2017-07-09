@@ -5,26 +5,7 @@
  * General functionality and hook implementations.
  */
 
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\pathauto\PathautoPatternInterface;
-
-/**
- * Implements hook_node_insert().
- */
-function uwmcms_chew_misc_node_insert(EntityInterface $node) {
-  if ($node->bundle() == 'article') {
-    _uwmcms_chew_misc_unique_sticky_article($node);
-  }
-}
-
-/**
- * Implements hook_node_update().
- */
-function uwmcms_chew_misc_node_update(EntityInterface $node) {
-  if ($node->bundle() == 'article') {
-    _uwmcms_chew_misc_unique_sticky_article($node);
-  }
-}
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -46,33 +27,15 @@ function uwmcms_chew_misc_pathauto_pattern_alter(PathautoPatternInterface &$patt
     if (isset($context['data']['node'])) {
       $node = $context['data']['node'];
       $category = $node->field_categories->entity;
-      $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
-      if (!empty($parents)) {
-        $parent = array_shift($parents);
-        $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
-        $altered_pattern =$parent_part . '/' . $pattern->getPattern();
-        $pattern->setPattern($altered_pattern);
+      if (isset($category)) {
+        $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
+        if (!empty($parents)) {
+          $parent = array_shift($parents);
+          $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
+          $altered_pattern =$parent_part . '/' . $pattern->getPattern();
+          $pattern->setPattern($altered_pattern);
+        }
       }
-    }
-  }
-}
-
-/**
- * Remove the sticky flag from any other articles.
- */
-function _uwmcms_chew_misc_unique_sticky_article(EntityInterface $node) {
-  $sticky = $node->sticky->getValue();
-
-  if (isset($sticky[0]['value']) && $sticky[0]['value'] == 1) {
-    $query = \Drupal::entityQuery('node');
-    $query->condition('sticky', 1);
-    $query->condition('type', 'article');
-    $query->condition('nid', $node->id(), '!=');
-    $nids = $query->execute();
-    foreach (array_keys($nids) as $nid) {
-      $other_node = \Drupal\node\Entity\Node::load($nid);
-      $other_node->sticky = 0;
-      $other_node->save();
     }
   }
 }

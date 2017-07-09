@@ -82,7 +82,6 @@ display:
             'entity:node':
               article: search_result
               author: teaser
-              landing_page: teaser
               page: teaser
               promotion: default
       fields:
