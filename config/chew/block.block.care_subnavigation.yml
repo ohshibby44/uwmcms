@@ -23,11 +23,11 @@ settings:
   level: 1
   depth: 1
   expand: 0
-  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.16'
+  parent: 'main:menu_link_content:70210651-4de7-454f-95e5-47848ab18cb8'
   suggestion: category_subnavigation
 visibility:
   request_path:
     id: request_path
-    pages: "/care\r\n/care/illness\r\n/care/injury\r\n/care/prevention"
+    pages: "/care\r\n/care/illness\r\n/care/injury\r\n/care/prevention\r\n/care/stories\r\n/care/research"
     negate: false
     context_mapping: {  }

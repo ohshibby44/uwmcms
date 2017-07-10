@@ -39,3 +39,17 @@ function uwmcms_chew_misc_pathauto_pattern_alter(PathautoPatternInterface &$patt
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for main menu.
+ */
+function uwmcms_chew_misc_preprocess_menu__main(&$variables) {
+  // Remove the "All" menu items.
+  foreach ($variables['items'] as $parent_id => $parent_item) {
+    foreach ($parent_item['below'] as $id => $item) {
+      if (isset($item['title']) && $item['title'] == 'All') {
+        unset($variables['items'][$parent_id]['below'][$id]);
+      }
+    }
+  }
+}

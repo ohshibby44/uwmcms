@@ -23,7 +23,7 @@ settings:
   level: 1
   depth: 1
   expand: 0
-  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.11'
+  parent: 'main:menu_link_content:a6004336-ed2a-4425-8753-35059daaf9c7'
   suggestion: category_subnavigation
 visibility:
   request_path:
