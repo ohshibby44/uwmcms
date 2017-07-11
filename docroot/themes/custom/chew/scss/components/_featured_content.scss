@@ -1,7 +1,26 @@
 .block-views-blockfeatured-content-first-featured-block {
-  margin-bottom: 4rem;
+  display: none;
+  @media (min-width: $screen-md) {
+    display: block;
+    margin-bottom: 4rem;
+  }
 }
 .block-views-blockfeatured-content-block {
+  .views-row {
+    & + .views-row {
+      border-top: 1px solid $gray-light;
+      padding-top: 2rem;
+    }
+    &:first-child {
+      @media (min-width: $screen-md) {
+        display: none;
+        & + .views-row {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+    }
+  }
   .block-title {
     font-size: $font-size-base * 1.5;
     margin: 0 0 .75em 0;

@@ -10,19 +10,25 @@
    */
   Drupal.behaviors.chewBootstrapDropdownHover = {
     attach: function (context, settings) {
-      if ($(window).width() > 1200) {
-        $('.navbar .dropdown').hover(function () {
-          $(this).find('.dropdown-menu').first().stop(true, true).show();
+      $('.navbar .dropdown').hover(function () {
+        $(this).find('.dropdown-menu').first().stop(true, true).show();
+      }, function () {
+        $(this).find('.dropdown-menu').first().stop(true, true).hide();
 
-        }, function () {
-          $(this).find('.dropdown-menu').first().stop(true, true).hide();
+      });
 
-        });
+      $('.navbar .dropdown > a').click(function () {
+        location.href = this.href;
+      });
+    }
+  };
 
-        $('.navbar .dropdown > a').click(function () {
-          location.href = this.href;
-        });
-      }
+  /**
+   * Make navbar sticky.
+   */
+  Drupal.behaviors.chewStickyNavbar = {
+    attach: function (context, settings) {
+      $('.navbar').stickybits();
     }
   };
 

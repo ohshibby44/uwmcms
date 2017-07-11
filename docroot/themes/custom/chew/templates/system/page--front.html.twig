@@ -1,3 +1,4 @@
+{% extends "@chew/system/page.html.twig" %}
 {#
 /**
  * @file
@@ -56,61 +57,6 @@
  * @see html.html.twig
  */
 #}
-{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-{# Navbar #}
-{% if page.navigation or page.navigation_collapsible %}
-  {% block navbar %}
-    {%
-      set navbar_classes = [
-        'navbar',
-        theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
-        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
-      ]
-    %}
-    <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-      {% if not navbar_attributes.hasClass(container) %}
-        <div class="{{ container }}">
-      {% endif %}
-        <div class="row">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-              <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            {% if page.branding %}
-              {% block branding %}
-                {{ page.branding }}
-              {% endblock %}
-            {% endif %}
-          </div>
-          {% if page.navigation or page.header %}
-            <div id="navbar-collapse" class="navbar-collapse collapse">
-              <div class="navigation-header">
-                {{ page.navigation }}
-                {{ page.header }}
-              </div>
-            </div>
-          {% endif %}
-        </div>
-      {% if not navbar_attributes.hasClass(container) %}
-      </div>
-      {% endif %}
-    </header>
-  {% endblock %}
-{% endif %}
-
-{# Content #}
-{%
-  set content_classes = [
-    'col-sm-12',
-    page.sidebar_first and page.sidebar_second ? 'col-md-4 col-lg-6 ',
-    page.sidebar_first and page.sidebar_second is empty ? 'col-md-8 col-lg-9',
-    page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9',
-  ]
-%}
-
 {# Main #}
 {% block main %}
   <div role="main" class="main-container {{ container }} js-quickedit-main-content">
@@ -161,13 +107,22 @@
         {% endblock %}
       {% endif %}
 
+      {# Sidebar Second #}
+      {% if page.sidebar_second %}
+        {% block sidebar_second %}
+          <aside class="col-sm-12 col-md-4 col-lg-3 col-md-push-8 col-lg-push-9" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+
       {# Content #}
       {%
         set content_classes = [
           'col-sm-12',
           page.sidebar_first and page.sidebar_second ? 'col-md-4 col-lg-6',
           page.sidebar_first and page.sidebar_second is empty ? 'col-md-8 col-lg-9',
-          page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9',
+          page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9 col-md-pull-4 col-lg-pull-3',
           page.sidebar_second and page.sidebar_first is empty ? 'main-column-bordered',
         ]
       %}
@@ -178,31 +133,6 @@
         {% endblock %}
       </section>
 
-      {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
-          <aside class="col-sm-12 col-md-4 col-lg-3" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endblock %}
-      {% endif %}
     </div>
   </div>
 {% endblock %}
-
-{% if page.footer_first or page.footer_second %}
-  {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {% if page.footer_first %}
-        <div class="row">
-          {{ page.footer_first }}
-        </div>
-      {% endif %}
-      {% if page.footer_second %}
-        <div class="row">
-          {{ page.footer_second }}
-        </div>
-      {% endif %}
-    </footer>
-  {% endblock %}
-{% endif %}

@@ -1,6 +1,8 @@
 .navbar {
+  z-index: 100;
   .row {
     border-bottom: 1px solid $gray-light;
+    padding-top: 30px;
     padding-bottom: 30px;
     .path-taxonomy & {
       border-bottom: none;

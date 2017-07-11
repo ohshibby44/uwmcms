@@ -5,6 +5,7 @@ global-styles:
 
 global-scripts:
   js:
+    js/vendor/jquery.stickybits.min.js: {}
     js/global.js: {}
 
 sharethis:
