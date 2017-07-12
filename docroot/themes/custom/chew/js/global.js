@@ -28,7 +28,7 @@
    */
   Drupal.behaviors.chewStickyNavbar = {
     attach: function (context, settings) {
-      $('.navbar').stickybits();
+      $('#page-header').stickybits();
     }
   };
 

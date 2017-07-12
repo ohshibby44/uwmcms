@@ -12,7 +12,7 @@ dependencies:
 id: exposed_form__search_articles_page
 theme: chew
 region: content
-weight: -12
+weight: -11
 provider: null
 plugin: 'views_exposed_filter_block:search_articles-page'
 settings:

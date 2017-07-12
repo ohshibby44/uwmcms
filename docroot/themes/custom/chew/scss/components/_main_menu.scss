@@ -4,7 +4,13 @@
       font-size: floor(($font-size-base * 1.556));
       > a {
         padding: 10px 0;
-        margin: 0 0 0 60px;
+        margin: 0;
+        @media (min-width: $screen-md) {
+          margin-left: 30px;
+        }
+        @media (min-width: $screen-lg) {
+          margin-left: 60px;
+        }
       }
     }
   }

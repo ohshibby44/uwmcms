@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_credit
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.thumbnail
+    - image.style.preview
     - media_entity.bundle.image
   module:
     - image
@@ -46,8 +46,8 @@ content:
     type: image_image
     weight: 0
     settings:
+      preview_image_style: preview
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     region: content
   name:

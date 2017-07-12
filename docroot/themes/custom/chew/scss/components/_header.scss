@@ -1,8 +1,19 @@
+#page-header {
+  background: #fff;
+  z-index: 100;
+  margin-bottom: 30px;
+  .path-taxonomy & {
+    margin-bottom: 0;
+  }
+}
 .main-menu-header {
   @include clearfix();
   @media (min-width: $screen-md-min) {
     float: right;
   }
+}
+.navigation-header {
+  float: right;
 }
 .region-header {
   clear: right;

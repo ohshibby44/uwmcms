@@ -32,6 +32,13 @@ function chew_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for system branding block templates.
+ */
+function chew_preprocess_block__system_branding_block(&$variables) {
+  $variables['site_logo'] = '/themes/custom/chew/images/logo.svg';
+}
+
+/**
  * Implements hook_preprocess_HOOK() for taxonomy term page templates.
  */
 function chew_preprocess_page__taxonomy__term(&$variables) {
