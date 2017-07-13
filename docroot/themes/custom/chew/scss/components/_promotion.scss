@@ -1,7 +1,11 @@
 .promotion.featured-card,
+.promotion.small-horizontal-card,
 .block-entity-fieldnodefield-promotion {
   @include clearfix();
-  margin: 0 0 4rem 0;
+  margin: 0 0 3rem 0;
+}
+.promotion.small-horizontal-card {
+  margin-bottom: 4rem;
 }
 .block-entity-fieldnodefield-promotion {
   margin-bottom: 2rem;

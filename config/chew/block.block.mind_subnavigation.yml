@@ -12,7 +12,7 @@ dependencies:
 id: mind_subnavigation
 theme: chew
 region: content_header
-weight: -10
+weight: -12
 provider: null
 plugin: 'menu_block:main'
 settings:

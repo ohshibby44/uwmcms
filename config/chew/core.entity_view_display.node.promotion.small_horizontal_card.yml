@@ -1,0 +1,47 @@
+uuid: 0d6f4244-ea5a-4693-bc27-90f728a6fc3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.small_horizontal_card
+    - field.field.node.promotion.field_link
+    - field.field.node.promotion.field_promotion_image
+    - node.type.promotion
+  module:
+    - link
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.promotion.small_horizontal_card
+targetEntityType: node
+bundle: promotion
+mode: small_horizontal_card
+content:
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_promotion_image:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  links: true

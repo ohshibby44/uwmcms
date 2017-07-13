@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.featured_card
-    - core.entity_view_mode.node.large_stacked_card
+    - core.entity_view_mode.node.small_horizontal_card
     - field.storage.node.field_primary_media
     - field.storage.node.field_promotion_image
     - field.storage.node.field_short_summary
@@ -740,6 +740,35 @@ display:
       block_description: 'Featured Content'
       defaults:
         pager: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Block 2'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: 'Featured Content 2'
+      defaults:
+        pager: true
+        style: false
+        row: false
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: small_horizontal_card
     cache_metadata:
       max-age: -1
       contexts:

@@ -10,7 +10,7 @@ dependencies:
 id: field_author
 theme: chew
 region: content_header
-weight: -7
+weight: -9
 provider: null
 plugin: 'entity_field:node:field_author'
 settings:

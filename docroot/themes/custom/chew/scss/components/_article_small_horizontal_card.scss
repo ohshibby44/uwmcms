@@ -1,6 +1,6 @@
-.article.featured-card {
+.article.small-horizontal-card {
   @include clearfix();
-  margin: 0 0 2rem 0;
+  margin: 0 0 3rem 0;
   .field--name-field-feature-category {
     font-family: $font-family-sans-serif;
     text-transform: uppercase;
@@ -22,12 +22,12 @@
   }
   .field--name-field-primary-media {
     float: left;
-    width: 33%;
-    margin: 0 5% 0 0;
+    width: 20%;
+    margin: 0 3% 0 0;
   }
   .field--name-field-short-summary {
     float: left;
-    width: 61%;
+    width: 76%;
     font-size: $font-size-base;
     line-height: 1.333;
     @media (max-width: $screen-xs) {

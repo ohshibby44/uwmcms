@@ -1,4 +1,4 @@
-uuid: 94355fa0-197c-4230-81ce-ed6429997cbd
+uuid: f646e994-66ec-4beb-821c-ecac4ed04ed7
 langcode: en
 status: true
 dependencies:
@@ -14,9 +14,9 @@ theme: chew
 region: content
 weight: -13
 provider: null
-plugin: 'views_block:featured_content-block'
+plugin: 'views_block:featured_content-block_2'
 settings:
-  id: 'views_block:featured_content-block'
+  id: 'views_block:featured_content-block_2'
   label: ''
   provider: views
   label_display: visible

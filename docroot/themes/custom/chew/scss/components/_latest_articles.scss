@@ -10,11 +10,21 @@
   }
   .view-latest-articles {
     .view-content {
-      @include make-row();
+      @media (min-width: $screen-sm-min) {
+        @include make-row();
+      }
       .views-row {
-        @include make-sm-column(6);
-        @include make-lg-column(4);
+        & + .views-row {
+          border-top: 1px solid $gray-light;
+          padding-top: 2rem;
+          @media (min-width: $screen-sm-min) {
+            border-top: none;
+            padding-top: 0;
+          }
+        }
         @media (min-width: $screen-sm-min) {
+          @include make-sm-column(6);
+          @include make-lg-column(4);
           &:nth-child(2n+3) {
             clear: both;
           }
