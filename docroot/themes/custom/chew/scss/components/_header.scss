@@ -13,7 +13,9 @@
   }
 }
 .navigation-header {
-  float: right;
+  @media (min-width: $screen-lg) {
+    float: right;
+  }
 }
 .region-header {
   clear: right;
