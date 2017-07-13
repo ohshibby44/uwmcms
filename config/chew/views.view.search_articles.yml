@@ -243,7 +243,17 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '@total article(s) found'
+          plugin_id: result
       footer: {  }
       empty:
         area:

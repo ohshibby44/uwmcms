@@ -1,11 +1,12 @@
 #block-social-links {
-  float: left;
+  margin-bottom: 20px;
+  @media (min-width: $screen-md) {
+    float: left;
+  }
 }
 .social-media-links {
   .region-header & {
-    display: none;
     @media (min-width: $screen-md-min) {
-      display: block;
     }
     .social-media-link {
       display: inline-block;
