@@ -1,4 +1,4 @@
-uuid: becd23b5-9b16-45d9-9efd-4a284e0b2eca
+uuid: b5b30fa7-5e68-4b77-871a-eab51ee2faeb
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.award.field_body
     - field.field.node.award.field_date
     - field.field.node.award.field_image
+    - field.field.node.award.field_teaser
     - image.style.third_375x180_
     - node.type.award
   module:
@@ -14,7 +15,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: horcqu38hFE2WAvv3cyhj1H_sZ3OWJR94Ffci9ihqLE
+  default_config_hash: kzp564l-d0o3Xqauwr3n0LlD8ubzkrhC9WFlfehwD50
 id: node.award.default
 targetEntityType: node
 bundle: award
@@ -45,9 +46,19 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_teaser:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   links:
     weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
 hidden: {  }

@@ -1,0 +1,26 @@
+uuid: 4a352ca5-870a-43db-9df5-262b53de1b64
+langcode: en
+status: true
+dependencies: {  }
+id: webform_creator
+label: 'Webform creator'
+weight: 19
+is_admin: null
+permissions:
+  - 'access image_browser entity browser pages'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'administer panelizer node webform content'
+  - 'administer panelizer node webform layout'
+  - 'change layouts in place editing'
+  - 'create url aliases'
+  - 'create webform content'
+  - 'edit own webform content'
+  - 'use draft_draft transition'
+  - 'use draft_needs_review transition'
+  - 'use needs_review_needs_review transition'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view webform revisions'

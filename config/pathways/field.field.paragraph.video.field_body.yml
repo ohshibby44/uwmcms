@@ -1,4 +1,4 @@
-uuid: d0822e1e-0832-4a4c-a065-cd56a39fde7c
+uuid: 1bfd1aea-f3df-4528-a0bb-8802b4b7fff4
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,17 @@ dependencies:
     - field.storage.paragraph.field_body
     - paragraphs.paragraphs_type.video
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    video_format: video_format
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
 _core:
-  default_config_hash: W5xhSr66f6mB3tiwy7E54qdeoL4Ds5d69RSyMvDZBdE
+  default_config_hash: uTK_O1Ll4B8EwFhDnlzCzdihGiZU3iZPgZonQwkPs8A
 id: paragraph.video.field_body
 field_name: field_body
 entity_type: paragraph

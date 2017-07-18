@@ -1,0 +1,21 @@
+uuid: b5791be7-a11b-4c38-b7b9-f2ede8816bba
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - disqus
+_core:
+  default_config_hash: L9geuki6Vcw7gm30uI9kQSMFQo49-ElUs7TcoORQLIU
+id: block_content.field_disqus_comments
+field_name: field_disqus_comments
+entity_type: block_content
+type: disqus_comment
+settings: {  }
+module: disqus
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

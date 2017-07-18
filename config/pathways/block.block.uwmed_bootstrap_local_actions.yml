@@ -1,0 +1,20 @@
+uuid: 71b33c8d-ae85-4d77-b0b1-c8cd44713a51
+langcode: en
+status: true
+dependencies:
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: lCmCI3ewvTM-v7_qedoMgAb6Ud98JActoOIYvoJJXUc
+id: uwmed_bootstrap_local_actions
+theme: uwmed_bootstrap
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

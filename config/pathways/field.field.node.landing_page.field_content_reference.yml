@@ -1,0 +1,30 @@
+uuid: c05b8b3d-a51b-4997-a896-8dda97f30f9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_reference
+    - node.type.article
+    - node.type.landing_page
+_core:
+  default_config_hash: Vl3UBG-obhp7wWuUQaM8Gf1M2dNEMyy7OBIColDLRYI
+id: node.landing_page.field_content_reference
+field_name: field_content_reference
+entity_type: node
+bundle: landing_page
+label: 'Featured content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference

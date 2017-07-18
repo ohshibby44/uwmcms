@@ -1,4 +1,4 @@
-uuid: 449e1988-e689-4cb5-bd43-6417d2e65097
+uuid: ca99a8c2-6e07-48e0-9ce7-72ad71a9b68c
 langcode: en
 status: false
 dependencies:
@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.article.field_name
     - field.field.node.article.field_sections
     - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser
     - node.type.article
   module:
     - user
@@ -25,6 +26,9 @@ content:
   links:
     weight: 100
     region: content
+  sharethis:
+    weight: 10
+    region: content
 hidden:
   field_category: true
   field_date: true
@@ -34,3 +38,4 @@ hidden:
   field_name: true
   field_sections: true
   field_tags: true
+  field_teaser: true

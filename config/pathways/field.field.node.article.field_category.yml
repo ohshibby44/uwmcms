@@ -1,4 +1,4 @@
-uuid: 842bfc2e-f157-416b-bc03-136178019094
+uuid: 5586194f-2dec-40bc-8e95-95cfc99dd16c
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
     - node.type.article
     - taxonomy.vocabulary.categories
 _core:
-  default_config_hash: N5-eeX6DKc8t91EG55m9VyOeJIvAmWYyMEAJJPw_oDk
+  default_config_hash: TMYafkx0CCKb_7JVWdMnM6f_yRRBpJL9nv7Ge_Oaf4o
 id: node.article.field_category
 field_name: field_category
 entity_type: node
 bundle: article
 label: 'Article category'
-description: ''
+description: 'Choose one category below its main category. If the "parent" category is chosen, it will only appear on the main page of that category.'
 required: true
 translatable: false
 default_value: {  }

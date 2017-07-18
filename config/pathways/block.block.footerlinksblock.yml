@@ -1,0 +1,23 @@
+uuid: 8038f908-ae54-4734-b707-79b2c0568f8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - uwmed_huddle_blocks
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: rHK5V-w2elb406-2vq5GoAbL5O8Kgipczg-VqFuKOOM
+id: footerlinksblock
+theme: uwmed_bootstrap
+region: footer
+weight: -8
+provider: null
+plugin: footer_links_Block
+settings:
+  id: footer_links_Block
+  label: 'Footer Links Block'
+  provider: uwmed_huddle_blocks
+  label_display: '0'
+  footer_links_block_string: '<div class="footer-links"><ul><li><a href="#">Airlift Northwest</a></li><li><a href="#">Harborview Medical Center</a></li><li><a href="#">Northwest Hospital &amp; Medical Center</a></li><li><a href="#">UW Medical Center</a></li></ul><ul><li><a href="#">UW Neighborhood Clinics</a></li><li><a href="#">UW Physicians</a></li><li><a href="#">UW School of Medicine</a></li><li><a href="#">Valley Medical Center</a></li></ul></div>'
+visibility: {  }

@@ -1,4 +1,4 @@
-uuid: 43a12f42-d623-4e21-b5f4-035d019976e4
+uuid: 4eeee394-dc7e-43ea-88f6-585adc558a97
 langcode: en
 status: true
 dependencies:
@@ -12,46 +12,52 @@ dependencies:
     - field.field.node.article.field_name
     - field.field.node.article.field_sections
     - field.field.node.article.field_tags
-    - image.style.large
+    - field.field.node.article.field_teaser
+    - image.style.800x436
     - node.type.article
   module:
     - datetime
     - image
+    - text
     - user
 _core:
-  default_config_hash: oDoXrNTuw88s5xgnGDJlPgWwtD0xGZgFXqumRGehLk8
+  default_config_hash: '-jtKSIXGibECzksFmqFH_eKOGZ0OH-S_LQjhO_GZiRw'
 id: node.article.featured
 targetEntityType: node
 bundle: article
 mode: featured
 content:
-  field_category:
-    weight: 1
-    label: above
-    settings:
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_date:
+    type: datetime_default
     weight: 2
-    label: above
+    region: content
+    label: hidden
     settings:
       timezone_override: ''
       format_type: uwm_date_format
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_image:
     type: image
     weight: 0
     region: content
     settings:
-      image_style: large
-      image_link: ''
+      image_style: 800x436
+      image_link: content
     third_party_settings: {  }
-    label: above
+    label: hidden
+  field_teaser:
+    type: text_trimmed
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      trim_length: 250
+    third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
 hidden:
+  field_category: true
   field_image_credit: true
   field_meta_tags: true
   field_name: true

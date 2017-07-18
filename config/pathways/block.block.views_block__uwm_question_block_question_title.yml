@@ -1,0 +1,32 @@
+uuid: aba3e656-ccba-4846-a178-c58ef90cf707
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_question
+  module:
+    - system
+    - views
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: It9zbw34Sz9RBXq_tsnf-jLNvtB76_nUDQBsStZB7X4
+id: views_block__uwm_question_block_question_title
+theme: uwmed_bootstrap
+region: content
+weight: -9
+provider: null
+plugin: 'views_block:uwm_question-block_question_title'
+settings:
+  id: 'views_block:uwm_question-block_question_title'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /submit-answer
+    negate: false
+    context_mapping: {  }

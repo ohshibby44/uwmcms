@@ -1,0 +1,37 @@
+uuid: 2e97b83a-9887-47e9-a9be-f3bb4536a52d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.campaign.body
+    - field.field.node.campaign.field_call_to_action
+    - field.field.node.campaign.field_image
+    - node.type.campaign
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: kkgn851HwbqFKokOa2cwr8yP6GcAm6kUbZxdzznMBwA
+id: node.campaign.teaser
+targetEntityType: node
+bundle: campaign
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_call_to_action: true
+  field_image: true

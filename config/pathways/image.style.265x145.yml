@@ -1,0 +1,16 @@
+uuid: 42c837ba-f05e-4f03-a2c8-4ea0ab8aa343
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KpgO662rGH00LpAs4a1e6vPMTa955urEz4W93-Dpnyg
+name: 265x145
+label: 265x145
+effects:
+  0b373ef4-4485-4181-95b3-c24ce116d5d4:
+    uuid: 0b373ef4-4485-4181-95b3-c24ce116d5d4
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 265
+      height: 145

@@ -1,0 +1,22 @@
+uuid: aa9e0434-fcb1-4b4d-9352-816ff10d01a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: shefu4A9ZtWeAhlh6Ka630qXND_KlwkZp8qmNL8GXec
+id: uwmed_bootstrap_messages
+theme: uwmed_bootstrap
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

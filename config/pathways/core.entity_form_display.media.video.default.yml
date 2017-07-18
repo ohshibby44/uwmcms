@@ -1,4 +1,4 @@
-uuid: 0165f064-d59b-405f-90d5-c5e426465229
+uuid: eb3090bb-7cbf-47f7-80c2-d273866d850c
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
     - video_embed_field
     - workbench_moderation
 _core:
-  default_config_hash: HCTWpOqXTYYpuBfqfQIjmSqcpM7jmFEFxQj_RMQWRAU
+  default_config_hash: BMG8OQWV1nbWdUtXRCu6Hje117RiS58dpHj2nI8wNdc
 id: media.video.default
 targetEntityType: media
 bundle: video

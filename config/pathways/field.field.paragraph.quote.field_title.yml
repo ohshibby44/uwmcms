@@ -1,4 +1,4 @@
-uuid: 5e63c1c2-e2e5-4e17-abeb-dc9acd7ed62a
+uuid: 16ae25b5-6691-4ecf-a9c0-e85ed155e965
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.quote
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
 _core:
-  default_config_hash: cNM9vmDVOizRjNPhPS_h9DAW8DoWPmoQxVrWK8g3ako
+  default_config_hash: JXL5-cv_sHU3pooq_aCqET2KMIkQxIJF2YGY8kqkHWI
 id: paragraph.quote.field_title
 field_name: field_title
 entity_type: paragraph

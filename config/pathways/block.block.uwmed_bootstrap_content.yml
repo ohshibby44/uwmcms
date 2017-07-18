@@ -1,0 +1,22 @@
+uuid: 23d5fd56-9e71-4b8f-b55a-d675dd420945
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: XKtZBYnUkrtysFkL4lyIG8ffBhNs3UIRqGuGCfrpQaQ
+id: uwmed_bootstrap_content
+theme: uwmed_bootstrap
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

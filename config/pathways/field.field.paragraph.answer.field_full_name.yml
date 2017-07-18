@@ -1,4 +1,4 @@
-uuid: 34f77dcb-226f-4e4d-9385-2aded80c62f4
+uuid: a8b32cf4-d97d-4ffb-b314-55ae83bc0093
 langcode: en
 status: true
 dependencies:
@@ -15,7 +15,7 @@ third_party_settings:
     restricted_html: '0'
     full_html: '0'
 _core:
-  default_config_hash: IfXXmIjz9tt67j3GbmHB9SWWnkct5nxN1J227XGGRTg
+  default_config_hash: SW8lWwxxNtL70GLxcsbTFjUyOFrWuyuQs9U_PeBYKHo
 id: paragraph.answer.field_full_name
 field_name: field_full_name
 entity_type: paragraph

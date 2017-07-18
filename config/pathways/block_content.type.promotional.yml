@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: promotional
+label: Promotional
+revision: 1
+description: 'Promotional banner or area of content that displays information.'

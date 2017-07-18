@@ -1,4 +1,4 @@
-uuid: 222a1b12-3f5f-4a60-b674-b6794c0f7d28
+uuid: 4d817d6d-9af8-486f-9226-4e72bff6f3d6
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: awsLxPwedA_PckamQUlDdDWNYtWDFvwLLUwGb1gM69k
+  default_config_hash: g5VxaCaEETIkKWYx-K9WuBE9DSalx9OoxGObUh2fhXg
 id: paragraph.field_paragraph_reference
 field_name: field_paragraph_reference
 entity_type: paragraph

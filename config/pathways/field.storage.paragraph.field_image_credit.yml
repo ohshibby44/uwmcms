@@ -1,0 +1,23 @@
+uuid: d77e6f7a-4a55-4ea8-a7c0-66980d91f2bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: ylrUwlNzr78LrEscWvXpf7BWpJudvxX8Ce39B9O8SKU
+id: paragraph.field_image_credit
+field_name: field_image_credit
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

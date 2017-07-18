@@ -1,0 +1,9 @@
+uuid: ba069875-72b5-4437-afff-e8823b47814a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BwbZbLvA-bo_mH-F39VVq0VaFpfKLgVU4TjAiRSJ3ok
+id: resources
+label: Resources
+behavior_plugins: {  }

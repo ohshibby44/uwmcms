@@ -1,0 +1,44 @@
+uuid: 6a5ec780-29b4-43a3-b6cc-9b2d77594fa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.video_format
+  module:
+    - ckeditor
+_core:
+  default_config_hash: DmfptgVMn-Qvod6tqIZQ_pO-36sEt_xde_82vT2Z6og
+format: video_format
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Media
+          items:
+            - video_embed
+        -
+          name: Tools
+          items:
+            - Source
+  plugins:
+    stylescombo:
+      styles: ''
+    language:
+      language_list: un
+    video_embed:
+      defaults:
+        children:
+          autoplay: false
+          responsive: true
+          width: '854'
+          height: '480'
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

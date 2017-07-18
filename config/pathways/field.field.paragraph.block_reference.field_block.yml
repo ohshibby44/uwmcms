@@ -1,0 +1,32 @@
+uuid: 41d67f5a-b812-4790-b6d6-281bfa787b3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.promotional
+    - field.storage.paragraph.field_block
+    - paragraphs.paragraphs_type.block_reference
+_core:
+  default_config_hash: P-GuIkSITNg0sVTEAVfdrCy6vVjb4-qd7QYSDXZwOtA
+id: paragraph.block_reference.field_block
+field_name: field_block
+entity_type: paragraph
+bundle: block_reference
+label: Block
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      basic: basic
+      promotional: promotional
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: basic
+field_type: entity_reference

@@ -1,0 +1,31 @@
+uuid: 6cf916f5-0759-44e0-bd8d-4d7d175cc0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.article
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    video_format: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: 0uGrea2f_Tm-p1HlsXdg_ZI9cEKd4Lm0q42jcSXlPVw
+id: node.article.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: article
+label: 'Article teaser'
+description: 'Teaser content is brief, and displays under featured or teaser content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,25 @@
+uuid: ddd226e9-e303-4799-ab99-e23ba682cc3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: tPrz_GIXBHem2Jbb2qnjuThl9z3iOV6-r-khWrzFm5U
+id: uwmed_bootstrap_branding
+theme: uwmed_bootstrap
+region: header_upper
+weight: -5
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

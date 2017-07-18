@@ -1,0 +1,16 @@
+uuid: ecc58a25-85d7-4486-ae21-077fd3da1ad1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iIR2jr4Y6N6JU8x-5pWz8pIfOJi9EY7w9i3Lzqs3Fmk
+name: 700x336
+label: 700x336
+effects:
+  0d878ef6-650a-47f4-bfd3-dca9a6c3988b:
+    uuid: 0d878ef6-650a-47f4-bfd3-dca9a6c3988b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 700
+      height: 336

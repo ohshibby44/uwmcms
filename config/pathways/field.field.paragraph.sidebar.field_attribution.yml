@@ -1,4 +1,4 @@
-uuid: e12b4a43-f532-4248-a14f-e04f2604b7a7
+uuid: b705d44f-7295-4440-a6df-f6f55107cb9d
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_attribution
     - paragraphs.paragraphs_type.sidebar
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
 _core:
-  default_config_hash: JO_0z11k-1sqWCZBNQJNy4mANbOykpd5BqEyKQe_x4I
+  default_config_hash: EIoQY-jtVNzIufEQJ6ehroxcZWbFgYtUWoVpmfdtPPs
 id: paragraph.sidebar.field_attribution
 field_name: field_attribution
 entity_type: paragraph

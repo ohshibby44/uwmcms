@@ -1,4 +1,4 @@
-uuid: 79d7f7b8-3e19-4dde-9d3b-f89e28f9888c
+uuid: d69914bd-4fb9-4a46-b5b9-1cdee023318c
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_caption
     - paragraphs.paragraphs_type.sidebar
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
 _core:
-  default_config_hash: pwRz4RSwEfNlajBBW494-Z8CbgcCX_jpq5e6uX4nJks
+  default_config_hash: 1eu3lu9TBjfEiwgGfkfv4FReLlgYtGxzzDDddy5_wXQ
 id: paragraph.sidebar.field_caption
 field_name: field_caption
 entity_type: paragraph

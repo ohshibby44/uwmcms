@@ -1,4 +1,4 @@
-uuid: 94a172f3-a1cf-4ae2-9fff-2dccca45f29d
+uuid: 6b14b210-af8a-47b1-9760-447af32760ac
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - paragraphs
     - text
 _core:
-  default_config_hash: Evj81_AgRkZEwzxrTk2gjHYwzG0H46Ghv98XAkXivWw
+  default_config_hash: '-cnl7KTqlnkEyE9UgjngMQK_onW9vAuev8VJaY6xZKI'
 id: paragraph.field_full_name
 field_name: field_full_name
 entity_type: paragraph

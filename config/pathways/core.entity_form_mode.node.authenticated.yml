@@ -1,0 +1,12 @@
+uuid: 7cdd780f-895b-4392-86de-69c595e204df
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: MVbNdYX3EqrhKG3rQdbZ_4n4xCdpSmYNJJ18cz0LV4c
+id: node.authenticated
+label: Authenticated
+targetEntityType: node
+cache: true

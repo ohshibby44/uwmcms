@@ -1,4 +1,4 @@
-uuid: dcc5cb1f-de0a-445f-9a32-ac54506f3fd0
+uuid: 8817d5e7-0f52-498f-aff3-320c901d0a47
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: Iue5dWz40odYIvQZXHxNgusvUZVuCXr8InfPe5atT6A
+  default_config_hash: vWDOA4wVFcMn-h4k88eb_t7wRzMmtGmB8eHZocZ9wI8
 id: media.image.embedded
 targetEntityType: media
 bundle: image

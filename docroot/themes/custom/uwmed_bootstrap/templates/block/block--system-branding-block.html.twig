@@ -1,0 +1,36 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Default theme implementation for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ *
+ * @ingroup themeable
+           <!--<img class="hide img-responsive" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />-->
+         <!--<img class="img-responsive" src="/{{ directory }}/assets/img/uw-medicine.svg" alt="{{ site_slogan }}" />-->
+ */
+#}
+{% block content %}
+  <div class="logo-wrap">
+    {% if site_logo %}
+      <div class="logo">
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+      </div>
+    {% endif %}
+    <div class="slogan-link-wrap">
+      <div class="site-slogan">
+        {{ site_slogan }}
+      </div>
+      <div class="uw-link">
+        <a href="http://www.uwmedicine.org/" target="_blank">UW Medicine</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

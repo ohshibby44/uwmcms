@@ -1,4 +1,4 @@
-uuid: 69587991-b305-4be5-a6d8-0c5d60528497
+uuid: 2a22ae57-b806-46e0-8215-6dbc06da7a2e
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: BPfq0QoW3LwVDRz8T9UpFuysQEabblka54qWhGI3xZM
+  default_config_hash: qZT9Ogqy2pbmS39LW2VBoVlN8gdfg3vkVM0cJON8AGA
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote
@@ -18,21 +18,21 @@ mode: default
 content:
   field_attribution:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_body:
     weight: 0
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_title:
     weight: 2
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default

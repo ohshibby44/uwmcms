@@ -1,0 +1,14 @@
+uuid: e11cbf58-70a2-4740-988d-74937777de3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.question_reviewer
+  module:
+    - user
+id: user_remove_role_action.question_reviewer
+label: 'Remove the Question reviewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: question_reviewer

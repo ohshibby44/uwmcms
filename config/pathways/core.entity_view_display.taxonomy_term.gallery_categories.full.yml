@@ -1,0 +1,16 @@
+uuid: 0d87a134-9fb3-480e-93a5-1e0dc25b7c99
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - taxonomy.vocabulary.gallery_categories
+_core:
+  default_config_hash: 41msw_CO96lF4WutLtYsypTgcx2yjd7kR7xXt-nCRqI
+id: taxonomy_term.gallery_categories.full
+targetEntityType: taxonomy_term
+bundle: gallery_categories
+mode: full
+content: {  }
+hidden:
+  description: true

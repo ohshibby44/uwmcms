@@ -1,4 +1,4 @@
-uuid: f8f9b922-913d-4e4b-89c8-0dd60f62ad08
+uuid: 81929052-596d-45ef-857b-15a99d52dcde
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_attribution
     - paragraphs.paragraphs_type.quote
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
 _core:
-  default_config_hash: vgKn009vilVgPPT8r3kIaPpGctYeVbcVmnAsGyBQwAI
+  default_config_hash: GAVbfa7WpQfQ7212rTfjpwN5ccVeI8wq1UmTIxVOmFA
 id: paragraph.quote.field_attribution
 field_name: field_attribution
 entity_type: paragraph

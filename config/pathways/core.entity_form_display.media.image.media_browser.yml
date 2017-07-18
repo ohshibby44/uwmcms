@@ -1,4 +1,4 @@
-uuid: d5f412d9-e73b-4cfb-9413-904931b39130
+uuid: f0be176a-8de3-4609-ba81-4f0a04d4393f
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,13 @@ dependencies:
     - core.entity_form_mode.media.media_browser
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - image.style.thumbnail
+    - image.style.medium
     - media_entity.bundle.image
   module:
-    - image
+    - lightning_media
     - workbench_moderation
 _core:
-  default_config_hash: XAs-0xJN_RSqL0AwDm_5FnHvxR7U1H1asYTOBUKcnsE
+  default_config_hash: JI-1XbVBCjxKia_ogu_O1bxY9ZOlygQyq3V-OtC7D-0
 id: media.image.media_browser
 targetEntityType: media
 bundle: image
@@ -26,12 +26,12 @@ content:
     third_party_settings: {  }
     region: content
   image:
-    weight: 6
+    type: image_immutable
+    weight: 0
     settings:
+      preview_image_style: medium
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
     region: content
   name:
     type: string_textfield

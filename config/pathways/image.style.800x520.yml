@@ -1,0 +1,16 @@
+uuid: b9d47030-81b9-40d0-928b-420f37e056e1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _AjVrP5znInT5C7cfkeUVeUm2ayYUFFVX6utL2d2jtQ
+name: 800x520
+label: 800x520
+effects:
+  95c85f80-81fa-4479-8eb5-e9af09195434:
+    uuid: 95c85f80-81fa-4479-8eb5-e9af09195434
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 520

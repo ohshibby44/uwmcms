@@ -1,0 +1,14 @@
+uuid: b221d753-5dcc-4291-8c01-201064b91cca
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.question_creator
+  module:
+    - user
+id: user_add_role_action.question_creator
+label: 'Add the Question creator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: question_creator

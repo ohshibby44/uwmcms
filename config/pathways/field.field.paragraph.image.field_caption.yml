@@ -1,4 +1,4 @@
-uuid: b96cc373-80f0-4f78-b4d9-236a4259f743
+uuid: d31a0045-ea16-4918-8a42-c1000ea82863
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_caption
     - paragraphs.paragraphs_type.image
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
 _core:
-  default_config_hash: KXLdsxCv-QPcTzLYFnV2PUZz_JYJM5rZIGf4fhbRNNc
+  default_config_hash: muvrPrOIATRxlo5L34LvJgqFq4GMEsgkikH2GgzfXXE
 id: paragraph.image.field_caption
 field_name: field_caption
 entity_type: paragraph

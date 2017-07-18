@@ -1,0 +1,14 @@
+uuid: edb2326c-6dac-40c8-8673-9a05ddcbddd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.campaign_creator
+  module:
+    - user
+id: user_add_role_action.campaign_creator
+label: 'Add the Campaign page creator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: campaign_creator

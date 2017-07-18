@@ -1,0 +1,13 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      assets/css/bootstrap.css: {}
+      assets/css/styles.css: {}
+  js:
+    //maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js : { external: true }
+    assets/js/uwmed-scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.ui.datepicker
+    - core/drupal

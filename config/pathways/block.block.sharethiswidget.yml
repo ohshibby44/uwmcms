@@ -1,0 +1,37 @@
+uuid: 6896d648-2229-4236-8fbe-2972751fab17
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - sharethis
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: TH3cQOCt5cbJtPl9rnBImAzDstzD36mjZk6oDSmgzhs
+id: sharethiswidget
+theme: uwmed_bootstrap
+region: content
+weight: -4
+provider: null
+plugin: sharethis_widget_block
+settings:
+  id: sharethis_widget_block
+  label: 'Sharethis Widget'
+  provider: sharethis
+  label_display: '0'
+  path: global
+  external_path: ''
+  sharethis_path: current
+  sharethis_path_external: ''
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+      event: event
+      gallery: gallery
+      question: question
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

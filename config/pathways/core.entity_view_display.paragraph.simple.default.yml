@@ -1,4 +1,4 @@
-uuid: 9dcfa2da-7590-4b9e-b149-aa54a88f58e1
+uuid: 956aff66-4aaf-4b61-8236-95bb7fcfafa8
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - entity_reference_revisions
     - text
 _core:
-  default_config_hash: knXdOeYQAsRnJo7udub6Ntf8DZlYW5rwm-EdluA19fc
+  default_config_hash: rxMrxSdmgeTJSdYGMZUlpW3SoLMjC2W5PjKkIMzvPGM
 id: paragraph.simple.default
 targetEntityType: paragraph
 bundle: simple
@@ -19,7 +19,7 @@ mode: default
 content:
   field_body:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -27,17 +27,17 @@ content:
   field_paragraph_reference:
     type: entity_reference_revisions_entity_view
     weight: 2
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
   field_title:
+    type: text_default
     weight: 0
-    label: above
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
 hidden: {  }

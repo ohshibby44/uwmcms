@@ -1,0 +1,29 @@
+uuid: c59b6ec1-4058-4521-be23-acffe935197c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: E5qVY2yt8JzqUrpxwXcbF14UgpRlUBnlubi-Psjcc44
+id: uwmed_bootstrap_local_tasks
+theme: uwmed_bootstrap
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search*'
+    negate: true
+    context_mapping: {  }

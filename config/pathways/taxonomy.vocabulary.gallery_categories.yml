@@ -1,0 +1,11 @@
+uuid: 48d3fb2a-af30-45f0-acc9-71afe9c507bc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CuryGEnXRMonubzn7lE3x724PmK0vuiCgsIRqj2uhro
+name: 'Gallery categories'
+vid: gallery_categories
+description: 'Galleries may be associated with only one category.'
+hierarchy: 0
+weight: 0

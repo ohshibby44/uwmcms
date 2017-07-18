@@ -1,4 +1,4 @@
-uuid: 9f60ac9d-33c5-4d44-a03e-e2330e702218
+uuid: e3b53adb-e2e9-45d8-b9f5-2138f79312dc
 langcode: en
 status: true
 dependencies:
@@ -13,14 +13,15 @@ third_party_settings:
     plain_text: plain_text
     basic_html: '0'
     restricted_html: '0'
+    video_format: '0'
     full_html: '0'
 _core:
-  default_config_hash: Msbk3vr_DzLs6M6TLxAYxvMejOjocqUkxb31nQhMdgc
+  default_config_hash: h_cFNXMCSmJQ7VREkyJvVsMn9nQKxiy7d6wnyoNIxzc
 id: paragraph.answer.field_location
 field_name: field_location
 entity_type: paragraph
 bundle: answer
-label: Location
+label: 'Location or Subtitle'
 description: ''
 required: false
 translatable: false

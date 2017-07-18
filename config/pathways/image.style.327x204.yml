@@ -1,0 +1,16 @@
+uuid: 6f95a948-9bf7-4fde-b3c7-9804748c47fa
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tUmD1sfxloKQW7ll8QUMX8q6vJFFfwe-nj77RImNZC4
+name: 327x204
+label: 372x204
+effects:
+  71c781b8-df47-492e-aa07-8d4ea8d9b833:
+    uuid: 71c781b8-df47-492e-aa07-8d4ea8d9b833
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 372
+      height: 204

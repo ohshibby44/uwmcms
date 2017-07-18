@@ -1,0 +1,26 @@
+uuid: 52dc6917-ad5f-424c-baef-2fd5c659b2a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning
+third_party_settings:
+  lightning:
+    bundled: true
+_core:
+  default_config_hash: FINNLf2pkhqumdQngtjMqoiVaOgXv2cHfnLPCCbB4n0
+id: layout_manager
+label: 'Layout manager'
+weight: 2
+is_admin: false
+permissions:
+  - 'administer node display'
+  - 'administer panelizer'
+  - 'administer panelizer node article defaults'
+  - 'administer panelizer node award defaults'
+  - 'administer panelizer node campaign defaults'
+  - 'administer panelizer node event defaults'
+  - 'administer panelizer node gallery defaults'
+  - 'administer panelizer node page defaults'
+  - 'administer panelizer node question defaults'
+  - 'administer panelizer node webform defaults'

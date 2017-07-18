@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: poll_block_and_save
+label: 'Poll block and Save'
+revision: 0
+description: 'A block type used for placing polls in page regions.'

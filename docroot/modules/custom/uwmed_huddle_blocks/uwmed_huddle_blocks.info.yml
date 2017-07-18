@@ -1,0 +1,9 @@
+name: UWMed Custom Blocks
+type: module
+description: This will create the custom Editable Blocks for default Content.
+package: UWMed Custom Modules
+core: 8.x
+dependencies:
+  - drupal:block
+  - drupal:node
+package: uwmed

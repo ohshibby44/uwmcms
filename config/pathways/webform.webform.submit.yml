@@ -1,0 +1,125 @@
+uuid: f04f54cb-2a31-4507-a4b6-6af555a80ef6
+langcode: en
+status: open
+dependencies: {  }
+_core:
+  default_config_hash: vhO5VU-JLcpTbh2-sWCs9Zj-h0c_4pjx-_8-koPrJE8
+open: null
+close: null
+uid: 1
+template: false
+id: submit
+title: 'Submit a Story Idea'
+description: ''
+category: ''
+elements: "introduction:\n  '#type': webform_markup\n  '#markup': |\n    Need an intro paragraph here\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#first__required': true\n  '#last__required': true\n  '#required': true\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\ntell_us_about_your_story_idea:\n  '#type': textarea\n  '#title': 'Tell us about your story idea'\n  '#description': '<p>(max. 300 words)</p>'\n  '#counter_type': word\n  '#counter_maximum': '300'\n  '#required': true\nis_there_someone_at_uw_medicine_who_you_think_has_an_interesting:\n  '#type': textarea\n  '#title': 'Is there someone at UW Medicine who you think has an interesting story to tell? Tell us their name and a little about them.'\n  '#description': '<p>Is there someone at UW Medicine who you think has an interesting story to tell? Tell us their name and a little about them (max. 200 words)</p>'\n  '#counter_type': word\n  '#counter_maximum': '200'\nattach_a_photo:\n  '#type': webform_image_file\n  '#title': 'Attach photo(s)'\n  '#multiple': 10\nphoto_s_detail:\n  '#type': textarea\n  '#title': 'Photo(s) detail'\n  '#description': '<p>Does your photo include a patient? If so, please attach consent form here.&nbsp;</p>'\n  '#default_value': |\n    Provide a caption or description of your photo (max. 30 words)\n    \n    Please identify all the people in your photo\_\ndisclaimer:\n  '#type': webform_markup\n  '#markup': '<p>Disclaimer language TBD &ndash; we will post selected photos (need better language, but want to work with compliance to make sure we&rsquo;re not saying the wrong thing.&nbsp;</p>'\nrecaptcha:\n  '#type': captcha"
+css: ''
+javascript: ''
+settings:
+  page: true
+  page_submit_path: submit-story
+  page_confirm_path: submit-thank-you
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  submission_log: false
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_complete: true
+  wizard_complete_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  draft: none
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_message: ''
+  purge: none
+  purge_days: null
+  entity_limit_total: null
+  entity_limit_user: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: kevin+UWMwebform@beargroup.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: default
+      body: default
+      excluded_elements: {  }
+      html: true
+      attachments: false
+      debug: false
+      reply_to: ''
+      return_path: ''

@@ -1,0 +1,31 @@
+uuid: d0d329c2-4966-472c-a107-87c5ba55a54d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.question
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: restricted_html
+    full_html: full_html
+    video_format: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: N6OsH_hsR8yoBrvzi-iyIDE8t6lOwft5Ndlt2lpiLLE
+id: node.question.field_body
+field_name: field_body
+entity_type: node
+bundle: question
+label: 'Question Body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

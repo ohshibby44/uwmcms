@@ -1,0 +1,37 @@
+uuid: fc001900-663a-4197-8e3a-47a409b0110a
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: bqBMBl02Y_UEexfXUy5NXTh88xIwSOKaxcc8JCMl7BE
+id: uwmed_bootstrap_page_title
+theme: uwmed_bootstrap
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      award: award
+      landing_page: landing_page
+      webform: webform
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

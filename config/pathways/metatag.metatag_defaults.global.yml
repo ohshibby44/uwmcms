@@ -1,9 +1,9 @@
-uuid: e7c9b933-2b17-4a90-9c33-fd6ced8e8f4a
+uuid: c841ec70-8f96-45a8-b3bf-6407a223cf59
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 5rOnjIF_aDyGBmfXNhJnkPXxQMlem0CmVmggV-TF3Fg
+  default_config_hash: b-qxCu1VLGWjqvXKv4Nt7y2BUo5VSGpEIj8gb6C_PUY
 id: global
 label: Global
 tags:

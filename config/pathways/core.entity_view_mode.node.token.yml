@@ -1,9 +1,11 @@
-uuid: a40d9b4e-9448-48ce-bd29-97f49480a4aa
+uuid: fd55b800-a295-43cb-92f8-298a91d7b063
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: vIX64lRX14_lPePewHfWVFSyTfJt0Yh-Lja05UgP8N0
 id: node.token
 label: Token
 targetEntityType: node

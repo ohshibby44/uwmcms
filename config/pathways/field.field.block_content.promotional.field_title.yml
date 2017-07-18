@@ -1,0 +1,30 @@
+uuid: b6f653a3-e6cd-4da7-a488-34cab13c7363
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotional
+    - field.storage.block_content.field_title
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: 9a9_a6BErUqriQjOZg6fKE1wPod0rcr77HjrIZcverc
+id: block_content.promotional.field_title
+field_name: field_title
+entity_type: block_content
+bundle: promotional
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

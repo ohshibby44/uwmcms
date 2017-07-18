@@ -1,46 +1,63 @@
-uuid: 730b6e81-c907-4ac7-b428-c1b11178e0d7
+uuid: ab7d8c9a-6e71-444a-83d9-25e7806b4e13
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.answer.field_answer_color
+    - field.field.paragraph.answer.field_answer_position
     - field.field.paragraph.answer.field_body
     - field.field.paragraph.answer.field_full_name
     - field.field.paragraph.answer.field_location
     - field.field.paragraph.answer.field_title
     - paragraphs.paragraphs_type.answer
   module:
+    - options
     - text
 _core:
-  default_config_hash: TRqB6agxfM2w6cHDUfYjtOKkqfy5l1sgwOG88C7WCoY
+  default_config_hash: plRA4q1frrec9upFscNVfGMcT1Lz0kRQR10ZcTWQEOQ
 id: paragraph.answer.default
 targetEntityType: paragraph
 bundle: answer
 mode: default
 content:
+  field_answer_color:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_answer_position:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
   field_body:
     weight: 3
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_full_name:
-    weight: 1
-    label: above
+    weight: 4
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_location:
-    weight: 2
-    label: above
+    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_title:
-    weight: 0
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default

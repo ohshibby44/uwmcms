@@ -1,4 +1,4 @@
-uuid: 1949c87c-0811-4e20-b51d-f1d579cc8a8a
+uuid: 6d08e7f7-6505-4681-ad3c-45c079edaed9
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: UbVNJAciflKuRFZXcpPUrbs9eFHjb3TuLJtlklhWuw4
+  default_config_hash: Bh0zocvfDSbanXuhTkz03ABWjqlZtbUqlLQDouVobLc
 id: paragraph.simple.field_paragraph_reference
 field_name: field_paragraph_reference
 entity_type: paragraph

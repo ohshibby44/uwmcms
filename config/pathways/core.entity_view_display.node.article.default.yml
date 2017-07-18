@@ -1,4 +1,4 @@
-uuid: 4f8f84d6-3d16-421e-9cca-b5e80702f396
+uuid: 9b77ae1a-cbcc-4b26-8258-40623fe2a3c1
 langcode: en
 status: true
 dependencies:
@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_name
     - field.field.node.article.field_sections
     - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser
     - image.style.large
     - node.type.article
   module:
@@ -20,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: qda8rpQMtFJF0S85BvY3RM8gEWL5lxGv4Q5iGmHGJUE
+  default_config_hash: R2ZcavfX9Wo-S4yTRp0ZNSvfdaWeohTDoy1bS2qLEDE
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -83,10 +84,20 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+  field_teaser:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   links:
     weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
 hidden:
   field_meta_tags: true

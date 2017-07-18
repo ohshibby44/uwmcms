@@ -1,4 +1,4 @@
-uuid: e52c0e77-adb9-4bc5-9d05-9b71c3b59aad
+uuid: 4b2387f8-9a18-467b-9c09-1d3a176abff2
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: eml-26zsg-jZrkdlZwVq-u8sJudQPPKv7gILETfYXV8
+  default_config_hash: ROZMGFHR-HBquTfKUQovZwk4aUL702v831hfj3j3ucE
 id: paragraph.sidebar.default
 targetEntityType: paragraph
 bundle: sidebar

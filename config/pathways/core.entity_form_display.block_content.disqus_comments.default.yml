@@ -1,0 +1,32 @@
+uuid: ead3ebc0-8329-4a25-9fbb-20c4af32f031
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.disqus_comments
+    - field.field.block_content.disqus_comments.field_disqus_comments
+  module:
+    - disqus
+    - workbench_moderation
+_core:
+  default_config_hash: ZXjEfFDMBF1AvyjCw-WYuB4BpRoP7n8l9bJAM1SzdwY
+id: block_content.disqus_comments.default
+targetEntityType: block_content
+bundle: disqus_comments
+mode: default
+content:
+  field_disqus_comments:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: disqus_comment
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

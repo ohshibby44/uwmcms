@@ -1,11 +1,11 @@
-uuid: 88572f11-c662-4b21-83e1-ad224859c823
-name: 'The Huddle'
-mail: admin@example.com
-slogan: 'Connecting our world at UW Medicine'
+uuid: b5879ac5-f0fe-428f-a20f-1a0083537cf9
+name: 'UW Medicine'
+mail: no-reply@acquia.com
+slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

@@ -1,4 +1,4 @@
-uuid: 02cef3cf-6253-4ab9-96d2-9a6870a3b4b2
+uuid: 41b68b76-480d-4d6f-9a04-2e588cdde550
 langcode: en
 status: true
 dependencies:
@@ -28,7 +28,7 @@ third_party_settings:
         required_fields: true
       label: 'Optional sidebar'
 _core:
-  default_config_hash: 5mRYO2boQv36djrwtIycgwK-YE4cQzmBL3Mb5bLNTBM
+  default_config_hash: FXuzeB9SnbBfj99wEzFFbzDRK4m5suYSrnIKb7ioFHk
 id: paragraph.simple.default
 targetEntityType: paragraph
 bundle: simple

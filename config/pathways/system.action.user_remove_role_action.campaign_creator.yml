@@ -1,0 +1,14 @@
+uuid: a2fd6896-54dc-4e26-8aad-d2c59b4613e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.campaign_creator
+  module:
+    - user
+id: user_remove_role_action.campaign_creator
+label: 'Remove the Campaign page creator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: campaign_creator

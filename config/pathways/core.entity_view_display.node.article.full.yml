@@ -1,4 +1,4 @@
-uuid: e00fb518-f7a0-4d20-9454-7df536a23bf8
+uuid: e2a4d342-99b5-4e07-985a-923483a635d6
 langcode: en
 status: true
 dependencies:
@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.article.field_name
     - field.field.node.article.field_sections
     - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser
     - image.style.large
     - node.type.article
   module:
@@ -21,23 +22,15 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: r511fLh3jyZ3JuNw46AHpDgUtT8uziJST2H2gnol5RY
+  default_config_hash: HWA8ZFxfkaRN-0vblxYtFZyGeL3Y-ZGjOIlMCkrE-3s
 id: node.article.full
 targetEntityType: node
 bundle: article
 mode: full
 content:
-  field_category:
-    weight: 0
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_date:
-    weight: 2
-    label: above
+    weight: 0
+    label: hidden
     settings:
       timezone_override: ''
       format_type: uwm_date_format
@@ -46,16 +39,23 @@ content:
     region: content
   field_image:
     type: image
-    weight: 1
+    weight: 2
     region: content
     settings:
       image_style: large
       image_link: ''
     third_party_settings: {  }
-    label: above
-  field_name:
+    label: visually_hidden
+  field_image_credit:
+    type: text_default
     weight: 3
-    label: above
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_name:
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -63,14 +63,18 @@ content:
   field_sections:
     type: entity_reference_revisions_entity_view
     weight: 4
-    label: above
+    label: visually_hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  sharethis:
+    weight: 10
+    region: content
 hidden:
-  field_image_credit: true
+  field_category: true
   field_meta_tags: true
   field_tags: true
+  field_teaser: true
   links: true

@@ -1,4 +1,4 @@
-uuid: 38ced304-625d-48dd-87d6-27ef23ba5ed6
+uuid: abc72e2b-9952-445f-b1e8-7921f43cfea8
 langcode: und
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
     - image
     - media_entity
 _core:
-  default_config_hash: XGe7733940tqe5EeB1JE-SthsH_VJJCjWXKWO-EwFKE
+  default_config_hash: 3fGTvdFe4IZRpv6ieTEPM6Ijjl3ig-GdJ6kxwHMcVOQ
 id: media.image
 field_name: image
 entity_type: media
@@ -16,7 +16,6 @@ settings:
   uri_scheme: public
   default_image:
     uuid: null
-    fid: 0
     alt: ''
     title: ''
     width: null

@@ -1,4 +1,4 @@
-uuid: c40f29a3-deb0-4234-823b-0bb90c49f895
+uuid: 7f315614-2af0-4e82-be39-63cc5696c802
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: o-zdi2BMW40BiLY8HJgTtlUlvJVt-NIGcBYTEgGRhTM
+  default_config_hash: bKY9be0V5QAu85En9kb_GjSaEcr5tY3IjekJqmFgTao
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video

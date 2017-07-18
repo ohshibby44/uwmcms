@@ -1,4 +1,4 @@
-uuid: 5d3337dc-42a1-4019-872b-88b0fa15b877
+uuid: 5c65fd7c-4f2e-445f-92c0-1f972a85907e
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: RiEd1bbdk-j0LN-LVFZxr8BHOdqOiHXxg3uSw8aeLBk
+  default_config_hash: RkAZzP2xy_PFoNyBBcKJ__BDBQfXtNhvQVcatJyzyOc
 id: media.instagram.thumbnail
 targetEntityType: media
 bundle: instagram

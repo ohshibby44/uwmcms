@@ -1,0 +1,24 @@
+uuid: 6b673e9e-1d59-45a3-84b0-4874aee48453
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.gallery
+_core:
+  default_config_hash: XUmY5hCCCXEX6rZN1iLBjXGTZqmqfRI7CadRRmzsCtM
+id: node.gallery.promote
+field_name: promote
+entity_type: node
+bundle: gallery
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

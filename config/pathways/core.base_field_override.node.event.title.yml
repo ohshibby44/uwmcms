@@ -1,0 +1,20 @@
+uuid: 424d7c1f-a448-40c3-bb8c-e382687d35aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event
+_core:
+  default_config_hash: OEr6k8ufTUDqa-281L_FQfF7_Ql8WJz4VChDKwt9MYM
+id: node.event.title
+field_name: title
+entity_type: node
+bundle: event
+label: 'Event title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

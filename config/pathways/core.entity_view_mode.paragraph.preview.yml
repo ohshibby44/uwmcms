@@ -1,11 +1,11 @@
-uuid: b929b31d-84c6-4349-ac18-ea6a5871f741
+uuid: e2b97116-32a4-4fb4-8143-5ebd5c8c46e1
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: fAWHL-ZbCR4HOdE03GYzQfiMYfEvVhTWNBHWcU_pa18
+  default_config_hash: h3BeHVei4Lnyqbkao3YiF4KqoY-DhRvUNfEgKG8Rgjg
 id: paragraph.preview
 label: Preview
 targetEntityType: paragraph

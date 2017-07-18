@@ -1,0 +1,30 @@
+uuid: 4d150c4a-97e0-4776-98a8-7776713ee41d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.promotional
+    - field.storage.block_content.field_body
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: xX-4OMbw7feRCzH9APBChK1Gmda_DmgjU1olZ9qlSFo
+id: block_content.promotional.field_body
+field_name: field_body
+entity_type: block_content
+bundle: promotional
+label: Body
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,18 @@
+uuid: b17110f3-a95e-4dab-b4a2-535fd004bb7a
+langcode: en
+status: true
+dependencies: {  }
+id: campaign_reviewer
+label: 'Campaign page reviewer'
+weight: 12
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any campaign content'
+  - 'edit any campaign content'
+  - 'use draft_published transition'
+  - 'use needs_review_draft transition'
+  - 'use needs_review_published transition'
+  - 'use published_archived transition'
+  - 'use published_published transition'
+  - 'view moderation states'

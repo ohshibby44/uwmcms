@@ -1,0 +1,23 @@
+uuid: ef500d8c-9bcd-49d2-939f-43eb11cea3b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer_color
+    - paragraphs.paragraphs_type.answer
+  module:
+    - options
+_core:
+  default_config_hash: FEudDzPJihTzNqlh-u3XKdQFZjtZ1dr-9endK41mmSg
+id: paragraph.answer.field_answer_color
+field_name: field_answer_color
+entity_type: paragraph
+bundle: answer
+label: 'Answer Color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 932f35e5-fbad-4874-902e-749aa69ad605
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: n2CDA9AfQTGihIcyp6pjnnGTiqgK5kauSldfgjHV7fQ
+name: 'Campaign page'
+type: campaign
+description: 'Campaign landing page.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

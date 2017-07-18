@@ -1,0 +1,14 @@
+uuid: 4579896b-510e-463b-b19d-613fdaccb36b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.uwm_editor
+  module:
+    - user
+id: user_add_role_action.uwm_editor
+label: 'Add the UWM Editor role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: uwm_editor

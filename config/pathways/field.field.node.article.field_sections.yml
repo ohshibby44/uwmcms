@@ -1,11 +1,10 @@
-uuid: ccd4970a-8048-4e01-b127-11a9f81b8ed4
+uuid: ec0008f7-b1ee-4371-8282-7ca8bfa82256
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_sections
     - node.type.article
-    - paragraphs.paragraphs_type.gallery
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.quote
     - paragraphs.paragraphs_type.simple
@@ -13,7 +12,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: 3tDvu72yL--3qoXDvIQ6oMsWv9I21WnjqsmmCageeo0
+  default_config_hash: PysRtOjClh3z6EXtYDbChTnUIaPL3Vgfji-ADT4TXzw
 id: node.article.field_sections
 field_name: field_sections
 entity_type: node
@@ -31,28 +30,30 @@ settings:
       simple: simple
       image: image
       quote: quote
-      gallery: gallery
       video: video
     target_bundles_drag_drop:
       simple:
         enabled: true
-        weight: 2
+        weight: -17
       image:
         enabled: true
-        weight: 5
+        weight: -16
       quote:
         enabled: true
-        weight: 6
-      sidebar:
-        weight: 7
-        enabled: false
-      gallery:
-        enabled: true
-        weight: 8
-      gallery_item:
-        weight: 9
-        enabled: false
+        weight: -15
       video:
         enabled: true
-        weight: 14
+        weight: -14
+      sidebar:
+        weight: -13
+        enabled: false
+      gallery:
+        weight: -12
+        enabled: false
+      answer:
+        weight: -11
+        enabled: false
+      gallery_item:
+        weight: -10
+        enabled: false
 field_type: entity_reference_revisions

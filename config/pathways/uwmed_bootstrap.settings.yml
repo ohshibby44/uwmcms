@@ -1,0 +1,8 @@
+logo:
+  path: themes/custom/uwmed_bootstrap/logo.png
+  use_default: false
+favicon:
+  path: themes/custom/uwmed_bootstrap/favicon.ico
+  use_default: false
+_core:
+  default_config_hash: 4zOU84QfuJPSQRacw1-UPA1Ci_wdotk41md6Ztc8D-k

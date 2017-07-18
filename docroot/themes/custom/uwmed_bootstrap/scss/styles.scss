@@ -1,0 +1,33 @@
+ /* UWMED Custom Styles - Drupal
+   Author: Bear Group, www.beargroup.com
+   -- June 20, 2017 - Chris Bovard
+----------------------------------------------------------------------------------*/
+
+/* =Import Files for Mixin Usage
+----------------------------------------------------------------------------------*/
+//the variable file is the one that will be modified by the themer - chris bovard
+@import "custom_uwmed_variables";
+//boostrap mixins
+@import "bootstrap/mixins";
+
+
+/* =Styles for 320 to Desktop
+----------------------------------------------------------------------------------*/
+
+//320 mobile styles and up
+@import "_base_mobile.scss";
+
+//Tablet Styles 
+@media screen and (min-width: $screen-sm) {
+  @import "_breakpoint_tablet.scss";
+}
+
+//Desktop Styles
+@media screen and (min-width: $screen-md) {
+  @import "_breakpoint_desktop.scss";
+}
+
+//Large Desktop Styles
+@media screen and (min-width: $screen-lg-desktop) {
+ @import "_breakpoint_lg_desktop.scss";
+}

@@ -1,4 +1,4 @@
-uuid: 88962a8f-4829-4925-80a5-db776b84bbaf
+uuid: 3dff06cb-cde9-44f4-a7b4-db68666ec489
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,16 @@ dependencies:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.sidebar
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
 _core:
-  default_config_hash: jbYpdwMi0Qss-14SH8unJY0Yh3vRVC4z2QxCTzSXkSg
+  default_config_hash: QZXO5D_8sfCprC0-Z4oKJ40TpkclyDsU6gsFQ6pqVzc
 id: paragraph.sidebar.field_title
 field_name: field_title
 entity_type: paragraph

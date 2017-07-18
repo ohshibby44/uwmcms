@@ -1,4 +1,4 @@
-uuid: 2d03d15b-e03b-4ff8-9617-69380573eddf
+uuid: a0ac61ce-576c-4391-9f29-107be333908f
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: lt9QE0mVihEZOiM6GuqTw3QRA3s9iqs4SMMHYSZRJk0
+  default_config_hash: pVwkDa200-0PKHhkHSJ9bMFkWUsvCz6dsYL5PfpIkT8
 id: paragraph.sidebar.field_image
 field_name: field_image
 entity_type: paragraph

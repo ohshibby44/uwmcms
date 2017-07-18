@@ -1,4 +1,4 @@
-uuid: fc788d1e-f578-4d48-beba-decfa0241d99
+uuid: aa46a9d4-bb08-41f5-849d-be2b744c4b5b
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - paragraphs
     - workbench_moderation
 _core:
-  default_config_hash: gov5qmWIkr1MCtHu-RQWP946GC0IemxqMYM3tjnuPpE
+  default_config_hash: eCP1GbdbHi38u_D0ydpQjJjUN7QzFkRxtL97KE97STY
 id: paragraph.gallery.default
 targetEntityType: paragraph
 bundle: gallery

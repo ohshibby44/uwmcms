@@ -1,0 +1,27 @@
+uuid: 35d69d04-b9e0-4a42-889b-93f53cb3bdb9
+langcode: en
+status: true
+dependencies:
+  module:
+    - video_embed_wysiwyg
+_core:
+  default_config_hash: UJ1TwxjIjnA44pCEH7jGbusmUrmxRJVCRFkSB6erX7A
+name: 'Video Format'
+format: video_format
+weight: 0
+filters:
+  video_embed_wysiwyg:
+    id: video_embed_wysiwyg
+    provider: video_embed_wysiwyg
+    status: true
+    weight: 0
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
+      filter_html_help: true
+      filter_html_nofollow: false

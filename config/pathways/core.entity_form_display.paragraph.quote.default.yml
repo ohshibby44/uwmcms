@@ -1,4 +1,4 @@
-uuid: 51a346f0-9feb-46d7-8ee8-5b567c4728bd
+uuid: ed8bf0b0-f3f6-4dad-9a85-5d8df31a919b
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: jT9IGrEe0mB6UnKGIwfVEDoly7Pqw9KHqdByP0LHOtw
+  default_config_hash: '-6BFr3a-nT5min265O3RWC_fDpgJCTkr16D4mbfAdug'
 id: paragraph.quote.default
 targetEntityType: paragraph
 bundle: quote

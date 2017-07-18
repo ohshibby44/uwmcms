@@ -1,4 +1,4 @@
-uuid: 0ae572fc-1fb5-4553-8c09-e74f7b977e1a
+uuid: 97e39256-8644-4e28-9919-8f90f52cfb1b
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: jJf1UHyHJGT3Ffzj8mpxVydmFO6aEHyMszz7V5nLptE
+  default_config_hash: 3KTWqbIKVPBCMIIaMETYwDRSx90cqxHd3Wn58EP3nZw
 id: paragraph.gallery.default
 targetEntityType: paragraph
 bundle: gallery
@@ -17,7 +17,7 @@ content:
   field_paragraph_references:
     type: entity_reference_revisions_entity_view
     weight: 1
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''

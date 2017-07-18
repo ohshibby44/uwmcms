@@ -1,17 +1,17 @@
-uuid: bd8c9002-814f-449b-b156-4a64554ecc34
+uuid: 08b453fb-54ab-4ba0-944c-2a05d58f4b6e
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
+  default_config_hash: '-YeBpskZaktkg-8FbTp0mw3EEH5KAIZNfzwti9-Ov7M'
 name: large
-label: 'Large (480×480)'
+label: 'Large (800px wide)'
 effects:
   ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
     uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
     id: image_scale
     weight: 0
     data:
-      width: 480
-      height: 480
-      upscale: false
+      width: 800
+      height: null
+      upscale: true

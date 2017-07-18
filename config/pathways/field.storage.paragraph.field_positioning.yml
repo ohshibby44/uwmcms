@@ -1,11 +1,11 @@
-uuid: 913f94d3-9055-4a38-977b-b261b36596e1
+uuid: 684aa260-83cb-4657-9cd2-b3e009aaa151
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: bc8tqzcLYimTmOViBwGPGOoKchNf7f3nwZGe7sP4W-Y
+  default_config_hash: hHjIxQBpw-hhFXmPqW4R9vMstxuDCaFfjXQ6jP2-8aE
 id: paragraph.field_positioning
 field_name: field_positioning
 entity_type: paragraph

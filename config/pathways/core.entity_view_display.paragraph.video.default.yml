@@ -1,4 +1,4 @@
-uuid: f6877f47-a138-4b9d-bc9f-7018cb4cfdbd
+uuid: 90965611-86f1-4b1f-ba5b-fa18940eeffe
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: K1fEpvKmzAVgMDCGOlieMS_XIKfSPUxrPWHT34YB_Ps
+  default_config_hash: zV_E10xSTSXjV_C4IqTplGSu6WWAzqmr91VWt1ebb58
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
@@ -16,7 +16,7 @@ mode: default
 content:
   field_body:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default

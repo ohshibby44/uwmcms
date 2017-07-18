@@ -1,0 +1,11 @@
+uuid: 28cc3b5e-6934-41ff-80c1-88c6cc552917
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SvAZbp0q6OTtqayCQ6s8tcGn5bIuxEBnkSbIZGclhi0
+id: uwm_editor
+label: 'UWM Editor'
+weight: 4
+is_admin: null
+permissions: {  }

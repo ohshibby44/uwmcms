@@ -1,0 +1,32 @@
+uuid: 05258190-793f-4929-8713-68cced28274c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_events
+  module:
+    - system
+    - views
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: peyuMXOQ2inCRSX1V0g3EkkfQ1tIEZZ-6znQ3ojFko0
+id: views_block__uwm_events_block_1
+theme: uwmed_bootstrap
+region: lower_content
+weight: -8
+provider: null
+plugin: 'views_block:uwm_events-block_1'
+settings:
+  id: 'views_block:uwm_events-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/people\r\n/perspectives\r\n/news\r\n/people/*\r\n/perspectives/*\r\n/news/*\r\n/galleries\r\n/galleries/*\r\n/events/*/*"
+    negate: false
+    context_mapping: {  }

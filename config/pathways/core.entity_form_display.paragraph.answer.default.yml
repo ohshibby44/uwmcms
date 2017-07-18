@@ -1,23 +1,38 @@
-uuid: c6465f6c-45e7-4dd3-ac93-80368a0bd12b
+uuid: 3425bb28-0fc4-494f-9f8a-b78e103f7a5f
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.answer.field_answer_color
+    - field.field.paragraph.answer.field_answer_position
     - field.field.paragraph.answer.field_body
     - field.field.paragraph.answer.field_full_name
     - field.field.paragraph.answer.field_location
     - field.field.paragraph.answer.field_title
     - paragraphs.paragraphs_type.answer
   module:
+    - allowed_formats
     - text
     - workbench_moderation
 _core:
-  default_config_hash: wGappwGYlrUdMwRlegobLoQmluOmT3UwNgl88Y-bUAU
+  default_config_hash: 0A5jB2WFxbphvuTRw3Wpi0NQ8tLgVEasjs8oxql6yNc
 id: paragraph.answer.default
 targetEntityType: paragraph
 bundle: answer
 mode: default
 content:
+  field_answer_color:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_answer_position:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_body:
     weight: 3
     settings:
@@ -27,27 +42,36 @@ content:
     type: text_textarea
     region: content
   field_full_name:
-    weight: 1
+    weight: 4
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   field_location:
+    weight: 5
+    settings:
+      size: 255
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_title:
     weight: 2
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-    type: text_textfield
-    region: content
-  field_title:
-    weight: 0
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
 hidden:
