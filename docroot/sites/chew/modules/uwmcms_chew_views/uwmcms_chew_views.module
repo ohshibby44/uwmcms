@@ -16,10 +16,10 @@ function uwmcms_chew_views_views_pre_view(ViewExecutable $view, $display_id, arr
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node) {
       $category = $node->field_categories->entity;
-      $args[0] = $category->id();
 
-      /* In case the articles need to be selected by parent term again.
+      // Use the parent term if one exists.
       $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
+
       if (empty($parents)) {
         $args[0] = $category->id();
       }
@@ -27,7 +27,6 @@ function uwmcms_chew_views_views_pre_view(ViewExecutable $view, $display_id, arr
         $parent = array_shift($parents);
         $args[0] = $parent->id();
       }
-      */
     }
   }
 }

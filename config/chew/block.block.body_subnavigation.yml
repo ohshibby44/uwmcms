@@ -1,6 +1,6 @@
 uuid: bad6536c-b50d-41e0-b37d-1e87750d97d6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main

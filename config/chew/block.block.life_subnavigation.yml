@@ -1,6 +1,6 @@
 uuid: eda01630-c4a6-4b46-9a95-b1d263bee48a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.main

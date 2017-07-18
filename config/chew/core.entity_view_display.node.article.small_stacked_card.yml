@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.article.field_short_summary
     - node.type.article
   module:
-    - hierarchical_term_formatter
     - panelizer
     - text
     - user
@@ -30,20 +29,8 @@ targetEntityType: node
 bundle: article
 mode: small_stacked_card
 content:
-  field_categories:
-    type: hierarchical_term_formatter
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      display: root
-      link: '1'
-      wrap: none
-      separator: ' » '
-      reverse: 0
-    third_party_settings: {  }
   field_primary_media:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       view_mode: small
@@ -53,13 +40,14 @@ content:
     region: content
   field_short_summary:
     type: text_default
-    weight: 2
+    weight: 1
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_author: true
+  field_categories: true
   field_feature_category: true
   field_long_summary: true
   field_promotion: true
