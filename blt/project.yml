@@ -57,6 +57,6 @@ multisite:
   name:
     - default
     - chew
-    - pathways
+    - huddle
     - calendar
 

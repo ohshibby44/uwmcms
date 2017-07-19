@@ -371,9 +371,9 @@ $aliases['chew.uwmed.local'] = array(
   'uri' => 'http://chew.uwmed.local',
   );
 
-$aliases['pathways.uwmed.local'] = array(
+$aliases['huddle.uwmed.local'] = array(
   'root' => '/var/www/uwmed/docroot',
-  'uri' => 'http://pathways.uwmed.local',
+  'uri' => 'http://huddle.uwmed.local',
 );
 
 $aliases['calendar.uwmed.local'] = array(
@@ -402,8 +402,8 @@ if ('vagrant' != $_SERVER['USER']) {
 }
 
 if ('vagrant' != $_SERVER['USER']) {
-  $aliases['pathways.uwmed.local'] += array(
-    'remote-host' => 'pathways.uwmed.local',
+  $aliases['huddle.uwmed.local'] += array(
+    'remote-host' => 'huddle.uwmed.local',
     'remote-user' => 'vagrant',
     'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
   );

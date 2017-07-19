@@ -765,7 +765,7 @@ $settings['file_scan_ignore_directories'] = [
 # }
 
 if (file_exists('/var/www/site-php')) {
-  require '/var/www/site-php/uwmed/pathways-settings.inc';
+  require '/var/www/site-php/uwmed/huddle-settings.inc';
 }
 
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";

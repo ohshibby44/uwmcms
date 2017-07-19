@@ -28,7 +28,7 @@ The summary list of rules is:
 | --- | --- |
 | UWM-CMS | Entire Platform |
 | UWM-CHEW | Consumer Health Engagement Website (CHEW) |
-| UWM-PATH | Pathways (Employee Communications Website) |
+| UWM-HUD | Huddle (Employee Communications Website) |
 
 ## Contributing
 

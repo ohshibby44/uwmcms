@@ -8,4 +8,4 @@
  * ${project.local.uri}, will be replaced in the target file.
  */
 
-$options['uri'] = 'pathways.${project.local.uri}';
+$options['uri'] = 'huddle.${project.local.uri}';

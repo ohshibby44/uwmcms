@@ -13,9 +13,9 @@ $databases = array(
   array(
     'default' =>
     array(
-      'database' => 'pathways',
-      'username' => 'pathways',
-      'password' => 'pathways',
+      'database' => 'huddle',
+      'username' => 'huddle',
+      'password' => 'huddle',
       'host' => 'localhost',
       'port' => '3306',
       'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
