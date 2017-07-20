@@ -56,7 +56,9 @@
         "drupal/disqus": "^1.0@RC",
         "drupal/twig_tweak": "^1.8",
         "drupal/honeypot": "^1.27",
-        "drupal/robotstxt": "^1.1"
+        "drupal/robotstxt": "^1.1",
+        "drupal/acquia_lift": "~3.0",
+        "drupal/acquia_contenthub": "~1.0"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
