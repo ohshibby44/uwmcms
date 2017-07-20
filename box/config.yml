@@ -62,6 +62,9 @@ php_packages_extra:
   - "php{{ php_version }}-imagick"
   - imagemagick
 
+# Increase php memory limit
+php_memory_limit: "512M"
+
 # XDebug configuration.
 # Change this value to 1 in order to enable xdebug by default.
 php_xdebug_default_enable: 0
