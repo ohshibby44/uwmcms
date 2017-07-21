@@ -88,7 +88,7 @@ function uwmed_bootstrap_preprocess_webform(array &$variables) {
  * Implements hook_preprocess_menu() for menu.html.twig.
  */
 function uwmed_bootstrap_preprocess_menu(array &$variables) {
-  if ($hook == 'menu__main') {
+  if ($variables['theme_hook_original'] == 'menu__main') {
     $current_path = \Drupal::request()->getRequestUri();
     $items = $variables['items'];
     foreach ($items as $key => $item) {
