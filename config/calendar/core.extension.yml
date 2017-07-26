@@ -1,4 +1,7 @@
 module:
+  acquia_contenthub: 0
+  acquia_contenthub_subscriber: 0
+  acquia_lift: 0
   better_exposed_filters: 0
   block: 0
   block_content: 0
@@ -10,7 +13,6 @@ module:
   contact: 0
   contact_storage: 0
   contextual: 0
-  contextual_range_filter: 0
   ctools: 0
   ctools_block: 0
   ctools_views: 0
