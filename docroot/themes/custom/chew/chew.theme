@@ -69,21 +69,6 @@ function chew_preprocess_page__taxonomy__term(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for media large image style templates.
- */
-function chew_preprocess_media__large(&$variables) {
-  // Don't display Caption or Credit fields on the front page.
-  if (\Drupal::service('path.matcher')->isFrontPage()) {
-    if (isset($variables['content']['field_caption'])) {
-      unset($variables['content']['field_caption']);
-    }
-    if (isset($variables['content']['field_credit'])) {
-      unset($variables['content']['field_credit']);
-    }
-  }
-}
-
-/**
  * Implements hook_preprocess_HOOK() for article author field templates.
  */
 function chew_preprocess_field__node__field_author__article(&$variables) {

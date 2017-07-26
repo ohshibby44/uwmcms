@@ -1,0 +1,8 @@
+uuid: a2ff9607-b1a3-4ff8-8631-48db7022432a
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_term__categories
+label: 'Taxonomy term: Categories'
+tags:
+  og_image: '[term:field_banner:entity:image]'

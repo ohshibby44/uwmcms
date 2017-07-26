@@ -5,9 +5,11 @@ dependencies:
   config:
     - entity_browser.browser.banner_image_browser
     - field.field.taxonomy_term.categories.field_banner
+    - field.field.taxonomy_term.categories.field_meta_tags
     - taxonomy.vocabulary.categories
   module:
     - entity_browser
+    - metatag
     - path
     - text
 id: taxonomy_term.categories.default
@@ -36,6 +38,12 @@ content:
       open: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_meta_tags:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   name:
     type: string_textfield

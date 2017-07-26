@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.categories.field_banner
+    - field.field.taxonomy_term.categories.field_meta_tags
     - taxonomy.vocabulary.categories
   module:
     - panelizer
@@ -35,4 +36,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-hidden: {  }
+hidden:
+  field_meta_tags: true

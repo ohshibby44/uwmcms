@@ -29,6 +29,14 @@ targetEntityType: node
 bundle: article
 mode: small_stacked_card
 content:
+  field_feature_category:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_primary_media:
     weight: 0
     label: hidden
@@ -40,7 +48,7 @@ content:
     region: content
   field_short_summary:
     type: text_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }
@@ -48,7 +56,6 @@ content:
 hidden:
   field_author: true
   field_categories: true
-  field_feature_category: true
   field_long_summary: true
   field_promotion: true
   field_quick_read: true
