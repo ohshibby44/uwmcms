@@ -10,6 +10,20 @@ use Drupal\node\Entity\Node;
 use Drupal\pathauto\PathautoPatternInterface;
 
 /**
+ * Implements hook_node_presave().
+ */
+function uwmcms_chew_misc_node_presave(EntityInterface $node) {
+  switch ($node->bundle()) {
+    case 'article':
+      // Unpromote the article if it's sticky.
+      if ($node->sticky->value) {
+        $node->promote = FALSE;
+      }
+      break;
+  }
+}
+
+/**
  * Implements hook_node_insert().
  */
 function uwmcms_chew_misc_node_insert(EntityInterface $node) {

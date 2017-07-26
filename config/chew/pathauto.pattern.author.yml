@@ -1,0 +1,22 @@
+uuid: 15d99225-82ab-4c2d-912c-1387a44b2a93
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: author
+label: Author
+type: 'canonical_entities:node'
+pattern: '/authors/[node:field_person_name]'
+selection_criteria:
+  f6e443af-780e-4ce5-b943-4af97e8de6a5:
+    id: node_type
+    bundles:
+      author: author
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f6e443af-780e-4ce5-b943-4af97e8de6a5
+selection_logic: and
+weight: -5
+relationships: {  }
