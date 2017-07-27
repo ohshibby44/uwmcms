@@ -1,0 +1,24 @@
+uuid: 554c98c2-a39f-4c36-af29-c9beeaff681d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.unpublish
+    - node.type.article
+    - scheduled_updates.scheduled_update_type.unpublish_articles
+id: node.article.unpublish
+field_name: unpublish
+entity_type: node
+bundle: article
+label: Unpublish
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    target_bundles:
+      - unpublish_articles
+  handler: 'default:scheduled_update'
+field_type: entity_reference

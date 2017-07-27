@@ -15,17 +15,22 @@ function uwmcms_chew_views_views_pre_view(ViewExecutable $view, $display_id, arr
   if ($view->id() == 'related_articles') {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node) {
-      $category = $node->field_categories->entity;
+      if (!empty($node->field_categories)) {
+        $category = $node->field_categories->entity;
+        if (isset($category)) {
+          // Use the parent term if one exists.
+          $parents = \Drupal::entityTypeManager()
+            ->getStorage('taxonomy_term')
+            ->loadParents($category->id());
 
-      // Use the parent term if one exists.
-      $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
-
-      if (empty($parents)) {
-        $args[0] = $category->id();
-      }
-      else {
-        $parent = array_shift($parents);
-        $args[0] = $parent->id();
+          if (empty($parents)) {
+            $args[0] = $category->id();
+          }
+          else {
+            $parent = array_shift($parents);
+            $args[0] = $parent->id();
+          }
+        }
       }
     }
   }

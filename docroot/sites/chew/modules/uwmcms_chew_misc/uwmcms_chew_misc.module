@@ -60,14 +60,16 @@ function uwmcms_chew_misc_pathauto_pattern_alter(PathautoPatternInterface &$patt
   if ($pattern->id() == 'article') {
     if (isset($context['data']['node'])) {
       $node = $context['data']['node'];
-      $category = $node->field_categories->entity;
-      if (isset($category)) {
-        $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
-        if (!empty($parents)) {
-          $parent = array_shift($parents);
-          $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
-          $altered_pattern =$parent_part . '/' . $pattern->getPattern();
-          $pattern->setPattern($altered_pattern);
+      if (!empty($node->field_categories)) {
+        $category = $node->field_categories->entity;
+        if (isset($category)) {
+          $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
+          if (!empty($parents)) {
+            $parent = array_shift($parents);
+            $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
+            $altered_pattern =$parent_part . '/' . $pattern->getPattern();
+            $pattern->setPattern($altered_pattern);
+          }
         }
       }
     }
