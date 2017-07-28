@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "fc088cea9e8e19e01c4ea583a5aa2c2c",
+    "content-hash": "201b385833c7f5bdac46e9bd0a05cef0",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4729,6 +4730,44 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/focal_point"
             }
+        },
+        {
+            "name": "drupal/google_tag",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/google_tag",
+                "reference": "09ce10cf135db411b333cfd80e7ce023bc7fe232"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1494267785"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "solotandem",
+                    "homepage": "https://www.drupal.org/user/240748"
+                }
+            ],
+            "description": "Allows your website analytics to be managed using Google Tag Manager.",
+            "homepage": "https://www.drupal.org/project/google_tag",
+            "support": {
+                "source": "http://cgit.drupalcode.org/google_tag"
+            },
+            "time": "2017-06-16 21:53:17"
         },
         {
             "name": "drupal/hierarchical_term_formatter",
@@ -13639,6 +13678,7 @@
         "drupal/better_exposed_filters": 15,
         "drupal/disqus": 5,
         "drupal/conditional_fields": 15,
+        "drupal/google_tag": 20,
         "drupal/memcache": 20
     },
     "prefer-stable": true,
