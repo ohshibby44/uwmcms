@@ -1,0 +1,28 @@
+uuid: 96c963f8-b25f-4d5a-82d3-36ee0edf9158
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_category
+    - node.type.calendar_event
+    - taxonomy.vocabulary.event_tags
+id: node.calendar_event.field_event_category
+field_name: field_event_category
+entity_type: node
+bundle: calendar_event
+label: 'Event Category'
+description: 'If more than one event audience is selected, please be sure to include an event category for each audience. To select multiple categories, hold down the CTRL (Windows) or COMMAND (Mac) key on your keyboard.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event_tags: event_tags
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

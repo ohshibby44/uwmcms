@@ -2,8 +2,8 @@ uuid: fc2b91c3-4cbd-46b7-8975-38f09fa6900b
 langcode: en
 status: true
 dependencies: {  }
-name: 'Event Tags'
+name: 'Event Category'
 vid: event_tags
-description: ''
-hierarchy: 0
+description: 'Set the category for an event.'
+hierarchy: 1
 weight: 0

@@ -1,0 +1,36 @@
+uuid: 848a4703-7c5d-40eb-af14-63f4ac57355e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.facilitator.field_description
+    - field.field.paragraph.facilitator.field_full_name
+    - paragraphs.paragraphs_type.facilitator
+  module:
+    - text
+    - workbench_moderation
+id: paragraph.facilitator.default
+targetEntityType: paragraph
+bundle: facilitator
+mode: default
+content:
+  field_description:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_full_name:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

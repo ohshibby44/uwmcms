@@ -1,0 +1,23 @@
+uuid: 8009dae9-5752-4db3-8084-a53d8dd717ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.calendar_event
+  module:
+    - metatag
+id: node.calendar_event.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: calendar_event
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

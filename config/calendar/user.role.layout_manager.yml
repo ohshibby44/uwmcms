@@ -17,5 +17,6 @@ permissions:
   - 'administer node display'
   - 'administer panelizer'
   - 'administer panelizer node calendar_event defaults'
+  - 'administer panelizer node event_location defaults'
   - 'administer panelizer node landing_page defaults'
   - 'administer panelizer node page defaults'

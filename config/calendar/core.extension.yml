@@ -2,6 +2,10 @@ module:
   acquia_contenthub: 0
   acquia_contenthub_subscriber: 0
   acquia_lift: 0
+  address: 0
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
+  adminimal_admin_toolbar: 0
   better_exposed_filters: 0
   block: 0
   block_content: 0
@@ -9,7 +13,10 @@ module:
   calendar: 0
   calendar_datetime: 0
   ckeditor: 0
+  conditional_fields: 0
   config: 0
+  config_filter: 0
+  config_ignore: 0
   contact: 0
   contact_storage: 0
   contextual: 0
@@ -22,6 +29,7 @@ module:
   devel: 0
   devel_generate: 0
   diff: 0
+  duration_field: 0
   editor: 0
   embed: 0
   entity: 0
@@ -29,8 +37,9 @@ module:
   entity_browser: 0
   entity_embed: 0
   entity_reference: 0
+  entity_reference_revisions: 0
   field: 0
-  field_permissions: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -87,6 +96,7 @@ module:
   shortcut: 0
   system: 0
   taxonomy: 0
+  telephone: 0
   text: 0
   token: 0
   toolbar: 0
@@ -102,12 +112,14 @@ module:
   workbench_moderation: 0
   menu_link_content: 1
   views: 10
+  paragraphs: 11
   lightning: 1000
 theme:
   stable: 0
   classy: 0
   bartik: 0
   seven: 0
+  adminimal_theme: 0
 profile: lightning
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

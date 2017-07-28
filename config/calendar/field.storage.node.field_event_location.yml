@@ -1,4 +1,4 @@
-uuid: b84c1ebb-bf07-4a56-afef-8d5ba64469f9
+uuid: a068f374-eec9-4cd0-888e-c53587807f6a
 langcode: en
 status: true
 dependencies:
@@ -7,12 +7,12 @@ dependencies:
 id: node.field_event_location
 field_name: field_event_location
 entity_type: node
-type: string_long
+type: entity_reference
 settings:
-  case_sensitive: false
+  target_type: node
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

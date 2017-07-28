@@ -1,0 +1,27 @@
+uuid: c1e62955-0756-49e7-bc70-3808533d26ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.call_to_action.field_cta_link
+    - paragraphs.paragraphs_type.call_to_action
+  module:
+    - link
+    - workbench_moderation
+id: paragraph.call_to_action.default
+targetEntityType: paragraph
+bundle: call_to_action
+mode: default
+content:
+  field_cta_link:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

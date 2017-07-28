@@ -1,0 +1,23 @@
+uuid: 09876deb-a5f9-4bf1-84a1-32a5300f0b3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cost
+    - node.type.calendar_event
+id: node.calendar_event.field_cost
+field_name: field_cost
+entity_type: node
+bundle: calendar_event
+label: Cost
+description: 'Enter 0 if an event is Free, or leave blank to not include the cost field in the display.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

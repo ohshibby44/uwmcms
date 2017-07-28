@@ -1,0 +1,18 @@
+uuid: f022f7b8-a0f0-4925-a874-98e190d5fa4d
+langcode: en
+status: true
+dependencies: {  }
+id: event_location_reviewer
+label: 'Event Location reviewer'
+weight: 10
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'delete any event_location content'
+  - 'edit any event_location content'
+  - 'use draft_published transition'
+  - 'use needs_review_draft transition'
+  - 'use needs_review_published transition'
+  - 'use published_archived transition'
+  - 'use published_published transition'
+  - 'view moderation states'

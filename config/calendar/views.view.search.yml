@@ -83,6 +83,7 @@ display:
               page: teaser
               landing_page: teaser
               calendar_event: default
+              event_location: default
       fields:
         rendered:
           table: search_api_index_content

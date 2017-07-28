@@ -58,7 +58,10 @@
         "drupal/honeypot": "^1.27",
         "drupal/robotstxt": "^1.1",
         "drupal/acquia_lift": "~3.0",
-        "drupal/acquia_contenthub": "~1.0"
+        "drupal/acquia_contenthub": "~1.0",
+        "drupal/duration_field": "^1.1",
+        "drupal/conditional_fields": "^1.0@alpha",
+        "drupal/config_ignore": "^2.0"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
