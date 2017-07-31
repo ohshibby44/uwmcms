@@ -46,12 +46,14 @@
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content.field_title }}
-      {{ content.field_caption }}
-      {{ content.field_image }}
-      {{ content.field_attribution }}
-    {% endblock %}
-  </div>
+  {% if ( content.field_title|render ) or ( content.field_image|render ) or (content.field_image|render) %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        {{ content.field_title }}
+        {{ content.field_caption }}
+        {{ content.field_image }}
+        {{ content.field_attribution }}
+      {% endblock %}
+    </div>
+  {% endif %}
 {% endblock paragraph %}
