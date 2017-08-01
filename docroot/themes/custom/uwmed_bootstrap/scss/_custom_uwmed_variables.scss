@@ -1,7 +1,7 @@
 // UWMED - Custom Bootstrap Variables
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// July 15, 2017
+// July 31, 2017
 
 // Custom Font Includes Mixins
 @mixin encodesans-bold {
@@ -202,9 +202,9 @@ $body-bg:               $uw-off-white !default;
 $text-color:            $uw-dark-grey !default;
 
 //** Global textual link color.
-$link-color:            $bright-purple !default;
+$link-color:            $uw-purple !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      $bright-purple !default;
+$link-hover-color:      $uw-purple !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
 
@@ -548,7 +548,7 @@ $navbar-default-link-color:                #777 !default;
 $navbar-default-link-hover-color:          #333 !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         #555 !default;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-active-bg:            transparent !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 

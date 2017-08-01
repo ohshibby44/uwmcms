@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// July 15, 2017
+// July 31, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -342,7 +342,6 @@
 }
 //Header Area ends -------------------------------------------------------------------
 
-
 //Upper Content & Main Area ----------------------------------------------------------
 #sidebar-second {
   // Global Sidebar Block Styles
@@ -545,34 +544,6 @@
 .event.node.full {
   header {
     max-width: 800px;
-    
-    /*.field--name-field-date {
-      float: left;
-      padding-right: 20px;
-      width: 80px;
-      &__inner {
-        width: 55px;
-        height: 55px;
-        border: 2px solid $uw-light-grey;
-        float: left;
-        padding-top: 8px;
-        span {
-          text-align: center;
-          display: block;
-          color: $uw-purple;
-        }
-        .month {
-          @include font-size(1.3, 1.6);
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-        .day {
-          @include font-size(1.8, 2.4);
-          @include encodesans-compressedbold;
-        }
-      }
-    }*/
-    
     .field--name-field-date {
       padding-left: 0;
       width: 70px;
@@ -647,7 +618,6 @@
     text-align: left;
   }
 }
-
 .question.node.full {
   padding-bottom: 20px;
   header {
@@ -679,7 +649,6 @@
     }
   }
 }
-
 .campaign.full.node {
   header {
     margin-top: 60px;
@@ -719,7 +688,6 @@
     text-align: left;
   }
 }
-
 
 // Gallery Node
 .gallery.featured {
@@ -842,6 +810,10 @@
           img {float: left;}
         }
       }
+      .field--name-field-image-credit {
+        margin-bottom: 0;
+        margin-top: 15px;
+      }
       .paragraph-image-text {
         padding-left: 26px;
         float: right;
@@ -852,6 +824,11 @@
         float: right;
         .field--name-field-image {
           img {float: right;}
+        }
+        .field--name-field-image-credit {
+          margin-bottom: 0;
+          margin-top: 15px;
+          padding-left: 28px;
         }
       }
       .paragraph-image-text {
