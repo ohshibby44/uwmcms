@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\video_embed_field\Plugin\video_embed_field\Provider;
+namespace Drupal\uwmcs_mediaamp\Plugin\video_embed_field\Provider;
 
 use Drupal\video_embed_field\ProviderPluginBase;
 
