@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\pathauto\PathautoPatternInterface;
 
@@ -102,6 +103,23 @@ function uwmcms_chew_misc_preprocess_media__large(&$variables) {
     if (isset($variables['content']['field_credit'])) {
       unset($variables['content']['field_credit']);
     }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_article_edit_form.
+ *
+ * Customize the Promotion Options section on the node edit form for articles.
+ */
+function uwmcms_chew_misc_form_node_article_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['promote']['widget']['value']['#title'])) {
+    $form['promote']['widget']['value']['#title'] = t('Featured article');
+  }
+  if (isset($form['sticky']['widget']['value']['#title'])) {
+    $form['sticky']['widget']['value']['#title'] = t('Highlighted article');
+  }
+  if (isset($form['options'])) {
+    $form['options']['#open'] = TRUE;
   }
 }
 
