@@ -1,17 +1,17 @@
-uuid: 96c963f8-b25f-4d5a-82d3-36ee0edf9158
+uuid: eb76c315-2120-45e0-a4ef-00ca774f6ddf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_category
+    - field.storage.node.field_event_categories
     - node.type.calendar_event
     - taxonomy.vocabulary.event_tags
-id: node.calendar_event.field_event_category
-field_name: field_event_category
+id: node.calendar_event.field_event_categories
+field_name: field_event_categories
 entity_type: node
 bundle: calendar_event
-label: 'Event Category'
-description: 'If more than one event audience is selected, please be sure to include an event category for each audience. To select multiple categories, hold down the CTRL (Windows) or COMMAND (Mac) key on your keyboard.'
+label: 'Event Categories'
+description: ''
 required: false
 translatable: false
 default_value: {  }

@@ -4,10 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_image
+    - field.field.node.page.field_information
     - field.field.node.page.field_meta_tags
+    - field.field.node.page.panelizer
     - field.field.node.page.scheduled_update
+    - image.style.thumbnail
     - node.type.page
   module:
+    - entity_reference_revisions
+    - image
     - inline_entity_form
     - metatag
     - path
@@ -34,6 +40,28 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_image:
+    type: entity_browser_file
+    weight: 27
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    region: content
+    third_party_settings: {  }
+  field_information:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_autocomplete
     region: content
   field_meta_tags:
     type: metatag_firehose
@@ -90,4 +118,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  panelizer: true

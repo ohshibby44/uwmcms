@@ -1,18 +1,18 @@
-uuid: 074c18d4-401f-4987-b2e9-705c9b00a8b4
+uuid: 9b4657ee-cd1c-41a3-8405-d911a8950675
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_name
+    - field.storage.node.field_room_name
     - node.type.calendar_event
-id: node.calendar_event.field_name
-field_name: field_name
+id: node.calendar_event.field_room_name
+field_name: field_room_name
 entity_type: node
 bundle: calendar_event
-label: Room
+label: 'Room Name'
 description: 'Enter a room number or name. For example: 112 or Orin Smith Auditorium.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -1,14 +1,14 @@
-uuid: ae7f6679-05ed-49ed-a432-46da63655135
+uuid: d03c3c6f-0d24-4349-b793-bf501cc82040
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_information
+    - field.storage.node.field_event_information
     - node.type.calendar_event
   module:
     - entity_reference_revisions
-id: node.calendar_event.field_information
-field_name: field_information
+id: node.calendar_event.field_event_information
+field_name: field_event_information
 entity_type: node
 bundle: calendar_event
 label: 'Event Information'
@@ -22,16 +22,16 @@ settings:
   handler_settings:
     target_bundles: null
     target_bundles_drag_drop:
-      description:
-        weight: -9
-        enabled: false
-      facilitator:
-        weight: -8
-        enabled: false
       call_to_action:
-        weight: -7
+        weight: 5
         enabled: false
       contact_information:
-        weight: -6
+        weight: 6
+        enabled: false
+      description:
+        weight: 7
+        enabled: false
+      facilitator:
+        weight: 8
         enabled: false
 field_type: entity_reference_revisions

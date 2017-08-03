@@ -1,17 +1,17 @@
-uuid: 5bc81acc-c65f-45d1-9690-a31278500acc
+uuid: 7b923b19-d498-431b-a19d-841b8ec8c65a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_date
+    - field.storage.node.field_date_time
     - node.type.calendar_event
   module:
     - datetime
-id: node.calendar_event.field_date
-field_name: field_date
+id: node.calendar_event.field_date_time
+field_name: field_date_time
 entity_type: node
 bundle: calendar_event
-label: 'Date and Start Time'
+label: 'Start Date and Time'
 description: 'Use the calendar date picker to choose a date. Time must be entered in 24 hour format: HH:MM:SS.'
 required: true
 translatable: false

@@ -1,17 +1,17 @@
-uuid: db9dc79b-a32f-420c-b6dd-bd2d046dc04a
+uuid: ecdee8c3-b8db-4399-abe8-f78a8e83ba67
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_text
+    - field.storage.node.field_private_note
     - node.type.calendar_event
   module:
     - text
-id: node.calendar_event.field_text
-field_name: field_text
+id: node.calendar_event.field_private_note
+field_name: field_private_note
 entity_type: node
 bundle: calendar_event
-label: 'Editor Notes'
+label: 'Private Notes'
 description: ''
 required: false
 translatable: false

@@ -1,20 +1,19 @@
-uuid: cfe9c90a-ab4c-4b77-b03e-8b99a339cc27
+uuid: 4c9f8358-a85d-4261-afc0-15381c18a8a4
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_name
-field_name: field_name
+    - taxonomy
+id: node.field_event_audiences
+field_name: field_event_audiences
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
