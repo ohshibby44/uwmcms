@@ -36,28 +36,28 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     case 'dev':
       $config['acquia_contenthub']['admin_settings'] = [
-        'webhook_uuid' => '47a7fa22-1def-4b7a-6af5-4f163caed22c',
+        'webhook_uuid' => '',
         'webhook_url' => 'http://calendar.cmsdev.uwmedicine.org/acquia-contenthub/webhook',
       ];
       break;
 
     case 'test':
       $config['acquia_contenthub']['admin_settings'] = [
-        'webhook_uuid' => '43820d7a-7f2b-414f-6cd7-20178919eb58',
+        'webhook_uuid' => '',
         'webhook_url' => 'http://calendar.cmsstage.uwmedicine.org/acquia-contenthub/webhook',
       ];
       break;
 
     case 'prod':
       $config['acquia_contenthub']['admin_settings'] = [
-        'webhook_uuid' => '89623f30-69ac-44e9-75b0-ab1fb462ff1d',
+        'webhook_uuid' => '',
         'webhook_url' => 'http://calendar.cms.uwmedicine.org/acquia-contenthub/webhook',
       ];
       break;
 
     case 'ra':
       $config['acquia_contenthub']['admin_settings'] = [
-        'webhook_uuid' => '', # not initialized yet
+        'webhook_uuid' => '',
         'webhook_url' => 'http://calendar.cmsra.uwmedicine.org/acquia-contenthub/webhook',
       ];
       break;
