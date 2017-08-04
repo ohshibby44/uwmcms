@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - field.field.node.article.publish
-    - field.field.node.article.unpublish
     - node.type.article
   module:
     - allowed_formats
@@ -225,17 +224,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-  unpublish:
-    type: inline_entity_form_complex
-    weight: 11
-    settings:
-      override_labels: true
-      label_singular: Unpublish
-      label_plural: Unpublishs
-      allow_new: true
-      match_operator: CONTAINS
-      allow_existing: false
-      form_mode: default
-    third_party_settings: {  }
-    region: content
 hidden: {  }

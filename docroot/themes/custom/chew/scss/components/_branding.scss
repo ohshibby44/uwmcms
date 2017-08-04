@@ -10,7 +10,8 @@
   .logo {
     width: 100%;
     @media (min-width: $screen-md) {
-      width: 360px;
+      width: 480px;
+      margin-top: 12px;
     }
     img {
       width: 100%;

@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
 use Drupal\node\Entity\Node;
 use Drupal\pathauto\PathautoPatternInterface;
 
@@ -120,6 +121,16 @@ function uwmcms_chew_misc_form_node_article_edit_form_alter(&$form, FormStateInt
   }
   if (isset($form['options'])) {
     $form['options']['#open'] = TRUE;
+  }
+
+  // Hide the edit button for Author field.
+  if (isset($form['field_author']['widget']['entities'])) {
+    $entity_deltas = Element::children($form['field_author']['widget']['entities']);
+    foreach ($entity_deltas as $delta) {
+      if (isset($form['field_author']['widget']['entities'][$delta]['actions']['ief_entity_edit'])) {
+        $form['field_author']['widget']['entities'][$delta]['actions']['ief_entity_edit']['#access'] = FALSE;
+      }
+    }
   }
 }
 
