@@ -2461,7 +2461,7 @@ display:
   entity_browser_5:
     display_plugin: entity_browser
     id: entity_browser_5
-    display_title: 'Prromotion Image Browser'
+    display_title: 'Promotion Image Browser'
     position: 3
     display_options:
       display_extenders: {  }

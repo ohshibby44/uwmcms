@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
+    - entity_browser.browser.promotion_browser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
@@ -127,13 +127,18 @@ content:
     third_party_settings: {  }
     region: content
   field_promotion:
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     weight: 8
     region: content
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: promotion_browser
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_edit: false
+      open: false
     third_party_settings: {  }
   field_quick_read:
     type: entity_reference_paragraphs

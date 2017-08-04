@@ -11,8 +11,8 @@ name: promotion_image_browser
 label: 'Promotion Image Browser'
 display: iframe
 display_configuration:
-  width: '650'
-  height: '500'
+  width: '800'
+  height: '900'
   link_text: 'Select entities'
   auto_open: false
 selection_display: no_display

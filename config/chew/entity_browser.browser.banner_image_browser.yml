@@ -11,8 +11,8 @@ name: banner_image_browser
 label: 'Banner Image Browser'
 display: iframe
 display_configuration:
-  width: '650'
-  height: '500'
+  width: '800'
+  height: '900'
   link_text: 'Select image(s)'
   auto_open: false
 selection_display: no_display

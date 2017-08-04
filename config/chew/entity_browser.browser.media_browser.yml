@@ -14,7 +14,7 @@ label: 'Media browser'
 display: iframe
 display_configuration:
   width: '800'
-  height: '640'
+  height: '900'
   link_text: 'Add media'
   auto_open: false
   path: /media-browser
