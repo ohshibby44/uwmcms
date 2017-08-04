@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// July 31, 2017
+// Aug. 4, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -91,7 +91,6 @@ h1, h2, h4 {
 
 // =Base Mobile Layout and Styles
 //-----------------------------------------------------------------------------------
-
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -402,7 +401,6 @@ body {
 }
 //Header Area ends ------------------------------------------------------------------
 
-
 //Upper Content & Main Area ---------------------------------------------------------
 .region-upper-content {
 	@include make-row();
@@ -477,11 +475,9 @@ body {
   @include clearfix();
   min-height: 1px;
 }
-
 .main-row {
   @include make-row();
 }
-
 #main {
   // No Sidebars
   #content {
@@ -573,7 +569,6 @@ body {
     padding-bottom: 38px;
   }
 }
-
 
 // Front Page Theming
 .landing-page.full {
@@ -716,7 +711,6 @@ body {
   }
 }
 
-
 // Node Theming
 .article.featured {
   max-width: 800px;
@@ -797,6 +791,7 @@ body {
 .gallery.node.full,
 .page.node.full,
 .event.node.full,
+.calendar-event.node.full,
 .question.node.full {
   header {
     @include font-size(3.2, 3.6);
@@ -854,7 +849,11 @@ body {
     padding-top: 18px;
     padding-bottom: 30px;
   }
-  .field--name-field-body {
+  .event-details-wrap {
+    padding-bottom: 30px;
+  }
+  .field--name-field-body,
+  .field--name-field-description {
     .align-left {
       margin: 0 15px 0 0;
     }
@@ -884,11 +883,13 @@ body {
   }
 }
 
-.event.node.full {
+.event.node.full,
+.calendar-event.node.full {
   header {
     @include clearfix();
     min-height: 1px;
-    .field--name-field-date {
+    .field--name-field-date,
+    .field--name-field-date-time {
       float: left;
       padding-right: 20px;
       width: 80px;
@@ -956,6 +957,12 @@ body {
           @include encodesans-compressedsemibold;
           @include font-size(1.6, 1.9);
           color: #000;
+          &.field--label-inline {
+            .field--label,
+            .field--item {
+              display: inline-block;
+            }
+          }
           p {
             @include encodesans-compressedsemibold;
             @include font-size(1.6, 1.9);
@@ -980,13 +987,22 @@ body {
           }
         }
         .field--name-field-duration,
-        .field--name-field-address {
+        .field--name-field-cost,
+        .field--name-field-address,
+        .field--name-field-event-location,
+        .field--name-field-name,
+        .field--name-field-text,
+        .field--name-field-private-note,
+        .field--name-field-event-audiences,
+        .field_event_categories {
           margin-bottom: 18px;
         }
       }
     }
   }
-  .field--name-field-body {
+  .field--name-field-body,
+  .field--name-field-text,
+  .field--name-field-description {
     @include font-size(1.4, 2.1);
     color: #000;
     padding-bottom: 26px;
@@ -995,7 +1011,8 @@ body {
       color: #000;
     }
   }
-  .field--name-field-call-to-action {
+  .field--name-field-call-to-action,
+  .field--name-field-cta-link {
     margin-bottom: 20px;
     text-align: center;
     a {
@@ -1550,7 +1567,8 @@ body {
   > .views-attachment-before {
     .views-content {
       // Event Featured Node
-      .event.featured {
+      .event.featured,
+      .calendar-event.featured {
         max-width: 800px;
         width: 100%;
         @include center-block();
@@ -1562,7 +1580,8 @@ body {
           }
           margin-bottom: 34px;
         }
-        .field--name-field-date {
+        .field--name-field-date,
+        .field--name-field-date-time {
           float: left;
           padding-left: 15px;
           width: 70px;
@@ -1591,11 +1610,16 @@ body {
         .event-right {
           padding-left: 90px;
           padding-right: 15px;
-          .field--name-field-category {
+          .field--name-field-category,
+          .field--name-field-event-categories {
             font-weight: 700;
             text-transform: uppercase;
             @include font-size(1.3, 1.6);
             color: $uw-grey;
+            .field--item {
+              display: inline-block;
+              padding-bottom: 3px;
+            }
           }
           header {
             // Need to add in Bootstrap padding here for Mobile - Tablet
@@ -1626,7 +1650,8 @@ body {
           // Need to add in Bootstrap padding here for Mobile - Tablet
           padding: 0 15px;
         }
-        .field--name-field-body {
+        .field--name-field-body,
+        .field--name-field-description {
           @include font-size(1.4, 2.1);
           color: #000;
           padding-bottom: 26px;
@@ -1801,8 +1826,10 @@ body {
           }
         }
         // Event Teaser styles
-        .event.teaser {
-          .field--name-field-date {
+        .event.teaser,
+        .calendar-event.teaser {
+          .field--name-field-date,
+          .field--name-field-date-time {
             float: left;
             width: 70px;
             &__inner {
@@ -1829,11 +1856,16 @@ body {
           }
           .event-right {
             padding-left: 75px;
-            .field--name-field-category {
+            .field--name-field-category,
+            .field--name-field-event-categories {
               font-weight: 700;
               text-transform: uppercase;
               @include font-size(1.3, 1.6);
               color: $uw-grey;
+              .field--item {
+                display: inline-block;
+                padding-bottom: 3px;
+              }
             }
             header {
               padding: 0;
@@ -1867,8 +1899,6 @@ body {
       }
     }
   }
-
-  
   
   // Did you know colors
   .views-footer {
@@ -2062,7 +2092,6 @@ body {
   }
 }
 
-
 // Search Results Pages
 .path-search {
   .main-inner {
@@ -2126,7 +2155,6 @@ body {
     }
   }
 }
-
 
 // Forms
 // Webforms
@@ -2467,7 +2495,6 @@ article.webform {
   }
 }
 
-
 // Modals
 .modal {
   .modal-header {
@@ -2592,7 +2619,6 @@ blockquote {
 }
 
 //Upper Content & Main Area ends ----------------------------------------------------
-
 
 //Lower Content ---------------------------------------------------------------------
 .region-lower-content {

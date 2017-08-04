@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// July 31, 2017
+// Aug. 4, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -464,7 +464,7 @@
 }
 
 
-// Node Theming - Overall ?? Todo
+// Node Theming
 .article.featured {
   header {
     padding: 0;
@@ -486,9 +486,6 @@
 }
 .article.teaser {
   margin-bottom: 0;
-  .field--type-image {
-    //margin-bottom: 20px;
-  }
   header {
     h2 {
       @include font-size(2.4, 2.8);
@@ -503,6 +500,7 @@
 .gallery.node.full,
 .page.node.full,
 .event.node.full,
+.calendar-event.node.full,
 .question.node.full {
   header,
   .date-name {
@@ -531,6 +529,9 @@
   .content {
     padding-bottom: 60px;
   }
+  .event-details-wrap {
+    padding-bottom: 60px;
+  }
 }
 
 .page.node.full {
@@ -541,10 +542,12 @@
   }
 }
 
-.event.node.full {
+.event.node.full,
+.calendar-event.node.full {
   header {
     max-width: 800px;
-    .field--name-field-date {
+    .field--name-field-date,
+    .field--name-field-date-time {
       padding-left: 0;
       width: 70px;
       &__inner {
@@ -594,7 +597,14 @@
       &__inner {
         padding: 24px 30px 28px 30px;
         .field--name-field-duration,
-        .field--name-field-address {
+        .field--name-field-cost,
+        .field--name-field-address,
+        .field--name-field-event-location,
+        .field--name-field-name,
+        .field--name-field-text,
+        .field--name-field-private-note,
+        .field--name-field-event-audiences,
+        .field_event_categories {
           margin-bottom: 20px;
         }
       }
@@ -607,14 +617,17 @@
     padding-left: 35px;
     padding-top: 0;
   }
-  .field--name-field-body {
+  .field--name-field-body,
+  .field--name-field-text,
+  .field--name-field-description {
     @include font-size(1.6, 2.4);
     p {
       @include font-size(1.6, 2.4);
     }
     padding-bottom: 36px;
   }
-  .field--name-field-call-to-action {
+  .field--name-field-call-to-action,
+  .field--name-field-cta-link {
     text-align: left;
   }
 }
@@ -764,9 +777,6 @@
     right: 0;
     width: 266px;
     top: 20px;
-    //-webkit-transform: translateY(-50%);
-    //-ms-transform: translateY(-50%);
-    //transform: translateY(-50%);
   }
 }
 .paragraph--type--sidebar {
@@ -922,7 +932,6 @@
   }
 }
 
-
 // People / Perspectives / News / Galleries - Views Pages
 .block-did-submit-wrap,
 .block-quotable-submitphoto-wrap {
@@ -1049,8 +1058,10 @@
   > .views-attachment-before {
     .views-content {
       // Event Featured Node
-      .event.featured {
-        .field--name-field-date {
+      .event.featured,
+      .calendar-event.featured {
+        .field--name-field-date,
+        .field--name-field-date-time {
           padding-left: 0;
           width: 70px;
           &__inner {
@@ -1066,7 +1077,8 @@
           }
         }
         .event-right {
-          .field--name-field-category {
+          .field--name-field-category,
+          .field--name-field-event-categories {
             @include font-size(1.4, 1.6);
           }
           header {
@@ -1084,7 +1096,8 @@
           padding-left: 90px;
           padding-right: 15px;
         }
-        .field--name-field-body {
+        .field--name-field-body,
+        .field--name-field-description {
           @include font-size(1.6, 2.4);
           padding-bottom: 48px;
           padding-right: 125px;
@@ -1152,8 +1165,10 @@
           padding: 30px 0 22px 0;
         }
         // Event Teaser styles
-        .event.teaser {
-          .field--name-field-date {
+        .event.teaser,
+        .calendar-event.teaser {
+          .field--name-field-date,
+          .field--name-field-date-time {
             float: left;
             width: 70px;
             &__inner {
@@ -1170,7 +1185,8 @@
           }
           .event-right {
             padding-left: 90px;
-            .field--name-field-category {
+            .field--name-field-category,
+            .field--name-field-event-categories {
               @include font-size(1.4, 1.6);
             }
             header {
@@ -1185,7 +1201,8 @@
             }
             .content {
               display: block;
-              .field--name-field-body {
+              .field--name-field-body,
+              .field--name-field-description {
                 @include font-size(1.6, 2.4);
                 color: #000;
                 p {
@@ -1208,6 +1225,7 @@
             @include clearfix();
             min-height: 1px;
             .field--name-field-category,
+            .field--name-field-event-categories,
             header,
             .content {
               padding-right: 300px;
@@ -1217,6 +1235,7 @@
             @include clearfix();
             min-height: 1px;
             .field--name-field-category,
+            .field--name-field-event-categories,
             header,
             .content {
               padding-right: 120px;
