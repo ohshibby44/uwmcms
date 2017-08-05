@@ -765,7 +765,7 @@ display:
         - user.permissions
       max-age: 0
       tags: {  }
-  page_1:
+  admin_page:
     display_options:
       path: admin/content/articles
       menu:
@@ -786,7 +786,7 @@ display:
       display_description: ''
     display_plugin: page
     display_title: Articles
-    id: page_1
+    id: admin_page
     position: 1
     cache_metadata:
       contexts:
