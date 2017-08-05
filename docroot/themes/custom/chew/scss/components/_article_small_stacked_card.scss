@@ -9,14 +9,14 @@
       display: block;
       font-family: $font-family-sans-serif;
       text-transform: uppercase;
-      margin: 0 0 .5rem 0;
+      margin: 0 0 .25rem 0;
     }
   }
   .media-image {
     display: none;
     @media (min-width: $screen-sm) {
       display: block;
-      margin: 0 0 .5rem 0;
+      margin: 0 0 .25rem 0;
     }
   }
   .article-created-date {
@@ -26,12 +26,13 @@
       font-family: $font-family-sans-serif;
       text-transform: uppercase;
       font-weight: bold;
-      margin: 0 0 .5rem 0;
+      margin: 0 0 .25rem 0;
     }
   }
   h3 {
     font-size: ceil(($font-size-base * 1.25));
-    font-weight: normal;
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
     margin: 0;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.25;

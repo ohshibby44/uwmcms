@@ -14,16 +14,19 @@
   .banner-heading {
     .field--name-field-heading {
       color: #fff;
+      font-family: 'Roboto Slab', sans-serif;
+      font-weight: 700;
       font-size: 36px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,.6);
       line-height: 1.25;
+      letter-spacing: 1px;
     }
     .field--name-field-subheading {
       color: #fff;
       font-size: 20px;
-      font-weight: normal;
-      text-shadow: 2px 2px 4px rgba(0,0,0,.6);
+      font-family: $font-family-sans-serif;
+      font-weight: 500;
       line-height: 1.25;
+      letter-spacing: 1px;
     }
   }
 }

@@ -14,7 +14,8 @@
     float: left;
     width: 61%;
     font-size: $font-size-base;
-    font-weight: normal;
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
     line-height: 24px;
     margin: 0;
     @media (max-width: $screen-xs) {
