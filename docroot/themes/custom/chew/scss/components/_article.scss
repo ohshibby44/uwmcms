@@ -1,7 +1,7 @@
 .article {
   .paragraph--type--body-text {
     a {
-      border-bottom: 1px solid $brand-primary;
+      border-bottom: 2px solid $brand-primary;
     }
   }
 }
@@ -37,6 +37,9 @@
   }
   .block-entity-fieldnodefield-author {
     padding-right: 2em;
+    .field--name-field-author .field--item {
+      display: inline;
+    }
   }
   .block-entity-fieldnodecreated {
     font-weight: bold;

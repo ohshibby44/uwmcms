@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - views.view.media
+    - views.view.podcasts
   module:
     - lightning_media
     - views
@@ -60,3 +61,13 @@ widgets:
     weight: -9
     label: 'New Image'
     id: file_upload
+  aaed1eb5-d8a2-424f-bac2-fef286582943:
+    settings:
+      view: podcasts
+      view_display: entity_browser_1
+      submit_text: Select
+      auto_select: false
+    uuid: aaed1eb5-d8a2-424f-bac2-fef286582943
+    weight: 5
+    label: 'Existing Podcast'
+    id: view

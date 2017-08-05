@@ -16,8 +16,7 @@
     color: $gray-dark;
     @media (min-width: $screen-md) {
       text-align: left;
-      float: left;
-      margin: 15px 20px 10px 0;
+      margin: 0 0 5px 0;
     }
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs;
@@ -33,14 +32,15 @@
   .social-media-link {
     display: inline-block;
     width: 30px;
-    margin: 0 10px 0 0;
+    margin: 0 7px 0 0;
+    @media (min-width: $screen-md-min) {
+      margin-right: 15px;
+    }
+    @media (min-width: $screen-lg-min) {
+      margin-right: 30px;
+    }
     img {
       max-width: 100%;
-    }
-  }
-  @media (min-width: $screen-sm-min) {
-    .social-media-link {
-      width: 50px;
     }
   }
 }

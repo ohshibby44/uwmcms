@@ -1,10 +1,10 @@
-.media-image {
+.media-image,
+.media-video {
   .field--name-field-caption {
-    font-size: ceil(($font-size-base * 0.889));
+    font-size: ceil(($font-size-base * 0.777777778));
+    font-family: $font-family-sans-serif;
     display: inline-block;
     margin-right: 1em;
-    margin-top: 10px;
-    line-height: 1.25;
     @media (max-width: $screen-xs) {
       font-size: ceil(($font-size-base-xs * 0.889));
     }
@@ -14,15 +14,12 @@
     font-family: $font-family-sans-serif;
     color: $gray-dark;
     display: inline-block;
-    margin-top: 10px;
-    line-height: 1.25;
     white-space: nowrap;
     @media (max-width: $screen-xs) {
       font-size: ceil(($font-size-base-xs * 0.778));
     }
   }
   &.view-mode-large {
-    line-height: 1;
     margin-bottom: $line-height-computed;
   }
 }

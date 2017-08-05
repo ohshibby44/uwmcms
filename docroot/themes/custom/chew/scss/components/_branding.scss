@@ -10,6 +10,10 @@
   .logo {
     width: 100%;
     @media (min-width: $screen-md) {
+      width: 360px;
+      margin-top: 24px;
+    }
+    @media (min-width: $screen-lg) {
       width: 480px;
       margin-top: 12px;
     }

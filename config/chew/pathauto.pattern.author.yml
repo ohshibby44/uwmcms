@@ -7,16 +7,16 @@ dependencies:
 id: author
 label: Author
 type: 'canonical_entities:node'
-pattern: '/authors/[node:field_person_name]'
+pattern: '/authors/[node:title]'
 selection_criteria:
-  f6e443af-780e-4ce5-b943-4af97e8de6a5:
+  6c94d4d9-c530-4ed5-b617-ea6fd3444688:
     id: node_type
     bundles:
       author: author
     negate: false
     context_mapping:
       node: node
-    uuid: f6e443af-780e-4ce5-b943-4af97e8de6a5
+    uuid: 6c94d4d9-c530-4ed5-b617-ea6fd3444688
 selection_logic: and
 weight: -5
 relationships: {  }

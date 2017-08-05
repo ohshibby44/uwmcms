@@ -49,3 +49,36 @@ function uwmcms_chew_views_form_views_exposed_form_alter(&$form, FormStateInterf
     $form['actions']['#weight'] = 10;
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter() for Page 1.
+ *
+ * Hide certain action options and alter text of others.
+ */
+function uwmcms_chew_views_form_views_form_articles_admin_page_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!isset($form['header']['node_bulk_form']['action'])) {
+    return;
+  }
+
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_delete_action'])) {
+    unset($form['header']['node_bulk_form']['action']['#options']['node_delete_action']);
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_make_sticky_action'])) {
+    $form['header']['node_bulk_form']['action']['#options']['node_make_sticky_action'] = 'Make highlighted';
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_make_unsticky_action'])) {
+    $form['header']['node_bulk_form']['action']['#options']['node_make_unsticky_action'] = 'Make unhighlighted';
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_promote_action'])) {
+    $form['header']['node_bulk_form']['action']['#options']['node_promote_action'] = 'Make featured';
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_unpromote_action'])) {
+    $form['header']['node_bulk_form']['action']['#options']['node_unpromote_action'] = 'Make unfeatured';
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['node_save_action'])) {
+    unset($form['header']['node_bulk_form']['action']['#options']['node_save_action']);
+  }
+  if (isset($form['header']['node_bulk_form']['action']['#options']['pathauto_update_alias_node'])) {
+    unset($form['header']['node_bulk_form']['action']['#options']['pathauto_update_alias_node']);
+  }
+}

@@ -1,6 +1,7 @@
 #block-chew-main-menu {
   .navbar-nav {
     > li {
+      font-family: $font-family-sans-serif;
       font-size: floor(($font-size-base * 1.556));
       > a {
         padding: 10px 0;
