@@ -62,7 +62,8 @@
         "drupal/duration_field": "^1.1",
         "drupal/conditional_fields": "^1.0@alpha",
         "drupal/config_ignore": "^2.0",
-        "drupal/google_tag": "1.x-dev"
+        "drupal/google_tag": "1.x-dev",
+        "drupal/fb_instant_articles": "2.x-dev"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"

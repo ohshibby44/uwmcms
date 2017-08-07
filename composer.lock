@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b244fc456a60e7d61d4da0904d9c4f2",
+    "content-hash": "5f0126c26fdcdfd9316b2f00fc0dc5d6",
     "packages": [
         {
             "name": "acquia/blt",
@@ -318,6 +318,36 @@
             ],
             "description": "The best of Drupal, curated by Acquia",
             "time": "2017-06-21T19:37:53+00:00"
+        },
+        {
+            "name": "apache/log4php",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git-wip-us.apache.org/repos/asf/logging-log4php.git",
+                "reference": "cac428b6f67d2035af39784da1d1a299ef42fcf2"
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/main/php/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "A versatile logging framework for PHP",
+            "homepage": "http://logging.apache.org/log4php/",
+            "keywords": [
+                "log",
+                "logging",
+                "php"
+            ],
+            "time": "2012-10-26T09:13:25+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -4458,6 +4488,67 @@
             }
         },
         {
+            "name": "drupal/fb_instant_articles",
+            "version": "dev-2.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/fb_instant_articles",
+                "reference": "a99abd40c9e7f7a4e1d91a817c51d89726133ad6"
+            },
+            "require": {
+                "drupal/core": "^8.3",
+                "facebook/facebook-instant-articles-sdk-php": "^1.0.0"
+            },
+            "require-dev": {
+                "behat/mink-selenium2-driver": "^1.3",
+                "drupal/drupal-extension": "master-dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.x-dev",
+                    "datestamp": "1500996241"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Drupal community",
+                    "homepage": "https://www.drupal.org/node/2676800/committers"
+                },
+                {
+                    "name": "scottrigby",
+                    "homepage": "https://www.drupal.org/user/145945"
+                },
+                {
+                    "name": "simonengelhardt",
+                    "homepage": "https://www.drupal.org/user/3407992"
+                },
+                {
+                    "name": "vgardner",
+                    "homepage": "https://www.drupal.org/user/463012"
+                }
+            ],
+            "description": "Drupal Facebook Instant Articles.",
+            "homepage": "https://www.drupal.org/project/fb_instant_articles",
+            "keywords": [
+                "articles",
+                "drupal",
+                "facebook",
+                "instant"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/fb_instant_articles"
+            },
+            "time": "2017-08-05 02:57:51"
+        },
+        {
             "name": "drupal/features",
             "version": "3.5.0",
             "source": {
@@ -7997,6 +8088,115 @@
             "time": "2017-06-03T02:28:16+00:00"
         },
         {
+            "name": "facebook/facebook-instant-articles-sdk-php",
+            "version": "v1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-instant-articles-sdk-php.git",
+                "reference": "f18461923e17af6f05120c687c9f20a540f3d420"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-instant-articles-sdk-php/zipball/f18461923e17af6f05120c687c9f20a540f3d420",
+                "reference": "f18461923e17af6f05120c687c9f20a540f3d420",
+                "shasum": ""
+            },
+            "require": {
+                "apache/log4php": "2.3.0",
+                "facebook/graph-sdk": "~5.0",
+                "php": "^5.4 || ^7.0",
+                "symfony/css-selector": "2.8.* || ^3.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.6.0",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\InstantArticles\\": "src/Facebook/InstantArticles/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-instant-articles-sdk-php/contributors"
+                }
+            ],
+            "description": "Facebook Instant Articles SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-instant-articles-sdk-php",
+            "keywords": [
+                "articles",
+                "facebook",
+                "instant",
+                "sdk"
+            ],
+            "time": "2017-07-27T19:19:51+00:00"
+        },
+        {
+            "name": "facebook/graph-sdk",
+            "version": "5.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
+                "reference": "34f5e5993c67acd264017373f23848961585dcac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/34f5e5993c67acd264017373f23848961585dcac",
+                "reference": "34f5e5993c67acd264017373f23848961585dcac",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/php-graph-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2017-07-23T14:06:52+00:00"
+        },
+        {
             "name": "graphp/algorithms",
             "version": "v0.8.1",
             "source": {
@@ -10656,6 +10856,59 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2017-06-02T14:36:56+00:00"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "4d882dced7b995d5274293039370148e291808f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/4d882dced7b995d5274293039370148e291808f2",
+                "reference": "4d882dced7b995d5274293039370148e291808f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-05-01T15:01:29+00:00"
         },
         {
             "name": "symfony/debug",
@@ -13509,59 +13762,6 @@
             "time": "2017-04-12T14:13:17+00:00"
         },
         {
-            "name": "symfony/css-selector",
-            "version": "v3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/css-selector.git",
-                "reference": "4d882dced7b995d5274293039370148e291808f2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/4d882dced7b995d5274293039370148e291808f2",
-                "reference": "4d882dced7b995d5274293039370148e291808f2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\CssSelector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony CssSelector Component",
-            "homepage": "https://symfony.com",
-            "time": "2017-05-01T15:01:29+00:00"
-        },
-        {
             "name": "symfony/dom-crawler",
             "version": "v3.3.2",
             "source": {
@@ -13678,6 +13878,7 @@
         "drupal/disqus": 5,
         "drupal/conditional_fields": 15,
         "drupal/google_tag": 20,
+        "drupal/fb_instant_articles": 20,
         "drupal/memcache": 20
     },
     "prefer-stable": true,
