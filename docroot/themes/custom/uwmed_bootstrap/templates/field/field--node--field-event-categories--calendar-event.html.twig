@@ -51,20 +51,38 @@
     label_display == 'visually_hidden' ? 'sr-only',
   ]
 %}
-{% for item in items %}
-  <div{{ attributes.addClass(classes, 'field--item') }}>
-    <div class="sr-only">{{ item.content }}</div>
-    <div class="field--name-field-date__inner">
-      {% if element['#view_mode'] == 'featured' %}
-        <span class="month" aria-hidden="true">{{ item.content['#text']|date("M") }}</span>
-        <span class="day" aria-hidden="true">{{ item.content['#text']|date("d") }}</span>
-      {% elseif element['#view_mode'] == 'teaser' %}
-        <span class="month" aria-hidden="true">{{ item.content['#text']|date("M") }}</span>
-        <span class="day" aria-hidden="true">{{ item.content['#text']|date("d") }}</span>
-      {% else %}
-        <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
-      {% endif %}
-    </div>
-  </div>
-{% endfor %}
 
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(classes, 'field--items') }}>
+      {% for item in items %}
+        {% if loop.last %}
+          <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
+        {% else %}
+          <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}, </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field--item') }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field__items">
+    {% endif %}
+    {% for item in items %}
+      {% if loop.last %}
+        <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
+      {% else %}
+        <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}, </div>
+      {% endif %}
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,7 +1,7 @@
 // UWMED - Custom Bootstrap Variables
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// July 31, 2017
+// Aug. 7, 2017
 
 // Custom Font Includes Mixins
 @mixin encodesans-bold {
@@ -68,7 +68,6 @@ line-height: $line + rem;
       }
     }
     .js-text-format-wrapper {
-      // Description also??
       .js-text-full {
         @include font-size(1.2, 1.8);
         font-style: italic;
@@ -77,11 +76,19 @@ line-height: $line + rem;
     .form-text,
     .form-textarea,
     .form-email,
-    .form-date {
+    .form-date,
+    .form-time,
+    .form-number {
       border: 1px solid $uw-light-grey;
       @include font-size(1.8, 2.2);
       padding: 12px 8px;
       width: 100%;
+    }
+    .form-number {
+      width: 98%;
+    }
+    .form-time {
+      margin-top: 4px;
     }
     input[type="file"] {
       @include font-size(1.3, 1.6);

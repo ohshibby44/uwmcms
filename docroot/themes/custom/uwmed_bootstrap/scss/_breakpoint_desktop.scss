@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 4, 2017
+// Aug. 7, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -1406,9 +1406,10 @@ article.webform {
     }
   }
   #block-uwmed-bootstrap-content {
-    #node-event-form {
+    #node-calendar-event-form {
       div.form-item,
-      .field--type-datetime {
+      .field--type-datetime,
+      .field--name-field-date-time {
         > div.form-item {
           padding: 0;
         }
@@ -1424,11 +1425,12 @@ article.webform {
         }
         padding: 35px 105px 35px 105px;
       }
-      .field--name-field-call-to-action {
-        legend {
-          padding-left: 105px;
-          padding-right: 105px;
-        }
+      #edit-field-address-wrapper,
+      #edit-field-event-audiences-wrapper,
+      #edit-field-event-categories-wrapper,
+      #edit-field-event-information-wrapper {
+        padding-left: 105px;
+        padding-right: 105px;
       }
       .form-actions {
         margin-top: 35px;
@@ -1438,8 +1440,6 @@ article.webform {
     }
     
   }
-  // Hide Comments
-  .block-type-disqus {display: none;}
 }
 
 // Awards View / Node
@@ -1644,7 +1644,8 @@ blockquote {
         &:last-child {
           margin-bottom: 0;
         }
-        .views-field-field-date {
+        .views-field-field-date,
+        .views-field-field-date-time {
           width: 70px;
           height: 70px;
           padding-top: 12px;
@@ -1807,8 +1808,6 @@ blockquote {
   }
 }
 
-
-
 // Disqus Block
 .block-type-disqus {
   &__content {
@@ -1820,8 +1819,6 @@ blockquote {
 }
 
 //Lower Content ends ----------------------------------------------------------------
-
-
 
 //Footer Area -----------------------------------------------------------------------
 .footer {
