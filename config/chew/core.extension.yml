@@ -27,6 +27,9 @@ module:
   entity_embed: 0
   entity_reference: 0
   entity_reference_revisions: 0
+  fb_instant_articles: 0
+  fb_instant_articles_api: 0
+  fb_instant_articles_views: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -83,6 +86,7 @@ module:
   rabbit_hole: 0
   rdf: 0
   redirect: 0
+  rest: 0
   rh_media: 0
   rh_node: 0
   rh_taxonomy: 0
@@ -90,6 +94,7 @@ module:
   search_api: 0
   search_api_db: 0
   seckit: 0
+  serialization: 0
   shortcut: 0
   simplify: 0
   system: 0

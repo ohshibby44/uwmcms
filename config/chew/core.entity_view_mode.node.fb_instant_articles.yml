@@ -1,0 +1,15 @@
+uuid: 6e201dcf-aafc-437e-9a89-92a314b1d312
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - fb_instant_articles
+  module:
+    - node
+_core:
+  default_config_hash: rB1eqAjXfoCuKogWhrALbAkxYsgCyAzKb81_mCPEja4
+id: node.fb_instant_articles
+label: 'Facebook Instant Articles'
+targetEntityType: node
+cache: true
