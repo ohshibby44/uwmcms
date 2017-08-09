@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 7, 2017
+// Aug. 9, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -542,7 +542,8 @@ body {
 .path-perspectives,
 .path-news,
 .path-galleries,
-.path-events {
+.path-events,
+.path-bookshelf {
   .main-inner {
     margin: 0;
     padding: 0;
@@ -712,7 +713,8 @@ body {
 }
 
 // Node Theming
-.article.featured {
+.article.featured,
+.bookshelf.featured {
   max-width: 800px;
   width: 100%;
   @include center-block();
@@ -755,7 +757,8 @@ body {
     padding-bottom: 32px;
   }
 }
-.article.teaser {
+.article.teaser,
+.bookshelf.teaser {
   margin-bottom: 38px;
   .field--type-image {
     img {
@@ -780,7 +783,7 @@ body {
           color: #000;
         }
         &:hover {
-          color: #000;
+          color: $uw-purple;
           text-decoration: none;
         }
       }
@@ -876,13 +879,11 @@ body {
     }
   }
 }
-
 .page.node.full {
   .content {
     padding: 0;
   }
 }
-
 .event.node.full,
 .calendar-event.node.full {
   header {
@@ -1020,7 +1021,6 @@ body {
     }
   }
 }
-
 .question.node.full {
   section.content {
     > .field--name-field-body {
@@ -1039,7 +1039,6 @@ body {
     }
   }
 }
-
 .campaign.full.node {
   .field--name-field-image {
     img {
@@ -1097,9 +1096,6 @@ body {
     }
   }
 }
-
-
-// Gallery Node
 .gallery.featured {
   .field--type-image {
     img {
@@ -1133,6 +1129,53 @@ body {
     @include font-size(1.4, 2.1);
     color: #000;
     padding-bottom: 38px;
+  }
+}
+
+.bookshelf.featured {
+  .field--type-image {
+    width: 100%;
+    min-height: 1px;
+    padding: 23px 0;
+    @include clearfix();
+    background-color: $uw-white-grey;
+    text-align: center;
+    img {
+      @include center-block();
+    }
+  }
+  .field--name-field-teaser {
+    padding-bottom: 16px;
+    p {
+      margin: 0;
+    }
+  }
+  .field--name-field-date {
+    font-weight: bold;
+    @include font-size(1.3, 1.6);
+    color: $uw-grey;
+    text-transform: uppercase;
+  }
+}
+
+.bookshelf.teaser {
+  @include clearfix();
+  .field--type-image {
+    margin-bottom: 0;
+    margin-right: 30px;
+    float: left;
+  }
+  header {
+    display: block;
+    max-height: 190px;
+    overflow: hidden;
+  }
+  .field--name-field-date {
+    margin-top: 16px;
+    font-weight: bold;
+    @include font-size(1.3, 1.6);
+    color: $uw-grey;
+    text-transform: uppercase;
   }
 }
 
@@ -1387,7 +1430,8 @@ body {
 .view-page_galleries_main,
 .view-page_galleries_subpages,
 .view-page_events_main,
-.view-page_events_subpages {
+.view-page_events_subpages,
+.view-id-uwm_bookshelf_page.view-display-id-page_1 {
   > .views-attachment-before {
     .views-content {
       // Article Featured styles
@@ -1556,6 +1600,23 @@ body {
     .pager__item {
       a {
         @include uw-purple-button;
+      }
+    }
+  }
+}
+
+
+// Bookshelf Views
+.view-id-uwm_bookshelf_page.view-display-id-page_1 {
+  > .views-content {
+    padding-top: 40px;
+    .views-row {
+      @include make-xs-column(12);
+      &:nth-child(odd) {
+        padding-right: 15px;
+      }
+      &:nth-child(even) {
+        padding-left: 15px;
       }
     }
   }
@@ -1925,6 +1986,12 @@ body {
   }
   .block-did-you-know {
     background-color: $uw-cream;
+    &.teal {
+      background-color: $uw-teal;
+      h3 {
+        border-bottom: 1px solid $uw-purple;
+      }
+    }
     @include clearfix();
     min-height: 1px;
     border-top: 10px solid $uw-purple;
@@ -3354,6 +3421,8 @@ blockquote {
     padding-bottom: 10px;
   }
 }
+
+
 
 //Lower Content ends ----------------------------------------------------------------
 

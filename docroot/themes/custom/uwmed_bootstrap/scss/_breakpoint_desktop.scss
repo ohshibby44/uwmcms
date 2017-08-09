@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 7, 2017
+// Aug. 8, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -359,7 +359,8 @@
 .path-perspectives,
 .path-news,
 .path-galleries,
-.path-events {
+.path-events,
+.path-bookshelf {
   .main-inner {
     margin-right: auto;
     margin-left: auto;
@@ -533,7 +534,6 @@
     padding-bottom: 60px;
   }
 }
-
 .article.node.full {
   section.content {
     position: relative;
@@ -553,7 +553,6 @@
     }
   }
 }
-
 .page.node.full {
   .field--name-field-body {
     width: 100%;
@@ -561,7 +560,6 @@
     @include center-block();
   }
 }
-
 .event.node.full,
 .calendar-event.node.full {
   header {
@@ -721,8 +719,6 @@
     text-align: left;
   }
 }
-
-// Gallery Node
 .gallery.featured {
   header {
     h4 {
@@ -737,6 +733,53 @@
     padding-bottom: 0;
   }
 }
+
+.bookshelf.featured {
+  background-color: $uw-white-grey;
+  min-height: 1px;
+  @include clearfix();
+  padding: 22px;
+  .field--type-image {
+    padding: 0;
+    background-color: transparent;
+    width: auto;
+    float: left;
+    margin-right: 50px;
+    img {margin: 0;}
+  }
+  header {
+    h1 {
+      @include font-size(3.2, 3.6);
+      a {
+        @include font-size(3.2, 3.6);
+      }
+    }
+  }
+  .field--name-field-teaser {
+    @include font-size(1.6, 2.4);
+  }
+  .field--name-field-date {
+    @include font-size(1.4, 1.6);
+  }
+}
+
+.bookshelf.teaser {
+  margin-bottom: 68px;
+  header {
+    h2 {
+      @include font-size(2.4, 2.8);
+      margin: 0;
+      a {
+        @include font-size(2.4, 2.8);
+      }
+    }
+  }
+  .field--name-field-date {
+    @include font-size(1.4, 1.6);
+  }
+}
+
+
 
 // This is to capitalize the 1st letter of the paragraph.
 .field--name-field-sections {
@@ -967,7 +1010,8 @@
 .view-page_galleries_main,
 .view-page_galleries_subpages,
 .view-page_events_main,
-.view-page_events_subpages {
+.view-page_events_subpages,
+.view-id-uwm_bookshelf_page.view-display-id-page_1 {
   > .views-attachment-before {
     min-height:1px;
     @include clearfix();
@@ -1066,6 +1110,13 @@
         @include font-size(1.4, 1.6);
       }
     }
+  }
+}
+
+// Bookshelf Views
+.view-id-uwm_bookshelf_page.view-display-id-page_1 {
+  > .views-content {
+    padding-top: 60px;
   }
 }
 
