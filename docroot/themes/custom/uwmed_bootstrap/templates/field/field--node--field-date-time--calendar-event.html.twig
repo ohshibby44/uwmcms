@@ -61,6 +61,9 @@
       {% elseif element['#view_mode'] == 'teaser' %}
         <span class="month" aria-hidden="true">{{ item.content['#text']|date("M") }}</span>
         <span class="day" aria-hidden="true">{{ item.content['#text']|date("d") }}</span>
+      {% elseif element['#view_mode'] == 'full' %}
+        <span class="month" aria-hidden="true">{{ item.content['#text']|date("M") }}</span>
+        <span class="day" aria-hidden="true">{{ item.content['#text']|date("d") }}</span>
       {% else %}
         <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
       {% endif %}
