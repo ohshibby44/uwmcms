@@ -26,6 +26,7 @@ field_settings:
           page: default
           author: default
           promotion: default
+          webform: default
   label:
     label: Label
     property_path: aggregated_field

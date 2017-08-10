@@ -8,7 +8,7 @@
     margin-right: 0;
   }
   .field--name-field-quote-text {
-    color: $dark-green;
+    color: $brand-secondary;
     font-family: $font-family-sans-serif;
     font-weight: 500;
     font-size: ceil(($font-size-base * 1.5));
@@ -47,7 +47,7 @@
     }
   }
   .field--name-field-quote-attribution {
-    color: $dark-green;
+    color: $brand-secondary;
     font-family: $font-family-sans-serif;
     font-size: ceil(($font-size-base * .778));
     text-align: right;

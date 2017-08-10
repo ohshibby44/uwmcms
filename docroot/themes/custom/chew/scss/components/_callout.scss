@@ -3,7 +3,7 @@
   margin-bottom: ceil(($font-size-base * 2));
   margin-left: ceil(($font-size-base * 4));
   padding-left: ceil(($font-size-base * 1.5));
-  border-left: 2px solid $dark-green;
+  border-left: 2px solid $brand-secondary;
   @media (max-width: $screen-xs) {
     margin-left: 0;
     padding-left: ceil(($font-size-base-xs * 1.5));
@@ -11,7 +11,7 @@
   .field--name-field-heading {
     font-size: ceil(($font-size-base * 1.5));
     font-weight: normal;
-    color: $dark-green;
+    color: $brand-secondary;
     margin-top: 0;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.5;

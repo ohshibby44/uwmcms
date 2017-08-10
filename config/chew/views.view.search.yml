@@ -84,6 +84,7 @@ display:
               author: teaser
               page: teaser
               promotion: default
+              webform: default
       fields:
         rendered:
           table: search_api_index_content

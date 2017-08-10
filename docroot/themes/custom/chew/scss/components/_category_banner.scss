@@ -4,29 +4,33 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 0 4rem 0 ;
-  padding: 0 0 60px 0;
-  .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-  }
+  padding: 0 0 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   .banner-heading {
+    background-color: rgba(51, 0, 111, .8);
+    padding: 25px 0 20px 0;
     .field--name-field-heading {
+      float: left;
       color: #fff;
       font-family: $font-family-serif;
       font-weight: bold;
-      font-size: 36px;
-      line-height: 1.25;
+      font-size: 24px;
+      line-height: .8;
       letter-spacing: 1px;
+      border-right: 1px solid #fff;
+      margin: 0 .5em 0 0;
+      padding: 0 .5em 0 0;
     }
     .field--name-field-subheading {
+      float: left;
       color: #fff;
-      font-size: 20px;
+      font-size: 14px;
       font-family: $font-family-sans-serif;
-      font-weight: 500;
-      line-height: 1.25;
       letter-spacing: 1px;
+      margin: -2px 0 0 0;
+      padding: 0;
     }
   }
 }
@@ -34,6 +38,7 @@
 @media (min-width: $screen-sm-min) {
   .category-banner {
     height: 360px;
+    padding-bottom: 40px;
     .banner-heading {
       .field--name-field-heading {
         font-size: 45px;
@@ -47,6 +52,7 @@
 @media (min-width: $screen-md-min) {
   .category-banner {
     height: 480px;
+    padding-bottom: 60px;
     .banner-heading {
       .field--name-field-heading {
         font-size: 54px;

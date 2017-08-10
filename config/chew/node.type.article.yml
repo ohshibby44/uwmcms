@@ -3,14 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
-    - fb_instant_articles
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-  fb_instant_articles:
-    fb_instant_articles_enabled: true
 name: Article
 type: article
 description: ''

@@ -12,14 +12,14 @@
   .field--name-field-heading {
     font-size: ceil(($font-size-base * 1.5));
     font-weight: normal;
-    color: $dark-green;
+    color: $brand-secondary;
     margin-top: 0;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.5;
     }
   }
   .field--name-field-body {
-    color: $dark-green;
+    color: $brand-secondary;
     @media (max-width: $screen-xs) {
       font-size: $font-size-small;
     }
