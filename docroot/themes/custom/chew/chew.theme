@@ -36,7 +36,7 @@ function chew_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK() for system branding block templates.
  */
 function chew_preprocess_block__system_branding_block(&$variables) {
-  $variables['site_logo'] = '/themes/custom/chew/images/right-as-rain-logo.png';
+  $variables['site_logo'] = '/themes/custom/chew/images/right-as-rain-logo.svg';
 }
 
 /**

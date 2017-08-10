@@ -1,6 +1,6 @@
-uuid: 0fef034d-d4e6-4596-9d01-36b5da2c5926
+uuid: aaf6e38b-5e35-41c8-9821-2c135ada7a13
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.fb_instant_articles
