@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 8, 2017
+// Aug. 10, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -397,6 +397,12 @@
     padding-bottom: 56px;
   }
 }
+.page-node-type-bookshelf {
+  .main-inner {
+    padding-top: 100px;
+    padding-bottom: 56px;
+  }
+}
 
 // Front Page Theming
 .landing-page.full {
@@ -463,7 +469,6 @@
     }
   }
 }
-
 
 // Node Theming
 .article.featured {
@@ -734,6 +739,14 @@
   }
 }
 
+// Bookshelf
+.page-node-type-bookshelf {
+  // Hide Share this block on Desktop
+  .region-content {
+    > #block-sharethiswidget {display: none;}
+  }
+}
+
 .bookshelf.featured {
   background-color: $uw-white-grey;
   min-height: 1px;
@@ -762,11 +775,10 @@
     @include font-size(1.4, 1.6);
   }
 }
-
 .bookshelf.teaser {
   margin-bottom: 68px;
   header {
-    h2 {
+    h2, h3 {
       @include font-size(2.4, 2.8);
       margin: 0;
       a {
@@ -780,6 +792,63 @@
 }
 
 
+.bookshelf.full.node {
+  min-height: 1px;
+  @include clearfix();
+  border-bottom: 1px solid $uw-light-grey;
+  .bookshelf-inner {
+    min-height: 1px;
+    @include clearfix();
+    max-width: 800px;
+    width: 100%;
+    @include center-block();
+  }
+  // Hide on Mobile
+  #block-sharethiswidget {
+    display: block;
+    margin: 0 0 26px 0;
+    max-width: 1000px;
+  }
+  .field--name-field-image {
+    float: left;
+    margin-right: 35px;
+  }
+  header {
+    @include font-size(4.8, 5.4);
+    h1 {
+      @include font-size(4.8, 5.4);
+      margin-bottom: 6px;
+    }
+  }
+  .date-name {
+    clear: none;
+    padding: 38px 0 100px 0;
+    .field--name-field-date,
+    .field--name-field-name {
+      @include font-size(1.6, 2.4);
+    }
+  }
+  .content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    .field--name-field-subtitle {
+      @include font-size(2.4, 2.8);
+      padding-bottom: 68px;
+    }
+    > .field--name-field-body {
+      p:first-child:first-letter {
+        @include font-size(4.8, 3.6);
+        float: left;
+        padding-right: 8px;
+        padding-top: 7px;
+      }
+      p {
+        @include font-size(1.6, 2.4);
+        margin: 0 0 18px 0;
+      }
+    }
+  }
+}
 
 // This is to capitalize the 1st letter of the paragraph.
 .field--name-field-sections {
@@ -1120,7 +1189,6 @@
   }
 }
 
-
 // Events Views and Node
 .view-page_events_main,
 .view-page_events_subpages {
@@ -1318,7 +1386,6 @@
   }
 }
 //----
-
 
 // Custom Block for Taxonomy Pages
 .block-did-submit-wrap {
@@ -1587,9 +1654,8 @@ article.webform {
 }
 //Upper Content & Main Area ends -----------------------------------------------------
 
+//Lower Content ----------------------------------------------------------------------
 
-
-//Lower Content ---------------------------------------------------------------------
 // Promotional Block
 .block-type-promotional {
   margin-bottom: 90px;
@@ -1624,7 +1690,6 @@ article.webform {
   &__inner {
     max-width: 1270px;
   }
-  
   &__content {
     h3 {
       @include font-size(1.6, 1.8);
@@ -1879,6 +1944,23 @@ article.webform {
     h4 {
       @include font-size(3.2, 3.6);
       margin-bottom: 26px;
+    }
+  }
+}
+
+
+// Bookshelf Block
+#block-views-block-uwm-bookshelf-blocks-block-1 {
+  padding-top: 80px;
+  padding-bottom: 35px;
+  h2 {
+    margin: 0 auto 54px auto;
+    @include font-size(1.6, 1.8);
+  }
+  .views-row {
+    @include make-md-column(4);
+    &:nth-child(3) {
+      display: block;
     }
   }
 }
