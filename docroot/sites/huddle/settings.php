@@ -768,5 +768,9 @@ if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/huddle-settings.inc';
 }
 
+if (file_exists(DRUPAL_ROOT . '/sites/huddle/settings')) {
+  require DRUPAL_ROOT . '/sites/huddle/settings/acquia.lift.contenthub.settings.php';
+}
+
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';

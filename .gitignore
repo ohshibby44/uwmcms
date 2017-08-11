@@ -8,6 +8,10 @@ box/local.config.yml
 *.local
 project.local.yml
 
+# Ignore sensitive Acquia Configs
+config/*/acquia_contenthub.admin_settings.yml
+config/*/acquia_lift.settings.yml
+
 # Ignore drupal core.
 docroot/core
 
