@@ -12,7 +12,8 @@
       margin: 0 0 .25rem 0;
     }
   }
-  .media-image {
+  .media-image,
+  .media-video {
     display: none;
     @media (min-width: $screen-sm) {
       display: block;
