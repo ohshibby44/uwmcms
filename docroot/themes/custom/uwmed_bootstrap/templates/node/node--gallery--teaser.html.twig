@@ -75,7 +75,16 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  {{ content.field_image }}
+  {% if(content.field_category.0['#plain_text'] == 'Videos') %}
+    <div class="video-wrap">
+      <a href="{{ url }}" class="video-overlay"></a>
+      {{ content.field_image }}
+    </div>
+
+  {% else %}
+    {{ content.field_image }}
+  {% endif %}
+
   <header>
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
