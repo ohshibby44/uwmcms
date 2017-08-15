@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 11, 2017
+// Aug. 14, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -582,14 +582,15 @@ body {
     max-width: 800px;
     width: 100%;
     .field--name-field-content-references-inner {
+      padding-bottom: 16px;
       @include make-row();
       > .field--item {
-        @include make-xs-column(6);
-        &:first-child {
-          padding-right: 10px;
-        }
-        &:last-child {
-          padding-left: 10px;
+        @include make-xs-column(12);
+        .article.teaser {
+          max-width: 377px;
+          width: 100%;
+          @include center-block();
+          margin-bottom: 20px;
         }
       }
     }
@@ -3209,7 +3210,7 @@ blockquote {
       h3 {
         margin: 0 0 30px 0;
       }
-      > div {
+      .views-row {
         margin-bottom: 30px;
         min-height: 78px;
         @include clearfix();
@@ -3556,9 +3557,6 @@ blockquote {
     }
   }
 }
-
-
-
 //Lower Content ends ----------------------------------------------------------------
 
 //Footer Area -----------------------------------------------------------------------
@@ -3578,15 +3576,15 @@ blockquote {
     min-height: 1px;
   }
   
-  .egion-footer {
+  .region-footer {
     @include make-row();
   }
   .footer-uw-social-wrap {
     @include make-xs-column(12);
   }
   .footer-uw-link {
-    padding-top: 48px;
-    padding-bottom: 32px;
+    //padding-top: 48px;
+    //padding-bottom: 32px;
     text-align: center;
     a {
       color: #fff;
@@ -3619,7 +3617,7 @@ blockquote {
   .footer-social-links {
     text-align: center;
     height: 32px;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
     ul {
       list-style: none;
       display: inline-block;
@@ -3666,7 +3664,9 @@ blockquote {
   .footer-links {
     @include make-xs-column(12);
     text-align: center;
-    margin-bottom: 32px;
+    //margin-bottom: 32px;
+    padding-top: 48px;
+    padding-bottom: 32px;
     ul {
       list-style: none;
       padding: 0;
@@ -3697,6 +3697,13 @@ blockquote {
   .footer-accelerate {
     @include make-xs-column(12);
     margin-bottom: 36px;
+    p {
+      color: #fff;
+      text-align: center;
+      @include font-size(1.5, 2.1);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
     a {
       @include text-hide;
       @include center-block();

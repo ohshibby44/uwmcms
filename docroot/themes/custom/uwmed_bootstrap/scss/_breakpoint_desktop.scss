@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 10, 2017
+// Aug. 11, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -414,10 +414,15 @@
       > .field--item {
         width: 50%;
         padding: 0;
-        &:first-child {
+        .article.teaser {
+          header {
+            height: 64px;
+          }
+        }
+        &:nth-child(odd) {
           padding-right: 25px;
         }
-        &:last-child {
+        &:nth-child(even) {
           padding-left: 25px;
           float: right;
         }
@@ -1805,11 +1810,9 @@ article.webform {
       h3 {
         margin: -66px 0 30px 0;
       }
-      > div {
+      .views-row {
         margin-bottom: 34px;
-
         padding-bottom: 22px;
-        
         h4 {
           @include font-size(2.4, 2.8);
           margin: 0 0 20px 0;
@@ -1973,7 +1976,7 @@ article.webform {
     @include make-md-column(3);
   }
   .footer-uw-link {
-    padding-top: 36px;
+    padding-top: 43px;
     padding-bottom: 0;
     text-align: left;
     a.svg {
@@ -2005,12 +2008,16 @@ article.webform {
   }
   .footer-accelerate {
     @include make-md-column(3);
-    padding-top: 38px;
+    padding-top: 41px;
     margin-bottom: 0;
     @include clearfix();
+    text-align: left;
+    p {text-align: left;}
     a {
-      float: right;
+      float: left;
       margin: 0;
+      width: 134px;
+      background-size: 134px auto;
     }
   }
   .footer-tagline {

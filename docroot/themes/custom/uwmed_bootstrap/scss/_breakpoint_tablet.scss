@@ -1,7 +1,7 @@
 // UWMED - Tablet Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 3, 2017
+// Aug. 15, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -13,8 +13,26 @@
 //Header Area -----------------------------------------------------------------------
 //Header Area ends ------------------------------------------------------------------
 
-
 //Upper Content & Main Area ----------------------------------------------------------
+
+// Front Page Theming
+.landing-page.full {
+  .field--name-field-content-references {
+    .field--name-field-content-references-inner {
+      > .field--item {
+        @include make-xs-column(6);
+        .article.teaser {
+          header {
+            height: 50px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+
 // People / Perspectives / News - Views Pages
 .view-page_people_main,
 .view-page_perspectives_main,
