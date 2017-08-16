@@ -86,6 +86,7 @@ module:
   rabbit_hole: 0
   rdf: 0
   redirect: 0
+  responsive_favicons: 0
   rest: 0
   rh_media: 0
   rh_node: 0
