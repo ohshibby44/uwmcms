@@ -65,7 +65,8 @@
         "drupal/google_tag": "1.x-dev",
         "drupal/fb_instant_articles": "2.x-dev",
         "drupal/responsive_favicons": "^1.4",
-        "drupal/access_unpublished": "^1.0@alpha"
+        "drupal/access_unpublished": "^1.0@alpha",
+        "drupal/link_attributes": "^1.1"
     },
     "require-dev": {
         "geerlingguy/drupal-vm": "~4.3"
