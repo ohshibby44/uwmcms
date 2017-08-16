@@ -1,25 +1,25 @@
-uuid: 04623ec5-3ff2-41b0-8738-ab9989efe67b
+uuid: d2dd18f5-4f26-4556-852a-09e364eb7bc6
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.search_articles
+    - views.view.search
   module:
     - system
     - views
   theme:
     - chew
-id: exposed_form__search_articles_page
+id: exposed_form_search_page
 theme: chew
 region: content
-weight: -11
+weight: -12
 provider: null
-plugin: 'views_exposed_filter_block:search_articles-page'
+plugin: 'views_exposed_filter_block:search-page'
 settings:
-  id: 'views_exposed_filter_block:search_articles-page'
+  id: 'views_exposed_filter_block:search-page'
   label: ''
   provider: views
-  label_display: '0'
+  label_display: visible
   views_label: ''
 visibility:
   request_path:

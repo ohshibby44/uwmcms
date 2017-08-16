@@ -1,4 +1,4 @@
-#block-exposed-form-search-articles-header {
+#block-exposed-form-search-header {
   margin-left: .5rem;
   @media (min-width: $screen-md) {
     float: left;
@@ -26,13 +26,13 @@
     }
   }
 }
-#block-exposed-form-search-articles-page {
+#block-exposed-form-search-page {
   margin-bottom: 3rem;
   .form-actions {
     display: none;
   }
 }
-.view-search-articles {
+.view-search {
   .view-header {
     color: $gray-dark;
     font-family: $font-family-sans-serif;
@@ -46,6 +46,5 @@
     line-height: 1.25;
   }
   .views-field-search-api-excerpt {
-
   }
 }

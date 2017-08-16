@@ -43,7 +43,7 @@ function uwmcms_chew_views_form_views_exposed_form_alter(&$form, FormStateInterf
   $storage = $form_state->getStorage();
   $view = $storage['view'];
 
-  if ($view->id() == 'search_articles' && $view->current_display == 'page') {
+  if ($view->id() == 'search' && $view->current_display == 'page') {
     // Move the actions before the search input field.
     $form['search']['#weight'] = 20;
     $form['actions']['#weight'] = 10;

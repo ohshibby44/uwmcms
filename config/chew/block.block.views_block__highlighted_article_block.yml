@@ -12,7 +12,7 @@ dependencies:
 id: views_block__highlighted_article_block
 theme: chew
 region: content
-weight: -14
+weight: -15
 provider: null
 plugin: 'views_block:highlighted_article-block'
 settings:
