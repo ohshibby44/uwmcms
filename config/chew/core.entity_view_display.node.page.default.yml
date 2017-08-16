@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_promotion
     - field.field.node.page.field_sections
+    - field.field.node.page.field_webform
     - field.field.node.page.panelizer
     - field.field.node.page.scheduled_update
     - node.type.page
@@ -13,6 +14,7 @@ dependencies:
     - entity_reference_revisions
     - panelizer
     - user
+    - webform
 third_party_settings:
   panelizer:
     enable: false
@@ -34,6 +36,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_webform:
+    weight: 1
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
     region: content
   workbench_moderation_control:
     weight: 0

@@ -1,9 +1,9 @@
 #block-follow-us {
-  @include make-md-column(8);
   @include clearfix();
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 4rem;
   @media (min-width: $screen-md) {
+    @include make-md-column(8);
     padding-left: 0;
   }
   .block-title {

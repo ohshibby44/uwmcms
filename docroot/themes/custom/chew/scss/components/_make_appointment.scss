@@ -1,8 +1,8 @@
 #block-make-appointment {
-  @include make-md-column(4);
   margin-bottom: 4rem;
   text-align: center;
   @media (min-width: $screen-md) {
+    @include make-md-column(4);
     text-align: right;
     padding-right: 0;
   }
