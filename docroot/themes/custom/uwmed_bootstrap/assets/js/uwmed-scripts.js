@@ -40,6 +40,23 @@
         if (sidebar_height > article_sections_height) {
           $('.article.full .field--name-field-sections').height(sidebar_height);
         }
+        // Bookshelf H1 hover effect for image.
+        $('.bookshelf.featured header').hover(
+          function () {
+            $('.bookshelf.featured .image-overlay').addClass('overlay-hover');
+          },
+          function () {
+            $('.bookshelf.featured .image-overlay').removeClass('overlay-hover');
+          }
+        );
+        $('.bookshelf.featured .image-overlay').hover(
+          function () {
+            $('.bookshelf.featured header h1 a').addClass('hover-over');
+          },
+          function () {
+            $('.bookshelf.featured header h1 a').removeClass('hover-over');
+          }
+        );
       }
     }
   };

@@ -33,11 +33,12 @@
     {% endif %}
 
       {% for item in items %}
+        {% set li_class = 'li-' ~ item.title|lower %}
         {% if menu_level == 0 and item.is_expanded %}
-        <li{{ item.attributes.addClass('expanded', 'dropdown') }}>
-          <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }} <span class="caret"></span></a>
+          <li{{ item.attributes.addClass('expanded', 'dropdown', li_class) }}>
+            <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }} <span class="caret"></span></a>
         {% else %}
-          <li{{ item.attributes }}>
+          <li{{ item.attributes.addClass(li_class) }}>
           {{ link(item.title, item.url) }}
         {% endif %}
         {% if item.below %}

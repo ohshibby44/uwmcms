@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 14, 2017
+// Aug. 16, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -746,6 +746,10 @@ body {
           text-decoration: none;
         }
       }
+      a.hover-over {
+        color: $uw-purple;
+        text-decoration: none;
+      }
     }
   }
   .content {
@@ -756,6 +760,24 @@ body {
     @include font-size(1.4, 2.1);
     color: #000;
     padding-bottom: 32px;
+  }
+}
+.article.featured {
+  .image-wrap {
+    width: 100%;
+    position: relative;
+    .image-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      transition: all 0.25s ease 0s;
+      &:hover {
+        background-color: rgba(0,0,0,0.3);
+      }
+    }
   }
 }
 .article.teaser,
@@ -1136,15 +1158,35 @@ body {
 
 // Bookshelf
 .bookshelf.featured {
-  .field--type-image {
+  .bookshelf-image {
     width: 100%;
     min-height: 1px;
     padding: 23px 0;
     @include clearfix();
     background-color: $uw-white-grey;
     text-align: center;
-    img {
+    .image-wrap {
+      width: 100%;
+      max-width: 240px;
+      position: relative;
+      min-height: 1px;
+      @include clearfix();
       @include center-block();
+      .image-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        transition: all 0.25s ease 0s;
+        &:hover {
+          background-color: rgba(0,0,0,0.3);
+        }
+      }
+      .overlay-hover {
+        background-color: rgba(0,0,0,0.3);
+      }
     }
   }
   .field--name-field-teaser {
@@ -3016,7 +3058,7 @@ blockquote {
         }
         &:hover {
           color: $uw-purple;
-          text-decoration: none;
+          text-decoration: underline;
         }
       }
     }
