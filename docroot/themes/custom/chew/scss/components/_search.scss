@@ -47,4 +47,9 @@
   }
   .views-field-search-api-excerpt {
   }
+  .view-empty {
+    a {
+      border-bottom: 2px solid $brand-primary;
+    }
+  }
 }
