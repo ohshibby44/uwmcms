@@ -11,5 +11,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access site-wide contact form'
+  - 'access_unpublished node article'
   - 'never autoplay videos'
   - 'view media'

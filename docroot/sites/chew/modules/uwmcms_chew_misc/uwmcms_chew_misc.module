@@ -113,6 +113,22 @@ function uwmcms_chew_misc_preprocess_media__large(&$variables) {
  * Customize the Promotion Options section on the node edit form for articles.
  */
 function uwmcms_chew_misc_form_node_article_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  _uwmcms_chew_misc_node_form_alter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node_article_form.
+ *
+ * Customize the Promotion Options section on the node add form for articles.
+ */
+function uwmcms_chew_misc_form_node_article_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  _uwmcms_chew_misc_node_form_alter($form, $form_state, $form_id);
+}
+
+/**
+ * Helper function to alter node add form and node edit form.
+ */
+function _uwmcms_chew_misc_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (isset($form['promote']['widget']['value']['#title'])) {
     $form['promote']['widget']['value']['#title'] = t('Featured article');
   }
