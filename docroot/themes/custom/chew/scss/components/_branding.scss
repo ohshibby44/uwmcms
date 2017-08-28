@@ -1,21 +1,23 @@
 .region-branding {
   float: left;
   width: 80%;
-  padding: 0 10px 0 0;
+  max-width: 480px;
+  padding: 5px 0;
   @media (min-width: $screen-md) {
     float: none;
     width: auto;
-    padding: 0;
+    padding: 5px 0;
   }
   .logo {
     width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
     @media (min-width: $screen-md) {
       width: 480px;
-      margin-top: 30px;
     }
     @media (min-width: $screen-lg) {
       width: 640px;
-      margin-top: 15px;
+      max-width: 640px;
     }
     img {
       width: 100%;

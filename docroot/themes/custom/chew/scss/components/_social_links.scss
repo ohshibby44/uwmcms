@@ -2,20 +2,24 @@
   margin-bottom: 20px;
   @media (min-width: $screen-md) {
     float: left;
+    margin-bottom: 0;
   }
 }
 .social-media-links {
   .region-header & {
     .social-media-link {
       display: inline-block;
-      width: 30px;
       margin: 0 7px 0 0;
+      width: 20px;
+      height: 20px;
       @media (min-width: $screen-md) {
         float: left;
-        margin-right: 15px;
+        margin-right: 12px;
+        width: 30px;
+        height: 30px;
       }
       @media (min-width: $screen-lg) {
-        margin-right: 30px;
+        margin-right: 25px;
       }
       img {
         max-width: 100%;

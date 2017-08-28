@@ -23,13 +23,4 @@
     }
   };
 
-  /**
-   * Make navbar sticky.
-   */
-  Drupal.behaviors.chewStickyNavbar = {
-    attach: function (context, settings) {
-      $('#page-header').stickybits();
-    }
-  };
-
 })(jQuery, Drupal);

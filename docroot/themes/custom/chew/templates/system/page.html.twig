@@ -67,39 +67,37 @@
         theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
       ]
     %}
-    <header id="page-header" role="banner">
-      <div{{ navbar_attributes.addClass(navbar_classes) }} id="navbar">
-        {% if not navbar_attributes.hasClass(container) %}
-          <div class="{{ container }}">
-        {% endif %}
-          <div class="row">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              {% if page.branding %}
-                {% block branding %}
-                  {{ page.branding }}
-                {% endblock %}
-              {% endif %}
-            </div>
-            {% if page.navigation or page.header %}
-              <div id="navbar-collapse" class="navbar-collapse collapse">
-                <div class="navigation-header">
-                  {{ page.navigation }}
-                  {{ page.header }}
-                </div>
-              </div>
-            {% endif %}
-          </div>
-        {% if not navbar_attributes.hasClass(container) %}
+
+
+
+    <header{{ navbar_attributes.addClass(navbar_classes) }}>
+      {% if not navbar_attributes.hasClass(container) %}
+      <div class="{{ container }}">
+      {% endif %}
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% if page.branding %}
+            {% block branding %}
+              {{ page.branding }}
+            {% endblock %}
+          {% endif %}
+        </div>
+        {% if page.navigation or page.header %}
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            {{ page.navigation }}
+            {{ page.header }}
           </div>
         {% endif %}
+      {% if not navbar_attributes.hasClass(container) %}
       </div>
+      {% endif %}
     </header>
+
   {% endblock %}
 {% endif %}
 
