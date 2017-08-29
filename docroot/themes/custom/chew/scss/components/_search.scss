@@ -4,6 +4,9 @@
     float: left;
     margin-left: 2rem;
   }
+  .form-group {
+    display: inline-block;
+  }
   .control-label {
     @extend .sr-only;
   }

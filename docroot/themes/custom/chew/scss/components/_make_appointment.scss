@@ -21,7 +21,7 @@
     letter-spacing: 1px;
   }
   .make-appointment__where {
-    font-size: ceil($font-size-base * 1.125);
-    line-height: 1;
+    max-width: 100%;
+    margin-bottom: 1rem;
   }
 }
