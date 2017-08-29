@@ -32,12 +32,13 @@
   .social-media-link {
     display: inline-block;
     width: 30px;
+    height: 30px;
     margin: 0 7px 0 0;
     @media (min-width: $screen-md-min) {
-      margin-right: 15px;
+      margin-right: 12px;
     }
     @media (min-width: $screen-lg-min) {
-      margin-right: 30px;
+      margin-right: 25px;
     }
     img {
       max-width: 100%;
