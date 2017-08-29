@@ -21,3 +21,20 @@ body {
 .form-type-textarea {
   margin-bottom: 15px;
 }
+
+/* Overrides for very short screens */
+@media (max-height: 480px) {
+  body.navbar-is-fixed-top {
+    margin-top: 80px;
+  }
+  .navbar {
+    min-height: 80px;
+    .container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .region-branding {
+    max-width: 360px;
+  }
+}
