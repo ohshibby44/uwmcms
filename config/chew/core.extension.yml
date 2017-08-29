@@ -108,6 +108,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  uwmcms_chew_fields: 0
   uwmcms_chew_misc: 0
   uwmcms_chew_views: 0
   uwmcs_mediaamp: 0
