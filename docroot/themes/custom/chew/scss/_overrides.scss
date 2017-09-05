@@ -30,7 +30,7 @@ body {
 }
 
 /* Overrides for very short screens */
-@media (max-height: 480px) {
+@media (max-device-width: $screen-xs-min) and (orientation: landscape) {
   body.navbar-is-fixed-top {
     margin-top: 80px;
   }
@@ -43,5 +43,11 @@ body {
   }
   .region-branding {
     max-width: 360px;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    .navbar-collapse {
+      max-height: 300px;
+    }
   }
 }
