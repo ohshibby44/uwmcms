@@ -49,7 +49,9 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="paragraph-resource-title">
-        {{ content.field_title }}
+        <div class="paragraph-resource-title-wrap collapsed" data-toggle="collapse" data-target="#paragraph-resource-{{ paragraph.id() }}">
+          {{ content.field_title }}
+        </div>
         <button class="collapsed" data-toggle="collapse" data-target="#paragraph-resource-{{ paragraph.id() }}"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i></button>
       </div>
       <div id="paragraph-resource-{{ paragraph.id() }}" class="paragraph-resource-links collapse">

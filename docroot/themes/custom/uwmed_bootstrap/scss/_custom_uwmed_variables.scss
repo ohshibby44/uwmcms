@@ -1,7 +1,7 @@
 // UWMED - Custom Bootstrap Variables
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 7, 2017
+// Sept. 4, 2017
 
 // Custom Font Includes Mixins
 @mixin encodesans-bold {
@@ -131,7 +131,7 @@ line-height: $line + rem;
   &:hover {
     color: #fff;
     text-decoration: none;
-    background-color: $bright-purple;
+    background-color: $another-purple;
     border: none;
   }
 }
@@ -175,6 +175,7 @@ $uw-goldenrod:        #ffb300;
 $uw-cream:            #f3e9db;
 $uw-off-white:        #ececec;
 $uw-white-grey:       #f4f4f4;
+$another-purple:      #6f3276;
 
 
 //

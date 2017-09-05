@@ -75,7 +75,10 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  {{ content.field_image }}
+  <div class="image-wrap">
+    <a href="{{ url }}" class="image-overlay"></a>
+    {{ content.field_image }}
+  </div>
   <header>
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>

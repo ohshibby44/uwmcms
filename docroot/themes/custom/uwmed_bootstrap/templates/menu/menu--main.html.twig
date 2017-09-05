@@ -33,7 +33,7 @@
     {% endif %}
 
       {% for item in items %}
-        {% set li_class = 'li-' ~ item.title|lower %}
+        {% set li_class = 'li-' ~ item.title|lower|replace({' ': '-'}) %}
         {% if menu_level == 0 and item.is_expanded %}
           <li{{ item.attributes.addClass('expanded', 'dropdown', li_class) }}>
             <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title }} <span class="caret"></span></a>

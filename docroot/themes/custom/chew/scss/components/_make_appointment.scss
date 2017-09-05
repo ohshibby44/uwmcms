@@ -8,20 +8,26 @@
   }
   .make-appointment__link {
     display: inline-block;
+    max-width: 270px;
     background: linear-gradient(90deg, rgba(109,46,119,1) 0%, rgba(52,1,112,1) 100%);
-    padding: 1rem 4rem;
+    padding: 2rem 4rem;
     text-align: center;
     color: #fff;
+    @media (min-width: $screen-md) {
+      display: block;
+      float: right;
+    }
   }
   .make-appointment__what {
+    display: block;
     text-transform: uppercase;
     font-family: $font-family-sans-serif;
     font-size: ceil($font-size-base * .722);
-    line-height: 1;
+    line-height: 1.25;
     letter-spacing: 1px;
+    margin-bottom: 5px;
   }
   .make-appointment__where {
-    font-size: ceil($font-size-base * 1.125);
-    line-height: 1;
+    max-width: 100%;
   }
 }

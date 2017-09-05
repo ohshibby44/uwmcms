@@ -1,5 +1,5 @@
 name: 'UW Medicine CHEW Fields'
-description: 'Customizations related to fields.'
+description: 'Field customizations for UW Medicine CHEW.'
 type: module
 core: 8.x
-package: 'UW Medicine'
+package: 'UWMCMS'

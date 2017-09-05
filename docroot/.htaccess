@@ -69,6 +69,7 @@ AddEncoding gzip svgz
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
+  ## SSL RULES ##
   # Redirect HTTP to HTTPS in Acquia Cloud
   RewriteCond %{ENV:AH_SITE_ENVIRONMENT} (ra|dev|test|prod)
   RewriteCond %{HTTPS} off
@@ -86,7 +87,17 @@ AddEncoding gzip svgz
   # even when running as CGI or FastCGI.
   RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-  # Block access to "hidden" directories whose names begin with a period. This
+  ## UWMED CUSTOM REWRITES ##
+  # Redirect CHEW Dev URL to Live URL
+  RewriteCond %{HTTP_HOST} chew.cms.uwmedicine.org
+  RewriteRule ^(.*)$ https://rightasrain.uwmedicine.org%{REQUEST_URI} [L,R=301]
+
+  # Redirect Huddle Dev URL to Live URL
+  RewriteCond %{HTTP_HOST} huddle.cms.uwmedicine.org
+  RewriteRule ^(.*)$ https://huddle.uwmedicine.org%{REQUEST_URI} [L,R=301]
+
+  ## DRUPAL-SPECIFIC RULES ##
+    # Block access to "hidden" directories whose names begin with a period. This
   # includes directories used by version control systems such as Subversion or
   # Git to store control files. Files whose names begin with a period, as well
   # as the control files used by CVS, are protected by the FilesMatch directive

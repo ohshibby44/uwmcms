@@ -10,15 +10,19 @@ id: node.article.publish
 field_name: publish
 entity_type: node
 bundle: article
-label: Publish
+label: Schedule
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:scheduled_update'
   handler_settings:
     target_bundles:
-      - schedule_articles
-  handler: 'default:scheduled_update'
+      schedule_articles: schedule_articles
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

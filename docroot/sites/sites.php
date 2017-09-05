@@ -55,17 +55,16 @@
  */
 
 $sites['chew.uwmed.local'] = 'chew';
-$sites['chew.cms.uwmedicine.org'] = 'chew';
 $sites['chew.cmsdev.uwmedicine.org'] = 'chew';
 $sites['chew.cmsstage.uwmedicine.org'] = 'chew';
 $sites['chew.cmsra.uwmedicine.org'] = 'chew';
+$sites['rightasrain.uwmedicine.org'] = 'chew';
 
 $sites['huddle.uwmed.local'] = 'huddle';
-$sites['huddle.cms.uwmedicine.org'] = 'huddle';
 $sites['huddle.cmsdev.uwmedicine.org'] = 'huddle';
 $sites['huddle.cmsstage.uwmedicine.org'] = 'huddle';
 $sites['huddle.cmsra.uwmedicine.org'] = 'huddle';
-
+$sites['huddle.uwmedicine.org'] = 'huddle';
 
 $sites['calendar.uwmed.local'] = 'calendar';
 $sites['calendar.cms.uwmedicine.org'] = 'calendar';

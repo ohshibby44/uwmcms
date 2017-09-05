@@ -371,12 +371,12 @@ $container-lg:                 $container-large-desktop;
 //##
 
 // Basics of a navbar
-$navbar-height:                    50px;
+$navbar-height:                    100px;
 $navbar-margin-bottom:             $line-height-computed;
 $navbar-border-radius:             0;
 $navbar-padding-horizontal:        0;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
-$navbar-collapse-max-height:       340px;
+$navbar-collapse-max-height:       600px;
 
 $navbar-default-color:             #777;
 $navbar-default-bg:                $body-bg;

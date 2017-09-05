@@ -2,10 +2,56 @@
 
 /**
  * @file
- * General functionality and hook implementation for fields.
+ * General functionality and hook implementations for fields.
  */
 
-use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Field\FormatterInterface;
-use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
+/**
+ * Implements hook_preprocess_HOOK() for image formatter templates.
+ *
+ * Adds a link to the referencing node, if there is one.
+ */
+function uwmcms_chew_fields_preprocess_image_formatter(&$variables) {
+  if (!isset($variables['item'])) {
+    return;
+  }
+  $image_item = $variables['item'];
+
+
+  // Get the media entity to which this image belongs, if there is one.
+  $media_entity = $image_item->getParent()->getEntity();
+  if (!isset($media_entity)) {
+    return;
+  }
+
+  // Get the entity reference item.
+  $entity_reference_item = $media_entity->_referringItem;
+  if (!isset($entity_reference_item)) {
+    return;
+  }
+
+  // Get the node entity to which this media entity belongs, if there is one.
+  $node = $entity_reference_item->getParent()->getEntity();
+  if (!isset($node)) {
+    return;
+  }
+
+  // Get the node ID.
+  $nid = $node->id();
+
+  // Get the current path.
+  $path = \Drupal::service('path.current')->getPath();
+
+  if(preg_match('/node\/(\d+)/', $path, $matches)) {
+    $path_nid = $matches[1];
+    // Don't link to the node if it's currently being viewed.
+    if ($nid == $path_nid) {
+      return;
+    }
+
+    // Set the URL to the node's path alias.
+    $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+    $variables['url'] = $url;
+  }
+}

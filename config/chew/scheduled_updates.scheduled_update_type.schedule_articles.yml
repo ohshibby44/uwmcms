@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: schedule_articles
-label: 'Publish articles'
+label: 'Schedule articles'
 update_entity_type: node
 update_types_supported:
   - embedded

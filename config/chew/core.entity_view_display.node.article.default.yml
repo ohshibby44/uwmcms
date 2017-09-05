@@ -79,3 +79,4 @@ hidden:
   field_promotion: true
   field_short_summary: true
   links: true
+  publish: true
