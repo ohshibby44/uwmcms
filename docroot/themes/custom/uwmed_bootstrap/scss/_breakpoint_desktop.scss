@@ -1366,10 +1366,29 @@
             }
             .field--type-image {
               width: 266px;
-              float: right;
               display: block;
               img {
                 @include img-responsive-important;
+              }
+            }
+            .image-wrap {
+              position: relative;
+              width: 266px;
+              float: right;
+              .image-overlay {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                transition: all 0.25s ease 0s;
+                &:hover {
+                  background-color: rgba(0,0,0,0.3);
+                }
+              }
+              .overlay-hover {
+                //background-color: rgba(0,0,0,0.3);
               }
             }
           }

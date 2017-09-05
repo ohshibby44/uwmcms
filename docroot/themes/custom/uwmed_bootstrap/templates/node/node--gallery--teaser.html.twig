@@ -80,9 +80,11 @@
       <a href="{{ url }}" class="video-overlay"></a>
       {{ content.field_image }}
     </div>
-
   {% else %}
-    {{ content.field_image }}
+    <div class="image-wrap">
+      <a href="{{ url }}" class="image-overlay"></a>
+      {{ content.field_image }}
+    </div>
   {% endif %}
 
   <header>

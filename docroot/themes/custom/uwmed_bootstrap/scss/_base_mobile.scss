@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 31, 2017
+// Sept. 4, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -573,6 +573,12 @@ body {
 
 // Front Page Theming
 .landing-page.full {
+  .field--name-field-content-reference {
+    .date-name {
+      // Shows up sometimes. Bug in templating
+      display: none;
+    }
+  }
   .field--name-field-content-references {
     // Adding Mobile Tablet Bootstrap grid fun
     margin-right: auto;
@@ -591,6 +597,10 @@ body {
           width: 100%;
           @include center-block();
           margin-bottom: 20px;
+          .date-name {
+            // Shows up sometimes. Bug in templating
+            display: none;
+          }
         }
       }
     }
@@ -632,7 +642,7 @@ body {
         }
         &:hover {
           color: $uw-purple;
-          text-decoration: none;
+          text-decoration: underline;
         }
       }
       .views-content {
@@ -690,7 +700,7 @@ body {
       }
       &:hover {
         color: $uw-purple;
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
@@ -778,6 +788,9 @@ body {
         background-color: rgba(0,0,0,0.3);
       }
     }
+    .overlay-hover {
+      background-color: rgba(0,0,0,0.3);
+    }
   }
 }
 .article.teaser,
@@ -788,6 +801,25 @@ body {
       @include img-responsive-important;
     }
     margin-bottom: 24px;
+  }
+  .image-wrap {
+    width: 100%;
+    position: relative;
+    .image-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      transition: all 0.25s ease 0s;
+      &:hover {
+        background-color: rgba(0,0,0,0.3);
+      }
+    }
+    .overlay-hover {
+      background-color: rgba(0,0,0,0.3);
+    }
   }
   header {
     // Need to add in Bootstrap padding here for Mobile - Tablet
@@ -810,9 +842,22 @@ body {
           text-decoration: none;
         }
       }
+      a.hover-over {
+        color: $uw-purple;
+        text-decoration: none;
+      }
     }
   }
 }
+
+.article.teaser {
+  .image-wrap {
+    width: 100%;
+    position: relative;
+    max-width: 377px;
+  }
+}
+
 .article.node.full,
 .gallery.node.full,
 .page.node.full,
@@ -1123,7 +1168,6 @@ body {
   .field--type-image {
     img {
       @include img-responsive-important;
-      
     }
   }
   header {
@@ -1204,10 +1248,14 @@ body {
 }
 .bookshelf.teaser {
   @include clearfix();
-  .field--type-image {
-    margin-bottom: 0;
+  .image-wrap {
+    margin-bottom: 24px;
     margin-right: 30px;
     float: left;
+    max-width: 158px;
+  }
+  .field--type-image {
+    margin-bottom: 0;
   }
   header {
     display: block;
@@ -1245,7 +1293,6 @@ body {
       margin-bottom: 16px;
     }
   }
-  
   .date-name {
     min-height: 1px;
     @include clearfix();
@@ -1302,7 +1349,6 @@ body {
     }
   }
 }
-
 
 // This is to capitalize the 1st letter of the paragraph.
 .field--name-field-sections {
@@ -1544,7 +1590,6 @@ body {
   }
 }
 
-
 // People / Perspectives / News / Galleries / Events - Views Pages
 .view-page_people_main,
 .view-page_perspectives_main,
@@ -1579,6 +1624,25 @@ body {
         width: 100%;
         @include center-block();
         padding-bottom: 44px;
+        .image-wrap {
+          width: 100%;
+          position: relative;
+          .image-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            transition: all 0.25s ease 0s;
+            &:hover {
+              background-color: rgba(0,0,0,0.3);
+            }
+          }
+          .overlay-hover {
+            background-color: rgba(0,0,0,0.3);
+          }
+        }
         .field--type-image {
           img {
             @include img-responsive-important;
@@ -1602,9 +1666,13 @@ body {
                 color: #000;
               }
               &:hover {
-                color: #000;
+                color: $uw-purple;
                 text-decoration: none;
               }
+            }
+            a.hover-over {
+              color: $uw-purple;
+              text-decoration: none;
             }
           }
         }
@@ -1690,8 +1758,35 @@ body {
           top: 0;
           left: 0;
           display: block;
-          background: rgba(0,0,0,0.5) url(../img/play-icon.svg) no-repeat center center;
+          //background: rgba(0,0,0,0.5) url(../img/play-icon.svg) no-repeat center center;
+          background: transparent url(../img/play-icon.svg) no-repeat center center;
           background-size: 50% 50%;
+          &:hover {
+            background-color: rgba(0,0,0,0.3);
+          }
+        }
+        .overlay-hover {
+          background-color: rgba(0,0,0,0.3);
+        }
+      }
+      .image-wrap {
+        width: 100%;
+        position: relative;
+        max-width: 377px;
+        .image-overlay {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          transition: all 0.25s ease 0s;
+          &:hover {
+            background-color: rgba(0,0,0,0.3);
+          }
+        }
+        .overlay-hover {
+          background-color: rgba(0,0,0,0.3);
         }
       }
       .field--type-image {
@@ -1720,9 +1815,13 @@ body {
               color: #000;
             }
             &:hover {
-              color: #000;
+              color: $uw-purple;
               text-decoration: none;
             }
+          }
+          a.hover-over {
+            color: $uw-purple;
+            text-decoration: none;
           }
         }
       }
@@ -1744,7 +1843,6 @@ body {
     }
   }
 }
-
 
 // Bookshelf Views
 .view-id-uwm_bookshelf_page.view-display-id-page_1 {
@@ -1775,6 +1873,26 @@ body {
         @include center-block();
         @include clearfix();
         min-height: 1px;
+        transition: all 0.25s ease 0s;
+        .image-wrap {
+          width: 100%;
+          position: relative;
+          .image-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            transition: all 0.25s ease 0s;
+            &:hover {
+              background-color: rgba(0,0,0,0.3);
+            }
+          }
+          .overlay-hover {
+            //background-color: rgba(0,0,0,0.3);
+          }
+        }
         .field--type-image {
           img {
             @include img-responsive-important;
@@ -1792,6 +1910,7 @@ body {
             border: 2px solid $uw-light-grey;
             float: left;
             padding-top: 8px;
+            transition: all 0.25s ease 0s;
             span {
               text-align: center;
               display: block;
@@ -1832,6 +1951,7 @@ body {
                 @include encodesans-compressedsemibold;
                 @include font-size(2.4, 2.8);
                 color: #000;
+                transition: all 0.25s ease 0s;
                 &:visited,
                 &:hover,
                 &:active,
@@ -1840,7 +1960,7 @@ body {
                   color: #000;
                 }
                 &:hover {
-                  color: #000;
+                  color: $uw-purple;
                   text-decoration: none;
                 }
               }
@@ -1860,6 +1980,21 @@ body {
             @include font-size(1.4, 2.1);
             color: #000;
             padding: 0;
+          }
+        }
+        
+        &:hover {
+          .image-wrap .image-overlay {
+            background-color: rgba(0,0,0,0.3);
+          }
+          .event-right header h1 a {
+            color: $uw-purple;
+          }
+          .field--name-field-date,
+          .field--name-field-date-time {
+            &__inner {
+              background: $uw-light-grey;
+            }
           }
         }
       }
@@ -2007,7 +2142,7 @@ body {
               }
               &:hover {
                 color: $uw-purple;
-                text-decoration: none;
+                text-decoration:underline;
               }
               .fa {
                 padding-right: 10px;
@@ -2029,6 +2164,7 @@ body {
         // Event Teaser styles
         .event.teaser,
         .calendar-event.teaser {
+          transition: all 0.25s ease 0s;
           .field--name-field-date,
           .field--name-field-date-time {
             float: left;
@@ -2039,6 +2175,7 @@ body {
               border: 2px solid $uw-light-grey;
               float: left;
               padding-top: 8px;
+              transition: all 0.25s ease 0s;
               span {
                 text-align: center;
                 display: block;
@@ -2077,6 +2214,7 @@ body {
                   @include encodesans-compressedsemibold;
                   @include font-size(1.8, 2.4);
                   color: #000;
+                  transition: all 0.25s ease 0s;
                   &:visited,
                   &:hover,
                   &:active,
@@ -2085,7 +2223,7 @@ body {
                     color: #000;
                   }
                   &:hover {
-                    color: #000;
+                    color: $uw-purple;
                     text-decoration: none;
                   }
                 }
@@ -2094,6 +2232,21 @@ body {
             .content,
             .field--type-image {
               display: none;
+            }
+          }
+  
+          &:hover {
+            .image-wrap .image-overlay {
+              background-color: rgba(0,0,0,0.3);
+            }
+            .event-right header h2 a {
+              color: $uw-purple;
+            }
+            .field--name-field-date,
+            .field--name-field-date-time {
+              &__inner {
+                background: $uw-light-grey;
+              }
             }
           }
         }
@@ -2181,7 +2334,7 @@ body {
           }
           &:hover {
             color: $uw-purple;
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
       }
@@ -2256,7 +2409,7 @@ body {
           }
           &:hover {
             color: $uw-purple;
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
       }
@@ -2289,11 +2442,18 @@ body {
       width: 24px;
       cursor: pointer;
       margin: 0 2px;
+      transition: all 0.25s ease 0s;
       &.st_facebook_custom {
         background: transparent url(../img/facebook-2.svg) no-repeat center center;
       }
       &.st_twitter_custom {
         background: transparent url(../img/twitter-2.svg) no-repeat center center;
+      }
+      &.st_facebook_custom:hover {
+        background: transparent url(../img/facebook-over.svg) no-repeat center center;
+      }
+      &.st_twitter_custom:hover {
+        background: transparent url(../img/twitter-over.svg) no-repeat center center;
       }
     }
   }
@@ -2743,7 +2903,7 @@ article.webform {
             }
             &:hover {
               color: $uw-purple;
-              text-decoration: none;
+              text-decoration: underline;
             }
           }
         }
@@ -3085,6 +3245,7 @@ blockquote {
         }
         &:hover {
           color: $uw-purple;
+          text-decoration: underline;
         }
       }
     }
@@ -3202,6 +3363,7 @@ blockquote {
         @include clearfix();
         .views-field-field-date,
         .views-field-field-date-time {
+          transition: all 0.25s ease 0s;
           width: 55px;
           height: 55px;
           border: 2px solid $uw-light-grey;
@@ -3232,6 +3394,7 @@ blockquote {
               color: #000;
               @include font-size(1.8, 2.4);
               @include encodesans-compressedsemibold;
+              transition: all 0.25s ease 0s;
               &:visited,
               &:hover,
               &:active,
@@ -3240,9 +3403,22 @@ blockquote {
                 color: #000;
               }
               &:hover {
-                color: #000;
+                color: $uw-purple;
                 text-decoration: none;
               }
+            }
+          }
+        }
+        &:hover {
+          //$uw-light-grey
+          .views-field-field-date,
+          .views-field-field-date-time {
+            background-color: $uw-light-grey;
+            cursor: default;
+          }
+          .views-field-title {
+            a {
+              color: $uw-purple;
             }
           }
         }
@@ -3258,19 +3434,21 @@ blockquote {
         @include clearfix();
         border-bottom: 2px solid $uw-light-grey;
         padding-bottom: 10px;
+        transition: all 0.25s ease 0s;
         h4 {
           @include font-size(1.8, 2.4);
           margin: 0 0 20px 0;
           a {
-            color: $uw-purple;
+            color: #000;
             @include font-size(1.8, 2.4);
             @include encodesans-compressedsemibold;
+            transition: all 0.25s ease 0s;
             &:visited,
             &:hover,
             &:active,
             &:focus {
               text-decoration: none;
-              color: $uw-purple;
+              color: #000;
             }
             &:hover {
               color: $uw-purple;
@@ -3284,6 +3462,14 @@ blockquote {
           text-transform: uppercase;
           @include font-size(1.3, 1.6);
           margin: 0;
+        }
+        &:hover {
+          border-bottom: 2px solid $uw-purple;
+          h4 {
+            a {
+              color: $uw-purple;
+            }
+          }
         }
       }
     }
@@ -3445,6 +3631,14 @@ blockquote {
         @include encodesans-compressedsemibold;
         position: relative;
         padding-right: 38px;
+        transition: all 0.25s ease 0s;
+        .paragraph-resource-title-wrap {
+          cursor: pointer;
+          transition: all 0.25s ease 0s;
+          &:hover {
+            color: $uw-purple;
+          }
+        }
         button {
           position: absolute;
           top: 8px;
@@ -3469,6 +3663,11 @@ blockquote {
             display: none;
           }
         }
+        &:hover {
+          .paragraph-resource-title-wrap {
+            color: $uw-purple;
+          }
+        }
       }
       .paragraph-resource-links {
         margin-top: 10px;
@@ -3477,6 +3676,7 @@ blockquote {
           @include encodesans-compressedsemibold;
           color: $uw-purple;
           text-decoration: none;
+          transition: all 0.25s ease 0s;
           &:visited,
           &:hover,
           &:active,
@@ -3486,7 +3686,7 @@ blockquote {
           }
           &:hover {
             color: $uw-purple;
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
       }

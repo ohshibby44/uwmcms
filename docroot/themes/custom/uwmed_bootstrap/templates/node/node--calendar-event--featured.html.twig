@@ -75,7 +75,10 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  {{ content.field_image }}
+  <div class="image-wrap">
+    <a href="{{ url }}" class="image-overlay"></a>
+    {{ content.field_image }}
+  </div>
   {{ content.field_date_time }}
   <div class="event-right">
     {{ content.field_event_categories }}

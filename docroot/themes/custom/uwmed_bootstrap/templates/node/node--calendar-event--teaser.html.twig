@@ -79,7 +79,10 @@
   <div class="event-right">
     {% if node.field_image.0.entity.uri.value %}
       <div class="event-teaser-section-image">
-        {{ content.field_image }}
+        <div class="image-wrap">
+          <a href="{{ url }}" class="image-overlay"></a>
+          {{ content.field_image }}
+        </div>
         {{ content.field_event_categories }}
         <header>
           <h2{{ title_attributes }}>
