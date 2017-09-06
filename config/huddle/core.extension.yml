@@ -1,4 +1,9 @@
 module:
+  acquia_contenthub: 0
+  acquia_contenthub_diagnostic: 0
+  acquia_contenthub_subscriber: 0
+  acquia_lift: 0
+  acquia_lift_inspector: 0
   address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
@@ -23,7 +28,9 @@ module:
   devel: 0
   diff: 0
   disqus: 0
+  duration_field: 0
   editor: 0
+  editor_advanced_link: 0
   embed: 0
   entity: 0
   entity_block: 0
@@ -40,6 +47,7 @@ module:
   focal_point: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
   inline_entity_form: 0
   layout_discovery: 0
@@ -60,6 +68,7 @@ module:
   media_entity_twitter: 0
   menu_ui: 0
   metatag: 0
+  metatag_facebook: 0
   node: 0
   options: 0
   page_cache: 0
@@ -67,19 +76,23 @@ module:
   paragraphs: 0
   path: 0
   poll: 0
-  quickedit: 0
+  responsive_favicons: 0
+  rest: 0
+  robotstxt: 0
   scheduled_updates: 0
   search: 0
   seckit: 0
+  serialization: 0
   sharethis: 0
   shortcut: 0
   system: 0
   taxonomy: 0
+  telephone: 0
   text: 0
   token: 0
   toolbar: 0
+  twig_tweak: 0
   user: 0
-  uwmed_huddle_blocks: 0
   video_embed_field: 0
   video_embed_media: 0
   video_embed_wysiwyg: 0
@@ -98,6 +111,7 @@ theme:
   classy: 0
   seven: 0
   uwmed_bootstrap: 0
+  adminimal_theme: 0
 profile: lightning
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

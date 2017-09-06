@@ -1,0 +1,17 @@
+uuid: 26872c7b-d331-42b2-a1bf-a8f18edae608
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Calendar Event'
+type: calendar_event
+description: 'Create calendar events to be distributed through the UW Medicine Content Hub network.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

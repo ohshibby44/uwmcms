@@ -1,9 +1,9 @@
-disqus_domain: ''
+disqus_domain: uw-medicine-huddle
 behavior:
   disqus_localization: false
   disqus_inherit_login: false
   disqus_disable_mobile: false
-  disqus_track_newcomment_ga: false
+  disqus_track_newcomment_ga: true
 advanced:
   disqus_useraccesstoken: ''
   disqus_publickey: ''

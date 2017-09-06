@@ -3,12 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block.block.didyouknow
     - core.entity_view_mode.node.featured
     - core.entity_view_mode.node.teaser
     - field.storage.node.field_date
     - node.type.article
     - system.menu.main
     - taxonomy.vocabulary.categories
+  content:
+    - 'block_content:basic:b7c05980-a5ab-409a-bcf4-db14c42fbe9a'
+    - 'taxonomy_term:categories:ec51a12b-defc-4e92-8445-6edc574d9b85'
   module:
     - datetime
     - node
@@ -194,7 +198,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            39: 39
+            11: 11
           group: 1
           exposed: false
           expose:
@@ -232,6 +236,18 @@ display:
           entity_type: node
           plugin_id: taxonomy_index_tid_depth
       sorts:
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         field_date_value:
           id: field_date_value
           table: node__field_date
@@ -277,8 +293,8 @@ display:
         page_news_main: page_news_main
       inherit_arguments: false
       defaults:
-        filters: true
-        filter_groups: true
+        filters: false
+        filter_groups: false
         title: false
         style: false
         row: false
@@ -316,19 +332,157 @@ display:
           plugin_id: datetime
       arguments: {  }
       footer:
-        entity_block:
-          id: entity_block
+        entity_block_content:
+          id: entity_block_content
           table: views
-          field: entity_block
+          field: entity_block_content
           relationship: none
           group_type: group
           admin_label: ''
           empty: true
           tokenize: true
-          target: didyouknow
+          target: b7c05980-a5ab-409a-bcf4-db14c42fbe9a
           view_mode: default
           bypass_access: false
           plugin_id: entity
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            article: article
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            11: 11
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: categories
+          hierarchy: true
+          error_message: true
+          depth: 1
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -349,8 +503,8 @@ display:
         page_news_subpages: page_news_subpages
       inherit_arguments: true
       defaults:
-        filters: true
-        filter_groups: true
+        filters: false
+        filter_groups: false
         title: false
         style: false
         row: false
@@ -443,6 +597,145 @@ display:
           view_mode: default
           bypass_access: false
           plugin_id: entity
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            article: article
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            11: 11
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: categories
+          hierarchy: true
+          error_message: true
+          depth: 1
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -467,6 +760,7 @@ display:
         row: false
         pager: false
         fields: false
+        sorts: false
       style:
         type: default
       row:
@@ -612,6 +906,20 @@ display:
           separator: ', '
           field_api_classes: false
       display_description: ''
+      sorts:
+        field_date_value:
+          id: field_date_value
+          table: node__field_date
+          field: field_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: day
+          plugin_id: datetime
     cache_metadata:
       max-age: -1
       contexts:
@@ -636,7 +944,7 @@ display:
         description: ''
         expanded: true
         parent: ''
-        weight: -47
+        weight: -48
         context: '0'
         menu_name: main
         enabled: true
@@ -674,7 +982,7 @@ display:
         weight: -47
         context: '0'
         menu_name: main
-      enabled: true
+      enabled: false
       display_description: ''
       arguments:
         tid:

@@ -6,12 +6,13 @@ dependencies:
     - field.field.node.gallery.field_body
     - field.field.node.gallery.field_category
     - field.field.node.gallery.field_date
+    - field.field.node.gallery.field_featured_content
     - field.field.node.gallery.field_image
     - field.field.node.gallery.field_image_credit
     - field.field.node.gallery.field_meta_tags
     - field.field.node.gallery.field_section
     - field.field.node.gallery.field_sections
-    - image.style.thumbnail
+    - image.style.thumbnail_scaled_200px_wide_
     - node.type.gallery
   module:
     - allowed_formats
@@ -27,6 +28,7 @@ third_party_settings:
   field_group:
     group_content:
       children:
+        - field_featured_content
         - group_details
         - group_sections
         - group_gallery_section
@@ -40,11 +42,11 @@ third_party_settings:
       label: Content
     group_details:
       children:
-        - field_date
-        - field_body
         - group_main_image
+        - field_body
+        - field_date
       parent_name: group_content
-      weight: 8
+      weight: 3
       format_type: tab
       format_settings:
         id: ''
@@ -61,18 +63,18 @@ third_party_settings:
       weight: 19
       format_type: tab
       format_settings:
-        label: 'Teaser image'
+        label: Teaser
         formatter: open
         description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: 'Teaser image'
+      label: Teaser
     group_sections:
       children:
         - field_sections
       parent_name: group_content
-      weight: 9
+      weight: 6
       format_type: tab
       format_settings:
         label: Sections
@@ -86,7 +88,7 @@ third_party_settings:
       children:
         - field_section
       parent_name: group_content
-      weight: 10
+      weight: 7
       format_type: tab
       format_settings:
         label: 'Image Gallery'
@@ -110,7 +112,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_body:
-    weight: 17
+    weight: 20
     settings:
       rows: 3
       placeholder: ''
@@ -121,22 +123,29 @@ content:
     type: text_textarea
     region: content
   field_category:
-    weight: 2
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_date:
-    weight: 16
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_featured_content:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_image:
     weight: 30
     settings:
+      preview_image_style: thumbnail_scaled_200px_wide_
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
@@ -152,7 +161,7 @@ content:
     type: text_textfield
     region: content
   field_meta_tags:
-    weight: 9
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -183,23 +192,9 @@ content:
     region: content
   path:
     type: path
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
-    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -218,4 +213,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -1,0 +1,23 @@
+uuid: 2569b3e7-9dea-47d4-8fb2-2c6fdee98227
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_content
+    - node.type.gallery
+id: node.gallery.field_featured_content
+field_name: field_featured_content
+entity_type: node
+bundle: gallery
+label: 'Featured content'
+description: 'Select "Featured content" to promote this teaser to the category you''ve selected. The "All category" page will also feature this teaser if it''s the most recent featured item.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

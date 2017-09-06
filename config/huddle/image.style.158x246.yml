@@ -1,0 +1,14 @@
+uuid: 1b32da4e-4598-4699-9ac5-ffb18f6db07b
+langcode: en
+status: true
+dependencies: {  }
+name: 158x246
+label: 158x246
+effects:
+  bffa2e59-e054-4907-a6b6-1b4b91091a1c:
+    uuid: bffa2e59-e054-4907-a6b6-1b4b91091a1c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 158
+      height: 246

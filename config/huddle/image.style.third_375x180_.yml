@@ -7,10 +7,11 @@ _core:
 name: third_375x180_
 label: 'Third (375x180)'
 effects:
-  5be6f8f3-953f-41d8-ba99-af817c76472a:
-    uuid: 5be6f8f3-953f-41d8-ba99-af817c76472a
-    id: image_scale_and_crop
-    weight: 1
+  81ebb809-8070-43c8-80ae-87513bca1aba:
+    uuid: 81ebb809-8070-43c8-80ae-87513bca1aba
+    id: image_scale
+    weight: 2
     data:
       width: 375
-      height: 180
+      height: null
+      upscale: false

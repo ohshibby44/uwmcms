@@ -1,0 +1,22 @@
+uuid: b7690ebf-c33e-4b11-8bf9-ea69d712390e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_bookshelf
+label: 'Content > Bookshelf'
+type: 'canonical_entities:node'
+pattern: 'bookshelf/[node:title]'
+selection_criteria:
+  d80bf128-5e79-4ca9-99d8-c0686a26fc73:
+    id: node_type
+    bundles:
+      bookshelf: bookshelf
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d80bf128-5e79-4ca9-99d8-c0686a26fc73
+selection_logic: and
+weight: -5
+relationships: {  }

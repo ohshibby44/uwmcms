@@ -5,6 +5,7 @@ dependencies:
   module:
     - ctools
     - sharethis
+    - system
   theme:
     - uwmed_bootstrap
 _core:
@@ -12,7 +13,7 @@ _core:
 id: sharethiswidget
 theme: uwmed_bootstrap
 region: content
-weight: -4
+weight: -11
 provider: null
 plugin: sharethis_widget_block
 settings:
@@ -29,9 +30,16 @@ visibility:
     id: 'entity_bundle:node'
     bundles:
       article: article
+      bookshelf: bookshelf
+      calendar_event: calendar_event
       event: event
       gallery: gallery
       question: question
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/add/calendar_event\r\n/node/add/event"
+    negate: true
+    context_mapping: {  }

@@ -7,10 +7,11 @@ _core:
 name: 266x152
 label: 266x152
 effects:
-  1f30751d-0afd-4970-8e26-60bc0968b242:
-    uuid: 1f30751d-0afd-4970-8e26-60bc0968b242
-    id: image_scale_and_crop
-    weight: 1
+  8aa2c871-9794-4956-9bbc-59d7322e5013:
+    uuid: 8aa2c871-9794-4956-9bbc-59d7322e5013
+    id: image_scale
+    weight: 2
     data:
       width: 266
-      height: 152
+      height: null
+      upscale: true

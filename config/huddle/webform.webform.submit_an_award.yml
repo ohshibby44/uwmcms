@@ -12,10 +12,11 @@ id: submit_an_award
 title: 'Submit an Award'
 description: ''
 category: ''
-elements: "your_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#first__required': true\n  '#last__required': true\n  '#required': true\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\naward_description:\n  '#type': textarea\n  '#title': 'Award description'\n  '#required': true\nrecaptcha:\n  '#type': captcha\n"
+elements: "award_introduction:\n  '#type': webform_markup\n  '#markup': \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pretium posuere purus, in viverra ante ornare ac. Duis ullamcorper pellentesque laoreet. Mauris orci leo, consectetur non tellus in, fermentum volutpat dui. Nulla arcu nulla, lobortis commodo semper eu, porta vitae sapien. Aliquam nec euismod orci, id dapibus sapien. Sed id ipsum viverra, commodo tortor eu, consectetur mauris. Vivamus at commodo sem, sit amet bibendum magna. Praesent vitae lorem at nisl sodales congue sit amet sed nunc.<br />\\n<br />\\nEtiam nibh magna, mollis eget elementum ut, venenatis ut magna. Duis cursus fringilla risus non faucibus. Proin sed sapien non velit placerat ultricies vel sit amet erat. Pellentesque interdum vestibulum nunc, quis volutpat magna ornare vitae. Praesent gravida lorem ut libero tincidunt convallis. Sed mauris est, lacinia ut interdum nec, ornare ac elit. Vestibulum viverra varius consectetur. Pellentesque euismod mauris non ultrices tincidunt. Quisque vitae velit mollis, vulputate turpis at, elementum magna.\"\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#required': true\n  '#title__access': false\n  '#first__required': true\n  '#middle__access': false\n  '#last__required': true\n  '#degree__access': false\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\naward_description:\n  '#type': textarea\n  '#title': 'Award description'\n  '#required': true\nrecaptcha:\n  '#type': captcha\n"
 css: ''
 javascript: ''
 settings:
+  ajax: false
   page: true
   page_submit_path: submit-award
   page_confirm_path: ''
@@ -29,13 +30,18 @@ settings:
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
+  submission_label: ''
   submission_log: false
+  submission_user_columns: {  }
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
@@ -46,7 +52,11 @@ settings:
   preview_label: ''
   preview_title: ''
   preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
   draft: none
+  draft_multiple: false
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
@@ -75,25 +85,61 @@ access:
       - anonymous
       - authenticated
     users: {  }
+    permissions: {  }
   view_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   purge_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   view_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_own:
     roles: {  }
     users: {  }
-handlers: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: uwmtalk@uw.edu
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: default
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      debug: false
+      reply_to: ''
+      return_path: ''

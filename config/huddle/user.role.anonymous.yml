@@ -10,5 +10,10 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'access polls'
   - 'access site-wide contact form'
+  - 'cancel own vote'
+  - 'create calendar_event content'
+  - 'search content'
+  - 'view disqus comments'
   - 'view media'

@@ -1,0 +1,36 @@
+uuid: 81e84241-280c-4924-a729-0a524feb0a41
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+id: webform_submission
+bundles:
+  submit_a_photo:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  contact:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit_a_video:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit_an_answer:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit_an_award:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  subscribe:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }

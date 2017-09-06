@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: wAAgzEkgbdNviCSUHZ35QDOgo7qG7Ki12fq2D4tG-oo
 name: 1240x420
-label: 1240x420
+label: 'Promotional 1240x420'
 effects:
   7f8b8c4f-fa48-4dd7-b984-d3c1a6c8bf02:
     uuid: 7f8b8c4f-fa48-4dd7-b984-d3c1a6c8bf02

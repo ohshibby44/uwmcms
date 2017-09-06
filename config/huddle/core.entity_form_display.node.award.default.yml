@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.award.field_date
     - field.field.node.award.field_image
     - field.field.node.award.field_teaser
-    - image.style.thumbnail
+    - image.style.266x152
     - node.type.award
   module:
     - allowed_formats
@@ -46,8 +46,8 @@ content:
   field_image:
     weight: 1
     settings:
+      preview_image_style: 266x152
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
@@ -64,23 +64,9 @@ content:
     region: content
   path:
     type: path
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 7
     region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 8
-    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -99,4 +85,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

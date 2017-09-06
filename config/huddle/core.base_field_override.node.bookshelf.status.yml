@@ -1,0 +1,22 @@
+uuid: f213b582-8233-4170-beba-61aff27ed60c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bookshelf
+id: node.bookshelf.status
+field_name: status
+entity_type: node
+bundle: bookshelf
+label: 'Publishing status'
+description: 'A boolean indicating the published state.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

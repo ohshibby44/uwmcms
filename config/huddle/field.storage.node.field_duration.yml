@@ -1,20 +1,16 @@
-uuid: d50e101d-99be-45c8-a064-caed2d9bb23c
+uuid: 0a26d72c-c3f3-4f13-925d-1067734d9399
 langcode: en
 status: true
 dependencies:
   module:
+    - duration_field
     - node
-_core:
-  default_config_hash: QsCS-aKeGqtIGYQyRhIgj1KTKYgobyWz_KG17QW_Zio
 id: node.field_duration
 field_name: field_duration
 entity_type: node
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: duration
+settings: {  }
+module: duration_field
 locked: false
 cardinality: 1
 translatable: true

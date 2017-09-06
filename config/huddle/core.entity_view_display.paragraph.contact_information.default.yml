@@ -1,0 +1,38 @@
+uuid: 1cc8f889-9ad0-4304-9e01-18c3b0c20adb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_information.field_email_address
+    - field.field.paragraph.contact_information.field_full_name
+    - field.field.paragraph.contact_information.field_phone
+    - paragraphs.paragraphs_type.contact_information
+  module:
+    - text
+id: paragraph.contact_information.default
+targetEntityType: paragraph
+bundle: contact_information
+mode: default
+content:
+  field_email_address:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_full_name:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_phone:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

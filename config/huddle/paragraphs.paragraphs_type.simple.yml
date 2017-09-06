@@ -5,5 +5,5 @@ dependencies: {  }
 _core:
   default_config_hash: mo4ZRrX3nLJV5SP8Lkzbz5NjZ-ABEaKk3_OPRPlT9og
 id: simple
-label: 'Simple content with sidebar'
+label: 'Simple content'
 behavior_plugins: {  }

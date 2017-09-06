@@ -1,0 +1,30 @@
+uuid: ec470a8f-b4e2-4409-b4db-9c33c6bb2c09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name
+    - node.type.bookshelf
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.bookshelf.field_name
+field_name: field_name
+entity_type: node
+bundle: bookshelf
+label: 'Book author name'
+description: 'The author of the book.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

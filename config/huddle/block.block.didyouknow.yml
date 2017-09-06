@@ -1,0 +1,31 @@
+uuid: 6347cee2-8388-454e-a84a-9d119a30b460
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:139ce3b3-7b04-4fd8-97a8-95b45c3eee06'
+  module:
+    - block_content
+    - system
+  theme:
+    - uwmed_bootstrap
+id: didyouknow
+theme: uwmed_bootstrap
+region: content
+weight: -8
+provider: null
+plugin: 'block_content:139ce3b3-7b04-4fd8-97a8-95b45c3eee06'
+settings:
+  id: 'block_content:139ce3b3-7b04-4fd8-97a8-95b45c3eee06'
+  label: 'Did You Know?'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/people\r\n/perspectives\r\n/people/*\r\n/perspectives/*"
+    negate: false
+    context_mapping: {  }

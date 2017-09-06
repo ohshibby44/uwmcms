@@ -1,0 +1,41 @@
+uuid: d5458903-8bc7-42ce-8027-a9e74aa9aa88
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:disqus_comments:77df080a-114f-4228-8696-b1d95fde87bc'
+  module:
+    - block_content
+    - ctools
+    - system
+  theme:
+    - uwmed_bootstrap
+id: addacomment
+theme: uwmed_bootstrap
+region: lower_content
+weight: -10
+provider: null
+plugin: 'block_content:77df080a-114f-4228-8696-b1d95fde87bc'
+settings:
+  id: 'block_content:77df080a-114f-4228-8696-b1d95fde87bc'
+  label: 'Add a Comment'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      bookshelf: bookshelf
+      article: article
+      gallery: gallery
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: 'node/add/*'
+    negate: true
+    context_mapping: {  }

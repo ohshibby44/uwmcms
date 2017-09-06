@@ -8,25 +8,8 @@ dependencies:
     - field.field.paragraph.simple.field_title
     - paragraphs.paragraphs_type.simple
   module:
-    - field_group
-    - paragraphs
     - text
     - workbench_moderation
-third_party_settings:
-  field_group:
-    group_optional_sidebar:
-      children:
-        - field_paragraph_reference
-      parent_name: ''
-      weight: 2
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'Optional sidebar'
 _core:
   default_config_hash: FXuzeB9SnbBfj99wEzFFbzDRK4m5suYSrnIKb7ioFHk
 id: paragraph.simple.default
@@ -42,18 +25,6 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_paragraph_reference:
-    type: paragraphs
-    weight: 3
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    region: content
   field_title:
     weight: 0
     settings:
@@ -64,5 +35,6 @@ content:
     region: content
 hidden:
   created: true
+  field_paragraph_reference: true
   status: true
   uid: true

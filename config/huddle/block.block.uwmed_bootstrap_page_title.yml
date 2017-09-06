@@ -12,7 +12,7 @@ _core:
 id: uwmed_bootstrap_page_title
 theme: uwmed_bootstrap
 region: content
-weight: -5
+weight: -12
 provider: null
 plugin: page_title_block
 settings:

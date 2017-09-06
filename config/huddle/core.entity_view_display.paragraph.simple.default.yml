@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.simple.field_title
     - paragraphs.paragraphs_type.simple
   module:
-    - entity_reference_revisions
     - text
 _core:
   default_config_hash: rxMrxSdmgeTJSdYGMZUlpW3SoLMjC2W5PjKkIMzvPGM
@@ -24,15 +23,6 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_paragraph_reference:
-    type: entity_reference_revisions_entity_view
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
   field_title:
     type: text_default
     weight: 0
@@ -40,4 +30,5 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_paragraph_reference: true
