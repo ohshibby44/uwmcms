@@ -11,7 +11,7 @@ _core:
 id: uwmed_bootstrap_local_tasks
 theme: uwmed_bootstrap
 region: content
-weight: -7
+weight: -14
 provider: null
 plugin: local_tasks_block
 settings:

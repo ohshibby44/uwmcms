@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: XJoQJ-zUZid9NyIkJSbVCcN0cYHKxop-7RXPMs4vmbM
 id: header-menu
-label: 'Header menu'
+label: 'Header menu [not currently used]'
 description: 'Contact, Subscribe, Submit'
 locked: false

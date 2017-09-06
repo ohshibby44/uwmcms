@@ -1,0 +1,25 @@
+uuid: 74b0bccd-db00-466d-adec-463c561e903b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:13ddf10b-9b28-498d-abd9-e798e01fa8cc'
+  module:
+    - block_content
+  theme:
+    - uwmed_bootstrap
+id: footertagline
+theme: uwmed_bootstrap
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:13ddf10b-9b28-498d-abd9-e798e01fa8cc'
+settings:
+  id: 'block_content:13ddf10b-9b28-498d-abd9-e798e01fa8cc'
+  label: 'Footer - Tagline'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

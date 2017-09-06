@@ -1,0 +1,9 @@
+uuid: a62f01f0-0bbb-4ca1-a84b-a529848d894c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Audience'
+vid: event_audience
+description: 'Set the audience for an event.'
+hierarchy: 0
+weight: 0

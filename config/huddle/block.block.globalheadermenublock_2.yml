@@ -1,0 +1,25 @@
+uuid: cecdcb24-8a33-4dbf-be09-6ad3bd528c9c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9596c136-bfef-4dc9-8032-a1bcbcb59156'
+  module:
+    - block_content
+  theme:
+    - uwmed_bootstrap
+id: globalheadermenublock_2
+theme: uwmed_bootstrap
+region: header_upper
+weight: 0
+provider: null
+plugin: 'block_content:9596c136-bfef-4dc9-8032-a1bcbcb59156'
+settings:
+  id: 'block_content:9596c136-bfef-4dc9-8032-a1bcbcb59156'
+  label: 'Global Header Menu Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

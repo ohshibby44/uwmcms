@@ -1,0 +1,30 @@
+uuid: 7feab897-9734-4fca-960c-9c8cbcb4ffec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_name
+    - paragraphs.paragraphs_type.facilitator
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+id: paragraph.facilitator.field_full_name
+field_name: field_full_name
+entity_type: paragraph
+bundle: facilitator
+label: 'Full Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

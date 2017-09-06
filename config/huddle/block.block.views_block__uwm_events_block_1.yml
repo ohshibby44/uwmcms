@@ -14,7 +14,7 @@ _core:
 id: views_block__uwm_events_block_1
 theme: uwmed_bootstrap
 region: lower_content
-weight: -8
+weight: -9
 provider: null
 plugin: 'views_block:uwm_events-block_1'
 settings:

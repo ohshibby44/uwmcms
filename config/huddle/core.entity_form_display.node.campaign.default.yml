@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.campaign.body
     - field.field.node.campaign.field_call_to_action
     - field.field.node.campaign.field_image
-    - image.style.medium
+    - image.style.thumbnail_scaled_200px_wide_
     - node.type.campaign
   module:
     - image
@@ -47,30 +47,16 @@ content:
   field_image:
     weight: 1
     settings:
-      preview_image_style: medium
+      preview_image_style: thumbnail_scaled_200px_wide_
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
     region: content
   path:
     type: path
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
-    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -89,4 +75,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -13,7 +13,7 @@ _core:
 id: uwmed_bootstrap_footer
 theme: uwmed_bootstrap
 region: footer_bottom
-weight: -7
+weight: -14
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

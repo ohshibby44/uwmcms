@@ -1,0 +1,22 @@
+uuid: dac88f11-13cb-4104-a050-7336aefc72b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.description.field_description
+    - paragraphs.paragraphs_type.description
+  module:
+    - text
+id: paragraph.description.default
+targetEntityType: paragraph
+bundle: description
+mode: default
+content:
+  field_description:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

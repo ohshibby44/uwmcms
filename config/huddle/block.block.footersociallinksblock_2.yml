@@ -1,0 +1,25 @@
+uuid: f08e5279-5abe-4eb9-8842-a97c37897f84
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:811e31b2-5d1d-4ef7-bf65-e8c7ff218ab8'
+  module:
+    - block_content
+  theme:
+    - uwmed_bootstrap
+id: footersociallinksblock_2
+theme: uwmed_bootstrap
+region: footer
+weight: -11
+provider: null
+plugin: 'block_content:811e31b2-5d1d-4ef7-bf65-e8c7ff218ab8'
+settings:
+  id: 'block_content:811e31b2-5d1d-4ef7-bf65-e8c7ff218ab8'
+  label: 'Footer Social Links Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

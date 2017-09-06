@@ -49,23 +49,9 @@ content:
     region: content
   path:
     type: path
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 5
     region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 6
-    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -87,4 +73,6 @@ content:
 hidden:
   body: true
   field_meta_tags: true
+  promote: true
   scheduled_update: true
+  sticky: true

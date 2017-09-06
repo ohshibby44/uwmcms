@@ -132,7 +132,19 @@ display:
           entity_type: paragraph
           entity_field: type
           plugin_id: bundle
-      sorts: {  }
+      sorts:
+        field_title_value:
+          id: field_title_value
+          table: paragraph__field_title
+          field: field_title_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'Resource Paragraphs - Block'
       header: {  }
       footer:
@@ -145,7 +157,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "        <div class=\"resources-view-footer\">\n          <div class=\"resources-view-footer__header\">\n            Not Finding What You’re Looking For?\n          </div>\n          <div class=\"resources-view-footer__content\">\n            We’re here to help. Atoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.\n          </div>\n          <div class=\"resources-view-footer__link\">\n            <a href=\"/\" title=\"Contact Us\">Contact Us ></a>\n          </div>\n        </div>"
+          content: "        <div class=\"resources-view-footer\">\n          <div class=\"resources-view-footer__header\">\n            Not Finding What You’re Looking For?\n          </div>\n          <div class=\"resources-view-footer__content\">\n            We’re here to help. Atoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.\n          </div>\n          <div class=\"resources-view-footer__link\">\n            <a href=\"/contact\" title=\"Contact Us\">Contact Us ></a>\n          </div>\n        </div>"
           plugin_id: text_custom
       empty: {  }
       relationships: {  }

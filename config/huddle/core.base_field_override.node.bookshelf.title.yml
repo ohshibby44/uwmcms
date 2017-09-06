@@ -1,0 +1,18 @@
+uuid: 0b717041-e797-4025-b4ef-e18ca64f623a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bookshelf
+id: node.bookshelf.title
+field_name: title
+entity_type: node
+bundle: bookshelf
+label: 'Book title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

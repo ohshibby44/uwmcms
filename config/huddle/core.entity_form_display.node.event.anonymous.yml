@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.event.field_call_to_action
     - field.field.node.event.field_category
     - field.field.node.event.field_date
-    - field.field.node.event.field_duration
+    - field.field.node.event.field_featured_content
     - field.field.node.event.field_image
     - field.field.node.event.field_meta_tags
     - field.field.node.event.field_note
@@ -94,14 +94,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_duration:
-    weight: 3
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_image:
     weight: 6
     settings:
@@ -129,6 +121,7 @@ content:
 hidden:
   created: true
   field_call_to_action: true
+  field_featured_content: true
   field_meta_tags: true
   path: true
   promote: true

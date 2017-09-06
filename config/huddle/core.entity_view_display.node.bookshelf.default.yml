@@ -1,0 +1,70 @@
+uuid: 6b05d296-a2ce-487c-a57b-14e3511d0991
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bookshelf.body
+    - field.field.node.bookshelf.field_body
+    - field.field.node.bookshelf.field_date
+    - field.field.node.bookshelf.field_featured_content
+    - field.field.node.bookshelf.field_image
+    - field.field.node.bookshelf.field_meta_tags
+    - field.field.node.bookshelf.field_name
+    - field.field.node.bookshelf.field_subtitle
+    - field.field.node.bookshelf.field_teaser
+    - node.type.bookshelf
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.bookshelf.default
+targetEntityType: node
+bundle: bookshelf
+mode: default
+content:
+  field_body:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_date:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: uwm_date_format
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_name:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  body: true
+  field_featured_content: true
+  field_meta_tags: true
+  field_teaser: true
+  links: true

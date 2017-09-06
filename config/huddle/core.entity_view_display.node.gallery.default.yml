@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.gallery.field_body
     - field.field.node.gallery.field_category
     - field.field.node.gallery.field_date
+    - field.field.node.gallery.field_featured_content
     - field.field.node.gallery.field_image
     - field.field.node.gallery.field_image_credit
     - field.field.node.gallery.field_meta_tags
@@ -49,6 +50,16 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_featured_content:
+    weight: 111
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_image:
     weight: 104

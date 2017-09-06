@@ -1,0 +1,25 @@
+uuid: e13985ed-8e5f-4829-be68-c160e07d88ae
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e9364c9e-6070-4d6c-b7e3-ef0ac5ae6637'
+  module:
+    - block_content
+  theme:
+    - uwmed_bootstrap
+id: footercontentblock_2
+theme: uwmed_bootstrap
+region: footer
+weight: -12
+provider: null
+plugin: 'block_content:e9364c9e-6070-4d6c-b7e3-ef0ac5ae6637'
+settings:
+  id: 'block_content:e9364c9e-6070-4d6c-b7e3-ef0ac5ae6637'
+  label: 'Footer Content Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

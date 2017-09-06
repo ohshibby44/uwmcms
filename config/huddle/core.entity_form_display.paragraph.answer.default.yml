@@ -55,7 +55,7 @@ content:
   field_location:
     weight: 5
     settings:
-      size: 255
+      size: 60
       placeholder: ''
     third_party_settings:
       allowed_formats:

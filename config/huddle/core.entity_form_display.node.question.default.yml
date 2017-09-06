@@ -9,10 +9,54 @@ dependencies:
     - node.type.question
   module:
     - datetime
+    - field_group
     - paragraphs
     - path
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - group_details
+        - group_answers
+      parent_name: ''
+      weight: 3
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Content
+    group_details:
+      children:
+        - title
+        - field_body
+        - field_date
+      parent_name: group_content
+      weight: 9
+      format_type: tab
+      format_settings:
+        label: Question
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Question
+    group_answers:
+      children:
+        - field_sections
+      parent_name: group_content
+      weight: 10
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Answers
 _core:
   default_config_hash: OIy5KHEEwdGG_CuxPV8tEQrZE01JMR6PYPnkeqe_834
 id: node.question.default
@@ -27,7 +71,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_body:
-    weight: 2
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -35,13 +79,13 @@ content:
     type: text_textarea
     region: content
   field_date:
-    weight: 1
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_sections:
-    weight: 3
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -54,27 +98,13 @@ content:
     region: content
   path:
     type: path
-    weight: 8
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 6
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 7
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
@@ -89,4 +119,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

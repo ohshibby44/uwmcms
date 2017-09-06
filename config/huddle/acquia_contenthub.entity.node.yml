@@ -1,0 +1,70 @@
+uuid: 0e37bb02-b273-4069-b3f0-afec268622c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.calendar_event
+  module:
+    - node
+id: node
+bundles:
+  article:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  award:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  bookshelf:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  calendar_event:
+    enable_index: true
+    enable_viewmodes: false
+    rendering:
+      default: default
+  campaign:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  event:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  event_location:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  gallery:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  landing_page:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  page:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  question:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  webform:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

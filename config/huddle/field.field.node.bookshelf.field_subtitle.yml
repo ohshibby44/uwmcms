@@ -1,0 +1,30 @@
+uuid: c4a550eb-0ea0-4e31-82f0-04051cfd4bfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.bookshelf
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.bookshelf.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: bookshelf
+label: 'Page subtitle'
+description: 'The subtitle will appear above the body text for this Bookshelf item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

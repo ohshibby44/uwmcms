@@ -12,7 +12,9 @@ third_party_settings:
   allowed_formats:
     restricted_html: restricted_html
     basic_html: '0'
+    video_format: '0'
     full_html: '0'
+    rich_text: '0'
     plain_text: '0'
 _core:
   default_config_hash: dNKnuwf1O1ciLjoD1_V38SOdsPy6QrClOQChZ5Ycqso

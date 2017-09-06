@@ -5,5 +5,5 @@ dependencies: {  }
 _core:
   default_config_hash: Z4AAbyJcHsLQrZoPvcsP8tHgJ1vIK5cMk56jdgXFFJ8
 id: sidebar
-label: Sidebar
+label: 'Sidebar [REMOVE ME]'
 behavior_plugins: {  }

@@ -1,0 +1,22 @@
+uuid: e8e8607f-969f-4716-8c19-6586e502a32e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_awards
+label: 'Content > Awards'
+type: 'canonical_entities:node'
+pattern: 'awards/[node:title]'
+selection_criteria:
+  1282b789-b535-40b0-a165-28f42e1e172e:
+    id: node_type
+    bundles:
+      award: award
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 1282b789-b535-40b0-a165-28f42e1e172e
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,53 @@
+uuid: 6a628ef4-5483-4af9-b0c7-e6051dcc0234
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bookshelf.body
+    - field.field.node.bookshelf.field_body
+    - field.field.node.bookshelf.field_date
+    - field.field.node.bookshelf.field_featured_content
+    - field.field.node.bookshelf.field_image
+    - field.field.node.bookshelf.field_meta_tags
+    - field.field.node.bookshelf.field_name
+    - field.field.node.bookshelf.field_subtitle
+    - field.field.node.bookshelf.field_teaser
+    - image.style.158x246
+    - node.type.bookshelf
+  module:
+    - datetime
+    - image
+    - user
+id: node.bookshelf.teaser
+targetEntityType: node
+bundle: bookshelf
+mode: teaser
+content:
+  field_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: uwm_date_format
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: 158x246
+      image_link: content
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_body: true
+  field_featured_content: true
+  field_meta_tags: true
+  field_name: true
+  field_subtitle: true
+  field_teaser: true
+  links: true

@@ -1,6 +1,6 @@
 uuid: b1d1e32d-b543-4b37-90eb-36a6b95a60fc
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - node
@@ -655,7 +655,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
@@ -687,7 +686,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0

@@ -10,11 +10,12 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
+    basic_html: basic_html
     plain_text: plain_text
-    basic_html: '0'
     restricted_html: '0'
     video_format: '0'
     full_html: '0'
+    rich_text: '0'
 _core:
   default_config_hash: h_cFNXMCSmJQ7VREkyJvVsMn9nQKxiy7d6wnyoNIxzc
 id: paragraph.answer.field_location

@@ -1,0 +1,30 @@
+uuid: a396ea40-9c25-4c9b-a15d-327a1c9370fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.article
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    full_html: full_html
+    restricted_html: '0'
+    video_format: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.article.field_body
+field_name: field_body
+entity_type: node
+bundle: article
+label: 'Sidebar content'
+description: 'The sidebar content may be any free-form content related to this article.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,71 @@
+uuid: 318fe485-ceac-4ca4-ac1b-e0047da1972f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_information
+    - node.type.calendar_event
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.description
+  module:
+    - entity_reference_revisions
+id: node.calendar_event.field_event_information
+field_name: field_event_information
+entity_type: node
+bundle: calendar_event
+label: 'Event Information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      description: description
+      call_to_action: call_to_action
+    target_bundles_drag_drop:
+      answer:
+        weight: -29
+        enabled: false
+      block_reference:
+        weight: -28
+        enabled: false
+      gallery:
+        weight: -27
+        enabled: false
+      gallery_item:
+        weight: -26
+        enabled: false
+      image:
+        weight: -25
+        enabled: false
+      quote:
+        weight: -24
+        enabled: false
+      resources:
+        weight: -23
+        enabled: false
+      description:
+        enabled: true
+        weight: -22
+      call_to_action:
+        enabled: true
+        weight: -21
+      sidebar:
+        weight: -20
+        enabled: false
+      contact_information:
+        weight: -19
+        enabled: false
+      simple:
+        weight: -18
+        enabled: false
+      video:
+        weight: -17
+        enabled: false
+      facilitator:
+        weight: -16
+        enabled: false
+field_type: entity_reference_revisions

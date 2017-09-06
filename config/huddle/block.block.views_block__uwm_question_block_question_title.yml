@@ -14,7 +14,7 @@ _core:
 id: views_block__uwm_question_block_question_title
 theme: uwmed_bootstrap
 region: content
-weight: -9
+weight: -10
 provider: null
 plugin: 'views_block:uwm_question-block_question_title'
 settings:
