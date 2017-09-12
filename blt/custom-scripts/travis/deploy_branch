@@ -2,9 +2,8 @@
 
 set -ev
 
-blt frontend:setup -Dmultisite.name=chew
-blt frontend:build -Dmultisite.name=chew
+blt frontend -D site=chew
 
-blt deploy -Ddeploy.commitMsg="Automated commit by Travis CI for Build ${TRAVIS_BUILD_ID}" -Ddeploy.branch="${TRAVIS_BRANCH}-build" -Ddeploy.git.failOnDirty=false
+blt deploy --commit-msg "Automated commit by Travis CI for Build ${TRAVIS_BUILD_ID}" --branch "${TRAVIS_BRANCH}-build" --ignore-dirty --no-interaction -v
 
 set +v

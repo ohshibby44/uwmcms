@@ -12,7 +12,7 @@
     ],
     "require": {
 
-        "acquia/blt": "~8.8.5",
+        "acquia/blt": "^8.9.0",
         "drupal/redirect": "^1.0@alpha",
         "drupal/admin_toolbar": "^1.19",
         "drupal/adminimal_admin_toolbar": "^1.4",
@@ -67,10 +67,10 @@
         "drupal/responsive_favicons": "^1.4",
         "drupal/access_unpublished": "^1.0@alpha",
         "drupal/link_attributes": "^1.1",
-        "drupal/siteimprove": "^1.0"
+        "drupal/siteimprove": "^1.0",
+        "geerlingguy/drupal-vm": "~4.3"
     },
     "require-dev": {
-        "geerlingguy/drupal-vm": "~4.3"
     },
     "extra": {
         "enable-patching": true,

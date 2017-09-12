@@ -29,6 +29,3 @@ block.settings.global_header_menu:
     global_header_menu_block_string:
       type: text
       label: 'Block contents'
-
-
-

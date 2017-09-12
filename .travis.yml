@@ -1,7 +1,5 @@
 # Note that the example .travis.yml file for child projects lives in /install.
-# Temporarily use legacy infrastructure until Travis resolves MySQL issues with their containerized infrastructure.
-# @see https://github.com/travis-ci/travis-ci/issues/6842
-sudo: required
+sudo: false
 language: php
 dist: trusty
 
@@ -36,8 +34,9 @@ cache:
 
 addons:
   ssh_known_hosts:
-  - svn-23450.prod.hosting.acquia.com
-  - staging-23664.prod.hosting.acquia.com
+    - svn-23450.prod.hosting.acquia.com
+    - staging-23664.prod.hosting.acquia.com:q
+  chrome: stable
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
@@ -57,7 +56,7 @@ install:
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_project
 
 script:
-  - source $BLT_DIR/scripts/travis/run_tests
+  - source $LOCAL_BLT_DIR/custom-scripts/travis/run_tests
 
 before_deploy:
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_deploy
