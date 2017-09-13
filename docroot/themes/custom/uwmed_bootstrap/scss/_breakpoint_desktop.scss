@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Aug. 31, 2017
+// Sept. 12, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -576,6 +576,31 @@
     @include center-block();
   }
 }
+.page.node.full {
+  .content {
+    padding: 0;
+    .field--name-field-body {
+      @include font-size(1.6, 2.4);
+      p {
+        @include font-size(1.6, 2.4);
+      }
+    }
+  }
+  section.content {
+    > .field--name-field-body {
+      p:first-child:first-letter {
+        @include font-size(4.8, 3.6);
+        float: left;
+        padding-right: 8px;
+        padding-top: 7px;
+      }
+      p {
+        @include font-size(1.6, 2.4);
+        margin: 0 0 18px 0;
+      }
+    }
+  }
+}
 .event.node.full,
 .calendar-event.node.full {
   header {
@@ -676,7 +701,6 @@
       width: 100%;
       max-width: 600px;
       @include center-block();
-      
       p:first-child:first-letter {
         @include font-size(4.8, 3.6);
         float: left;

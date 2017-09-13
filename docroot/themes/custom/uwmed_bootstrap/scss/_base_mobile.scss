@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Sept. 4, 2017
+// Sept. 12, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -947,11 +947,6 @@ body {
     }
   }
 }
-.page.node.full {
-  .content {
-    padding: 0;
-  }
-}
 .event.node.full,
 .calendar-event.node.full {
   header {
@@ -1090,6 +1085,36 @@ body {
   }
 }
 .question.node.full {
+  section.content {
+    > .field--name-field-body {
+      p:first-child:first-letter {
+        @include font-size(4.6, 3.4);
+        float: left;
+        padding-right: 6px;
+        padding-top: 5px;
+        @include encodesans-compressedextrabold;
+      }
+      p {
+        color: #000;
+        @include font-size(1.4, 2.1);
+        margin: 0 0 18px 0;
+      }
+    }
+  }
+}
+.page.node.full {
+  .content {
+    padding: 0;
+    .field--name-field-body {
+      @include font-size(1.4, 2.1);
+      color: #000;
+      padding-bottom: 26px;
+      p {
+        @include font-size(1.4, 2.1);
+        color: #000;
+      }
+    }
+  }
   section.content {
     > .field--name-field-body {
       p:first-child:first-letter {
