@@ -588,7 +588,7 @@
   }
   section.content {
     > .field--name-field-body {
-      p:first-child:first-letter {
+      > p:first-child:first-letter {
         @include font-size(4.8, 3.6);
         float: left;
         padding-right: 8px;
