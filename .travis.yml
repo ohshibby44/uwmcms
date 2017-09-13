@@ -35,7 +35,7 @@ cache:
 addons:
   ssh_known_hosts:
     - svn-23450.prod.hosting.acquia.com
-    - staging-23664.prod.hosting.acquia.com:q
+    - staging-23664.prod.hosting.acquia.com
   chrome: stable
 
 # @see https://docs.travis-ci.com/user/notifications

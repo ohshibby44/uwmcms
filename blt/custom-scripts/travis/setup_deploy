@@ -7,4 +7,6 @@ rm travis-deploy-key.enc
 chmod 600 travis-deploy-key
 mv travis-deploy-key ~/.ssh/id_rsa
 
+npm install -g gulp-cli
+
 set +v
