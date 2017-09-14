@@ -14,7 +14,7 @@
 
         "acquia/blt": "^8.9.0",
         "drupal/redirect": "^1.0@alpha",
-        "drupal/admin_toolbar": "^1.19",
+        "drupal/admin_toolbar": "^1.20",
         "drupal/adminimal_admin_toolbar": "^1.4",
         "drupal/webform": "^5.0@beta",
         "drupal/sharethis": "^2.0@beta",
@@ -68,7 +68,8 @@
         "drupal/access_unpublished": "^1.0@alpha",
         "drupal/link_attributes": "^1.1",
         "drupal/siteimprove": "^1.0",
-        "geerlingguy/drupal-vm": "~4.3"
+        "geerlingguy/drupal-vm": "~4.3",
+        "drupal/simplesamlphp_auth": "^3.0"
     },
     "require-dev": {
     },
