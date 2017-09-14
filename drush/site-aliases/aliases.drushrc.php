@@ -416,3 +416,18 @@ if ('vagrant' != $_SERVER['USER']) {
     'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
   );
 }
+
+// Local environment.
+$aliases['uwmed.local'] = array(
+  'root' => '/var/www/uwmed/docroot',
+  'uri' => 'http://uwmed.local',
+  );
+// Add remote connection options when alias is used outside VM.
+if ('vagrant' != $_SERVER['USER']) {
+  $aliases['uwmed.local'] += array(
+    'remote-host' => 'uwmed.local',
+    'remote-user' => 'vagrant',
+    'ssh-options' => '-o PasswordAuthentication=no -i ' . drush_server_home() . '/.vagrant.d/insecure_private_key'
+  );
+}
+

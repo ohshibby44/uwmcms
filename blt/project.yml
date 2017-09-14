@@ -61,3 +61,4 @@ behat:
   web-driver: selenium
 vm:
   enable: true
+simplesamlphp: 'TRUE'
