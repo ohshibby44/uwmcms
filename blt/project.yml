@@ -62,3 +62,4 @@ behat:
 vm:
   enable: true
 simplesamlphp: 'TRUE'
+cm.allow-overrides: true
