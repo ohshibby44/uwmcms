@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.bookshelf.body
     - field.field.node.bookshelf.field_body
     - field.field.node.bookshelf.field_date
+    - field.field.node.bookshelf.field_disqus_comments
     - field.field.node.bookshelf.field_featured_content
     - field.field.node.bookshelf.field_image
     - field.field.node.bookshelf.field_meta_tags
@@ -15,6 +16,7 @@ dependencies:
     - node.type.bookshelf
   module:
     - datetime
+    - disqus
     - image
     - text
     - user
@@ -38,6 +40,13 @@ content:
       format_type: uwm_date_format
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_disqus_comments:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: disqus_comment
     region: content
   field_image:
     weight: 0

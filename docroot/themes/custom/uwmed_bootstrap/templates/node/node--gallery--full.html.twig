@@ -88,5 +88,15 @@
   <section{{ content_attributes.addClass('content') }}>
     {{ content.field_sections }}
   </section>
+  {% if block_paragraph_galleries %}
+  <section class="gallery-block">
+    {% if content.field_category.0["#plain_text"] == "Photos" %}
+      {{ block_paragraph_galleries }}
+    {% endif %}
+  </section>
+  {% endif %}
+  <section>
+    {{ content.field_disqus_comments }}
+  </section>
 </article>
 

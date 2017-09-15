@@ -1883,6 +1883,7 @@ article.webform {
 #block-views-block-uwm-paragraph-galleries-block-paragraph-galleries {
   padding-top: 108px;
 }
+
 #gallery-carousel {
   max-width: 1240px;
   .carousel-index {
@@ -1993,7 +1994,7 @@ article.webform {
 }
 
 // Disqus Block
-.block-type-disqus {
+.field-type-disqus-comment {
   &__content {
     h4 {
       @include font-size(3.2, 3.6);
@@ -2040,7 +2041,7 @@ article.webform {
   }
   .footer-links {
     @include make-md-column(6);
-    padding-top:: 42px;
+    padding-top: 42px;
     margin-bottom: 0;
     ul {
       float: left;

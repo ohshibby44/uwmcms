@@ -797,7 +797,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<span class=\"month\">{{ field_date__value|date(\"M\") }}</span>\n<span class=\"day\">{{ field_date__value|date(\"d\") }}</span>"
+            text: "<span class=\"month\">{{ field_date_time__value|date(\"M\") }}</span>\n<span class=\"day\">{{ field_date_time__value|date(\"d\") }}</span>"
             make_link: false
             path: ''
             absolute: false
@@ -837,7 +837,7 @@ display:
           click_sort_column: value
           type: datetime_default
           settings:
-            timezone_override: ''
+            timezone_override: America/Los_Angeles
             format_type: html_date
           group_column: value
           group_columns: {  }

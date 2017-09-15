@@ -1,0 +1,24 @@
+uuid: cc227e15-a103-435d-8d17-ab8af8c57959
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disqus_comments
+    - node.type.gallery
+  module:
+    - disqus
+id: node.gallery.field_disqus_comments
+field_name: field_disqus_comments
+entity_type: node
+bundle: gallery
+label: 'Add a comment'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    status: 1
+    identifier: ''
+default_value_callback: ''
+settings: {  }
+field_type: disqus_comment

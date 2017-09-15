@@ -2894,7 +2894,7 @@ article.webform {
 
   }
   // Hide Comments
-  .block-type-disqus {display: none;}
+  .field-type-disqus-comment {display: none;}
 }
 
 // Awards View / Node
@@ -3512,6 +3512,7 @@ blockquote {
   background-color: #000;
   padding-top: 60px;
   padding-bottom: 50px;
+  margin-bottom: 60px;
   .views-row {
     width: 100%;
     max-width: 1270px;
@@ -3765,7 +3766,7 @@ blockquote {
 }
 
 // Disqus Block
-.block-type-disqus {
+.field-type-disqus-comment {
   min-height: 1px;
   width: 100%;
   @include clearfix();
