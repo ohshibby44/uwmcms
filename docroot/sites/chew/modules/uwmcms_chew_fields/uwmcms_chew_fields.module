@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Implements hook_preprocess_HOOK() for image formatter templates.
  *
- * Adds a link to the referencing node, if there is one.
+ * Adds a link to an image, when appropriate.
  */
 function uwmcms_chew_fields_preprocess_image_formatter(&$variables) {
   if (!isset($variables['item'])) {
@@ -54,18 +54,51 @@ function uwmcms_chew_fields_preprocess_image_formatter(&$variables) {
   // Get the node ID.
   $nid = $node->id();
 
+  // Make sure this isn't the node currently being viewed.
+  if (_uwmcms_chew_fields_current_node_page($nid)) {
+    return;
+  }
+
+  // Get the node type.
+  $type = $node->getType();
+
+  switch ($type) {
+    case 'promotion':
+      // Get the link.
+      $link_field = $node->get('field_link');
+      if (!empty($link_field)) {
+        $link = $link_field->first()->getValue();
+        if (!empty($link['uri'])) {
+          $variables['url'] = URL::fromUri($link['uri']);
+        }
+      }
+      break;
+    case 'article':
+      $variables['url'] = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+      break;
+  }
+}
+
+/**
+ * @param integer $nid
+ *   The ID of the node to check.
+ *
+ * @return bool
+ *   If this is the node currently being viewed.
+ */
+function _uwmcms_chew_fields_current_node_page($nid) {
+  $match = FALSE;
+
   // Get the current path.
   $path = \Drupal::service('path.current')->getPath();
 
   if(preg_match('/node\/(\d+)/', $path, $matches)) {
     $path_nid = $matches[1];
-    // Don't link to the node if it's currently being viewed.
+    // If this is the node currently being viewed.
     if ($nid == $path_nid) {
-      return;
+      $match = TRUE;
     }
-
-    // Set the URL to the node's path alias.
-    $url = Url::fromRoute('entity.node.canonical', ['node' => $nid]);
-    $variables['url'] = $url;
   }
+
+  return $match;
 }
