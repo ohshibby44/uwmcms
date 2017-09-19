@@ -1,6 +1,6 @@
 uuid: 3c9b2188-e5bd-45da-963d-91b5188064b2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.uwm_paragraph_galleries

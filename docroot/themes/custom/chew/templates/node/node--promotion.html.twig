@@ -77,12 +77,34 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
-  {% if content.field_link %}
-    <a href="{{ content.field_link }}">
+  {# Only display the title if the view mode is "full" #}
+  {% if view_mode == 'full' %}
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+    {{ title_suffix }}
   {% endif %}
-  {{ content.field_promotion_image }}
-  {% if content.field_link %}
-    </a>
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('author') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
   {% endif %}
+
+  <div{{ content_attributes.addClass('content') }}>
+    {% if view_mode == 'full' %}
+      {{ content }}
+    {% else %}
+      {# Don't display the Link field if the view mode is not "full" #}
+      {{ content|without('field_link') }}
+    {% endif %}
+  </div>
 
 </article>

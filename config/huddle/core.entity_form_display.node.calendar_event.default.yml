@@ -21,24 +21,56 @@ dependencies:
     - address
     - datetime
     - duration_field
+    - field_group
     - image
+    - metatag
     - paragraphs
+    - path
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_date_duration:
+      children:
+        - field_date_time
+        - field_duration
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Date & Duration'
+    group_event_location:
+      children:
+        - field_event_location
+        - field_room_name
+        - field_address
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Event Location'
 id: node.calendar_event.default
 targetEntityType: node
 bundle: calendar_event
 mode: default
 content:
   field_address:
-    weight: 5
+    weight: 9
     settings:
-      default_country: null
+      default_country: ''
     third_party_settings: {  }
     type: address_default
     region: content
   field_cost:
-    weight: 6
+    weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -51,27 +83,27 @@ content:
     type: datetime_default
     region: content
   field_duration:
-    weight: 7
+    weight: 2
     settings:
       duration: ''
     third_party_settings: {  }
     type: duration_widget
     region: content
   field_event_audiences:
-    weight: 9
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_event_categories:
-    weight: 10
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_event_information:
     type: paragraphs
-    weight: 11
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -82,21 +114,24 @@ content:
     third_party_settings: {  }
     region: content
   field_event_location:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 7
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_image:
     type: image_image
-    weight: 2
+    weight: 1
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
     region: content
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 9
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_private_note:
     weight: 8
@@ -107,13 +142,19 @@ content:
     type: text_textarea
     region: content
   field_room_name:
-    weight: 4
+    weight: 8
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -124,8 +165,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_meta_tags: true
-  path: true
   promote: true
   sticky: true
   uid: true

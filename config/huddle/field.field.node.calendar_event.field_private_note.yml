@@ -20,7 +20,7 @@ id: node.calendar_event.field_private_note
 field_name: field_private_note
 entity_type: node
 bundle: calendar_event
-label: 'Editor Notes'
+label: 'Private Notes'
 description: ''
 required: false
 translatable: false

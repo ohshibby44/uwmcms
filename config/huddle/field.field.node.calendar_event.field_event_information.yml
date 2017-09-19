@@ -6,7 +6,9 @@ dependencies:
     - field.storage.node.field_event_information
     - node.type.calendar_event
     - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.contact_information
     - paragraphs.paragraphs_type.description
+    - paragraphs.paragraphs_type.facilitator
   module:
     - entity_reference_revisions
 id: node.calendar_event.field_event_information
@@ -25,6 +27,8 @@ settings:
     target_bundles:
       description: description
       call_to_action: call_to_action
+      contact_information: contact_information
+      facilitator: facilitator
     target_bundles_drag_drop:
       answer:
         weight: -29
@@ -57,8 +61,8 @@ settings:
         weight: -20
         enabled: false
       contact_information:
+        enabled: true
         weight: -19
-        enabled: false
       simple:
         weight: -18
         enabled: false
@@ -66,6 +70,6 @@ settings:
         weight: -17
         enabled: false
       facilitator:
+        enabled: true
         weight: -16
-        enabled: false
 field_type: entity_reference_revisions

@@ -157,7 +157,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "        <div class=\"resources-view-footer\">\n          <div class=\"resources-view-footer__header\">\n            Not Finding What You’re Looking For?\n          </div>\n          <div class=\"resources-view-footer__content\">\n            We’re here to help. Atoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.\n          </div>\n          <div class=\"resources-view-footer__link\">\n            <a href=\"/contact\" title=\"Contact Us\">Contact Us ></a>\n          </div>\n        </div>"
+          content: "        <div class=\"resources-view-footer\">\n          <div class=\"resources-view-footer__header\">\n            Not finding what you're looking for?\n          </div>\n          <div class=\"resources-view-footer__link\">\n            <a href=\"/contact\" title=\"Contact Us\">Contact Us ></a>\n          </div>\n        </div>"
           plugin_id: text_custom
       empty: {  }
       relationships: {  }

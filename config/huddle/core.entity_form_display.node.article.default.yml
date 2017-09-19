@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.article.field_body
     - field.field.node.article.field_category
     - field.field.node.article.field_date
+    - field.field.node.article.field_disqus_comments
     - field.field.node.article.field_featured_content
     - field.field.node.article.field_image
     - field.field.node.article.field_image_caption
@@ -20,6 +21,7 @@ dependencies:
   module:
     - allowed_formats
     - datetime
+    - disqus
     - field_group
     - image
     - metatag
@@ -133,6 +135,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_disqus_comments:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: disqus_comment
     region: content
   field_featured_content:
     weight: 2

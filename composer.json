@@ -11,7 +11,6 @@
         }
     ],
     "require": {
-
         "acquia/blt": "^8.9.0",
         "drupal/redirect": "^1.0@alpha",
         "drupal/admin_toolbar": "^1.20",
@@ -71,8 +70,7 @@
         "geerlingguy/drupal-vm": "~4.3",
         "drupal/simplesamlphp_auth": "^3.0"
     },
-    "require-dev": {
-    },
+    "require-dev": {},
     "extra": {
         "enable-patching": true,
         "installer-paths": {
@@ -98,7 +96,9 @@
                 "type:drupal-custom-theme"
             ],
             "docroot/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
@@ -116,6 +116,10 @@
             "merge-extra-deep": true,
             "merge-scripts": true,
             "replace": true
-        }
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ]
     }
 }

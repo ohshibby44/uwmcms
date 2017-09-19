@@ -1,6 +1,5 @@
 module:
   acquia_connector: 0
-  admin_toolbar: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -42,7 +41,6 @@ module:
   lightning_media_video: 0
   lightning_page: 0
   lightning_roles: 0
-  lightning_scheduled_updates: 0
   lightning_search: 0
   lightning_workflow: 0
   link: 0
@@ -56,7 +54,6 @@ module:
   node: 0
   options: 0
   page_cache: 0
-  page_manager: 0
   panelizer: 0
   panelizer_quickedit: 0
   panels: 0
@@ -78,7 +75,6 @@ module:
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
-  views_ui: 0
   workbench_moderation: 0
   menu_link_content: 1
   pathauto: 1

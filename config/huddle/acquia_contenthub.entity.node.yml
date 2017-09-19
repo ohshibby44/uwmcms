@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.calendar_event
+    - node.type.event_location
   module:
     - node
 id: node
@@ -39,7 +40,7 @@ bundles:
     rendering:
       default: default
   event_location:
-    enable_index: false
+    enable_index: true
     enable_viewmodes: false
     rendering:
       default: default

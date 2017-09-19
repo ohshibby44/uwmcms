@@ -15,7 +15,21 @@ label: 'Off-Campus Address'
 description: 'If your event is on-campus but the building is not available in the "Event Location" field above, please create a new Event Location node. If your event is off-campus, please enter the location address.'
 required: false
 translatable: true
-default_value: {  }
+default_value:
+  -
+    country_code: US
+    langcode: null
+    administrative_area: ''
+    locality: ''
+    dependent_locality: ''
+    postal_code: ''
+    sorting_code: ''
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: ''
+    family_name: ''
 default_value_callback: ''
 settings:
   available_countries:

@@ -6,15 +6,19 @@ dependencies:
     - webform
 id: webform_submission
 bundles:
-  submit_a_photo:
-    enable_index: false
-    enable_viewmodes: false
-    rendering: {  }
   contact:
     enable_index: false
     enable_viewmodes: false
     rendering: {  }
-  submit:
+  submit_a_photo:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit_a_photo_or_video:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  submit_a_story:
     enable_index: false
     enable_viewmodes: false
     rendering: {  }

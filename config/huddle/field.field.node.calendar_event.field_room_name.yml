@@ -9,7 +9,7 @@ id: node.calendar_event.field_room_name
 field_name: field_room_name
 entity_type: node
 bundle: calendar_event
-label: Room
+label: 'Room Name'
 description: 'Enter a room number or name. For example: 112 or Orin Smith Auditorium.'
 required: false
 translatable: false

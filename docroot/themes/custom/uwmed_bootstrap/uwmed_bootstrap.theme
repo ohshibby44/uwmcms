@@ -8,6 +8,8 @@
  * other files containing more complex functions.
  */
 
+use Drupal\block\Entity\Block;
+
 /**
  * Prepares variables for HTML document templates.
  *
@@ -109,6 +111,20 @@ function uwmed_bootstrap_preprocess_menu(array &$variables) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_node() for node--gallery--full.html.twig.
+ */
+function uwmed_bootstrap_preprocess_node__gallery__full(&$variables) {
+  // Get the Paragraph Galleries Block.
+  $block = Block::load('views_block__uwm_paragraph_galleries_block_paragraph_galleries');
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+
+  // Add block to variables so we can place it on the template with Twig.
+  $variables['block_paragraph_galleries'] = $block_content;
 }
 
 /**
