@@ -72,19 +72,29 @@
         $('.gallery.featured-content-2 header').hover(
           function () {
             $('.gallery.featured-content-2 .image-overlay').addClass('overlay-hover');
+            $('.gallery.featured-content-2 .video-overlay').addClass('overlay-hover');
           },
           function () {
             $('.gallery.featured-content-2 .image-overlay').removeClass('overlay-hover');
+            $('.gallery.featured-content-2 .video-overlay').removeClass('overlay-hover');
           }
         );
         $('.gallery.featured-content-2 .image-overlay').hover(
-          function () {
-            $('.gallery.featured-content-2 header h1 a').addClass('hover-over');
-          },
-          function () {
-            $('.gallery.featured-content-2 header h1 a').removeClass('hover-over');
-          }
-        );
+              function () {
+                  $('.gallery.featured-content-2 header h1 a').addClass('hover-over');
+              },
+              function () {
+                  $('.gallery.featured-content-2 header h1 a').removeClass('hover-over');
+              }
+          );
+          $('.gallery.featured-content-2 .video-overlay').hover(
+              function () {
+                  $('.gallery.featured-content-2 header h1 a').addClass('hover-over');
+              },
+              function () {
+                  $('.gallery.featured-content-2 header h1 a').removeClass('hover-over');
+              }
+          );
         // Gallery Teaser H2 hover effect for image.
         $('.gallery.teaser').hover(
           function () {
