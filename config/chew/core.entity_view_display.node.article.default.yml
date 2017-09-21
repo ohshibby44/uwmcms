@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
+    - field.field.node.article.publish
     - node.type.article
   module:
     - entity_reference_revisions
