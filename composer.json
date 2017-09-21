@@ -68,7 +68,8 @@
         "drupal/link_attributes": "^1.1",
         "drupal/siteimprove": "^1.0",
         "geerlingguy/drupal-vm": "~4.3",
-        "drupal/simplesamlphp_auth": "^3.0"
+        "drupal/simplesamlphp_auth": "^3.0",
+        "drupal/acquia_purge": "^1.0@beta"
     },
     "require-dev": {},
     "extra": {

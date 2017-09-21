@@ -768,6 +768,11 @@ if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/huddle-settings.inc';
 }
 
+if (isset($settings['memcache']['servers'])) { 
+  // Memcache settings.
+  $settings['cache']['default'] = 'cache.backend.memcache';
+}
+
 if (file_exists(DRUPAL_ROOT . '/sites/huddle/settings')) {
   require DRUPAL_ROOT . '/sites/huddle/settings/acquia.lift.contenthub.settings.php';
 }
