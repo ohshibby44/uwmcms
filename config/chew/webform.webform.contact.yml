@@ -137,8 +137,8 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
+      subject: 'Thanks for emailing Right as Rain'
+      body: "Thanks for contacting us!&nbsp;\n<p class=\"MsoPlainText\">A member of the Right as Rain team will be in touch soon (during normal business hours, Monday through Friday, 8 a.m. to 5 p.m.).</p>"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
