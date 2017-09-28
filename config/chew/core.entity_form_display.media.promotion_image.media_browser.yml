@@ -9,7 +9,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.promotion_image
   module:
-    - lightning_media
+    - image
     - workbench_moderation
 id: media.promotion_image.media_browser
 targetEntityType: media
