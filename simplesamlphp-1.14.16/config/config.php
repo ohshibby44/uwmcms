@@ -856,8 +856,7 @@ $config = array(
 
 
 
-
-$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/default.secrets/simplesamlphp/config/config.php ',
+$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/config.php',
   $_ENV['AH_SITE_GROUP'],
   $_ENV['AH_SITE_ENVIRONMENT']);
 
@@ -866,6 +865,4 @@ if (file_exists($config_file)) {
   require_once($config_file);
 
 }
-
-
 
