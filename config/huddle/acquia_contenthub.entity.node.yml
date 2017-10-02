@@ -29,6 +29,8 @@ bundles:
     enable_viewmodes: false
     rendering:
       default: default
+    preview_image_field: ''
+    preview_image_style: ''
   campaign:
     enable_index: false
     enable_viewmodes: false

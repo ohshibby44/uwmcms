@@ -1,6 +1,6 @@
 uuid: aaf6e38b-5e35-41c8-9821-2c135ada7a13
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.fb_instant_articles
@@ -17,24 +17,61 @@ dependencies:
     - field.field.node.article.publish
     - node.type.article
   module:
+    - entity_reference_revisions
+    - panelizer
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.article.fb_instant_articles
 targetEntityType: node
 bundle: article
 mode: fb_instant_articles
 content:
-  links:
-    weight: 100
+  field_author:
+    type: entity_reference_label
+    weight: 1
     region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_primary_media:
+    type: entity_reference_entity_view
+    weight: 0
+    region: header
+    label: hidden
+    settings:
+      view_mode: medium
+      link: false
+    third_party_settings: {  }
+  field_quick_read:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_sections:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
 hidden:
-  field_author: true
   field_categories: true
   field_feature_category: true
   field_long_summary: true
   field_meta_tags: true
-  field_primary_media: true
   field_promotion: true
-  field_quick_read: true
-  field_sections: true
   field_short_summary: true
+  links: true
   publish: true

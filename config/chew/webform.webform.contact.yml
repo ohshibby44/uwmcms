@@ -1,9 +1,12 @@
+uuid: ddeaaf68-cbce-4d5a-bd08-6e337767fdb9
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: k-pt3VLxBw-YVz1njxzRpczoo8bThqMQspJ3h0rf_FE
 open: null
 close: null
 uid: null
@@ -120,6 +123,7 @@ handlers:
     label: 'Email confirmation'
     handler_id: email_confirmation
     status: true
+    conditions: {  }
     weight: 1
     settings:
       states:
@@ -133,8 +137,8 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
+      subject: 'Thanks for emailing Right as Rain'
+      body: "Thanks for contacting us!&nbsp;\n<p class=\"MsoPlainText\">A member of the Right as Rain team will be in touch soon (during normal business hours, Monday through Friday, 8 a.m. to 5 p.m.).</p>"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -148,6 +152,7 @@ handlers:
     label: 'Email notification'
     handler_id: email_notification
     status: true
+    conditions: {  }
     weight: 1
     settings:
       states:
@@ -171,6 +176,3 @@ handlers:
       debug: false
       reply_to: ''
       return_path: ''
-uuid: ddeaaf68-cbce-4d5a-bd08-6e337767fdb9
-_core:
-  default_config_hash: k-pt3VLxBw-YVz1njxzRpczoo8bThqMQspJ3h0rf_FE

@@ -176,7 +176,7 @@ $uw-cream:            #f3e9db;
 $uw-off-white:        #ececec;
 $uw-white-grey:       #f4f4f4;
 $another-purple:      #6f3276;
-
+$uw-blue:             #0074bb;
 
 //
 // Variables
@@ -210,7 +210,7 @@ $body-bg:               $uw-off-white !default;
 $text-color:            $uw-dark-grey !default;
 
 //** Global textual link color.
-$link-color:            $uw-purple !default;
+$link-color:            $uw-blue !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      $uw-purple !default;
 //** Link hover decoration.

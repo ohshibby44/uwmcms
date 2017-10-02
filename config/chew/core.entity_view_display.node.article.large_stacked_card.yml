@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
     - field.field.node.article.field_long_summary
+    - field.field.node.article.field_meta_tags
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_promotion
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
+    - field.field.node.article.publish
     - node.type.article
   module:
     - panelizer
@@ -40,7 +42,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: large
+      view_mode: large_alt
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -49,8 +51,10 @@ hidden:
   field_author: true
   field_categories: true
   field_feature_category: true
+  field_meta_tags: true
   field_promotion: true
   field_quick_read: true
   field_sections: true
   field_short_summary: true
   links: true
+  publish: true
