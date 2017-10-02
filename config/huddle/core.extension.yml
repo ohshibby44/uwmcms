@@ -5,12 +5,12 @@ module:
   acquia_contenthub_subscriber: 0
   acquia_lift: 0
   acquia_lift_inspector: 0
+  acquia_purge: 0
   address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
   allowed_formats: 0
-  automated_cron: 0
   better_exposed_filters: 0
   block: 0
   block_content: 0
@@ -28,11 +28,11 @@ module:
   ctools: 0
   ctools_block: 0
   datetime: 0
-  dblog: 0
   devel: 0
   diff: 0
   disqus: 0
   duration_field: 0
+  dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
   embed: 0
@@ -49,6 +49,7 @@ module:
   file: 0
   filter: 0
   focal_point: 0
+  google_tag: 0
   help: 0
   history: 0
   honeypot: 0
@@ -70,16 +71,22 @@ module:
   media_entity_image: 0
   media_entity_instagram: 0
   media_entity_twitter: 0
+  memcache: 0
   menu_ui: 0
   metatag: 0
   metatag_facebook: 0
   node: 0
   options: 0
   page_cache: 0
-  page_manager: 0
   paragraphs: 0
   path: 0
   poll: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_ui: 0
   responsive_favicons: 0
   rest: 0
   robotstxt: 0
@@ -88,8 +95,8 @@ module:
   seckit: 0
   serialization: 0
   sharethis: 0
-  shield: 0
   shortcut: 0
+  syslog: 0
   system: 0
   taxonomy: 0
   telephone: 0

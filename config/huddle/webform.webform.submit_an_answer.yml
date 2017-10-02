@@ -12,7 +12,7 @@ id: submit_an_answer
 title: 'Submit an Answer'
 description: ''
 category: ''
-elements: "introduction:\n  '#type': webform_markup\n  '#markup': \"[Introduction here..]\\n\"\nanswer:\n  '#type': textarea\n  '#title': 'Your answer'\n  '#description': '[Answer desription...]'\n  '#default_value': \"\\n\"\n  '#required': true\n  '#counter_type': word\n  '#counter_maximum': '60'\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#required': true\n  '#title__access': false\n  '#first__required': true\n  '#middle__access': false\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\nnid:\n  '#type': hidden\nrecaptcha:\n  '#type': captcha\n"
+elements: "answer:\n  '#type': textarea\n  '#title': 'Your answer'\n  '#required': true\n  '#counter_type': word\n  '#counter_maximum': '60'\n  '#format_items': comma\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#required': true\n  '#title__access': false\n  '#first__required': true\n  '#middle__access': false\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\nnid:\n  '#type': hidden\nrecaptcha:\n  '#type': captcha\n"
 css: ''
 javascript: ''
 settings:
@@ -60,9 +60,9 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: page
+  confirmation_type: message
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: 'Thank you for your submission! Check back next week to read your colleagues&#39; answers.&nbsp;'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
