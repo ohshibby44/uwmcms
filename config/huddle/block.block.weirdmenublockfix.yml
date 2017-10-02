@@ -1,0 +1,25 @@
+uuid: ca2e2002-6f7d-4c2e-9b20-9328f97a628f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e60fd674-1f67-4768-9fd9-ea5705dcd6d8'
+  module:
+    - block_content
+  theme:
+    - uwmed_bootstrap
+id: weirdmenublockfix
+theme: uwmed_bootstrap
+region: navigation_collapsible
+weight: 0
+provider: null
+plugin: 'block_content:e60fd674-1f67-4768-9fd9-ea5705dcd6d8'
+settings:
+  id: 'block_content:e60fd674-1f67-4768-9fd9-ea5705dcd6d8'
+  label: 'Weird Menu Block Fix'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -768,5 +768,16 @@ if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/chew-settings.inc';
 }
 
+if (isset($settings['memcache']['servers'])) {
+  // Memcache settings.
+  $settings['cache']['default'] = 'cache.backend.memcache';
+}
+
+$secrets_file = sprintf('/mnt/gfs/%s.%s/nobackup/chew.secrets.settings.php',
+  $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
+if (file_exists($secrets_file)) {
+  require $secrets_file;
+}
+
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';

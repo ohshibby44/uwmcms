@@ -1,0 +1,30 @@
+uuid: 11d752c9-2e28-444b-86be-ac71fc793fbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.simple
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+_core:
+  default_config_hash: ELHRHYCLoOR1yedBmtq75AyvNsHASG20EWv3-XqELxA
+id: paragraph.simple.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: simple
+label: Subtitle
+description: 'The subtitle is optional.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

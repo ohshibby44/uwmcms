@@ -4,6 +4,7 @@ h1 {
   }
 }
 h2 {
+  font-family: $font-family-serif;
   font-weight: bold;
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
@@ -11,8 +12,10 @@ h2 {
     font-size: 16px;
   }
 }
-p {
-  margin-bottom: $line-height-computed;
-}
-a {
+h3 {
+  margin-top: $line-height-computed;
+  margin-bottom: ($line-height-computed / 2);
+  @media (max-width: $screen-xs) {
+    font-size: 16px;
+  }
 }

@@ -67,9 +67,12 @@
         theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
       ]
     %}
-    <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+
+
+
+    <header{{ navbar_attributes.addClass(navbar_classes) }}>
       {% if not navbar_attributes.hasClass(container) %}
-        <div class="{{ container }}">
+      <div class="{{ container }}">
       {% endif %}
         <div class="row">
           <div class="navbar-header">
@@ -94,12 +97,29 @@
             </div>
           {% endif %}
         </div>
+        {% if page.navigation or page.header %}
+          <div id="navbar-collapse" class="navbar-collapse collapse">
+            {{ page.navigation }}
+            {{ page.header }}
+          </div>
+        {% endif %}
       {% if not navbar_attributes.hasClass(container) %}
       </div>
       {% endif %}
     </header>
+
   {% endblock %}
 {% endif %}
+
+{# Content #}
+{%
+  set content_classes = [
+    'col-sm-12',
+    page.sidebar_first and page.sidebar_second ? 'col-md-4 col-lg-6 ',
+    page.sidebar_first and page.sidebar_second is empty ? 'col-md-8 col-lg-9',
+    page.sidebar_second and page.sidebar_first is empty ? 'col-md-8 col-lg-9',
+  ]
+%}
 
 {# Main #}
 {% block main %}
@@ -133,10 +153,14 @@
             {{ page.help }}
           {% endblock %}
         {% endif %}
+      </div>
 
-        <a id="main-content"></a>
+      <a id="main-content"></a>
+      <div class="{{ content_classes|join(' ') }}">
         {{ page.content_header }}
       </div>
+
+      <div class="clearfix"></div>
 
       {# Sidebar First #}
       {% if page.sidebar_first %}
@@ -175,10 +199,19 @@
   </div>
 {% endblock %}
 
-{% if page.footer %}
+{% if page.footer_first or page.footer_second %}
   {% block footer %}
     <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
+      {% if page.footer_first %}
+        <div class="row">
+          {{ page.footer_first }}
+        </div>
+      {% endif %}
+      {% if page.footer_second %}
+        <div class="row">
+          {{ page.footer_second }}
+        </div>
+      {% endif %}
     </footer>
   {% endblock %}
 {% endif %}

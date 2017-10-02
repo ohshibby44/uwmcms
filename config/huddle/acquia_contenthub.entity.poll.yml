@@ -1,0 +1,12 @@
+uuid: d3ab06fb-9016-4076-8ec5-18132fffcdef
+langcode: en
+status: true
+dependencies:
+  module:
+    - poll
+id: poll
+bundles:
+  poll:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }

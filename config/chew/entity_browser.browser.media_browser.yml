@@ -4,8 +4,9 @@ status: true
 dependencies:
   config:
     - views.view.media
+    - views.view.podcasts
   module:
-    - lightning_media
+    - entity_browser_entity_form
     - views
 _core:
   default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
@@ -33,14 +34,6 @@ widgets:
     weight: -10
     label: 'Existing Image'
     id: view
-  8b142f33-59d1-47b1-9e3a-4ae85d8376fa:
-    settings:
-      submit_text: Save
-      form_mode: media_browser
-    uuid: 8b142f33-59d1-47b1-9e3a-4ae85d8376fa
-    weight: -7
-    label: 'New Video'
-    id: embed_code
   8621119e-a4a4-40e5-ae47-d541eadc5822:
     settings:
       view: media
@@ -51,12 +44,45 @@ widgets:
     weight: -8
     label: 'Existing Video'
     id: view
-  fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407:
+  aaed1eb5-d8a2-424f-bac2-fef286582943:
     settings:
+      view: podcasts
+      view_display: entity_browser_1
+      submit_text: Select
+      auto_select: false
+    uuid: aaed1eb5-d8a2-424f-bac2-fef286582943
+    weight: -6
+    label: 'Existing Podcast'
+    id: view
+  5d75e992-dfd0-4c03-974a-76ea30a91b1a:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
       submit_text: Save
       form_mode: media_browser
       return_file: false
     uuid: fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407
     weight: -9
     label: 'New Image'
-    id: file_upload
+    id: entity_form
+  570c2e38-85ce-4406-979f-c6381bf74854:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: default
+      submit_text: Save
+    uuid: 570c2e38-85ce-4406-979f-c6381bf74854
+    weight: -7
+    label: 'New Video'
+    id: entity_form
+  ea02c5f1-b78f-4e2f-8fe2-4b549df08257:
+    settings:
+      entity_type: media
+      bundle: podcast
+      form_mode: default
+      submit_text: Save
+    uuid: ea02c5f1-b78f-4e2f-8fe2-4b549df08257
+    weight: 6
+    label: 'New Podcast'
+    id: entity_form

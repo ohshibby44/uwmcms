@@ -1,0 +1,24 @@
+uuid: d53d3349-87b0-438c-ba2e-d64179e9ebf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_categories
+_core:
+  default_config_hash: Q3q1dt_0NBoj-l2omBNuTtJ4K9dTQ6gjxxSCYtjOMNg
+id: taxonomy_term.event_categories.default
+targetEntityType: taxonomy_term
+bundle: event_categories
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

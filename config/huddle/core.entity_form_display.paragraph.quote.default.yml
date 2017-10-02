@@ -1,0 +1,47 @@
+uuid: ed8bf0b0-f3f6-4dad-9a85-5d8df31a919b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_attribution
+    - field.field.paragraph.quote.field_body
+    - field.field.paragraph.quote.field_title
+    - paragraphs.paragraphs_type.quote
+  module:
+    - text
+    - workbench_moderation
+_core:
+  default_config_hash: '-6BFr3a-nT5min265O3RWC_fDpgJCTkr16D4mbfAdug'
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_attribution:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_body:
+    weight: 0
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

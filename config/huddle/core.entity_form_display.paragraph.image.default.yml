@@ -1,0 +1,72 @@
+uuid: e24774c2-5476-4dbc-bd0b-c7de9b8a197c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image.field_attribution
+    - field.field.paragraph.image.field_caption
+    - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_image_credit
+    - field.field.paragraph.image.field_positioning
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.image
+  module:
+    - allowed_formats
+    - image
+    - text
+    - workbench_moderation
+_core:
+  default_config_hash: Z-GLBXfFa5SdC0uxw2aKWEOFxvmeeDc4oO_FJCJ5d4c
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  field_attribution:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+  field_caption:
+    weight: 1
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textarea
+    region: content
+  field_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_image_credit:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_positioning:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

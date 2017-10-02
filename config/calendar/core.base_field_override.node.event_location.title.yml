@@ -1,0 +1,18 @@
+uuid: e51d594f-dc16-425c-8eda-e67a98118ac8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.event_location
+id: node.event_location.title
+field_name: title
+entity_type: node
+bundle: event_location
+label: 'Location Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

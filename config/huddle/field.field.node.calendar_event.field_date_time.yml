@@ -1,0 +1,24 @@
+uuid: 7665d4c3-ac31-4dfc-a578-510fc88d3142
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_time
+    - node.type.calendar_event
+  module:
+    - datetime
+id: node.calendar_event.field_date_time
+field_name: field_date_time
+entity_type: node
+bundle: calendar_event
+label: 'Date and Start Time'
+description: 'Use the calendar date picker to choose a date. Time must be entered in 24 hour format: HH:MM:SS.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: relative
+    default_date: '+1 day'
+default_value_callback: ''
+settings: {  }
+field_type: datetime

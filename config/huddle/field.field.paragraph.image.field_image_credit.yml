@@ -1,0 +1,21 @@
+uuid: a2815f4e-8d4b-419a-93f6-909d7e1a0a24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_credit
+    - paragraphs.paragraphs_type.image
+_core:
+  default_config_hash: aurRhUqpeyqmoDEmBhGCJgNFeanZIwmPO0VkR9IDE5Y
+id: paragraph.image.field_image_credit
+field_name: field_image_credit
+entity_type: paragraph
+bundle: image
+label: Credit
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

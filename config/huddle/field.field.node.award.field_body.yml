@@ -1,0 +1,30 @@
+uuid: ddb3b37f-f535-458e-adab-79d8289c6a8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.award
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: Yrhg3qYBbyUWmCd8_3M6KpSax-WOlQzs-y8JvnwuMJk
+id: node.award.field_body
+field_name: field_body
+entity_type: node
+bundle: award
+label: 'Award detail'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

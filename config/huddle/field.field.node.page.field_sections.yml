@@ -1,0 +1,59 @@
+uuid: e5cc28e8-7f1a-4f09-b8e4-b761e43cf658
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sections
+    - node.type.page
+    - paragraphs.paragraphs_type.resources
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: uMODK8iUceKwuMW2f6RbriIROd6qBNCtSklZJQ4T1jM
+id: node.page.field_sections
+field_name: field_sections
+entity_type: node
+bundle: page
+label: 'Section types'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      resources: resources
+    target_bundles_drag_drop:
+      answer:
+        weight: -19
+        enabled: false
+      gallery:
+        weight: -18
+        enabled: false
+      gallery_item:
+        weight: -17
+        enabled: false
+      simple:
+        weight: -16
+        enabled: false
+      image:
+        weight: -15
+        enabled: false
+      quote:
+        weight: -14
+        enabled: false
+      video:
+        weight: -13
+        enabled: false
+      resources:
+        enabled: true
+        weight: -12
+      sidebar:
+        weight: -11
+        enabled: false
+      block_reference:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

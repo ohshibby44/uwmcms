@@ -8,6 +8,11 @@ box/local.config.yml
 *.local
 project.local.yml
 
+# Ignore sensitive configs
+config/*/acquia_contenthub.admin_settings.yml
+config/*/acquia_lift.settings.yml
+config/*/fb_instant_articles.settings.yml
+
 # Ignore drupal core.
 docroot/core
 
@@ -22,6 +27,7 @@ docroot/themes/contrib
 docroot/profiles/contrib
 docroot/libraries/contrib
 drush/contrib
+docroot/libraries
 
 # Ignore custom theme build artifacts
 docroot/themes/custom/*/node_modules

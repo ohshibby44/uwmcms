@@ -1,0 +1,28 @@
+uuid: b5930472-edb9-4e56-8512-53b183e62091
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campus
+    - node.type.event_location
+    - taxonomy.vocabulary.campus
+id: node.event_location.field_campus
+field_name: field_campus
+entity_type: node
+bundle: event_location
+label: Campus
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      campus: campus
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

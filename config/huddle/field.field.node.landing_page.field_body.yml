@@ -1,0 +1,31 @@
+uuid: 140752b7-e36a-406b-b593-2fa20daad488
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.landing_page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: restricted_html
+    full_html: full_html
+    video_format: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: SdiN8wTYOJpoi66BkzN46k8kiiAGHdCv1PicVDX5W-I
+id: node.landing_page.field_body
+field_name: field_body
+entity_type: node
+bundle: landing_page
+label: 'Landing Page Body'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

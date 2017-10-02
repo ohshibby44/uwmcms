@@ -1,0 +1,22 @@
+uuid: c5c960f9-5629-4688-82ff-9b50ffc31388
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_question_webform
+label: 'Content > Question - Webform'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  b4eae63e-c4b4-457f-8a86-5fef11dd6022:
+    id: node_type
+    bundles:
+      question: question
+    negate: false
+    context_mapping:
+      node: node
+    uuid: b4eae63e-c4b4-457f-8a86-5fef11dd6022
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,19 @@
+uuid: df6d9635-1069-41e2-b8ae-fb9c4c9bb799
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_name
+    - paragraphs.paragraphs_type.facilitator
+id: paragraph.facilitator.field_full_name
+field_name: field_full_name
+entity_type: paragraph
+bundle: facilitator
+label: 'Full Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

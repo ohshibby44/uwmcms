@@ -69,8 +69,9 @@ function _uwmcms_chew_misc_unique_sticky_article(EntityInterface $node) {
     $query->condition('type', 'article');
     $query->condition('nid', $node->id(), '!=');
     $nids = $query->execute();
-    foreach (array_keys($nids) as $nid) {
-      $other_node = \Drupal\node\Entity\Node::load($nid);
+
+    foreach ($nids as $nid) {
+      $other_node = Node::load($nid);
       $other_node->sticky = 0;
       $other_node->save();
     }

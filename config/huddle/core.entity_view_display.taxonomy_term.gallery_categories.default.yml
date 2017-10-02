@@ -1,0 +1,15 @@
+uuid: f859d640-2a56-4c9b-b3f8-c68d614ff63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.gallery_categories
+_core:
+  default_config_hash: d7J0-ohzW5UysD4WJPzT0TlJmsBwOtgtICuGnm-dYek
+id: taxonomy_term.gallery_categories.default
+targetEntityType: taxonomy_term
+bundle: gallery_categories
+mode: default
+content: {  }
+hidden:
+  description: true

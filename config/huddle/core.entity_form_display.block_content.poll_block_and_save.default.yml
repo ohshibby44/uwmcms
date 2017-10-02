@@ -1,0 +1,45 @@
+uuid: 83fc7b5d-bbc2-428a-a0e9-b2d8144821a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.poll_block_and_save
+    - field.field.block_content.poll_block_and_save.body
+    - field.field.block_content.poll_block_and_save.field_poll_question
+  module:
+    - text
+    - workbench_moderation
+_core:
+  default_config_hash: UUDl2DFtJCa5q93zl1PeshMlRTDK6ZUAWJMzbsMbXUU
+id: block_content.poll_block_and_save.default
+targetEntityType: block_content
+bundle: poll_block_and_save
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 26
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_poll_question:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

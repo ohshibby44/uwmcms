@@ -1,0 +1,26 @@
+uuid: 2608f2af-b895-4ac0-8904-8e7a93d70920
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.question
+  module:
+    - datetime
+_core:
+  default_config_hash: FGLlOJQlaNe8BG9XVp__IMcMvfB1SdSo54qvBsIcx-U
+id: node.question.field_date
+field_name: field_date
+entity_type: node
+bundle: question
+label: Date
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

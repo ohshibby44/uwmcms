@@ -1,0 +1,78 @@
+uuid: 9b550503-c6c2-4465-9ad5-a5f6f19d9e1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph
+bundles:
+  answer:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  block_reference:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  call_to_action:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  contact_information:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  description:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  facilitator:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  gallery:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  gallery_item:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  image:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  quote:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  resources:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  sidebar:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  simple:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  video:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

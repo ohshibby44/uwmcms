@@ -27,6 +27,38 @@
         color: $gray-dark;
       }
     }
+    .taxonomy-term.count-2 {
+      font-family: $font-family-sans-serif;
+      text-transform: uppercase;
+      padding-left: .625em;
+      font-size: .875em;
+      border-left: 1px solid $gray-light;
+      a {
+        color: $gray-dark;
+      }
+    }
+  }
+  .block-entity-fieldnodefield-author,
+  .block-entity-fieldnodecreated {
+    float: left;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-size: .875em;
+  }
+  .block-entity-fieldnodefield-author {
+    padding-right: 2em;
+    .field--name-field-author .field--item {
+      display: inline;
+    }
+  }
+  .block-entity-fieldnodecreated {
+    font-weight: bold;
+  }
+}
+
+.field--name-field-sections {
+  .paragraph {
+    margin-bottom: $line-height-computed;
   }
   .block-entity-fieldnodefield-author,
   .block-entity-fieldnodecreated {

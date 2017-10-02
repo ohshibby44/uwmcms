@@ -1,0 +1,22 @@
+uuid: 56f9e8f4-905f-45ae-ba11-34e23b359740
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.bookshelf
+  module:
+    - text
+id: node.bookshelf.body
+field_name: body
+entity_type: node
+bundle: bookshelf
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

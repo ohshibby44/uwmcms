@@ -7,17 +7,21 @@ schemas:
 region_wells:
   branding: ''
   navigation: ''
-  navigation_collapsible: ''
+  header: ''
   highlighted: ''
   help: ''
   content_header: ''
   content: ''
   sidebar_first: ''
   sidebar_second: ''
-  footer: ''
-fluid_container: 0
+  footer_first: ''
+  footer_second: ''
 table_responsive: '-1'
 table: ''
+logo:
+  path: profiles/contrib/lightning/lightning.png
+  url: ''
+  use_default: true
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: profiles/contrib/lightning/favicon.ico
@@ -28,7 +32,4 @@ features:
   comment_user_verification: true
   favicon: true
   node_user_picture: true
-logo:
-  path: profiles/contrib/lightning/lightning.png
-  url: ''
-  use_default: false
+navbar_position: fixed-top

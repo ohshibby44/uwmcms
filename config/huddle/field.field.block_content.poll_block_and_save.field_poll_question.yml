@@ -1,0 +1,27 @@
+uuid: e3c44ff7-b37f-4d88-b703-c5c96283798d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.poll_block_and_save
+    - field.storage.block_content.field_poll_question
+_core:
+  default_config_hash: RgpVY9W3pZAF4vWf-BuMYOYXl8LZBpoV2fySR8U5oKg
+id: block_content.poll_block_and_save.field_poll_question
+field_name: field_poll_question
+entity_type: block_content
+bundle: poll_block_and_save
+label: 'Poll Question'
+description: 'Reference the poll that you would like to appear in this block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:poll'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

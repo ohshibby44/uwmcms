@@ -1,0 +1,29 @@
+uuid: bb7c2e0d-0f98-4d91-94bc-d578f1c17b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block_reference.field_block
+    - paragraphs.paragraphs_type.block_reference
+  module:
+    - workbench_moderation
+_core:
+  default_config_hash: dhehQOkro5SLp3YWPkvX6adkNDTjLIUQPtYv4h7P8dY
+id: paragraph.block_reference.default
+targetEntityType: paragraph
+bundle: block_reference
+mode: default
+content:
+  field_block:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

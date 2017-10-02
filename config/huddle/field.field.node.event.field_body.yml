@@ -1,0 +1,23 @@
+uuid: 3f2c86cb-f4fd-498d-a882-cb88464d328c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.event
+  module:
+    - text
+_core:
+  default_config_hash: e8nfkoikCG0fnAWBcC7LtO2endtumD117rYLkbIHtuo
+id: node.event.field_body
+field_name: field_body
+entity_type: node
+bundle: event
+label: 'Event information'
+description: 'Share information about this event.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

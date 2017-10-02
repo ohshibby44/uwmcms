@@ -8,7 +8,7 @@ id: node.author.title
 field_name: title
 entity_type: node
 bundle: author
-label: 'Full Name'
+label: Name
 description: ''
 required: true
 translatable: true

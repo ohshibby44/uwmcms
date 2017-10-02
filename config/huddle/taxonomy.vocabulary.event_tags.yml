@@ -1,0 +1,9 @@
+uuid: 4acc9434-9a9c-45d5-ba3b-c193f8f12425
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Category'
+vid: event_tags
+description: 'Set the category for an event.'
+hierarchy: 1
+weight: 0

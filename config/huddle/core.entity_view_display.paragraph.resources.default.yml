@@ -1,0 +1,38 @@
+uuid: 449646c5-9257-4f63-9ec9-7e8bda56f198
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resources.field_link
+    - field.field.paragraph.resources.field_title
+    - paragraphs.paragraphs_type.resources
+  module:
+    - link
+    - text
+_core:
+  default_config_hash: bIyJn8iGRvsTuneCwIgV6XeB9e0D3rlQ6olwvmIPF68
+id: paragraph.resources.default
+targetEntityType: paragraph
+bundle: resources
+mode: default
+content:
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: null
+      rel: nofollow
+      target: _blank
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

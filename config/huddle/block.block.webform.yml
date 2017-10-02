@@ -1,0 +1,22 @@
+uuid: 094947df-af6f-4292-a497-7577651ab286
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+  theme:
+    - uwmed_bootstrap
+id: webform
+theme: uwmed_bootstrap
+region: content
+weight: -6
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Webform - Subscribe'
+  provider: webform
+  label_display: '0'
+  webform_id: subscribe
+  default_data: ''
+visibility: {  }

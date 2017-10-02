@@ -1,0 +1,19 @@
+uuid: a5b5e96c-7903-491f-8d71-14833bcc8323
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: 9Z18TmzSbMNkf0fGItyG0kE8n6mFQE_I0B5kjveTQtg
+name: Award
+type: award
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

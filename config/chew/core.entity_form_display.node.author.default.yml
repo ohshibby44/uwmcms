@@ -3,10 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.author.field_person_name
     - node.type.author
   module:
-    - name
     - path
     - workbench_moderation
 id: node.author.default
@@ -20,12 +18,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_person_name:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: name_default
-    region: content
   path:
     type: path
     weight: 6

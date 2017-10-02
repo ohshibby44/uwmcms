@@ -1,0 +1,36 @@
+uuid: 3c9b2188-e5bd-45da-963d-91b5188064b2
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.uwm_paragraph_galleries
+  module:
+    - node
+    - views
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: fmODswx6OUEHGiAyqKllq-zxAblprA0v8CSRkCo6-vI
+id: views_block__uwm_paragraph_galleries_block_paragraph_galleries
+theme: uwmed_bootstrap
+region: lower_content
+weight: -12
+provider: null
+plugin: 'views_block:uwm_paragraph_galleries-block_paragraph_galleries'
+settings:
+  id: 'views_block:uwm_paragraph_galleries-block_paragraph_galleries'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping:
+    parent_id: '@node.node_route_context:node'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      gallery: gallery
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

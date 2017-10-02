@@ -1,0 +1,32 @@
+uuid: 1f776c1e-c73a-4143-8b40-22c734a1fb76
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: B3Dho5ilUgCzoMsDSmNUBu-lsF41iLjqWQB_r2URxQU
+id: paragraph.field_answer_color
+field_name: field_answer_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grey
+      label: Grey
+    -
+      value: teal
+      label: Teal
+    -
+      value: goldenrod
+      label: 'Golden Rod'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

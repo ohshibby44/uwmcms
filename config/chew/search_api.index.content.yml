@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - search_api.server.database
-    - core.entity_view_mode.node.full
   module:
     - search_api
     - node
@@ -12,7 +11,7 @@ _core:
   default_config_hash: 5oGmbthAOm65ilSVAb2fnEb6u3IBMfKIw3sPA8KuqXU
 id: content
 name: Content
-description: 'An index of all content in your site.'
+description: 'An index of all content in the site.'
 read_only: false
 field_settings:
   rendered:
@@ -25,9 +24,9 @@ field_settings:
       view_mode:
         'entity:node':
           page: default
-          landing_page: full
           author: default
           promotion: default
+          webform: default
   label:
     label: Label
     property_path: aggregated_field
@@ -60,8 +59,10 @@ field_settings:
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
-      selected: {  }
+      default: false
+      selected:
+        - article
+        - page
     languages:
       default: true
       selected: {  }
@@ -72,6 +73,7 @@ processor_settings:
     weights:
       preprocess_query: -10
   html_filter:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -87,6 +89,7 @@ processor_settings:
       preprocess_index: -10
       preprocess_query: -9
   ignorecase:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -95,6 +98,7 @@ processor_settings:
       preprocess_query: -8
   rendered_item: {  }
   stopwords:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -138,6 +142,7 @@ processor_settings:
       preprocess_index: -5
       preprocess_query: -4
   tokenizer:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -148,12 +153,23 @@ processor_settings:
       preprocess_index: -6
       preprocess_query: -5
   transliteration:
+    all_fields: false
     fields:
       - rendered
       - label
     weights:
       preprocess_index: -4
       preprocess_query: -3
+  highlight:
+    highlight: always
+    highlight_partial: true
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
 tracker_settings:
   default: {  }
 options:

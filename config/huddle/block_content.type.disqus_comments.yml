@@ -1,0 +1,8 @@
+uuid: 84a3da98-1664-4ba5-9440-788c20d32e68
+langcode: en
+status: true
+dependencies: {  }
+id: disqus_comments
+label: 'Disqus comments'
+revision: 0
+description: 'Use this block to add comments to any node.'

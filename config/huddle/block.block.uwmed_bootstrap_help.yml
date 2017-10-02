@@ -1,0 +1,22 @@
+uuid: f81ac866-f3fa-485c-ad88-1eec675d0c58
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: CUz7WqDxCbOxp9dTgN7wZkvNp2UzA7kXgcsdeaexH5o
+id: uwmed_bootstrap_help
+theme: uwmed_bootstrap
+region: help
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

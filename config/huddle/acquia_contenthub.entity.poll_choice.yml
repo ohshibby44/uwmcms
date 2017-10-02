@@ -1,0 +1,12 @@
+uuid: 6c1de1c8-fda5-432a-b859-bcb82c8727cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - poll
+id: poll_choice
+bundles:
+  poll_choice:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }

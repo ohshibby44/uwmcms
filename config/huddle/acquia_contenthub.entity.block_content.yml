@@ -1,0 +1,28 @@
+uuid: 371b2f97-e5f0-4aae-b713-e5da88b37791
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content
+bundles:
+  basic:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  disqus_comments:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  poll_block_and_save:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  promotional:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

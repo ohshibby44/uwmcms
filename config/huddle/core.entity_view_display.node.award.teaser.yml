@@ -1,0 +1,55 @@
+uuid: 59303bc3-f753-47b9-8bb7-b58ab6c32c2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.award.field_body
+    - field.field.node.award.field_date
+    - field.field.node.award.field_image
+    - field.field.node.award.field_teaser
+    - image.style.266x152
+    - node.type.award
+  module:
+    - datetime
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: F1RM7jczFMae_RFd-7PWnbbL5XjyNYK98BpResgeshU
+id: node.award.teaser
+targetEntityType: node
+bundle: award
+mode: teaser
+content:
+  field_body:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: uwm_date_format
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: 266x152
+      image_link: ''
+    third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_teaser: true
+  links: true

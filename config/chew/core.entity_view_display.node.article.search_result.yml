@@ -1,0 +1,41 @@
+uuid: 00ad248f-dbd1-41b3-a2ac-846818c13eb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.article.field_author
+    - field.field.node.article.field_categories
+    - field.field.node.article.field_feature_category
+    - field.field.node.article.field_long_summary
+    - field.field.node.article.field_primary_media
+    - field.field.node.article.field_promotion
+    - field.field.node.article.field_quick_read
+    - field.field.node.article.field_sections
+    - field.field.node.article.field_short_summary
+    - node.type.article
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.search_result
+targetEntityType: node
+bundle: article
+mode: search_result
+content: {  }
+hidden:
+  field_author: true
+  field_categories: true
+  field_feature_category: true
+  field_long_summary: true
+  field_primary_media: true
+  field_promotion: true
+  field_quick_read: true
+  field_sections: true
+  field_short_summary: true
+  links: true

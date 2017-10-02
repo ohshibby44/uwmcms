@@ -9,7 +9,8 @@ var
       'node_modules/bootstrap-sass/assets/stylesheets'
     ],
     javascriptFiles: [
-      'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
+      'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js',
+      'node_modules/stickybits/dist/*.js'
     ],
     fontFiles: [
       'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'

@@ -50,7 +50,7 @@ content:
     type: text_textfield
     region: content
   image:
-    type: image_immutable
+    type: image_image
     weight: 0
     settings:
       preview_image_style: thumbnail

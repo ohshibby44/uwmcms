@@ -1,0 +1,24 @@
+uuid: 90965611-86f1-4b1f-ba5b-fa18940eeffe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_body
+    - paragraphs.paragraphs_type.video
+  module:
+    - text
+_core:
+  default_config_hash: zV_E10xSTSXjV_C4IqTplGSu6WWAzqmr91VWt1ebb58
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

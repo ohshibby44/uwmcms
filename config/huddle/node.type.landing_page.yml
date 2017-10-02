@@ -1,0 +1,20 @@
+uuid: acdca879-fcff-4550-aa5c-2ecba21a3887
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: mbZ8b2FZDXNzGKQKHCyacJkkxgb_-ojcxGkRqPvPbGQ
+name: 'Landing page'
+type: landing_page
+description: 'A content type used for the homepage and other landing pages.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

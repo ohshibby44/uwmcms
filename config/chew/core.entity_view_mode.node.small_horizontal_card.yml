@@ -1,0 +1,14 @@
+uuid: 6dfc4547-86c0-40e9-b1e8-43dfeea55b43
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.small_horizontal_card
+label: 'Small Horizontal Card'
+targetEntityType: node
+cache: true

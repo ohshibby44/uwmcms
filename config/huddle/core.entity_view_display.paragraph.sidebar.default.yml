@@ -1,0 +1,52 @@
+uuid: 74a4b66b-0618-40e9-b57d-f31c75b37468
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sidebar.field_attribution
+    - field.field.paragraph.sidebar.field_caption
+    - field.field.paragraph.sidebar.field_image
+    - field.field.paragraph.sidebar.field_title
+    - image.style.265x145
+    - paragraphs.paragraphs_type.sidebar
+  module:
+    - image
+    - text
+_core:
+  default_config_hash: x1Sn4QUWD_WbyDEOKs6WkYye1qX7DywK5FRrFMtiZTo
+id: paragraph.sidebar.default
+targetEntityType: paragraph
+bundle: sidebar
+mode: default
+content:
+  field_attribution:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_caption:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: 265x145
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

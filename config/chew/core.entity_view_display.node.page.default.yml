@@ -3,14 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
     - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_promotion
+    - field.field.node.page.field_sections
+    - field.field.node.page.field_webform
+    - field.field.node.page.panelizer
     - field.field.node.page.scheduled_update
     - node.type.page
   module:
-    - metatag
-    - text
+    - entity_reference_revisions
+    - panelizer
     - user
+    - webform
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 _core:
   default_config_hash: wQOp0Gtvf-nibo11pyMBzr9dcDrKIc6BA96c3lyY_bM
 id: node.page.default
@@ -18,27 +28,31 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
+  field_sections:
     weight: 0
-    settings: {  }
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  links:
+  field_webform:
     weight: 1
-    settings: {  }
+    label: hidden
+    settings:
+      source_entity: true
     third_party_settings: {  }
+    type: webform_entity_reference_entity_view
     region: content
   workbench_moderation_control:
-    weight: -20
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_meta_tags: true
+  field_promotion: true
+  links: true
+  panelizer: true
   scheduled_update: true

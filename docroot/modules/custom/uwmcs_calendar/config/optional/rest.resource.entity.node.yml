@@ -12,6 +12,3 @@ dependency:
   enforced:
     module:
       - custom_jsonapi
-
-
-

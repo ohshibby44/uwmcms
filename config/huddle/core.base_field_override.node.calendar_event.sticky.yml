@@ -1,0 +1,22 @@
+uuid: 8122a9e1-7b88-44dc-8fee-d635caa71bd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.calendar_event
+id: node.calendar_event.sticky
+field_name: sticky
+entity_type: node
+bundle: calendar_event
+label: 'Sticky at top of lists'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

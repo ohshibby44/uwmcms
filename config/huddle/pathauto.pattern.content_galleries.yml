@@ -1,0 +1,24 @@
+uuid: 0959ff21-a737-41d6-87de-262b8be037ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: BHZOOV0fyHyUBwFmpaHVySg66Icg1miJHF3wT8xzHOc
+id: content_galleries
+label: 'Content > Galleries'
+type: 'canonical_entities:node'
+pattern: 'galleries/[node:field_category]/[node:title]'
+selection_criteria:
+  c6abc6eb-800a-4477-bad7-3cdcd689242e:
+    id: node_type
+    bundles:
+      gallery: gallery
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c6abc6eb-800a-4477-bad7-3cdcd689242e
+selection_logic: and
+weight: -5
+relationships: {  }

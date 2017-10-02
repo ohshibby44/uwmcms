@@ -1,0 +1,30 @@
+uuid: c1a648ed-6670-4f58-9e1b-f56f233d699e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.bookshelf
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.bookshelf.field_body
+field_name: field_body
+entity_type: node
+bundle: bookshelf
+label: 'Main content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

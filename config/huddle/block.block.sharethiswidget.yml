@@ -1,0 +1,45 @@
+uuid: 6896d648-2229-4236-8fbe-2972751fab17
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - sharethis
+    - system
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: TH3cQOCt5cbJtPl9rnBImAzDstzD36mjZk6oDSmgzhs
+id: sharethiswidget
+theme: uwmed_bootstrap
+region: content
+weight: -11
+provider: null
+plugin: sharethis_widget_block
+settings:
+  id: sharethis_widget_block
+  label: 'Sharethis Widget'
+  provider: sharethis
+  label_display: '0'
+  path: global
+  external_path: ''
+  sharethis_path: current
+  sharethis_path_external: ''
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+      bookshelf: bookshelf
+      calendar_event: calendar_event
+      event: event
+      gallery: gallery
+      question: question
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/node/add/calendar_event\r\n/node/add/event"
+    negate: true
+    context_mapping: {  }

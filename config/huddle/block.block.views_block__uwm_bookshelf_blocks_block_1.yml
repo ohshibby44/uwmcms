@@ -1,0 +1,32 @@
+uuid: 28e26546-c0d4-4a21-8a11-ab2e9a2b409d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_bookshelf_blocks
+  module:
+    - ctools
+    - views
+  theme:
+    - uwmed_bootstrap
+id: views_block__uwm_bookshelf_blocks_block_1
+theme: uwmed_bootstrap
+region: lower_content
+weight: -8
+provider: null
+plugin: 'views_block:uwm_bookshelf_blocks-block_1'
+settings:
+  id: 'views_block:uwm_bookshelf_blocks-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      bookshelf: bookshelf
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

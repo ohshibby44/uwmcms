@@ -1,0 +1,15 @@
+uuid: f76a6385-aa6e-4afe-b36d-0fb931f02209
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_categories
+_core:
+  default_config_hash: gpNoshLxVvnNzJ6-qe6z9ONPsB_PfyOOUz4eXeE2QGY
+id: taxonomy_term.event_categories.default
+targetEntityType: taxonomy_term
+bundle: event_categories
+mode: default
+content: {  }
+hidden:
+  description: true

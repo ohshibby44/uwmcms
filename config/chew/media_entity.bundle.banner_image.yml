@@ -10,7 +10,7 @@ third_party_settings:
     image_field: image
 id: banner_image
 label: 'Banner Image'
-description: ''
+description: 'This image should be 3600 x 1200 px or bigger.'
 type: image
 queue_thumbnail_downloads: false
 new_revision: false
