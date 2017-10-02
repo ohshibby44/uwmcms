@@ -12,7 +12,7 @@ dependencies:
     - media_entity.bundle.banner_image
   module:
     - allowed_formats
-    - image
+    - lightning_media
     - text
     - workbench_moderation
 id: media.banner_image.media_browser

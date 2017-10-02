@@ -4,8 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.large
-    - field.field.media.video.field_caption
-    - field.field.media.video.field_credit
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_preview_image
@@ -19,22 +17,6 @@ targetEntityType: media
 bundle: video
 mode: large
 content:
-  field_caption:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_credit:
-    type: string
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_media_video_embed_field:
     type: video_embed_field_video
     weight: 0

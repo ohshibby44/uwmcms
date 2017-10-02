@@ -1,8 +1,7 @@
 <?php
 
-namespace Drupal\uwmcs_mediaamp\Plugin\video_embed_field\Provider;
+namespace Drupal\video_embed_field\Plugin\video_embed_field\Provider;
 
-use Drupal\Component\Serialization\Json;
 use Drupal\video_embed_field\ProviderPluginBase;
 
 /**
@@ -15,27 +14,17 @@ use Drupal\video_embed_field\ProviderPluginBase;
  */
 class MediaAMP extends ProviderPluginBase {
 
-  protected static $providerMatch = 'player.mediaamp.io';
-
-  protected static $providerIdMatch = '\/media\/(?<mediaid>[^?\/]+)';
-
-  protected static $accountEmbedUrl = '//player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/%s';
-
-  protected static $accountFeedUrl = '//feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=%s';
-
   /**
    * {@inheritdoc}
    */
   public static function getIdFromInput($input) {
 
-    $pattern = '/(?<domain>' . self::$providerMatch . ').+' . self::$providerIdMatch . '/';
-    preg_match_all($pattern, $input, $matches);
-
-    if (!empty($matches['domain'][0]) && !empty($matches['mediaid'][0])) {
-
-      return trim($matches['mediaid'][0]);
-
-    }
+    // @todo Update old preg
+    // preg_match('/^https?:\/\/(www\.)?MediaAMP.com\/(channels\/[a-zA-Z0-9]*\/)?
+    // (?<id>[0-9]*)(\/[a-zA-Z0-9]+)?(\#t=(\d+)s)?$/', $input, $matches);
+    $pattern = '/https?:\/\/player\.mediaamp\.io\/.+media\/(?<id>[-_a-zA-Z0-9]+)/';
+    preg_match($pattern, $input, $matches);
+    return isset($matches['id']) ? $matches['id'] : FALSE;
 
   }
 
@@ -50,22 +39,18 @@ class MediaAMP extends ProviderPluginBase {
     $iframe = [
       '#type' => 'video_embed_iframe',
       '#provider' => 'MediaAMP',
-      '#url' => $this->getIframeUrl(),
+      '#url' => sprintf('http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/%s', $this->getVideoId()),
       '#query' => [
         'form' => 'html',
         // @todo Update this 'autoplay' => $autoplay,
       ],
-
       '#attributes' => [
         'width' => $width,
         'height' => $height,
         'frameborder' => '1',
         'allowfullscreen' => 'allowfullscreen',
-        'style' => ["width: $width; height: $height"],
-        'data-title' => $this->getName(),
-        'data-thumbnail' => $this->getRemoteThumbnailUrl(),
+        // @todo Update this 'style' => array("width: $width; height: $height"),
       ],
-
     ];
 
     if ($time_index = $this->getTimeIndex()) {
@@ -87,7 +72,6 @@ class MediaAMP extends ProviderPluginBase {
   protected function getTimeIndex() {
 
     preg_match('/\#t=(?<time_index>(\d+)s)$/', $this->input, $matches);
-
     return isset($matches['time_index']) ? $matches['time_index'] : FALSE;
 
   }
@@ -97,8 +81,10 @@ class MediaAMP extends ProviderPluginBase {
    */
   public function getRemoteThumbnailUrl() {
 
-    return self::fetchMediaAmpFeedData('defaultThumbnailUrl');
-
+    return 'http://jkcoze-sc.storage.googleapis.com/UWMC_-_Marketing_VMS/419/774/UW_Medicine_Strawberry_Fest_2017_(CC)_1080p_1920x1080_951384643780.jpg';
+    // @todo Update this
+    // <meta property="og:image" content="http://jkcoze-sc.storage.googleapis.com/UWMC_-_Marketing_VMS/419/774/UW_Medicine_Strawberry_Fest_2017_(CC)_1080p_1920x1080_951384643780.jpg"/>
+    // return $this->oEmbedData()->thumbnail_url;
   }
 
   /**
@@ -118,69 +104,15 @@ class MediaAMP extends ProviderPluginBase {
    */
   public function getName() {
 
-    return self::fetchMediaAmpFeedData('title');
-
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  private function getIframeUrl() {
-
-    return sprintf(self::$accountEmbedUrl, $this->getVideoId());
-
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  private function fetchMediaAmpFeedData($fieldName) {
-
-    $uri = sprintf(self::$accountFeedUrl, $this->getVideoId());
-    try {
-
-      $response = \Drupal::httpClient()->get($uri);
-      $data = Json::decode($response->getBody());
-
-      if (!empty($data[$fieldName])) {
-
-        return $data[$fieldName];
-
-      }
-      if (!empty($data['entries'][0][$fieldName])) {
-
-        return $data['entries'][0][$fieldName];
-
-      }
-
-    }
-    catch (RequestException $e) {
-
-    }
+    return 'UWMed Video...';
+    // @todo Update this return $this->oEmbedData()->title;
 
   }
 
 }
-
 /*
  *
  *
-
-JSON:
-http://feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=ViWDFnXGVkrf
-http://feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=ayW_lTEaxd_S
-
-XML:   feed that includes all media automatically:
-http://feed.theplatform.com/f/U8-EDC/wQ5K7m0GNBGc
-Querying the feed will depend on the type of ID you're using:
-
-- For mediaIDs, it would be feed_url/{mediaID}
-- For GUIDs, it would be feed_url?byGuid={GUID}
-- For media PIDs, it would be feed_url?byPid={PID}
-
-
-
-
 Nick,
 
 Example 1: Public ID = _KkGEnglfZ9q
@@ -205,7 +137,8 @@ http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5
 ?form=javascript"></script></div>
 
 Link
-http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/_KkGEnglfZ9q?form=html
+http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/_KkGEnglfZ9q
+?form=html
 
 http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5
 ?form=html

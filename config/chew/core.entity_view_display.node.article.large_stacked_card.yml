@@ -51,7 +51,6 @@ hidden:
   field_author: true
   field_categories: true
   field_feature_category: true
-  field_meta_tags: true
   field_promotion: true
   field_quick_read: true
   field_sections: true

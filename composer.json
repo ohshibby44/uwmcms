@@ -52,25 +52,10 @@
         "drupal/jsonapi": "^1.0",
         "drupal/migrate_plus": "^2.0",
         "drupal/migrate_tools": "^2.0",
-        "drupal/disqus": "^1.0@RC",
-        "drupal/twig_tweak": "^1.8",
-        "drupal/honeypot": "^1.27",
-        "drupal/robotstxt": "^1.1",
-        "drupal/acquia_lift": "~3.0",
-        "drupal/acquia_contenthub": "~1.0",
-        "drupal/duration_field": "^1.1",
-        "drupal/conditional_fields": "^1.0@alpha",
-        "drupal/config_ignore": "^2.0",
-        "drupal/google_tag": "1.x-dev",
-        "drupal/fb_instant_articles": "2.x-dev",
-        "drupal/responsive_favicons": "^1.4",
-        "drupal/access_unpublished": "^1.0@alpha",
-        "drupal/link_attributes": "^1.1",
-        "drupal/siteimprove": "^1.0",
-        "geerlingguy/drupal-vm": "~4.3",
-        "drupal/simplesamlphp_auth": "^3.0",
-        "drupal/acquia_purge": "^1.0@beta",
-        "drupal/search_api": "1.3.0"
+        "drupal/disqus": "^1.0@RC"
+    },
+    "require-dev": {
+        "geerlingguy/drupal-vm": "~4.3"
     },
     "require-dev": {},
     "extra": {

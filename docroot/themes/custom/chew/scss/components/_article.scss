@@ -1,7 +1,7 @@
 .article {
   .paragraph--type--body-text {
     a {
-      border-bottom: 2px solid $brand-primary;
+      border-bottom: 1px solid $brand-primary;
     }
   }
 }
@@ -12,9 +12,19 @@
     .taxonomy-term.count-1 {
       font-size: $font-size-base * 1.25;
       font-weight: bold;
-      padding-right: .25em;
+      border-right: 1px solid $gray-light;
+      padding-right: .5em;
       @media (max-width: $screen-xs) {
         font-size: $font-size-base-xs * 1.25;
+      }
+    }
+    .taxonomy-term.count-2 {
+      font-family: $font-family-sans-serif;
+      text-transform: uppercase;
+      padding-left: .25em;
+      font-size: .875em;
+      a {
+        color: $gray-dark;
       }
     }
     .taxonomy-term.count-2 {
@@ -49,5 +59,18 @@
 .field--name-field-sections {
   .paragraph {
     margin-bottom: $line-height-computed;
+  }
+  .block-entity-fieldnodefield-author,
+  .block-entity-fieldnodecreated {
+    float: left;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-size: .875em;
+  }
+  .block-entity-fieldnodefield-author {
+    padding-right: 2em;
+  }
+  .block-entity-fieldnodecreated {
+    font-weight: bold;
   }
 }

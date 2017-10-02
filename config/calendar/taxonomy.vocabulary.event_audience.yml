@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'Event Audience'
 vid: event_audience
-description: 'Set the audience for an event.'
+description: 'Sets the permissions and audience for created events. '
 hierarchy: 0
 weight: 0

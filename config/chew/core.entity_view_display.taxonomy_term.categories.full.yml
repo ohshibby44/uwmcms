@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.full
     - field.field.taxonomy_term.categories.field_banner
-    - field.field.taxonomy_term.categories.field_meta_tags
     - taxonomy.vocabulary.categories
   module:
     - panelizer
@@ -23,4 +22,3 @@ content: {  }
 hidden:
   description: true
   field_banner: true
-  field_meta_tags: true

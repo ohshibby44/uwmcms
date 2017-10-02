@@ -78,7 +78,10 @@
 %}
 <article{{ attributes.addClass(classes) }}>
 
-  <div class="col-md-9 col-md-push-3">
+  <div class="col-md-3">
+    {{ content.field_primary_media }}
+  </div>
+  <div class="col-md-9">
     {{ title_prefix }}
     <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
@@ -88,9 +91,6 @@
       {{ node.getCreatedTime|format_date('long') }}
     </div>
     {{ content.field_long_summary }}
-  </div>
-  <div class="col-md-3 col-md-pull-9">
-    {{ content.field_primary_media }}
   </div>
 
 </article>

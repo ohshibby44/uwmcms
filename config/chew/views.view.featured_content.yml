@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.featured_card
-    - core.entity_view_mode.node.small_horizontal_card
     - field.storage.node.field_primary_media
     - field.storage.node.field_promotion_image
     - field.storage.node.field_short_summary
@@ -60,8 +59,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: some
         options:
+          items_per_page: 4
           offset: 0
       style:
         type: default
@@ -217,8 +217,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
-          value: '1'
+          operator: '='
+          value: '0'
           group: 1
           exposed: false
           expose:
@@ -311,7 +311,7 @@ display:
         style: false
         row: false
         fields: false
-        pager: true
+        pager: false
       style:
         type: table
         options:
@@ -757,6 +757,10 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: field
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: 0
       contexts:
@@ -776,37 +780,6 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'Featured Content'
-      defaults:
-        pager: true
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  block_2:
-    display_plugin: block
-    id: block_2
-    display_title: 'Block 2'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      block_description: 'Featured Content 2'
-      defaults:
-        pager: true
-        style: false
-        row: false
-      display_description: ''
-      style:
-        type: default
-        options: {  }
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: small_horizontal_card
     cache_metadata:
       max-age: -1
       contexts:

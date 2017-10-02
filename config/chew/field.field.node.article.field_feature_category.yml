@@ -11,7 +11,7 @@ entity_type: node
 bundle: article
 label: 'Feature Category'
 description: 'This will be the label displayed for Featured articles on the home page. '
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

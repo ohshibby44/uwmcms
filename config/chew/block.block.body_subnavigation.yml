@@ -1,6 +1,6 @@
 uuid: bad6536c-b50d-41e0-b37d-1e87750d97d6
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -12,7 +12,7 @@ dependencies:
 id: body_subnavigation
 theme: chew
 region: content_header
-weight: -14
+weight: -7
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -23,7 +23,7 @@ settings:
   level: 1
   depth: 1
   expand: 0
-  parent: 'main:menu_link_content:27aed921-83de-41a0-9442-cf6227e11a1f'
+  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.1'
   suggestion: category_subnavigation
 visibility:
   request_path:

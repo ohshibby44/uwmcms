@@ -1,0 +1,19 @@
+uuid: beaf729a-b539-403b-aae1-d6d78cfbec9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: j9eYjGYJxbMmVLdaYu4NGhKkT_llvuN-_F1wgkwqJ6o
+name: Article
+type: article
+description: "Use <em>articles</em> for UW Medicine content [TBD] —\_Kevin June 5, 2017"
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

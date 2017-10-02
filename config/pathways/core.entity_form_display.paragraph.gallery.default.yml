@@ -1,0 +1,33 @@
+uuid: fc788d1e-f578-4d48-beba-decfa0241d99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery.field_paragraph_references
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - paragraphs
+    - workbench_moderation
+_core:
+  default_config_hash: gov5qmWIkr1MCtHu-RQWP946GC0IemxqMYM3tjnuPpE
+id: paragraph.gallery.default
+targetEntityType: paragraph
+bundle: gallery
+mode: default
+content:
+  field_paragraph_references:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

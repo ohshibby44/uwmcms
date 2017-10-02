@@ -1,5 +1,4 @@
-.block-views-blockfeatured-content-block,
-.block-views-blockfeatured-content-block-2 {
+.block-views-blockfeatured-content-block {
   .block-title {
     font-size: $font-size-base * 1.5;
     margin: 0 0 .75em 0;
@@ -7,33 +6,6 @@
     border-bottom: 1px solid $gray-light;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.5;
-    }
-  }
-}
-
-.block-views-blockfeatured-content-block {
-  display: none;
-  @media (min-width: $screen-md) {
-    display: block;
-  }
-  .views-row {
-    & + .views-row {
-      border-top: 1px solid $gray-light;
-      padding-top: 2rem;
-    }
-  }
-}
-
-.block-views-blockfeatured-content-block-2 {
-  display: block;
-  margin-bottom: 4rem;
-  @media (min-width: $screen-md) {
-    display: none;
-  }
-  .views-row {
-    & + .views-row {
-      border-top: 1px solid $gray-light;
-      padding-top: 2rem;
     }
   }
 }

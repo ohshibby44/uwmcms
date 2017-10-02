@@ -1,0 +1,23 @@
+uuid: 334e5b97-3186-48b4-b102-312754adb9c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attribution
+    - paragraphs.paragraphs_type.image
+  module:
+    - text
+_core:
+  default_config_hash: tYQK1C3fWVV6ouYz3iiYqFGjOHaisEdop0sj2ZvUo3E
+id: paragraph.image.field_attribution
+field_name: field_attribution
+entity_type: paragraph
+bundle: image
+label: Attribution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

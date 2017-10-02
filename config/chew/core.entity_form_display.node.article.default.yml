@@ -19,7 +19,6 @@ dependencies:
   module:
     - allowed_formats
     - entity_browser
-    - entity_browser_entity_form
     - field_group
     - inline_entity_form
     - metatag
@@ -44,6 +43,7 @@ third_party_settings:
       label: 'For Featured Articles'
     group_right_sidebar:
       children:
+        - field_related_articles
         - field_promotion
       parent_name: ''
       weight: 7
@@ -127,18 +127,13 @@ content:
     third_party_settings: {  }
     region: content
   field_promotion:
-    type: entity_browser_entity_reference
+    type: entity_reference_autocomplete
     weight: 8
     region: content
     settings:
-      entity_browser: promotion_browser
-      field_widget_display: rendered_entity
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: thumbnail
-      field_widget_edit: false
-      open: false
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_quick_read:
     type: entity_reference_paragraphs
@@ -149,7 +144,7 @@ content:
       edit_mode: preview
       add_mode: button
       form_display_mode: default
-      default_paragraph_type: _none
+      default_paragraph_type: quick_read
     third_party_settings: {  }
     region: content
   field_sections:

@@ -1,6 +1,6 @@
 uuid: 66d0a602-f3c8-4eae-8632-104613e780d4
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -12,7 +12,7 @@ dependencies:
 id: care_subnavigation
 theme: chew
 region: content_header
-weight: -15
+weight: -8
 provider: null
 plugin: 'menu_block:main'
 settings:
@@ -23,11 +23,11 @@ settings:
   level: 1
   depth: 1
   expand: 0
-  parent: 'main:menu_link_content:70210651-4de7-454f-95e5-47848ab18cb8'
+  parent: 'main:taxonomy_menu.menu_link:taxonomy_menu.menu_link.categories.16'
   suggestion: category_subnavigation
 visibility:
   request_path:
     id: request_path
-    pages: "/care\r\n/care/illness\r\n/care/injury\r\n/care/prevention\r\n/care/stories\r\n/care/research"
+    pages: "/care\r\n/care/illness\r\n/care/injury\r\n/care/prevention"
     negate: false
     context_mapping: {  }

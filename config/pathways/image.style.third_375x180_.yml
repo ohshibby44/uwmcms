@@ -1,0 +1,16 @@
+uuid: d61e774a-2f96-4598-8cea-da2e19a86f22
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uw6BQwJUie3Q8VfSVaoxUJ0-OXRc0aT66l9GSGPeozU
+name: third_375x180_
+label: 'Third (375x180)'
+effects:
+  5be6f8f3-953f-41d8-ba99-af817c76472a:
+    uuid: 5be6f8f3-953f-41d8-ba99-af817c76472a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 375
+      height: 180

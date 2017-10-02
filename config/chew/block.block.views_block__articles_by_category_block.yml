@@ -12,7 +12,7 @@ dependencies:
 id: views_block__articles_by_category_block
 theme: chew
 region: content
-weight: -10
+weight: 0
 provider: null
 plugin: 'views_block:articles_by_category-block'
 settings:

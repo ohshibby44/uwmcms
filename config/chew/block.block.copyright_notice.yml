@@ -10,8 +10,8 @@ dependencies:
     - chew
 id: copyright_notice
 theme: chew
-region: footer_second
-weight: -13
+region: footer
+weight: -9
 provider: null
 plugin: 'block_content:4674f255-37c0-4a11-8ab8-91b2f32b281d'
 settings:

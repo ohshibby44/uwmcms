@@ -6,24 +6,7 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
-use Drupal\node\Entity\Node;
 use Drupal\pathauto\PathautoPatternInterface;
-
-/**
- * Implements hook_node_presave().
- */
-function uwmcms_chew_misc_node_presave(EntityInterface $node) {
-  switch ($node->bundle()) {
-    case 'article':
-      // Unpromote the article if it's sticky.
-      if ($node->sticky->value) {
-        $node->promote = FALSE;
-      }
-      break;
-  }
-}
 
 /**
  * Implements hook_node_insert().
@@ -62,89 +45,13 @@ function uwmcms_chew_misc_pathauto_pattern_alter(PathautoPatternInterface &$patt
   if ($pattern->id() == 'article') {
     if (isset($context['data']['node'])) {
       $node = $context['data']['node'];
-      if (!empty($node->field_categories)) {
-        $category = $node->field_categories->entity;
-        if (isset($category)) {
-          $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
-          if (!empty($parents)) {
-            $parent = array_shift($parents);
-            $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
-            $altered_pattern =$parent_part . '/' . $pattern->getPattern();
-            $pattern->setPattern($altered_pattern);
-          }
-        }
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK() for main menu.
- */
-function uwmcms_chew_misc_preprocess_menu__main(&$variables) {
-  // Remove the "All" menu items.
-  foreach ($variables['items'] as $parent_id => $parent_item) {
-    foreach ($parent_item['below'] as $id => $item) {
-      if (isset($item['title']) && $item['title'] == 'All') {
-        unset($variables['items'][$parent_id]['below'][$id]);
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK() for media large image style templates.
- */
-function uwmcms_chew_misc_preprocess_media__large(&$variables) {
-  // Don't display Caption or Credit fields on the front page.
-  if (\Drupal::service('path.matcher')->isFrontPage()) {
-    if (isset($variables['content']['field_caption'])) {
-      unset($variables['content']['field_caption']);
-    }
-    if (isset($variables['content']['field_credit'])) {
-      unset($variables['content']['field_credit']);
-    }
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter() for node_article_edit_form.
- *
- * Customize the Promotion Options section on the node edit form for articles.
- */
-function uwmcms_chew_misc_form_node_article_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  _uwmcms_chew_misc_node_form_alter($form, $form_state, $form_id);
-}
-
-/**
- * Implements hook_form_FORM_ID_alter() for node_article_form.
- *
- * Customize the Promotion Options section on the node add form for articles.
- */
-function uwmcms_chew_misc_form_node_article_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  _uwmcms_chew_misc_node_form_alter($form, $form_state, $form_id);
-}
-
-/**
- * Helper function to alter node add form and node edit form.
- */
-function _uwmcms_chew_misc_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (isset($form['promote']['widget']['value']['#title'])) {
-    $form['promote']['widget']['value']['#title'] = t('Featured article');
-  }
-  if (isset($form['sticky']['widget']['value']['#title'])) {
-    $form['sticky']['widget']['value']['#title'] = t('Highlighted article');
-  }
-  if (isset($form['options'])) {
-    $form['options']['#open'] = TRUE;
-  }
-
-  // Hide the edit button for Author field.
-  if (isset($form['field_author']['widget']['entities'])) {
-    $entity_deltas = Element::children($form['field_author']['widget']['entities']);
-    foreach ($entity_deltas as $delta) {
-      if (isset($form['field_author']['widget']['entities'][$delta]['actions']['ief_entity_edit'])) {
-        $form['field_author']['widget']['entities'][$delta]['actions']['ief_entity_edit']['#access'] = FALSE;
+      $category = $node->field_categories->entity;
+      $parents = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($category->id());
+      if (!empty($parents)) {
+        $parent = array_shift($parents);
+        $parent_part = Drupal::service('pathauto.alias_cleaner')->cleanString($parent->getName());
+        $altered_pattern =$parent_part . '/' . $pattern->getPattern();
+        $pattern->setPattern($altered_pattern);
       }
     }
   }

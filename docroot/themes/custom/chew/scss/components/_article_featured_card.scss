@@ -1,15 +1,13 @@
 .article.featured-card {
   @include clearfix();
-  margin: 0 0 2rem 0;
+  margin: 0 0 4rem 0;
   .field--name-field-feature-category {
     font-family: $font-family-sans-serif;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 .5rem 0;
   }
   h3 {
     font-size: ceil(($font-size-base * 1.25));
-    font-family: $font-family-sans-serif;
-    font-weight: 500;
     margin: 0 0 .5rem 0;
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.25;
@@ -29,10 +27,7 @@
   .field--name-field-short-summary {
     float: left;
     width: 61%;
-    font-size: $font-size-base;
-    line-height: 1.333;
-    @media (max-width: $screen-xs) {
-      font-size: $font-size-base-xs;
-    }
+    font-size: 16px;
+    line-height: 1.25;
   }
 }

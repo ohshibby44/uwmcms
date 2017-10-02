@@ -10,8 +10,8 @@ dependencies:
     - chew
 id: follow_us
 theme: chew
-region: footer_first
-weight: -14
+region: footer
+weight: -13
 provider: null
 plugin: 'block_content:452bf3d6-21e7-477f-a519-82f334a6c2a9'
 settings:

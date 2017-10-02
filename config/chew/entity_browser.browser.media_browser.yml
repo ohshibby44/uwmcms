@@ -15,7 +15,7 @@ label: 'Media browser'
 display: iframe
 display_configuration:
   width: '800'
-  height: '900'
+  height: '640'
   link_text: 'Add media'
   auto_open: false
   path: /media-browser
@@ -60,7 +60,9 @@ widgets:
       bundle: image
       form_mode: default
       submit_text: Save
-    uuid: 5d75e992-dfd0-4c03-974a-76ea30a91b1a
+      form_mode: media_browser
+      return_file: false
+    uuid: fb30862d-c8b1-4adf-8cf5-5d1d0a8f2407
     weight: -9
     label: 'New Image'
     id: entity_form

@@ -63,9 +63,9 @@ $font-size-large:         ceil(($font-size-base * 1.778));
 $font-size-small:         floor(($font-size-base * 0.889));
 
 $font-size-h1:            $font-size-large;
-$font-size-h2:            floor(($font-size-base * 1.111));
-$font-size-h3:            $font-size-base;
-$font-size-h4:            $font-size-base;
+$font-size-h2:            floor(($font-size-base * 1));
+$font-size-h3:            ceil(($font-size-base * 1));
+$font-size-h4:            ceil(($font-size-base * 1));
 $font-size-h5:            $font-size-base;
 $font-size-h6:            ceil(($font-size-base * 0.85));
 
@@ -257,7 +257,7 @@ $dropdown-divider-bg:            #e5e5e5;
 //** Dropdown link text color.
 $dropdown-link-color:            $gray-darker;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      $brand-primary;
+$dropdown-link-hover-color:      darken($gray-darker, 5%);
 //** Hover background for dropdown links.
 $dropdown-link-hover-bg:         $gray-lighter;
 

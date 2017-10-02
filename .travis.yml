@@ -1,10 +1,12 @@
 # Note that the example .travis.yml file for child projects lives in /install.
-sudo: false
+# Temporarily use legacy infrastructure until Travis resolves MySQL issues with their containerized infrastructure.
+# @see https://github.com/travis-ci/travis-ci/issues/6842
+sudo: required
 language: php
 dist: trusty
 
 php:
-  - 7.1
+  - 5.6
 
 matrix:
   fast_finish: true
@@ -34,9 +36,8 @@ cache:
 
 addons:
   ssh_known_hosts:
-    - svn-23450.prod.hosting.acquia.com
-    - staging-23664.prod.hosting.acquia.com
-  chrome: stable
+  - svn-23450.prod.hosting.acquia.com
+  - staging-23664.prod.hosting.acquia.com
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
@@ -56,7 +57,7 @@ install:
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_project
 
 script:
-  - source $LOCAL_BLT_DIR/custom-scripts/travis/run_tests
+  - source $BLT_DIR/scripts/travis/run_tests
 
 before_deploy:
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_deploy
@@ -67,16 +68,16 @@ deploy:
      skip_cleanup: true
      on:
        branch: develop
-       php: 7.1
+       php: 5.6
    - provider: script
      script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: master
-       php: 7.1
+       php: 5.6
    - provider: script
      script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_tag"
      skip_cleanup: true
      on:
        tags: true
-       php: 7.1
+       php: 5.6

@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.promotion_image_browser
+    - core.entity_form_mode.media.media_browser
     - field.field.node.promotion.field_link
     - field.field.node.promotion.field_promotion_image
     - node.type.promotion
   module:
-    - entity_browser
+    - inline_entity_form
     - link
     - path
     - workbench_moderation

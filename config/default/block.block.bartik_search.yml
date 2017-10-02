@@ -14,7 +14,7 @@ _core:
 id: bartik_search
 theme: bartik
 region: content
-weight: 0
+weight: -9
 provider: null
 plugin: 'views_exposed_filter_block:search-page'
 settings:

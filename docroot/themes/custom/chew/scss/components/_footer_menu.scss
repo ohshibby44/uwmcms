@@ -1,16 +1,7 @@
 #block-chew-footer {
+  @include make-md-column(8);
   clear: both;
-  @media (min-width: $screen-md) {
-    @include make-md-column(8);
-    padding-left: 0;
-  }
   .menu.nav {
-    text-align: center;
-    margin-bottom: 3rem;
-    @media (min-width: $screen-md) {
-      text-align: left;
-      margin-bottom: 0;
-    }
     > li {
       float: none;
       display: inline-block;
@@ -18,15 +9,7 @@
       font-size: ceil($font-size-base * .722);
       font-weight: bold;
       text-transform: uppercase;
-      margin: 0 1em;
-      @media (min-width: $screen-md) {
-        &:first-child {
-          margin-left: 0;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+      margin: 0 2em 0 0;
       > a {
         padding: 0;
         color: $gray-dark;

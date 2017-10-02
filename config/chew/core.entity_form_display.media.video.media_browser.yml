@@ -29,11 +29,16 @@ content:
     third_party_settings: {  }
     region: content
   field_preview_image:
-    type: image_image
-    weight: 0
+    type: entity_browser_file
+    weight: 1
     settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
       preview_image_style: thumbnail
-      progress_indicator: throbber
+      open: true
+      selection_mode: selection_append
     region: content
     third_party_settings: {  }
   name:
