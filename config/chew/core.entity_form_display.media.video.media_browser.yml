@@ -12,7 +12,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.video
   module:
-    - lightning_media
+    - image
     - workbench_moderation
 _core:
   default_config_hash: ggUvzzCujjyCEfAyWiJyvfcbQdARZ9_0vH9wGeGHbqo
