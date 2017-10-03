@@ -1,0 +1,39 @@
+uuid: ccaba848-9fd5-4e42-8691-2b3ec61bad27
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:18e9f826-60e2-45fa-9c0a-37f3e9927634'
+  module:
+    - block_content
+    - ctools
+    - system
+  theme:
+    - uwmed_bootstrap
+id: quotablesubmitimagesidebarblock
+theme: uwmed_bootstrap
+region: content
+weight: -7
+provider: null
+plugin: 'block_content:18e9f826-60e2-45fa-9c0a-37f3e9927634'
+settings:
+  id: 'block_content:18e9f826-60e2-45fa-9c0a-37f3e9927634'
+  label: 'Quotable - Submit Image / Sidebar Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      gallery: gallery
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/galleries\r\n/galleries/*"
+    negate: false
+    context_mapping: {  }

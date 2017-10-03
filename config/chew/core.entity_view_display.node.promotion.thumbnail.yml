@@ -1,0 +1,47 @@
+uuid: 6e53f2af-eb0e-411a-8dfb-da9e8fafc0d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.thumbnail
+    - field.field.node.promotion.field_link
+    - field.field.node.promotion.field_promotion_image
+    - node.type.promotion
+  module:
+    - link
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.promotion.thumbnail
+targetEntityType: node
+bundle: promotion
+mode: thumbnail
+content:
+  field_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      target: _blank
+      rel: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_promotion_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: small
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  links: true

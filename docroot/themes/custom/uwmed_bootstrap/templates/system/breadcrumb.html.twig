@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if breadcrumb %}
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <ul id="standard-breadcrumb">
+    {% for item in breadcrumb %}
+      <li>
+        {% if item.text == "Home" %}
+          {% if item.url %}
+            <a href="{{ item.url }}">Community</a>
+            {% if not loop.last %}
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            {% endif %}
+          {% else %}
+            {{ item.text }}
+            {% if not loop.last %}
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            {% endif %}
+          {% endif %}
+        {% else %}
+          {% if item.text == "Blog Archive" %}
+            {% if not item.url %}
+              {{ item.text }}
+              {% if not loop.last %}
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              {% endif %}
+            {% endif %}
+          {% else %}
+            {% if item.url %}
+              <a href="{{ item.url }}">{{ item.text }}</a>
+              {% if not loop.last %}
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              {% endif %}
+            {% else %}
+              {{ item.text }}
+              {% if not loop.last %}
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+    <ul id="blog-category-breadcrumb">
+      <li><a href="/">Community</a>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+      <li><a href="/blog">Blog</a>&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+      <li>Blog Categories</li>
+    </ul>
+{% endif %}

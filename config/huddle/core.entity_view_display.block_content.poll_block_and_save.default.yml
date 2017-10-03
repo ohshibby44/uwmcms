@@ -1,0 +1,26 @@
+uuid: c94c8496-b8fb-4476-8790-3910d3b93e5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.poll_block_and_save
+    - field.field.block_content.poll_block_and_save.body
+    - field.field.block_content.poll_block_and_save.field_poll_question
+_core:
+  default_config_hash: UEf2o2u5Ci5eMNHQeTqjWTEGlM0jWmcTicvYT997vBc
+id: block_content.poll_block_and_save.default
+targetEntityType: block_content
+bundle: poll_block_and_save
+mode: default
+content:
+  field_poll_question:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  body: true

@@ -6,7 +6,7 @@ drush:
 target-hooks:
     frontend-setup:
         dir: '${docroot}/themes/custom/chew'
-        command: 'npm install && npm install -g gulp'
+        command: 'npm install'
     frontend-build:
         dir: '${docroot}/themes/custom/chew'
         command: 'gulp'

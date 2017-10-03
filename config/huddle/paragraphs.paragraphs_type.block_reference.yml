@@ -1,0 +1,9 @@
+uuid: ca21e977-fb69-4cda-bc0b-68daad29c5ba
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xaOCWtHhS0KwqMPlyJOqi6FY97vWT8GMGrLejXl9H74
+id: block_reference
+label: 'Block Reference'
+behavior_plugins: {  }

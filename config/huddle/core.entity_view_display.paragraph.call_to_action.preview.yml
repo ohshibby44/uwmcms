@@ -1,0 +1,15 @@
+uuid: f1f1d149-57c9-4a9a-aa83-816fc6f9c812
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.call_to_action.field_cta_link
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.preview
+targetEntityType: paragraph
+bundle: call_to_action
+mode: preview
+content: {  }
+hidden:
+  field_cta_link: true

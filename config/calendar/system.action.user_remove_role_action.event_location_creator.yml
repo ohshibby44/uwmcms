@@ -1,0 +1,14 @@
+uuid: e48f35f3-358b-4919-b9c4-96b840d487db
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.event_location_creator
+  module:
+    - user
+id: user_remove_role_action.event_location_creator
+label: 'Remove the Event Location creator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: event_location_creator

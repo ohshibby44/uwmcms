@@ -1,0 +1,19 @@
+uuid: d7d57233-52b9-4fba-85d3-3f8b345f2b05
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: gzYfL4ctLqWnSTtInyAGTZWaMTGfvfnEDAiaQuymNXI
+name: Gallery
+type: gallery
+description: 'A Gallery is used to display images or video.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

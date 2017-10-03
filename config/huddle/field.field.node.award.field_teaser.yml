@@ -1,0 +1,31 @@
+uuid: afecafd2-6eb7-4f7d-834f-7602264c1aae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.award
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    video_format: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: Mp12Ik34apujKMKD9vo7iQueY2LvuWGDffcCLyd0FLA
+id: node.award.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: award
+label: 'Award teaser'
+description: 'The award teaser will display on the Homepage, and then its full content will display in the main Awards list.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

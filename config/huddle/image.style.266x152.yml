@@ -1,0 +1,17 @@
+uuid: 21a939ac-5da1-4e33-8a28-32c674eff93d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LxhVi8MxPGVamwueuWG-oBG7aXSppQswEmOU3X2V4jY
+name: 266x152
+label: 266x152
+effects:
+  8aa2c871-9794-4956-9bbc-59d7322e5013:
+    uuid: 8aa2c871-9794-4956-9bbc-59d7322e5013
+    id: image_scale
+    weight: 2
+    data:
+      width: 266
+      height: null
+      upscale: true

@@ -1,0 +1,12 @@
+uuid: 81de0e7b-cbd9-49a3-9ed7-8329ab585b77
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 4BIk9m7S3BpQZJgcVSxFaLgPUMjHxUkzdL-IVi-f-UE
+id: node.anonymous
+label: Anonymous
+targetEntityType: node
+cache: true

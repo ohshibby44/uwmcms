@@ -1,0 +1,14 @@
+uuid: 18ee6522-4460-45c8-8f11-df7cf3a6c237
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.landing_page_reviewer
+  module:
+    - user
+id: user_remove_role_action.landing_page_reviewer
+label: 'Remove the Landing page reviewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: landing_page_reviewer

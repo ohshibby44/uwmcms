@@ -1,0 +1,102 @@
+// UWMED - Tablet Styles
+// Bear Group, www.beargroup.com
+// Author: Chris Bovard
+// Aug. 15, 2017
+
+// =Import Files for Mixin Usage - ETC
+//the variable file is the one that will be modified by the themer - chris bovard
+@import "custom_uwmed_variables";
+//bootstrap mixins
+@import "bootstrap/mixins";
+
+
+//Header Area -----------------------------------------------------------------------
+//Header Area ends ------------------------------------------------------------------
+
+//Upper Content & Main Area ----------------------------------------------------------
+
+// Front Page Theming
+.landing-page.full {
+  .field--name-field-content-references {
+    .field--name-field-content-references-inner {
+      > .field--item {
+        @include make-xs-column(6);
+        .article.teaser {
+          header {
+            height: 50px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// People / Perspectives / News - Views Pages
+.view-page_people_main,
+.view-page_perspectives_main,
+.view-page_news_main,
+.view-page_people_subpages,
+.view-page_perspectives_subpages,
+.view-page_news_subpages,
+.view-page_galleries_main,
+.view-page_galleries_subpages {
+  > .views-content {
+    // Adding Mobile Tablet Bootstrap grid fun
+    max-width: 600px;
+    // Article / Gallery Teaser styles
+    .article.teaser,
+    .gallery.teaser {
+      margin-bottom: 36px;
+      header {
+        display: block;
+        height: 50px;
+        overflow: hidden;
+        h2 {
+          @include font-size(1.8, 2.4);
+          a {
+            @include font-size(1.8, 2.4);
+          }
+        }
+      }
+    }
+  }
+}
+//Upper Content & Main Area ends -----------------------------------------------------
+
+//Lower Content ---------------------------------------------------------------------
+// Gallery
+#gallery-carousel {
+  max-width: 550px;
+  .carousel-index {
+    top: 422px;
+  }
+  .carousel-controls {
+    top: 400px;
+  }
+}
+
+#block-views-block-uwm-paragraph-galleries-block-paragraph-galleries {
+  .views-row {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+// Promotional Block
+.block-type-promotional {
+  &__inner {
+    width: 100%;
+    max-width: 1270px;
+  }
+  &__content {
+    height: 400px;
+    background-size: auto 400px;
+    background-position: center center;
+  }
+}
+//Lower Content ends ----------------------------------------------------------------
+
+//Footer Area -----------------------------------------------------------------------
+//Footer Area ends ------------------------------------------------------------------

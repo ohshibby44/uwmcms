@@ -1,0 +1,36 @@
+uuid: 5be51b5f-5557-4411-b060-10831c20af30
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.question.field_body
+    - field.field.node.question.field_date
+    - field.field.node.question.field_sections
+    - node.type.question
+  module:
+    - datetime
+    - user
+_core:
+  default_config_hash: TspJHrNvC_Nw_HDoxB5-KV_dS7s8BShZKk3nfX_mXh0
+id: node.question.teaser
+targetEntityType: node
+bundle: question
+mode: teaser
+content:
+  field_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_body: true
+  field_sections: true
+  links: true

@@ -1,0 +1,30 @@
+uuid: a56aa772-7db5-4364-82ef-ca1f54a25524
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.quote
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: ClxvH1u9A8Sjntb8z8vrAkCwy_prKLyHbUwEknTCgwI
+id: paragraph.quote.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: quote
+label: Quote
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

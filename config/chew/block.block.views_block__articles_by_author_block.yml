@@ -1,0 +1,33 @@
+uuid: 469591cd-bf3a-42bd-98c2-ef13cfc7c0ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles_by_author
+  module:
+    - node
+    - views
+  theme:
+    - chew
+id: views_block__articles_by_author_block
+theme: chew
+region: content
+weight: -9
+provider: null
+plugin: 'views_block:articles_by_author-block'
+settings:
+  id: 'views_block:articles_by_author-block'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      author: author
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,30 @@
+uuid: 901be193-c971-4117-a023-bacf6ed73ee8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: v7yV8cWU55afcAdHOUo1x8BVsUtOqAfXp0yI70WA3yQ
+id: paragraph.gallery_item.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: gallery_item
+label: Caption
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,20 @@
+uuid: fd88d371-f9bf-403f-9c2f-3494d62266f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event_location.field_address
+    - node.type.event_location
+  module:
+    - user
+id: node.event_location.teaser
+targetEntityType: node
+bundle: event_location
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_address: true

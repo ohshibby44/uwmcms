@@ -1,0 +1,30 @@
+uuid: b09f679f-4e92-442a-8589-f5e3e9bc0388
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_credit
+    - node.type.gallery
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: jg33iF7LWM1RJF9217LCclFSYWpnDizlXyeqnOF1E6s
+id: node.gallery.field_image_credit
+field_name: field_image_credit
+entity_type: node
+bundle: gallery
+label: 'Image credit'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

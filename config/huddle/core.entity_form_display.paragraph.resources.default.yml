@@ -1,0 +1,43 @@
+uuid: b4c77a2b-62a6-400f-9711-e21a203b14d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resources.field_link
+    - field.field.paragraph.resources.field_title
+    - paragraphs.paragraphs_type.resources
+  module:
+    - allowed_formats
+    - link
+    - text
+    - workbench_moderation
+_core:
+  default_config_hash: Hp8HTxr8QQxYuxamsQyMsKh9ZUxDpxhZGHYIF14NXwk
+id: paragraph.resources.default
+targetEntityType: paragraph
+bundle: resources
+mode: default
+content:
+  field_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

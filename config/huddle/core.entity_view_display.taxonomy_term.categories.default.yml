@@ -1,0 +1,23 @@
+uuid: cf970888-48d1-4b54-ba0c-71ddf01b1cce
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.categories
+  module:
+    - text
+_core:
+  default_config_hash: YzUcmbtx1Av23GjIta5xYzpdMtkD1HbR4pR0RJEjr2A
+id: taxonomy_term.categories.default
+targetEntityType: taxonomy_term
+bundle: categories
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

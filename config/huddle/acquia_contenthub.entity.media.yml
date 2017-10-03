@@ -1,0 +1,33 @@
+uuid: f7442cb5-e0c0-4092-a60a-ab251ae37d46
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_entity
+id: media
+bundles:
+  document:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  image:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  instagram:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  tweet:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  video:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

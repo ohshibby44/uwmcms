@@ -1,0 +1,23 @@
+uuid: 5e7498a7-fef4-4bf4-a900-b1bd3e4c4622
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - views
+  theme:
+    - chew
+id: exposed_form_search_header
+theme: chew
+region: header
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-page'
+settings:
+  id: 'views_exposed_filter_block:search-page'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }

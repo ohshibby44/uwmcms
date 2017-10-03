@@ -24,7 +24,7 @@ $gray:                   #ccc;
 $gray-light:             #ddd;
 $gray-lighter:           #eee;
 
-$brand-primary:         #3c76bb;
+$brand-primary:         #006c8a;
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
@@ -52,7 +52,7 @@ $link-hover-decoration: none;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif:       Lora, Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -76,7 +76,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base));
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
-$headings-font-weight:    500;
+$headings-font-weight:    bold;
 $headings-line-height:    1.25;
 $headings-color:          $gray-base;
 
@@ -116,9 +116,9 @@ $padding-xs-horizontal:     5px;
 $line-height-large:         1.3333333;
 $line-height-small:         1.5;
 
-$border-radius-base:        4px;
-$border-radius-large:       6px;
-$border-radius-small:       3px;
+$border-radius-base:        0;
+$border-radius-large:       0;
+$border-radius-small:       0;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff;
@@ -200,9 +200,9 @@ $input-bg:                       #fff;
 $input-bg-disabled:              $gray-lighter;
 
 //** Text color for `<input>`s
-$input-color:                    $gray;
+$input-color:                    $gray-dark;
 //** `<input>` border color
-$input-border:                   #ccc;
+$input-border:                   $gray-dark;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -259,12 +259,12 @@ $dropdown-link-color:            $gray-darker;
 //** Hover color for dropdown links.
 $dropdown-link-hover-color:      darken($gray-darker, 5%);
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         #f5f5f5;
+$dropdown-link-hover-bg:         $gray-lighter;
 
 //** Active dropdown menu item text color.
-$dropdown-link-active-color:     $component-active-color;
+$dropdown-link-active-color:     $brand-primary;
 //** Active dropdown menu item background color.
-$dropdown-link-active-bg:        $component-active-bg;
+$dropdown-link-active-bg:        $gray-lighter;
 
 //** Disabled dropdown menu item background color.
 $dropdown-link-disabled-color:   $gray-light;
@@ -371,12 +371,12 @@ $container-lg:                 $container-large-desktop;
 //##
 
 // Basics of a navbar
-$navbar-height:                    50px;
+$navbar-height:                    100px;
 $navbar-margin-bottom:             $line-height-computed;
 $navbar-border-radius:             0;
 $navbar-padding-horizontal:        0;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
-$navbar-collapse-max-height:       340px;
+$navbar-collapse-max-height:       600px;
 
 $navbar-default-color:             #777;
 $navbar-default-bg:                $body-bg;
@@ -397,9 +397,9 @@ $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 1
 $navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-$navbar-default-toggle-hover-bg:           #ddd;
-$navbar-default-toggle-icon-bar-bg:        #888;
-$navbar-default-toggle-border-color:       #ddd;
+$navbar-default-toggle-hover-bg:           #fff;
+$navbar-default-toggle-icon-bar-bg:        #fff;
+$navbar-default-toggle-border-color:       transparent;
 
 
 //=== Inverted navbar

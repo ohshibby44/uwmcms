@@ -7,6 +7,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.banner_image
     - media_entity.bundle.image
+    - media_entity.bundle.promotion_image
     - media_entity.bundle.video
   module:
     - entity_browser

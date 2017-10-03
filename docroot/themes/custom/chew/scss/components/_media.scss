@@ -1,4 +1,5 @@
-.media-image {
+.media-image,
+.media-video {
   .field--name-field-caption {
     font-size: ceil(($font-size-base * 0.889));
     display: inline-block;
@@ -9,6 +10,9 @@
     }
   }
   .field--name-field-credit {
+    float: right;
+    text-align: right;
+    width: 35%;
     font-size: ceil(($font-size-base * 0.777777778));
     font-family: $font-family-sans-serif;
     color: $gray-dark;

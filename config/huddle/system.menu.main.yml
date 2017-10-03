@@ -1,0 +1,10 @@
+uuid: 6f8c409b-6ad3-4112-ab81-51cdc50bf4b5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q2Ra3jfoIVk0f3SjxJX61byRQFVBAbpzYDQOiY-kno8
+id: main
+label: 'The Huddle main navigation'
+description: 'Main menu links that appear in The Huddle header.'
+locked: true

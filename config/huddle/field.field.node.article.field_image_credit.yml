@@ -1,0 +1,32 @@
+uuid: 3890abaa-038b-46a1-b193-7a107e55c7fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_credit
+    - node.type.article
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: dNKnuwf1O1ciLjoD1_V38SOdsPy6QrClOQChZ5Ycqso
+id: node.article.field_image_credit
+field_name: field_image_credit
+entity_type: node
+bundle: article
+label: 'Credit:'
+description: 'Please enter the Image credit here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

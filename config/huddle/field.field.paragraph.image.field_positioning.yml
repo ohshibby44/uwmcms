@@ -1,0 +1,25 @@
+uuid: 56ffc9dd-8020-419a-8508-38db8b47d85d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_positioning
+    - paragraphs.paragraphs_type.image
+_core:
+  default_config_hash: KPvl_K6HIP7vjvjzo4OIz-knVafknEz-tK4BZBG5UTk
+id: paragraph.image.field_positioning
+field_name: field_positioning
+entity_type: paragraph
+bundle: image
+label: Positioning
+description: 'Position the image to the left or right of the caption and attribution copy.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Left
+  off_label: Right
+field_type: boolean

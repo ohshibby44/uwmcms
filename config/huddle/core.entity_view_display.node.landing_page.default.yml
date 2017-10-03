@@ -1,0 +1,60 @@
+uuid: 000b45a8-0b62-4dfe-9a05-26141d7419bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.landing_page.field_body
+    - field.field.node.landing_page.field_content_reference
+    - field.field.node.landing_page.field_content_references
+    - field.field.node.landing_page.field_sections
+    - node.type.landing_page
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+_core:
+  default_config_hash: iM1X6-zjFjwS69lfAdvYEupNymYmNcicIJqLzYylTfE
+id: node.landing_page.default
+targetEntityType: node
+bundle: landing_page
+mode: default
+content:
+  field_body:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_content_reference:
+    weight: 0
+    label: above
+    settings:
+      view_mode: featured
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_content_references:
+    weight: 1
+    label: above
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_sections:
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  links: true

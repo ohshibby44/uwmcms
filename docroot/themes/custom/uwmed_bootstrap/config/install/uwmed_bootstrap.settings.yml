@@ -1,0 +1,6 @@
+logo:
+  path: 'themes/custom/uwmed_bootstrap/logo.png'
+  use_default: false
+favicon:
+  path: 'themes/custom/uwmed_bootstrap/favicon.ico'
+  use_default: false

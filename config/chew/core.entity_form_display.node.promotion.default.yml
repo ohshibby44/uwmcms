@@ -32,16 +32,17 @@ content:
     type: link_default
     region: content
   field_promotion_image:
-    type: inline_entity_form_complex
+    type: entity_browser_entity_reference
     weight: 1
     settings:
-      form_mode: media_browser
-      override_labels: true
-      label_singular: Image
-      label_plural: Images
-      allow_new: true
-      allow_existing: true
-      match_operator: CONTAINS
+      entity_browser: promotion_image_browser
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_edit: false
+      open: false
     third_party_settings: {  }
     region: content
   path:

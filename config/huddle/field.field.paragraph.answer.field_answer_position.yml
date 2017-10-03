@@ -1,0 +1,23 @@
+uuid: 096dfca1-1d3b-4653-9afb-b92f1cd5fde6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer_position
+    - paragraphs.paragraphs_type.answer
+  module:
+    - options
+_core:
+  default_config_hash: KVsx7EUhkv2UUEnuqqbKti9oWmRlHPgw00jTNArsK9o
+id: paragraph.answer.field_answer_position
+field_name: field_answer_position
+entity_type: paragraph
+bundle: answer
+label: 'Answer Position'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

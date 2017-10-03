@@ -1,0 +1,32 @@
+uuid: 943652e6-fa88-4390-a846-55b18603ec7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_awards
+  module:
+    - system
+    - views
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: opeddq1NLhRr3DUmR8aJLg-Nw7tzfaUAiD-U-AitoN0
+id: views_block__uwm_awards_block_recent_awards
+theme: uwmed_bootstrap
+region: sidebar_second
+weight: -9
+provider: null
+plugin: 'views_block:uwm_awards-block_recent_awards'
+settings:
+  id: 'views_block:uwm_awards-block_recent_awards'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

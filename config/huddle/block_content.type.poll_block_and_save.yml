@@ -1,0 +1,8 @@
+uuid: 9bc40fa4-eaf9-40fa-b0af-f5a54f4669f4
+langcode: en
+status: true
+dependencies: {  }
+id: poll_block_and_save
+label: 'Poll block and Save'
+revision: 0
+description: 'A block type used for placing polls in page regions.'

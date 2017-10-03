@@ -1,0 +1,11 @@
+uuid: 3f3399c4-3671-4106-9fa8-552b72b4b451
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: V7VWSllxfQNSZLKhkHMwWRpTtONP0_d7kx_0PlH1DTU
+name: 'Event categories'
+vid: event_categories
+description: 'Events may be associated with only one category.'
+hierarchy: 0
+weight: 0

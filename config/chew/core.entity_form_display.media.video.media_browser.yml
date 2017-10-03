@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.video.field_caption
+    - field.field.media.video.field_credit
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_preview_image
@@ -41,7 +43,7 @@ content:
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -49,6 +51,8 @@ content:
     region: content
 hidden:
   created: true
+  field_caption: true
+  field_credit: true
   field_media_video_embed_field: true
   preview: true
   uid: true

@@ -1,0 +1,31 @@
+uuid: 11c66679-7d88-4f18-99ee-3d5f6c8b6491
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name
+    - node.type.article
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    restricted_html: restricted_html
+    basic_html: '0'
+    video_format: '0'
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: uHRQ4mrjLaJfGUYt3Q4gN5xbA_FM_KWxWieLt52wtXw
+id: node.article.field_name
+field_name: field_name
+entity_type: node
+bundle: article
+label: 'Author name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

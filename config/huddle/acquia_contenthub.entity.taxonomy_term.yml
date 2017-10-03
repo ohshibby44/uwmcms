@@ -1,0 +1,41 @@
+uuid: 2a0d14ac-88b1-4b69-b111-d98e4a1c3bc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.campus
+  module:
+    - taxonomy
+id: taxonomy_term
+bundles:
+  campus:
+    enable_index: true
+    enable_viewmodes: false
+    rendering: {  }
+  categories:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  event_audience:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  event_categories:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  event_tags:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }
+  gallery_categories:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  tags:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }

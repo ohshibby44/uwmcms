@@ -1,0 +1,29 @@
+uuid: 3a3897f1-b903-41cb-9abb-ac0e1bc09416
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: CbrhkeZR9NjDtRzsA7xIqn9JyIyWgOmqC_iBXcl6xdA
+id: paragraph.field_answer_position
+field_name: field_answer_position
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Left
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,9 @@
+uuid: e7b18c84-68fa-45a3-b530-e2c2fc0b2e28
+langcode: en
+status: true
+dependencies: {  }
+name: Campus
+vid: campus
+description: 'Set a campus for an Event Location.'
+hierarchy: 0
+weight: 0

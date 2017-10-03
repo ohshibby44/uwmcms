@@ -1,0 +1,14 @@
+uuid: c969cfaa-f951-4c6c-bf07-6f0df83d4b32
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.uwm_editor
+  module:
+    - user
+id: user_remove_role_action.uwm_editor
+label: 'Remove the UWM Editor role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: uwm_editor

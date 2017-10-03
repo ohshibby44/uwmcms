@@ -1,0 +1,53 @@
+uuid: 9f9d1801-af67-4938-89f2-8773e7e3d18e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery_item.field_caption
+    - field.field.paragraph.gallery_item.field_image
+    - field.field.paragraph.gallery_item.field_image_credit
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - allowed_formats
+    - image
+    - text
+    - workbench_moderation
+_core:
+  default_config_hash: RtU-W1Z_4qFO0Xm64yN8BIacWegEIVtzkeDGcn3BTGA
+id: paragraph.gallery_item.default
+targetEntityType: paragraph
+bundle: gallery_item
+mode: default
+content:
+  field_caption:
+    weight: 2
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textarea
+    region: content
+  field_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_image_credit:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

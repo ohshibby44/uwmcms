@@ -1,0 +1,24 @@
+uuid: df7fe479-2f2a-4062-ab40-870eb00bfd46
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.gallery_categories
+_core:
+  default_config_hash: jTdC9K2heNum-BxaHyqVlsaFrvXNkEYh2jzKKAj9gjo
+id: taxonomy_term.gallery_categories.default
+targetEntityType: taxonomy_term
+bundle: gallery_categories
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

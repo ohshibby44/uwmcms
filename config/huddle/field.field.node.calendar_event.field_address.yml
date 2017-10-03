@@ -1,0 +1,50 @@
+uuid: 3a96ca92-90dc-4f4d-80f2-129eef45b2f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.calendar_event
+  module:
+    - address
+id: node.calendar_event.field_address
+field_name: field_address
+entity_type: node
+bundle: calendar_event
+label: 'Off-Campus Address'
+description: 'If your event is on-campus but the building is not available in the "Event Location" field above, please create a new Event Location node. If your event is off-campus, please enter the location address.'
+required: false
+translatable: true
+default_value:
+  -
+    country_code: US
+    langcode: null
+    administrative_area: ''
+    locality: ''
+    dependent_locality: ''
+    postal_code: ''
+    sorting_code: ''
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: ''
+    family_name: ''
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    dependentLocality: dependentLocality
+    postalCode: postalCode
+    addressLine1: addressLine1
+    addressLine2: addressLine2
+    organization: organization
+    sortingCode: '0'
+    givenName: '0'
+    additionalName: '0'
+    familyName: '0'
+  langcode_override: ''
+field_type: address

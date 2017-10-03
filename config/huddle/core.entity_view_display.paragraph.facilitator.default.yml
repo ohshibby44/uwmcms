@@ -1,0 +1,30 @@
+uuid: 818cd6c2-d6eb-43ac-93e3-05a66cb19263
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.facilitator.field_description
+    - field.field.paragraph.facilitator.field_full_name
+    - paragraphs.paragraphs_type.facilitator
+  module:
+    - text
+id: paragraph.facilitator.default
+targetEntityType: paragraph
+bundle: facilitator
+mode: default
+content:
+  field_description:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_full_name:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

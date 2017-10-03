@@ -1,0 +1,15 @@
+uuid: d7230f21-4b5b-45d5-bde5-7fce3890f909
+langcode: en
+status: true
+dependencies: {  }
+name: preview
+label: Preview
+effects:
+  9f1be0a8-19f5-4dba-961f-aeb3e05e573d:
+    uuid: 9f1be0a8-19f5-4dba-961f-aeb3e05e573d
+    id: image_scale
+    weight: 1
+    data:
+      width: 360
+      height: 360
+      upscale: true

@@ -1,0 +1,31 @@
+uuid: 9672f155-d2a3-4485-8dba-de83c0e976cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.promotions
+  module:
+    - views
+name: promotion_browser
+label: 'Promotion Browser'
+display: iframe
+display_configuration:
+  width: '800'
+  height: '900'
+  link_text: 'Select promotion'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  8885f450-f3ac-428b-98fa-a94dab853386:
+    settings:
+      view: promotions
+      view_display: entity_browser_1
+      submit_text: Select
+      auto_select: false
+    uuid: 8885f450-f3ac-428b-98fa-a94dab853386
+    weight: 1
+    label: Promotion
+    id: view

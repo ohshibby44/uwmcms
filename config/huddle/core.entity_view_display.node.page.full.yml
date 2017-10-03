@@ -1,0 +1,41 @@
+uuid: d8c9534b-63ca-4a67-9491-6877491398f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.page.body
+    - field.field.node.page.field_body
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_sections
+    - field.field.node.page.scheduled_update
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: NrZcZg4-pNsMlE0bBWxO2UDdSRquy_q2GCtiqhwPjMo
+id: node.page.full
+targetEntityType: node
+bundle: page
+mode: full
+content:
+  field_body:
+    type: text_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  sharethis:
+    weight: 10
+    region: content
+  workbench_moderation_control:
+    weight: -20
+    region: content
+hidden:
+  body: true
+  field_meta_tags: true
+  field_sections: true
+  links: true
+  scheduled_update: true

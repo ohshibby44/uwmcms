@@ -1,0 +1,24 @@
+uuid: 9f29f2c5-c66e-440e-80eb-894421140896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.bookshelf
+  module:
+    - datetime
+id: node.bookshelf.field_date
+field_name: field_date
+entity_type: node
+bundle: bookshelf
+label: Date
+description: 'The date to set on this post.'
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

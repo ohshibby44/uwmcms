@@ -1,0 +1,23 @@
+uuid: 3a4b0b96-cd74-4ebb-85fd-187935a65a04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_note
+    - node.type.event
+  module:
+    - text
+_core:
+  default_config_hash: e0CRtkxI2PFnBCqRNYtgWN-xV1oDLdeLty3kQztf7oc
+id: node.event.field_note
+field_name: field_note
+entity_type: node
+bundle: event
+label: Note
+description: 'Share a note about the event.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

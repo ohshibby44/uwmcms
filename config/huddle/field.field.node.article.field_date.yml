@@ -1,0 +1,26 @@
+uuid: e20e16a4-8f8f-4250-8e5c-179199a406c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.article
+  module:
+    - datetime
+_core:
+  default_config_hash: AKvDpMjg4hyxmMP6cSw8lqtdeQF8grTKj331Sa8Tf0k
+id: node.article.field_date
+field_name: field_date
+entity_type: node
+bundle: article
+label: Date
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

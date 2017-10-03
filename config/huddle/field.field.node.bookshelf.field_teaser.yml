@@ -1,0 +1,30 @@
+uuid: 2a13edbc-2650-4d79-8ee6-4095514bdeaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.bookshelf
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.bookshelf.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: bookshelf
+label: 'Book teaser'
+description: 'This teaser text will display beside the main "Bookshelf" page image.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,43 @@
+uuid: 69e7630c-ff36-424b-be4a-f1cf67f307df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event_location.field_address
+    - field.field.node.event_location.field_campus
+    - node.type.event_location
+  module:
+    - address
+    - workbench_moderation
+id: node.event_location.default
+targetEntityType: node
+bundle: event_location
+mode: default
+content:
+  field_address:
+    weight: 1
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_campus:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

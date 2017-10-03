@@ -1,0 +1,28 @@
+uuid: 7d01e695-2e7d-4898-9ac0-0e7569887159
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_promotion
+    - node.type.page
+    - node.type.promotion
+id: node.page.field_promotion
+field_name: field_promotion
+entity_type: node
+bundle: page
+label: Promotion
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      promotion: promotion
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

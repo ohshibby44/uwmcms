@@ -1,0 +1,26 @@
+#block-subscribe-form-basic,
+#block-subscribe-form-article {
+  margin-bottom: 4rem;
+  .block-title {
+    font-size: ceil(($font-size-base * 1.25));
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    margin: 0 0 .5rem 0;
+    color: $gray-darker;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.25;
+    }
+  }
+  .field--name-body {
+    line-height: 1.333;
+  }
+  label {
+    font-family: $font-family-sans-serif;
+    font-weight: normal;
+    margin: 0;
+    font-size: ceil(($font-size-base * .75));
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * .875;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+uuid: d31a0045-ea16-4918-8a42-c1000ea82863
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_caption
+    - paragraphs.paragraphs_type.image
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: restricted_html
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: muvrPrOIATRxlo5L34LvJgqFq4GMEsgkikH2GgzfXXE
+id: paragraph.image.field_caption
+field_name: field_caption
+entity_type: paragraph
+bundle: image
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

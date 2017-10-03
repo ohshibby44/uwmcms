@@ -1,0 +1,26 @@
+uuid: 024786a5-e963-4258-91b7-c93e46beca3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.award
+  module:
+    - datetime
+_core:
+  default_config_hash: Bt8DHpN24C6up19nWUdEN5USeukbfCV6TReOTbcmx3c
+id: node.award.field_date
+field_name: field_date
+entity_type: node
+bundle: award
+label: Date
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

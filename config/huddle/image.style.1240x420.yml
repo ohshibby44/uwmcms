@@ -1,0 +1,18 @@
+uuid: 9d22764d-d4d9-42f0-a411-8d53c356ac03
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: wAAgzEkgbdNviCSUHZ35QDOgo7qG7Ki12fq2D4tG-oo
+name: 1240x420
+label: 'Promotional 1240x420'
+effects:
+  7f8b8c4f-fa48-4dd7-b984-d3c1a6c8bf02:
+    uuid: 7f8b8c4f-fa48-4dd7-b984-d3c1a6c8bf02
+    id: focal_point_crop
+    weight: 1
+    data:
+      width: 1240
+      height: 420

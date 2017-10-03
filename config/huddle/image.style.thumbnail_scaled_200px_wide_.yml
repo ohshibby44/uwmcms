@@ -1,0 +1,15 @@
+uuid: 6b9d9d2f-1779-430d-8126-8f08e92a3a4c
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_scaled_200px_wide_
+label: 'Thumbnail (scaled 200px wide)'
+effects:
+  7263bf87-e012-4bce-b3ed-8dbf7e4004a5:
+    uuid: 7263bf87-e012-4bce-b3ed-8dbf7e4004a5
+    id: image_scale
+    weight: 1
+    data:
+      width: 200
+      height: null
+      upscale: false

@@ -1,0 +1,23 @@
+uuid: 3709f5ff-4bea-4a75-a702-825b0dbb096c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.bookshelf
+  module:
+    - metatag
+id: node.bookshelf.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: bookshelf
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

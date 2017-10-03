@@ -1,0 +1,30 @@
+uuid: d2790633-f7dc-4201-bc84-7b3cfaa94013
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attribution
+    - paragraphs.paragraphs_type.image
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+_core:
+  default_config_hash: dDL9Ba9GBDxDg-8KtSc94nTYNmIjE4_J6zDy1W7upPc
+id: paragraph.image.field_attribution
+field_name: field_attribution
+entity_type: paragraph
+bundle: image
+label: Attribution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,10 @@
+uuid: 8f2c22b9-1527-4f75-bff7-2d16b81fb92d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zTrVMmFdwIAu4nPF9bNNDiLIHj_fwROtxFFoGqhI-tE
+id: uwm_date_format
+label: 'UWM Date Format - Long'
+locked: false
+pattern: 'F j Y'

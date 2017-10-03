@@ -1,39 +1,48 @@
 module:
+  access_unpublished: 0
+  acquia_connector: 0
+  acquia_purge: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
   allowed_formats: 0
-  auto_entitylabel: 0
   block: 0
   block_content: 0
   breakpoint: 0
   ckeditor: 0
   ckeditor_liststyle: 0
   config: 0
+  config_filter: 0
+  config_ignore: 0
   contextual: 0
   crop: 0
   crop_media_entity: 0
   ctools: 0
   ctools_block: 0
   datetime: 0
-  dblog: 0
   diff: 0
   draggableviews: 0
+  dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
   embed: 0
   entity: 0
   entity_block: 0
   entity_browser: 0
+  entity_browser_entity_form: 0
   entity_embed: 0
   entity_reference: 0
   entity_reference_revisions: 0
+  fb_instant_articles: 0
+  fb_instant_articles_api: 0
+  fb_instant_articles_views: 0
   field: 0
   field_group: 0
   field_ui: 0
   file: 0
   filter: 0
   focal_point: 0
+  google_tag: 0
   help: 0
   hierarchical_term_formatter: 0
   history: 0
@@ -51,6 +60,7 @@ module:
   lightning_media_video: 0
   lightning_page: 0
   lightning_roles: 0
+  lightning_scheduled_updates: 0
   lightning_search: 0
   lightning_workflow: 0
   link: 0
@@ -64,11 +74,13 @@ module:
   menu_block: 0
   menu_ui: 0
   metatag: 0
+  metatag_facebook: 0
+  metatag_open_graph: 0
+  metatag_twitter_cards: 0
   name: 0
   node: 0
   options: 0
   page_cache: 0
-  page_manager: 0
   panelizer: 0
   panelizer_quickedit: 0
   panels: 0
@@ -76,19 +88,30 @@ module:
   paragraphs: 0
   path: 0
   pathauto: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_ui: 0
   quickedit: 0
   rabbit_hole: 0
   rdf: 0
   redirect: 0
+  responsive_favicons: 0
+  rest: 0
   rh_media: 0
   rh_node: 0
   rh_taxonomy: 0
+  robotstxt: 0
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
-  shield: 0
+  seckit: 0
+  serialization: 0
   shortcut: 0
   simplify: 0
+  syslog: 0
   system: 0
   taxonomy: 0
   taxonomy_menu: 0
@@ -97,12 +120,17 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  uwmcms_chew_fbia: 0
+  uwmcms_chew_fields: 0
   uwmcms_chew_misc: 0
   uwmcms_chew_views: 0
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
   views_ui: 0
+  webform: 0
+  webform_node: 0
+  webform_ui: 0
   workbench_moderation: 0
   menu_link_content: 1
   views: 10

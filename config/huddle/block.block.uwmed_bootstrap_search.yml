@@ -1,0 +1,23 @@
+uuid: 53ec7964-4012-407c-9cae-0384d6813518
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: AXuaRovGq3hOYpGXBi1CFo4Ri06DEcCs2-cLkRgQxVw
+id: uwmed_bootstrap_search
+theme: uwmed_bootstrap
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: '0'
+  views_label: ''
+visibility: {  }

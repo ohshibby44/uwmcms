@@ -1,0 +1,36 @@
+uuid: 7dde858e-19e9-4dc6-8149-fe611641be1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.resource_paragraphs
+  module:
+    - ctools
+    - views
+  theme:
+    - uwmed_bootstrap
+_core:
+  default_config_hash: dwLfxgC7SySupmho1sHUkBuGx96dNXpo30aSzEeil2I
+id: views_block__resource_paragraphs_block_1
+theme: uwmed_bootstrap
+region: lower_content
+weight: -11
+provider: null
+plugin: 'views_block:resource_paragraphs-block_1'
+settings:
+  id: 'views_block:resource_paragraphs-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping:
+    parent_id: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,30 @@
+uuid: 71bf36e5-e843-46c8-937f-33cc4c5d3cb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.calendar_event
+  module:
+    - duration_field
+id: node.calendar_event.field_duration
+field_name: field_duration
+entity_type: node
+bundle: calendar_event
+label: Duration
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: PT30M
+default_value_callback: ''
+settings:
+  granularity:
+    day: true
+    hour: true
+    minute: true
+    year: false
+    month: false
+    second: false
+field_type: duration

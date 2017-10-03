@@ -1,0 +1,11 @@
+uuid: 2841c545-0cdd-40b5-99f7-2f1f7eef775e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I-7A8Ym4u825iT7yl244JzQwIxe-9MNfrOAuuKtqXyw
+name: 'Article categories'
+vid: categories
+description: 'Articles may be associated with only one category.'
+hierarchy: 1
+weight: 0

@@ -1,0 +1,31 @@
+block.settings.footer_social_links:
+  type: block_settings
+  label: 'UWMed The Huddle Footer Social Links editable block'
+  mapping:
+    footer_social_links_block_string:
+      type: text
+      label: 'Block contents'
+
+block.settings.footer_links:
+  type: block_settings
+  label: 'UWMed The Huddle Footer Links editable block'
+  mapping:
+    footer_links_block_string:
+      type: text
+      label: 'Block contents'
+
+block.settings.footer_content:
+  type: block_settings
+  label: 'UWMed The Huddle Footer Content editable block'
+  mapping:
+    footer_content_block_string:
+      type: text
+      label: 'Block contents'
+
+block.settings.global_header_menu:
+  type: block_settings
+  label: 'UWMed The Huddle Global Header Menu editable block'
+  mapping:
+    global_header_menu_block_string:
+      type: text
+      label: 'Block contents'

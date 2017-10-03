@@ -1,0 +1,24 @@
+uuid: 72c7c7c9-5af8-4206-bfc8-6594ce91f65b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.poll_block_and_save
+    - field.storage.block_content.body
+  module:
+    - text
+_core:
+  default_config_hash: OP9rkeNRY-Wxj0dnMs_2XcVWD86qeCbYuXU_izbBTEQ
+id: block_content.poll_block_and_save.body
+field_name: body
+entity_type: block_content
+bundle: poll_block_and_save
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

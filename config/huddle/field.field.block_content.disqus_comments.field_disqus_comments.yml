@@ -1,0 +1,26 @@
+uuid: f33c87a0-0b18-4fa9-bbcb-9d811af4974a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.disqus_comments
+    - field.storage.block_content.field_disqus_comments
+  module:
+    - disqus
+_core:
+  default_config_hash: z2pqsJqs-0sEDIIHfMM-oUPi7o5sCLvyOiAqYkmjJa8
+id: block_content.disqus_comments.field_disqus_comments
+field_name: field_disqus_comments
+entity_type: block_content
+bundle: disqus_comments
+label: 'Add a Comment'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 1
+    identifier: ''
+default_value_callback: ''
+settings: {  }
+field_type: disqus_comment

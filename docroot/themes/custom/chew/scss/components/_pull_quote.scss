@@ -10,23 +10,40 @@
   .field--name-field-quote-text {
     color: $dark-green;
     font-family: $font-family-sans-serif;
+    font-weight: 500;
     font-size: ceil(($font-size-base * 1.5));
     position: relative;
-    padding-left: ceil(($font-size-base * 2.5));
+    padding-left: ceil(($font-size-base * 2));
     &:before {
       content: "“";
       position: absolute;
       top: 0;
       left: 0;
+      font-family: $font-family-serif;
       font-size: ceil(($font-size-base * 4));
       line-height: 1;
-      margin-top: -10px;
+      margin-top: -5px;
     }
     &:after {
       content: "”";
-      font-size: ceil(($font-size-base * 2.5));
+      position: absolute;
+      bottom: 15px;
+      font-family: $font-family-serif;
+      font-size: ceil(($font-size-base * 4));
       line-height: .1;
-      padding-left: .25em;
+      padding-left: .125em;
+    }
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.25;
+      padding-left: ceil(($font-size-base-xs * 1.5));
+      &:before {
+        font-size: ceil(($font-size-base-xs * 3));
+        margin-top: -5px;
+      }
+      &:after {
+        font-size: ceil(($font-size-base-xs * 1.5));
+        padding-left: .125em;
+      }
     }
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.25;

@@ -1,0 +1,30 @@
+uuid: 3dff06cb-cde9-44f4-a7b4-db68666ec489
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.sidebar
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+_core:
+  default_config_hash: QZXO5D_8sfCprC0-Z4oKJ40TpkclyDsU6gsFQ6pqVzc
+id: paragraph.sidebar.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: sidebar
+label: 'Sidebar title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

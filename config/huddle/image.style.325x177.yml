@@ -1,0 +1,16 @@
+uuid: 8c43ecb7-76bc-46c7-838a-5e00c0230a99
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: xeIoQ38OefsZ9F__BF6JhzrcDf34B8hPtmqx9UHRgo0
+name: 325x177
+label: 325x177
+effects:
+  c42b0b2f-90d7-46f8-916c-173fd79674bd:
+    uuid: c42b0b2f-90d7-46f8-916c-173fd79674bd
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 325
+      height: 177

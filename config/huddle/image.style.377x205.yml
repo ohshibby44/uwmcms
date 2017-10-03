@@ -1,0 +1,18 @@
+uuid: fad1c6b8-a002-4d4e-b0d6-80ea66586f90
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: dBF9qI5hqbilJWbyWJ9Tpzmp6qjEuTBapd0LcHu7Wfk
+name: 377x205
+label: 'Sub-featured 377x205'
+effects:
+  59283365-9972-424d-ba54-553905117cda:
+    uuid: 59283365-9972-424d-ba54-553905117cda
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 377
+      height: 205

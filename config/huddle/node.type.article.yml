@@ -1,0 +1,19 @@
+uuid: 0eb95eb8-e0f7-4ab8-8968-5aad32fc36fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: 56XiyXfR5gbnKRXxzyP38U18GD92GZZPAI1wxCDYrEM
+name: Article
+type: article
+description: 'Use <em>articles</em> for UW Medicine People, Perspectives, and News.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,31 @@
+uuid: 4b9a2bf5-7c56-4c87-89c8-7312270475f4
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
+  module:
+    - block_content
+    - system
+  theme:
+    - chew
+id: subscribe_form_basic
+theme: chew
+region: sidebar_second
+weight: -16
+provider: null
+plugin: 'block_content:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
+settings:
+  id: 'block_content:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
+  label: 'A reason to feel right as rain'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,19 @@
+uuid: 04fdac86-1ec5-4fa1-84bb-c314805bfc92
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: zGkpg5AVx1irNLnzgoX5UuimH4HEwIPxqg-MLEjexX0
+name: Question
+type: question
+description: 'A question of the week/month...'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

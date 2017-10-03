@@ -1,0 +1,31 @@
+uuid: 24ac8edf-b615-459d-a01f-2f75aa6c2919
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.landing_page.field_body
+    - field.field.node.landing_page.field_content_reference
+    - field.field.node.landing_page.field_content_references
+    - field.field.node.landing_page.field_sections
+    - node.type.landing_page
+  module:
+    - user
+_core:
+  default_config_hash: rCLjHlz4bbaYqx1Gn_w2BRraxIWiP5fBe1bkcwt0U2E
+id: node.landing_page.teaser
+targetEntityType: node
+bundle: landing_page
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_body: true
+  field_content_reference: true
+  field_content_references: true
+  field_sections: true

@@ -1,0 +1,14 @@
+uuid: d79cc4d6-6b05-47a9-bd5e-c7eb1851be71
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.thumbnail
+label: Thumbnail
+targetEntityType: node
+cache: true
