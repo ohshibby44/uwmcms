@@ -14,6 +14,13 @@ dependencies:
   content:
     - 'block_content:basic:a85cf710-db0f-4474-9f1f-062ed938bbd5'
     - 'block_content:basic:fdf5c014-32ef-45e8-852c-185c53231472'
+    - 'taxonomy_term:event_tags:04064589-c9e7-49d7-a1f5-5da41cdfdf81'
+    - 'taxonomy_term:event_tags:0474fbd4-a0c2-4ae6-bd64-ce603df40905'
+    - 'taxonomy_term:event_tags:104e3733-9e7a-4760-ae56-6dddb96d8098'
+    - 'taxonomy_term:event_tags:4082aaaa-0a79-4219-b0d6-8011d7f5b48e'
+    - 'taxonomy_term:event_tags:7303e03e-f9c4-4b39-8404-e8431d70f54a'
+    - 'taxonomy_term:event_tags:84195b4a-4215-49ac-8ba4-2a5ec49c8e25'
+    - 'taxonomy_term:event_tags:daac3fb9-156b-441b-8646-1ee74de5836e'
   module:
     - better_exposed_filters
     - datetime
@@ -452,6 +459,44 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        sticky:
+          id: sticky
+          table: node_field_data
+          field: sticky
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: sticky
+          plugin_id: boolean
       filter_groups:
         operator: AND
         groups:
@@ -714,7 +759,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 5
           offset: 0
       use_more: true
       use_more_always: true
@@ -962,10 +1007,178 @@ display:
       arguments: {  }
       defaults:
         arguments: false
-        filters: true
-        filter_groups: true
+        filters: false
+        filter_groups: false
         footer: false
+        sorts: false
       footer: {  }
+      sorts:
+        field_date_time_value:
+          id: field_date_time_value
+          table: node__field_date_time
+          field: field_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            calendar_event: calendar_event
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            argument: null
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_event_categories_target_id:
+          id: field_event_categories_target_id
+          table: node__field_event_categories
+          field: field_event_categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            221: 221
+            226: 226
+            231: 231
+            236: 236
+            241: 241
+            246: 246
+            251: 251
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_categories_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_event_categories_target_id_op
+            identifier: categories
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              uwm_editor: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: event_tags
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_date_time_value:
+          id: field_date_time_value
+          table: node__field_date_time
+          field: field_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: now
+            type: offset
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_date_time_value_op
+            label: Date
+            description: ''
+            use_operator: false
+            operator: field_date_time_value_op
+            identifier: date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              uwm_editor: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

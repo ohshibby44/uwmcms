@@ -60,9 +60,9 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: page
+  confirmation_type: message
   confirmation_title: ''
-  confirmation_message: ''
+  confirmation_message: "Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t publish every piece of content we receive. But please keep them coming.<br />\r\n<br />\r\nWhile you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>."
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -120,6 +120,7 @@ handlers:
     label: Email
     handler_id: email
     status: true
+    conditions: {  }
     weight: 0
     settings:
       states:

@@ -1053,8 +1053,7 @@ body {
         .field--name-field-duration,
         .field--name-field-cost,
         .field--name-field-address,
-        .field--name-field-event-location,
-        .field--name-field-name,
+        .field--name-field-room-name,
         .field--name-field-text,
         .field--name-field-private-note,
         .field--name-field-event-audiences,
@@ -1649,6 +1648,27 @@ body {
         width: 100%;
         @include center-block();
         padding-bottom: 44px;
+        .video-wrap {
+          width: 100%;
+          position: relative;
+          .video-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            //background: rgba(0,0,0,0.5) url(../img/play-icon.svg) no-repeat center center;
+            background: transparent url(../img/play-icon.svg) no-repeat center center;
+            background-size: 50% 50%;
+            &:hover {
+              background-color: rgba(0,0,0,0.3);
+            }
+          }
+          .overlay-hover {
+            background-color: rgba(0,0,0,0.3);
+          }
+        }
         .image-wrap {
           width: 100%;
           position: relative;
@@ -2851,6 +2871,9 @@ article.webform {
             list-style: none;
             li {
               margin-bottom: 6px;
+            }
+            .duplicate {
+              display: none;
             }
           }
         }

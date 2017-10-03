@@ -74,6 +74,7 @@
     'node',
   ]
 %}
+
 <article{{ attributes.addClass(classes) }}>
   <header>
     {{ content.field_date_time }}
@@ -89,12 +90,17 @@
           <h3>Details</h3>
         </div>
         <div class="event-details__inner">
-          {{ content.field_duration }}
+          <div class="field field--name-field-duration">
+            <div class="field--item">{{ start_date_time|date('l, F j, Y', 'America/Los_Angeles') }}</div>
+          </div>
+          <div class="field field--name-field-duration">
+            <div class="field--item">{{ start_date_time|date('g:i a', 'America/Los_Angeles') }}{% if end_time %} to {{ end_time|date('g:i a', 'America/Los_Angeles') }}{% endif %}</div>
+          </div>
           {{ content.field_cost }}
           {{ content.field_address }}
           {{ content.field_event_location }}
+          {{ content.field_room_name }}
           {{ content.field_name }}
-          {{ content.field_private_note }}
           {{ content.field_event_audiences }}
           {{ content.field_event_categories }}
         </div>

@@ -12,7 +12,7 @@ dependencies:
     - image.style.thumbnail
     - media_entity.bundle.video
   module:
-    - lightning_media
+    - image
     - workbench_moderation
 _core:
   default_config_hash: ggUvzzCujjyCEfAyWiJyvfcbQdARZ9_0vH9wGeGHbqo
@@ -29,7 +29,7 @@ content:
     third_party_settings: {  }
     region: content
   field_preview_image:
-    type: image_immutable
+    type: image_image
     weight: 0
     settings:
       preview_image_style: thumbnail

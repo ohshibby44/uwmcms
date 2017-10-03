@@ -1,0 +1,14 @@
+uuid: 53ed0592-4982-40c8-aabf-029200bdca42
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media_entity
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.large_alt
+label: 'Large (Alt)'
+targetEntityType: media
+cache: true
