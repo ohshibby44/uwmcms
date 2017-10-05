@@ -667,6 +667,14 @@
         }
       }
     }
+    .field.field--name-field-address.field--type-address.field--label-hidden.field--item {
+      margin: 50px 0;
+      span.organization {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    }
   }
   section.content {
     margin: 0;

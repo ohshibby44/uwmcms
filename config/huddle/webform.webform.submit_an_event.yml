@@ -1,0 +1,146 @@
+uuid: bcca4832-dae3-42a8-9b68-f587164573f8
+langcode: en
+status: open
+dependencies: {  }
+_core:
+  default_config_hash: vhO5VU-JLcpTbh2-sWCs9Zj-h0c_4pjx-_8-koPrJE8
+open: null
+close: null
+uid: 1
+template: false
+id: submit_an_event
+title: 'Submit an Event'
+description: ''
+category: ''
+elements: "event_information:\n  '#type': fieldset\n  '#title': 'Event Information'\n  event_title:\n    '#type': textfield\n    '#title': 'Event Title'\n    '#required': true\n  event_start_time:\n    '#type': datetime\n    '#title': 'Event Start Time'\n    '#default_value': '[current-date:html_datetime]'\n  event_end_time:\n    '#type': webform_time\n    '#title': 'Event End Time'\n    '#description': 'If your event spans multiple days or has unique scheduling, please indicate that in the notes field below.&nbsp;'\n    '#description_display': after\n    '#time_format': 'g:i A'\n  event_description:\n    '#type': textarea\n    '#title': 'Event Description'\n  event_location:\n    '#type': webform_address\n    '#title': 'Event Location'\n    '#country__access': false\nyour_information:\n  '#type': fieldset\n  '#title': 'Your Information'\n  your_name:\n    '#type': webform_name\n    '#title': 'Your name'\n    '#required': true\n    '#title__access': false\n    '#first__required': true\n    '#middle__access': false\n    '#last__required': true\n    '#suffix__access': false\n    '#degree__access': false\n  confirm_email_address:\n    '#type': email\n    '#title': 'Email Address'\n    '#default_value': '[current-user:mail]'\n    '#required': true\n  internal_notes_and_description:\n    '#type': textarea\n    '#title': 'Internal Notes and Description'\nevent_images_and_attachments:\n  '#type': fieldset\n  '#title': 'Event Images and Attachments'\n  event_attachments_and_documents:\n    '#type': managed_file\n    '#title': 'Event Attachments and Documents'\n    '#multiple': true\ndisclaimer:\n  '#type': webform_markup\nrecaptcha:\n  '#type': captcha\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit an Event'\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  page: true
+  page_submit_path: submit-an-event
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_complete: true
+  wizard_complete_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: "Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t pursue every story idea or publish every piece of content we receive. But please keep them coming.<br />\r\n<br />\r\nWhile you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>."
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_message: ''
+  purge: none
+  purge_days: null
+  entity_limit_total: null
+  entity_limit_user: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: default
+      to_options: {  }
+      cc_mail: uwmtalk@uw.edu
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: default
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      debug: false
+      reply_to: ''
+      return_path: ''
