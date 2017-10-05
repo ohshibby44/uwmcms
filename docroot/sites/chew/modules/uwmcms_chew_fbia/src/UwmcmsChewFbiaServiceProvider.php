@@ -8,7 +8,7 @@ use Drupal\Core\DependencyInjection\ServiceProviderBase;
 /**
  * Overrides normalizer services for Facebook Instant Articles.
  */
-class UwmcmschewfbiaServiceProvider extends ServiceProviderBase {
+class UwmcmsChewFbiaServiceProvider extends ServiceProviderBase {
 
   /**
    * {@inheritdoc}
