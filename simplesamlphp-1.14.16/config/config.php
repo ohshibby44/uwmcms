@@ -856,10 +856,11 @@ $config = array(
 
 
 
-$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/config.php',
-  $_ENV['AH_SITE_GROUP'],
-  $_ENV['AH_SITE_ENVIRONMENT']);
 
+
+$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/authsources.php',
+	$_ENV['AH_SITE_GROUP'],
+	$_ENV['AH_SITE_ENVIRONMENT']);
 if (!file_exists($config_file) || !require_once($config_file)) {
 
 	exit('Missing config file '. $config_file); 
@@ -869,25 +870,13 @@ if (!file_exists($config_file) || !require_once($config_file)) {
 
 
 $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/acquia_config.php',
-  $_ENV['AH_SITE_GROUP'],
-  $_ENV['AH_SITE_ENVIRONMENT']);
-
+	$_ENV['AH_SITE_GROUP'],
+	$_ENV['AH_SITE_ENVIRONMENT']);
 if (!file_exists($config_file) || !require_once($config_file)) { 
 
 	exit('Missing config file '. $config_file); 
 
 }
 
-
-
-$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/authsources.php',
-  $_ENV['AH_SITE_GROUP'],
-  $_ENV['AH_SITE_ENVIRONMENT']);
-
-if (!file_exists($config_file) || !require_once($config_file)) {
-
-	exit('Missing config file '. $config_file); 
-
-}
 
 

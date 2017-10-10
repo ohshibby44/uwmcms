@@ -388,5 +388,65 @@ $config = array(
 
     ),
     */
+    
+    
+    
+    
+'uwm-sp' => array(
+   'saml:SP',
+   // 'entityID'             => 'urn:mace:incommon:washington.edu' . $env,  
+   // 'entityID'             => 'urn:mace:incommon:washington.edu-dev', 
+   'entityID'             => 'urn:mace:incommon:washington.edu', 
+   'idp'                  => 'https://idp.u.washington.edu/idp/profile/SAML2/POST/SSO',
+   'NameIDPolicy'         => null,
+   'redirect.sign'        => true,
+   'assertion.encryption' => true,
+   'sign.logout'          => true,
+   //'privatekey'           => 'saml.pem',
+   //'certificate'          => 'saml.crt',
+   'signature.algorithm'  => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  ),    
+
+    
+'uwm2-sp' => array(
+   'saml:SP',
+   'entityID'             => 'https://idp.u.washington.edu/metadata/idp-metadata.xml', 
+   'idp'                  => 'urn:mace:incommon:washington.edu', 
+   'NameIDPolicy'         => null,
+   'redirect.sign'        => true,
+   'assertion.encryption' => true,
+   'sign.logout'          => true,
+   //'privatekey'           => 'saml.pem',
+   //'certificate'          => 'saml.crt',
+   'signature.algorithm'  => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  ),    
+    
+
+
+
+'uwmdmkd-sp' => array(
+   'saml:SP',
+   'entityID'             => 'urn:mace:incommon:washington.edu', 
+   'idp'                  => 'https://idp.u.washington.edu/idp/profile/SAML2/POST/SSO',
+   'NameIDPolicy'         => null,
+   'redirect.sign'        => true,
+   'assertion.encryption' => true,
+   'sign.logout'          => true,
+   //'privatekey'           => 'saml.pem',
+   //'certificate'          => 'saml.crt',
+   'signature.algorithm'  => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+  ),    
+    
+
+
+
 
 );
+
+
+
+
+
+
+
+
