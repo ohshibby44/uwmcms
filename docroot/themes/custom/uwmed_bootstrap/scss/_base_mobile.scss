@@ -1062,6 +1062,9 @@ body {
         }
       }
     }
+    .field--name-field-address span.organization {
+      display: block;
+    }
   }
   .field--name-field-body,
   .field--name-field-text,
@@ -2590,7 +2593,8 @@ article.webform {
     }
     form {
       div.form-item-attach-a-photo,
-      div.form-item-attach-a-video {
+      div.form-item-attach-a-video,
+      div.form-item-event-attachments-and-documents {
         label {
           color: #000;
           @include encodesans-compressedsemibold;

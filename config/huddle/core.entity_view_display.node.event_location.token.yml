@@ -1,0 +1,27 @@
+uuid: 5676a1ee-4eb5-4a29-b10b-ea099a690908
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.token
+    - field.field.node.event_location.field_address
+    - field.field.node.event_location.field_campus
+    - node.type.event_location
+  module:
+    - address
+    - user
+id: node.event_location.token
+targetEntityType: node
+bundle: event_location
+mode: token
+content:
+  field_address:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+hidden:
+  field_campus: true
+  links: true
