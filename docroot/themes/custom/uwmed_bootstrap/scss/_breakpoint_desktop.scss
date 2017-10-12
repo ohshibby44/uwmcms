@@ -1598,6 +1598,25 @@ article.webform {
   }
 }
 
+//Webform Confirmation Message
+.webform-confirmation {
+  width: 100%;
+  max-width: 600px;
+  @include center-block();
+
+  header h1 {
+    margin-bottom: 36px;
+  }
+
+  .webform-confirmation-message {
+    p {
+      @include font-size(1.6, 2.4);
+      margin: 0 0 18px 0;
+    }
+  }
+}
+
+
 // Node Event Add Form
 .path-node-add-event {
   #block-uwmed-bootstrap-page-title {

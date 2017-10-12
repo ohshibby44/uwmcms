@@ -2673,6 +2673,22 @@ article.webform {
   }
 }
 
+//Webform Confirmation Page
+.webform-confirmation {
+  header h1 {
+    @include font-size(3.2, 3.6);
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .webform-confirmation-message {
+    p {
+      color: #000;
+      @include font-size(1.4, 2.1);
+      margin: 0 0 18px 0;
+    }
+  }
+}
 // User Forms
 .path-user {
   #block-uwmed-bootstrap-content {
