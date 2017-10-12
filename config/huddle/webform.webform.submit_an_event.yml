@@ -1,7 +1,12 @@
 uuid: bcca4832-dae3-42a8-9b68-f587164573f8
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 _core:
   default_config_hash: vhO5VU-JLcpTbh2-sWCs9Zj-h0c_4pjx-_8-koPrJE8
 open: null
@@ -12,7 +17,7 @@ id: submit_an_event
 title: 'Submit an Event'
 description: ''
 category: ''
-elements: "event_information:\n  '#type': fieldset\n  '#title': 'Event Information'\n  event_title:\n    '#type': textfield\n    '#title': 'Event Title'\n    '#required': true\n  event_start_time:\n    '#type': datetime\n    '#title': 'Event Start Time'\n    '#default_value': '[current-date:html_datetime]'\n  event_end_time:\n    '#type': webform_time\n    '#title': 'Event End Time'\n    '#description': 'If your event spans multiple days or has unique scheduling, please indicate that in the notes field below.&nbsp;'\n    '#description_display': after\n    '#time_format': 'g:i A'\n  event_description:\n    '#type': textarea\n    '#title': 'Event Description'\n  event_location:\n    '#type': webform_address\n    '#title': 'Event Location'\n    '#country__access': false\nyour_information:\n  '#type': fieldset\n  '#title': 'Your Information'\n  your_name:\n    '#type': webform_name\n    '#title': 'Your name'\n    '#required': true\n    '#title__access': false\n    '#first__required': true\n    '#middle__access': false\n    '#last__required': true\n    '#suffix__access': false\n    '#degree__access': false\n  confirm_email_address:\n    '#type': email\n    '#title': 'Email Address'\n    '#default_value': '[current-user:mail]'\n    '#required': true\n  internal_notes_and_description:\n    '#type': textarea\n    '#title': 'Internal Notes and Description'\nevent_images_and_attachments:\n  '#type': fieldset\n  '#title': 'Event Images and Attachments'\n  event_attachments_and_documents:\n    '#type': managed_file\n    '#title': 'Event Attachments and Documents'\n    '#multiple': true\ndisclaimer:\n  '#type': webform_markup\nrecaptcha:\n  '#type': captcha\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit an Event'\n"
+elements: "event_information:\n  '#type': fieldset\n  '#title': 'Event Information'\n  event_title:\n    '#type': textfield\n    '#title': 'Event Title'\n    '#required': true\n  event_start_time:\n    '#type': datetime\n    '#title': 'Event Start Time'\n    '#default_value': '[current-date:html_datetime]'\n  event_end_time:\n    '#type': webform_time\n    '#title': 'Event End Time'\n    '#description': 'If your event spans multiple days or has unique scheduling, please indicate that in the notes field below.&nbsp;'\n    '#description_display': after\n    '#time_format': 'g:i A'\n  event_description:\n    '#type': textarea\n    '#title': 'Event Description'\n  event_location:\n    '#type': webform_address\n    '#title': 'Event Location'\n    '#country__access': false\nyour_information:\n  '#type': fieldset\n  '#title': 'Your Information'\n  your_name:\n    '#type': webform_name\n    '#title': 'Your name'\n    '#required': true\n    '#title__access': false\n    '#first__required': true\n    '#middle__access': false\n    '#last__required': true\n    '#suffix__access': false\n    '#degree__access': false\n  confirm_email_address:\n    '#type': email\n    '#title': 'Email Address'\n    '#default_value': '[current-user:mail]'\n    '#required': true\n  internal_notes_and_description:\n    '#type': textarea\n    '#title': 'Internal Notes and Description'\nevent_images_and_attachments:\n  '#type': fieldset\n  '#title': 'Event Images and Attachments'\n  event_attachments_and_documents:\n    '#type': managed_file\n    '#title': 'Event Attachments and Documents'\n    '#multiple': true\ndisclaimer:\n  '#type': webform_markup\nrecaptcha:\n  '#type': captcha\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit Event'\n"
 css: ''
 javascript: ''
 settings:
@@ -60,9 +65,9 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
-  confirmation_title: ''
-  confirmation_message: "Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t pursue every story idea or publish every piece of content we receive. But please keep them coming.<br />\r\n<br />\r\nWhile you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>."
+  confirmation_type: page
+  confirmation_title: 'Thank you for your submission!'
+  confirmation_message: "<p>Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t pursue every story idea or publish every piece of content we receive. But please keep them coming.</p>\r\n\r\n<p>While you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>.</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -134,7 +139,7 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: default
+      subject: 'Event Submission from [webform_submission:values:your_name]'
       body: default
       excluded_elements: {  }
       ignore_access: false

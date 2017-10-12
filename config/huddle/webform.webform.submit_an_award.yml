@@ -1,7 +1,12 @@
 uuid: 5bc80be0-d5ba-475d-b2c0-3fd2897a7b61
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 _core:
   default_config_hash: '-ucMywuAqsjpsKqKeuSiW0d15c7qrvjyWQkkzlYZ2DQ'
 open: null
@@ -61,8 +66,8 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
-  confirmation_title: ''
-  confirmation_message: ''
+  confirmation_title: 'Thank you for your submission!'
+  confirmation_message: "<p>Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t pursue every story idea or publish every piece of content we receive. But please keep them coming.</p>\r\n\r\n<p>While you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>.</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -134,7 +139,7 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: default
+      subject: 'Award Submission from [webform_submission:values:your_name]'
       body: default
       excluded_elements: {  }
       ignore_access: false
