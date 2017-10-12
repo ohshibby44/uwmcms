@@ -66,6 +66,7 @@ module:
   lightning_media_video: 0
   lightning_page: 0
   link: 0
+  link_attributes: 0
   media_entity: 0
   media_entity_document: 0
   media_entity_image: 0

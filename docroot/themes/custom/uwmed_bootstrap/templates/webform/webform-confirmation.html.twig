@@ -15,11 +15,15 @@
 #}
 {{ attach_library('webform/webform.confirmation') }}
 <div{{ attributes.addClass('webform-confirmation') }}>
-  <article class="webform">
+  <article>
     <header>
-      <h1>{{ message }}</h1>
-      <h2>Thank You for your Submission</h2>
+      <h1>Thank You for your Submission</h1>
     </header>
+    <section class="content">
+      <div {{ attributes.addClass('webform-confirmation-message') }}>
+        {{ message }}
+      </div>
+    </section>
   </article>
 </div>
 

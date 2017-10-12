@@ -1,7 +1,12 @@
 uuid: acb1c928-2fd1-4c87-b56c-f668810f4a70
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 _core:
   default_config_hash: 4UKsLbDST9eOHM9Y09S_z78WkoMYeoZ6d9lSwtWE9-0
 open: null
@@ -12,7 +17,7 @@ id: submit_a_photo_or_video
 title: 'Submit a Photo or Video'
 description: ''
 category: ''
-elements: "introduction:\n  '#type': webform_markup\n  '#markup': \"We want your photos and videos! Is there something cool you or your co-workers do outside of work? Do you volunteer? Have you participated in a community event or organization? What great things are happening at work? Send us your images and show us!&nbsp;\\n<h3>A few things to keep in mind</h3>\\nPlease upload photos in .jpg, .png, or .tiff formats and video in .avi, .mov, .mp4, .ogg, .wav, or .webm.<br />\\n<br />\\nIf you&#39;re submitting a photo or video with a patient in it, please attach a consent form signed by the patient. Get one here. [link to release form]<br />\\n<br />\\nSharing a&nbsp;photo or video with&nbsp;friends&nbsp;or co-workers? Be kind and let them know!<br />\\n&nbsp;\"\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#required': true\n  '#title__access': false\n  '#first__required': true\n  '#middle__access': false\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\nattach_a_photo:\n  '#type': webform_image_file\n  '#title': 'Attach photos or videos'\n  '#multiple': 10\n  '#file_extensions': 'gif jpg png svg avi mov mp4 ogg wav webm'\nphoto_s_detail:\n  '#type': textarea\n  '#title': 'Photos detail'\n  '#description': \"<p>Does your photo include a patient? If so, please attach consent form here.&nbsp;<br />\\n<br />\\nProvide a caption or description of your photo.<br />\\n<br />\\nPlease identify all the people in your photo.</p>\"\n  '#counter_type': word\n  '#counter_maximum': '30'\ndisclaimer:\n  '#type': webform_markup\n  '#markup': '<p>Disclaimer language TBD &ndash; we will post selected photos (need better language, but want to work with compliance to make sure we&rsquo;re not saying the wrong thing.&nbsp;</p>'\nrecaptcha:\n  '#type': captcha\n"
+elements: "introduction:\n  '#type': webform_markup\n  '#markup': \"We want your photos and videos! Is there something cool you or your co-workers do outside of work? Do you volunteer? Have you participated in a community event or organization? What great things are happening at work? Send us your images and show us!&nbsp;\\n<h3>A few things to keep in mind</h3>\\nPlease upload photos in .jpg, .png, or .tiff formats and video in .avi, .mov, .mp4, .ogg, .wav, or .webm.<br />\\n<br />\\nIf you&#39;re submitting a photo or video with a patient in it, please attach a consent form signed by the patient. Get one here. [link to release form]<br />\\n<br />\\nSharing a&nbsp;photo or video with&nbsp;friends&nbsp;or co-workers? Be kind and let them know!<br />\\n&nbsp;\"\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#required': true\n  '#title__access': false\n  '#first__required': true\n  '#middle__access': false\n  '#last__required': true\n  '#suffix__access': false\n  '#degree__access': false\nemail_address:\n  '#type': email\n  '#title': 'Email address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\nattach_a_photo:\n  '#type': webform_image_file\n  '#title': 'Attach photos or videos'\n  '#multiple': 10\n  '#file_extensions': 'gif jpg png svg avi mov mp4 ogg wav webm'\nphoto_s_detail:\n  '#type': textarea\n  '#title': 'Photos detail'\n  '#description': \"<p>Does your photo include a patient? If so, please attach consent form here.&nbsp;<br />\\n<br />\\nProvide a caption or description of your photo.<br />\\n<br />\\nPlease identify all the people in your photo.</p>\"\n  '#counter_type': word\n  '#counter_maximum': '30'\n"
 css: ''
 javascript: ''
 settings:
@@ -60,9 +65,9 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
-  confirmation_title: ''
-  confirmation_message: "Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t publish every piece of content we receive. But please keep them coming.<br />\r\n<br />\r\nWhile you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>."
+  confirmation_type: page
+  confirmation_title: 'Thank you for your submission!'
+  confirmation_message: "<p>Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t publish every piece of content we receive. But please keep them coming.</p>\r\n\r\n<p>While you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>.</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -134,7 +139,7 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: default
+      subject: 'Photo/Video Submission from [webform_submission:values:your_name]'
       body: "Submitted on [webform_submission:created]<br />\nSubmitted by: [webform_submission:user]<br />\n<br />\nSubmitted values are:<br />\n[webform_submission:values]<br />\n<br />\nView the submission<br />\n[webform_submission:node]<br />\n<br />\nSubmisstion form used<br />\n[webform_submission:source-url]"
       excluded_elements: {  }
       ignore_access: false

@@ -667,6 +667,14 @@
         }
       }
     }
+    .node.event-location {
+      .content {
+        padding-bottom: 20px;
+      }
+      .field--name-field-address span.organization {
+        display: block;
+      }
+    }
   }
   section.content {
     margin: 0;
@@ -1571,7 +1579,8 @@ article.webform {
         padding-right: 105px;
       }
       div.form-item-attach-a-photo,
-      div.form-item-attach-a-video {
+      div.form-item-attach-a-video,
+      div.form-item-event-attachments-and-documents {
         margin-top: 28px;
         margin-bottom: 28px;
         label {
@@ -1588,6 +1597,25 @@ article.webform {
     }
   }
 }
+
+//Webform Confirmation Message
+.webform-confirmation {
+  width: 100%;
+  max-width: 600px;
+  @include center-block();
+
+  header h1 {
+    margin-bottom: 36px;
+  }
+
+  .webform-confirmation-message {
+    p {
+      @include font-size(1.6, 2.4);
+      margin: 0 0 18px 0;
+    }
+  }
+}
+
 
 // Node Event Add Form
 .path-node-add-event {

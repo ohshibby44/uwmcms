@@ -73,3 +73,4 @@ We have a Slack channel for discussing development on the multisite platform at:
 
 * Brian Tofte-Schumacher
 * Nick Meyer
+

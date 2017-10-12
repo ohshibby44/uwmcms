@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event_location.field_address
+    - field.field.node.event_location.field_campus
     - node.type.event_location
   module:
     - user
@@ -15,4 +17,8 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_address: true
+  field_campus: true
