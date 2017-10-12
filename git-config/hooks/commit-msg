@@ -33,12 +33,12 @@ if [ $? -ne 0 ]; then
 fi
 
 # Validate the commit message.
-regex="^${PREFIX}-[a-zA-Z]+( [0-9]+)?(: ).{15,}\."
+regex="^${PREFIX}-[a-zA-Z]+( [0-9]+)?(: ).{15,}\.?"
 if ! grep -iqE "$regex" "$1"; then
   printf "${RED}Error: invalid commit message!${NO_COLOR} Commit messages must:\n"
   echo "* Contain the project prefix followed by a hyphen"
   echo "* Contain a multisite abbreviation and optionally a ticket number, followed by a colon and a space"
-  echo "* Be at least 15 characters long and not end in a period."
+  echo "* Be at least 15 characters long and optionally end in a period."
   echo "Valid example: $PREFIX-ORG 135: Added the new picture field to the article feature."
   exit 1;
 fi
