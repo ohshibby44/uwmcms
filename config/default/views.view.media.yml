@@ -1,4 +1,4 @@
-uuid: a3ae6da1-3a67-4bda-b17b-8146e1e9bc3c
+uuid: a608f7ec-f0b5-4bc8-842d-03e11c3a8bcb
 langcode: en
 status: true
 dependencies:
@@ -981,6 +981,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          selection_type: radio
           entity_type: media
           plugin_id: entity_browser_select
       filters:
@@ -1239,7 +1240,7 @@ display:
             operation: view
             multiple: 1
             access: false
-            bundles: {  }
+            bundles: null
           glossary: false
           limit: 0
           case: none
@@ -1404,6 +1405,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          selection_type: radio
           entity_type: file
           plugin_id: entity_browser_select
       filters:

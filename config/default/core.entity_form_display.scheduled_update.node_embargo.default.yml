@@ -1,4 +1,4 @@
-uuid: 06fe8423-9945-4080-aac4-a57af02db3ee
+uuid: 5138ef65-2f26-454a-9d59-f34f15c1e4d9
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.field.scheduled_update.node_embargo.field_moderation_state
     - scheduled_updates.scheduled_update_type.node_embargo
 _core:
-  default_config_hash: sfTbuGzexBcVRuYlqyKZVcsgPVA0yNL2n2qRpszxT44
+  default_config_hash: XLM4XxWVsRabgIZ4Wt5dwKtYQJzf82ddxM1k4SpkCxw
 id: scheduled_update.node_embargo.default
 targetEntityType: scheduled_update
 bundle: node_embargo

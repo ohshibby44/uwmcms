@@ -1,4 +1,4 @@
-uuid: b15c4a83-fe57-4142-9562-b82b4f462e0e
+uuid: 129ef1f5-ba95-4a93-9973-e4110b19de5f
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: BNCWIy2TNwrd5BVVwW9vkr0Z0G8rkzW8E8usi54lxZc
+  default_config_hash: REvJbUqTIymX9RPtmwNz2c13OKbrTk8Y3UfJWXLl8CY
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -90,4 +90,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  panelizer: true

@@ -1,4 +1,4 @@
-uuid: 1c36b9a5-5f85-490a-b2ad-9dc8a842f197
+uuid: 4a4bd4fc-5747-4e24-8cfe-57044555b3ec
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - video_embed_field
 _core:
-  default_config_hash: pCyOYJ-kpTluUnUP9MbX1DLjksZ1hYisO4myHIRA5zw
+  default_config_hash: _5zVhxHLl7qwxArEds2R869aXPHs3Ow8_nhjZIEqsKU
 id: media.video.embedded
 targetEntityType: media
 bundle: video
@@ -22,8 +22,8 @@ content:
     label: hidden
     settings:
       responsive: true
-      width: 854
-      height: 480
+      width: '854'
+      height: '480'
       autoplay: true
     third_party_settings: {  }
     region: content

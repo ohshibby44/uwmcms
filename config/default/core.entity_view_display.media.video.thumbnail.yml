@@ -1,4 +1,4 @@
-uuid: 9272f664-e893-40fd-8a66-c113419f3f26
+uuid: e245d9aa-b88d-4337-ada6-2523bf360859
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: LcO_Rcicj53mLH6DeZsNyiqiBDre7FyGDSqvV-6ckRA
+  default_config_hash: YYjXdbJlDPstaM_01u9gtRl0omj7CthRWDIbcDTMq4s
 id: media.video.thumbnail
 targetEntityType: media
 bundle: video

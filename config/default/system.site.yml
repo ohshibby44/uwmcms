@@ -1,11 +1,11 @@
-uuid: 6eebdbb9-09b4-47d8-81ac-806a91082010
-name: Drupal
-mail: ''
-slogan: ''
+uuid: 88572f11-c662-4b21-83e1-ad224859c823
+name: uwmc
+mail: uwmweb@uw.edu
+slogan: 'Welcome to UWMCS'
 page:
   403: ''
   404: ''
-  front: /node
+  front: /user/login
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

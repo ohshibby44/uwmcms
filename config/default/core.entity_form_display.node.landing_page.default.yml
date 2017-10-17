@@ -1,4 +1,4 @@
-uuid: 75c52ebf-61f0-473e-89a7-e04ea76a4ccf
+uuid: 4434d0bb-2e9a-4b4d-8f70-70f9acc85925
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: c5n5IgEMLSCUYwGRrWn_ieo5NWBzXFFSeSAa29s9pas
+  default_config_hash: 658OxnThZDJNTMwfVL51KR09bExMoLbffKAVMuPLBe8
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page

@@ -1,4 +1,4 @@
-uuid: 2406f9ca-81b8-46a8-88a5-8b496e6e2fcf
+uuid: 98035435-b152-4619-9b13-f5871f0dd903
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - text
     - workbench_moderation
 _core:
-  default_config_hash: S0f54eS7by2OoFl_NrvBK9UGTPx51cktxKhvwMy0Jls
+  default_config_hash: GAd7hovzsOttC5L0PaiDTGKalT2YHmbSm3Adn3aYl2M
 id: block_content.basic.default
 targetEntityType: block_content
 bundle: basic

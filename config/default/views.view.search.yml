@@ -1,4 +1,4 @@
-uuid: daa739e0-f2de-4060-89d7-0940b189e3ad
+uuid: 612c4ad1-e7dd-4671-bfbe-4466379730ab
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 _core:
-  default_config_hash: 8eXHpZgzJ58fVmB7evA4TNESdXWjMOW9AFPYSxEimE4
+  default_config_hash: EFeSonDEYlJ87HtC9TY2EUkUhXoN8fEwoW4wdzOq7cQ
 id: search
 label: Search
 module: views
@@ -35,6 +35,9 @@ display:
           output_lifespan_custom: 0
       query:
         type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
       exposed_form:
         type: input_required
         options:

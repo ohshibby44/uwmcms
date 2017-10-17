@@ -1,4 +1,4 @@
-uuid: 6e1fee01-2352-4c50-a79b-dce912ba20c8
+uuid: 5b5d2559-1b6d-405e-820b-d652e6603102
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
     - file
     - workbench_moderation
 _core:
-  default_config_hash: K5QiIC30jxqja4WpUuubIcbFH-oyKadFhtPNyw-zQjw
+  default_config_hash: EGRJ6_Dm5pTTstS1dePv5ZkrzjxBvdgAIuKS9NKAAaA
 id: media.document.default
 targetEntityType: media
 bundle: document

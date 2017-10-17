@@ -1,4 +1,4 @@
-uuid: 02869f2d-bf37-4ea7-bf22-7f6a0deb81f1
+uuid: 261c3ac9-faf8-41ce-9908-4247c591b5e3
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - lightning_media
     - views
 _core:
-  default_config_hash: 7TN81G7zJTqyagUrJkyt6C0NIYw4yeKlrnOoX_OfAuE
+  default_config_hash: CtX33aXTrSjk88TmWW-MLn2cIfuBbj-k7y8XHFs5Nsw
 name: image_browser
 label: 'Image Browser'
 display: modal

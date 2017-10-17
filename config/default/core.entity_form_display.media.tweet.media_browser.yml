@@ -1,4 +1,4 @@
-uuid: 76abad1e-bd68-4f2b-8ace-78c75f5a44aa
+uuid: f4e47990-7d3c-430d-b5ee-232a1a8e3b93
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - workbench_moderation
 _core:
-  default_config_hash: WYt7qUipUVviLaZYZEdzc047DMFB_ghGY8gwU0OenB0
+  default_config_hash: iAP5EaBYx55L560b3u9Uyz2RF2GbwtLgzgy0Z33kBck
 id: media.tweet.media_browser
 targetEntityType: media
 bundle: tweet

@@ -1,9 +1,9 @@
-uuid: 3b7ce95d-bb0e-4f07-944c-da670f016e76
+uuid: 72f4e7e4-8613-4f94-b6cb-072cf4f178c7
 langcode: en
 status: true
 dependencies:
   module:
-    - lightning_workflow
+    - lightning_scheduled_updates
     - menu_ui
     - workbench_moderation
 third_party_settings:
@@ -19,7 +19,7 @@ third_party_settings:
       - needs_review
       - published
     default_moderation_state: draft
-  lightning_workflow:
+  lightning_scheduled_updates:
     embargo: true
 _core:
   default_config_hash: w4w704fK55VMBXppvSopFSIWDgwzfa2_ph3tfAcEES8

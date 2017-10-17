@@ -1,4 +1,4 @@
-uuid: 4406a236-7956-4a22-9285-3e8421e8707e
+uuid: d2e18965-b0ae-408a-a402-0b1ae3db4ce6
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - lightning_media
     - views
 _core:
-  default_config_hash: D9N3yb_9pTuhS5RYJ2c7eFzHgtexTWA07Ij5oCyshpQ
+  default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
 name: media_browser
 label: 'Media browser'
 display: iframe
@@ -17,6 +17,7 @@ display_configuration:
   height: '640'
   link_text: 'Select entities'
   auto_open: true
+  path: /media-browser
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs

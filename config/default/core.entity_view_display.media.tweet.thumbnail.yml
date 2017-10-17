@@ -1,4 +1,4 @@
-uuid: ea9b8096-5118-4dc9-9bb8-9d62c16b0ce6
+uuid: 69275c4c-8a20-4ea4-b8e6-2674bc936892
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: 5pv083fNbh3DVIvTdTrOWxd232mXQ1zz6EA3nq3Xk0o
+  default_config_hash: qZPVLV0vvVvfm7VUTy4qTRJR7ZytVPwvUT7j95HUScs
 id: media.tweet.thumbnail
 targetEntityType: media
 bundle: tweet

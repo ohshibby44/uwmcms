@@ -1,4 +1,4 @@
-uuid: d262dd0d-dde3-4c37-8660-2c8982c867c6
+uuid: 6916e918-1609-40bc-aec4-fda494ec9d48
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - image
     - workbench_moderation
 _core:
-  default_config_hash: i8n8ZG9FN7dla2mgdxzezUBX7qa1Y7wIuh_yKNHnv8c
+  default_config_hash: 3sayyMrnuL8vsG48ckrv-6c4o1uDeQLY15D3l7rtslY
 id: media.image.default
 targetEntityType: media
 bundle: image

@@ -1,4 +1,4 @@
-uuid: b80f8fb9-c87f-45b3-b10b-6d4d6fc9481e
+uuid: 6a1589be-b437-43c1-bbe3-9152305fa8fd
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
   module:
     - workbench_moderation
 _core:
-  default_config_hash: 3iEda9a4O9kdUm0srWixIp38YeSTbmYgKoaq143S34c
+  default_config_hash: jDN_C9WDRGh8kbivibYIFFgSscT2mELFjSQGoCppakY
 id: media.instagram.default
 targetEntityType: media
 bundle: instagram

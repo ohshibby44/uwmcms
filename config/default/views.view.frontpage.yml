@@ -1,4 +1,3 @@
-uuid: null
 langcode: en
 status: true
 dependencies:
@@ -106,7 +105,7 @@ display:
           operator: '='
           relationship: none
           table: node_field_data
-          value: '1'
+          value: true
           plugin_id: boolean
           entity_type: node
           entity_field: promote

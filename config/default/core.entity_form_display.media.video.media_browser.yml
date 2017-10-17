@@ -1,4 +1,4 @@
-uuid: db9564c7-6fba-4d8a-88b5-00dcaf2e608a
+uuid: 3bcafbc3-5a6b-47ef-b494-7f6ec86dfbe8
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ dependencies:
   module:
     - workbench_moderation
 _core:
-  default_config_hash: bT-1GVDCqbf6or0Qoc7zZ8bS8bnXdwdyl4jwAi-psC8
+  default_config_hash: ggUvzzCujjyCEfAyWiJyvfcbQdARZ9_0vH9wGeGHbqo
 id: media.video.media_browser
 targetEntityType: media
 bundle: video
