@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Installation functions for Lorem ipsum module.
+ * Installation functions for UWMCS JSON Reader module.
  */
 
 use Drupal\user\RoleInterface;
@@ -10,8 +10,8 @@ use Drupal\user\RoleInterface;
 /**
  * Implements hook_install().
  */
-function loremipsum_install() {
+function uwmcs_reader_install() {
   user_role_change_permissions(RoleInterface::ANONYMOUS_ID, [
-    'generate lorem ipsum' => TRUE,
+    'generate uwmcs reader' => TRUE,
   ]);
 }

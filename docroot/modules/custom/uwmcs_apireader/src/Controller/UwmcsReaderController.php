@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\loremipsum\Controller;
+namespace Drupal\uwmcs_reader\Controller;
 
 // Change following https://www.drupal.org/node/2457593
 // See https://www.drupal.org/node/2549395 for deprecate methods information
@@ -9,15 +9,15 @@ use Drupal\Component\Utility\Html;
 
 // Use Html instead SAfeMarkup.
 /**
- * Controller routines for Lorem ipsum pages.
+ * Controller routines for UWMCS JSON Reader pages.
  */
-class LoremIpsumController {
+class UwmcsReaderController {
 
   /**
-   * Constructs Lorem ipsum text with arguments.
+   * Constructs UWMCS JSON Reader text with arguments.
    *
    * This callback is mapped to the path
-   * 'loremipsum/generate/{paragraphs}/{phrases}'.
+   * 'uwmcs_reader/generate/{paragraphs}/{phrases}'.
    *
    * @param string $paragraphs
    *   The amount of paragraphs that need to be generated.
@@ -27,10 +27,10 @@ class LoremIpsumController {
   public function generate($paragraphs, $phrases) {
 
     // Default settings.
-    $config = \Drupal::config('loremipsum.settings');
+    $config = \Drupal::config('uwmcs_reader.settings');
     // Page title and source text.
-    $page_title = $config->get('loremipsum.page_title');
-    $source_text = $config->get('loremipsum.source_text');
+    $page_title = $config->get('uwmcs_reader.page_title');
+    $source_text = $config->get('uwmcs_reader.source_text');
 
     $repertory = explode(PHP_EOL, $source_text);
 
@@ -61,7 +61,7 @@ class LoremIpsumController {
     $element['#title'] = Html::escape($page_title);
 
     // Theme function.
-    $element['#theme'] = 'loremipsum';
+    $element['#theme'] = 'uwmcs_reader';
 
     return $element;
   }

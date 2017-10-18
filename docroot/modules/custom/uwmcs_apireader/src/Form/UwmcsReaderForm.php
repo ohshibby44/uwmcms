@@ -1,20 +1,20 @@
 <?php
 
-namespace Drupal\loremipsum\Form;
+namespace Drupal\uwmcs_reader\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Controller routines for Lorem ipsum pages.
+ * Controller routines for UWMCS JSON Reader pages.
  */
-class LoremIpsumForm extends ConfigFormBase {
+class UwmcsReaderForm extends ConfigFormBase {
 
   /**
-   * Constructs Lorem ipsum text with arguments.
+   * Constructs UWMCS JSON Reader text with arguments.
    */
   public function getFormId() {
-    return 'loremipsum_form';
+    return 'uwmcs_reader_form';
   }
 
   /**
@@ -24,19 +24,19 @@ class LoremIpsumForm extends ConfigFormBase {
     // Form constructor.
     $form = parent::buildForm($form, $form_state);
     // Default settings.
-    $config = $this->config('loremipsum.settings');
+    $config = $this->config('uwmcs_reader.settings');
     // Page title field.
     $form['page_title'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Lorem ipsum generator page title:'),
-      '#default_value' => $config->get('loremipsum.page_title'),
-      '#description' => $this->t('Give your lorem ipsum generator page a title.'),
+      '#title' => $this->t('UWMCS JSON Reader generator page title:'),
+      '#default_value' => $config->get('uwmcs_reader.page_title'),
+      '#description' => $this->t('Give your uwmcs reader generator page a title.'),
     ];
     // Source text field.
     $form['source_text'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Source text for lorem ipsum generation:'),
-      '#default_value' => $config->get('loremipsum.source_text'),
+      '#title' => $this->t('Source text for uwmcs reader generation:'),
+      '#default_value' => $config->get('uwmcs_reader.source_text'),
       '#description' => $this->t('Write one sentence per line. Those sentences will be used to generate random text.'),
     ];
 
@@ -54,9 +54,9 @@ class LoremIpsumForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = $this->config('loremipsum.settings');
-    $config->set('loremipsum.source_text', $form_state->getValue('source_text'));
-    $config->set('loremipsum.page_title', $form_state->getValue('page_title'));
+    $config = $this->config('uwmcs_reader.settings');
+    $config->set('uwmcs_reader.source_text', $form_state->getValue('source_text'));
+    $config->set('uwmcs_reader.page_title', $form_state->getValue('page_title'));
     $config->save();
     return parent::submitForm($form, $form_state);
   }
@@ -66,7 +66,7 @@ class LoremIpsumForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'loremipsum.settings',
+      'uwmcs_reader.settings',
     ];
   }
 

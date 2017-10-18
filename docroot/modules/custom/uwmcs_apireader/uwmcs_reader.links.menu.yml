@@ -1,0 +1,5 @@
+uwmcs_reader.form:
+  title: 'UWMCS Reader settings'
+  description: 'Configure settings for the UWMCS Reader module.'
+  route_name: uwmcs_reader.form
+  parent: 'system.admin_config_development'
