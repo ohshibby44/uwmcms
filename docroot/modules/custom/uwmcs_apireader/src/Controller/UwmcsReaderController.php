@@ -13,6 +13,22 @@ use Drupal\Component\Utility\Html;
  */
 class UwmcsReaderController {
 
+
+  /**
+   * Returns a simple page.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function welcomePage() {
+    $element = array(
+      '#markup' => 'Hello, world',
+    );
+
+    return $element;
+  }
+
+
   /**
    * Constructs UWMCS JSON Reader text with arguments.
    *

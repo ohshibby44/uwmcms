@@ -1,2 +1,2 @@
-generate uwmcs reader:
-  title: 'Generate UWMCS JSON Reader'
+administer uwmcs_reader:
+  title: 'Administer UWMCS JSON Reader'

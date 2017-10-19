@@ -1,7 +1,13 @@
 name: UWMCS JSON Reader
 type: module
 description: 'UWMCS module to read remote JSON for theming'
-package: Development
+package: Custom
+
+type: module
 core: 8.x
+
+dependencies:
+  - link:link
+  - drupal:views
+
 configure: uwmcs_reader.form
-cd

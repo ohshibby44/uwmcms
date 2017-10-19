@@ -1,12 +1,23 @@
+uwmcs.welcome:
+  path: '/admin/config/uwmcms'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::welcomePage'
+  requirements:
+    _permission: 'administer site configuration'
+uwmcs_reader.welcome:
+  path: '/admin/config/uwmcms/uwmcs_reader'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::welcomePage'
+  requirements:
+    _permission: 'administer site configuration'
 uwmcs_reader.generate:
-  path: 'uwmcs_reader/generate/{paragraphs}/{phrases}'
+  path: '/admin/config/uwmcms/uwmcs_reader/generate/{paragraphs}/{phrases}'
   defaults:
     _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::generate'
   requirements:
-    _permission: 'generate uwmcs reader'
-
+    _permission: 'administer uwmcs_reader'
 uwmcs_reader.form:
-  path: '/admin/config/development/uwmcs_reader'
+  path: '/admin/config/uwmcms/uwmcs_reader/settings'
   defaults:
     _form: 'Drupal\uwmcs_reader\Form\UwmcsReaderForm'
     _title: 'UWMCS JSON Reader settings'
