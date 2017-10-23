@@ -4,6 +4,7 @@ uwmcs.welcome:
     _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::welcomePage'
   requirements:
     _permission: 'administer site configuration'
+#
 uwmcs_reader.welcome:
   path: '/admin/config/uwmcms/uwmcs_reader'
   defaults:
@@ -23,3 +24,16 @@ uwmcs_reader.form:
     _title: 'UWMCS JSON Reader settings'
   requirements:
     _permission: 'administer site configuration'
+#
+uwmcs_reader.provider:
+  path: '/provider/{provider}'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::renderProvider'
+  requirements:
+    _permission: 'access content'
+uwmcs_reader.clinic:
+  path: '/clinic/{clinic}'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::renderClinic'
+  requirements:
+    _permission: 'access content'

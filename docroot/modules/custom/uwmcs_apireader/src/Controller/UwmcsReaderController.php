@@ -2,12 +2,13 @@
 
 namespace Drupal\uwmcs_reader\Controller;
 
-// Change following https://www.drupal.org/node/2457593
-// See https://www.drupal.org/node/2549395 for deprecate methods information
-// use Drupal\Component\Utility\SafeMarkup;.
+/***
+ * See https://www.drupal.org/docs/8/api/
+ * routing-system/parameter-upcasting-in-routes
+ *
+ */
 use Drupal\Component\Utility\Html;
 
-// Use Html instead SAfeMarkup.
 /**
  * Controller routines for UWMCS JSON Reader pages.
  */
@@ -21,13 +22,59 @@ class UwmcsReaderController {
    *   A simple renderable array.
    */
   public function welcomePage() {
-    $element = array(
+
+    $element = [
       '#markup' => 'Hello, world',
-    );
+    ];
 
     return $element;
   }
 
+  /**
+   * Returns a simple page element.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function renderProvider() {
+
+    $element = [];
+
+    $url = self::$informationManagerApiUrl . '/bioinformation/233599';
+    $response = Request::get($url)
+      ->expectsJson()
+      ->withXTrivialHeader('Just as a demo')
+      ->send();
+
+    $element['#markup'] = "{$response->body->fullName} ....." .
+      "has the following body text:<br><br>{$response->body->fullBio}";
+
+    return $element;
+
+  }
+
+  /**
+   * Returns a simple page element.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function renderClinic() {
+
+    $element = [];
+
+    $url = self::$informationManagerApiUrl . '/clinic/5365';
+    $response = Request::get($url)
+      ->expectsJson()
+      ->withXTrivialHeader('Just as a demo')
+      ->send();
+
+    $element['#markup'] = "{$response->body->name} \n" .
+      "has the following address:<br><br>{$response->body->address}";
+
+    return $element;
+
+  }
 
   /**
    * Constructs UWMCS JSON Reader text with arguments.
@@ -75,8 +122,7 @@ class UwmcsReaderController {
 
     // $element['#title'] = SafeMarkup::checkPlain($page_title);
     $element['#title'] = Html::escape($page_title);
-
-    // Theme function.
+    $element['#markup'] = implode('<br><br>', $element['#source_text']);
     $element['#theme'] = 'uwmcs_reader';
 
     return $element;

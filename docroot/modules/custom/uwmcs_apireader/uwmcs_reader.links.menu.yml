@@ -3,13 +3,14 @@ uwmcs.admin:
   description: 'Configure settings for UW Medicine group modules.'
   route_name: uwmcs.welcome
   parent: 'system.admin_config'
+  weight: 1000
 uwmcs_reader.welcome:
   title: 'UWMCS Reader administration'
   route_name: uwmcs_reader.welcome
   parent: uwmcs.admin
 uwmcs_reader.links1:
   title: 'Information Manager (IM) administration'
-  parent: system.admin_config_development
+  parent: uwmcs.admin
   url: https://apps.uwmedicine.org/
 uwmcs_reader.form:
   title: 'UWMCS Reader form'
