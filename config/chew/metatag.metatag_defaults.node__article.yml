@@ -6,5 +6,28 @@ id: node__article
 label: 'Content: Article'
 tags:
   description: '[node:field_long_summary]'
-  og_description: '[node:field_long_summary]'
-  og_image: '[node:field_primary_media:entity:image]'
+  title: '[node:title] | Right as Rain by UW Medicine'
+  article_modified_time: '[node:changed:html_datetime]'
+  article_published_time: '[node:created:html_datetime]'
+  article_publisher: 'https://www.facebook.com/uwmedicinenews'
+  og_description: '[node:field_short_summary:value]'
+  og_image: '[node:field_primary_media:entity:image:large]'
+  og_image_height: '[node:field_primary_media:entity:image:large:height]'
+  og_image_type: image/jpeg
+  og_image_width: '[node:field_primary_media:entity:image:large:width]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'
+  og_type: article
+  og_updated_time: '[node:changed:html_datetime]'
+  og_url: '[node:url]'
+  twitter_cards_description: '[node:field_short_summary:value]'
+  twitter_cards_image: '[node:field_primary_media:entity:image:large]'
+  twitter_cards_image_alt: '[node:field_primary_media:entity:image:alt]'
+  twitter_cards_image_height: '[node:field_primary_media:entity:image:large:height]'
+  twitter_cards_image_width: '[node:field_primary_media:entity:image:large:width]'
+  twitter_cards_page_url: '[node:url]'
+  twitter_cards_site: '@uwmedicine'
+  twitter_cards_site_id: '36784717'
+  twitter_cards_title: '[node:title]'
+  twitter_cards_type: summary_large_image
+  pinterest: fc65f3056ef84707b8c2893d3b4c119f
