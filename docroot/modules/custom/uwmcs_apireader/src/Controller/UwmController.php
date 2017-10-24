@@ -8,12 +8,27 @@ namespace Drupal\uwmcs_reader\Controller;
  *
  */
 use Drupal\Component\Utility\Html;
+use Drupal\uwmcs_reader\UwmApiFetch;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
  */
-class UwmcsReaderController {
+class UwmController {
 
+  private $requestUri;
+
+  private $requestArgs;
+
+  /***
+   * UwmController constructor.
+   *
+   */
+  public function __construct() {
+
+    $this->requestUri = \Drupal::request()->getRequestUri();
+    $this->requestArgs = explode('/', $this->requestUri);
+
+  }
 
   /**
    * Returns a simple page.
@@ -40,14 +55,19 @@ class UwmcsReaderController {
 
     $element = [];
 
-    $url = self::$informationManagerApiUrl . '/bioinformation/233599';
-    $response = Request::get($url)
-      ->expectsJson()
-      ->withXTrivialHeader('Just as a demo')
-      ->send();
+    if ($this->requestArgs[0] === 'providers') {
 
-    $element['#markup'] = "{$response->body->fullName} ....." .
-      "has the following body text:<br><br>{$response->body->fullBio}";
+      $reader = new UwmFetcher();
+      $provider = $reader->findProvider($this->requestArgs[1]);
+
+      if (!empty($provider->fullName)) {
+
+        $element['#markup'] = "{$provider->fullName} ....." .
+          "has the following body text:<br><br>{$provider->fullBio}";
+
+      }
+
+    }
 
     return $element;
 
@@ -63,14 +83,19 @@ class UwmcsReaderController {
 
     $element = [];
 
-    $url = self::$informationManagerApiUrl . '/clinic/5365';
-    $response = Request::get($url)
-      ->expectsJson()
-      ->withXTrivialHeader('Just as a demo')
-      ->send();
+    if ($this->requestArgs[0] === 'providers') {
 
-    $element['#markup'] = "{$response->body->name} \n" .
-      "has the following address:<br><br>{$response->body->address}";
+      $reader = new UwmFetcher();
+      $provider = $reader->findProvider($this->requestArgs[1]);
+
+      if (!empty($provider->fullName)) {
+
+        $element['#markup'] = "{$provider->name} ....." .
+          "has the following address:<br><br>{$provider->address}";
+
+      }
+
+    }
 
     return $element;
 

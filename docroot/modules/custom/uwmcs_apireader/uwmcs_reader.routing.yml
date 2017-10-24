@@ -1,20 +1,20 @@
 uwmcs.welcome:
   path: '/admin/config/uwmcms'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::welcomePage'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::welcomePage'
   requirements:
     _permission: 'administer site configuration'
 #
 uwmcs_reader.welcome:
   path: '/admin/config/uwmcms/uwmcs_reader'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::welcomePage'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::welcomePage'
   requirements:
     _permission: 'administer site configuration'
 uwmcs_reader.generate:
   path: '/admin/config/uwmcms/uwmcs_reader/generate/{paragraphs}/{phrases}'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::generate'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::generate'
   requirements:
     _permission: 'administer uwmcs_reader'
 uwmcs_reader.form:
@@ -28,12 +28,12 @@ uwmcs_reader.form:
 uwmcs_reader.provider:
   path: '/provider/{provider}'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::renderProvider'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderProvider'
   requirements:
     _permission: 'access content'
 uwmcs_reader.clinic:
   path: '/clinic/{clinic}'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmcsReaderController::renderClinic'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderClinic'
   requirements:
     _permission: 'access content'
