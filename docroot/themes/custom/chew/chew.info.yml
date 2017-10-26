@@ -23,4 +23,5 @@ libraries:
   - 'chew/global-styles'
   - 'chew/global-scripts'
   - 'chew/bootstrap-scripts'
+  - 'chew/subscribe-form-validation'
   - 'chew/google-fonts'

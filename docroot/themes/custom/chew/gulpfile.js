@@ -10,7 +10,8 @@ var
     ],
     javascriptFiles: [
       'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js',
-      'node_modules/stickybits/dist/*.js'
+      'node_modules/stickybits/dist/*.js',
+      'node_modules/jquery-validation/dist/jquery.validate.*.js'
     ],
     fontFiles: [
       'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
