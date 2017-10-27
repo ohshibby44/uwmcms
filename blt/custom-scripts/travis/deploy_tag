@@ -2,6 +2,8 @@
 
 set -ev
 
+blt frontend -D site=chew
+
 blt deploy --commit-msg "Automated commit by Travis CI for Build ${TRAVIS_TAG}" --tag "${TRAVIS_TAG}-build" --ignore-dirty -v
 
 set +v
