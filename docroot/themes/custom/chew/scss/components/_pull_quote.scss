@@ -35,10 +35,10 @@
     }
     @media (max-width: $screen-xs) {
       font-size: $font-size-base-xs * 1.25;
-      padding-left: ceil(($font-size-base-xs * 1.5));
+      padding-left: ceil(($font-size-base-xs * .8));
       &:before {
-        font-size: ceil(($font-size-base-xs * 3));
-        margin-top: -5px;
+        font-size: ceil(($font-size-base-xs * 1.5));
+        margin-top: 5px;
       }
       &:after {
         font-size: ceil(($font-size-base-xs * 1.5));

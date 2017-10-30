@@ -24,10 +24,18 @@ function chew_theme_suggestions_page_alter(&$suggestions, $variables) {
  * Implements hook_preprocess_HOOK() for page templates.
  */
 function chew_preprocess_page(&$variables) {
-  // If this is an Article node page, add the chew/sharethis library.
   if ($node = \Drupal::request()->attributes->get('node')) {
+    // If this is an Article node page, add the chew/sharethis library.
     if ($node->getType() == 'article') {
       $variables['#attached']['library'][] = 'chew/sharethis';
+    }
+
+    // If the page path is /subscribe, add the
+    // chew/subscribe-form-error-messages library.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    if ($alias == '/subscribe') {
+      $variables['#attached']['library'][] = 'chew/subscribe-form-error-messages';
     }
   }
 }

@@ -1,7 +1,12 @@
 uuid: ae4420d9-8614-4197-8fc7-de61c91f52cd
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - honeypot
+third_party_settings:
+  honeypot:
+    honeypot: true
 _core:
   default_config_hash: XhlE8TBzggRnSOuSXhdd0WgLI3FMvwK60RO3WZ26iT4
 open: null
@@ -60,9 +65,9 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: message
-  confirmation_title: ''
-  confirmation_message: 'Thank you for your submission! Check back next week to read your colleagues&#39; answers.&nbsp;'
+  confirmation_type: page
+  confirmation_title: 'Thank you for your submission!'
+  confirmation_message: '<p>Thank you for your submission! Check back next week to read your colleagues&#39; answers.&nbsp;</p>'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -134,7 +139,7 @@ handlers:
       from_mail: default
       from_options: {  }
       from_name: default
-      subject: default
+      subject: 'Answer Submission from [webform_submission:values:your_name]'
       body: default
       excluded_elements: {  }
       ignore_access: false

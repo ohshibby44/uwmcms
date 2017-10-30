@@ -108,7 +108,7 @@ class ChewFieldItemListNormalizer extends FieldItemListNormalizer {
     ];
     $replace = [
       '<cite>\1</cite>',
-      '<aside>\1\2</aside>',
+      '<aside>&ldquo;\1&rdquo;\2</aside>',
     ];
     $markup = preg_replace($search, $replace, $markup);
 

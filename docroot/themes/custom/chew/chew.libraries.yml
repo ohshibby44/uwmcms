@@ -28,6 +28,21 @@ bootstrap-scripts:
     js/vendor/tab.js: {}
     js/vendor/transition.js: {}
 
+jquery-validate:
+  js:
+    js/vendor/jquery.validate.js: {}
+
+subscribe-form-validation:
+  js:
+    js/subscribe-form-validation.js: {}
+  dependencies:
+    - core/jquery
+    - chew/jquery-validate
+
+subscribe-form-error-messages:
+  js:
+    js/subscribe-form-error-messages.js: {}
+
 google-fonts:
   css:
     theme:
