@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_help().
@@ -30,5 +32,24 @@ phrases and it\'ll do the rest.</p>
         <h3>Attention</h3>
         <p>Most bugs have been ironed out, holes covered, features added. But this module is a work in progress. Please report bugs and suggestions, ok?</p>
       ');
+  }
+}
+
+
+function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  $build['#cache']['max-age'] = 0;
+
+  dpm($build);
+  dpm($view_mode);
+
+  drupal_set_message(t('it is working'));
+
+}
+
+function uwmcms_reader_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+
+  if ($display->getComponent('mymodule_addition')) {
+
   }
 }

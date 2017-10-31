@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uwmcs_reader\;
+namespace Drupal\uwmcs_reader\Controller;
 
 /***
  * See https://www.drupal.org/docs/8/api/
@@ -24,9 +24,8 @@ class UwmFetcher {
 
   protected $providersCache;
 
-  /***
+  /**
    * UwmFetcher constructor.
-   *
    */
   public function __construct() {
   }
@@ -37,10 +36,18 @@ class UwmFetcher {
    * @return array
    *   A simple renderable array.
    */
-  public function findProvider(string $search = NULL) {
+  public function searchForProvider($search = NULL) {
 
-    $this->findProviders();
+    $this->fetchProviders();
     // ...
+
+    foreach($this->providersCache as $provider) {
+
+      $slug = $provider->friendlyUrl;
+      if($slug === $search){
+        return $provider;
+      }
+    }
 
     return [];
 
@@ -52,10 +59,20 @@ class UwmFetcher {
    * @return array
    *   A simple renderable array.
    */
-  public function findClinic(string $search = NULL) {
+  public function searchForClinic($search = NULL) {
 
-    $this->findClinics();
+    $this->fetchClinics();
     // ...
+
+    foreach($this->clinicsCache as $clinic) {
+
+      $parts= explode('/', $clinic->externalUrl);
+      $slug = end($parts);
+
+      if($slug === $search){
+        return $clinic;
+      }
+    }
 
     return [];
 
@@ -80,32 +97,12 @@ class UwmFetcher {
   }
 
   /**
-   * Return content for provider.
-   *
-   * @return array
-   *   A simple renderable array.
-   */
-  public function fetchProvider(int $providerId) {
-
-    //    if($this->providersCache) {
-    //
-    //    }
-    $url = self::$apiUrl . '/bioinformation/' . $providerId;
-    $response = Request::get($url)
-      ->expectsJson()
-      ->send();
-
-    return $response->body;
-
-  }
-
-  /**
    * Return content for all clinics.
    *
    * @return array
    *   A simple renderable array.
    */
-  public function fetchClinics(string $search = NULL) {
+  public function fetchClinics() {
 
     $url = self::$apiUrl . '/clinic/';
     $response = Request::get($url)
@@ -113,26 +110,6 @@ class UwmFetcher {
       ->send();
 
     $this->clinicsCache = $response->body;
-    return $response->body;
-
-  }
-
-  /**
-   * Return content for provider.
-   *
-   * @return array
-   *   A simple renderable array.
-   */
-  public function fetchClinic(int $clinicId) {
-
-    //    if($this->clinicsCache) {
-    //
-    //    }
-    $url = self::$apiUrl . '/bioinformation/' . $clinicId;
-    $response = Request::get($url)
-      ->expectsJson()
-      ->send();
-
     return $response->body;
 
   }

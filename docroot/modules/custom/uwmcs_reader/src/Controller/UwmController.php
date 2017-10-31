@@ -7,8 +7,9 @@ namespace Drupal\uwmcs_reader\Controller;
  * routing-system/parameter-upcasting-in-routes
  *
  */
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Component\Utility\Html;
-use Drupal\uwmcs_reader\UwmApiFetch;
+use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -19,14 +20,13 @@ class UwmController {
 
   private $requestArgs;
 
-  /***
+  /**
    * UwmController constructor.
-   *
    */
   public function __construct() {
 
     $this->requestUri = \Drupal::request()->getRequestUri();
-    $this->requestArgs = explode('/', $this->requestUri);
+    $this->requestArgs = explode('/', trim($this->requestUri, '/'));
 
   }
 
@@ -55,21 +55,25 @@ class UwmController {
 
     $element = [];
 
-    if ($this->requestArgs[0] === 'providers') {
+    if ($this->requestArgs[0] === 'provider') {
 
       $reader = new UwmFetcher();
-      $provider = $reader->findProvider($this->requestArgs[1]);
+      $provider = $reader->searchForProvider($this->requestArgs[1]);
 
       if (!empty($provider->fullName)) {
 
         $element['#markup'] = "{$provider->fullName} ....." .
-          "has the following body text:<br><br>{$provider->fullBio}";
+          "has the following body text:<br><br>{$provider->bioIntro}";
 
       }
 
     }
 
-    return $element;
+    if(!empty($element)) {
+      return $element;
+    }
+
+    throw new NotFoundHttpException();
 
   }
 
@@ -79,25 +83,29 @@ class UwmController {
    * @return array
    *   A simple renderable array.
    */
-  public function renderClinic() {
+  public function renderLocation() {
 
     $element = [];
 
-    if ($this->requestArgs[0] === 'providers') {
+    if ($this->requestArgs[0] === 'location') {
 
       $reader = new UwmFetcher();
-      $provider = $reader->findProvider($this->requestArgs[1]);
+      $location = $reader->searchForClinic($this->requestArgs[1]);
 
-      if (!empty($provider->fullName)) {
+      if (!empty($location->name)) {
 
-        $element['#markup'] = "{$provider->name} ....." .
-          "has the following address:<br><br>{$provider->address}";
+        $element['#markup'] = "{$location->name} ....." .
+          "has the following address:<br><br>{$location->address}";
 
       }
 
     }
 
-    return $element;
+    if(!empty($element)) {
+      return $element;
+    }
+
+    throw new NotFoundHttpException();
 
   }
 

@@ -32,8 +32,8 @@ uwmcs_reader.provider:
   requirements:
     _permission: 'access content'
 uwmcs_reader.clinic:
-  path: '/clinic/{clinic}'
+  path: '/location/{location}'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderClinic'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderLocation'
   requirements:
     _permission: 'access content'

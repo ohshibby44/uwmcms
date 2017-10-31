@@ -1,11 +1,11 @@
 uwmcs.admin:
-  title: 'UWMCS group settings'
-  description: 'Configure settings for UW Medicine group modules.'
+  title: 'UWMed Settings'
+  description: 'Configure settings for UWMCMS group modules.'
   route_name: uwmcs.welcome
   parent: 'system.admin_config'
   weight: 1000
 uwmcs_reader.welcome:
-  title: 'UWMCS Reader administration'
+  title: 'UWMCS reader admin'
   route_name: uwmcs_reader.welcome
   parent: uwmcs.admin
 uwmcs_reader.links1:
@@ -13,7 +13,7 @@ uwmcs_reader.links1:
   parent: uwmcs.admin
   url: https://apps.uwmedicine.org/
 uwmcs_reader.form:
-  title: 'UWMCS Reader form'
+  title: 'UWMCS reader form'
   description: 'Configure settings for the UWMCS Reader module.'
   route_name: uwmcs_reader.form
   parent: uwmcs.admin

@@ -1,0 +1,9 @@
+name: 'UWM Provider'
+type: uwm_provider
+langcode: en
+status: true
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
