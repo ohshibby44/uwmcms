@@ -1,0 +1,14 @@
+uuid: 2cf0cd9f-6055-457a-b71e-ad225e7fd713
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.uwm_provider_reviewer
+  module:
+    - user
+id: user_remove_role_action.uwm_provider_reviewer
+label: 'Remove the UWM Provider reviewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: uwm_provider_reviewer

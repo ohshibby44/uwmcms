@@ -1,0 +1,14 @@
+uuid: 136c22b4-deef-44a3-9732-67dc78e359a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.uwm_provider_creator
+  module:
+    - user
+id: user_remove_role_action.uwm_provider_creator
+label: 'Remove the UWM Provider creator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: uwm_provider_creator

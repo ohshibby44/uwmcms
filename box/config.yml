@@ -12,14 +12,12 @@ vagrant_box: geerlingguy/ubuntu1604
 drupal_site_name: "UW Medicine"
 
 # Provide the path to the project root to Vagrant.
-vagrant_synced_folders: []
-vagrant_synced_folder_default_type: ""
-#vagrant_synced_folders:
+vagrant_synced_folders:
 #  # Set the local_path for the first synced folder to `.`.
-#  - local_path: .
+  - local_path: .
 #    # Set the destination to the Acquia Cloud subscription machine name.
-#    destination: /var/www/uwmed
-#    type: nfs
+    destination: /var/www/uwmed
+    type: nfs
 
 drupal_build_composer_project: false
 # Toggling this to `true` would invoke `composer install` with the
