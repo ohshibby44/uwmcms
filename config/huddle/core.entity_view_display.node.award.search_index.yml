@@ -1,0 +1,42 @@
+uuid: fc73bb20-15c5-4728-b2ad-774b7bd9cb41
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.award.field_body
+    - field.field.node.award.field_date
+    - field.field.node.award.field_image
+    - field.field.node.award.field_teaser
+    - node.type.award
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: kzp564l-d0o3Xqauwr3n0LlD8ubzkrhC9WFlfehwD50
+id: node.award.search_index
+targetEntityType: node
+bundle: award
+mode: search_index
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_teaser:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_date: true
+  field_image: true
+  links: true

@@ -1,0 +1,30 @@
+uuid: b149eb58-1e3d-4f34-82b3-78586f621164
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_news_briefs
+  module:
+    - system
+    - views
+  theme:
+    - uwmed_bootstrap
+id: views_block__uwm_news_briefs_block_recent_news_briefs
+theme: uwmed_bootstrap
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:uwm_news_briefs-block_recent_news_briefs'
+settings:
+  id: 'views_block:uwm_news_briefs-block_recent_news_briefs'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

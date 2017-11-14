@@ -1,0 +1,43 @@
+uuid: 7268859b-740d-4751-a80f-54bbf1d89d2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.question.field_body
+    - field.field.node.question.field_date
+    - field.field.node.question.field_sections
+    - node.type.question
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+_core:
+  default_config_hash: iiYc6UwCF_M_krmwaIcvBQ8KArTW8TxLnuomYBFWQwo
+id: node.question.search_index
+targetEntityType: node
+bundle: question
+mode: search_index
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_sections:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  sharethis:
+    weight: 10
+    region: content
+hidden:
+  field_date: true
+  links: true

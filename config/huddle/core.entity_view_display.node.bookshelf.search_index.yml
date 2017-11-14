@@ -1,0 +1,61 @@
+uuid: 719fdedb-53b1-4370-b1c8-cd34f9785bde
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.bookshelf.body
+    - field.field.node.bookshelf.field_body
+    - field.field.node.bookshelf.field_date
+    - field.field.node.bookshelf.field_disqus_comments
+    - field.field.node.bookshelf.field_featured_content
+    - field.field.node.bookshelf.field_image
+    - field.field.node.bookshelf.field_meta_tags
+    - field.field.node.bookshelf.field_name
+    - field.field.node.bookshelf.field_subtitle
+    - field.field.node.bookshelf.field_teaser
+    - node.type.bookshelf
+  module:
+    - text
+    - user
+id: node.bookshelf.search_index
+targetEntityType: node
+bundle: bookshelf
+mode: search_index
+content:
+  field_body:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_name:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subtitle:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_teaser:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_date: true
+  field_disqus_comments: true
+  field_featured_content: true
+  field_image: true
+  field_meta_tags: true
+  links: true

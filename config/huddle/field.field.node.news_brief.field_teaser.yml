@@ -1,0 +1,30 @@
+uuid: 93bf61b0-acb7-4bc7-9a53-258de22e870e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.news_brief
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    video_format: '0'
+    full_html: '0'
+    rich_text: '0'
+    plain_text: '0'
+id: node.news_brief.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: news_brief
+label: 'News Brief teaser'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

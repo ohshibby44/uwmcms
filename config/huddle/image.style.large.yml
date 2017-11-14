@@ -7,11 +7,11 @@ _core:
 name: large
 label: 'Large (800px wide)'
 effects:
-  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
-    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+  d2c78b49-2998-4134-8862-043ac1b287e2:
+    uuid: d2c78b49-2998-4134-8862-043ac1b287e2
     id: image_scale
-    weight: 0
+    weight: 2
     data:
       width: 800
-      height: null
+      height: 436
       upscale: true

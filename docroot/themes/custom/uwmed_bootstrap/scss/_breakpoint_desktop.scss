@@ -481,6 +481,32 @@
   }
 }
 
+// Front Page News Briefs
+#block-views-block-uwm-news-briefs-block-recent-news-briefs {
+  h3 {
+    @include font-size(1.6, 1.8);
+  }
+  .more-link {
+    a {
+      @include font-size(1.4, 1.6);
+    }
+  }
+  .view-uwm-news-briefs {
+    .views-row {
+      margin-bottom: 28px;
+      .views-field-title {
+        @include font-size(1.6, 2.4);
+      }
+      .views-field-field-teaser {
+        @include font-size(1.6, 2.4);
+        p {
+          @include font-size(1.6, 2.4);
+        }
+      }
+    }
+  }
+}
+
 // Node Theming
 .article.featured {
   header {
@@ -1727,7 +1753,6 @@ article.webform {
       width: 100%;
       padding-right: 110px;
     }
-
   }
   footer {
     .field--name-field-date {
@@ -1735,6 +1760,59 @@ article.webform {
     }
   }
 }
+// News Briefs View / Node
+.path-news-briefs {
+  .main-inner {
+    padding-top: 56px;
+    padding-bottom: 76px;
+  }
+  #content {
+    #block-uwmed-bootstrap-content {
+      width: 100%;
+      max-width: 800px;
+      @include center-block();
+    }
+    .view-page_news_briefs {
+      > header {
+        padding: 0 0 0 110px;
+        @include font-size(4.8, 5.6);
+        h1 {
+          @include font-size(4.8, 5.6);
+          margin: 0 0 40px 0;
+        }
+      }
+      .views-content {
+        .views-row {
+          padding: 0 0 40px 110px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  .content {
+    .field--type-image {
+      margin-bottom: 0;
+    }
+    .news-brief-teaser-section-image {
+      min-height:1px;
+      @include clearfix();
+      .field--name-field-body {
+        float: left;
+        width: 368px;
+      }
+      .field--type-image {
+        float: right;
+      }
+    }
+    .news-brief-teaser-section-no-image {
+      min-height:1px;
+      @include clearfix();
+      width: 100%;
+      padding-right: 110px;
+    }
+  }
+}
+
 //Upper Content & Main Area ends -----------------------------------------------------
 
 //Lower Content ----------------------------------------------------------------------

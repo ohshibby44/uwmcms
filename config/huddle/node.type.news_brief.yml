@@ -1,0 +1,17 @@
+uuid: 4f644358-86ca-492a-8296-d48a300cdc27
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'News Brief'
+type: news_brief
+description: 'Use a news brief to post a quick update that doesn''t require a featured image or feature-length story. News briefs are displayed in the ''Briefly'' section on the homepage.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

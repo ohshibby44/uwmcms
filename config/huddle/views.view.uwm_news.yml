@@ -41,8 +41,12 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
-        options: {  }
+        type: time
+        options:
+          results_lifespan: 1800
+          results_lifespan_custom: 0
+          output_lifespan: 0
+          output_lifespan_custom: 0
       query:
         type: views_query
         options:
@@ -65,7 +69,7 @@ display:
         type: infinite_scroll
         options:
           items_per_page: 10
-          offset: 1
+          offset: 0
           id: 0
           total_pages: null
           tags:
@@ -235,7 +239,6 @@ display:
           depth: 1
           entity_type: node
           plugin_id: taxonomy_index_tid_depth
-      sorts:
         field_featured_content_value:
           id: field_featured_content_value
           table: node__field_featured_content
@@ -243,11 +246,36 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          operator: '='
+          value: '0'
+          group: 1
           exposed: false
           expose:
+            operator_id: ''
             label: ''
-          plugin_id: standard
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+      sorts:
         field_date_value:
           id: field_date_value
           table: node__field_date
@@ -761,6 +789,8 @@ display:
         pager: false
         fields: false
         sorts: false
+        filters: false
+        filter_groups: false
       style:
         type: default
       row:
@@ -920,6 +950,108 @@ display:
             label: ''
           granularity: day
           plugin_id: datetime
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            article: article
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            11: 11
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: categories
+          hierarchy: true
+          error_message: true
+          depth: 1
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
