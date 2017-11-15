@@ -1,0 +1,77 @@
+diff --git a/patches/simplesaml/config-config-php.patch b/patches/simplesaml/config-config-php.patch
+index 49287c8..e69de29 100644
+--- a/patches/simplesaml/config-config-php.patch
++++ b/patches/simplesaml/config-config-php.patch
+@@ -1,47 +0,0 @@
+-diff --git a/simplesamlphp-1.14.17/config/authsources.php b/simplesamlphp-1.14.17/config/authsources.php
+-index 49edc6e..58cf0bc 100644
+---- a/simplesamlphp-1.14.17/config/authsources.php
+-+++ b/simplesamlphp-1.14.17/config/authsources.php
+-@@ -390,3 +390,17 @@
+-     */
+- 
+- );
+-+
+-+/***
+-+ * Include UWMCMS configurations.
+-+ *
+-+ ***/
+-+$config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/authsources.php',
+-+    $_ENV['AH_SITE_GROUP'],
+-+    $_ENV['AH_SITE_ENVIRONMENT']);
+-+if (!file_exists($config_file) || !require_once($config_file)) {
+-+
+-+    exit('Missing config file '. $config_file);
+-+
+-+}
+-+
+-diff --git a/simplesamlphp-1.14.17/config/config.php b/simplesamlphp-1.14.17/config/config.php
+-index 0c167c5..a9da158 100644
+---- a/simplesamlphp-1.14.17/config/config.php
+-+++ b/simplesamlphp-1.14.17/config/config.php
+-@@ -849,3 +849,20 @@
+-     'trusted.url.domains' => array(),
+- 
+- );
+-+
+-+/***
+-+ * Include UWMCMS configurations.
+-+ *
+-+ ***/
+-+if(!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
+-+
+-+    $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/acquia_config.php',
+-+        $_ENV['AH_SITE_GROUP'],
+-+        $_ENV['AH_SITE_ENVIRONMENT']);
+-+    if (!file_exists($config_file) || !require_once($config_file)) {
+-+
+-+        throw new Exception('Missing config file '. $config_file);
+-+
+-+    }
+-+}
+-+
+diff --git a/simplesamlphp-1.14.17/config/config.php b/simplesamlphp-1.14.17/config/config.php
+index 0c167c5..a9da158 100644
+--- a/simplesamlphp-1.14.17/config/config.php
++++ b/simplesamlphp-1.14.17/config/config.php
+@@ -849,3 +849,20 @@
+     'trusted.url.domains' => array(),
+ 
+ );
++
++/***
++ * Include UWMCMS configurations.
++ *
++ ***/
++if(!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
++
++    $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cmsdev.uwmedicine.org/simplesamlphp/config/acquia_config.php',
++        $_ENV['AH_SITE_GROUP'],
++        $_ENV['AH_SITE_ENVIRONMENT']);
++    if (!file_exists($config_file) || !require_once($config_file)) {
++
++        throw new Exception('Missing config file '. $config_file);
++
++    }
++}
++
