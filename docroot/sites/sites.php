@@ -58,6 +58,7 @@ $sites['chew.uwmed.local'] = 'chew';
 $sites['chew.cmsdev.uwmedicine.org'] = 'chew';
 $sites['chew.cmsstage.uwmedicine.org'] = 'chew';
 $sites['chew.cmsra.uwmedicine.org'] = 'chew';
+$sites['rightasrain.uw.edu'] = 'chew';
 $sites['rightasrain.uwmedicine.org'] = 'chew';
 
 $sites['huddle.uwmed.local'] = 'huddle';
