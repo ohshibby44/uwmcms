@@ -777,5 +777,13 @@ if (file_exists(DRUPAL_ROOT . '/sites/huddle/settings')) {
   require DRUPAL_ROOT . '/sites/huddle/settings/acquia.lift.contenthub.settings.php';
 }
 
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $secrets_file = sprintf('/mnt/gfs/%s.%s/nobackup/huddle.secrets.settings.php',
+    $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
+  if (file_exists($secrets_file)) {
+    require $secrets_file;
+  }
+}
+
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
