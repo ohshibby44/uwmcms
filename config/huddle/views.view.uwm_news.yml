@@ -41,12 +41,8 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: time
-        options:
-          results_lifespan: 1800
-          results_lifespan_custom: 0
-          output_lifespan: 0
-          output_lifespan_custom: 0
+        type: tag
+        options: {  }
       query:
         type: views_query
         options:
@@ -287,7 +283,7 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: day
+          granularity: second
           plugin_id: datetime
       title: News
       header: {  }
