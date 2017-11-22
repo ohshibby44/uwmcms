@@ -1,11 +1,12 @@
-diff --git a/simplesamlphp-1.14.17/metadata/saml20-idp-remote.php b/simplesamlphp-1.14.17/metadata/saml20-idp-remote.php
-index de1f3a3..ff83841 100644
---- a/simplesamlphp-1.14.17/metadata/saml20-idp-remote.php
-+++ b/simplesamlphp-1.14.17/metadata/saml20-idp-remote.php
-@@ -22,3 +22,16 @@
+diff -u vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-remote.php vendor/simplesamlphp/simplesamlphp/metadata-templates/saml20-idp-remote.php
+--- vendor/simplesamlphp/simplesamlphp/metadata/saml20-idp-remote.php	2017-11-22 09:18:09.000000000 -0800
++++ vendor/simplesamlphp/simplesamlphp/metadata-templates/saml20-idp-remote.php	2017-11-22 09:18:30.000000000 -0800
+@@ -22,3 +22,18 @@
  	'certFingerprint'      => 'c9ed4dfb07caf13fc21e0fec1572047eb8a7a4cb'
  );
  
++
++ 
 +/***
 + * Include UWMCMS configurations.
 + *

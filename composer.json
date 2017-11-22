@@ -10,6 +10,17 @@
             "url": "https://packages.drupal.org/8"
         }
     ],
+    "scripts": {
+        "uwmcms-update-saml": [
+            "sh ./patches/simplesaml/setup_simplesaml_patch.sh"
+        ],
+        "post-install-cmd": [
+            "@uwmcms-update-saml"
+        ],
+        "post-update-cmd": [
+            "@uwmcms-update-saml"
+        ]
+    },
     "require": {
         "acquia/blt": "^8.9.0",
         "drupal/redirect": "^1.0@alpha",
