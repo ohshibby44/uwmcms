@@ -8,25 +8,25 @@
     attach: function (context, settings) {
       $("#chewEmailSubscribeForm").validate({
         rules: {
-          firstName: {
+          "First Name": {
             required: true
           },
-          lastName: {
+          "Last Name": {
             required: true
           },
-          emailAddress: {
+          "Email Address": {
             required: true,
             email: true
           }
         },
         messages: {
-          firstName: {
+          "First Name": {
             required: "Please enter your first name."
           },
-          lastName: {
+          "Last Name": {
             required: "Please enter your last name."
           },
-          emailAddress: {
+          "Email Address": {
             required: "Please enter your email address.",
             email: "Please enter a valid email address."
           }
