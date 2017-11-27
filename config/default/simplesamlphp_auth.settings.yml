@@ -24,13 +24,13 @@ allow:
     landing_page_reviewer: '0'
     media_creator: '0'
     media_manager: '0'
-  default_login_users: '1'
+  default_login_users: '1,41,46,51,61'
 logout_goto_url: ''
 user_register_original: admin_only
 sync:
   mail: true
   user_name: true
-autoenablesaml: false
+autoenablesaml: true
 debug: false
 _core:
   default_config_hash: SlvBDvDYAFLAkAikHJp_4rntvPn-nX6DLf92HOoX2cQ
