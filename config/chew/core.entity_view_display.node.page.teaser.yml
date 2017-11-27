@@ -32,7 +32,9 @@ content:
     third_party_settings: {  }
 hidden:
   field_meta_tags: true
+  field_promotion: true
   field_sections: true
+  field_webform: true
   panelizer: true
   scheduled_update: true
   workbench_moderation_control: true

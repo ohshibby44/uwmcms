@@ -42,12 +42,8 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: time
-        options:
-          results_lifespan: 1800
-          results_lifespan_custom: 0
-          output_lifespan: 0
-          output_lifespan_custom: 0
+        type: tag
+        options: {  }
       query:
         type: views_query
         options:
@@ -70,7 +66,7 @@ display:
         type: infinite_scroll
         options:
           items_per_page: 10
-          offset: 1
+          offset: 0
           id: 0
           total_pages: null
           tags:
@@ -252,7 +248,7 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: day
+          granularity: second
           plugin_id: datetime
       title: Perspectives
       header: {  }

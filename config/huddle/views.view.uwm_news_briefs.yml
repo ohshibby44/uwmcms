@@ -170,7 +170,7 @@ display:
           table: node__field_date
           field: field_date_value
           plugin_id: datetime
-      title: 'News Briefs'
+      title: Briefly
       header: {  }
       footer: {  }
       empty: {  }
@@ -345,7 +345,7 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-      title: 'News Briefs'
+      title: Briefly
       use_more: true
       use_more_always: true
       use_more_text: 'View All'
