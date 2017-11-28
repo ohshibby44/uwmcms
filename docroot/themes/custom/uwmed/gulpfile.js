@@ -9,9 +9,7 @@ var
       'node_modules/bootstrap-sass/assets/stylesheets'
     ],
     javascriptFiles: [
-      'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js',
-      'node_modules/stickybits/dist/*.js',
-      'node_modules/jquery-validation/dist/jquery.validate*.js'
+      'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
     ],
     fontFiles: [
       'node_modules/bootstrap-sass/assets/fonts/bootstrap/*'
@@ -44,3 +42,6 @@ gulp.task('default', ['sass', 'javascript', 'fonts']);
 gulp.task('watch', ['sass', 'javascript', 'fonts'], function() {
   gulp.watch('scss/**/*.scss', ['sass']);
 });
+
+
+

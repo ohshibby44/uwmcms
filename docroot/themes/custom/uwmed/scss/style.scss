@@ -60,8 +60,6 @@
 // Base-theme overrides.
 @import 'base_theme_overrides';
 
-// Base
-@import 'base/typography';
 
 // Components
 @import 'components/page';
@@ -103,3 +101,14 @@
 @import 'components/subscribe_form';
 
 @import 'overrides';
+
+// UWMed Base
+@import 'uwmed/typography';
+@import 'uwmed/base';
+@import 'uwmed/header';
+@import 'uwmed/header-navigation';
+@import 'uwmed/footer';
+@import 'uwmed/article';
+
+
+

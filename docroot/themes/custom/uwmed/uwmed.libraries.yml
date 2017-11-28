@@ -5,7 +5,6 @@ global-styles:
 
 global-scripts:
   js:
-#    js/vendor/jquery.stickybits.min.js: {}
     js/global.js: {}
 
 sharethis:
@@ -28,23 +27,7 @@ bootstrap-scripts:
     js/vendor/tab.js: {}
     js/vendor/transition.js: {}
 
-jquery-validate:
-  js:
-    js/vendor/jquery.validate.js: {}
-
-subscribe-form-validation:
-  js:
-    js/subscribe-form-validation.js: {}
-  dependencies:
-    - core/jquery
-    - uwmed/jquery-validate
-
-subscribe-form-error-messages:
-  js:
-    js/subscribe-form-error-messages.js: {}
-
 google-fonts:
   css:
     theme:
-      //fonts.googleapis.com/css?family=Lora:400,400i,700,700i: { type: external }
-      //fonts.googleapis.com/css?family=Roboto:400,400i,500,500i: { type: external }
+      //fonts.googleapis.com/css?family=Encode+Sans|Open+Sans: { type: external }

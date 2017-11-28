@@ -6,153 +6,72 @@
  */
 
 use Drupal\Core\Render\Markup;
-use Drupal\image\Entity\ImageStyle;
-use Drupal\taxonomy\Entity\Term;
-use Drupal\taxonomy\TermInterface;
+
+
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
 function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
+
   // Add content type suggestions.
   if ($node = \Drupal::request()->attributes->get('node')) {
     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
   }
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for page templates.
  */
 function uwmed_preprocess_page(&$variables) {
+
   if ($node = \Drupal::request()->attributes->get('node')) {
+
     // If this is an Article node page, add the uwmed/sharethis library.
     if ($node->getType() == 'article') {
       $variables['#attached']['library'][] = 'uwmed/sharethis';
     }
 
-    // If the page path is /subscribe, add the
-    // uwmed/subscribe-form-error-messages library.
-    $current_path = \Drupal::service('path.current')->getPath();
-    $alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
-    if ($alias == '/subscribe') {
-      $variables['#attached']['library'][] = 'uwmed/subscribe-form-error-messages';
-    }
   }
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for system branding block templates.
  */
 function uwmed_preprocess_block__system_branding_block(&$variables) {
-  $variables['site_logo'] = '/themes/custom/uwmed/images/right-as-rain-logo.svg';
+
+  $variables['site_logo'] = '/themes/custom/uwmed/images/uw-medicine.png';
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for taxonomy term page templates.
  */
 function uwmed_preprocess_page__taxonomy__term(&$variables) {
-  // Get the term ID from the current path.
-  $current_path = \Drupal::service('path.current')->getPath();
-  $path_parts = explode('/', $current_path);
-  $term_id = array_pop($path_parts);
 
-  // Load the term.
-  $term = Term::load($term_id);
 
-  if ($term) {
-    $term_banner = _uwmed_get_term_banner($term);
-
-    // If there is no term banner, see if the term's parent has one.
-    if (!$term_banner) {
-      $parents = \Drupal::entityTypeManager()
-        ->getStorage('taxonomy_term')
-        ->loadParents($term_id);
-      if (!empty($parents)) {
-        $parent = array_shift($parents);
-        $term_banner = _uwmed_get_term_banner($parent);
-      }
-    }
-    $variables['banner'] = $term_banner;
-  }
 }
 
 /**
  * Implements hook_preprocess_HOOK() for article author field templates.
  */
 function uwmed_preprocess_field__node__field_author__article(&$variables) {
-  if (isset($variables['items'])) {
-    foreach ($variables['items'] as $id => $item) {
-      if (isset($item['content']['#plain_text'])) {
-        $variables['items'][$id]['content']['#plain_text'] = t('By @author', ['@author' => $variables['items'][$id]['content']['#plain_text']]);
-      }
-    }
-  }
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for hierarchical term formatter templates.
  */
 function uwmed_preprocess_hierarchical_term_formatter(&$variables) {
-  // Remove the link from the child term if there is one.
-  if (isset($variables['terms'][1]['#value'])) {
-    $value = $variables['terms'][1]['#value']->__toString();
-    $value = preg_replace('#</?a[^>]*>#is', '', $value);
-    $variables['terms'][1]['#value'] = Markup::create($value);
-  }
+
 }
 
 /**
  * Implements hook_preprocess_HOOK() for button input templates.
  */
 function uwmed_preprocess_input__button(&$variables) {
-  if (isset($variables['element']['#id']) && $variables['element']['#id'] == 'edit-submit-search') {
-    $variables['icon_only'] = TRUE;
-  }
+
 }
 
-/**
- * Helper function to get a banner for a taxonomy term.
- *
- * @param \Drupal\taxonomy\TermInterface $term
- *   The term in which to look for a banner field.
- *
- * @return array|null
- *   The banner field data or NULL.
- */
-function _uwmed_get_term_banner(TermInterface $term) {
-  $banner = [];
-
-  // Get the Banner Image media entity.
-  if (empty($term->field_banner || empty($term->field_banner->entity))) {
-
-    return NULL;
-  }
-  $banner_entity = $term->field_banner->entity;
-
-  // Get the image field.
-  if (empty($banner_entity->image)) {
-    return NULL;
-  }
-  $banner_image = $banner_entity->image;
-
-  // Get the URI for the image.
-  $image_uri = $banner_image->entity->getFileUri();
-  if (empty($image_uri)) {
-    return NULL;
-  }
-
-  // Get the image URL for the Banner image style.
-  $banner['image_url'] = ImageStyle::load('banner')->buildUrl($image_uri);
-
-  // Get the banner heading.
-  if (!empty($banner_entity->field_heading)) {
-    $banner['heading'] = $banner_entity->field_heading->view('banner');
-  }
-
-  // Get the banner subheading.
-  if (!empty($banner_entity->field_subheading)) {
-    $banner['subheading'] = $banner_entity->field_subheading->view('banner');
-  }
-
-  return $banner;
-}
