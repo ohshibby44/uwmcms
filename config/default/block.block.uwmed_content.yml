@@ -1,0 +1,22 @@
+uuid: 8511e27c-a964-45f3-a991-a70e01fca53b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uwmed
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: uwmed_content
+theme: uwmed
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

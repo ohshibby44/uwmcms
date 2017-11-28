@@ -5,10 +5,6 @@
  * Custom PHP code for the UWMed theme.
  */
 
-use Drupal\Core\Render\Markup;
-
-
-
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -51,7 +47,6 @@ function uwmed_preprocess_block__system_branding_block(&$variables) {
  */
 function uwmed_preprocess_page__taxonomy__term(&$variables) {
 
-
 }
 
 /**
@@ -74,4 +69,3 @@ function uwmed_preprocess_hierarchical_term_formatter(&$variables) {
 function uwmed_preprocess_input__button(&$variables) {
 
 }
-
