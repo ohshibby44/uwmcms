@@ -1,0 +1,27 @@
+name: 'CHEW'
+description: 'Custom theme for University of Washington''s Consumer Health Engagement website.'
+core: 8.x
+type: theme
+base theme: bootstrap
+
+regions:
+  branding: 'Branding'
+  navigation: 'Navigation'
+  header: 'Header'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content_header: 'Content Header'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - 'uwmed/global-styles'
+  - 'uwmed/global-scripts'
+  - 'uwmed/bootstrap-scripts'
+  - 'uwmed/subscribe-form-validation'
+  - 'uwmed/google-fonts'
