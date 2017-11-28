@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Custom PHP code for the CHEW theme.
+ * Custom PHP code for the UWMed theme.
  */
 
 use Drupal\Core\Render\Markup;

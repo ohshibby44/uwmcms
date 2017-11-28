@@ -1,8 +1,9 @@
-name: 'CHEW'
-description: 'Custom theme for University of Washington''s Consumer Health Engagement website.'
+name: 'UWMed'
+description: 'Custom Bootstrap theme for UW Medicine.'
 core: 8.x
 type: theme
 base theme: bootstrap
+screenshot: uwmed-screenshot.png
 
 regions:
   branding: 'Branding'
