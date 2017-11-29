@@ -679,6 +679,7 @@ if ($settings['hash_salt']) {
  */
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
+
 /**
  * Override the default service container class.
  *
@@ -763,6 +764,19 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+
+if (!file_exists('/var/www/site-php') && empty($_ENV['AH_SITE_ENVIRONMENT'])) {
+
+  // Include local development settings
+  if (file_exists($app_root . '/' . $site_path . '/development.settings.php')) {
+
+    include $app_root . '/' . $site_path . '/development.settings.php';
+    $settings['container_yamls'][] = $app_root . '/' . $site_path . '/development.services.yml';
+
+  }
+
+}
+
 
 if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/uwmed-settings.inc';
