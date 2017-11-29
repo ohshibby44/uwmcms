@@ -1,0 +1,42 @@
+.article.teaser {
+  margin-top: 0;
+  margin-bottom: 4rem;
+  .col-md-9 {
+    @media (min-width: $screen-md-min) {
+      padding-left: 0;
+    }
+  }
+  h2 {
+    font-size: ceil(($font-size-base * 1.25));
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    margin: 0 0 .25rem 0;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.25;
+    }
+  }
+  .field--name-field-primary-media {
+    max-width: 360px;
+    margin-bottom: 1rem;
+    @media (min-width: $screen-md-min) {
+      max-width: inherit;
+      margin-bottom: 0;
+    }
+  }
+  .article-created-date {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 .75rem 0;
+  }
+  .field--name-field-long-summary {
+    margin: 0 0 1.25rem 0;
+  }
+
+  //.media {
+  //  width: 100%;
+  //}
+  //.media-image {
+  //  margin: 0 0 .75rem 0;
+  //}
+}

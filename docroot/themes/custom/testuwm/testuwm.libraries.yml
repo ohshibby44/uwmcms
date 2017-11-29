@@ -1,0 +1,33 @@
+global-styles:
+  css:
+    theme:
+      css/style.css: {}
+
+global-scripts:
+  js:
+    js/global.js: {}
+
+sharethis:
+  header: true
+  js:
+    //platform-api.sharethis.com/js/sharethis.js#property=592ee5f16d23c50012b592f9&product=inline-share-buttons: { type: external, minified: true }
+
+bootstrap-scripts:
+  js:
+    js/vendor/affix.js: {}
+    js/vendor/alert.js: {}
+    js/vendor/button.js: {}
+    js/vendor/carousel.js: {}
+    js/vendor/collapse.js: {}
+    js/vendor/dropdown.js: {}
+    js/vendor/modal.js: {}
+    js/vendor/tooltip.js: {}
+    js/vendor/popover.js: {}
+    js/vendor/scrollspy.js: {}
+    js/vendor/tab.js: {}
+    js/vendor/transition.js: {}
+
+google-fonts:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Encode+Sans|Open+Sans: { type: external }
