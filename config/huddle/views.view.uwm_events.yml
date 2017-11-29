@@ -922,7 +922,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<span class=\"month\">{{ field_date_time__value|date(\"M\") }}</span>\n<span class=\"day\">{{ field_date_time__value|date(\"d\") }}</span>"
+            text: "<span class=\"month\">{{ field_date_time__value|date('M','America/Los_Angeles') }}</span>\n<span class=\"day\">{{ field_date_time__value|date('d','America/Los_Angeles') }}</span>"
             make_link: false
             path: ''
             absolute: false

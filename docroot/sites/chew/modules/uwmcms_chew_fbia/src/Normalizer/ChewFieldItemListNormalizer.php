@@ -102,15 +102,21 @@ class ChewFieldItemListNormalizer extends FieldItemListNormalizer {
     $markup = preg_replace($search, $replace, $markup);
 
     // Alterations for pull quotes.
-    $search = [
-      '#<div[^>]+\bfield--name-field-quote-attribution\b[^>]*>(.+?)</div>#is',
-      '#<div[^>]+\bfield--name-field-quote-text\b[^>]*>(.+?)</div>.*?(<cite>.+?</cite>)#is',
-    ];
-    $replace = [
-      '<cite>\1</cite>',
-      '<aside>\1\2</aside>',
-    ];
-    $markup = preg_replace($search, $replace, $markup);
+
+    $attribution_count = 0;
+    $search = '#<div[^>]+\bfield--name-field-quote-attribution\b[^>]*>(.+?)</div>#is';
+    $replace = '<cite>\1</cite>';
+    $markup = preg_replace($search, $replace, $markup, -1, $attribution_count);
+
+    if($attribution_count > 0) {
+      $search = '#<div[^>]+\bfield--name-field-quote-text\b[^>]*>(.+?)</div>.*?(<cite>.+?</cite>)#is';
+      $replace = '<aside>\1\2</aside>';
+      $markup = preg_replace($search, $replace, $markup);
+    } else {
+      $search = '#<div[^>]+\bfield--name-field-quote-text\b[^>]*>(.+?)</div>#is';
+      $replace = '<aside>\1</aside>';
+      $markup = preg_replace($search, $replace, $markup);
+    }
 
     // Alterations for quick reads.
     $search = [

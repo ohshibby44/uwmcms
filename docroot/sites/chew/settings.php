@@ -773,10 +773,12 @@ if (isset($settings['memcache']['servers'])) {
   $settings['cache']['default'] = 'cache.backend.memcache';
 }
 
-$secrets_file = sprintf('/mnt/gfs/%s.%s/nobackup/chew.secrets.settings.php',
-  $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
-if (file_exists($secrets_file)) {
-  require $secrets_file;
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $secrets_file = sprintf('/mnt/gfs/%s.%s/nobackup/chew.secrets.settings.php',
+    $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
+  if (file_exists($secrets_file)) {
+    require $secrets_file;
+  }
 }
 
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
