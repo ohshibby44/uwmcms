@@ -9,7 +9,6 @@ namespace Drupal\uwmcs_reader\Controller;
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Component\Utility\Html;
-use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -69,7 +68,7 @@ class UwmController {
 
     }
 
-    if(!empty($element)) {
+    if (!empty($element)) {
       return $element;
     }
 
@@ -101,7 +100,7 @@ class UwmController {
 
     }
 
-    if(!empty($element)) {
+    if (!empty($element)) {
       return $element;
     }
 

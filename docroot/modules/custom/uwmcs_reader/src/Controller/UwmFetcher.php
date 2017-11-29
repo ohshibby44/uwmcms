@@ -39,12 +39,11 @@ class UwmFetcher {
   public function searchForProvider($search = NULL) {
 
     $this->fetchProviders();
-    // ...
 
-    foreach($this->providersCache as $provider) {
+    foreach ($this->providersCache as $provider) {
 
       $slug = $provider->friendlyUrl;
-      if($slug === $search){
+      if ($slug === $search) {
         return $provider;
       }
     }
@@ -63,13 +62,12 @@ class UwmFetcher {
 
     $this->fetchClinics();
     // ...
+    foreach ($this->clinicsCache as $clinic) {
 
-    foreach($this->clinicsCache as $clinic) {
-
-      $parts= explode('/', $clinic->externalUrl);
+      $parts = explode('/', $clinic->externalUrl);
       $slug = end($parts);
 
-      if($slug === $search){
+      if ($slug === $search) {
         return $clinic;
       }
     }
@@ -113,6 +111,5 @@ class UwmFetcher {
     return $response->body;
 
   }
-
 
 }
