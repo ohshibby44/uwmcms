@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 
@@ -43,10 +44,32 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
   $build['#cache']['max-age'] = 0;
 
-  dpm($build);
-  dpm($view_mode);
-
+  // dpm($build);
+  // dpm($view_mode);
   drupal_set_message(t('it is working'));
+
+  if ($view_mode == 'rss') {
+    // Add RSS elements and namespaces when building the RSS feed.
+    $node->rss_elements[] = array(
+      'key' => 'uwmcs_reader_node_viewtestElement',
+      'value' => t('Value of testElement RSS element for node !nid.', array('!nid' => $node->id())),
+    );
+    $node->rss_namespaces['xmlns:drupaltest'] = 'http://example.com/test-namespace';
+
+    // Add content that should be displayed only in the RSS feed.
+    $node->content['uwmcs_reader_node_viewextra_feed_content'] = array(
+      '#markup' => '<p>' . t('Extra data that should appear only in the RSS feed for node !nid.', array('!nid' => $node->id())) . '</p>',
+      '#weight' => 10,
+    );
+  }
+
+  if ($view_mode != 'rss') {
+    // Add content that should NOT be displayed in the RSS feed.
+    $node->content['uwmcs_reader_node_viewextra_non_feed_content'] = array(
+      '#markup' => '<p>' . t('Extra data that should appear everywhere except the RSS feed for node !nid.', array('!nid' => $node->id())) . '</p>',
+    );
+  }
+
 
 }
 
@@ -59,4 +82,63 @@ function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, Entit
 
   }
 
+}
+
+
+function uwmcms_reader_node_load($nodes, $types) {
+
+  $nids = array_keys($nodes);
+  ksort($nids);
+  sort($types);
+
+  foreach ($nodes as $node) {
+
+    $node->node_test_loaded_nids = $nids;
+    $node->node_test_loaded_types = $types;
+
+  }
+
+  // Decide whether any of $types are relevant to our purposes.
+  if (count(array_intersect($types_we_want_to_process, $types))) {
+    // Gather our extra data for each of these nodes.
+    $result = db_query('SELECT nid, foo FROM {mytable} WHERE nid IN(:nids)', array(':nids' => array_keys($nodes)));
+    // Add our extra data to the node objects.
+    foreach ($result as $record) {
+
+      $nodes[$record->nid]->foo = $record->foo;
+
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function uwmcs_reader_entity_extra_field_info() {
+  $extra = array();
+
+  foreach (NodeType::loadMultiple() as $bundle) {
+    $extra['node'][$bundle->Id()]['display']['my_own_pseudo_field'] = array(
+      'label' => t('My own field'),
+      'description' => t('This is my own pseudo-field'),
+      'weight' => 100,
+      'visible' => TRUE,
+    );
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode, $langcode) {
+  if ($display->getComponent('my_own_pseudo_field')) {
+    $build['my_own_pseudo_field'] = [
+      '#type' => 'markup',
+      '#markup' => 'This is my custom content',
+    ];
+  }
 }
