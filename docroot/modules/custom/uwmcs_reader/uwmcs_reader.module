@@ -6,9 +6,9 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\node\Entity\NodeType;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Implements hook_help().
@@ -48,27 +48,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
   // dpm($view_mode);
   drupal_set_message(t('it is working'));
 
-  if ($view_mode == 'rss') {
-    // Add RSS elements and namespaces when building the RSS feed.
-    $node->rss_elements[] = [
-      'key' => 'uwmcs_reader_node_viewtestElement',
-      'value' => t('Value of testElement RSS element for node !nid.', ['!nid' => $node->id()]),
-    ];
-    $node->rss_namespaces['xmlns:drupaltest'] = 'http://example.com/test-namespace';
+  if ($display->getComponent('my_own_pseudo_field')) {
 
-    // Add content that should be displayed only in the RSS feed.
-    $node->content['uwmcs_reader_node_viewextra_feed_content'] = [
-      '#markup' => '<p>' . t('Extra data that should appear only in the RSS feed for node !nid.', ['!nid' => $node->id()]) . '</p>',
-      '#weight' => 10,
+    $build['my_own_pseudo_field'] = [
+      '#type' => 'markup',
+      '#markup' => 'This is my custom content',
     ];
-  }
-
-  if ($view_mode != 'rss') {
-    // Add content that should NOT be displayed in the RSS feed.
-    $node->content['uwmcs_reader_node_viewextra_non_feed_content'] = [
-      '#markup' => '<p>' . t('Extra data that should appear everywhere except the RSS feed for node !nid.', ['!nid' => $node->id()]) . '</p>',
-    ];
-
   }
 
 }
@@ -79,15 +64,6 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
   if ($display->getComponent('mymodule_addition')) {
-
-  }
-
-  if ($display->getComponent('my_own_pseudo_field')) {
-
-    $build['my_own_pseudo_field'] = [
-      '#type' => 'markup',
-      '#markup' => 'This is my custom content',
-    ];
 
   }
 
@@ -109,16 +85,35 @@ function uwmcms_reader_node_load($nodes, $types) {
 
   }
 
-  // Decide whether any of $types are relevant to our purposes.
-  if (count(array_intersect($types_we_want_to_process, $types))) {
-    // Gather our extra data for each of these nodes.
-    $result = db_query('SELECT nid, foo FROM {mytable} WHERE nid IN(:nids)', [':nids' => array_keys($nodes)]);
-    // Add our extra data to the node objects.
-    foreach ($result as $record) {
+}
 
-      $nodes[$record->nid]->foo = $record->foo;
+/**
+ * Implements hook_entity_load().
+ */
+function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
+  if ($entity_type_id === 'node') {
+
+    foreach ($entities as $entity) {
+      $entity->uwmcs_reader_entity_load = 123;
     }
+
+  }
+
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function uwmcs_reader_entity_presave(EntityInterface $entity) {
+
+  switch ($entity->bundle()) {
+
+    // Here you modify only your day content type.
+    case 'day':
+      // Setting the title with the value of field_date.
+      $entity->setTitle($entity->get('field_date')->value);
+      break;
 
   }
 
@@ -135,7 +130,7 @@ function uwmcs_reader_entity_extra_field_info() {
       'label' => t('My own field'),
       'description' => t('This is my own pseudo-field'),
       'weight' => 100,
-      'visible' => TRUE,
+      'visible' => FALSE,
     ];
   }
 
