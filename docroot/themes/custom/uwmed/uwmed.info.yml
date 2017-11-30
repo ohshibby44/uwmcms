@@ -24,5 +24,4 @@ libraries:
   - 'uwmed/global-styles'
   - 'uwmed/global-scripts'
   - 'uwmed/bootstrap-scripts'
-  - 'uwmed/subscribe-form-validation'
   - 'uwmed/google-fonts'
