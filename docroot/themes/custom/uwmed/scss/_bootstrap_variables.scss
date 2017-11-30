@@ -18,13 +18,13 @@ $bootstrap-sass-asset-helper: false;
 //## Gray and brand colors for use across Bootstrap.
 
 $gray-base:              #000;
-$gray-darker:            #444;
-$gray-dark:              #777;
-$gray:                   #ccc;
-$gray-light:             #ddd;
-$gray-lighter:           #eee;
+$gray-darker:            lighten($gray-base, 13.5%);
+$gray-dark:              lighten($gray-base, 20%);  
+$gray:                   lighten($gray-base, 33.5%);
+$gray-light:             lighten($gray-base, 46.7%);
+$gray-lighter:           lighten($gray-base, 93.5%);
 
-$brand-primary:         #006c8a;
+$brand-primary:         darken(#428bca, 6.5%);
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
@@ -38,47 +38,47 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $gray-darker;
+$text-color:            $gray-dark;
 
 //** Global textual link color.
-$link-color:            $text-color;
-//** Link hover color.
-$link-hover-color:      $brand-primary;
+$link-color:            $brand-primary;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
 //** Link hover decoration.
-$link-hover-decoration: none;
+$link-hover-decoration: underline;
 
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif:       Lora, Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-$font-family-base:        $font-family-serif;
+$font-family-base:        $font-family-sans-serif;
 
-$font-size-base:          18px;
-$font-size-large:         ceil(($font-size-base * 1.778));
-$font-size-small:         floor(($font-size-base * 0.889));
+$font-size-base:          14px;
+$font-size-large:         ceil(($font-size-base * 1.25));
+$font-size-small:         ceil(($font-size-base * 0.85));
 
-$font-size-h1:            $font-size-large;
-$font-size-h2:            floor(($font-size-base * 1.111));
-$font-size-h3:            $font-size-base;
-$font-size-h4:            $font-size-base;
+$font-size-h1:            floor(($font-size-base * 2.6));
+$font-size-h2:            floor(($font-size-base * 2.15));
+$font-size-h3:            ceil(($font-size-base * 1.7));
+$font-size-h4:            ceil(($font-size-base * 1.25));
 $font-size-h5:            $font-size-base;
 $font-size-h6:            ceil(($font-size-base * 0.85));
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.777777778;
+$line-height-base:        1.428571429;
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base));
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
-$headings-font-weight:    bold;
-$headings-line-height:    1.25;
-$headings-color:          $gray-base;
+$headings-font-weight:    500;
+$headings-line-height:    1.1;
+$headings-color:          inherit;
 
 
 //== Iconography
@@ -86,9 +86,6 @@ $headings-color:          $gray-base;
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-
-// [converter] If $bootstrap-sass-asset-helper if used, provide path relative to the assets load path.
-// [converter] This is because some asset helpers, such as Sprockets, do not work with file-relative paths.
 $icon-font-path: '../fonts/vendor/';
 
 //** File name for all font files.
@@ -116,9 +113,9 @@ $padding-xs-horizontal:     5px;
 $line-height-large:         1.3333333;
 $line-height-small:         1.5;
 
-$border-radius-base:        0;
-$border-radius-large:       0;
-$border-radius-small:       0;
+$border-radius-base:        4px;
+$border-radius-large:       6px;
+$border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff;
@@ -200,9 +197,9 @@ $input-bg:                       #fff;
 $input-bg-disabled:              $gray-lighter;
 
 //** Text color for `<input>`s
-$input-color:                    $gray-dark;
+$input-color:                    $gray;
 //** `<input>` border color
-$input-border:                   $gray-dark;
+$input-border:                   #ccc;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -255,16 +252,16 @@ $dropdown-fallback-border:       #ccc;
 $dropdown-divider-bg:            #e5e5e5;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $gray-darker;
+$dropdown-link-color:            $gray-dark;
 //** Hover color for dropdown links.
-$dropdown-link-hover-color:      $brand-primary;
+$dropdown-link-hover-color:      darken($gray-dark, 5%);
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         $gray-lighter;
+$dropdown-link-hover-bg:         #f5f5f5;
 
 //** Active dropdown menu item text color.
-$dropdown-link-active-color:     $brand-primary;
+$dropdown-link-active-color:     $component-active-color;
 //** Active dropdown menu item background color.
-$dropdown-link-active-bg:        $gray-lighter;
+$dropdown-link-active-bg:        $component-active-bg;
 
 //** Disabled dropdown menu item background color.
 $dropdown-link-disabled-color:   $gray-light;
@@ -306,21 +303,21 @@ $screen-phone:               $screen-xs-min;
 
 // Small screen / tablet
 //** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  900px;
+$screen-sm:                  768px;
 $screen-sm-min:              $screen-sm;
 //** Deprecated `$screen-tablet` as of v3.0.1
 $screen-tablet:              $screen-sm-min;
 
 // Medium screen / desktop
 //** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  1200px;
+$screen-md:                  992px;
 $screen-md-min:              $screen-md;
 //** Deprecated `$screen-desktop` as of v3.0.1
 $screen-desktop:             $screen-md-min;
 
 // Large screen / wide desktop
 //** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1600px;
+$screen-lg:                  1200px;
 $screen-lg-min:              $screen-lg;
 //** Deprecated `$screen-lg-desktop` as of v3.0.1
 $screen-lg-desktop:          $screen-lg-min;
@@ -338,10 +335,10 @@ $screen-md-max:              ($screen-lg-min - 1);
 //** Number of columns in the grid.
 $grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         60px;
+$grid-gutter-width:         30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint:     $screen-md-min;
+$grid-float-breakpoint:     $screen-sm-min;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 
@@ -351,17 +348,17 @@ $grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 //## Define the maximum width of `.container` for different screen sizes.
 
 // Small screen / tablet
-$container-tablet:             (740px + $grid-gutter-width);
+$container-tablet:             (720px + $grid-gutter-width);
 //** For `$screen-sm-min` and up.
 $container-sm:                 $container-tablet;
 
 // Medium screen / desktop
-$container-desktop:            (1020px + $grid-gutter-width);
+$container-desktop:            (940px + $grid-gutter-width);
 //** For `$screen-md-min` and up.
 $container-md:                 $container-desktop;
 
 // Large screen / wide desktop
-$container-large-desktop:      (1380px + $grid-gutter-width);
+$container-large-desktop:      (1140px + $grid-gutter-width);
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop;
 
@@ -371,23 +368,23 @@ $container-lg:                 $container-large-desktop;
 //##
 
 // Basics of a navbar
-$navbar-height:                    100px;
+$navbar-height:                    50px;
 $navbar-margin-bottom:             $line-height-computed;
-$navbar-border-radius:             0;
-$navbar-padding-horizontal:        0;
+$navbar-border-radius:             $border-radius-base;
+$navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
-$navbar-collapse-max-height:       600px;
+$navbar-collapse-max-height:       340px;
 
 $navbar-default-color:             #777;
-$navbar-default-bg:                $body-bg;
-$navbar-default-border:            none;
+$navbar-default-bg:                #f8f8f8;
+$navbar-default-border:            darken($navbar-default-bg, 6.5%);
 
 // Navbar links
-$navbar-default-link-color:                $text-color;
-$navbar-default-link-hover-color:          $brand-primary;
+$navbar-default-link-color:                #777;
+$navbar-default-link-hover-color:          #333;
 $navbar-default-link-hover-bg:             transparent;
-$navbar-default-link-active-color:         $brand-primary;
-$navbar-default-link-active-bg:            transparent;
+$navbar-default-link-active-color:         #555;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%);
 $navbar-default-link-disabled-color:       #ccc;
 $navbar-default-link-disabled-bg:          transparent;
 
@@ -397,9 +394,9 @@ $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 1
 $navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-$navbar-default-toggle-hover-bg:           #fff;
-$navbar-default-toggle-icon-bar-bg:        #fff;
-$navbar-default-toggle-border-color:       transparent;
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
 
 
 //=== Inverted navbar
@@ -463,15 +460,15 @@ $nav-pills-active-link-hover-color:         $component-active-color;
 
 $pagination-color:                     $link-color;
 $pagination-bg:                        #fff;
-$pagination-border:                    none;
+$pagination-border:                    #ddd;
 
-$pagination-hover-color:               $brand-primary;
-$pagination-hover-bg:                  transparent;
-$pagination-hover-border:              none;
+$pagination-hover-color:               $link-hover-color;
+$pagination-hover-bg:                  $gray-lighter;
+$pagination-hover-border:              #ddd;
 
-$pagination-active-color:              $brand-primary;
-$pagination-active-bg:                 transparent;
-$pagination-active-border:             none;
+$pagination-active-color:              #fff;
+$pagination-active-bg:                 $brand-primary;
+$pagination-active-border:             $brand-primary;
 
 $pagination-disabled-color:            $gray-light;
 $pagination-disabled-bg:               #fff;
@@ -484,7 +481,7 @@ $pagination-disabled-border:           #ddd;
 
 $pager-bg:                             $pagination-bg;
 $pager-border:                         $pagination-border;
-$pager-border-radius:                  0;
+$pager-border-radius:                  15px;
 
 $pager-hover-bg:                       $pagination-hover-bg;
 
@@ -726,7 +723,7 @@ $panel-border-radius:         $border-radius-base;
 $panel-inner-border:          #ddd;
 $panel-footer-bg:             #f5f5f5;
 
-$panel-default-text:          $gray-darker;
+$panel-default-text:          $gray-dark;
 $panel-default-border:        #ddd;
 $panel-default-heading-bg:    #f5f5f5;
 
@@ -874,7 +871,7 @@ $blockquote-font-size:        ($font-size-base * 1.25);
 //** Blockquote border color
 $blockquote-border-color:     $gray-lighter;
 //** Page header border color
-$page-header-border-color:    transparent;
+$page-header-border-color:    $gray-lighter;
 //** Width of horizontal description list titles
 $dl-horizontal-offset:        $component-offset-horizontal;
 //** Point at which .dl-horizontal becomes horizontal
