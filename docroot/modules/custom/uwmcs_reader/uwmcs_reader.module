@@ -82,6 +82,15 @@ function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, Entit
 
   }
 
+  if ($display->getComponent('my_own_pseudo_field')) {
+
+    $build['my_own_pseudo_field'] = [
+      '#type' => 'markup',
+      '#markup' => 'This is my custom content',
+    ];
+
+  }
+
 }
 
 
@@ -134,11 +143,12 @@ function uwmcs_reader_entity_extra_field_info() {
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
-function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode, $langcode) {
-  if ($display->getComponent('my_own_pseudo_field')) {
-    $build['my_own_pseudo_field'] = [
-      '#type' => 'markup',
-      '#markup' => 'This is my custom content',
-    ];
-  }
-}
+//function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode, $langcode) {
+//  if ($display->getComponent('my_own_pseudo_field')) {
+//    $build['my_own_pseudo_field'] = [
+//      '#type' => 'markup',
+//      '#markup' => 'This is my custom content',
+//    ];
+//  }
+//}
+
