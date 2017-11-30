@@ -1,0 +1,25 @@
+.article.mini-horizontal {
+  margin: 0 0 2rem 0;
+  .field--name-field-feature-category {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 .5rem 0;
+  }
+  .field--name-field-primary-media {
+    float: left;
+    width: 33%;
+    margin: 0 5% 0 0;
+  }
+  h3 {
+    float: left;
+    width: 61%;
+    font-size: $font-size-base;
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs;
+    }
+  }
+}

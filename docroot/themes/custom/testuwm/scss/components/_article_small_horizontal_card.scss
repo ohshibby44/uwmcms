@@ -1,0 +1,38 @@
+.article.small-horizontal-card {
+  @include clearfix();
+  margin: 0 0 3rem 0;
+  .field--name-field-feature-category {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 .5rem 0;
+  }
+  h3 {
+    font-family: $font-family-sans-serif;
+    font-size: ceil(($font-size-base * 1.25));
+    font-weight: 500;
+    margin: 0 0 .5rem 0;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs * 1.25;
+    }
+  }
+  .article-created-date {
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 .5rem 0;
+  }
+  .field--name-field-primary-media {
+    float: left;
+    width: 20%;
+    margin: 0 3% 0 0;
+  }
+  .field--name-field-short-summary {
+    float: left;
+    width: 76%;
+    font-size: $font-size-base;
+    line-height: 1.333;
+    @media (max-width: $screen-xs) {
+      font-size: $font-size-base-xs;
+    }
+  }
+}

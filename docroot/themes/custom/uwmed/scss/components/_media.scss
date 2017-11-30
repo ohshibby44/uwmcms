@@ -1,0 +1,30 @@
+.media-image,
+.media-video {
+  .field--name-field-caption {
+    float: left;
+    width: 60%;
+    font-size: ceil(($font-size-base * .944444444));
+    font-family: $font-family-sans-serif;
+    margin: 10px 2% 0 0;
+    line-height: 1.25;
+    @media (max-width: $screen-xs) {
+      font-size: ceil(($font-size-base-xs * .944444444));
+    }
+  }
+  .field--name-field-credit {
+    float: right;
+    text-align: right;
+    width: 35%;
+    font-size: ceil(($font-size-base * 0.777777778));
+    font-family: $font-family-sans-serif;
+    color: $gray-dark;
+    margin: 10px 0 0 2%;
+    line-height: 1.25;
+    @media (max-width: $screen-xs) {
+      font-size: ceil(($font-size-base-xs * 0.778));
+    }
+  }
+  &.view-mode-large {
+    margin-bottom: $line-height-computed;
+  }
+}
