@@ -1,5 +1,5 @@
-name: 'UWMed'
-description: 'Custom Bootstrap theme for UW Medicine.'
+name: 'testuwm'
+description: 'Test UWMedicine bootstrap subtheme.'
 core: 8.x
 type: theme
 base theme: bootstrap
