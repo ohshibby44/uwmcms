@@ -41,4 +41,13 @@ rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
 # Installs chromedriver to vendor/bin.
 # ${BLT_DIR}/scripts/linux/install-chrome.sh ${COMPOSER_BIN}
 
+# Set Node Version to match .node-version
+NODE_VERSION=$(cat .node-version)
+if [[ $(nvm ls $NODE_VERSION | grep "N/A") ]]; then
+  echo "Downloading and installing node version $NODE_VERSION"
+  nvm download $NODE_VERSION
+  nvm install $NODE_VERSION
+fi
+nvm use --delete-prefix $NODE_VERSION
+
 set +v
