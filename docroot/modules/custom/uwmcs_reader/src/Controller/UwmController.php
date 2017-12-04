@@ -11,9 +11,7 @@ use Drupal\Core\Language\LanguageInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Component\Utility\Html;
 use Drupal\node\NodeInterface;
-use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Session\AccountInterface;
-
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -73,33 +71,42 @@ class UwmController {
 
     }
 
-    if (!empty($element)) {
-      return $this->createNode(['body' => $element]);
-      return $element;
-    }
+    if (empty($element)) {
 
-    throw new NotFoundHttpException();
+      throw new NotFoundHttpException();
+
+    }
+    $node = $this->createNode(['body' => $element]);
+    return $node;
 
   }
 
   /**
+   * Function description.
+   *
    * @param \Drupal\node\NodeInterface $node1
+   *   Param description...
    * @param \Drupal\node\NodeInterface $node2
+   *   Param description...
    */
   public function foo(NodeInterface $node1, NodeInterface $node2) {
 
     $a = 123;
-
+    return NULL;
   }
 
   /**
+   * Function description.
+   *
    * @param \Drupal\Core\Session\AccountInterface $account
+   *   Param description...
    *
    * @return \Drupal\Core\Access\AccessResult
+   *   Param description...
    */
   public function access(AccountInterface $account) {
-    // Check permissions and combine that with any custom access checking needed. Pass forward
-    // parameters from the route and/or request as needed.
+    // Check permissions and combine that with any custom access checking
+    // needed. Pass forward parameters from the route and/or request as needed.
     return TRUE;
   }
 
@@ -188,10 +195,15 @@ class UwmController {
   }
 
   /**
-   * private function createNode.
+   * Function desription.
+   *
+   * @param array $settings
+   *   Parameter description.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Return description.
    */
   private function createNode(array $settings = []) {
-
 
     // Populate defaults array.
     $settings += [
@@ -205,22 +217,15 @@ class UwmController {
       'type' => 'page',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
       'body' => [
-        'value' => 'foo monkey puzzle date '. date('r'),
+        'value' => 'Foo monkey puzzle whoo' . date('r'),
         'format' => filter_default_format(),
       ],
       'field_image' => [
         'target_id' => 123,
         'alt' => 'Hello world',
-        'title' => 'Goodbye world'
+        'title' => 'Goodbye world',
       ],
     ];
-
-
-    // Merge body field value and format separately.
-//    $settings['body'][0] += [
-//      'value' => 'foo monkey puzzle date '. date('r'),
-//      'format' => filter_default_format(),
-//    ];
 
     // Create node object with attached file.
     // $node = \Drupal\node\Entity\Node::create($settings);
@@ -233,4 +238,5 @@ class UwmController {
     return $node;
 
   }
+
 }

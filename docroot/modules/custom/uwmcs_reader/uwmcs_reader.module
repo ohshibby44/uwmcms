@@ -68,9 +68,9 @@ function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, Entit
  */
 function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
-//  $node = \Drupal::entityTypeManager()->getStorage('node')->load(3);
-//  $node_storage = \Drupal::entityManager()->getStorage('node');
-//  $n = $node_storage->load(1);
+  // $node = \Drupal::entityTypeManager()->getStorage('node')->load(3);
+  // $node_storage = \Drupal::entityManager()->getStorage('node');
+  // $n = $node_storage->load(1);.
   if ($entity_type_id === 'node') {
 
     foreach ($entities as $entity) {
