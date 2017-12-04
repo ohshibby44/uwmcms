@@ -6,7 +6,7 @@ drush:
 target-hooks:
     frontend-setup:
         dir: '${docroot}/themes/custom/uwmed'
-        command: 'source ~/.nvm/nvm.sh; nvm use $NODE_JS_VERSION; npm install'
+        command: 'bash -c "source ~/.nvm/nvm.sh; nvm use $NODE_JS_VERSION; npm install"'
     frontend-build:
         dir: '${docroot}/themes/custom/uwmed'
         command: 'gulp'
