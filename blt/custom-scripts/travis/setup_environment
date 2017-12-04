@@ -42,7 +42,6 @@ rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
 # ${BLT_DIR}/scripts/linux/install-chrome.sh ${COMPOSER_BIN}
 
 # Set Node Version to match .node-version
-NODE_VERSION=$(cat .node-version)
-nvm install $NODE_VERSION
-
+curl -o ~/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.33.6/nvm.sh #udpate nvm
+bash -c "source ~/.nvm/nvm.sh; nvm install $NODE_JS_VERSION; node --version"
 set +v
