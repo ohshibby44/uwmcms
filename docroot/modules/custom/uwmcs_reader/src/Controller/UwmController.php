@@ -7,8 +7,13 @@ namespace Drupal\uwmcs_reader\Controller;
  * routing-system/parameter-upcasting-in-routes
  *
  */
+use Drupal\Core\Language\LanguageInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Session\AccountInterface;
+
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -54,7 +59,7 @@ class UwmController {
 
     $element = [];
 
-    if ($this->requestArgs[0] === 'provider') {
+    if ($this->requestArgs[0] === 'bios') {
 
       $reader = new UwmFetcher();
       $provider = $reader->searchForProvider($this->requestArgs[1]);
@@ -69,11 +74,33 @@ class UwmController {
     }
 
     if (!empty($element)) {
+      return $this->createNode(['body' => $element]);
       return $element;
     }
 
     throw new NotFoundHttpException();
 
+  }
+
+  /**
+   * @param \Drupal\node\NodeInterface $node1
+   * @param \Drupal\node\NodeInterface $node2
+   */
+  public function foo(NodeInterface $node1, NodeInterface $node2) {
+
+    $a = 123;
+
+  }
+
+  /**
+   * @param \Drupal\Core\Session\AccountInterface $account
+   *
+   * @return \Drupal\Core\Access\AccessResult
+   */
+  public function access(AccountInterface $account) {
+    // Check permissions and combine that with any custom access checking needed. Pass forward
+    // parameters from the route and/or request as needed.
+    return TRUE;
   }
 
   /**
@@ -160,4 +187,50 @@ class UwmController {
     return $element;
   }
 
+  /**
+   * private function createNode.
+   */
+  private function createNode(array $settings = []) {
+
+
+    // Populate defaults array.
+    $settings += [
+      'title' => 'One, two, three',
+      'changed' => REQUEST_TIME,
+      'promote' => NODE_NOT_PROMOTED,
+      'revision' => 1,
+      'log' => '',
+      'status' => NODE_PUBLISHED,
+      'sticky' => NODE_NOT_STICKY,
+      'type' => 'page',
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+      'body' => [
+        'value' => 'foo monkey puzzle date '. date('r'),
+        'format' => filter_default_format(),
+      ],
+      'field_image' => [
+        'target_id' => 123,
+        'alt' => 'Hello world',
+        'title' => 'Goodbye world'
+      ],
+    ];
+
+
+    // Merge body field value and format separately.
+//    $settings['body'][0] += [
+//      'value' => 'foo monkey puzzle date '. date('r'),
+//      'format' => filter_default_format(),
+//    ];
+
+    // Create node object with attached file.
+    // $node = \Drupal\node\Entity\Node::create($settings);
+    $node = entity_create('node', $settings);
+    if (!empty($settings['revision'])) {
+      $node->setNewRevision();
+    }
+    $node->save();
+
+    return $node;
+
+  }
 }

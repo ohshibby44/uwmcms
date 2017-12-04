@@ -42,15 +42,9 @@ phrases and it\'ll do the rest.</p>
  */
 function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  $build['#cache']['max-age'] = 0;
+  if ($display->getComponent('uwmcs_reader_api_values')) {
 
-  // dpm($build);
-  // dpm($view_mode);
-  drupal_set_message(t('it is working'));
-
-  if ($display->getComponent('my_own_pseudo_field')) {
-
-    $build['my_own_pseudo_field'] = [
+    $build['uwmcs_reader_api_values'] = [
       '#type' => 'markup',
       '#markup' => 'This is my custom content',
     ];
@@ -70,32 +64,18 @@ function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, Entit
 }
 
 /**
- * Implements hook_node_load().
- */
-function uwmcms_reader_node_load($nodes, $types) {
-
-  $nids = array_keys($nodes);
-  ksort($nids);
-  sort($types);
-
-  foreach ($nodes as $node) {
-
-    $node->node_test_loaded_nids = $nids;
-    $node->node_test_loaded_types = $types;
-
-  }
-
-}
-
-/**
  * Implements hook_entity_load().
  */
 function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
+//  $node = \Drupal::entityTypeManager()->getStorage('node')->load(3);
+//  $node_storage = \Drupal::entityManager()->getStorage('node');
+//  $n = $node_storage->load(1);
   if ($entity_type_id === 'node') {
 
     foreach ($entities as $entity) {
-      $entity->uwmcs_reader_entity_load = 123;
+      $entity->uwmcs_reader_api_values = 123;
+
     }
 
   }
@@ -123,15 +103,18 @@ function uwmcs_reader_entity_presave(EntityInterface $entity) {
  * Implements hook_entity_extra_field_info().
  */
 function uwmcs_reader_entity_extra_field_info() {
+
   $extra = [];
 
   foreach (NodeType::loadMultiple() as $bundle) {
-    $extra['node'][$bundle->Id()]['display']['my_own_pseudo_field'] = [
-      'label' => t('My own field'),
-      'description' => t('This is my own pseudo-field'),
+
+    $extra['node'][$bundle->Id()]['display']['uwmcs_reader_api_values'] = [
+      'label' => t('UM ImApi Data Values'),
+      'description' => t('Pseudo-field with call-back vaues from Information Manager API.'),
       'weight' => 100,
       'visible' => FALSE,
     ];
+
   }
 
   return $extra;

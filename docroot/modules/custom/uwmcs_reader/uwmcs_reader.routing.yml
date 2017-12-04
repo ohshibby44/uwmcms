@@ -11,12 +11,14 @@ uwmcs_reader.welcome:
     _controller: '\Drupal\uwmcs_reader\Controller\UwmController::welcomePage'
   requirements:
     _permission: 'administer site configuration'
+
 uwmcs_reader.generate:
   path: '/admin/config/uwmcms/uwmcs_reader/generate/{paragraphs}/{phrases}'
   defaults:
     _controller: '\Drupal\uwmcs_reader\Controller\UwmController::generate'
   requirements:
     _permission: 'administer uwmcs_reader'
+
 uwmcs_reader.form:
   path: '/admin/config/uwmcms/uwmcs_reader/settings'
   defaults:
@@ -24,13 +26,14 @@ uwmcs_reader.form:
     _title: 'UWMCS JSON Reader settings'
   requirements:
     _permission: 'administer site configuration'
-#
+
 uwmcs_reader.provider:
-  path: '/provider/{provider}'
+  path: '/bios/{provider}'
   defaults:
     _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderProvider'
   requirements:
     _permission: 'access content'
+
 uwmcs_reader.clinic:
   path: '/location/{location}'
   defaults:
@@ -41,3 +44,23 @@ uwmcs_reader.clinic:
       parameters:
         bar:
           type: entity:node
+
+uwmcs_reader.provider_node:
+  path: '/node/{provider}'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::foo'
+  requirements:
+    _permission: 'access content'
+
+uwmcs_reader.route_with_two_nodes:
+  path: '/foo/{node1}/{node2}'
+  defaults:
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::foo'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node1:
+        type: entity:node
+      node2:
+        type: entity:node'

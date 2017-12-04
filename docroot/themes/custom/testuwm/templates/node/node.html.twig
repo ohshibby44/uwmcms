@@ -65,6 +65,11 @@
  *   in different view modes.
  */
 #}
+{#{{ devel_breakpoint() }}#}
+//////11 {{ dump(node.uwmcs_reader_entity_load) }}/////
+//////22 {{ dump(node.values) }}/////
+//////33 {{ dump(node.my_own_pseudo_field) }}/////
+{{ dump(node|keys) }}
 {%
   set classes = [
     node.bundle|clean_class,
