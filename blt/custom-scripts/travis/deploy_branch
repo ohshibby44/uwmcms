@@ -2,6 +2,7 @@
 
 set -ev
 
+blt frontend -D site=default
 blt frontend -D site=chew
 
 blt deploy --commit-msg "Automated commit by Travis CI for Build ${TRAVIS_BUILD_ID}" --branch "${TRAVIS_BRANCH}-build" --ignore-dirty --no-interaction -v

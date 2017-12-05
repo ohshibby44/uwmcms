@@ -41,7 +41,7 @@ rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
 # Installs chromedriver to vendor/bin.
 # ${BLT_DIR}/scripts/linux/install-chrome.sh ${COMPOSER_BIN}
 
-# Set Node Version to match .node-version
-curl -o ~/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.33.6/nvm.sh #udpate nvm
-bash -c "source ~/.nvm/nvm.sh; nvm install $NODE_JS_VERSION; node --version"
+# Install gulp globally
+npm install -g gulp-cli
+
 set +v
