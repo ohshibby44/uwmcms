@@ -15,7 +15,6 @@ env:
     - BLT_DIR=$TRAVIS_BUILD_DIR/vendor/acquia/blt
     - LOCAL_BLT_DIR=$TRAVIS_BUILD_DIR/blt/
     - BUILD_DIR=$TRAVIS_BUILD_DIR
-    - NODE_JS_VERSION=6
 
 jdk:
   - oraclejdk8
