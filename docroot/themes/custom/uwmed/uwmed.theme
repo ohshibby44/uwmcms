@@ -22,7 +22,7 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
  */
 function uwmed_preprocess_block__system_branding_block(&$variables) {
 
-  $variables['site_logo'] = '/themes/custom/uwmed/images/uw-medicine.png';
+  $variables['site_logo'] = '/themes/custom/uwmed/src/global/images/uw-medicine.png';
 
 }
 

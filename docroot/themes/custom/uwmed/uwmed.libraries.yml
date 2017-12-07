@@ -1,26 +1,26 @@
 global-styles:
   css:
     theme:
-      css/style.css: {}
+      dist/global/style.css: {}
 
 global-scripts:
   js:
-    js/global.js: {}
+    dist/global/global.js: {}
 
 bootstrap-scripts:
   js:
-    js/vendor/affix.js: {}
-    js/vendor/alert.js: {}
-    js/vendor/button.js: {}
-    js/vendor/carousel.js: {}
-    js/vendor/collapse.js: {}
-    js/vendor/dropdown.js: {}
-    js/vendor/modal.js: {}
-    js/vendor/tooltip.js: {}
-    js/vendor/popover.js: {}
-    js/vendor/scrollspy.js: {}
-    js/vendor/tab.js: {}
-    js/vendor/transition.js: {}
+    dist/vendor/js/affix.js: {}
+    dist/vendor/js/alert.js: {}
+    dist/vendor/js/button.js: {}
+    dist/vendor/js/carousel.js: {}
+    dist/vendor/js/collapse.js: {}
+    dist/vendor/js/dropdown.js: {}
+    dist/vendor/js/modal.js: {}
+    dist/vendor/js/tooltip.js: {}
+    dist/vendor/js/popover.js: {}
+    dist/vendor/js/scrollspy.js: {}
+    dist/vendor/js/tab.js: {}
+    dist/vendor/js/transition.js: {}
 
 google-fonts:
   css:
