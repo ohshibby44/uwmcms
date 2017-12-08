@@ -14,12 +14,13 @@ module.exports = function (gulp, plugins, options) {
     ])
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
-      .pipe(plugins.sassGlob())
       .pipe(plugins.sass({
         errLogToConsole: true,
         outputStyle: 'expanded',
         includePaths: options.sass.bootstrapFiles
       }))
+      .pipe(plugins.sourcemaps.write({includeContent: false}))
+      .pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false

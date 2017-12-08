@@ -42,7 +42,6 @@
 // gulp-plumber      : Prevent pipe breaking from errors
 // gulp-rename       : Rename files
 // gulp-sass         : Compile Sass
-// gulp-sass-glob    : Provide Sass Globbing
 // gulp-sass-lint    : Lint Sass
 // gulp-size         : Print file sizes
 // gulp-sourcemaps   : Generate sourcemaps
@@ -72,7 +71,6 @@ var plugins = require('gulp-load-plugins')({
   pattern: '*',
   rename: {
     'node-sass-import-once': 'importOnce',
-    'gulp-sass-glob': 'sassGlob',
     'run-sequence': 'runSequence',
     'gulp-clean-css': 'cleanCSS',
     'gulp-stylelint': 'stylelint',
@@ -184,15 +182,14 @@ var options = {
     source: [
       paths.styles.source
     ],
-    builder: 'builder/twig',
+    builder: 'src/styleguide/builder',
     destination: 'styleguide/',
     css: [
-      path.relative(paths.styleGuide, paths.styles.destination + 'styles.css'),
-      path.relative(paths.styleGuide, paths.styles.destination + 'style-guide-only/kss-only.css')
+      path.relative(paths.styleGuide, paths.styles.destination + 'global/style.css')
     ],
     js: [],
-    homepage: 'style-guide-only/homepage.md',
-    title: 'Living Style Guide'
+    homepage: 'styleguide/homepage.md',
+    title: 'UW Medicine Drupal Style Guide'
   },
 
   // ------ pa11y ----- //
