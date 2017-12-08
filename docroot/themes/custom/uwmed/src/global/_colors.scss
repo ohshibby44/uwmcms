@@ -1,0 +1,72 @@
+// Colors
+//
+// UW Medicine Brand Colors
+// <p>Variables to define UW Medicine Brand Colors. All colors can be lightened by <strong>xx</strong> percent (4 variations).</p>
+// <p>All brand color variables are prefixed with <code>$uwmed-</code></p>
+//
+// Markup:
+// <h3>Primary Palette</h3>
+// <div class="kss-swatch" style="background-color: #32006e">
+//   <div class="kss-swatch__hex">$uwmed-purple:<br>#32006e</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #c3c5c8">
+//   <div class="kss-swatch__hex">$uwmed-gray:<br>#c3c5c8</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #333d47">
+//   <div class="kss-swatch__hex">$uwmed-black<br>#333d47</div>
+// </div>
+// <h3>Secondary Palette</h3>
+// <div class="kss-swatch" style="background-color: #7be0d8">
+//   <div class="kss-swatch__hex">$uwmed-acqua<br>#7be0d8</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #00b3e4">
+//   <div class="kss-swatch__hex">$uwmed-bright-blue<br>#00b3e4</div>
+// </div>
+// <div class="kss-swatch kss-swatch-light" style="background-color: #00c496">
+//   <div class="kss-swatch__hex">$color-bright-green<br>#00c496</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #f8bd00">
+//   <div class="kss-swatch__hex">$uwmed-yellow<br>#f8bd00</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #ef7251">
+//   <div class="kss-swatch__hex">$uwmed-orange<br>#ef7251</div>
+// </div>
+// <h3>Tertiary Palette</h3>
+// <div class="kss-swatch kss-swatch-light" style="background-color: #e2231a">
+//   <div class="kss-swatch__hex">$uwmed-red<br>#e2231a</div>
+// </div>
+// <div class="kss-swatch kss-swatch-light" style="background-color: #5e4528">
+//   <div class="kss-swatch__hex">$uwmed-brown<br>#5e4528</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #f8e0a4">
+//   <div class="kss-swatch__hex">$uwmed-tan<br>#f8e0a4</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #004987">
+//   <div class="kss-swatch__hex">$uwmed-dark-blue<br>#004987</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #007549">
+//   <div class="kss-swatch__hex">$uwmed-dark-green<br>#007549</div>
+// </div>
+//
+// Weight: 999
+//
+// Style guide: colors
+
+/* Primary Colors */
+$uwmed-purple: #32006e;
+$uwmed-gray: #c3c5c8;
+$uwmed-black: #333d47;
+
+/* Secondary Colors */
+$uwmed-acqua: #7be0d8;
+$uwmed-bright-blue: #00b3e4;
+$uwmed-bright-green: #00c496;
+$uwmed-yellow: #f8bd00;
+$uwmed-orange: #ef7251;
+
+/* Tertiary Colors */
+$uwmed-red: #e2231a;
+$uwmed-brown: #5e4528;
+$uwmed-tan: #f8e0a4;
+$uwmed-dark-blue: #004987;
+$uwmed-dark-green: #007549;
