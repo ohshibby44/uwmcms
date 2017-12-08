@@ -73,7 +73,7 @@ var plugins = require('gulp-load-plugins')({
     'node-sass-import-once': 'importOnce',
     'run-sequence': 'runSequence',
     'gulp-clean-css': 'cleanCSS',
-    'gulp-stylelint': 'stylelint',
+    'gulp-stylelint': 'gulpStylelint',
     'gulp-eslint': 'gulpEslint',
     'gulp-babel': 'babel',
     'gulp-util': 'gutil'
@@ -89,7 +89,7 @@ var paths = {
     source: 'src/',
     destination: 'dist/',
     bootstrapSource: 'node_modules/bootstrap-sass/assets/stylesheets',
-    lintSource: 'src/{global, components, styleguide}' // don't lint base_theme_overrides
+    lintSource: 'src/{global, components, styleguide}' // don't lint base_theme_overrides`
   },
   scripts: {
     source: 'src/',
