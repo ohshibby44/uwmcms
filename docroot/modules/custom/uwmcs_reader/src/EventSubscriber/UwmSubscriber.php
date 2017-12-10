@@ -8,6 +8,7 @@ use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Drupal\uwmcs_reader\Controller\UwmController;
 /**
  * Class UwmSubscriber.
  *
@@ -24,7 +25,7 @@ class UwmSubscriber implements EventSubscriberInterface {
     // replying to a request. For example you could override or
     // add extra HTTP headers in here.
     $response = $event->getResponse();
-    $response->headers->set('X-Custom-Header', 'MyValue');
+    $response->headers->set('X-Custom-Header', 'MyValue111');
 
   }
 
@@ -46,7 +47,11 @@ class UwmSubscriber implements EventSubscriberInterface {
   public function onRequest(GetResponseEvent $event) {
 
     $response = $event->getRequest();
-    $response->headers->set('X-Custom-Header', 'MyValue2');
+    $response->headers->set('X-Custom-Header', 'MyValue22222');
+
+//    $uwm = new UwmController();
+//    $uwm->validateProviderNode();
+
 
   }
 
@@ -56,7 +61,10 @@ class UwmSubscriber implements EventSubscriberInterface {
   public function onException(GetResponseForExceptionEvent $event) {
 
     $response = $event->getRequest();
-    $response->headers->set('X-Custom-Header', 'MyValue3');
+    $response->headers->set('X-Custom-Header', 'MyValue113333');
+
+    $uwm = new UwmController();
+    $uwm->validateProviderNode(TRUE);
 
   }
 
@@ -65,10 +73,10 @@ class UwmSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
 
-    $events[KernelEvents::REQUEST][] = array('onRequest');
+    $events[KernelEvents::REQUEST][] = ['onRequest'];
     $events[KernelEvents::CONTROLLER][] = ['onController'];
     $events[KernelEvents::RESPONSE][] = ['onRespond'];
-    $events[KernelEvents::EXCEPTION] = ['onException'];
+    $events[KernelEvents::EXCEPTION][] = ['onException'];
     return $events;
 
   }

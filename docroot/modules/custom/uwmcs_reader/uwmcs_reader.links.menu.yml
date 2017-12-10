@@ -12,8 +12,3 @@ uwmcs_reader.links1:
   title: 'Information Manager (IM) administration'
   parent: uwmcs.admin
   url: https://apps.uwmedicine.org/
-uwmcs_reader.form:
-  title: 'UWMCS reader form'
-  description: 'Configure settings for the UWMCS Reader module.'
-  route_name: uwmcs_reader.form
-  parent: uwmcs.admin
