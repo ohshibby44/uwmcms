@@ -38,6 +38,13 @@
 %}
 <div{{ attributes.addClass(block_classes) }}>
   {% block content %}
+    {{ title_prefix }}
+    {% if label %}
+      <header>
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      </header>
+    {% endif %}
+    {{ title_suffix }}
     <div class="block-type-promotional__inner container-fluid">
       <div class="block-type-promotional__row">
         <div class="block-type-promotional__grid">

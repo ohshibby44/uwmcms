@@ -1,7 +1,7 @@
 // UWMED - Mobile Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Sept. 12, 2017
+// Dec. 8, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -575,8 +575,11 @@ body {
 .landing-page.full {
   .field--name-field-content-reference {
     .date-name {
-      // Shows up sometimes. Bug in templating
-      display: none;
+      font-weight: bold;
+      @include font-size(1.3, 1.6);
+      color: $uw-grey;
+      text-transform: uppercase;
+      margin-top: 6px;
     }
   }
   .field--name-field-content-references {
@@ -598,8 +601,11 @@ body {
           @include center-block();
           margin-bottom: 20px;
           .date-name {
-            // Shows up sometimes. Bug in templating
-            display: none;
+            font-weight: bold;
+            @include font-size(1.3, 1.6);
+            color: $uw-grey;
+            text-transform: uppercase;
+            margin-top: 6px;
           }
         }
       }
@@ -1680,13 +1686,13 @@ body {
     &__title {
       margin-top: 14px;
       .field--name-field-full-name {
-        @include font-size(1.3, 2.0);
+        @include font-size(1.6, 2.4);
         font-weight: 700;
         color: #000;
       }
       .field--name-field-location {
         color: #000;
-        @include font-size(1.6, 2.4);
+        @include font-size(1.3, 2.0);
         margin: 0 0 20px 0;
       }
       .md-border {
@@ -2577,11 +2583,17 @@ body {
       &.st_twitter_custom {
         background: transparent url(../img/twitter-2.svg) no-repeat center center;
       }
+      &.st_linkedin_custom {
+        background: transparent url(../img/linkedin-2.svg) no-repeat center center;
+      }
       &.st_facebook_custom:hover {
         background: transparent url(../img/facebook-over.svg) no-repeat center center;
       }
       &.st_twitter_custom:hover {
         background: transparent url(../img/twitter-over.svg) no-repeat center center;
+      }
+      &.st_linkedin_custom:hover {
+        background: transparent url(../img/linkedin-over.svg) no-repeat center center;
       }
     }
   }
@@ -3492,6 +3504,7 @@ blockquote {
           @include font-size(1.4, 2.1);
           .choice-title {
             font-weight: bold;
+            padding-right: 120px;
           }
           .choice-result {
             .bar {

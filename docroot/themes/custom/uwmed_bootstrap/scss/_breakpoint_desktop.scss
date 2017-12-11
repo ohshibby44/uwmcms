@@ -1,7 +1,7 @@
 // UWMED - Desktop Styles
 // Bear Group, www.beargroup.com
 // Author: Chris Bovard
-// Sept. 12, 2017
+// Dec. 6, 2017
 
 // =Import Files for Mixin Usage - ETC
 //the variable file is the one that will be modified by the themer - chris bovard
@@ -415,6 +415,9 @@
   .field--name-field-content-references {
     margin: 0;
     padding: 0;
+    .date-name {
+      @include font-size(1.4, 1.6);
+    }
     .field--name-field-content-references-inner {
       margin: 0;
       > .field--item {
@@ -423,6 +426,9 @@
         .article.teaser {
           header {
             height: 64px;
+          }
+          .date-name {
+            @include font-size(1.4, 1.6);
           }
         }
         &:nth-child(odd) {
