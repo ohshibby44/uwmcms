@@ -1,14 +1,12 @@
 // Typography
 //
-// <h2>UW Medicine Brand Font Styling</h2>
-// <p>Variables to define UW Medicine brand fonts and colors.</p>
-// <p>The variables set in this file include the standard <strong>Bootstrap Typography variables</strong>
+// Variables to define UW Medicine brand fonts and colors.
+//
+// The variables set in this file include the standard <strong>Bootstrap Typography variables</strong>
 // extracted from <code>_bootstrap_variables.scss</code>. The standard <strong>Bootstrap Type styles</strong> are overriden in
-// the file <code>../boostrap_overrides/_type.scss</code>.</p>
+// the file <code>../boostrap_overrides/_type.scss</code>.
 //
 // Style guide: 1
-
-/* The variables below  */
 
 /* Typography Colors */
 $uwmed-body-text-color: #474747;
@@ -41,7 +39,6 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // 19px
 //
 // Heading styles are applied via tag names, but also available via classes, to accommodate
 // semantic markup. For instance, an h3 tag could get h4 styling applied with &lt;h3 class="h4"&gt;&lt;/h3&gt;.
-// This method is used in this file as the examples below are &lt;p&gt; tags with heading classes.
 //
 // Markup:
 // <div style="background-color: #32006e;">
@@ -112,7 +109,7 @@ $heading-color-h6: #fff;
 
 // Links
 //
-// Text styles for links.
+// Text styles for &lt;a&gt; tag links.
 //
 // Markup: <p>Hello, I am sample paragraph text with links. Leverage agile frameworks to provide a robust
 // synopsis for high level overviews. Iterative <a href="#">approaches to corporate strategy</a>
