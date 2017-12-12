@@ -25,4 +25,4 @@ bootstrap-scripts:
 google-fonts:
   css:
     theme:
-      //fonts.googleapis.com/css?family=Encode+Sans|Open+Sans: { type: external }
+      //fonts.googleapis.com/css?family=Encode+Sans+Condensed:500|Encode+Sans:400,500|Open+Sans:400,700: { type: external }
