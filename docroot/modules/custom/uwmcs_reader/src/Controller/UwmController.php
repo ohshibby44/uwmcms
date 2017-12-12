@@ -9,9 +9,9 @@ namespace Drupal\uwmcs_reader\Controller;
  */
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
-use \Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -19,13 +19,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class UwmController extends ControllerBase {
 
+  public $biosPathAlias = 'bios';
+
+  public $clinicPathAlias = 'locations';
+
   private $requestUri;
 
   private $requestArgs;
 
-  public $biosPathAlias = 'bios/';
-
-  public $clinicPathAlias = 'locations/';
 
   /**
    * UwmController constructor.
@@ -37,28 +38,17 @@ class UwmController extends ControllerBase {
 
   }
 
+
   /**
-   * Returns a simple page.
+   * This is a description.
    *
-   * @return array
-   *   A simple renderable array.
-   */
-  public function welcomePage() {
-
-    $element = [
-      '#markup' => 'Hello, world',
-    ];
-
-    return $element;
-  }
-
-  /**
    * @param bool $createIfMissing
+   *   Param description.
    */
-  public function validateProviderNode(bool $createIfMissing = FALSE) {
+  public function validateRemoteNode(bool $createIfMissing = FALSE) {
 
-    $alias = $this->requestUri;
-    if ($node = $this->fetchNodeByAlias($alias)) {
+
+    if ($this->validateNodeByAlias($this->requestUri)) {
 
       return TRUE;
 
@@ -67,35 +57,29 @@ class UwmController extends ControllerBase {
     elseif ($createIfMissing) {
 
       $fetcher = new UwmFetcher();
-      $provider = $fetcher->searchForProvider($this->requestArgs[1]);
-      $node = $this->createProviderNode($provider);
 
-      if ($node->id()) {
+      // Find the remote, API data:
+      if ($this->requestArgs[0] === $this->biosPathAlias) {
 
-        $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-        $response = new RedirectResponse($url->toString());
-        $response->send();
-
-        // return $this->redirect('/node/' . $node->id());
+        $data = $fetcher->searchForProvider($this->requestArgs[1]);
+        $provider = $this->prepareRemoteNodeProvider($data);
+        $node = $this->saveRemoteNode($provider);
 
       }
 
-    }
+      if ($this->requestArgs[0] === $this->clinicPathAlias) {
 
+        $data = $fetcher->searchForClinic($this->requestArgs[1]);
+        $clinic = $this->prepareRemoteNodeClinic($data);
+        $node = $this->saveRemoteNode($clinic);
 
-  }
+      }
 
-  private function fetchNodeByAlias(string $alias = '') {
-
-
-    $alias = \Drupal::service('path.alias_manager')
-      ->getPathByAlias($alias);
-
-    if (preg_match('/node\/(\d+)/', $alias, $matches)) {
-
-      $node = Node::load($matches[1]);
-      if ($node->id()) {
-        return $node;
+      // If we created a node, redirect to it:
+      if (!empty($node) && !empty($node->id())) {
+        $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
+        $response = new RedirectResponse($url->toString());
+        $response->send();
 
       }
 
@@ -106,15 +90,12 @@ class UwmController extends ControllerBase {
   /**
    * Function desription.
    *
-   * @return \Drupal\Core\Entity\EntityInterface
-   *   Return description.
    */
-  private function createProviderNode(\stdClass $settings) {
-
+  private function prepareRemoteNodeProvider(\stdClass $data) {
 
     // Populate defaults array.
-    $node = [
-      'title' => $settings->fullName,
+    $settings = [
+      'title' => $data->fullName,
       'changed' => REQUEST_TIME,
       'promote' => NODE_NOT_PROMOTED,
       'revision' => 1,
@@ -123,43 +104,91 @@ class UwmController extends ControllerBase {
       'sticky' => NODE_NOT_STICKY,
       'type' => 'page',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
-      'path' =>  [
-        'alias' => $this->biosPathAlias . $settings->friendlyUrl,
-      ],
       'body' => [
-        'value' => $settings->bioIntro,
+        'value' => $data->bioIntro,
         'format' => filter_default_format(),
       ],
-      'field_image' => [
-        'target_id' => 123,
-        'alt' => 'Hello world',
-        'title' => 'Goodbye world',
+      'path' => [
+        'source' => '/node/1',
+        'alias' => '/'. $this->biosPathAlias . '/' . $data->friendlyUrl,
       ],
     ];
 
-    $node = entity_create('node', $node);
-//    $node->setNewRevision();
+    return $settings;
+
+  }
+
+  private function prepareRemoteNodeClinic(\stdClass $data) {
+
+    $settings = [
+      'title' => $data->clinicName,
+      'changed' => REQUEST_TIME,
+      'promote' => NODE_NOT_PROMOTED,
+      'revision' => 1,
+      'log' => '',
+      'status' => NODE_PUBLISHED,
+      'sticky' => NODE_NOT_STICKY,
+      'type' => 'page',
+      'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
+      'body' => [
+        'value' => $data->clinicName,
+        'format' => filter_default_format(),
+      ],
+      'path' => [
+        'source' => '/node/1',
+        'alias' => '/'. $this->clinicPathAlias . str_replace('/locations/', '', $data->clinicUrl),
+      ],
+    ];
+
+    return $settings;
+
+  }
+
+  /**
+   * Function desription.
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Return description.
+   */
+  private function saveRemoteNode(array $data) {
+
+    $node = entity_create('node', $data);
     $node->save();
-    pathauto_entity_insert($node);
+
+    // Add an url alias.
+    // We can't do this before saving and knowing the nid.
+    $path = [
+      'source' => '/node/' . $node->id(),
+      'alias' => $data['path']['alias'],
+    ];
+
+    $pathManager = \Drupal::service('path.alias_storage');
+    $pathManager->delete(array('alias' => $path['alias']));
+    $pathManager->save($path['source'], $path['alias']);
 
     return $node;
 
   }
 
   /**
-   * Function description.
+   * @param string $alias
+   *   Drupal node path alias to search for.
    *
-   * @param \Drupal\node\NodeInterface $node1
-   *   Param description...
-   * @param \Drupal\node\NodeInterface $node2
-   *   Param description...
+   * @return bool|null
    */
-  public function foo(NodeInterface $node1, NodeInterface $node2) {
+  private function validateNodeByAlias(string $alias = '') {
 
-    $a = 123;
-    return NULL;
+    $pathManager = \Drupal::service('path.alias_storage');
+    $alias = $pathManager->load(['alias' => $alias]);
+
+    if(!empty($alias['pid'])) {
+
+      // Let's not load the node.
+      // Assume it exists if alias does.
+      return TRUE;
+
+    }
+
   }
-
-
 
 }

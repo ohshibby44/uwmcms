@@ -31,10 +31,11 @@ class UwmFetcher {
   }
 
   /**
-   * Returns a provider given a search string.
+   * @param null $search
+   *   Provider Friendly URL to search for.
    *
-   * @return array
-   *   A simple renderable array.
+   * @return \stdClass
+   *
    */
   public function searchForProvider($search = NULL) {
 
@@ -42,21 +43,21 @@ class UwmFetcher {
 
     foreach ($this->providersCache as $provider) {
 
-      $slug = $provider->friendlyUrl;
-      if ($slug === $search) {
+      if ($provider->friendlyUrl === $search) {
         return $provider;
       }
     }
 
-    return [];
+    return new \stdClass();
 
   }
 
   /**
-   * Returns a clinic given a search string.
+   * @param null $search
+   *   Clinic Friendly URL to search for.
    *
-   * @return array
-   *   A simple renderable array.
+   * @return \stdClass
+   *
    */
   public function searchForClinic($search = NULL) {
 
@@ -72,7 +73,7 @@ class UwmFetcher {
       }
     }
 
-    return [];
+    return new \stdClass();
 
   }
 
