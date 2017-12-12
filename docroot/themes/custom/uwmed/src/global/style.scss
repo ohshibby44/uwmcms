@@ -1,3 +1,7 @@
+// UWMED Global
+@import 'colors';
+@import 'typography';
+
 // Variables.
 @import "bootstrap_variables";
 
@@ -12,7 +16,6 @@
 @import "bootstrap/glyphicons";
 
 // Core CSS
-@import "bootstrap/scaffolding";
 @import "bootstrap/code";
 @import "bootstrap/grid";
 @import "bootstrap/tables";
