@@ -331,6 +331,9 @@ pre .regexp {
   margin: 0 0 10px;
   font-weight: bold;
 }
+.kss-title__permalink {
+  text-decoration: none;
+}
 #kss-node .kss-title .kss-ref {
   margin-right: .2em;
   color: #19a3d1;
