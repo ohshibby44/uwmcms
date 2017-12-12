@@ -45,6 +45,16 @@
 // <div class="kss-swatch" style="background-color: #007549">
 //   <div class="kss-swatch__hex">$uwmed-dark-green<br>#007549</div>
 // </div>
+// <h3>Gradient Palette</h3>
+// <div class="kss-swatch kss-swatch-gradient" style="background-image: linear-gradient(to right, #37236a 66%, #6f3178);">
+//   <div class="kss-swatch__hex">$uwmed-gradient-light-to-dark<br>linear-gradient(to right, #6f3178 66%, #37236a)</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #37236a">
+//   <div class="kss-swatch__hex">$uwmed-gradient-dark-purple<br>#37236a</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #6f3178">
+//   <div class="kss-swatch__hex">$uwmed-gradient-light-purple<br>#6f3178</div>
+// </div>
 //
 // Style guide: 2
 
@@ -66,6 +76,12 @@ $uwmed-brown: #5e4528;
 $uwmed-tan: #f8e0a4;
 $uwmed-dark-blue: #004987;
 $uwmed-dark-green: #007549;
+
+/* Gradient Colors */
+$uwmed-gradient-dark-purple: #37236a;
+$uwmed-gradient-light-purple: #6f3178;
+$uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+
 // Bootstrap Color Variables
 //
 //## Gray and brand colors for use across Bootstrap.
