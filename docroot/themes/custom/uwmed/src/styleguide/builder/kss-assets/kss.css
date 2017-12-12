@@ -592,7 +592,7 @@ pre .regexp {
   padding-top: 35px;
 }
 #kss-node .kss-markup {
-  padding: 25px 20px 35px 0;
+  padding: 25px 0 35px;
 }
 #kss-node .kss-markup pre {
   white-space: pre;
@@ -781,6 +781,10 @@ pre .regexp {
   background-color: rgba(0, 0, 0, 0.25);
   color: #FFF;
   font-size: small;
+}
+
+.kss-swatch-gradient {
+  width: 100%;
 }
 
 .kss-icons__item {

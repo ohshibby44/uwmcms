@@ -128,12 +128,11 @@
                 </div>
                 {% endif %}
               </div>
-
-              {% if section.sourceFile.name %}
-                <div class="kss-source kss-style">
-                  Source: <code>{{ section.sourceFile.name }}</code>, line {{ section.sourceFile.line }}
-                </div>
-              {% endif %}
+            {% endif %}
+            {% if section.source.filename %}
+              <div class="kss-source kss-style">
+                Source: <code>{{ section.source.filename }}</code>, line {{ section.source.line }}
+              </div>
             {% endif %}
           </{{ sectionElement }}>
         {% endfor %}
