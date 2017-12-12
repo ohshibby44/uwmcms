@@ -47,7 +47,7 @@ textarea {
 
 a {
   color: $link-color;
-  text-decoration: none;
+  text-decoration: $link-decoration;
 
   &:hover,
   &:focus {
