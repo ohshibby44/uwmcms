@@ -101,7 +101,10 @@ var paths = {
     source: 'src/',
     destination: 'dist/'
   },
-  styleGuide: 'styleguide',
+  styleGuide: {
+    twigSource: 'src/',
+    destination: 'styleguide'
+  },
   fonts: {
     bootstrapSource: 'node_modules/bootstrap-sass/assets/fonts/bootstrap',
     bootstrapDestination: 'dist/vendor/fonts'
@@ -185,11 +188,12 @@ var options = {
     builder: 'src/styleguide/builder',
     destination: 'styleguide/',
     css: [
-      path.relative(paths.styleGuide, paths.styles.destination + 'global/style.css')
+      path.relative(paths.styleGuide.destination, paths.styles.destination + 'global/style.css')
     ],
     js: [],
     homepage: 'styleguide/homepage.md',
-    title: 'UW Medicine Drupal Style Guide'
+    title: 'UW Medicine Drupal Style Guide',
+    twigSource: path.join(paths.styleGuide.twigSource, '**/*.twig')
   },
 
   // ------ pa11y ----- //

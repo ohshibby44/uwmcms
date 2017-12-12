@@ -36,7 +36,8 @@ module.exports = function (gulp, plugins, options) {
 
   gulp.task('watch:styleguide', function () {
     return gulp.watch([
-      options.sass.files
+      options.sass.files,
+      options.styleGuide.twigSource
     ], function () {
       plugins.runSequence(
         'compile:styleguide'
