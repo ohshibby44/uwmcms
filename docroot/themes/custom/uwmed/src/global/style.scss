@@ -13,7 +13,6 @@
 
 // Core CSS
 @import "bootstrap/scaffolding";
-@import "bootstrap/type";
 @import "bootstrap/code";
 @import "bootstrap/grid";
 @import "bootstrap/tables";
@@ -55,3 +54,8 @@
 
 // Base-theme overrides.
 @import '../bootstrap_components/bootstrap_components';
+
+// Bootstrap Overrides
+@import "../bootstrap_overrides/type";
+@import "../bootstrap_overrides/scaffolding";
+
