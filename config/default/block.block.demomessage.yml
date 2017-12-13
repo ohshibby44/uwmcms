@@ -1,0 +1,25 @@
+uuid: d6862d18-1018-422d-87e0-6430dee9d970
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:27cbc34c-4440-4525-a75b-7d9fdfe65092'
+  module:
+    - block_content
+  theme:
+    - uwmed
+id: demomessage
+theme: uwmed
+region: help
+weight: 0
+provider: null
+plugin: 'block_content:27cbc34c-4440-4525-a75b-7d9fdfe65092'
+settings:
+  id: 'block_content:27cbc34c-4440-4525-a75b-7d9fdfe65092'
+  label: 'Demo Message'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

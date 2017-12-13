@@ -13,9 +13,9 @@ drupal_site_name: "UW Medicine"
 
 # Provide the path to the project root to Vagrant.
 vagrant_synced_folders:
-  # Set the local_path for the first synced folder to `.`.
+#  # Set the local_path for the first synced folder to `.`.
   - local_path: .
-    # Set the destination to the Acquia Cloud subscription machine name.
+#    # Set the destination to the Acquia Cloud subscription machine name.
     destination: /var/www/uwmed
     type: nfs
 

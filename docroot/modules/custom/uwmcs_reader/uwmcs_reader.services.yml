@@ -1,0 +1,5 @@
+services:
+  uwmcs_reader_event_subscriber:
+    class: Drupal\uwmcs_reader\EventSubscriber\UwmSubscriber
+    tags:
+      - { name: 'event_subscriber' }

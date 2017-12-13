@@ -1,0 +1,21 @@
+uuid: 0f783f72-2ab9-496e-a3a5-5377ecfff49a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_provider_npi
+    - node.type.uwm_provider
+_core:
+  default_config_hash: 01opMTYwYVN0CqsFtqIhwIs1JJQF2vdF3SqU5t11P_M
+id: node.uwm_provider.field_provider_npi
+field_name: field_provider_npi
+entity_type: node
+bundle: uwm_provider
+label: 'Provider NPI'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

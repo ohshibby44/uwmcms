@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Custom PHP code for the UWMed theme.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ */
+function testuwm_theme_suggestions_page_alter(&$suggestions, $variables) {
+
+  // Add content type suggestions.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function testuwm_preprocess_page(&$variables) {
+
+  if ($node = \Drupal::request()->attributes->get('node')) {
+
+    // If this is an Article node page, add the testuwm/sharethis library.
+    if ($node->getType() == 'article') {
+      $variables['#attached']['library'][] = 'testuwm/sharethis';
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for system branding block templates.
+ */
+function testuwm_preprocess_block__system_branding_block(&$variables) {
+
+  $variables['site_logo'] = '/themes/custom/testuwm/images/uw-medicine.png';
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for taxonomy term page templates.
+ */
+function testuwm_preprocess_page__taxonomy__term(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for article author field templates.
+ */
+function testuwm_preprocess_field__node__field_author__article(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for hierarchical term formatter templates.
+ */
+function testuwm_preprocess_hierarchical_term_formatter(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for button input templates.
+ */
+function testuwm_preprocess_input__button(&$variables) {
+
+}

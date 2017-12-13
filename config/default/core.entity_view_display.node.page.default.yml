@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_ttest_field
+    - field.field.node.page.panelizer
     - field.field.node.page.scheduled_update
     - node.type.page
   module:
@@ -32,6 +34,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ttest_field:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   links:
     weight: 1
     settings: {  }
@@ -41,4 +51,5 @@ content:
     weight: -20
     region: content
 hidden:
+  panelizer: true
   scheduled_update: true

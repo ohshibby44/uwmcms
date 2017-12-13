@@ -1,0 +1,14 @@
+uwmcs.admin:
+  title: 'UWMed Settings'
+  description: 'Configure settings for UWMCMS group modules.'
+  route_name: uwmcs.welcome
+  parent: 'system.admin_config'
+  weight: 1000
+uwmcs_reader.welcome:
+  title: 'UWMCS Reader Module'
+  route_name: uwmcs.welcome
+  parent: uwmcs.admin
+uwmcs_reader.links1:
+  title: 'Information Manager (IM) administration'
+  parent: uwmcs.admin
+  url: https://apps.uwmedicine.org/

@@ -1,0 +1,27 @@
+uuid: 9f3f6854-4f8a-4f07-9a2d-1d639df5c064
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - uwmed
+id: uwmed_userlogin
+theme: uwmed
+region: footer_second
+weight: -7
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

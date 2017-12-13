@@ -1,0 +1,35 @@
+cdn_provider: ''
+_core:
+  default_config_hash: _5qrDuRmWmRVjW00si3U1s1NrgrocA4N653EYGRfgEE
+schemas:
+  bootstrap: 8000
+  uwmed: 8000
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: profiles/contrib/lightning/favicon.ico
+  url: 'http://uwmed.local/themes/custom/uwmed/favicon.ico'
+  use_default: true
+logo:
+  path: profiles/contrib/lightning/lightning.png
+  url: ''
+  use_default: true
+region_wells:
+  branding: ''
+  navigation: ''
+  header: ''
+  highlighted: ''
+  help: ''
+  content_header: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer_first: ''
+  footer_second: ''
+table_responsive: '-1'
+table: ''
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+image_shape: img-rounded

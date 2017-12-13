@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Module for reading an API and providing API data to themes.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\uwmcs_reader\Controller\UwmFetcher;
+
+/**
+ * Implements hook_node_view().
+ */
+function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  $uri = \Drupal::request()->getRequestUri();
+  $args = explode('/', trim($uri, '/'));
+
+  if ($entity->getType() === "uwm_clinic") {
+
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+
+    $entity->uwmcs_reader_api_values = $data;
+
+  }
+
+  if ($entity->getType() === "uwm_provider") {
+
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
+
+    $entity->uwmcs_reader_api_values = $data;
+
+  }
+
+}

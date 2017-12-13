@@ -1,0 +1,18 @@
+uwmcs_reader.settings:
+  type: config_object
+  label: 'UWMCS Reader settings'
+  mapping:
+    uwmcs_reader:
+      type: mapping
+      mapping:
+        page_title:
+          type: text
+          label: 'UWMCS JSON Reader generator page title:'
+        source_text:
+          type: text
+          label: 'Source text for uwmcs reader generation:'
+block.settings.uwmcs_reader_block:
+  type: block_settings
+  label: 'UWMCS JSON Reader block'
+  mapping:
+    uwmcs_reader_block_settings:

@@ -1,0 +1,40 @@
+#block-uwmed-footer {
+  clear: both;
+  @media (min-width: $screen-md) {
+    @include make-md-column(8);
+    padding-left: 0;
+  }
+  .menu.nav {
+    text-align: center;
+    margin-bottom: 3rem;
+    @media (min-width: $screen-md) {
+      text-align: left;
+      margin-bottom: 0;
+    }
+    > li {
+      float: none;
+      display: inline-block;
+      font-family: $font-family-sans-serif;
+      font-size: ceil($font-size-base * .722);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 1em;
+      @media (min-width: $screen-md) {
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      > a {
+        padding: 0;
+        color: $gray-dark;
+        &:hover, &:active, &:focus {
+          color: $brand-primary;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
