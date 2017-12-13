@@ -5,8 +5,8 @@ uwmcs.admin:
   parent: 'system.admin_config'
   weight: 1000
 uwmcs_reader.welcome:
-  title: 'UWMCS reader admin'
-  route_name: uwmcs_reader.welcome
+  title: 'UWMCS Reader Module'
+  route_name: uwmcs.welcome
   parent: uwmcs.admin
 uwmcs_reader.links1:
   title: 'Information Manager (IM) administration'

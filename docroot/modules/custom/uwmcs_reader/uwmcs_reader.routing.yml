@@ -1,38 +1,6 @@
 uwmcs.welcome:
   path: '/admin/config/uwmcms'
   defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::welcomePage'
+    _controller: '\Drupal\uwmcs_reader\Controller\UwmCreator::adminPage'
   requirements:
     _permission: 'administer site configuration'
-#
-uwmcs_reader.welcome:
-  path: '/admin/config/uwmcms/uwmcs_reader'
-  defaults:
-    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::welcomePage'
-  requirements:
-    _permission: 'administer site configuration'
-#
-#uwmcs_reader.provider:
-#  path: '/bios/{provider}'
-#  defaults:
-#    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderProvider'
-#  requirements:
-#    _permission: 'access content'
-#
-#uwmcs_reader.clinic:
-#  path: '/location/{location}'
-#  defaults:
-#    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::renderLocation'
-#  requirements:
-#    _permission: 'access content'
-#  options:
-#      parameters:
-#        bar:
-#          type: entity:node
-#
-#uwmcs_reader.provider_node:
-#  path: '/node/{provider}'
-#  defaults:
-#    _controller: '\Drupal\uwmcs_reader\Controller\UwmController::foo'
-#  requirements:
-#    _permission: 'access content'

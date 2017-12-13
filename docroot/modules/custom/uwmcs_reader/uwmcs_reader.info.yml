@@ -1,6 +1,6 @@
 name: UWMCS JSON Reader
 type: module
-description: 'UWMCS module to read remote JSON for theming'
+description: 'UWMCS module for reading Information Manager (IM) API'
 package: Custom
 
 type: module

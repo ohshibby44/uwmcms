@@ -10,26 +10,23 @@ namespace Drupal\uwmcs_reader\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Url;
-use Drupal\node\Entity\Node;
-use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
  */
-class UwmController extends ControllerBase {
-
-  public $biosPathAlias = 'bios';
-
-  public $clinicPathAlias = 'locations';
+class UwmCreator extends ControllerBase {
 
   private $requestUri;
 
   private $requestArgs;
 
+  public $biosPathRoot = 'bios';
+
+  public $clinicPathRoot = 'locations';
 
   /**
-   * UwmController constructor.
+   * UwmCreator constructor.
    */
   public function __construct() {
 
@@ -38,6 +35,18 @@ class UwmController extends ControllerBase {
 
   }
 
+  /**
+   * Returns a simple page.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function adminPage() {
+    $element = [
+      '#markup' => 'Hello, world',
+    ];
+    return $element;
+  }
 
   /**
    * This is a description.
@@ -47,9 +56,9 @@ class UwmController extends ControllerBase {
    */
   public function validateRemoteNode(bool $createIfMissing = FALSE) {
 
+    if ($this->validateNodeAlias($this->requestUri)) {
 
-    if ($this->validateNodeByAlias($this->requestUri)) {
-
+      // Alias exists. Nothing to do.
       return TRUE;
 
     }
@@ -59,20 +68,28 @@ class UwmController extends ControllerBase {
       $fetcher = new UwmFetcher();
 
       // Find the remote, API data:
-      if ($this->requestArgs[0] === $this->biosPathAlias) {
+      if ($this->requestArgs[0] === $this->biosPathRoot) {
 
-        $data = $fetcher->searchForProvider($this->requestArgs[1]);
-        $provider = $this->prepareRemoteNodeProvider($data);
-        $node = $this->saveRemoteNode($provider);
+        $search = ['friendlyUrl' => $this->requestArgs[1]];
+        $data = $fetcher->getProvider($search);
 
+        if (!empty($data->fullName)) {
+          $provider = $this->prepareProviderNode($data);
+          $node = $this->saveRemoteNode($provider);
+
+        }
       }
 
-      if ($this->requestArgs[0] === $this->clinicPathAlias) {
+      elseif ($this->requestArgs[0] === $this->clinicPathRoot) {
 
-        $data = $fetcher->searchForClinic($this->requestArgs[1]);
-        $clinic = $this->prepareRemoteNodeClinic($data);
-        $node = $this->saveRemoteNode($clinic);
+        $search = ['clinicUrl' => '/locations/'. $this->requestArgs[1]];
+        $data = $fetcher->getClinic($search);
 
+        if (!empty($data->clinicName)) {
+          $clinic = $this->prepareClinicNode($data);
+          $node = $this->saveRemoteNode($clinic);
+
+        }
       }
 
       // If we created a node, redirect to it:
@@ -89,9 +106,8 @@ class UwmController extends ControllerBase {
 
   /**
    * Function desription.
-   *
    */
-  private function prepareRemoteNodeProvider(\stdClass $data) {
+  private function prepareProviderNode(\stdClass $data) {
 
     // Populate defaults array.
     $settings = [
@@ -102,7 +118,7 @@ class UwmController extends ControllerBase {
       'log' => '',
       'status' => NODE_PUBLISHED,
       'sticky' => NODE_NOT_STICKY,
-      'type' => 'page',
+      'type' => 'uwm_provider',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
       'body' => [
         'value' => $data->bioIntro,
@@ -110,7 +126,7 @@ class UwmController extends ControllerBase {
       ],
       'path' => [
         'source' => '/node/1',
-        'alias' => '/'. $this->biosPathAlias . '/' . $data->friendlyUrl,
+        'alias' => '/'. $this->biosPathRoot .'/'. $data->friendlyUrl,
       ],
     ];
 
@@ -118,7 +134,10 @@ class UwmController extends ControllerBase {
 
   }
 
-  private function prepareRemoteNodeClinic(\stdClass $data) {
+  /**
+   * Function desription.
+   */
+  private function prepareClinicNode(\stdClass $data) {
 
     $settings = [
       'title' => $data->clinicName,
@@ -128,7 +147,7 @@ class UwmController extends ControllerBase {
       'log' => '',
       'status' => NODE_PUBLISHED,
       'sticky' => NODE_NOT_STICKY,
-      'type' => 'page',
+      'type' => 'uwm_clinic',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
       'body' => [
         'value' => $data->clinicName,
@@ -136,7 +155,7 @@ class UwmController extends ControllerBase {
       ],
       'path' => [
         'source' => '/node/1',
-        'alias' => '/'. $this->clinicPathAlias . str_replace('/locations/', '', $data->clinicUrl),
+        'alias' => '/'. $this->clinicPathRoot .'/'. str_replace('/locations/', '', $data->clinicUrl),
       ],
     ];
 
@@ -163,7 +182,7 @@ class UwmController extends ControllerBase {
     ];
 
     $pathManager = \Drupal::service('path.alias_storage');
-    $pathManager->delete(array('alias' => $path['alias']));
+    $pathManager->delete(['alias' => $path['alias']]);
     $pathManager->save($path['source'], $path['alias']);
 
     return $node;
@@ -171,17 +190,20 @@ class UwmController extends ControllerBase {
   }
 
   /**
+   * Function desription.
+   *
    * @param string $alias
    *   Drupal node path alias to search for.
    *
    * @return bool|null
+   *   Description here.
    */
-  private function validateNodeByAlias(string $alias = '') {
+  private function validateNodeAlias(string $alias = '') {
 
     $pathManager = \Drupal::service('path.alias_storage');
     $alias = $pathManager->load(['alias' => $alias]);
 
-    if(!empty($alias['pid'])) {
+    if (!empty($alias['pid'])) {
 
       // Let's not load the node.
       // Assume it exists if alias does.
@@ -190,5 +212,6 @@ class UwmController extends ControllerBase {
     }
 
   }
+
 
 }

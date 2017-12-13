@@ -5,7 +5,7 @@ namespace Drupal\uwmcs_reader\EventSubscriber;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Drupal\uwmcs_reader\Controller\UwmController;
+use Drupal\uwmcs_reader\Controller\UwmCreator;
 
 /**
  * Class UwmSubscriber.
@@ -14,13 +14,12 @@ use Drupal\uwmcs_reader\Controller\UwmController;
  */
 class UwmSubscriber implements EventSubscriberInterface {
 
-
   /**
    * Code that should be triggered on the event.
    */
   public function onException(GetResponseForExceptionEvent $event) {
 
-    $uwm = new UwmController();
+    $uwm = new UwmCreator();
     $uwm->validateRemoteNode(TRUE);
 
   }

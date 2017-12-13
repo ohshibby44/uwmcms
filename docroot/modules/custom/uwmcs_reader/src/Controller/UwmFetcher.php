@@ -7,6 +7,7 @@ namespace Drupal\uwmcs_reader\Controller;
  * routing-system/parameter-upcasting-in-routes
  *
  */
+use Drupal\Core\Cache\CacheBackendInterface;
 use Httpful\Request;
 
 /**
@@ -14,15 +15,11 @@ use Httpful\Request;
  */
 class UwmFetcher {
 
-  protected static $apiUrl = 'http://webservices.uwmedicine.org/api';
+  protected static $apiUri = 'http://webservices.uwmedicine.org';
 
-  protected $providerDetail;
+  protected static $clinicEndpoint = '/api/clinic';
 
-  protected $clinicDetail;
-
-  protected $clinicsCache;
-
-  protected $providersCache;
+  protected static $providerEndpoint = '/api/bioinformation';
 
   /**
    * UwmFetcher constructor.
@@ -30,46 +27,63 @@ class UwmFetcher {
   public function __construct() {
   }
 
+
   /**
-   * @param null $search
-   *   Provider Friendly URL to search for.
+   * @param array $searchFields
    *
    * @return \stdClass
-   *
    */
-  public function searchForProvider($search = NULL) {
+  public function getProvider(array $searchFields = []) {
 
-    $this->fetchProviders();
+    $uri = $uri = self::$apiUri . self::$providerEndpoint;
+    $provider = $this->findItem($searchFields, $uri);
 
-    foreach ($this->providersCache as $provider) {
-
-      if ($provider->friendlyUrl === $search) {
-        return $provider;
-      }
-    }
-
-    return new \stdClass();
+    return $provider;
 
   }
 
   /**
-   * @param null $search
-   *   Clinic Friendly URL to search for.
+   * @param array $searchFields
    *
    * @return \stdClass
-   *
    */
-  public function searchForClinic($search = NULL) {
+  public function getClinic(array $searchFields = []) {
 
-    $this->fetchClinics();
-    // ...
-    foreach ($this->clinicsCache as $clinic) {
+    $uri = $uri = self::$apiUri . self::$clinicEndpoint;
+    $clinic = $this->findItem($searchFields, $uri);
 
-      $parts = explode('/', $clinic->externalUrl);
-      $slug = end($parts);
+    return $clinic;
 
-      if ($slug === $search) {
-        return $clinic;
+  }
+
+  /**
+   * Description here.
+   *
+   * @param string|null $search
+   *   Description here.
+   *
+   * @return \stdClass
+   *   Description here.
+   */
+  private function findItem(array $searchFields = [], string $apiUri = NULL) {
+
+    foreach ($this->fetchItem($apiUri) as $dataItem) {
+
+      foreach($searchFields as $key => $val) {
+
+        if (isset($dataItem->{$key}) && $dataItem->{$key} === $val) {
+
+          // Matched an item in the collection.
+          // If it has it's own endpoint, return that instead.
+          if(!empty($dataItem->url)) {
+
+            $detailView = $this->fetchItem($dataItem->url);
+
+          }
+
+          return empty($detailView) ? $dataItem : $detailView;
+        }
+
       }
     }
 
@@ -80,36 +94,67 @@ class UwmFetcher {
   /**
    * Return content for all providers.
    *
-   * @return array
-   *   A simple renderable array.
+   * @return \stdClass
+   *   Description here.
    */
-  public function fetchProviders() {
+  private function fetchItem(string $apiUri = NULL) {
 
-    $url = self::$apiUrl . '/bioinformation/';
-    $response = Request::get($url)
-      ->expectsJson()
-      ->send();
+    if ($cache = $this->_cacheGet($apiUri)) {
 
-    $this->providersCache = $response->body;
-    return $response->body;
+      return $cache->data;
+
+    }
+    else {
+
+      $response = Request::get($apiUri)
+        ->expectsJson()
+        ->send();
+
+      $this->_cacheSet($apiUri, $response->body);
+
+      return $response->body;
+
+    }
 
   }
 
   /**
-   * Return content for all clinics.
+   * @param string $key
    *
-   * @return array
-   *   A simple renderable array.
+   * @return false|object
    */
-  public function fetchClinics() {
+  private function _cacheGet(string $key) {
 
-    $url = self::$apiUrl . '/clinic/';
-    $response = Request::get($url)
-      ->expectsJson()
-      ->send();
+    $key = $this->_cacheKey($key);
 
-    $this->clinicsCache = $response->body;
-    return $response->body;
+    return \Drupal::cache()->get($key);
+
+  }
+
+  /**
+   * @param string $key
+   * @param $data
+   */
+  private function _cacheSet(string $key, $data) {
+
+    $key = $this->_cacheKey($key);
+
+    \Drupal::cache()->set($key, $data,
+      CacheBackendInterface::CACHE_PERMANENT
+    );
+
+  }
+
+  /**
+   * @param string|NULL $dataUniqueUri
+   *
+   * @return mixed
+   */
+  private function _cacheKey(string $dataUniqueUri = NULL) {
+
+    $key = $dataUniqueUri;
+
+    return preg_replace("/[^A-Za-z0-9 ]/", '_', $key);
 
   }
 

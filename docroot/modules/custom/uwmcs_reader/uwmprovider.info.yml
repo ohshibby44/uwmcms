@@ -1,7 +1,0 @@
-name: UWM Provider base node
-type: module
-description: 'Skeleton node for attaching API providers to.'
-package: Custom
-core: 8.x
-dependencies:
-  - node

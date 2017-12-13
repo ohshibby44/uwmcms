@@ -5,117 +5,35 @@
  * Module for reading an API and providing API data to themes.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\node\Entity\NodeType;
+use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
-/**
- * Implements hook_help().
- */
-function uwmcs_reader_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    case 'help.page.uwmcs_reader':
-      return t('
-        <h2>UWMCS JSON Reader generator for Drupal.</h2>
-        <h3>Instructions</h3>
-        <p>UWMCS JSON Reader dolor sit amet... <strong>Just kidding!</strong></p>
-        <p>Unpack in the <em>modules</em> folder (currently in the root of your Drupal 8 installation) and enable in <strong>/admin/modules</strong>.</p>
-        <p>Then, visit <strong>/admin/config/development/uwmcs_reader</strong> and enter your own set of phrases to build random-generated text (or go with the default UWMCS JSON Reader).</p>
-        <p>Last, visit <strong>www.example.com/uwmcs_reader/generate/P/S</strong> where:</p>
-        <ul>
-          <li><em>P</em> is the number of <em>paragraphs</em></li>
-          <li><em>S</em> is the maximum number of <em>sentences</em></li>
-        </ul>
-        <p>There is also a generator block in which you can choose how many paragraphs and
-phrases and it\'ll do the rest.</p>
-        <p>If you need, there\'s also a specific <em>generate uwmcs reader</em> permission.</p>
-        <h3>Attention</h3>
-        <p>Most bugs have been ironed out, holes covered, features added. But this module is a work in progress. Please report bugs and suggestions, ok?</p>
-      ');
-  }
-
-}
 
 /**
  * Implements hook_node_view().
  */
 function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  if ($display->getComponent('uwmcs_reader_api_values')) {
+  $uri = \Drupal::request()->getRequestUri();
+  $args = explode('/', trim($uri, '/'));
 
-    $build['uwmcs_reader_api_values'] = [
-      '#type' => 'markup',
-      '#markup' => 'This is my custom content',
-    ];
-  }
+  if ($entity->getType() === "uwm_clinic") {
 
-}
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
 
-/**
- * Implements hook_entity_view().
- */
-function uwmcms_reader_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-
-  if ($display->getComponent('mymodule_addition')) {
+    $entity->uwmcs_reader_api_values = $data;
 
   }
 
-}
+  if ($entity->getType() === "uwm_provider") {
 
-/**
- * Implements hook_entity_load().
- */
-function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
 
-  // $node = \Drupal::entityTypeManager()->getStorage('node')->load(3);
-  // $node_storage = \Drupal::entityManager()->getStorage('node');
-  // $n = $node_storage->load(1);.
-  if ($entity_type_id === 'node') {
-
-    foreach ($entities as $entity) {
-      $entity->uwmcs_reader_api_values = 123;
-
-    }
+    $entity->uwmcs_reader_api_values = $data;
 
   }
 
-}
-
-/**
- * Implements hook_entity_presave().
- */
-function uwmcs_reader_entity_presave(EntityInterface $entity) {
-
-  switch ($entity->bundle()) {
-
-    // Here you modify only your day content type.
-    case 'day':
-      // Setting the title with the value of field_date.
-      $entity->setTitle($entity->get('field_date')->value);
-      break;
-
-  }
-
-}
-
-/**
- * Implements hook_entity_extra_field_info().
- */
-function uwmcs_reader_entity_extra_field_info() {
-
-  $extra = [];
-
-  foreach (NodeType::loadMultiple() as $bundle) {
-
-    $extra['node'][$bundle->Id()]['display']['uwmcs_reader_api_values'] = [
-      'label' => t('UM ImApi Data Values'),
-      'description' => t('Pseudo-field with call-back vaues from Information Manager API.'),
-      'weight' => 100,
-      'visible' => FALSE,
-    ];
-
-  }
-
-  return $extra;
 }

@@ -66,10 +66,16 @@
  */
 #}
 {#{{ devel_breakpoint() }}#}
-//////11 {{ dump(node.uwmcs_reader_entity_load) }}/////
-//////22 {{ dump(node.values) }}/////
-//////33 {{ dump(node.my_own_pseudo_field) }}/////
-{{ dump(node|keys) }}
+<pre>
+  aaa123
+  Example IM Field:
+    $data->careNetworks[0]->careNetworkCode
+    {{ dump(node.uwmcs_reader_api_values.careNetworks[0].careNetworkCode) }}
+  Example Clinic Field:
+    $data->address
+    {{ dump(node.uwmcs_reader_api_values.address) }}</pre>
+
+
 {%
   set classes = [
     node.bundle|clean_class,
@@ -81,7 +87,7 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-2222222
+
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
