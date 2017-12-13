@@ -82,7 +82,7 @@ class UwmCreator extends ControllerBase {
 
       elseif ($this->requestArgs[0] === $this->clinicPathRoot) {
 
-        $search = ['clinicUrl' => '/locations/'. $this->requestArgs[1]];
+        $search = ['clinicUrl' => '/locations/' . $this->requestArgs[1]];
         $data = $fetcher->getClinic($search);
 
         if (!empty($data->clinicName)) {
@@ -126,7 +126,7 @@ class UwmCreator extends ControllerBase {
       ],
       'path' => [
         'source' => '/node/1',
-        'alias' => '/'. $this->biosPathRoot .'/'. $data->friendlyUrl,
+        'alias' => '/' . $this->biosPathRoot . '/' . $data->friendlyUrl,
       ],
     ];
 
@@ -155,7 +155,7 @@ class UwmCreator extends ControllerBase {
       ],
       'path' => [
         'source' => '/node/1',
-        'alias' => '/'. $this->clinicPathRoot .'/'. str_replace('/locations/', '', $data->clinicUrl),
+        'alias' => '/' . $this->clinicPathRoot . '/' . str_replace('/locations/', '', $data->clinicUrl),
       ],
     ];
 
@@ -212,6 +212,5 @@ class UwmCreator extends ControllerBase {
     }
 
   }
-
 
 }

@@ -27,11 +27,14 @@ class UwmFetcher {
   public function __construct() {
   }
 
-
   /**
+   * Description here.
+   *
    * @param array $searchFields
+   *   Description here.
    *
    * @return \stdClass
+   *   Description here.
    */
   public function getProvider(array $searchFields = []) {
 
@@ -43,9 +46,13 @@ class UwmFetcher {
   }
 
   /**
+   * Description here.
+   *
    * @param array $searchFields
+   *   Description here.
    *
    * @return \stdClass
+   *   Description here.
    */
   public function getClinic(array $searchFields = []) {
 
@@ -59,7 +66,9 @@ class UwmFetcher {
   /**
    * Description here.
    *
-   * @param string|null $search
+   * @param array $searchFields
+   *   Description here.
+   * @param string|null $apiUri
    *   Description here.
    *
    * @return \stdClass
@@ -69,13 +78,13 @@ class UwmFetcher {
 
     foreach ($this->fetchItem($apiUri) as $dataItem) {
 
-      foreach($searchFields as $key => $val) {
+      foreach ($searchFields as $key => $val) {
 
         if (isset($dataItem->{$key}) && $dataItem->{$key} === $val) {
 
           // Matched an item in the collection.
           // If it has it's own endpoint, return that instead.
-          if(!empty($dataItem->url)) {
+          if (!empty($dataItem->url)) {
 
             $detailView = $this->fetchItem($dataItem->url);
 
@@ -99,7 +108,7 @@ class UwmFetcher {
    */
   private function fetchItem(string $apiUri = NULL) {
 
-    if ($cache = $this->_cacheGet($apiUri)) {
+    if ($cache = $this->cacheGet($apiUri)) {
 
       return $cache->data;
 
@@ -110,7 +119,7 @@ class UwmFetcher {
         ->expectsJson()
         ->send();
 
-      $this->_cacheSet($apiUri, $response->body);
+      $this->cacheSet($apiUri, $response->body);
 
       return $response->body;
 
@@ -119,25 +128,33 @@ class UwmFetcher {
   }
 
   /**
+   * Description here.
+   *
    * @param string $key
+   *   Description here.
    *
    * @return false|object
+   *   Description here.
    */
-  private function _cacheGet(string $key) {
+  private function cacheGet(string $key) {
 
-    $key = $this->_cacheKey($key);
+    $key = $this->cacheName($key);
 
     return \Drupal::cache()->get($key);
 
   }
 
   /**
+   * Description here.
+   *
    * @param string $key
-   * @param $data
+   *   Description here.
+   * @param \stdClass $data
+   *   Description here.
    */
-  private function _cacheSet(string $key, $data) {
+  private function cacheSet(string $key, \stdClass $data) {
 
-    $key = $this->_cacheKey($key);
+    $key = $this->cacheName($key);
 
     \Drupal::cache()->set($key, $data,
       CacheBackendInterface::CACHE_PERMANENT
@@ -146,11 +163,15 @@ class UwmFetcher {
   }
 
   /**
-   * @param string|NULL $dataUniqueUri
+   * Description here.
+   *
+   * @param string|null $dataUniqueUri
+   *   Description here.
    *
    * @return mixed
+   *   Description here.
    */
-  private function _cacheKey(string $dataUniqueUri = NULL) {
+  private function cacheName(string $dataUniqueUri = NULL) {
 
     $key = $dataUniqueUri;
 
