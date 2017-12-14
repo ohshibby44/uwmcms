@@ -5,6 +5,11 @@ LIST=$( git diff --name-only --cached --diff-filter=ACM )
 PHPCS_BIN=vendor/bin/phpcs
 
 echo "Executing .git/hooks/pre-commit..."
+echo "Here is the list: "
+echo $LIST
+echo ""
+echo ""
+
 ${ROOT_DIR}/vendor/bin/blt git:pre-commit "$LIST"
 
 # Return the status of the last run command.

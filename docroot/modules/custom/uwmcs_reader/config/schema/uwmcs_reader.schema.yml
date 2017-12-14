@@ -7,7 +7,7 @@ uwmcs_reader.settings:
       mapping:
         page_title:
           type: text
-          label: 'UWMCS JSON Reader generator page title:'
+          label: 'UWMCS Reader generator page title:'
         source_text:
           type: text
           label: 'Source text for uwmcs reader generation:'

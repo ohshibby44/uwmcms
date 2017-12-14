@@ -149,10 +149,10 @@ class UwmFetcher {
    *
    * @param string $key
    *   Description here.
-   * @param \stdClass $data
+   * @param mixed $data
    *   Description here.
    */
-  private function cacheSet(string $key, \stdClass $data) {
+  private function cacheSet(string $key, $data) {
 
     $key = $this->cacheName($key);
 

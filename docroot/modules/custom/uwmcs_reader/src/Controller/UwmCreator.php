@@ -43,7 +43,7 @@ class UwmCreator extends ControllerBase {
    */
   public function adminPage() {
     $element = [
-      '#markup' => 'Hello, world',
+      '#markup' => 'This page intentionally left blank.',
     ];
     return $element;
   }
