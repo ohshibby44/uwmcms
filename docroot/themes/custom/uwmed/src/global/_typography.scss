@@ -61,7 +61,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // 19px
 $font-size-h1-mobile:     ceil(($font-size-base * 2.28)); // 32px
 $font-size-h1:            ceil(($font-size-base * 4.07)); // 57px
 $font-size-h2-mobile:     ceil(($font-size-base * 1.64)); // 23px
-$font-size-h2:            ceil(($font-size-base * 2.50)); // 35px
+$font-size-h2:            ceil(($font-size-base * 2.5)); // 35px
 $font-size-h3:            ceil(($font-size-base * 0.92)); // 13px
 $font-size-h4-mobile:     ceil(($font-size-base * 1.14)); // 16px
 $font-size-h4:            ceil(($font-size-base * 1.78)); // 25px
@@ -85,8 +85,8 @@ $line-height-h5:            ceil(($font-size-h5 * 1.25)); // 12px
 $line-height-h6:            ceil(($font-size-h6 * 1.25)); // 12px
 
 /* Heading Font Colors */
-$headings-color: $uwmed-body-text-color;;
-$heading-color-h1-mobile: $uwmed-body-text-color;;
+$headings-color: $uwmed-body-text-color;
+$heading-color-h1-mobile: $uwmed-body-text-color;
 $heading-color-h1: #fff;
 $heading-color-h5: #fff;
 $heading-color-h6: #fff;
