@@ -102,7 +102,7 @@ var paths = {
     destination: 'dist/'
   },
   styleGuide: {
-    twigSource: 'src/',
+    watchSource: 'src/',
     destination: 'styleguide'
   },
   fonts: {
@@ -156,6 +156,7 @@ var options = {
   // ----- Images ----- //
   images: {
     files: path.join(paths.images.source, '**/images/*.{png,gif,jpg,svg}'),
+    cleanFiles: path.join(paths.images.destination, '**/images/*.{png,gif,jpg,svg}'),
     destination: path.join(paths.images.destination)
   },
 
@@ -190,10 +191,12 @@ var options = {
     css: [
       path.relative(paths.styleGuide.destination, paths.styles.destination + 'global/style.css')
     ],
-    js: [],
+    js: [
+      path.relative(paths.styleGuide.destination, paths.styles.destination + 'vendor/js/collapse.js')
+    ],
     homepage: 'styleguide/homepage.md',
     title: 'UW Medicine Drupal Style Guide',
-    twigSource: path.join(paths.styleGuide.twigSource, '**/*.twig')
+    watchSource: path.join(paths.styleGuide.watchSource, '**/*.*')
   },
 
   // ------ pa11y ----- //
@@ -233,6 +236,7 @@ require('./gulp-tasks/browser-sync')(gulp, plugins, options);
 require('./gulp-tasks/build')(gulp, plugins, options);
 require('./gulp-tasks/clean')(gulp, plugins, options);
 require('./gulp-tasks/clean-css')(gulp, plugins, options);
+require('./gulp-tasks/clean-images')(gulp, plugins, options);
 require('./gulp-tasks/clean-styleguide')(gulp, plugins, options);
 require('./gulp-tasks/compile-sass')(gulp, plugins, options);
 require('./gulp-tasks/compile-js')(gulp, plugins, options);
