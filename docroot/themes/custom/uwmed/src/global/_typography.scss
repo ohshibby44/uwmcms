@@ -1,0 +1,131 @@
+// Typography
+//
+// Variables to define UW Medicine brand fonts and colors.
+//
+// The variables set in this file include the standard <strong>Bootstrap Typography variables</strong>
+// extracted from <code>_bootstrap_variables.scss</code>. The standard <strong>Bootstrap Type styles</strong> are overriden in
+// the file <code>../boostrap_overrides/_type.scss</code>.
+//
+// Style guide: 1
+
+/* Typography Colors */
+$uwmed-body-text-color: #474747;
+$uwmed-link-color: #474747;
+
+/* Font Families */
+$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+$headings-font-family:    "Encode Sans", sans-serif;
+
+/* Base Font Family */
+$font-family-base:        $font-family-sans-serif;
+
+/* Base Font Color */
+$text-color:            $uwmed-body-text-color;
+
+/* Base Font Sizes */
+$font-size-base:          14px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // 35px
+$font-size-small:         ceil(($font-size-base * 0.85)); // 12px
+
+/* Base Line Heights */
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.35714286;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // 19px
+
+// Headings
+//
+// Heading styles are applied via tag names, but also available via classes, to accommodate
+// semantic markup. For instance, an h3 tag could get h4 styling applied with &lt;h3 class="h4"&gt;&lt;/h3&gt;.
+//
+// Markup:
+// <div style="background-color: #32006e;">
+//   <h1>h1 Heading One</h1>
+// </div>
+// <h2>h2 Heading Two</h2>
+// <h3>h3 Heading Three</h3>
+// <h4>h4 Heading Four</h4>
+// <div style="background-color: #32006e;">
+//   <h5>h5 Heading Five</h5>
+//   <h6>h6 Heading Six</h6>
+// </div>
+// <p class="h2">p masquerading as h2</p>
+// <h4 class="h3">h4 masquerading has h3</h4>
+// </div>
+//
+// Style guide: 1.1
+
+/* Heading Font Sizes */
+$font-size-h1-mobile:     ceil(($font-size-base * 2.28)); // 32px
+$font-size-h1:            ceil(($font-size-base * 4.07)); // 57px
+$font-size-h2-mobile:     ceil(($font-size-base * 1.64)); // 23px
+$font-size-h2:            ceil(($font-size-base * 2.5)); // 35px
+$font-size-h3:            ceil(($font-size-base * 0.92)); // 13px
+$font-size-h4-mobile:     ceil(($font-size-base * 1.14)); // 16px
+$font-size-h4:            ceil(($font-size-base * 1.78)); // 25px
+$font-size-h5:            ceil(($font-size-base * 0.92)); // 13px
+$font-size-h6:            ceil(($font-size-base * 0.92)); // 13px
+
+/* Heading Font Weights */
+$headings-font-weight:    400;
+$headings-font-weight-h3: 500;
+
+/* Heading Line Heights */
+$headings-line-height:    1.1;
+$line-height-h1-mobile:     ceil(($font-size-h1-mobile * 1.25)); // 40px
+$line-height-h1:            ceil(($font-size-h1 * 1.26)); // 72px
+$line-height-h2-mobile:     ceil(($font-size-h1-mobile * 1.39)); // 32px
+$line-height-h2:            ceil(($font-size-h2 * 1.31)); // 46px
+$line-height-h3:            ceil(($font-size-h3 * 1.23)); // 16px
+$line-height-h4-mobile:     ceil(($font-size-h1-mobile * 1.37)); // 22px
+$line-height-h4:            ceil(($font-size-h4 * 1.2)); // 30px
+$line-height-h5:            ceil(($font-size-h5 * 1.25)); // 12px
+$line-height-h6:            ceil(($font-size-h6 * 1.25)); // 12px
+
+/* Heading Font Colors */
+$headings-color: $uwmed-body-text-color;
+$heading-color-h1-mobile: $uwmed-body-text-color;
+$heading-color-h1: #fff;
+$heading-color-h5: #fff;
+$heading-color-h6: #fff;
+
+// Paragraphs
+//
+// Text styles for &lt;p&gt; tags.
+//
+// Markup: <p style="color: #474747;">Hello, I am sample paragraph text. Leverage agile frameworks to provide a robust
+// synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further
+// the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace
+// diversity and empowerment.</p>
+// <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end
+// of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a
+// streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+//
+// Style guide: 1.2
+
+/* See Base Font Family, Base Font Color, and Base Font Sizes above */
+
+// Links
+//
+// Text styles for &lt;a&gt; tag links.
+//
+// Markup: <p>Hello, I am sample paragraph text with links. Leverage agile frameworks to provide a robust
+// synopsis for high level overviews. Iterative <a href="#">approaches to corporate strategy</a>
+// foster collaborative thinking to further the overall value proposition. Organically grow the <a href="#">holistic
+// world view</a> of disruptive innovation via workplace diversity and empowerment.</p>
+// <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward,
+// a new normal that has evolved from generation X is on the runway heading towards a <a href="#">streamlined cloud
+// solution.</a> Usergenerated content in real-time will have multiple touchpoints for offshoring.</p>
+//
+// Style guide: 1.3
+
+//** Global textual link color.
+$link-color:            $uwmed-body-text-color;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+//** Link decoration.
+$link-decoration: underline;
+//** Link hover decoration.
+$link-hover-decoration: underline;
