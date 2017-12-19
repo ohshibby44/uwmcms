@@ -5,6 +5,8 @@
  * Custom PHP code for the UWMed theme.
  */
 
+use Drupal\block\Entity\Block;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -14,6 +16,15 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
   if ($node = \Drupal::request()->attributes->get('node')) {
     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
   }
+
+}
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function uwmed_preprocess_page(&$variables) {
+
+  $variables['header_tiers_navigation'] = 'abcd';
 
 }
 
