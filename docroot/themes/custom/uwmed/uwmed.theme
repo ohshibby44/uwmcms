@@ -20,11 +20,23 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
+ * Implements theme_preprocess_region().
+ */
+function uwmed_preprocess_region(&$variables) {
+
+}
+
+/**
  * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
 
-  $variables['header_tiers_navigation'] = 'abcd';
+}
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function uwmed_page_bottom(array &$page_bottom) {
 
 }
 

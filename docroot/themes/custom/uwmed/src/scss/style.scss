@@ -1,12 +1,7 @@
-// UWMED Global
-@import 'colors';
-@import 'typography';
-
-// UWMED Components
-@import '../components/header/header';
-
 // Variables.
+@import "uwmed_variables";
 @import "bootstrap_variables";
+
 
 // Bootstrap Framework.
 // Core variables and mixins
@@ -59,9 +54,13 @@
 @import "bootstrap/responsive-utilities";
 
 // Base-theme overrides.
-@import '../bootstrap_components/bootstrap_components';
+@import "bootstrap_components/bootstrap_components";
 
-// Bootstrap Overrides
-@import "../bootstrap_overrides/type";
-@import "../bootstrap_overrides/scaffolding";
+
+
+// UW Medicine Styles
+@import "typography";
+@import "scaffolding";
+@import "../components/header";
+@import "../components/footer";
 

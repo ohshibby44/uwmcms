@@ -1,0 +1,22 @@
+
+footer {
+  background-color: lightyellow !important;
+  border: 1px solid red;
+
+  ul.menu.nav-test {
+    border: 1px solid blue;
+
+    li {
+      @extend .col-md-5;
+      //@include make-md-column(6);
+      color: white;
+      padding-left: 0;
+    }
+
+  }
+}
+
+
+
+
+
