@@ -1,0 +1,29 @@
+uuid: 6c50d204-66b0-4fbe-ad13-6c2d50cbb024
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_heading
+    - field.field.node.homepage.field_homepage_sections
+    - field.field.node.homepage.field_subheading
+    - node.type.homepage
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.homepage.teaser
+targetEntityType: node
+bundle: homepage
+mode: teaser
+content: {  }
+hidden:
+  field_heading: true
+  field_homepage_sections: true
+  field_subheading: true
+  links: true
