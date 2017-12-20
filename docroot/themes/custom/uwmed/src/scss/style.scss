@@ -56,11 +56,15 @@
 // Base-theme overrides.
 @import "bootstrap_components/bootstrap_components";
 
-
+// Helped sass
+@import "../../node_modules/angled-edges/_angled-edges.scss";
 
 // UW Medicine Styles
 @import "typography";
-@import "scaffolding";
+@import "reset";
+@import "../components/scafolding";
 @import "../components/header";
 @import "../components/footer";
+
+
 

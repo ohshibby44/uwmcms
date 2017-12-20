@@ -1,0 +1,38 @@
+header {
+
+  .row.h-purple {
+
+    padding: 1em 0;
+    background: $uwmed-gradient-light-to-dark;
+
+    .header-logo {
+    }
+
+    .header-landings-nav {
+
+      li {
+        @extend .pull-right;
+        a {
+          color: white;
+        }
+      }
+
+    }
+
+    .header-search {
+    }
+  }
+
+  .row.h-white {
+
+    box-shadow: 0px 3px 6px #dcdcdc;
+    .header-primary-nav {
+      li {
+        @extend .pull-left;
+      }
+    }
+    .header-gift {
+    }
+  }
+
+}

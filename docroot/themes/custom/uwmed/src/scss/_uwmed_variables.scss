@@ -105,6 +105,10 @@ $uwmed-gradient-dark-purple: #37236a;
 $uwmed-gradient-light-purple: #6f3178;
 $uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
 
+@mixin uwmed-mixin-gradient-light-to-dark {
+  background: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+}
+
 // Bootstrap Color Variables
 //
 // Gray and brand colors for use across Bootstrap.

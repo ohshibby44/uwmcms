@@ -25,3 +25,4 @@ libraries:
   - 'uwmed/scripts'
   - 'uwmed/bootstrap-scripts'
   - 'uwmed/google-fonts'
+  - 'uwmed/font-awesome'
