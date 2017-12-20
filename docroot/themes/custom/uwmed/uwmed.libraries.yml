@@ -1,11 +1,11 @@
-global-styles:
+styles:
   css:
     theme:
-      dist/global/style.css: {}
+      dist/styles/style.css: {}
 
-global-scripts:
+scripts:
   js:
-    dist/global/global.js: {}
+    dist/js/global.js: {}
 
 bootstrap-scripts:
   js:
@@ -26,3 +26,8 @@ google-fonts:
   css:
     theme:
       //fonts.googleapis.com/css?family=Encode+Sans+Condensed:500|Encode+Sans:400,500|Open+Sans:400,700: { type: external }
+
+font-awesome:
+  css:
+    theme:
+      //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }

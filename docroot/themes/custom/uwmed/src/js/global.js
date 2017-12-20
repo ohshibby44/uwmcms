@@ -1,6 +1,6 @@
 /**
  * @file
- * Custom global JavaScript for UW CHEW.
+ * Custom global JavaScript for UW Medicine.
  */
 
 (function ($, Drupal) {

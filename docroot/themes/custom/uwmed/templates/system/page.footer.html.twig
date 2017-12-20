@@ -1,0 +1,55 @@
+{# Footer #}
+<div class="foot-feature {{ container }}">
+    <div class="row">
+        <div class="col-sm-12">{{ page.footer_feature }}</div>
+    </div>
+</div>
+
+<footer class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4 footer-first">{{ page.footer_first }}</div>
+        <div class="col-sm-6 col-md-4 footer-second">{{ page.footer_second }}</div>
+        <div class="col-md-4 footer-third">
+
+            <div class="service-icons">
+
+                <a href="/"><i class="fa fa-facebook"
+                               aria-hidden="true"></i></a>
+                <i class="uw-angle-a"></i>
+                <a href="/"><i class="fa fa-linkedin"
+                               aria-hidden="true"></i></a>
+                <i class="uw-angle-a"></i>
+                <a href="/"><i class="fa fa-twitter"
+                               aria-hidden="true"></i></a>
+                <i class="uw-angle-a"></i>
+                <a href="/"><i class="fa fa-instagram"
+                               aria-hidden="true"></i></a>
+                <i class="uw-angle-a"></i>
+                <a href="/"><i class="fa fa-youtube-play"
+                               aria-hidden="true"></i></a>
+
+            </div>
+            <a class="logo" href="/" title="Home" rel="home">
+                <img src="/themes/custom/uwmed/dist/assets/uw-medicine-footer-logo.png" alt="UW Medicine">
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="row global-services">
+
+        <div class="col-sm-5">
+            Copyright {{ "now"|date('Y') }} University of Washington | All
+            rights reserved
+
+        </div>
+        <div class="col-sm-7 service-nav">
+            {{ drupal_menu('devel-thasl') }}
+        </div>
+
+    </div>
+
+</footer>
