@@ -1,0 +1,13 @@
+<div style="background-image:url({{ background_img_url }}">
+  <p class="h1 hero__heading">{{ heading }}</p>
+  <img src="images/angle_line.png" alt="" />
+  <p class="h2 hero__subheading">{{ subheading }}</p>
+</div>
+
+{% import "links" as links %}
+<ul>
+  {% for item in links %}
+    {{ links.link_with_icon() }}
+    <li><a class="" href="{{ item.url }}">{{ item.text }}</a></li>
+  {% endfor %}
+</ul>
