@@ -21,7 +21,7 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
-  - 'uwmed/global-styles'
-  - 'uwmed/global-scripts'
+  - 'uwmed/styles'
+  - 'uwmed/scripts'
   - 'uwmed/bootstrap-scripts'
   - 'uwmed/google-fonts'

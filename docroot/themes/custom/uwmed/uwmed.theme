@@ -5,8 +5,6 @@
  * Custom PHP code for the UWMed theme.
  */
 
-use Drupal\block\Entity\Block;
-
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -45,7 +43,7 @@ function uwmed_page_bottom(array &$page_bottom) {
  */
 function uwmed_preprocess_block__system_branding_block(&$variables) {
 
-  $variables['site_logo'] = '/themes/custom/uwmed/src/global/images/uw-medicine.png';
+  $variables['site_logo'] = "/{$variables['theme']['path']}/dist/assets/uw-medicine.png";
 
 }
 

@@ -88,7 +88,7 @@ var path = require('path');
 var paths = {
   styles: {
     source: 'src/scss',
-    destination: 'dist/scss',
+    destination: 'dist/styles',
     bootstrapSource: 'node_modules/bootstrap-sass/assets/stylesheets',
     lintSource: 'src/{global, components, styleguide}' // don't lint base_theme_overrides`
   },
@@ -156,8 +156,8 @@ var options = {
 
   // ----- Images ----- //
   images: {
-    files: path.join(paths.images.source, '**/images/*.{png,gif,jpg,svg}'),
-    cleanFiles: path.join(paths.images.destination, '**/images/*.{png,gif,jpg,svg}'),
+    files: path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
+    cleanFiles: path.join(paths.images.destination, '**/*.{png,gif,jpg,svg}'),
     destination: path.join(paths.images.destination)
   },
 
