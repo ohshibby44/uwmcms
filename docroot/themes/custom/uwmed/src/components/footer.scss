@@ -4,54 +4,82 @@
 
 footer {
 
-  li {
-    margin-bottom: 17px;
+  .foot-first, .foot-second {
 
-    i.uw-angle-a {
-      @include angled-edge('outside bottom', 'lower right', #485464);
-    }
-  }
-  li:hover i.uw-angle-a {
-    @include angled-edge('outside bottom', 'lower right', #3375D4);
-  }
-
-  .footer-first {
-
-    li {
+    .nav > li {
+      margin-bottom: 17px;
       @extend .col-md-6;
+      a {
+        text-decoration: none;
+        padding: 0;
+        i.uw-s {
+          height: 16px;
+          width: 16px;
+          margin: 0 6px -3px 0;
+          border-right-color: $uwmed-dark-purple;
+        }
+        &:hover {
+          text-decoration: none;
+          background-color: initial;
+          color: $uwmed-pop-blue;
+          i.uw-s {
+            @extend .skew;
+          }
+        }
+      }
     }
   }
 
-  .footer-second {
+  .foot-third, .foot-logo {
+    @extend .text-right;
+  }
 
-    li {
-      @extend .col-md-6;
+  .foot-third {
+
+    .service-icons {
+      font-size: 22px;
+      color: $uwmed-medium-gray;
+      a {
+        color: $uwmed-medium-gray;
+        &:hover {
+          color: $uwmed-pop-blue;
+        }
+      }
+
+      i.uw-s {
+        height: 24px;
+        width: 18px;
+        margin: 0 9px -4px 0;
+        border-right-color: $uwmed-medium-gray;
+        @extend i.uw-s.skew
+      }
+
     }
   }
 
-  .footer-third {
+}
 
-  }
-
+footer {
   .row.global-services {
-    margin-top: 1em;
+    margin-top: 2.5em;
     padding: 1em;
     background: $uwmed-gradient-light-to-dark;
-    border-top: 3px solid #DFE1E3;
+    border-top: 3px solid $uwmed-light-gray;
     color: #fff;
-    a {
+    a, a:hover {
       color: #fff;
       text-decoration: none;
+      background-color: transparent;
     }
-    .service-nav {
+    .service-nav .nav {
 
-      .nav li {
+      li {
         @extend .pull-right;
       }
-      .nav li:first-child a:after {
+      li:first-child a:after {
         content: "";
       }
-      .nav li a {
+      li a {
         padding: 0;
         &:after {
           content: " | ";
@@ -64,7 +92,6 @@ footer {
   }
 
 }
-
 
 
 

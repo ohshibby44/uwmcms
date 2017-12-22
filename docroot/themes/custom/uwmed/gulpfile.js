@@ -66,6 +66,8 @@
 /* global require */
 
 var gulp = require('gulp');
+var util = util = require('gulp-util');
+gulp.gutil = require('gulp-util');
 
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 var plugins = require('gulp-load-plugins')({

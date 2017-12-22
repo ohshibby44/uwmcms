@@ -2,7 +2,6 @@
 // Typography
 // --------------------------------------------------
 
-
 // Headings
 // -------------------------
 
@@ -104,7 +103,6 @@ h6, .h6 {
   }
 }
 
-
 // Body text
 // -------------------------
 
@@ -129,6 +127,20 @@ body {
 
   header {
 
+    font-size: 12px;
+
+    .header-primary-nav {
+      font-size: 15px;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 0;
+      &:hover {
+        text-decoration: none;
+        background-color: initial;
+      }
+    }
   }
 
   div#main-container {
@@ -136,23 +148,29 @@ body {
   }
 
   footer {
+
+    font-family: $font-family-sans-serif;
+    color: $uwmed-medium-gray;
+
     h2 {
+      margin-top: 0;
       font-size: 18px;
+      font-weight: 600;
       font-family: $font-family-sans-serif;
     }
-    .nav li {
-     font-size: 14px;
+
+    .nav > li {
+      font-size: 14px;
+    }
+
+    .global-services {
+      font-size: 10px;
+      font-weight: 300;
     }
 
   }
 
 }
-
-
-
-
-
-
 
 // Emphasis & misc
 // -------------------------
@@ -170,16 +188,38 @@ mark,
 }
 
 // Alignment
-.text-left           { text-align: left; }
-.text-right          { text-align: right; }
-.text-center         { text-align: center; }
-.text-justify        { text-align: justify; }
-.text-nowrap         { white-space: nowrap; }
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
 
 // Transformation
-.text-lowercase      { text-transform: lowercase; }
-.text-uppercase      { text-transform: uppercase; }
-.text-capitalize     { text-transform: capitalize; }
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
 
 // Contextual colors
 .text-muted {
@@ -207,7 +247,6 @@ mark,
 @include bg-variant('.bg-warning', $state-warning-bg);
 @include bg-variant('.bg-danger', $state-danger-bg);
 
-
 // Page header
 // -------------------------
 
@@ -216,7 +255,6 @@ mark,
   margin: ($line-height-computed * 2) 0 $line-height-computed;
   border-bottom: 1px solid $page-header-border-color;
 }
-
 
 // Lists
 // -------------------------
@@ -240,11 +278,11 @@ ol {
   padding-left: 0;
   list-style: none;
 }
+
 // [converter] extracted as `@mixin list-unstyled` for libsass compatibility
 .list-unstyled {
   @include list-unstyled;
 }
-
 
 // Inline turns list items into inline-block
 .list-inline {
@@ -303,7 +341,6 @@ dd {
     }
   }
 }
-
 
 // Misc
 // -------------------------
@@ -368,7 +405,9 @@ blockquote.pull-right {
   footer,
   small,
   .small {
-    &:before { content: ''; }
+    &:before {
+      content: '';
+    }
 
     &:after {
       content: '\00A0 \2014'; // nbsp, em dash

@@ -101,6 +101,7 @@ $uwmed-dark-green: #007549;
 //
 // Style guide: 2.4
 
+$uwmed-dark-purple: #37236a;
 $uwmed-gradient-dark-purple: #37236a;
 $uwmed-gradient-light-purple: #6f3178;
 $uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
@@ -108,6 +109,13 @@ $uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-pu
 @mixin uwmed-mixin-gradient-light-to-dark {
   background: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
 }
+
+$uwmed-light-gray: #DFE1E3;
+$uwmed-medium-gray: #9da1a6;
+$uwmed-dark-gray: #485464;
+$uwmed-pop-blue: #3375d4;
+
+
 
 // Bootstrap Color Variables
 //

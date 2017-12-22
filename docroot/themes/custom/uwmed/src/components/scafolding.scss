@@ -9,22 +9,31 @@ body {
   }
 
   div#main-container {
-min-height: 600px;
+    min-height: 600px;
 
   }
-
 
   footer {
 
   }
 
-
+  a:hover {
+    transition-duration: 1s;
+  }
 
 }
 
-
-i.uw-angle-a {
-  @include angled-edge('outside bottom', 'lower right', #9DA1A6);
-  display: inline-block;
+i.uw-s {
   height: 1em;
+  width: 1em;
+  margin: 0 1em;
+  border-right: 1px solid transparent;
+  display: inline-block;
 }
+
+i.uw-s.skew {
+  transform: skew(-15deg);
+  transition-timing-function: ease-in;
+  transition: 0.55s;
+}
+
