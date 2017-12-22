@@ -74,4 +74,3 @@ function uwmed_preprocess_hierarchical_term_formatter(&$variables) {
 function uwmed_preprocess_input__button(&$variables) {
 
 }
-
