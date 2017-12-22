@@ -1,0 +1,37 @@
+<header class="container-fluid">
+
+    <div class="row h-purple">
+
+        <div class="col-sm-3 col-md-2 header-logo">
+            <a class="logo" href="/" title="Home" rel="home">
+                <img src="/themes/custom/uwmed/dist/assets/uw-medicine.png"
+                     alt="UW Medicine">
+            </a>
+        </div>
+
+        <div class="col-sm-9 col-md-8 header-landings-nav">
+            {{ drupal_menu('uw-header---quick-links', 1, 1) }}
+        </div>
+
+        <div class="col-md-2 header-search">
+            <div class="input-group">
+                <input type="text" class="form-control"
+                       aria-label="Search terms">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row h-white">
+
+        <div class="col-sm-10 header-primary-nav">
+            {{ page.navigation }}
+            {{ drupal_menu('uw-main-navigation', 0, 3) }}
+        </div>
+        <div class="col-sm-2 header-gift">
+            {{ drupal_menu('uw-header---make-a-gift', 1, 1) }}
+        </div>
+
+    </div>
+</header>

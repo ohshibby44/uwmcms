@@ -159,3 +159,9 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
+
+@media screen and (min-width: 768px) {
+  body {
+    margin-top: 0px;
+  }
+}

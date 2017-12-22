@@ -19,6 +19,6 @@ module.exports = function (gulp, plugins, options) {
             removeViewBox: false
           }]
         }))
-        .pipe(gulp.dest(options.sass.destination));
+        .pipe(gulp.dest(options.images.destination));
   });
 };

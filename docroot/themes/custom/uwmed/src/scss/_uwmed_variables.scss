@@ -1,3 +1,142 @@
+// Colors
+//
+// Variables to define UW Medicine Brand Colors. All colors can be lightened by <strong>xx</strong> percent (4 variations).
+// All brand color variables are prefixed with <code>$uwmed-</code>.
+//
+// Style guide: 2
+
+// Primary Palette
+//
+// Variables to define the primary palette.
+//
+// Markup:
+// <div class="kss-swatch" style="background-color: #32006e">
+//   <div class="kss-swatch__hex">$uwmed-purple:<br>#32006e</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #c3c5c8">
+//   <div class="kss-swatch__hex">$uwmed-gray:<br>#c3c5c8</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #333d47">
+//   <div class="kss-swatch__hex">$uwmed-black<br>#333d47</div>
+// </div>
+//
+// Style guide 2.1
+
+$uwmed-purple: #32006e;
+$uwmed-gray: #c3c5c8;
+$uwmed-black: #333d47;
+
+// Secondary Palette
+//
+// Variables to define the secondary palette.
+//
+// Markup:
+// <div class="kss-swatch" style="background-color: #7be0d8">
+//   <div class="kss-swatch__hex">$uwmed-acqua<br>#7be0d8</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #00b3e4">
+//   <div class="kss-swatch__hex">$uwmed-bright-blue<br>#00b3e4</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #00c496">
+//   <div class="kss-swatch__hex">$color-bright-green<br>#00c496</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #f8bd00">
+//   <div class="kss-swatch__hex">$uwmed-yellow<br>#f8bd00</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #ef7251">
+//   <div class="kss-swatch__hex">$uwmed-orange<br>#ef7251</div>
+// </div>
+//
+// Style guide: 2.2
+
+$uwmed-acqua: #7be0d8;
+$uwmed-bright-blue: #00b3e4;
+$uwmed-bright-green: #00c496;
+$uwmed-yellow: #f8bd00;
+$uwmed-orange: #ef7251;
+
+// Tertiary Palette
+//
+// Variables to define the tertiary palette.
+//
+// Markup:
+// <div class="kss-swatch" style="background-color: #e2231a">
+//   <div class="kss-swatch__hex">$uwmed-red<br>#e2231a</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #5e4528">
+//   <div class="kss-swatch__hex">$uwmed-brown<br>#5e4528</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #f8e0a4">
+//   <div class="kss-swatch__hex">$uwmed-tan<br>#f8e0a4</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #004987">
+//   <div class="kss-swatch__hex">$uwmed-dark-blue<br>#004987</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #007549">
+//   <div class="kss-swatch__hex">$uwmed-dark-green<br>#007549</div>
+// </div>
+//
+// Style guide: 2.3
+
+$uwmed-red: #e2231a;
+$uwmed-brown: #5e4528;
+$uwmed-tan: #f8e0a4;
+$uwmed-dark-blue: #004987;
+$uwmed-dark-green: #007549;
+
+// Gradient Palette
+//
+// Variables to define the gradient palette and a light-to-dark gradient style.
+//
+// Markup:
+// <div class="kss-swatch kss-swatch-gradient" style="background-image: linear-gradient(to right, #37236a 66%, #6f3178);">
+//   <div class="kss-swatch__hex">$uwmed-gradient-light-to-dark<br>linear-gradient(to right, #6f3178 66%, #37236a)</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #37236a">
+//   <div class="kss-swatch__hex">$uwmed-gradient-dark-purple<br>#37236a</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #6f3178">
+//   <div class="kss-swatch__hex">$uwmed-gradient-light-purple<br>#6f3178</div>
+// </div>
+//
+// Style guide: 2.4
+
+$uwmed-dark-purple: #37236a;
+$uwmed-gradient-dark-purple: #37236a;
+$uwmed-gradient-light-purple: #6f3178;
+$uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+
+@mixin uwmed-mixin-gradient-light-to-dark {
+  background: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+}
+
+$uwmed-light-gray: #DFE1E3;
+$uwmed-medium-gray: #9da1a6;
+$uwmed-dark-gray: #485464;
+$uwmed-pop-blue: #3375d4;
+
+
+
+// Bootstrap Color Variables
+//
+// Gray and brand colors for use across Bootstrap.
+//
+// Style guide 2.5
+
+// TODO: Add markup with a palette for these variables
+$gray-base:             $uwmed-black;
+$gray-darker:           lighten($gray-base, 13.5%);
+$gray-dark:             lighten($gray-base, 20%);
+$gray:                  lighten($gray-base, 33.5%);
+$gray-light:            lighten($gray-base, 46.7%);
+$gray-lighter:          lighten($gray-base, 93.5%);
+$brand-primary:         $uwmed-purple;
+$brand-success:         $uwmed-bright-green;
+$brand-info:            $uwmed-bright-blue;
+$brand-warning:         $uwmed-orange;
+$brand-danger:          $uwmed-red;
+
+
 // Typography
 //
 // Variables to define UW Medicine brand fonts and colors.

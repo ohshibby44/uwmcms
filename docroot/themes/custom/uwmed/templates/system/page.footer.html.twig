@@ -1,0 +1,71 @@
+{# Footer #}
+<div class="foot-feature {{ container }}">
+
+    <div class="row">
+
+        <div class="col-sm-12">{{ page.footer_feature }}</div>
+
+    </div>
+
+</div>
+
+<footer class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 foot-first">{{ page.footer_first }}</div>
+        <div class="col-sm-6 col-md-4 foot-second">{{ page.footer_second }}</div>
+    </div>
+
+    <div class="row ur2">
+
+        <div class="col-sm-6 col-md-4 foot-first">
+            <h2>{{ "Common Resources"|t }}</h2>
+            {{ drupal_menu('uw-footer---common-resource') }}</div>
+
+        <div class="col-sm-6 col-md-4 foot-second">
+            <h2>{{ "UW Medicine Entities"|t }}</h2>
+            {{ drupal_menu('uw-footer---enterprise-enti') }}</div>
+
+        <div class="col-md-4 foot-third">
+
+            <div class="service-icons">
+                <a href="/"><i class="fa fa-facebook"
+                               aria-hidden="true"></i></a>
+                <i class="uw-s"></i>
+                <a href="/"><i class="fa fa-linkedin"
+                               aria-hidden="true"></i></a>
+                <i class="uw-s"></i>
+                <a href="/"><i class="fa fa-twitter"
+                               aria-hidden="true"></i></a>
+                <i class="uw-s"></i>
+                <a href="/"><i class="fa fa-instagram"
+                               aria-hidden="true"></i></a>
+                <i class="uw-s"></i>
+                <a href="/"><i class="fa fa-youtube-play"
+                               aria-hidden="true"></i></a>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 foot-logo">
+            <a class="logo" href="/" title="Home" rel="home">
+                <img src="/themes/custom/uwmed/dist/assets/uw-medicine-footer-logo.png"
+                     alt="UW Medicine">
+            </a>
+        </div>
+    </div>
+
+    <div class="row global-services">
+
+        <div class="col-sm-5">
+            {{ "Copyright @date University of Washington | All rights reserved"
+            |t({ '@date': "now"|date('Y') }) }}
+        </div>
+
+        <div class="col-sm-7 service-nav">
+            {{ drupal_menu('uw-footer---service-links') }}
+        </div>
+
+    </div>
+
+</footer>

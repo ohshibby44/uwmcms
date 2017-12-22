@@ -1,0 +1,4 @@
+name: uwmcs_utils
+description: 'Various utilities for UWMCMS'
+type: module
+core: 8.x

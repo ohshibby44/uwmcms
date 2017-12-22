@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Custom module for small, utility-type routines.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function uwmcs_utils_menu_link_content_presave(EntityInterface $entity) {
+
+  // Set new menu links to show as expanded by default
+  // if ($entity->menu_name->value == 'main') {.
+  $entity->expanded = 1;
+
+}

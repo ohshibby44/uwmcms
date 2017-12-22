@@ -66,6 +66,9 @@
 /* global require */
 
 var gulp = require('gulp');
+var util = util = require('gulp-util');
+gulp.gutil = require('gulp-util');
+
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 var plugins = require('gulp-load-plugins')({
   pattern: '*',
@@ -86,20 +89,20 @@ var path = require('path');
 // These are used in the options below.
 var paths = {
   styles: {
-    source: 'src/',
-    destination: 'dist/',
+    source: 'src/scss',
+    destination: 'dist/styles',
     bootstrapSource: 'node_modules/bootstrap-sass/assets/stylesheets',
     lintSource: 'src/{global, components, styleguide}' // don't lint base_theme_overrides`
   },
   scripts: {
-    source: 'src/',
-    destination: 'dist/',
+    source: 'src/js',
+    destination: 'dist/js',
     bootstrapSource: 'node_modules/bootstrap-sass/assets/javascripts/bootstrap',
     bootstrapDestination: 'dist/vendor/js'
   },
   images: {
-    source: 'src/',
-    destination: 'dist/'
+    source: 'src/assets',
+    destination: 'dist/assets'
   },
   styleGuide: {
     watchSource: 'src/',
@@ -139,7 +142,7 @@ var options = {
 
   sass: {
     lintFiles: path.join(paths.styles.lintSource, '**/*.scss'),
-    files: path.join(paths.styles.source,  '**/*.scss'),
+    files: path.join(paths.styles.source, '**/*.scss'),
     file: path.join(paths.styles.source, 'styles.scss'),
     destination: path.join(paths.styles.destination),
     bootstrapFiles: paths.styles.bootstrapSource
@@ -155,8 +158,8 @@ var options = {
 
   // ----- Images ----- //
   images: {
-    files: path.join(paths.images.source, '**/images/*.{png,gif,jpg,svg}'),
-    cleanFiles: path.join(paths.images.destination, '**/images/*.{png,gif,jpg,svg}'),
+    files: path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
+    cleanFiles: path.join(paths.images.destination, '**/*.{png,gif,jpg,svg}'),
     destination: path.join(paths.images.destination)
   },
 

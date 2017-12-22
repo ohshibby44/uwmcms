@@ -18,11 +18,32 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
+ * Implements theme_preprocess_region().
+ */
+function uwmed_preprocess_region(&$variables) {
+
+}
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function uwmed_preprocess_page(&$variables) {
+
+}
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function uwmed_page_bottom(array &$page_bottom) {
+
+}
+
+/**
  * Implements hook_preprocess_HOOK() for system branding block templates.
  */
 function uwmed_preprocess_block__system_branding_block(&$variables) {
 
-  $variables['site_logo'] = '/themes/custom/uwmed/src/global/images/uw-medicine.png';
+  $variables['site_logo'] = "/{$variables['theme']['path']}/dist/assets/uw-medicine.png";
 
 }
 
