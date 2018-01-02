@@ -39,15 +39,49 @@ header {
   }
 
   .row.h-white {
-
+    height: 50px; 
     box-shadow: 0px 3px 6px #dcdcdc;
+    overflow: hidden;
+
     .header-primary-nav {
+
       .navbar {
-        min-height: auto;
+        //min-height: auto;
         margin: 0;
       }
+
     }
+
     .header-gift {
+
+      .wrap {
+        position: relative;
+        float: right;
+        background: #e5e5e6;
+        //@include angled-edge('outside bottom','lower right', #EE3924);
+        margin-right: -15px;
+        padding-right: 15px;
+        .bg {
+          position: absolute;
+          border-left: 4px solid #999;
+          background: #e5e5e6;
+          width: 50px;
+          height: 100px;
+          left: -25px;
+          top: -25px;
+          transform: rotate(7.5deg);
+        }
+        .nav li a {
+          display: inline-block;
+          font-variant: all-small-caps;
+          font-size: 12px;
+          &:hover {
+            background: transparent;
+          }
+        }
+
+      }
+
     }
   }
 

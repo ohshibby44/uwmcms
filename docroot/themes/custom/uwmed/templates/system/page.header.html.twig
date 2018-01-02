@@ -30,7 +30,22 @@
             {{ drupal_menu('uw-main-navigation', 0, 3) }}
         </div>
         <div class="col-sm-2 header-gift">
-            {{ drupal_menu('uw-header---make-a-gift', 1, 1) }}
+            <div class="wrap">
+                <div class="bg"></div>
+
+                    {#{{ drupal_menu('uw-header---make-a-gift', 1, 1) }}#}
+                    <ul class="wrap nav navbar-nav">
+                        <li>
+                            <a href="/make-a-gift">{{ 'Make a Gift'|t }}</a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+
         </div>
 
     </div>
