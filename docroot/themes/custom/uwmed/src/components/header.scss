@@ -46,9 +46,10 @@ header {
       }
 
       li > i.uw-b {
+        @include uw-skew(-15deg);
+        //transform: rotate(15deg);
         width: 1px;
         height: 12px;
-        transform: rotate(15deg);
         opacity: .2;
         background: #fff;
         display: inline-block;
@@ -78,9 +79,10 @@ header {
         }
 
         i.uw-b {
+          @include uw-skew(-15deg);
+          //transform: rotate(15deg);
           width: 1px;
           height: 30px;
-          transform: rotate(15deg);
           opacity: .2;
           background: #000;
           display: inline-block;

@@ -268,3 +268,17 @@ $link-hover-color:      darken($link-color, 15%);
 $link-decoration: underline;
 //** Link hover decoration.
 $link-hover-decoration: underline;
+
+
+
+@mixin uw-skew($angle) {
+
+  transform: skew($angle);
+  transition-timing-function: ease-in;
+  transition: 0.2s;
+  // Chrome jagged line fix
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+
+
+}

@@ -32,8 +32,6 @@ i.uw-s {
 }
 
 i.uw-s.skew {
-  transform: skew(-15deg);
-  transition-timing-function: ease-in;
-  transition: 0.55s;
+  @include uw-skew(-15deg)
 }
 
