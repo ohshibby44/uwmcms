@@ -1,28 +1,34 @@
 header {
 
-  .row.h-purple {
+  .row.purple {
 
     color: #fff;
     padding: 1em 0;
     background: $uwmed-gradient-light-to-dark;
 
     .header-logo {
+
       a.logo {
         margin: 10px 15px;
         display: inline-block;
       }
+
     }
 
     .header-search {
+
       input.form-control {
         background-color:rgba(255, 255, 255, 0.5);
         color: #fff;
         border: none;
+        border-radius: 0;
+        height: 28px;
+        margin: 6px 0 0 0;
       }
       i.fa.fa-search {
         position: absolute;
-        right: 0px;
-        top: 0px;
+        right: 0;
+        top: 4px;
         font-size: 16px;
         cursor: pointer;
         z-index: 10;
@@ -31,11 +37,13 @@ header {
         padding: 8px;
       }
     }
-    .header-landings-nav {
+
+    .header-quick-links {
 
       li {
         @extend .pull-right;
       }
+
       li > a {
         color: #fff;
         &:hover {
@@ -61,7 +69,7 @@ header {
 
   }
 
-  .row.h-white {
+  .row.white {
 
     height: 50px;
 
@@ -126,25 +134,26 @@ header {
 
     }
 
-    .header-gift {
+    .make-gift {
 
       overflow: hidden;
+
       .wrap {
         position: relative;
         float: right;
         background: #e5e5e6;
-        //@include angled-edge('outside bottom','lower right', #EE3924);
         margin-right: -15px;
         padding-right: 15px;
+
         .bg {
+          @include uw-skew(7.5deg);
           position: absolute;
-          border-left: 4px solid #999;
           background: #e5e5e6;
+          border-left: 4px solid #CFCFCF;
           width: 50px;
           height: 100px;
           left: -25px;
           top: -25px;
-          transform: rotate(7.5deg);
         }
         .nav li a {
           display: inline-block;
@@ -161,11 +170,19 @@ header {
 
     .shadow {
       height: 6px;
-      box-shadow: 0px 3px 6px #dcdcdc;
+
+      box-shadow: 0 3px 6px #dcdcdc;
       margin-top: -8px;
       z-index: 10;
+
     }
 
   }
 
+  .col-md-2.pull-right.header-search {
+    padding-left: 0;
+  }
+
 }
+
+
