@@ -129,8 +129,13 @@ body {
 
     font-size: 12px;
 
-    .header-primary-nav {
-      font-size: 15px;
+    .header-main-navigation {
+      li {
+        font-size: 15px;
+        li {
+          font-size: 13px
+        }
+      }
     }
 
     a {
@@ -163,7 +168,7 @@ body {
       font-size: 14px;
     }
 
-    .global-services {
+    .enterprise-row {
       font-size: 10px;
       font-weight: 300;
     }

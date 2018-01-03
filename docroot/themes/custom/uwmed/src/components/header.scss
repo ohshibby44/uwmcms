@@ -7,17 +7,28 @@ header {
     background: $uwmed-gradient-light-to-dark;
 
     .header-logo {
+      a.logo {
+        margin: 10px 15px;
+        display: inline-block;
+      }
     }
 
     .header-search {
       input.form-control {
-        opacity: .5;
+        background-color:rgba(255, 255, 255, 0.5);
+        color: #fff;
+        border: none;
       }
-      .fa-search {
+      i.fa.fa-search {
         position: absolute;
-        right: 10px;
-        top: 8px;
+        right: 0px;
+        top: 0px;
         font-size: 16px;
+        cursor: pointer;
+        z-index: 10;
+        height: 30px;
+        width: 30px;
+        padding: 8px;
       }
     }
     .header-landings-nav {
@@ -26,7 +37,7 @@ header {
         @extend .pull-right;
       }
       li > a {
-          color: #fff;
+        color: #fff;
         &:hover {
           color: #fff;
           background-color: transparent;
@@ -34,19 +45,80 @@ header {
         }
       }
 
+      li > i.uw-b {
+        width: 1px;
+        height: 12px;
+        transform: rotate(15deg);
+        opacity: .2;
+        background: #fff;
+        display: inline-block;
+        margin: 12px 2px 0 2px;
+        box-shadow: 0 3px 0;
+      }
+
     }
 
   }
 
   .row.h-white {
-    height: 50px; 
-    box-shadow: 0px 3px 6px #dcdcdc;
-    overflow: hidden;
 
-    .header-primary-nav {
+    height: 50px;
 
+    .header-main-navigation {
+
+      ul.nav > li {
+
+        padding: 0;
+
+        a {
+          &:hover {
+            color: #3375d4;
+            background: transparent;
+          }
+        }
+
+        i.uw-b {
+          width: 1px;
+          height: 30px;
+          transform: rotate(15deg);
+          opacity: .2;
+          background: #000;
+          display: inline-block;
+          margin: 10px 6px 0 6px;
+          box-shadow: 0 3px 0;
+        }
+
+        ul.dropdown-menu {
+
+          z-index: 5;
+          box-shadow: none;
+          margin-top: 0;
+          border-top: 0 solid transparent;
+
+          li {
+            a {
+
+              padding: 8px 6px 8px 0;
+              border-bottom: 1px solid #e5e5e6;
+              margin: 0 8px;
+
+              i.fa.fa-angle-right {
+                float: right;
+                display: block;
+                padding: 2px 0 0 0;
+              }
+
+            }
+            &:last-child > a {
+              border-bottom: none;
+            }
+
+          }
+
+        }
+
+      }
       .navbar {
-        //min-height: auto;
         margin: 0;
       }
 
@@ -54,6 +126,7 @@ header {
 
     .header-gift {
 
+      overflow: hidden;
       .wrap {
         position: relative;
         float: right;
@@ -83,6 +156,14 @@ header {
       }
 
     }
+
+    .shadow {
+      height: 6px;
+      box-shadow: 0px 3px 6px #dcdcdc;
+      margin-top: -8px;
+      z-index: 10;
+    }
+
   }
 
 }
