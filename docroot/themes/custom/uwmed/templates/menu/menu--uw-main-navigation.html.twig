@@ -17,7 +17,11 @@
 #}
 {# All menu and submenu items #}
 
-<div class="navbar">
+{# Include Mobile Nav #}
+{% include 'themes/custom/uwmed/templates/menu/menu--uw-main-navigation.mobile.html.twig' %}
+
+{# Main Nav Menu #}
+<div class="navbar hidden-xs">
         <div class="collapse navbar-collapse">
             {% import _self as menus %}
             {#

@@ -8,76 +8,108 @@
 // -------------------------
 body {
 
-  header {
+    header {
 
-    font-size: 12px;
+        font-size: 12px;
 
-    .header-main-navigation {
-      li {
-        font-size: 15px;
-        li {
-          font-size: 13px
+        .header-main-navigation {
+          li {
+            font-size: 15px;
+            li {
+              font-size: 13px
+            }
+          }
         }
-      }
-    }
 
-    a {
-      text-decoration: none;
-      padding: 0;
-      &:hover {
-        text-decoration: none;
-        background-color: initial;
-      }
-    }
-  }
+        a {
+          text-decoration: none;
+          padding: 0;
+          &:hover {
+            text-decoration: none;
+            background-color: initial;
+          }
 
-  div#main-container {
+        }
 
-  }
+        header.mobile {
 
-  footer {
 
-    font-family: $font-family-sans-serif;
-    color: $uwmed-medium-gray;
-
-    .navigation-row {
-
-      h2 {
-
-        margin-top: 0;
-        font-size: 18px;
-        font-weight: 600;
-        font-family: $font-family-sans-serif;
-
-        @media(max-width: $screen-xs-max) {
           font-size: 16px;
+          font-family: $font-family-sans-serif-condensed;
+          font-weight: 200;
+
+          .nav {
+
+            ul.dropdown-menu > li > a {
+              font-size: 16px;
+              font-weight: 200;
+            }
+
+          }
+
+          .main-links {
+            ul.nav > li {
+              font-size: 19px;
+            }
+
+          }
+
+
+
         }
 
-      }
 
-      .nav > li {
-        font-size: 14px;
-        @media(max-width: $screen-xs-max) {
-          font-size: 14px;
-        }
 
-      }
-      .service-icons {
-        font-size: 19px;
-        @media(max-width: $screen-xs-max) {
-          font-size: 20px;
-        }
-      }
 
     }
 
-    .enterprise-row {
-      font-size: 10px;
-      font-weight: 300;
-      line-height: 14px;
+    div#main-container {
+
     }
 
-  }
+    footer {
+
+        font-family: $font-family-sans-serif;
+        color: $uwmed-medium-gray;
+
+        .navigation-row {
+
+          h2 {
+
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: $font-family-sans-serif;
+
+            @media(max-width: $screen-xs-max) {
+              font-size: 16px;
+            }
+
+          }
+
+          .nav > li {
+            font-size: 14px;
+            @media(max-width: $screen-xs-max) {
+              font-size: 14px;
+            }
+
+          }
+          .service-icons {
+            font-size: 19px;
+            @media(max-width: $screen-xs-max) {
+              font-size: 20px;
+            }
+          }
+
+        }
+
+        .enterprise-row {
+          font-size: 10px;
+          font-weight: 300;
+          line-height: 14px;
+        }
+
+    }
 
 }
 

@@ -17,8 +17,8 @@ body {
 
   }
 
-  a:hover {
-    transition-duration: 1s;
+  a:hover, a:focus {
+    transition-duration: 600ms;
   }
 
 }
