@@ -13,7 +13,7 @@
         attach: function (context, settings) {
 
             $('header .header-main-navigation .dropdown').hover(function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).show();
+                $(this).find('.dropdown-menu').first().stop(true, true).show(500);
             }, function () {
                 $(this).find('.dropdown-menu').first().stop(true, true).hide();
 

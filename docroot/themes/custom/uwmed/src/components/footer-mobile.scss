@@ -1,0 +1,44 @@
+@media(max-width: $screen-xs-max) {
+
+  footer {
+
+    text-align: center;
+
+    .row.navigation-row {
+      text-align: center;
+
+      .menu.nav i.uw-s {
+        display: none;
+      }
+
+      .foot-third {
+
+        background: #EFEFEF;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .foot-fourth {
+        text-align: center;
+      }
+
+    }
+
+    .row.enterprise-row {
+
+      text-align: center;
+
+      > div {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      .enterprise-nav {
+        text-align: center;
+      }
+
+    }
+
+  }
+
+}

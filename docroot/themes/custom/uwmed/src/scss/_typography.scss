@@ -2,6 +2,86 @@
 // Typography
 // --------------------------------------------------
 
+
+
+// Structural containers
+// -------------------------
+body {
+
+  header {
+
+    font-size: 12px;
+
+    .header-main-navigation {
+      li {
+        font-size: 15px;
+        li {
+          font-size: 13px
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      padding: 0;
+      &:hover {
+        text-decoration: none;
+        background-color: initial;
+      }
+    }
+  }
+
+  div#main-container {
+
+  }
+
+  footer {
+
+    font-family: $font-family-sans-serif;
+    color: $uwmed-medium-gray;
+
+    .navigation-row {
+
+      h2 {
+
+        margin-top: 0;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: $font-family-sans-serif;
+
+        @media(max-width: $screen-xs-max) {
+          font-size: 16px;
+        }
+
+      }
+
+      .nav > li {
+        font-size: 14px;
+        @media(max-width: $screen-xs-max) {
+          font-size: 14px;
+        }
+
+      }
+      .service-icons {
+        font-size: 19px;
+        @media(max-width: $screen-xs-max) {
+          font-size: 20px;
+        }
+      }
+
+    }
+
+    .enterprise-row {
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 14px;
+    }
+
+  }
+
+}
+
+
 // Headings
 // -------------------------
 
@@ -121,61 +201,6 @@ p {
   }
 }
 
-// Structural containers
-// -------------------------
-body {
-
-  header {
-
-    font-size: 12px;
-
-    .header-main-navigation {
-      li {
-        font-size: 15px;
-        li {
-          font-size: 13px
-        }
-      }
-    }
-
-    a {
-      text-decoration: none;
-      padding: 0;
-      &:hover {
-        text-decoration: none;
-        background-color: initial;
-      }
-    }
-  }
-
-  div#main-container {
-
-  }
-
-  footer {
-
-    font-family: $font-family-sans-serif;
-    color: $uwmed-medium-gray;
-
-    h2 {
-      margin-top: 0;
-      font-size: 18px;
-      font-weight: 600;
-      font-family: $font-family-sans-serif;
-    }
-
-    .nav > li {
-      font-size: 14px;
-    }
-
-    .enterprise-row {
-      font-size: 10px;
-      font-weight: 300;
-    }
-
-  }
-
-}
 
 // Emphasis & misc
 // -------------------------

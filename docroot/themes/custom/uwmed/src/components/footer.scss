@@ -1,15 +1,11 @@
 
-
 footer {
 
   .row.blocks-row {
 
-
   }
 
-
   .row.navigation-row {
-
 
     .foot-first, .foot-second {
 
@@ -41,7 +37,6 @@ footer {
 
       @extend .text-right;
       .service-icons {
-        font-size: 19px;
         color: $uwmed-medium-gray;
         a {
           color: $uwmed-medium-gray;
@@ -71,9 +66,7 @@ footer {
 
     }
 
-
   }
-
 
   .row.enterprise-row {
 
@@ -92,17 +85,19 @@ footer {
     .enterprise-nav .nav {
 
       li {
-        @extend .pull-right;
-      }
-      li:first-child a:after {
-        content: "";
-      }
-      li a {
-        padding: 0;
-        &:after {
-          content: " | ";
-          padding: 0 1em;
+        display: inline-block;
+        a {
+          padding: 4px;
+          &:after {
+            content: "|";
+            margin: 0 0 0 8px;
+          }
+
         }
+        &:last-child a:after {
+          content: "";
+        }
+
       }
 
     }
@@ -110,6 +105,9 @@ footer {
   }
 
 }
+
+
+
 
 
 

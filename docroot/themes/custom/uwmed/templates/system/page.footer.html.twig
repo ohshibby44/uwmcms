@@ -22,7 +22,7 @@
             <h2>{{ "Common Resources"|t }}</h2>
             {{ drupal_menu('uw-footer---common-resource') }}</div>
 
-        <div class="col-sm-6 col-md-4 foot-second">
+        <div class="col-sm-6 col-md-4 hidden-xs foot-second">
             <h2>{{ "UW Medicine Entities"|t }}</h2>
             {{ drupal_menu('uw-footer---enterprise-enti') }}</div>
 
@@ -57,12 +57,12 @@
 
     <div class="row enterprise-row">
 
-        <div class="col-sm-5">
+        <div class="col-xs-12 col-sm-5">
             {{ "Copyright @date University of Washington | All rights reserved"
             |t({ '@date': "now"|date('Y') }) }}
         </div>
 
-        <div class="col-sm-7 enterprise-nav">
+        <div class="col-xs-12 col-sm-7 pull-right text-right enterprise-nav">
             {{ drupal_menu('uw-footer---service-links') }}
         </div>
 
