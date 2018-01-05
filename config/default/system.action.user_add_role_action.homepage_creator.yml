@@ -1,0 +1,14 @@
+uuid: 1f57fd9d-d5a5-45ab-be64-32f9db309c06
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.homepage_creator
+  module:
+    - user
+id: user_add_role_action.homepage_creator
+label: 'Add the Homepage creator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: homepage_creator

@@ -1,0 +1,11 @@
+{% extends 'paragraph.html.twig' %}
+{% set element = 'li' %}
+{% set classes = ['links-with-icon__item'] %}
+
+{% block content %}
+  {% spaceless %}
+    <a class="btn btn-default" href="{{ url|render }}">
+      {{ content }}
+    </a>
+  {% endspaceless %}
+{% endblock content %}

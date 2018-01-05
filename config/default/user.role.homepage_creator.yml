@@ -1,0 +1,30 @@
+uuid: 9cde932b-2f13-49b5-a837-1381a2b8513a
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_creator
+label: 'Homepage creator'
+weight: 7
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node homepage content'
+  - 'administer panelizer node homepage layout'
+  - 'change layouts in place editing'
+  - 'create homepage content'
+  - 'create url aliases'
+  - 'edit own homepage content'
+  - 'use draft_draft transition'
+  - 'use draft_needs_review transition'
+  - 'use needs_review_needs_review transition'
+  - 'use text format rich_text'
+  - 'use text format simple_formatted_text'
+  - 'view any unpublished content'
+  - 'view homepage revisions'
+  - 'view latest version'
+  - 'view own unpublished content'
