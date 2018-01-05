@@ -106,8 +106,7 @@ function uwmed_preprocess_paragraph__link_with_icon(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
- * Enhances article homepage sections for templates.
+ * Implements hook_preprocess_HOOK() for homepage sections templates.
  */
 function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
 
