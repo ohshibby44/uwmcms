@@ -25,5 +25,7 @@ content: {  }
 hidden:
   field_heading: true
   field_homepage_sections: true
+  field_image: true
+  field_links_with_icon: true
   field_subheading: true
   links: true
