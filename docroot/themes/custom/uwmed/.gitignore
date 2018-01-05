@@ -1,6 +1,8 @@
 #
 # UWMed - Ignore our NPM & Node files
 #
+dist/*
+
 # Logs
 logs
 *.log
