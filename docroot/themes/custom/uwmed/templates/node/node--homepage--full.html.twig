@@ -76,26 +76,23 @@ view_mode ? view_mode|clean_class,
 ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  <div class="hero" style="background-image:url({{ node.field_image.entity.uri.value | image_style('hero') }}">
-    {{ content.field_heading }}
-    <img class="hero__angle-divider" src="{{  file_url('themes/custom/uwmed/dist/components/hero/images/angle-lines.png')}}" alt="" />
-    {{ content.field_subheading }}
+  <div class="row hero" style="background-image:url({{ node.field_image.entity.uri.value | image_style('hero') }}">
+    <div class="hero__content col-xs-12">
+      {{ content.field_heading }}
+      <img class="hero__angle-divider" src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png')}}" alt="" />
+      {{ content.field_subheading }}
+    </div>
+    <div class="hero__filter visible-lg"></div>
   </div>
 
-  {{ content.field_links_with_icon }}
-
-  <ul>
-    {% for item in links %}
-      <li><a class="" href="{{ item.url }}">{{ item.text }}</a></li>
-    {% endfor %}
-  </ul>
-
-  <div style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})">
-    <h1 class="hero__heading">{{ content.field_heading }}</h1>
-    <hr />
-    <h2 class="hero__heading">{{ content.field_subheading }}</h2>
+  <div class="row links-with-icon">
+    {{ content.field_links_with_icon }}
   </div>
 
-  {{ content }}
+  <div class="row gradient-divider">
+    <span class="fa fa-angle-down fa-lg" aria-hidden="true"></span>
+  </div>
+
+  {{ content.field_homepage_sections }}
 
 </article>

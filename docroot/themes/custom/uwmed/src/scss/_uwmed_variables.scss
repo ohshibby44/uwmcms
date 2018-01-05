@@ -23,8 +23,9 @@
 // Style guide 2.1
 
 $uwmed-purple: #32006e;
-$uwmed-gray: #c3c5c8;
+$uwmed-gray: #b5b5b5;
 $uwmed-black: #333d47;
+$uwmed-gray-dark: #5F6267;
 
 // Secondary Palette
 //
@@ -84,6 +85,34 @@ $uwmed-tan: #f8e0a4;
 $uwmed-dark-blue: #004987;
 $uwmed-dark-green: #007549;
 
+// Accent Palette
+//
+// Variables to define the accent palette.
+//
+// Markup:
+// <div class="kss-swatch" style="background-color: #008995">
+//   <div class="kss-swatch__hex">$uwmed-accent-teal<br>#008995</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #D2430F">
+//   <div class="kss-swatch__hex">$uwmed-accent-orange<br>#D2430F</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #2C6ACE">
+//   <div class="kss-swatch__hex">$uwmed-accent-blue<br>#2C6ACE</div>
+// </div>
+// <div class="kss-swatch" style="background-color: #EFEFEF">
+//   <div class="kss-swatch__hex">$uwmed-accent-tan<br>#EFEFEF</div>
+// </div>
+//
+// Style guide: 2.4
+
+$uwmed-accent-teal: #008995;
+$uwmed-accent-orange: #D2430F;
+$uwmed-accent-blue: #2C6ACE;
+$uwmed-accent-tan: #EFEFEF;
+
+$uwmed-purple-icon: #4B2E83;
+$uwmed-gray-icon: #716F77;
+
 // Gradient Palette
 //
 // Variables to define the gradient palette and a light-to-dark gradient style.
@@ -99,26 +128,26 @@ $uwmed-dark-green: #007549;
 //   <div class="kss-swatch__hex">$uwmed-gradient-light-purple<br>#6f3178</div>
 // </div>
 //
-// Style guide: 2.4
+// Style guide: 2.5
 
 $uwmed-gradient-dark-purple: #37236a;
 $uwmed-gradient-light-purple: #6f3178;
-$uwmed-gradient-light-to-dark: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+$uwmed-gradient-light-to-dark: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
 
 @mixin uwmed-mixin-gradient-light-to-dark {
-  background: linear-gradient(to right, $uwmed-gradient-dark-purple 66%, $uwmed-gradient-light-purple);
+  background: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
 }
 
 // Bootstrap Color Variables
 //
 // Gray and brand colors for use across Bootstrap.
 //
-// Style guide 2.5
+// Style guide 2.6
 
 // TODO: Add markup with a palette for these variables
 $gray-base:             $uwmed-black;
 $gray-darker:           lighten($gray-base, 13.5%);
-$gray-dark:             lighten($gray-base, 20%);
+$gray-dark:             $uwmed-gray-dark;
 $gray:                  lighten($gray-base, 33.5%);
 $gray-light:            lighten($gray-base, 46.7%);
 $gray-lighter:          lighten($gray-base, 93.5%);
@@ -196,18 +225,19 @@ $font-size-h2:            ceil(($font-size-base * 2.5)); // 35px
 $font-size-h3:            ceil(($font-size-base * 0.92)); // 13px
 $font-size-h4-mobile:     ceil(($font-size-base * 1.14)); // 16px
 $font-size-h4:            ceil(($font-size-base * 1.78)); // 25px
-$font-size-h5:            ceil(($font-size-base * 0.92)); // 13px
+$font-size-h5:            ceil(($font-size-base * 1.21)); // 17px
 $font-size-h6:            ceil(($font-size-base * 0.92)); // 13px
 
 /* Heading Font Weights */
 $headings-font-weight:    400;
 $headings-font-weight-h3: 500;
+$headings-font-weight-h5: 600;
 
 /* Heading Line Heights */
 $headings-line-height:    1.1;
 $line-height-h1-mobile:     ceil(($font-size-h1-mobile * 1.25)); // 40px
 $line-height-h1:            ceil(($font-size-h1 * 1.26)); // 72px
-$line-height-h2-mobile:     ceil(($font-size-h1-mobile * 1.39)); // 32px
+$line-height-h2-mobile:     ceil(($font-size-h2-mobile * 1.39)); // 32px
 $line-height-h2:            ceil(($font-size-h2 * 1.31)); // 46px
 $line-height-h3:            ceil(($font-size-h3 * 1.23)); // 16px
 $line-height-h4-mobile:     ceil(($font-size-h1-mobile * 1.37)); // 22px

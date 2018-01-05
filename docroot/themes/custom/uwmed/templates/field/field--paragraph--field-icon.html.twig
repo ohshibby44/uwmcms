@@ -38,41 +38,6 @@
  * @see template_preprocess_field()
  */
 #}
-
-{% set include_wrapper = include_wrapper ?: 'true' %}
-{% set wrapper_element = wrapper_element ?: 'div' %}
-
-{%
-set wrapper_classes = wrapper_classes ?: [
-'field',
-'field--name-' ~ field_name|clean_class
-]
-%}
-
-{%
-set label_classes = [
-'field--label',
-label_display == 'visually_hidden' ? 'sr-only',
-]
-%}
-
-{% set item_element = item_element ?: 'div' %}
-
-{% set item_classes = item_classes ? item_classes %}
-
-{% block content %}
-  {% if include_wrapper == 'true' %}
-    <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}>
-  {% endif %}
-    {% if not label_hidden %}
-      <div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>
-    {% endif %}
-    {% for item in items %}
-      {% block item %}
-        <{{ item_element }}{{ item.attributes.addClass(item_classes) }}>{{ item.content }}</{{ item_element }}>
-      {% endblock item %}
-    {% endfor %}
-  {% if include_wrapper == 'true' %}
-    </{{ wrapper_element }}>
-  {% endif %}
-{% endblock content %}
+{% for item in items %}
+  <span class="uwmed-icon uwmed-icon__{{ item.content['#plain_text']|lower|replace(' ', '-') }}">i</span>
+{% endfor %}

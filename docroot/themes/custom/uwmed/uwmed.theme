@@ -74,3 +74,47 @@ function uwmed_preprocess_hierarchical_term_formatter(&$variables) {
 function uwmed_preprocess_input__button(&$variables) {
 
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for homepage_section paragraphs.
+ */
+function uwmed_preprocess_paragraph__homepage_section(&$variables) {
+
+  $paragraph = $variables['paragraph'];
+
+  if (!$paragraph->field_section_image->isEmpty()) {
+    $image_id = $paragraph->field_section_image->getValue()[0]['target_id'];
+    $entity = Drupal::entityTypeManager()->getStorage("media")->load($image_id);
+    $variables['image_url'] = $entity->image->entity->getFileUri();
+  }
+
+  if (!$paragraph->field_accent_color->isEmpty()) {
+    $accent_color = $paragraph->get('field_accent_color')->entity->getName();
+    $variables['accent_color'] = strtolower($accent_color);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for link_with_icon paragraphs.
+ */
+function uwmed_preprocess_paragraph__link_with_icon(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  if (!$paragraph->field_link->isEmpty()) {
+    $variables['url'] = $paragraph->field_link->first()->getUrl();
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for article homepage sections field templates.
+ */
+function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
+  $bg_image_urls = [];
+  foreach ($variables['items'] as $item) {
+    $section_image = $item['content']['#paragraph']->field_section_image;
+    $image_id = $section_image->getValue()[0]['target_id'];
+    $entity = Drupal::entityTypeManager()->getStorage("media")->load($image_id);
+    $bg_image_urls[] = $entity->image->entity->getFileUri();
+  }
+  $variables['bg_image_urls'] = $bg_image_urls;
+}
