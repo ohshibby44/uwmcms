@@ -1,0 +1,33 @@
+.uwmed-slant {
+  display: block;
+  overflow: hidden;
+  height: 4px;
+  margin-bottom: 16px;
+
+  span {
+    transform: skew(-25deg,0);
+    display: block;
+    height: 2.78px;
+    width: 140.75px;
+    background-color: white;
+    margin: 0 0 15px -100px;
+  }
+
+  @media(min-width: $screen-lg-min) {
+    .accent-blue & {
+      span {
+        background-color: $uwmed-accent-blue;
+      }
+    }
+    .accent-orange & {
+      span {
+        background-color: $uwmed-accent-orange;
+      }
+    }
+    .accent-teal & {
+      span {
+        background-color: $uwmed-accent-teal;
+      }
+    }
+  }
+}

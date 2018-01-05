@@ -12,3 +12,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'view media'
+  - 'view paragraph content homepage_section'
+  - 'view paragraph content link_with_icon'

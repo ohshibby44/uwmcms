@@ -154,7 +154,7 @@ h2, .h2 {
 h3, .h3 {
   font-size: $font-size-h3;
   line-height: $line-height-h3;
-  font-family: $font-family-base;
+  font-family: $headings-font-family;
   font-weight: $headings-font-weight-h3;
   color: $headings-color;
 }
@@ -175,15 +175,15 @@ h4, .h4 {
 h5, .h5 {
   font-size: $font-size-h5;
   line-height: $line-height-h5;
-  font-family: $headings-font-family;
-  font-weight: $headings-font-weight;
+  font-family: $font-family-base;
+  font-weight: $headings-font-weight-h5;
   color: $heading-color-h5;
 }
 
 h6, .h6 {
   font-size: $font-size-h6;
   line-height: $line-height-h6;
-  font-family: $headings-font-family;
+  font-family: $font-family-base;
   font-weight: $headings-font-weight;
   color: $heading-color-h6;
 }

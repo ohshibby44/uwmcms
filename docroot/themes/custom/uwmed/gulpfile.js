@@ -192,12 +192,12 @@ var options = {
     builder: 'src/styleguide/builder',
     destination: 'styleguide/',
     css: [
-      path.relative(paths.styleGuide.destination, paths.styles.destination + 'global/style.css')
+      path.relative(paths.styleGuide.destination, paths.styles.destination + '/style.css')
     ],
     js: [
-      path.relative(paths.styleGuide.destination, paths.styles.destination + 'vendor/js/collapse.js')
+      path.relative(paths.styleGuide.destination, paths.scripts.bootstrapDestination + '/collapse.js')
     ],
-    homepage: 'styleguide/homepage.md',
+    homepage: '../styleguide/homepage.md',
     title: 'UW Medicine Drupal Style Guide',
     watchSource: path.join(paths.styleGuide.watchSource, '**/*.*')
   },

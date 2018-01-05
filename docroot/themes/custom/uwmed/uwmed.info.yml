@@ -26,3 +26,8 @@ libraries:
   - 'uwmed/bootstrap-scripts'
   - 'uwmed/google-fonts'
   - 'uwmed/font-awesome'
+
+component-libraries:
+  uwmed:
+    paths:
+    - src/components
