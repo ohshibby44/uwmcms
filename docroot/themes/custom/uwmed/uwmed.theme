@@ -18,18 +18,23 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for page templates.
+ * Implements theme_preprocess_region().
+ */
+function uwmed_preprocess_region(&$variables) {
+
+}
+
+/**
+ * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
 
-  if ($node = \Drupal::request()->attributes->get('node')) {
+}
 
-    // If this is an Article node page, add the uwmed/sharethis library.
-    if ($node->getType() == 'article') {
-      $variables['#attached']['library'][] = 'uwmed/sharethis';
-    }
-
-  }
+/**
+ * Implements theme_preprocess_page().
+ */
+function uwmed_page_bottom(array &$page_bottom) {
 
 }
 
@@ -38,7 +43,7 @@ function uwmed_preprocess_page(&$variables) {
  */
 function uwmed_preprocess_block__system_branding_block(&$variables) {
 
-  $variables['site_logo'] = '/themes/custom/uwmed/images/uw-medicine.png';
+  $variables['site_logo'] = "/{$variables['theme']['path']}/dist/assets/uw-medicine.png";
 
 }
 
@@ -67,5 +72,67 @@ function uwmed_preprocess_hierarchical_term_formatter(&$variables) {
  * Implements hook_preprocess_HOOK() for button input templates.
  */
 function uwmed_preprocess_input__button(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for homepage_section paragraphs.
+ */
+function uwmed_preprocess_paragraph__homepage_section(&$variables) {
+
+  $paragraph = $variables['paragraph'];
+
+  if (!$paragraph->field_section_image->isEmpty()) {
+    $image_id = $paragraph->field_section_image->getValue()[0]['target_id'];
+    $entity = Drupal::entityTypeManager()->getStorage("media")->load($image_id);
+    $variables['image_url'] = $entity->image->entity->getFileUri();
+  }
+
+  if (!$paragraph->field_accent_color->isEmpty()) {
+    $accent_color = $paragraph->get('field_accent_color')->entity->getName();
+    $variables['accent_color'] = strtolower($accent_color);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for link_with_icon paragraphs.
+ */
+function uwmed_preprocess_paragraph__link_with_icon(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  if (!$paragraph->field_link->isEmpty()) {
+    $variables['url'] = $paragraph->field_link->first()->getUrl();
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for homepage sections templates.
+ */
+function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
+
+  $bg_image_urls = [];
+  foreach ($variables['items'] as $item) {
+
+    if (!empty($item['content']['#paragraph']->field_section_image)) {
+
+      $section_image = $item['content']['#paragraph']->field_section_image;
+      $data = $section_image->getValue();
+
+      if (!empty($data[0]['target_id'])) {
+        $image_id = empty($data[0]['target_id']) ? NULL : $data[0]['target_id'];
+
+        $entity = Drupal::entityTypeManager()
+          ->getStorage("media")
+          ->load($image_id);
+      }
+
+      if (!empty($entity->image->entity)) {
+        $bg_image_urls[] = $entity->image->entity->getFileUri();
+      }
+
+    }
+  }
+
+  $variables['bg_image_urls'] = $bg_image_urls;
 
 }

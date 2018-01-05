@@ -1,11 +1,7 @@
 uuid: 645c133c-cde9-4360-909d-09851a219ad0
 langcode: en
-status: true
+status: false
 dependencies:
-  content:
-    - 'block_content:basic:27cbc34c-4440-4525-a75b-7d9fdfe65092'
-  module:
-    - block_content
   theme:
     - uwmed
 id: demomessage_2

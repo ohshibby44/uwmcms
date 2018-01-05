@@ -26,8 +26,7 @@ field_settings:
         'entity:node':
           page: default
           landing_page: full
-          uwm_clinic: default
-          uwm_provider: default
+          homepage: default
   label:
     label: Label
     property_path: aggregated_field

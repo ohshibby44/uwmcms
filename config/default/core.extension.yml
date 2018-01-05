@@ -1,10 +1,12 @@
 module:
   acquia_connector: 0
   admin_toolbar: 0
+  allowed_formats: 0
   block: 0
   block_content: 0
   breakpoint: 0
   ckeditor: 0
+  components: 0
   config: 0
   contact: 0
   contact_storage: 0
@@ -13,6 +15,8 @@ module:
   ctools_block: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  devel_generate: 0
   diff: 0
   editor: 0
   embed: 0
@@ -21,7 +25,7 @@ module:
   entity_browser: 0
   entity_embed: 0
   entity_reference: 0
-  externalauth: 0
+  entity_reference_revisions: 0
   field: 0
   field_ui: 0
   file: 0
@@ -30,6 +34,7 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  kint: 0
   layout_discovery: 0
   lightning_contact_form: 0
   lightning_core: 0
@@ -61,6 +66,8 @@ module:
   panelizer_quickedit: 0
   panels: 0
   panels_ipe: 0
+  paragraphs: 0
+  paragraphs_type_permissions: 0
   path: 0
   quickedit: 0
   rdf: 0
@@ -74,6 +81,7 @@ module:
   text: 0
   token: 0
   toolbar: 0
+  twig_tweak: 0
   user: 0
   uwmcs_reader: 0
   video_embed_field: 0

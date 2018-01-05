@@ -1,0 +1,37 @@
+//  -- Scafolding
+//
+// Top level structure and layout rules.
+//
+body {
+
+  header {
+
+  }
+
+  div#main-container {
+    min-height: 600px;
+
+  }
+
+  footer {
+
+  }
+
+  a:hover, a:focus {
+    transition-duration: 600ms;
+  }
+
+}
+
+i.uw-s {
+  height: 1em;
+  width: 1em;
+  margin: 0 1em;
+  border-right: 1px solid transparent;
+  display: inline-block;
+}
+
+i.uw-s.skew {
+  @include uw-skew(-15deg)
+}
+

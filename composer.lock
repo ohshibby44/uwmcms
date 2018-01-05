@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "61763154201a06ce8bfb5565434f1198",
+    "content-hash": "6ee4f73aae83eaa5b5077eb864580919",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3696,6 +3696,57 @@
             }
         },
         {
+            "name": "drupal/components",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/components",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/components-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "adb1872a655466d575c2d3396f7ca2daba0a2918"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1461060840",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "JohnAlbin",
+                    "homepage": "https://www.drupal.org/user/32095"
+                },
+                {
+                    "name": "RobLoach",
+                    "homepage": "https://www.drupal.org/user/61114"
+                }
+            ],
+            "description": "Registers “component libraries” defined in modules and themes with the Twig system",
+            "homepage": "https://www.drupal.org/project/components",
+            "support": {
+                "source": "http://cgit.drupalcode.org/components"
+            }
+        },
+        {
             "name": "drupal/conditional_fields",
             "version": "1.0.0-alpha2",
             "source": {
@@ -6999,6 +7050,53 @@
             }
         },
         {
+            "name": "drupal/menu_export",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/menu_export",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_export-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "b4e4210a678b2d6e4190056037cb87b48db84c65"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1489724884",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "sandeepguntaka",
+                    "homepage": "https://www.drupal.org/user/3397192"
+                }
+            ],
+            "description": "This module exports and imports menus and menu links.",
+            "homepage": "https://www.drupal.org/project/menu_export",
+            "support": {
+                "source": "http://cgit.drupalcode.org/menu_export"
+            }
+        },
+        {
             "name": "drupal/metatag",
             "version": "1.2.0",
             "source": {
@@ -8717,11 +8815,17 @@
         },
         {
             "name": "drupal/sharethis",
-            "version": "dev-2.x",
+            "version": "2.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/sharethis",
-                "reference": "6a7a20b99e3fb274f9f02db7fbb9dad2e8851ae3"
+                "reference": "8.x-2.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sharethis-8.x-2.0-beta3.zip",
+                "reference": "8.x-2.0-beta3",
+                "shasum": "83379c9ee4e9c1dd8a8e31032edd8b267a84155b"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -8732,12 +8836,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta3+6-dev",
-                    "datestamp": "1510218786",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
-                    }
+                    "version": "8.x-2.0-beta3",
+                    "datestamp": "1468313039"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8750,10 +8850,6 @@
                     "homepage": "https://www.drupal.org/user/2911755"
                 },
                 {
-                    "name": "Gaofengzzz",
-                    "homepage": "https://www.drupal.org/user/1478184"
-                },
-                {
                     "name": "RobLoach",
                     "homepage": "https://www.drupal.org/user/61114"
                 },
@@ -8764,6 +8860,10 @@
                 {
                     "name": "bhavikshah9",
                     "homepage": "https://www.drupal.org/user/2784353"
+                },
+                {
+                    "name": "gaofengzzz",
+                    "homepage": "https://www.drupal.org/user/1478184"
                 },
                 {
                     "name": "himerus",
@@ -8802,12 +8902,11 @@
                     "homepage": "https://www.drupal.org/user/3133879"
                 }
             ],
-            "description": "Add the <a href=\"http://www.sharethis.com/\">ShareThis</a> widget to nodes on your site.",
-            "homepage": "https://www.drupal.org/project/sharethis",
+            "description": "Add the ShareThis widget to nodes on your site",
+            "homepage": "http://drupal.org/project/sharethis",
             "support": {
                 "source": "http://cgit.drupalcode.org/sharethis"
-            },
-            "time": "2017-11-11 14:33:23"
+            }
         },
         {
             "name": "drupal/shield",
@@ -15670,7 +15769,7 @@
     "stability-flags": {
         "drupal/redirect": 15,
         "drupal/webform": 10,
-        "drupal/sharethis": 20,
+        "drupal/sharethis": 10,
         "drupal/trash": 15,
         "drupal/auto_entitylabel": 10,
         "drupal/field_group": 5,

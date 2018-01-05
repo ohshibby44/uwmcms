@@ -82,8 +82,7 @@ display:
             'entity:node':
               page: teaser
               landing_page: teaser
-              uwm_clinic: default
-              uwm_provider: default
+              homepage: default
       fields:
         rendered:
           table: search_api_index_content

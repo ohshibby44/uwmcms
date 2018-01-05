@@ -16,6 +16,7 @@ is_admin: false
 permissions:
   - 'administer node display'
   - 'administer panelizer'
+  - 'administer panelizer node homepage defaults'
   - 'administer panelizer node landing_page defaults'
   - 'administer panelizer node page defaults'
   - 'administer panelizer node uwm_clinic defaults'

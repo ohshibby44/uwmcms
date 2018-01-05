@@ -27,9 +27,9 @@ region_wells:
   footer_second: ''
 table_responsive: '-1'
 table: ''
+image_shape: ''
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
   node_user_picture: true
-image_shape: img-rounded

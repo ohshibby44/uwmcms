@@ -30,6 +30,7 @@ cache:
   - "vendor"
   # Cache front end dependecies to dramatically improve build time.
   - "docroot/themes/custom/chew/node_modules"
+  - "docroot/themes/custom/uwmed/node_modules"
 
 addons:
   ssh_known_hosts:

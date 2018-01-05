@@ -1,33 +1,33 @@
-global-styles:
+styles:
   css:
     theme:
-      css/style.css: {}
+      dist/styles/style.css: {}
 
-global-scripts:
+scripts:
   js:
-    js/global.js: {}
-
-sharethis:
-  header: true
-  js:
-    //platform-api.sharethis.com/js/sharethis.js#property=592ee5f16d23c50012b592f9&product=inline-share-buttons: { type: external, minified: true }
+    dist/js/global.js: {}
 
 bootstrap-scripts:
   js:
-    js/vendor/affix.js: {}
-    js/vendor/alert.js: {}
-    js/vendor/button.js: {}
-    js/vendor/carousel.js: {}
-    js/vendor/collapse.js: {}
-    js/vendor/dropdown.js: {}
-    js/vendor/modal.js: {}
-    js/vendor/tooltip.js: {}
-    js/vendor/popover.js: {}
-    js/vendor/scrollspy.js: {}
-    js/vendor/tab.js: {}
-    js/vendor/transition.js: {}
+    dist/vendor/js/affix.js: {}
+    dist/vendor/js/alert.js: {}
+    dist/vendor/js/button.js: {}
+    dist/vendor/js/carousel.js: {}
+    dist/vendor/js/collapse.js: {}
+    dist/vendor/js/dropdown.js: {}
+    dist/vendor/js/modal.js: {}
+    dist/vendor/js/tooltip.js: {}
+    dist/vendor/js/popover.js: {}
+    dist/vendor/js/scrollspy.js: {}
+    dist/vendor/js/tab.js: {}
+    dist/vendor/js/transition.js: {}
 
 google-fonts:
   css:
     theme:
-      //fonts.googleapis.com/css?family=Encode+Sans|Open+Sans: { type: external }
+      //fonts.googleapis.com/css?family=Encode+Sans+Condensed:500|Encode+Sans:400,500,600|Open+Sans:400,600,700: { type: external }
+
+font-awesome:
+  css:
+    theme:
+      //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }

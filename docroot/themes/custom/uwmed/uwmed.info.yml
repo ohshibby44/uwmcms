@@ -21,8 +21,13 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
-  - 'uwmed/global-styles'
-  - 'uwmed/global-scripts'
+  - 'uwmed/styles'
+  - 'uwmed/scripts'
   - 'uwmed/bootstrap-scripts'
-  - 'uwmed/subscribe-form-validation'
   - 'uwmed/google-fonts'
+  - 'uwmed/font-awesome'
+
+component-libraries:
+  uwmed:
+    paths:
+    - src/components
