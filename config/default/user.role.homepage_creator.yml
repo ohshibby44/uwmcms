@@ -7,9 +7,12 @@ label: 'Homepage creator'
 weight: 7
 is_admin: null
 permissions:
+  - 'access contextual links'
   - 'access image_browser entity browser pages'
+  - 'access in-place editing'
   - 'access media_browser entity browser pages'
   - 'access panels in-place editing'
+  - 'access toolbar'
   - 'administer panelizer node homepage content'
   - 'administer panelizer node homepage layout'
   - 'change layouts in place editing'

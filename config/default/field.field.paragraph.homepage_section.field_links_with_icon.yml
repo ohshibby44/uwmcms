@@ -1,18 +1,18 @@
-uuid: e5874de4-be7c-45be-bf8f-4cd85c1f4b77
+uuid: 76c282d3-0bb2-4308-8754-fe62b51fcd1a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_links
+    - field.storage.paragraph.field_links_with_icon
     - paragraphs.paragraphs_type.homepage_section
     - paragraphs.paragraphs_type.link_with_icon
   module:
     - entity_reference_revisions
-id: paragraph.homepage_section.field_links
-field_name: field_links
+id: paragraph.homepage_section.field_links_with_icon
+field_name: field_links_with_icon
 entity_type: paragraph
 bundle: homepage_section
-label: Links
+label: 'Links with Icon'
 description: ''
 required: false
 translatable: false

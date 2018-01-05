@@ -3,9 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.homepage_section.field_accent_color
     - field.field.paragraph.homepage_section.field_heading
     - field.field.paragraph.homepage_section.field_link
-    - field.field.paragraph.homepage_section.field_links
+    - field.field.paragraph.homepage_section.field_links_with_icon
     - field.field.paragraph.homepage_section.field_section_image
     - field.field.paragraph.homepage_section.field_section_story_link
     - field.field.paragraph.homepage_section.field_subheading
@@ -20,6 +21,14 @@ targetEntityType: paragraph
 bundle: homepage_section
 mode: default
 content:
+  field_accent_color:
+    weight: 8
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_heading:
     weight: 1
     label: hidden
@@ -39,23 +48,14 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_links:
+  field_links_with_icon:
     type: entity_reference_revisions_entity_view
     weight: 3
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    region: content
-  field_section_image:
-    weight: 6
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
     region: content
   field_section_story_link:
     weight: 7
@@ -84,4 +84,5 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-hidden: {  }
+hidden:
+  field_section_image: true

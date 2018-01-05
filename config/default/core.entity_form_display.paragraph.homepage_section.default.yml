@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
+    - field.field.paragraph.homepage_section.field_accent_color
     - field.field.paragraph.homepage_section.field_heading
     - field.field.paragraph.homepage_section.field_link
-    - field.field.paragraph.homepage_section.field_links
+    - field.field.paragraph.homepage_section.field_links_with_icon
     - field.field.paragraph.homepage_section.field_section_image
     - field.field.paragraph.homepage_section.field_section_story_link
     - field.field.paragraph.homepage_section.field_subheading
@@ -23,8 +24,14 @@ targetEntityType: paragraph
 bundle: homepage_section
 mode: default
 content:
-  field_heading:
+  field_accent_color:
     weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_heading:
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -39,9 +46,9 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_links:
+  field_links_with_icon:
     type: entity_reference_paragraphs
-    weight: 4
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -74,7 +81,7 @@ content:
     type: link_default
     region: content
   field_subheading:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
