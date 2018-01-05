@@ -106,15 +106,34 @@ function uwmed_preprocess_paragraph__link_with_icon(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK() for article homepage sections field templates.
+ * Implements hook_preprocess_HOOK().
+ * Enhances article homepage sections for templates.
  */
 function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
+
   $bg_image_urls = [];
   foreach ($variables['items'] as $item) {
-    $section_image = $item['content']['#paragraph']->field_section_image;
-    $image_id = $section_image->getValue()[0]['target_id'];
-    $entity = Drupal::entityTypeManager()->getStorage("media")->load($image_id);
-    $bg_image_urls[] = $entity->image->entity->getFileUri();
+
+    if (!empty($item['content']['#paragraph']->field_section_image)) {
+
+      $section_image = $item['content']['#paragraph']->field_section_image;
+      $data = $section_image->getValue();
+
+      if (!empty($data[0]['target_id'])) {
+        $image_id = empty($data[0]['target_id']) ? NULL : $data[0]['target_id'];
+
+        $entity = Drupal::entityTypeManager()
+          ->getStorage("media")
+          ->load($image_id);
+      }
+
+      if (!empty($entity->image->entity)) {
+        $bg_image_urls[] = $entity->image->entity->getFileUri();
+      }
+
+    }
   }
+
   $variables['bg_image_urls'] = $bg_image_urls;
+
 }
