@@ -33,6 +33,7 @@ docroot/libraries
 docroot/themes/custom/*/node_modules
 docroot/themes/custom/*/css
 docroot/themes/custom/*/styleguide
+docroot/robots.txt
 
 # Ignore build artifacts
 /deploy

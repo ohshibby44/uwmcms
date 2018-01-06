@@ -12,8 +12,8 @@ git:
   remotes:
     - 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
   hooks:
-    pre-commit: ${repo.root}/git-config/hooks
-    commit-msg: ${repo.root}/git-config/hooks
+    pre-commit: '${repo.root}/git-config/hooks'
+    commit-msg: '${repo.root}/git-config/hooks'
 drush:
   aliases:
     remote: '${project.machine_name}.dev'

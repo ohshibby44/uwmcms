@@ -6,7 +6,3 @@ parameters:
     debug: true
     auto_reload: true
     cache: false
-  http.response.debug_cacheability_headers: true
-services:
-  cache.backend.null:
-    class: Drupal\Core\Cache\NullBackendFactory
