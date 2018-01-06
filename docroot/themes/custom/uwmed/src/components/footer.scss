@@ -11,15 +11,16 @@ footer {
 
       .nav > li {
         margin-bottom: 17px;
+        padding-left: 0;
         @extend .col-md-6;
         a {
           text-decoration: none;
           padding: 0;
           i.uw-s {
             height: 16px;
-            width: 16px;
-            margin: 0 6px -3px 0;
-            border-right-color: $uwmed-dark-purple;
+            width: 8px;
+            margin: 0 0 -2px 0;
+            border-left: 1px solid $uwmed-dark-purple;
           }
           &:hover {
             text-decoration: none;
