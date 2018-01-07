@@ -1,0 +1,134 @@
+uuid: cb5a0881-8904-4acd-80ae-102ae3923945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.uwm_clinic.body
+    - field.field.node.uwm_clinic.field_bottom_speciality_blocks
+    - field.field.node.uwm_clinic.field_clinic_imid
+    - field.field.node.uwm_clinic.field_content_blocks
+    - node.type.uwm_clinic
+  module:
+    - field_group
+    - paragraphs
+    - path
+    - text
+    - workbench_moderation
+third_party_settings:
+  field_group:
+    group_c:
+      children:
+        - field_content_blocks
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Content Blocks'
+    group_content_bottom_blocks:
+      children:
+        - field_bottom_speciality_blocks
+      parent_name: ''
+      weight: 11
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Content Bottom Blocks'
+id: node.uwm_clinic.default
+targetEntityType: node
+bundle: uwm_clinic
+mode: default
+content:
+  body:
+    weight: 7
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_bottom_speciality_blocks:
+    type: paragraphs
+    weight: 10
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_content_blocks:
+    type: entity_reference_paragraphs
+    weight: 8
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_clinic_imid: true

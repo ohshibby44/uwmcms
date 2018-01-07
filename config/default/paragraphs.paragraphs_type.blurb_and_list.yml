@@ -1,0 +1,9 @@
+uuid: e26b4ef4-8590-47dd-9a63-7c7624f5d7ad
+langcode: en
+status: true
+dependencies: {  }
+id: blurb_and_list
+label: 'Temp - delete'
+icon_uuid: null
+description: 'Simple paragraphs block, for simple lists or a snippet to your page. '
+behavior_plugins: {  }
