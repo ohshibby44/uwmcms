@@ -1,0 +1,178 @@
+{% set classes = [
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+    {{ title_prefix }}
+    {% if not page %}
+        <h2{{ title_attributes }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
+    {% endif %}
+    {{ title_suffix }}
+
+
+    {% if display_submitted %}
+        <footer>
+            {{ author_picture }}
+            <div{{ author_attributes.addClass('author') }}>
+                {% trans %}Submitted by {{ author_name }}
+                on {{ date }}{% endtrans %}
+                {{ metadata }}
+            </div>
+        </footer>
+    {% endif %}
+
+    <section class="clinic-header">
+        <h2 class="address">
+            <em>Address: {{ node.uwmcs_reader_api_values.address }}</h2></em>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+    </section>
+
+    <section class="clinic-tabs">
+
+
+        <div data-example-id="togglable-tabs">
+            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                <li role="presentation"><a href="#services" id="services-tab"
+                                           role="tab" data-toggle="tab"
+                                           aria-controls="services"
+                                           aria-expanded="true">
+                        {{ 'Services & Resources'|t }}
+
+                    </a>
+                </li>
+                <li role="presentation"><a href="#directions"
+                                           role="tab"
+                                           id="directions-tab"
+                                           data-toggle="tab"
+                                           aria-controls="directions"
+                                           aria-expanded="false">
+                        {{ 'Directions/Parking'|t }}
+
+                    </a>
+                </li>
+                <li role="presentation"><a href="#providers"
+                                           role="tab"
+                                           id="providers-tab"
+                                           data-toggle="tab"
+                                           aria-controls="providers"
+                                           aria-expanded="false">
+                        {{ 'Care Providers'|t }}
+
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+
+                <div class="tab-pane fade active in" role="tabpanel"
+                     id="services"
+                     aria-labelledby="services-tab">
+
+                    <h2>Services</h2>
+                    <h3>This clinic offers the</h3>
+                    <ul>
+                        {% for s in node.uwmcs_reader_api_values.services %}
+                            <li>{{ s.serviceName|t }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="more"><a href="#">View More</a></div>
+
+
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel"
+                     id="directions" aria-labelledby="directions-tab">
+
+                    <h2>Directions & Parking</h2>
+
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa
+                        nulla single-origin coffee squid. Exercitation +1 labore
+                        velit, blog sartorial PBR leggings next level wes
+                        anderson artisan four loko farm-to-table craft beer
+                        twee. Qui photo booth letterpress, commodo enim craft
+                        beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
+                        PBR. Homo nostrud organic, assumenda labore aesthetic
+                        magna delectus mollit. Keytar helvetica VHS salvia yr,
+                        vero magna velit sapiente labore stumptown. Vegan fanny
+                        pack odio cillum wes anderson 8-bit, sustainable jean
+                        shorts beard ut DIY ethical culpa terry richardson
+                        biodiesel. Art party scenester stumptown, tumblr butcher
+                        vero sint qui sapiente accusamus tattooed echo park.</p>
+
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel" id="providers"
+                     aria-labelledby="providers-tab">
+
+                    <h2>Care Providers</h2>
+                    <div class="row">
+                        {% for cn in node.uwmcs_reader_api_values.careNetworks %}
+
+                            {% for s in cn.bioInformations %}
+                                <div class="prov-block col-sm-4">
+                                    <div class="wrapper">
+                                        {{ s.fullName }}<br>
+                                        <img src="{{ s.bioImageUrl }}"
+                                             class="img-thumbnail"><br>
+                                        {{ s.bioIntro }}<br>
+                                    </div>
+
+
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <script>
+            jQuery('.clinic-tabs.first ul.nav-tabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show')
+            })
+        </script>
+
+    </section>
+
+    <section class="clinic-body">
+
+        <h2>Clinic Content Here</h2>
+        <h3>UW experts offer...</h3>
+        <div{{ content_attributes.addClass('content') }}>
+            {{ content.body }}
+            {#{{ content }}#}
+        </div>
+
+    </section>
+
+    <section class="clinic-paragraphs">
+        {{ content.field_content_blocks }}
+
+    </section>
+
+    <section class="clinic-foot-paragraphs">
+        {{ content.field_bottom_speciality_blocks }}
+        <div class="more"><a href="#">View More</a></div>
+
+    </section>
+
+    <pre>
+    {{ dump(node.uwmcs_reader_api_values.services) }}
+        {{ dump(node.uwmcs_reader_api_values) }}
+
+    </pre>
+
+</article>

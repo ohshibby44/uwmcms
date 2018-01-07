@@ -129,12 +129,11 @@ h1, .h1 {
   line-height: $line-height-h1-mobile;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
-  color: $heading-color-h1-mobile;
+  color: $heading-color-h1;
 
   @media (min-width: $screen-sm-min) {
     font-size: $font-size-h1;
     line-height: $line-height-h1;
-    color: $heading-color-h1;
   }
 }
 
