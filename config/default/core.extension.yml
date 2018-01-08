@@ -8,6 +8,7 @@ module:
   ckeditor: 0
   components: 0
   config: 0
+  consumers: 0
   contact: 0
   contact_storage: 0
   contextual: 0
@@ -71,12 +72,13 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
-  redirect: 0
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
+  serialization: 0
   shield: 0
   shortcut: 0
+  simple_oauth: 0
   system: 0
   taxonomy: 0
   text: 0
