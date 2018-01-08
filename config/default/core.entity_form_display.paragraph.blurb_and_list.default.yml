@@ -1,0 +1,17 @@
+uuid: 35b2aadc-138a-44ef-a842-ed0cbfc46b33
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.blurb_and_list
+  module:
+    - workbench_moderation
+id: paragraph.blurb_and_list.default
+targetEntityType: paragraph
+bundle: blurb_and_list
+mode: default
+content: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

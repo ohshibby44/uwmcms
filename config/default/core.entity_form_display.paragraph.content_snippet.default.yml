@@ -1,0 +1,46 @@
+uuid: 4dc1675d-ea11-465b-b4cf-da0d193e01e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_snippet.field_heading
+    - field.field.paragraph.content_snippet.field_link
+    - field.field.paragraph.content_snippet.field_text_snippet
+    - paragraphs.paragraphs_type.content_snippet
+  module:
+    - link
+    - text
+    - workbench_moderation
+id: paragraph.content_snippet.default
+targetEntityType: paragraph
+bundle: content_snippet
+mode: default
+content:
+  field_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_text_snippet:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

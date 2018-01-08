@@ -1,0 +1,12 @@
+uuid: 08ab460f-89c0-4dac-8c6a-a055850dc94f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.blurb_and_list
+id: paragraph.blurb_and_list.default
+targetEntityType: paragraph
+bundle: blurb_and_list
+mode: default
+content: {  }
+hidden: {  }

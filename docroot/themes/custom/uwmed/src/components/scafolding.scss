@@ -21,6 +21,11 @@ body {
     transition-duration: 600ms;
   }
 
+  pre {
+    max-height: 300px;
+    overflow: auto;
+  }
+
 }
 
 i.uw-s {

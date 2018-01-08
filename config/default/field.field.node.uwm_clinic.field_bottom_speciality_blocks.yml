@@ -1,0 +1,43 @@
+uuid: ce438a38-d515-4a46-acd7-3271398a7850
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bottom_speciality_blocks
+    - node.type.uwm_clinic
+    - paragraphs.paragraphs_type.content_snippet
+  module:
+    - entity_reference_revisions
+id: node.uwm_clinic.field_bottom_speciality_blocks
+field_name: field_bottom_speciality_blocks
+entity_type: node
+bundle: uwm_clinic
+label: 'Bottom Speciality Blocks'
+description: 'Add paragraphs blurbs to show below the page''s main content. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      content_snippet: content_snippet
+    target_bundles_drag_drop:
+      blurb_and_list:
+        weight: 4
+        enabled: false
+      homepage_section:
+        weight: 5
+        enabled: false
+      content_snippet:
+        enabled: true
+        weight: 6
+      link_with_icon:
+        weight: 6
+        enabled: false
+      links_list:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions
