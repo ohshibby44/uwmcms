@@ -1,0 +1,44 @@
+uuid: e17b22e8-312a-42ff-bcc1-7f261459510f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_snippet.field_heading
+    - field.field.paragraph.content_snippet.field_link
+    - field.field.paragraph.content_snippet.field_text_snippet
+    - paragraphs.paragraphs_type.content_snippet
+  module:
+    - link
+    - text
+id: paragraph.content_snippet.default
+targetEntityType: paragraph
+bundle: content_snippet
+mode: default
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_text_snippet:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }
