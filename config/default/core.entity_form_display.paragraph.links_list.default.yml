@@ -6,9 +6,11 @@ dependencies:
     - field.field.paragraph.links_list.field_content_link
     - field.field.paragraph.links_list.field_heading
     - field.field.paragraph.links_list.field_link
+    - field.field.paragraph.links_list.field_links_paragraph
     - paragraphs.paragraphs_type.links_list
   module:
     - link
+    - paragraphs
     - text
     - workbench_moderation
 id: paragraph.links_list.default
@@ -16,14 +18,6 @@ targetEntityType: paragraph
 bundle: links_list
 mode: default
 content:
-  field_content_link:
-    weight: 2
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
   field_heading:
     weight: 0
     settings:
@@ -33,14 +27,27 @@ content:
     type: text_textfield
     region: content
   field_link:
-    weight: 3
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
+  field_links_paragraph:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
 hidden:
   created: true
+  field_content_link: true
   status: true
   uid: true

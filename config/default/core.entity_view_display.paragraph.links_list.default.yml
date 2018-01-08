@@ -6,8 +6,10 @@ dependencies:
     - field.field.paragraph.links_list.field_content_link
     - field.field.paragraph.links_list.field_heading
     - field.field.paragraph.links_list.field_link
+    - field.field.paragraph.links_list.field_links_paragraph
     - paragraphs.paragraphs_type.links_list
   module:
+    - entity_reference_revisions
     - link
     - text
 id: paragraph.links_list.default
@@ -15,18 +17,6 @@ targetEntityType: paragraph
 bundle: links_list
 mode: default
 content:
-  field_content_link:
-    weight: 1
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_heading:
     weight: 0
     label: hidden
@@ -46,4 +36,14 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-hidden: {  }
+  field_links_paragraph:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_content_link: true

@@ -43,7 +43,7 @@ view_mode ? view_mode|clean_class,
 
         <div data-example-id="togglable-tabs">
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                <li role="presentation"><a href="#services" id="services-tab"
+                <li role="presentation" class="active"><a href="#services" id="services-tab"
                                            role="tab" data-toggle="tab"
                                            aria-controls="services"
                                            aria-expanded="true">
@@ -95,11 +95,7 @@ view_mode ? view_mode|clean_class,
 
                     <h2>Directions & Parking</h2>
 
-                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa
-                        nulla single-origin coffee squid. Exercitation +1 labore
-                        velit, blog sartorial PBR leggings next level wes
-                        anderson artisan four loko farm-to-table craft beer
-                        twee. Qui photo booth letterpress, commodo enim craft
+                    <p>Qui photo booth letterpress, commodo enim craft
                         beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
                         PBR. Homo nostrud organic, assumenda labore aesthetic
                         magna delectus mollit. Keytar helvetica VHS salvia yr,
@@ -121,10 +117,10 @@ view_mode ? view_mode|clean_class,
                             {% for s in cn.bioInformations %}
                                 <div class="prov-block col-sm-4">
                                     <div class="wrapper">
-                                        {{ s.fullName }}<br>
+                                        <b>{{ s.fullName }}</b><br>
                                         <img src="{{ s.bioImageUrl }}"
                                              class="img-thumbnail"><br>
-                                        {{ s.bioIntro }}<br>
+                                        {{ s.bioIntro | raw }}<br>
                                     </div>
 
 
@@ -147,10 +143,15 @@ view_mode ? view_mode|clean_class,
 
     </section>
 
+
+    <section class="clinic-paragraphs">
+        {{ content.field_content_blocks }}
+
+    </section>
+
     <section class="clinic-body">
 
         <h2>Clinic Content Here</h2>
-        <h3>UW experts offer...</h3>
         <div{{ content_attributes.addClass('content') }}>
             {{ content.body }}
             {#{{ content }}#}
@@ -158,10 +159,6 @@ view_mode ? view_mode|clean_class,
 
     </section>
 
-    <section class="clinic-paragraphs">
-        {{ content.field_content_blocks }}
-
-    </section>
 
     <section class="clinic-foot-paragraphs">
         {{ content.field_bottom_speciality_blocks }}
@@ -169,10 +166,10 @@ view_mode ? view_mode|clean_class,
 
     </section>
 
-    <pre>
-    {{ dump(node.uwmcs_reader_api_values.services) }}
-        {{ dump(node.uwmcs_reader_api_values) }}
+    {#<pre>#}
+    {#{{ dump(node.uwmcs_reader_api_values.services) }}#}
+        {#{{ dump(node.uwmcs_reader_api_values) }}#}
 
-    </pre>
+    {#</pre>#}
 
 </article>
