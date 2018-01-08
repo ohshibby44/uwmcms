@@ -26,7 +26,6 @@ module:
   entity_embed: 0
   entity_reference: 0
   entity_reference_revisions: 0
-  externalauth: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -80,8 +79,6 @@ module:
   serialization: 0
   shield: 0
   shortcut: 0
-  simple_oauth: 0
-  simplesamlphp_auth: 0
   system: 0
   taxonomy: 0
   text: 0
