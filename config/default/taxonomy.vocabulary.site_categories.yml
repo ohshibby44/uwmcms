@@ -1,0 +1,9 @@
+uuid: d1cb81d6-6ed6-4121-9020-639fd49c355a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Site Categories'
+vid: site_categories
+description: 'Main content pillars for site. '
+hierarchy: 0
+weight: 0

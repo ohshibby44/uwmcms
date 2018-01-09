@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_site_categories
     - field.field.media.image.image
     - image.style.thumbnail
     - media_entity.bundle.image
@@ -19,14 +20,23 @@ mode: default
 content:
   field_media_in_library:
     type: boolean_checkbox
-    weight: 4
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     region: content
+  field_site_categories:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   image:
     type: image_image
-    weight: 0
+    weight: 2
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -34,7 +44,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 3
+    weight: 0
     settings:
       size: 60
       placeholder: ''

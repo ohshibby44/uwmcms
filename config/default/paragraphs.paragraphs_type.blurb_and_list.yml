@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: blurb_and_list
-label: 'Temp - delete'
+label: 'temp - delete this ppg'
 icon_uuid: null
 description: 'Simple paragraphs block, for simple lists or a snippet to your page. '
 behavior_plugins: {  }

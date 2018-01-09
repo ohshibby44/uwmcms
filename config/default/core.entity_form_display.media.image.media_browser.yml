@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_site_categories
     - field.field.media.image.image
     - image.style.medium
     - media_entity.bundle.image
@@ -21,14 +22,20 @@ mode: media_browser
 content:
   field_media_in_library:
     type: boolean_checkbox
-    weight: 4
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     region: content
+  field_site_categories:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   image:
     type: image_image
-    weight: 0
+    weight: 2
     settings:
       preview_image_style: medium
       progress_indicator: throbber
@@ -39,7 +46,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 3
+    weight: 0
     settings:
       size: 60
       placeholder: ''

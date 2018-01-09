@@ -17,3 +17,15 @@ function uwmcs_utils_menu_link_content_presave(EntityInterface $entity) {
   $entity->expanded = 1;
 
 }
+
+/**
+ * Implements hook_page_attachments().
+ */
+function uwmcs_utils_page_attachments(array &$attachments) {
+
+  $admin_context = \Drupal::service('router.admin_context');
+  if ($admin_context->isAdminRoute()) {
+    $attachments['#attached']['library'][] = 'uwmcs_utils/admin-css';
+  }
+
+}

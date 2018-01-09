@@ -1,0 +1,30 @@
+uuid: e619cd6b-bcc7-4b9f-b5ab-c51e149a56a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_link
+    - media_entity.bundle.document
+    - media_entity.bundle.image
+    - paragraphs.paragraphs_type.link_with_icon
+id: paragraph.link_with_icon.field_media_link
+field_name: field_media_link
+entity_type: paragraph
+bundle: link_with_icon
+label: 'Media Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference
