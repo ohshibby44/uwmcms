@@ -1,7 +1,4 @@
-body, form {
 
-    background: pink;
-}
 
 body.adminimal form details#edit-group-c {
 
@@ -9,5 +6,7 @@ body.adminimal form details#edit-group-c {
 }
 
 body.adminimal form div.form-wrapper {
+
     margin-bottom: 2em;
+
 }
