@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.uwm_provider.field_information_manager_url
     - field.field.node.uwm_provider.field_provider_npi
     - node.type.uwm_provider
   module:
@@ -19,6 +20,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_information_manager_url:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_provider_npi:
     type: string_textfield
     weight: 6

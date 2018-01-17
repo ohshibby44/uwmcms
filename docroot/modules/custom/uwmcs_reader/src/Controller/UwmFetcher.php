@@ -30,6 +30,22 @@ class UwmFetcher {
   /**
    * Description here.
    *
+   * @param string $apiEndpoint
+   *   Description here.
+   *
+   * @return \stdClass
+   *   Description here.
+   */
+  public function getUrl(string $apiEndpoint) {
+
+    $data = $this->fetchItem($apiEndpoint);
+    return $data;
+
+  }
+
+  /**
+   * Description here.
+   *
    * @param array $searchFields
    *   Description here.
    *
@@ -115,13 +131,24 @@ class UwmFetcher {
     }
     else {
 
-      $response = Request::get($apiUri)
-        ->expectsJson()
-        ->send();
+      try {
 
-      $this->cacheSet($apiUri, $response->body);
+        $response = Request::get($apiUri)
+          ->expectsJson()
+          ->send();
 
-      return $response->body;
+        $this->validateResponse($response);
+        $this->cacheSet($apiUri, $response->body);
+        return $response->body;
+
+      }
+      catch (\Exception $e) {
+
+        \Drupal::logger(__CLASS__)
+          ->error('Unable to parse ' . $apiUri . $e->getMessage());
+        return new \stdClass();
+
+      }
 
     }
 
@@ -176,6 +203,37 @@ class UwmFetcher {
     $key = $dataUniqueUri;
 
     return preg_replace("/[^A-Za-z0-9 ]/", '_', $key);
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param Response $response
+   *   Description here.
+   *
+   * @throws \Exception
+   *   Description here.
+   */
+  private function validateResponse(Response $response) {
+
+    if (empty($response)) {
+      throw new \Exception();
+    }
+    if ($response->code != 200) {
+      throw new \Exception();
+    }
+    if (empty($response->body)) {
+      throw new \Exception();
+    }
+    if (!is_object($response->body) && !is_array($response->body)) {
+      throw new \Exception();
+    }
+    if (!isset($response->body->message)) {
+      if (stripos($response->body->message, 'request is invalid.')) {
+        throw new \Exception();
+      }
+    }
 
   }
 

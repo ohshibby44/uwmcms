@@ -52,7 +52,7 @@ class UwmCreator extends ControllerBase {
    * This is a description.
    *
    * @param bool $createIfMissing
-   *   Param description.
+   *   Description here.
    */
   public function validateRemoteNode(bool $createIfMissing = FALSE) {
 
@@ -105,7 +105,13 @@ class UwmCreator extends ControllerBase {
   }
 
   /**
-   * Function desription.
+   * This is a description.
+   *
+   * @param \stdClass $data
+   *   Description here.
+   *
+   * @return array
+   *   Description here.
    */
   private function prepareProviderNode(\stdClass $data) {
 
@@ -120,14 +126,11 @@ class UwmCreator extends ControllerBase {
       'sticky' => NODE_NOT_STICKY,
       'type' => 'uwm_provider',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
-      'body' => [
-        'value' => $data->bioIntro,
-        'format' => filter_default_format(),
-      ],
       'path' => [
         'source' => '/node/1',
         'alias' => '/' . $this->biosPathRoot . '/' . $data->friendlyUrl,
       ],
+      'field_information_manager_url' => $data->url,
     ];
 
     return $settings;
@@ -135,7 +138,13 @@ class UwmCreator extends ControllerBase {
   }
 
   /**
-   * Function desription.
+   * This is a description.
+   *
+   * @param \stdClass $data
+   *   Description here.
+   *
+   * @return array
+   *   Description here.
    */
   private function prepareClinicNode(\stdClass $data) {
 
@@ -149,14 +158,11 @@ class UwmCreator extends ControllerBase {
       'sticky' => NODE_NOT_STICKY,
       'type' => 'uwm_clinic',
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
-      'body' => [
-        'value' => $data->clinicName,
-        'format' => filter_default_format(),
-      ],
       'path' => [
         'source' => '/node/1',
         'alias' => '/' . $this->clinicPathRoot . '/' . str_replace('/locations/', '', $data->clinicUrl),
       ],
+      'field_information_manager_url' => $data->url,
     ];
 
     return $settings;
@@ -164,10 +170,10 @@ class UwmCreator extends ControllerBase {
   }
 
   /**
-   * Function desription.
+   * This is a description.
    *
    * @return \Drupal\Core\Entity\EntityInterface
-   *   Return description.
+   *   Description here.
    */
   private function saveRemoteNode(array $data) {
 
