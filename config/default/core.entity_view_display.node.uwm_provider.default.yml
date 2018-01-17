@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.uwm_provider.field_information_manager_url
+    - field.field.node.uwm_provider.field_provider_npi
+    - node.type.uwm_provider
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.uwm_provider.default
+targetEntityType: node
+bundle: uwm_provider
+mode: default
+content:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_information_manager_url: true
+  field_provider_npi: true

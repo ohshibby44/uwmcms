@@ -1,0 +1,14 @@
+uuid: 79461a19-58ff-4f9e-a37b-e537d9b94831
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: ''
+id: content_ed
+label: 'Content Editor'
+weight: 7
+is_admin: null
+permissions: {  }

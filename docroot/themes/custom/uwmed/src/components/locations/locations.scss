@@ -1,0 +1,86 @@
+
+body.page-node-type-uwm-clinic {
+
+
+
+  #main-container article.uwm-clinic {
+
+    section {
+
+      @extend .row;
+      margin: 0 3em 3em 0;
+      padding: 0 0 2em 0;
+      border-bottom: 1px solid #dcdcdc;
+
+      div.field {
+        margin-bottom: 3em;
+        div.field--label {
+        }
+      }
+
+      div.field.field--name-field-content-blocks,
+      div.field.field--name-field-bottom-speciality-blocks {
+
+        @extend .row;
+        div.paragraph {
+          @extend .col-sm-6;
+          @extend .col-md-3;
+          border: 1px solid #dcdcdc;
+          margin-right: 2px;
+
+          p.h1.hero__heading {
+            display: none;
+
+          }
+
+        }
+
+      }
+
+      div.more {
+        text-align: center;
+        padding: 1em 0;
+        border: 1px solid aliceblue;
+        margin: 1em 20%;
+      }
+
+
+    }
+
+
+    section.clinic-tabs {
+
+      .tab-content {
+        min-height: 300px;
+        border: 1px dotted #f8f8f8;
+      }
+
+      .prov-block .wrapper img {
+        max-width: 150px;
+        float: left;
+      }
+
+    }
+
+
+    section.clinic-body {
+
+    }
+
+
+    section.clinic-paragraphs {
+
+    }
+
+
+    section.clinic-foot-paragraphs {
+
+    }
+
+
+
+
+  }
+
+
+}

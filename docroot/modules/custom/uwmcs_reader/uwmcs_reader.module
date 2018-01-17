@@ -14,13 +14,18 @@ use Drupal\uwmcs_reader\Controller\UwmFetcher;
  */
 function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  $uri = \Drupal::request()->getRequestUri();
-  $args = explode('/', trim($uri, '/'));
+  $args = explode('/', trim(
+      \Drupal::request()->getRequestUri(), '/'));
 
   if ($entity->getType() === "uwm_clinic") {
 
     $fetcher = new UwmFetcher();
-    $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+    $url = $entity->field_information_manager_url->value;
+
+    $data = $fetcher->getUrl($url);
+    if (empty($data)) {
+      $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+    }
 
     $entity->uwmcs_reader_api_values = $data;
 
@@ -29,7 +34,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
   if ($entity->getType() === "uwm_provider") {
 
     $fetcher = new UwmFetcher();
-    $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
+    $url = $entity->field_information_manager_url->value;
+
+    $data = $fetcher->getUrl($url);
+    if (empty($data)) {
+      $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
+    }
 
     $entity->uwmcs_reader_api_values = $data;
 

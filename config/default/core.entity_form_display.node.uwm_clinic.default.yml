@@ -3,13 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
+    - entity_browser.browser.media_browser
     - field.field.node.uwm_clinic.body
     - field.field.node.uwm_clinic.field_bottom_speciality_blocks
+    - field.field.node.uwm_clinic.field_clinic_image
     - field.field.node.uwm_clinic.field_clinic_imid
     - field.field.node.uwm_clinic.field_content_blocks
-    - field.field.node.uwm_clinic.field_node_
+    - field.field.node.uwm_clinic.field_information_manager_url
+    - field.field.node.uwm_clinic.field_node_media
     - node.type.uwm_clinic
   module:
+    - entity_browser
     - field_group
     - paragraphs
     - path
@@ -21,7 +26,7 @@ third_party_settings:
       children:
         - field_content_blocks
       parent_name: ''
-      weight: 9
+      weight: 6
       format_type: tab
       format_settings:
         id: ''
@@ -34,15 +39,31 @@ third_party_settings:
       children:
         - field_bottom_speciality_blocks
       parent_name: ''
-      weight: 11
+      weight: 8
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
+        label: 'Bottom Content Blocks'
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Content Bottom Blocks'
+        id: ''
+        classes: ''
+      label: 'Bottom Content Blocks'
+    group_node_media:
+      children:
+        - field_node_
+        - field_node_media
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        label: 'Add Media'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Add Media'
 id: node.uwm_clinic.default
 targetEntityType: node
 bundle: uwm_clinic
@@ -77,6 +98,19 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+  field_clinic_image:
+    type: entity_browser_file
+    weight: 10
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    region: content
+    third_party_settings: {  }
   field_content_blocks:
     type: entity_reference_paragraphs
     weight: 8
@@ -89,9 +123,17 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_node_:
-    type: entity_browser_entity_reference
+  field_information_manager_url:
     weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_node_media:
+    type: entity_browser_entity_reference
+    weight: 10
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
