@@ -9,6 +9,7 @@ namespace Drupal\uwmcs_reader\Controller;
  */
 use Drupal\Core\Cache\CacheBackendInterface;
 use Httpful\Request;
+use Httpful\Response;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -220,7 +221,7 @@ class UwmFetcher {
    * @throws \Exception
    *   Description here.
    */
-  private function validateResponse(\Httpful\Response $response) {
+  private function validateResponse(Response $response) {
 
     if (empty($response)) {
       throw new \Exception();
@@ -234,7 +235,7 @@ class UwmFetcher {
     if (!is_object($response->body) && !is_array($response->body)) {
       throw new \Exception();
     }
-    if (!isset($response->body->message)) {
+    if (isset($response->body->message)) {
       if (stripos($response->body->message, 'request is invalid.')) {
         throw new \Exception();
       }
