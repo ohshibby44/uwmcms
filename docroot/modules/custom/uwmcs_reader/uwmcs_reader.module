@@ -14,13 +14,27 @@ use Drupal\uwmcs_reader\Controller\UwmFetcher;
  */
 function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  $uri = \Drupal::request()->getRequestUri();
-  $args = explode('/', trim($uri, '/'));
+  $args = explode('/', trim(
+    \Drupal::request()->getRequestUri(), '/'));
 
   if ($entity->getType() === "uwm_clinic") {
 
+    // Fetch Information Manager (IM) data from API endpoint.
     $fetcher = new UwmFetcher();
-    $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
+
+    // If missing, try to find clinic data on API.
+    if (empty((array) $data)) {
+      $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+    }
+
+    // If we have a location, fetch additional details and driving directions.
+    if (!empty($data->location->url)) {
+      $location = $fetcher->getUrl($data->location->url);
+      if (!empty($location->id)) {
+        $data->location = $location;
+      }
+    }
 
     $entity->uwmcs_reader_api_values = $data;
 
@@ -28,8 +42,14 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
   if ($entity->getType() === "uwm_provider") {
 
+    // Fetch Information Manager (IM) data from API endpoint.
     $fetcher = new UwmFetcher();
-    $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
+    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
+
+    // If missing, try to find clinic data on API.
+    if (empty((array) $data)) {
+      $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
+    }
 
     $entity->uwmcs_reader_api_values = $data;
 

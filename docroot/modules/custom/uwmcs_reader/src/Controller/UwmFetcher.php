@@ -9,6 +9,7 @@ namespace Drupal\uwmcs_reader\Controller;
  */
 use Drupal\Core\Cache\CacheBackendInterface;
 use Httpful\Request;
+use Httpful\Response;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -25,6 +26,22 @@ class UwmFetcher {
    * UwmFetcher constructor.
    */
   public function __construct() {
+  }
+
+  /**
+   * Description here.
+   *
+   * @param string $apiEndpoint
+   *   Description here.
+   *
+   * @return \stdClass
+   *   Description here.
+   */
+  public function getUrl(string $apiEndpoint = NULL) {
+
+    $data = $this->fetchItem($apiEndpoint);
+    return $data;
+
   }
 
   /**
@@ -108,20 +125,36 @@ class UwmFetcher {
    */
   private function fetchItem(string $apiUri = NULL) {
 
-    if ($cache = $this->cacheGet($apiUri)) {
+    if (empty($apiUri)) {
+
+      return new \stdClass();
+
+    }
+    elseif ($cache = $this->cacheGet($apiUri)) {
 
       return $cache->data;
 
     }
     else {
 
-      $response = Request::get($apiUri)
-        ->expectsJson()
-        ->send();
+      try {
 
-      $this->cacheSet($apiUri, $response->body);
+        $response = Request::get($apiUri)
+          ->expectsJson()
+          ->send();
 
-      return $response->body;
+        $this->validateResponse($response);
+        $this->cacheSet($apiUri, $response->body);
+        return $response->body;
+
+      }
+      catch (\Exception $e) {
+
+        \Drupal::logger(__CLASS__)
+          ->error('Unable to parse ' . $apiUri . $e->getMessage());
+        return new \stdClass();
+
+      }
 
     }
 
@@ -176,6 +209,37 @@ class UwmFetcher {
     $key = $dataUniqueUri;
 
     return preg_replace("/[^A-Za-z0-9 ]/", '_', $key);
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param \Httpful\Response $response
+   *   Description here.
+   *
+   * @throws \Exception
+   *   Description here.
+   */
+  private function validateResponse(Response $response) {
+
+    if (empty($response)) {
+      throw new \Exception();
+    }
+    if ($response->code != 200) {
+      throw new \Exception();
+    }
+    if (empty($response->body)) {
+      throw new \Exception();
+    }
+    if (!is_object($response->body) && !is_array($response->body)) {
+      throw new \Exception();
+    }
+    if (isset($response->body->message)) {
+      if (stripos($response->body->message, 'request is invalid.')) {
+        throw new \Exception();
+      }
+    }
 
   }
 

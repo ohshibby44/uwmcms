@@ -770,6 +770,7 @@ if (!file_exists('/var/www/site-php') && empty($_ENV['AH_SITE_ENVIRONMENT'])) {
   // Include local development settings
   if (file_exists($app_root . '/' . $site_path . '/development.settings.php')) {
 
+
     include $app_root . '/' . $site_path . '/development.settings.php';
     $settings['container_yamls'][] = $app_root . '/' . $site_path . '/development.services.yml';
 

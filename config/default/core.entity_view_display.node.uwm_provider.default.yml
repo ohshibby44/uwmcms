@@ -46,3 +46,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_information_manager_url: true
+  field_provider_npi: true
