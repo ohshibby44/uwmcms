@@ -86,7 +86,8 @@
         "drupal/components": "^1.0",
         "drupal/menu_export": "^1.0",
         "drupal/simple_oauth": "^3.3",
-        "drupal/externalauth": "^1.0"
+        "drupal/externalauth": "^1.0",
+        "drupal/paragraphs_admin": "^1.0"
     },
     "require-dev": {},
     "extra": {

@@ -3,12 +3,32 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
     - field.field.node.uwm_provider.field_information_manager_url
-    - field.field.node.uwm_provider.field_provider_npi
+    - field.field.node.uwm_provider.field_promotional_bi_line
+    - field.field.node.uwm_provider.field_promotional_bi_line_image
     - node.type.uwm_provider
   module:
+    - entity_browser
+    - field_group
     - path
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_letterbox_appearance:
+      children:
+        - field_promotional_bi_line
+        - field_promotional_bi_line_image
+      parent_name: ''
+      weight: 6
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Letterbox Appearance'
 id: node.uwm_provider.default
 targetEntityType: node
 bundle: uwm_provider
@@ -21,20 +41,33 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_information_manager_url:
-    weight: 26
+    weight: 7
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_provider_npi:
-    type: string_textfield
-    weight: 6
-    region: content
+  field_promotional_bi_line:
+    weight: 27
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_promotional_bi_line_image:
+    type: entity_browser_file
+    weight: 28
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    region: content
     third_party_settings: {  }
   path:
     type: path

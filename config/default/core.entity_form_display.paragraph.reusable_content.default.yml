@@ -1,0 +1,24 @@
+uuid: 4a6204f5-26f2-4471-9a26-83f01feae98d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.reusable_content.field_other_reference
+    - paragraphs.paragraphs_type.reusable_content
+  module:
+    - workbench_moderation
+id: paragraph.reusable_content.default
+targetEntityType: paragraph
+bundle: reusable_content
+mode: default
+content:
+  field_other_reference:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

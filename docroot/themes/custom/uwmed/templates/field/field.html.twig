@@ -37,42 +37,66 @@
  *
  * @see template_preprocess_field()
  */
-#}
 
+{% if label_hidden %}
+    {% if multiple %}
+        <div{{ attributes }}>
+            {% for item in items %}
+                <div{{ item.attributes }}>{{ item.content }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% for item in items %}
+            <div{{ attributes }}>{{ item.content }}</div>
+        {% endfor %}
+    {% endif %}
+{% else %}
+    <div{{ attributes }}>
+        <div{{ title_attributes }}>{{ label }}</div>
+        {% if multiple %}
+        <div>
+            {% endif %}
+            {% for item in items %}
+                <div{{ item.attributes }}>{{ item.content }}</div>
+            {% endfor %}
+            {% if multiple %}
+        </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+#}
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
-
-{%
-set wrapper_classes = wrapper_classes ?: [
-'field',
-'field--name-' ~ field_name|clean_class
-]
-%}
-
-{%
-set label_classes = [
-'field--label',
-label_display == 'visually_hidden' ? 'sr-only',
-]
-%}
-
+{% set wrapper_classes = wrapper_classes ?: ['field', 'field--name-' ~ field_name|clean_class] %}
 {% set item_element = item_element ?: 'div' %}
-
 {% set item_classes = item_classes ? item_classes %}
+{% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
+
+{% set n = 0 %}
 
 {% block content %}
-  {% if include_wrapper == 'true' %}
-    <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}>
-  {% endif %}
-    {% if not label_hidden %}
-      <div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>
+
+    {% if include_wrapper == 'true' %}
+        <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}>
     {% endif %}
+
+    {% if not label_hidden %}
+        <div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>
+    {% endif %}
+
     {% for item in items %}
-      {% block item %}
-        <{{ item_element }}{{ item.attributes.addClass(item_classes) }}>{{ item.content }}</{{ item_element }}>
-      {% endblock item %}
+        {% set n = n+1 %}
+        {% block item %}
+            <{{ item_element }}{{ item.attributes.addClass(item_classes).addClass('item item-' ~ n) }}>
+            <i class="hidden u-ips"></i>
+            {{ item.content }}
+            </{{ item_element }}>
+        {% endblock item %}
     {% endfor %}
-  {% if include_wrapper == 'true' %}
-    </{{ wrapper_element }}>
-  {% endif %}
+
+    {% if include_wrapper == 'true' %}
+        </{{ wrapper_element }}>
+    {% endif %}
+
 {% endblock content %}

@@ -1,11 +1,14 @@
+uuid: b9c93062-b9a2-4762-b0d3-f820c9d1b10f
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.uwm_provider.field_information_manager_url
-    - field.field.node.uwm_provider.field_provider_npi
+    - field.field.node.uwm_provider.field_promotional_bi_line
+    - field.field.node.uwm_provider.field_promotional_bi_line_image
     - node.type.uwm_provider
   module:
+    - image
     - panelizer
     - user
 third_party_settings:
@@ -19,6 +22,23 @@ targetEntityType: node
 bundle: uwm_provider
 mode: default
 content:
+  field_promotional_bi_line:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_promotional_bi_line_image:
+    weight: 2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   links:
     weight: 0
     region: content
@@ -26,4 +46,3 @@ content:
     third_party_settings: {  }
 hidden:
   field_information_manager_url: true
-  field_provider_npi: true

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.link_with_icon.field_icon
     - field.field.paragraph.link_with_icon.field_link
-    - field.field.paragraph.link_with_icon.field_media_link
     - paragraphs.paragraphs_type.link_with_icon
   module:
     - link
@@ -33,13 +32,5 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-    region: content
-  field_media_link:
-    weight: 2
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
 hidden: {  }

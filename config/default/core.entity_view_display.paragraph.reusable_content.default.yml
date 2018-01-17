@@ -1,0 +1,22 @@
+uuid: 43d5b59c-ab0c-458e-9c9f-f814b6829851
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.reusable_content.field_other_reference
+    - paragraphs.paragraphs_type.reusable_content
+id: paragraph.reusable_content.default
+targetEntityType: paragraph
+bundle: reusable_content
+mode: default
+content:
+  field_other_reference:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

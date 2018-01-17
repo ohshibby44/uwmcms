@@ -62,6 +62,7 @@
 // UW Medicine Styles
 @import "typography";
 @import "reset";
+@import "mixins";
 @import "../components/scafolding";
 @import "../components/header";
 @import "../components/header-mobile";
@@ -74,4 +75,5 @@
 @import "../components/accents/accents";
 @import "../templates/homepage";
 @import "../components/locations/locations";
-@import "../templates/blocks";
+
+

@@ -72,6 +72,12 @@ body {
 
     div#main-container {
 
+      .sml-italic {
+        font-family: $font-family-sans-serif;
+        font-weight: 300;
+        font-style: italic;
+      }
+
     }
 
     footer {
@@ -124,7 +130,7 @@ body {
 // Headings
 // -------------------------
 
-h1, .h1 {
+h1, .h1, h1 a, .h1 a {
   font-size: $font-size-h1-mobile;
   line-height: $line-height-h1-mobile;
   font-family: $headings-font-family;
@@ -137,7 +143,7 @@ h1, .h1 {
   }
 }
 
-h2, .h2 {
+h2, .h2, h2 a, .h2 a {
   font-size: $font-size-h2-mobile;
   line-height: $line-height-h2-mobile;
   font-family: $headings-font-family;
@@ -150,7 +156,7 @@ h2, .h2 {
   }
 }
 
-h3, .h3 {
+h3, .h3, h3 a, .h3 a {
   font-size: $font-size-h3;
   line-height: $line-height-h3;
   font-family: $headings-font-family;
@@ -158,7 +164,7 @@ h3, .h3 {
   color: $headings-color;
 }
 
-h4, .h4 {
+h4, .h4, h4 a, .h4 a {
   font-size: $font-size-h4-mobile;
   line-height: $line-height-h4-mobile;
   font-family: $font-family-base;
@@ -171,7 +177,7 @@ h4, .h4 {
   }
 }
 
-h5, .h5 {
+h5, .h5, h5 a, .h5 a {
   font-size: $font-size-h5;
   line-height: $line-height-h5;
   font-family: $font-family-base;
@@ -179,7 +185,7 @@ h5, .h5 {
   color: $heading-color-h5;
 }
 
-h6, .h6 {
+h6, .h6, h6 a, .h6 a {
   font-size: $font-size-h6;
   line-height: $line-height-h6;
   font-family: $font-family-base;
@@ -189,6 +195,9 @@ h6, .h6 {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3 .h4, .h5, .h6 {
+  a, a:hover {
+    text-decoration: none;
+  }
   small,
   .small {
     font-weight: normal;
@@ -225,7 +234,7 @@ h6, .h6 {
 // -------------------------
 
 p {
-  margin: 0 0 ($line-height-computed / 2);
+  margin: 0 0 ($line-height-computed + $font-size-base);
 }
 
 .lead {

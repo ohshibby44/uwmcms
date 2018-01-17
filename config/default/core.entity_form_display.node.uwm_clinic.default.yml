@@ -6,10 +6,11 @@ dependencies:
     - entity_browser.browser.image_browser
     - entity_browser.browser.media_browser
     - field.field.node.uwm_clinic.body
-    - field.field.node.uwm_clinic.field_bottom_speciality_blocks
+    - field.field.node.uwm_clinic.field_bottom_content_blocks
+    - field.field.node.uwm_clinic.field_bottom_content_blocks_head
     - field.field.node.uwm_clinic.field_clinic_image
-    - field.field.node.uwm_clinic.field_clinic_imid
     - field.field.node.uwm_clinic.field_content_blocks
+    - field.field.node.uwm_clinic.field_content_blocks_heading
     - field.field.node.uwm_clinic.field_information_manager_url
     - field.field.node.uwm_clinic.field_node_media
     - node.type.uwm_clinic
@@ -24,9 +25,10 @@ third_party_settings:
   field_group:
     group_c:
       children:
+        - field_content_blocks_heading
         - field_content_blocks
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: tab
       format_settings:
         id: ''
@@ -37,9 +39,10 @@ third_party_settings:
       label: 'Content Blocks'
     group_content_bottom_blocks:
       children:
-        - field_bottom_speciality_blocks
+        - field_bottom_content_blocks_head
+        - field_bottom_content_blocks
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: tab
       format_settings:
         label: 'Bottom Content Blocks'
@@ -51,26 +54,25 @@ third_party_settings:
       label: 'Bottom Content Blocks'
     group_node_media:
       children:
-        - field_node_
         - field_node_media
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: tab
       format_settings:
-        label: 'Add Media'
+        label: 'Clinic Attachments'
         formatter: closed
         description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: 'Add Media'
+      label: 'Clinic Attachments'
 id: node.uwm_clinic.default
 targetEntityType: node
 bundle: uwm_clinic
 mode: default
 content:
   body:
-    weight: 7
+    weight: 8
     settings:
       rows: 9
       summary_rows: 3
@@ -80,27 +82,33 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_bottom_speciality_blocks:
-    type: paragraphs
-    weight: 10
-    region: content
+  field_bottom_content_blocks:
+    type: entity_reference_paragraphs
+    weight: 29
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
-      closed_mode: summary
-      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_bottom_content_blocks_head:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_clinic_image:
     type: entity_browser_file
-    weight: 10
+    weight: 11
     settings:
       entity_browser: image_browser
       field_widget_edit: true
@@ -113,7 +121,7 @@ content:
     third_party_settings: {  }
   field_content_blocks:
     type: entity_reference_paragraphs
-    weight: 8
+    weight: 27
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -123,8 +131,16 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_information_manager_url:
+  field_content_blocks_heading:
     weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_information_manager_url:
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -147,7 +163,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -155,14 +171,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 4
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 5
     region: content
     third_party_settings: {  }
   title:
@@ -175,7 +191,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -187,5 +203,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_clinic_imid: true
+hidden: {  }

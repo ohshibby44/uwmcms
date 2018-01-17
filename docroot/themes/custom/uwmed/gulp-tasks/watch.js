@@ -23,8 +23,11 @@ module.exports = function (gulp, plugins, options) {
   });
 
   gulp.task('watch:sass', function () {
+    console.log('Watching sass: ', [
+        options.sass.files, options.sass.componentFiles
+    ]);
     return gulp.watch([
-      options.sass.files
+        options.sass.files, options.sass.componentFiles
     ], function () {
       plugins.runSequence(
         'compile:sass',

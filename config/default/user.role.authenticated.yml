@@ -12,6 +12,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'use text format rich_text'
   - 'view media'
   - 'view paragraph content homepage_section'
   - 'view paragraph content link_with_icon'
