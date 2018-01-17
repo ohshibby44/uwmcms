@@ -23,6 +23,8 @@
 // Style guide 2.1
 
 $uwmed-purple: #32006e;
+$uwmed-light-purple: #4B2E83;
+$uwmed-white: #fff;
 $uwmed-gray: #b5b5b5;
 $uwmed-black: #333d47;
 $uwmed-gray-dark: #5F6267;
@@ -54,6 +56,7 @@ $uwmed-acqua: #7be0d8;
 $uwmed-bright-blue: #00b3e4;
 $uwmed-bright-green: #00c496;
 $uwmed-yellow: #f8bd00;
+$uwmed-dark-yellow: #ffce00;
 $uwmed-orange: #ef7251;
 
 // Tertiary Palette
@@ -134,6 +137,7 @@ $uwmed-dark-purple: #37236a;
 $uwmed-gradient-dark-purple: #37236a;
 $uwmed-gradient-light-purple: #6f3178;
 $uwmed-gradient-light-to-dark: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
+$uwmed-solid-dark-purple: #3f3952;
 
 @mixin uwmed-mixin-gradient-light-to-dark {
   background: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
@@ -303,16 +307,3 @@ $link-decoration: underline;
 //** Link hover decoration.
 $link-hover-decoration: underline;
 
-
-
-@mixin uw-skew($angle) {
-
-  transform: skew($angle);
-  transition-timing-function: ease-in;
-  transition: 0.2s;
-  // Chrome jagged line fix
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-
-
-}

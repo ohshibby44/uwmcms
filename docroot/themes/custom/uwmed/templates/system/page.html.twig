@@ -14,7 +14,7 @@
       {# Header #}
       {% if page.header %}
         {% block header %}
-          <div class="col-sm-12" role="heading">
+          <div class="col-sm-12 u-r-header" role="heading">
             {{ page.header }}
           </div>
         {% endblock %}
@@ -23,7 +23,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="col-sm-3" role="complementary">1111
+          <aside class="col-sm-3 page-left" role="complementary">1111
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}
@@ -38,7 +38,7 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
         ]
       %}
-      <section{{ content_attributes.addClass(content_classes) }}>
+      <section{{ content_attributes.addClass(content_classes).addClass('page-main') }}>
 
         {# Highlighted #}
         {% if page.highlighted %}
@@ -64,7 +64,7 @@
       {# Sidebar Second #}
       {% if page.sidebar_second %}
         {% block sidebar_second %}
-          <aside class="col-sm-3" role="complementary">2222
+          <aside class="col-sm-3 page-right" role="complementary">2222
             {{ page.sidebar_second }}
           </aside>
         {% endblock %}

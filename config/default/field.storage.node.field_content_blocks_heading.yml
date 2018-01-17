@@ -1,13 +1,11 @@
-uuid: 6d44f65a-3b2b-4c3b-bc27-ad26aacd89e5
+uuid: 2c3ff28e-6f09-41f6-a06c-ebca5c7331e7
 langcode: en
 status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: '-jT78ynxex-LtV83OKznB7zIvMjJjdoVpXsrKVW8C6o'
-id: node.field_clinic_imid
-field_name: field_clinic_imid
+id: node.field_content_blocks_heading
+field_name: field_content_blocks_heading
 entity_type: node
 type: string
 settings:

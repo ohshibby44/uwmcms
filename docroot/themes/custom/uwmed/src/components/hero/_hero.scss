@@ -18,7 +18,6 @@
 
 .hero__content {
   @media (min-width: $screen-lg-min) {
-    margin-top: 123px;
     padding-bottom: $line-height-computed;
   }
 }
@@ -56,5 +55,5 @@
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.15) 18%, rgba(0, 0, 0, 0.8));
   height: 175px;
   width: 100%;
-  justify-self: flex-end;
+  align-self: flex-end;
 }
