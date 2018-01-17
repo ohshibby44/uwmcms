@@ -1,0 +1,20 @@
+
+
+body.adminimal form details#edit-group-c {
+
+    margin: 2em 0;
+}
+
+body.adminimal form div.form-wrapper {
+
+    margin-bottom: 2em;
+
+}
+
+body.adminimal form details details {
+    border-color: aliceblue;
+}
+
+body.adminimal form thead th.field-label {
+    border-top: 1px solid #dcdcdc   ;
+}

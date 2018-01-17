@@ -1,0 +1,28 @@
+uuid: 7b9a3130-3e5a-45be-a1da-5e7ee83846f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_site_categories
+    - media_entity.bundle.image
+    - taxonomy.vocabulary.site_categories
+id: media.image.field_site_categories
+field_name: field_site_categories
+entity_type: media
+bundle: image
+label: 'Site Categories'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      site_categories: site_categories
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
