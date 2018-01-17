@@ -1,4 +1,12 @@
 <?php
+$databases['default']['default'] = array(
+  'driver' => 'mysql',
+  'database' => 'default',
+  'username' => 'drupal',
+  'password' => 'drupal',
+  'host' => 'localhost',
+);
+
 
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
