@@ -27,6 +27,7 @@ body.page-node-type-uwm-clinic {
 
       div.field.field--name-field-content-blocks,
       div.field.field--name-field-bottom-content-blocks {
+
         @extend .row;
 
         div.paragraph {
@@ -335,6 +336,7 @@ body.page-node-type-uwm-clinic {
       position: relative;
       padding: 0 25px;
       background-color: #f8f8f8;
+      min-height: 320px;
 
       .bg {
         @include angled-edge('inside bottom', 'upper right', #f8f8f8);
@@ -344,7 +346,7 @@ body.page-node-type-uwm-clinic {
         height: 320px;
         opacity: .9;
         background-color: #f8f8f8;
-        background-image: url('https://cdn.aarp.net/content/dam/travel/destination-images/wyoming/grand-teton-national-park/1400-poi-grand-teton-national-park-snake-river-moose-wildlife.imgcache.rev4a80648c1cc2803e6e4c71cc00ce71bd.web.jpg');
+        //background-image: url('https://cdn.aarp.net/content/dam/travel/destination-images/wyoming/grand-teton-national-park/1400-poi-grand-teton-national-park-snake-river-moose-wildlife.imgcache.rev4a80648c1cc2803e6e4c71cc00ce71bd.web.jpg');
 
         &::after {
           bottom: 0;

@@ -250,15 +250,7 @@ view_mode ? view_mode|clean_class,
 
                     <h3>Directions & Parking</h3>
 
-                    <p>Qui photo booth letterpress, commodo enim craft
-                        beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
-                        PBR. Homo nostrud organic, assumenda labore aesthetic
-                        magna delectus mollit. Keytar helvetica VHS salvia yr,
-                        vero magna velit sapiente labore stumptown. Vegan fanny
-                        pack odio cillum wes anderson 8-bit, sustainable jean
-                        shorts beard ut DIY ethical culpa terry richardson
-                        biodiesel. Art party scenester stumptown, tumblr butcher
-                        vero sint qui sapiente accusamus tattooed echo park.</p>
+                    {{ _cli.location.drivingDirections|raw }}
 
                 </div>
 
@@ -295,40 +287,47 @@ view_mode ? view_mode|clean_class,
     </section>
 
 
-    <section class="clinic-paragraphs">
-        <div class="bg"></div>
+    {% if content.field_content_blocks |render is not empty %}
+        <section class="clinic-paragraphs">
+            <div class="bg"></div>
 
-        {% if content.field_content_blocks_heading|render is not empty %}
-            <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
-        {% endif %}
-        {{ content.field_content_blocks }}
+            {% if content.field_content_blocks_heading|render is not empty %}
+                <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
+            {% endif %}
 
+            {{ content.field_content_blocks }}
 
-    </section>
-
-    <section class="clinic-body">
-
-        <div{{ content_attributes.addClass('content') }}>
-            {{ content.body }}
-            {#{{ content }}#}
-        </div>
-
-    </section>
+        </section>
+    {% endif %}
 
 
-    <section class="clinic-foot-paragraphs">
+    {% if content.body |render is not empty %}
+        <section class="clinic-body">
 
-        {% if content.field_bottom_content_blocks_head|render is not empty %}
-            <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
-        {% endif %}
-        {{ content.field_bottom_content_blocks }}
+            <div{{ content_attributes.addClass('content') }}>
+                {{ content.body }}
+                {#{{ content }}#}
+            </div>
 
-        {#<div class="view-more hidden"><a href="#">View More <i#}
-                        {#class="fa fa-angle-down"#}
-                        {#aria-hidden="true"></i></a>#}
-        {#</div>#}
+        </section>
+    {% endif %}
 
-    </section>
+
+    {% if content.field_bottom_content_blocks |render is not empty %}
+        <section class="clinic-foot-paragraphs">
+
+            {% if content.field_bottom_content_blocks_head|render is not empty %}
+                <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
+            {% endif %}
+            {{ content.field_bottom_content_blocks }}
+
+            {#<div class="view-more hidden"><a href="#">View More <i#}
+                            {#class="fa fa-angle-down"#}
+                            {#aria-hidden="true"></i></a>#}
+            {#</div>#}
+
+        </section>
+    {% endif %}
 
     {#<pre>{{ dump(_cli) }}</pre>#}
 

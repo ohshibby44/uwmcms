@@ -36,7 +36,7 @@ class UwmFetcher {
    * @return \stdClass
    *   Description here.
    */
-  public function getUrl(string $apiEndpoint) {
+  public function getUrl(string $apiEndpoint = NULL) {
 
     $data = $this->fetchItem($apiEndpoint);
     return $data;
@@ -124,7 +124,12 @@ class UwmFetcher {
    */
   private function fetchItem(string $apiUri = NULL) {
 
-    if ($cache = $this->cacheGet($apiUri)) {
+    if (empty($apiUri)) {
+
+      return new \stdClass();
+
+    }
+    elseif ($cache = $this->cacheGet($apiUri)) {
 
       return $cache->data;
 
@@ -209,13 +214,13 @@ class UwmFetcher {
   /**
    * Description here.
    *
-   * @param Response $response
+   * @param \Httpful\Response $response
    *   Description here.
    *
    * @throws \Exception
    *   Description here.
    */
-  private function validateResponse(Response $response) {
+  private function validateResponse(\Httpful\Response $response) {
 
     if (empty($response)) {
       throw new \Exception();
