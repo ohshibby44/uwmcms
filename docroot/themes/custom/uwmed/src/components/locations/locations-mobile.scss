@@ -1,0 +1,32 @@
+body.page-node-type-uwm-clinic {
+
+  article.uwm-clinic {
+
+    .visible-xs-block.mobile-head {
+
+      .clinic-image {
+        position: relative;
+
+        h1 {
+          position: absolute;
+          bottom: 10px;
+          a {
+            color: #fff;
+          }
+        }
+
+      }
+
+
+      address {
+        color: $uwmed-pop-blue;
+        i.uw-s {
+          margin: 0 4px 0 0;
+        }
+      }
+
+
+    }
+  }
+
+}

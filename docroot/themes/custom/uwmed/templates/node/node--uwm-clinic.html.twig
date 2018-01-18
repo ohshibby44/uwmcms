@@ -13,8 +13,28 @@ view_mode ? view_mode|clean_class,
 
     <section class="clinic-header">
 
-        <div class="col-sm-4 left">
+        <div class="visible-xs-block mobile-head">
+
+            <div class="col-xs-12 clinic-image">
+                {{ content.field_clinic_image }}
+                <h1{{ title_attributes }}>
+                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+                </h1>
+            </div>
             <div class="col-xs-12">
+                {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
+            </div>
+            <div class="col-xs-12">
+                <address>{{ _cli.address }} <i class="uw-s"></i>
+                    {{ _cli.city }},
+                    {{ _cli.state }}
+                    {{ _cli.zipcode }}
+                </address>
+            </div>
+        </div>
+
+        <div class="col-sm-4 left">
+            <div class="col-xs-12 hidden-xs">
                 {{ content.field_clinic_image }}
                 {#<pre>{{ dump(content.field_clinic_image) }}</pre>#}
                 {#1. {{ content.field_clinic_image }}#}
@@ -64,7 +84,7 @@ view_mode ? view_mode|clean_class,
             </div>
         </div>
 
-        <div class="col-sm-8 right">
+        <div class="col-sm-8 hidden-xs right">
 
             <div class="col-sm-12 title">
                 {{ title_prefix }}
@@ -80,95 +100,8 @@ view_mode ? view_mode|clean_class,
                     </h4></address>
             </div>
 
-            <div class="col-sm-6 times">
-                <h4>Primary Care</h4>
-                {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
+            {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
 
-                {#{% set n = date('w')|number_format %}#}
-                {#{% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}#}
-                {#{{ s.dayOfWeek }} .. {{ n }}#}
-                {#{% if s.dayOfWeek == n %}#}
-                {#111<p class="opens-at">Opens at {{ s.startTime|date ('g:ia') }}</p>#}
-                {#{% endif %}#}
-                {#{% endfor %}#}
-
-                <ul>
-
-                    {% for i in 0..6 %}
-                        {% set open = false %}
-
-                        <li>
-
-                            {% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-                                {% if s.dayOfWeek == i %}
-
-                                    {% set open = true %}
-                                    <span class="day">{{ days[i] }}</span>
-                                    <span class="hours"><span>
-
-                                        {{ "@start - @end"
-                                        |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                            '@end': s.endTime|date ('g:ia')|trim('m')
-                                        }) }}
-                                    </span></span>
-
-                                {% endif %}
-                            {% endfor %}
-                            {% if open == false %}
-
-                                <span class="day">{{ days[i] }}</span>
-                                <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                            {% endif %}
-
-                        </li>
-
-                    {% endfor %}
-
-                </ul>
-            </div>
-
-            {% if _cli.clinicTimeUseMasters[1].timeModelName == "Urgent Care Hours" %}
-                <div class="col-sm-6 times times-uc">
-                    <h4>Urgent Care</h4>
-                    <p class="opens-at">Opens at 0am</p>
-                    <ul>
-
-                        {% for i in 0..6 %}
-                            {% set open = false %}
-
-                            <li>
-
-                                {% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-                                    {% if s.dayOfWeek == i %}
-
-                                        {% set open = true %}
-                                        <span class="day">{{ days[i] }}</span>
-                                        <span class="hours"><span>
-
-                                         {{ "@start - @end"
-                                         |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                             '@end': s.endTime|date ('g:ia')|trim('m')
-                                         }) }}
-                                    </span></span>
-
-                                    {% endif %}
-                                {% endfor %}
-                                {% if open == false %}
-
-                                    <span class="day">{{ days[i] }}</span>
-                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                                {% endif %}
-
-                            </li>
-
-                        {% endfor %}
-
-
-                    </ul>
-                </div>
-            {% endif %}
             <div class="col-sm-12 foot">
                 <p class="u-911">
                     <i class="fa u-911i"></i>
@@ -239,8 +172,8 @@ view_mode ? view_mode|clean_class,
                         {% endfor %}
                     </ul>
                     {#<div class="view-more"><a href="#">View More <i#}
-                                    {#class="fa fa-angle-down"#}
-                                    {#aria-hidden="true"></i></a></div>#}
+                    {#class="fa fa-angle-down"#}
+                    {#aria-hidden="true"></i></a></div>#}
 
 
                 </div>
@@ -322,8 +255,8 @@ view_mode ? view_mode|clean_class,
             {{ content.field_bottom_content_blocks }}
 
             {#<div class="view-more hidden"><a href="#">View More <i#}
-                            {#class="fa fa-angle-down"#}
-                            {#aria-hidden="true"></i></a>#}
+            {#class="fa fa-angle-down"#}
+            {#aria-hidden="true"></i></a>#}
             {#</div>#}
 
         </section>

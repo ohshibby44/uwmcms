@@ -45,33 +45,35 @@ body.page-node-type-uwm-clinic {
       }
 
       div.field.field--name-field-link {
+
+        @include uw-ghost-button('.item', 'a', 'i.hidden.u-ips');
         // call-to-action
-        .item {
-          float: left;
-          width: 100%;
-          position: relative;
-          overflow: hidden;
-          margin: 20px 0 10px 0;
-          padding: 0;
-
-          a {
-            @extend .btn, .btn-default, %controls-font;
-            padding: 5px 18px;
-            text-decoration: none;
-          }
-
-          i.hidden.u-ips {
-            display: block !important;
-            @include uw-skew(-45deg);
-            position: absolute;
-            left: -15px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: $uwmed-dark-yellow;
-            z-index: 100;
-          }
-        }
+        //.item {
+        //  float: left;
+        //  width: 100%;
+        //  position: relative;
+        //  overflow: hidden;
+        //  margin: 20px 0 10px 0;
+        //  padding: 0;
+        //
+        //  a {
+        //    @extend .btn, .btn-default, %controls-font;
+        //    padding: 5px 18px;
+        //    text-decoration: none;
+        //  }
+        //
+        //  i.hidden.u-ips {
+        //    display: block !important;
+        //    @include uw-skew(-45deg);
+        //    position: absolute;
+        //    left: -15px;
+        //    top: 0;
+        //    width: 20px;
+        //    height: 20px;
+        //    background: $uwmed-dark-yellow;
+        //    z-index: 100;
+        //  }
+        //}
       }
 
       div.field.field--name-field-links-paragraph {
@@ -218,64 +220,64 @@ body.page-node-type-uwm-clinic {
         }
       }
 
-      .right {
-        .times {
-          margin-bottom: 40px;
+      .times {
+        margin-bottom: 40px;
 
-          h3 {
-            border-bottom: 4px solid transparent;
-            border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
-            font-size: 18px;
-            padding: 0 0 4px 0;
-          }
+        h3 {
+          border-bottom: 4px solid transparent;
+          border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
+          font-size: 18px;
+          padding: 0 0 4px 0;
+        }
 
-          ul {
-            margin: 0;
-            padding: 0;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
 
-            li {
-              list-style-type: none;
-              margin: 0 0 6px 0;
-              float: left;
-              width: 100%;
-            }
-          }
-
-          span.day {
+          li {
+            list-style-type: none;
+            margin: 0 0 6px 0;
             float: left;
-          }
-
-          span.hours {
-            float: right;
+            width: 100%;
           }
         }
 
-        .u-911 {
-          @extend .sml-italic;
-          padding-left: 50px;
-
-          .u-911i {
-            @extend .pull-left;
-            margin: 0 0 0 -50px;
-            height: 50px;
-            width: 50px;
-            background: url('/themes/custom/uwmed/dist/assets/911_Icon.png') top left no-repeat;
-          }
+        span.day {
+          float: left;
         }
 
-        address h4 {
-          color: $uwmed-pop-blue;
-
-          i.uw-s {
-            @include uw-separator();
-            @include uw-skew(-15deg);
-            height: 22px;
-            width: 10px;
-            margin: 0 16px -2px 8px;
-            border-right: 1px solid $uwmed-light-gray;
-          }
+        span.hours {
+          float: right;
         }
       }
+
+      .u-911 {
+        @extend .sml-italic;
+        padding-left: 50px;
+
+        .u-911i {
+          @extend .pull-left;
+          margin: 0 0 0 -50px;
+          height: 50px;
+          width: 50px;
+          background: url('/themes/custom/uwmed/dist/assets/911_Icon.png') top left no-repeat;
+        }
+      }
+
+      h4 address {
+        color: $uwmed-pop-blue;
+
+        i.uw-s {
+          @include uw-separator();
+          @include uw-skew(-15deg);
+          height: 22px;
+          width: 10px;
+          margin: 0 16px -2px 8px;
+          border-right: 1px solid $uwmed-light-gray;
+        }
+      }
+
     }
 
     section.clinic-tabs {
@@ -376,6 +378,7 @@ body.page-node-type-uwm-clinic {
 
       background-color: #f8f8f8;
       margin-bottom: 30px;
+      padding: 20px 45px;
 
     }
 
