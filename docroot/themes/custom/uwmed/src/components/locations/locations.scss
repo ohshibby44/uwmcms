@@ -143,7 +143,6 @@ body.page-node-type-uwm-clinic {
       }
 
       .field--name-field-clinic-image {
-        margin: 0 -28px 15px -15px;
 
         img.img-responsive {
           display: block;
@@ -186,7 +185,7 @@ body.page-node-type-uwm-clinic {
 
         .get-in-line {
           margin-top: 20px;
-          box-shadow: 0 0 4px 0 #dcdcdc;
+          box-shadow: 1px 1px 10px 1px #dcdcdc;
           background: #f8f8f8;
           padding-bottom: 10px;
           background: url("/themes/custom/uwmed/dist/assets/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
@@ -220,7 +219,7 @@ body.page-node-type-uwm-clinic {
         }
       }
 
-      .times {
+      .clinic-hours-table {
         margin-bottom: 40px;
 
         h3 {
@@ -265,7 +264,8 @@ body.page-node-type-uwm-clinic {
         }
       }
 
-      h4 address {
+      address {
+        @extend .h4;
         color: $uwmed-pop-blue;
 
         i.uw-s {

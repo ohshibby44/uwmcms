@@ -40,6 +40,7 @@ body > footer {
     .foot-third {
 
       @extend .text-right;
+      padding-left: 0;
       .service-icons {
         color: $uwmed-medium-gray;
         a {

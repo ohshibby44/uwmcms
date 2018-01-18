@@ -11,20 +11,20 @@ view_mode ? view_mode|clean_class,
 
 <article{{ attributes.addClass(classes) }}>
 
-    <section class="clinic-header">
+    <section class="remove-padding clinic-header">
 
-        <div class="visible-xs-block mobile-head">
+        <div class="visible-xs-block m-head">
 
-            <div class="col-xs-12 clinic-image">
+            <div class="col-xs-12 remove-padding m-image">
                 {{ content.field_clinic_image }}
                 <h1{{ title_attributes }}>
                     <a href="{{ url }}" rel="bookmark">{{ label }}</a>
                 </h1>
             </div>
-            <div class="col-xs-12">
+            <div class="col-xs-12 m-hours">
                 {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
             </div>
-            <div class="col-xs-12">
+            <div class="col-xs-12 m-address">
                 <address>{{ _cli.address }} <i class="uw-s"></i>
                     {{ _cli.city }},
                     {{ _cli.state }}
@@ -34,7 +34,7 @@ view_mode ? view_mode|clean_class,
         </div>
 
         <div class="col-sm-4 left">
-            <div class="col-xs-12 hidden-xs">
+            <div class="col-xs-12 hidden-xs remove-padding">
                 {{ content.field_clinic_image }}
                 {#<pre>{{ dump(content.field_clinic_image) }}</pre>#}
                 {#1. {{ content.field_clinic_image }}#}
@@ -93,11 +93,11 @@ view_mode ? view_mode|clean_class,
                 </h1>
                 {{ title_suffix }}
 
-                <address><h4>{{ _cli.address }} <i class="uw-s"></i>
+                <address>{{ _cli.address }} <i class="uw-s"></i>
                         {{ _cli.city }},
                         {{ _cli.state }}
                         {{ _cli.zipcode }}
-                    </h4></address>
+                    </address>
             </div>
 
             {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
@@ -139,7 +139,7 @@ view_mode ? view_mode|clean_class,
                                            aria-controls="directions"
                                            aria-expanded="false">
                         <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Directions/Parking'|t }}
+                        {{ 'Directions/ Parking'|t }}
 
                     </a>
                 </li>
