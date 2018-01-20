@@ -47,6 +47,7 @@ body.page-node-type-uwm-clinic {
       div.field.field--name-field-link {
 
         @include uw-ghost-button('.item', 'a', 'i.hidden.u-ips');
+
         // call-to-action
         //.item {
         //  float: left;
@@ -282,7 +283,7 @@ body.page-node-type-uwm-clinic {
 
     section.clinic-tabs {
 
-      ul.nav-tabs {
+      ul.uw-nav-tabs {
         @extend %gray-background;
         margin: 0 -15px;
         border-bottom: 1px solid #dcdcdc;
@@ -331,6 +332,54 @@ body.page-node-type-uwm-clinic {
           border-top: 1px solid #999;
         }
       }
+
+      .tab-content {
+
+        padding: 12px 0;
+
+        // sub nav
+        .nav-tabs {
+          border: 0 none;
+          > li.active > a, > li.active > a:hover, > li.active > a:focus {
+            border: 1px solid green;
+          }
+          > li.disabled {
+            opacity: .4;
+          }
+          > li.active a {
+            i.uw-ico {
+              fill: green;
+            }
+          }
+
+        }
+
+        .directions-tab {
+
+          .directions-map-wrapper {
+            position: relative;
+            padding-bottom: 75%; // This is the aspect ratio
+            height: 0;
+            overflow: hidden;
+
+            iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
+
+        }
+
+        .providers-tab {
+
+
+        }
+
+      }
+
     }
 
     section.clinic-paragraphs {
@@ -379,6 +428,10 @@ body.page-node-type-uwm-clinic {
       background-color: #f8f8f8;
       margin-bottom: 30px;
       padding: 20px 45px;
+
+
+
+
 
     }
 

@@ -22,7 +22,7 @@ view_mode ? view_mode|clean_class,
                 </h1>
             </div>
             <div class="col-xs-12 m-hours">
-                {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
+                {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
             </div>
             <div class="col-xs-12 m-address">
                 <address>{{ _cli.address }} <i class="uw-s"></i>
@@ -100,7 +100,7 @@ view_mode ? view_mode|clean_class,
                     </address>
             </div>
 
-            {% include 'themes/custom/uwmed/templates/node/node--uwm-clinic.hours.html.twig' %}
+            {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
 
             <div class="col-sm-12 foot">
                 <p class="u-911">
@@ -120,7 +120,7 @@ view_mode ? view_mode|clean_class,
 
 
         <div data-example-id="togglable-tabs">
-            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+            <ul class="nav nav-tabs uw-nav-tabs" id="myTabs" role="tablist">
                 <li role="presentation" class="active"><a href="#services"
                                                           id="services-tab"
                                                           role="tab"
@@ -157,7 +157,7 @@ view_mode ? view_mode|clean_class,
             </ul>
             <div class="tab-content">
 
-                <div class="tab-pane fade active in" role="tabpanel"
+                <div class="tab-pane services-tab fade active in" role="tabpanel"
                      id="services"
                      aria-labelledby="services-tab">
 
@@ -178,16 +178,17 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="tab-pane fade" role="tabpanel"
+                <div class="tab-pane directions-tab fade" role="tabpanel"
                      id="directions" aria-labelledby="directions-tab">
 
                     <h3>Directions & Parking</h3>
 
-                    {{ _cli.location.drivingDirections|raw }}
+                    {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+
 
                 </div>
 
-                <div class="tab-pane fade" role="tabpanel" id="providers"
+                <div class="tab-pane providers-tab fade" role="tabpanel" id="providers"
                      aria-labelledby="providers-tab">
 
                     <h3>Care Providers</h3>

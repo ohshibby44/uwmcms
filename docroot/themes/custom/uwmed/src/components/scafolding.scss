@@ -8,16 +8,11 @@ body {
 
   }
 
-
-
-
   div#main-container {
 
     min-height: 600px;
 
   }
-
-
 
   footer {
 
@@ -26,8 +21,6 @@ body {
   a:hover, a:focus {
     transition-duration: 600ms;
   }
-
-
 
   pre {
     max-height: 300px;
@@ -48,3 +41,45 @@ body {
 .collapse-mobile.in {
   @extend .visible-xs-block;
 }
+
+//
+// --- UW Custom Icons
+//
+i.uw-ico {
+
+  @include uw-awesome-ico();
+  display: block;
+  text-indent: -9999px;
+  width: 16px;
+  height: 19px;
+  background: none;
+  background-size: 100% 100%;
+
+  &.uw-ico-dir-place {
+    //background-image: url('#{$uw-images-folder}/Icons/');
+    fill: green;
+    background: blue;
+  }
+  &.uw-ico-dir-auto {
+    background-image: url('#{$uw-images-folder}/Icons/icon_drive.svg');
+  }
+  &.uw-ico-dir-public {
+    background-image: url('#{$uw-images-folder}/Icons/icon_transit.svg');
+  }
+  &.uw-ico-dir-parking {
+    background-image: url('#{$uw-images-folder}/Icons/icon_parking.svg');
+  }
+  &.uw-ico-dir-biking {
+    background-image: url('#{$uw-images-folder}/Icons/icon_bike.svg');
+  }
+  &.uw-ico-dir-walking {
+    background-image: url('#{$uw-images-folder}/Icons/icon_walk.svg');
+  }
+
+}
+
+
+
+
+
+

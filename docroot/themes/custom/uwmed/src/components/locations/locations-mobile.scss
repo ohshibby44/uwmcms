@@ -61,29 +61,31 @@ body.page-node-type-uwm-clinic {
 
     }
 
-    section.clinic-tabs {
+    @media(max-width: $screen-xs-max) {
 
-      ul.nav-tabs {
+      section.clinic-tabs {
 
-        li {
-          max-width: 33%;
-          a {
-            padding: 12px 8px;
-            height: 60px;
-            text-transform: uppercase;
-            text-align: center;
-            .fa {
-              display: none;
+        ul.uw-nav-tabs {
+
+          li {
+            max-width: 33%;
+            a {
+              padding: 12px 8px;
+              height: 60px;
+              text-transform: uppercase;
+              text-align: center;
+              .fa {
+                display: none;
+              }
             }
-          }
-          &:first-child > a {
+            &:first-child > a {
 
-            margin: 0 !important;
+              margin: 0 !important;
+            }
           }
         }
       }
     }
-
   }
 }
 
