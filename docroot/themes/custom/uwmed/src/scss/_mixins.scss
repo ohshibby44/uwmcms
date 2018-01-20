@@ -66,71 +66,69 @@
 
 }
 
-@mixin uw-ghost-button($wrapper-el-selector, $button-el-selector, $accent-el-selector) {
+@mixin uw-ghost-button($button-el, $accent-el, $accent-color: $uwmed-menu-yellow) {
 
   position: relative;
-  min-height: 45px;
-  padding-top: 6px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  margin-top: 6px;
 
-  #{$wrapper-el-selector} {
+  #{$accent-el} {
+    @include uw-skew(-45deg);
     position: absolute;
-    overflow: hidden;
-    //top: 0;
-    //left: 50%;
-    //transform: translate(-50%, 0%);
-    //width: 100%;
+    display: block !important;
+    top: -6px;
+    left: -11px;
+    height: 20px;
+    width: 20px;
+    background: $accent-color;
+  }
 
-    #{$accent-el-selector} {
-      @include uw-skew(-45deg);
+  #{$button-el} {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 6px 25px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid $accent-color;
+    transition-property: color;
+    transition-duration: 0.5s;
+
+    &:before {
+      content: "";
       position: absolute;
-      top: -6px;
-      left: -11px;
-      height: 20px;
-      width: 20px;
-      background: $uwmed-menu-yellow;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $accent-color;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 0.7s;
+      transition-timing-function: ease-out;
+      z-index: -1;
     }
 
-    #{$button-el-selector} {
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      padding: 6px 25px;
-      z-index: 1;
-      cursor: pointer;
-      border-radius: 0;
-      font-size: 13px;
-      text-transform: uppercase;
-      text-decoration: none;
-      text-align: center;
-      border: 1px solid $uwmed-menu-yellow;
-      transition-property: color;
-      transition-duration: 0.5s;
+    &:hover {
+      color: $uwmed-light-purple;
+      @if $accent-color == $uwmed-light-purple {
+        color: white;
+      }
 
       &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: $uwmed-menu-yellow;
-        transform: scaleX(0);
-        transform-origin: 0 50%;
-        transition-property: transform;
-        transition-duration: 0.7s;
-        transition-timing-function: ease-out;
-        z-index: -1;
+        transform: scaleX(1);
+        transition-timing-function: $transition-timing-function;
       }
 
-      &:hover {
-        color: $uwmed-light-purple;
-
-        &:before {
-          transform: scaleX(1);
-          transition-timing-function: $transition-timing-function;
-        }
-      }
     }
+
   }
   @content;
 }

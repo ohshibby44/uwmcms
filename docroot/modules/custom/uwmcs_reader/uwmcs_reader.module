@@ -11,6 +11,8 @@ use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
  * Implements hook_node_view().
+ *
+ * @TODO: Change this to node_load().
  */
 function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
@@ -34,6 +36,28 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       if (!empty($location->id)) {
         $data->location = $location;
       }
+    }
+
+    // Attach all bio details.
+    // @TODO: Change this attach bio-node.
+    if (!empty($data->careNetworks)) {
+
+      foreach ($data->careNetworks as &$network) {
+
+        foreach ($network->bioInformations as &$bio) {
+
+          if (!empty($bio->url)) {
+            $detail = $fetcher->getUrl($bio->url);
+            if (!empty($bio->id)) {
+              $bio = $detail;
+            }
+
+          }
+
+        }
+
+      }
+
     }
 
     $entity->uwmcs_reader_api_values = $data;

@@ -46,35 +46,10 @@ body.page-node-type-uwm-clinic {
 
       div.field.field--name-field-link {
 
-        @include uw-ghost-button('.item', 'a', 'i.hidden.u-ips');
+        .item {
+          @include uw-ghost-button('a', 'i.u-ips');
+        }
 
-        // call-to-action
-        //.item {
-        //  float: left;
-        //  width: 100%;
-        //  position: relative;
-        //  overflow: hidden;
-        //  margin: 20px 0 10px 0;
-        //  padding: 0;
-        //
-        //  a {
-        //    @extend .btn, .btn-default, %controls-font;
-        //    padding: 5px 18px;
-        //    text-decoration: none;
-        //  }
-        //
-        //  i.hidden.u-ips {
-        //    display: block !important;
-        //    @include uw-skew(-45deg);
-        //    position: absolute;
-        //    left: -15px;
-        //    top: 0;
-        //    width: 20px;
-        //    height: 20px;
-        //    background: $uwmed-dark-yellow;
-        //    z-index: 100;
-        //  }
-        //}
       }
 
       div.field.field--name-field-links-paragraph {
@@ -375,6 +350,80 @@ body.page-node-type-uwm-clinic {
 
         .providers-tab {
 
+          .provider {
+
+            border-bottom: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+
+            &.odd {
+              border-right-color: transparent;
+            }
+            &.even.loop-last,&.even.loop-last-1 {
+              border-bottom-color: transparent;
+
+            }
+            .wrapper {
+              padding: 20px;
+
+              .profile-image {
+
+                @extend .pull-left;
+
+                div.bg-image {
+                  margin: 0 20px 20px 0;
+                  width: 180px;
+                  height: 240px;
+                  background-image: none;
+                  background-repeat: no-repeat;
+                  background-position: 50% 0;
+                  background-size: 103% auto;
+
+                }
+                img {
+                  @extend .hidden;
+                }
+
+              }
+
+              .profile-details {
+                margin-left: 180px;
+                > div, h4 {
+                  margin: 0 0 20px 0;
+                }
+
+              }
+
+              i.fa-check-circle {
+                color: green;
+              }
+              i.fa-ban {
+                color: red;
+              }
+
+              div.accepting-apts-cta {
+
+                @include uw-ghost-button('a.btn', 'i.u-ips', $uwmed-light-purple);
+                margin: 0;
+                width: 100%;
+
+                a.btn {
+                  width: 180px;
+                  padding: 4px;
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+
+        .services-tab {
+
+          li {
+            @extend .col-xs-12, .col-sm-6, .col-md-3;
+          }
 
         }
 
@@ -428,10 +477,6 @@ body.page-node-type-uwm-clinic {
       background-color: #f8f8f8;
       margin-bottom: 30px;
       padding: 20px 45px;
-
-
-
-
 
     }
 

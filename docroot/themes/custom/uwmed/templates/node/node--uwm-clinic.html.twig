@@ -157,7 +157,7 @@ view_mode ? view_mode|clean_class,
             </ul>
             <div class="tab-content">
 
-                <div class="tab-pane services-tab fade active in" role="tabpanel"
+                <div class="tab-pane services-tab active in" role="tabpanel"
                      id="services"
                      aria-labelledby="services-tab">
 
@@ -170,6 +170,12 @@ view_mode ? view_mode|clean_class,
                                    aria-hidden="true"></i>
                                 {{ s.serviceName|t }}</li>
                         {% endfor %}
+                        {% for s in _cli.expertises %}
+                            <li>
+                                <i class="fa fa-check-circle-o"
+                                   aria-hidden="true"></i>
+                                {{ s.expertiseName|t }}(e)</li>
+                        {% endfor %}
                     </ul>
                     {#<div class="view-more"><a href="#">View More <i#}
                     {#class="fa fa-angle-down"#}
@@ -178,7 +184,7 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="tab-pane directions-tab fade" role="tabpanel"
+                <div class="tab-pane directions-tab" role="tabpanel"
                      id="directions" aria-labelledby="directions-tab">
 
                     <h3>Directions & Parking</h3>
@@ -188,29 +194,12 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="tab-pane providers-tab fade" role="tabpanel" id="providers"
+                <div class="tab-pane providers-tab" role="tabpanel" id="providers"
                      aria-labelledby="providers-tab">
 
                     <h3>Care Providers</h3>
-                    <div class="row">
-                        {% for cn in _cli.careNetworks %}
 
-                            {% for s in cn.bioInformations %}
-                                <div class="prov-block col-xs-6 col-sm-4">
-                                    <div class="wrapper">
-                                        <b>{{ s.fullName }}</b><br>
-                                        {% if 'noimage.jpg' not in s.bioImageUrl %}
-                                            <img src="{{ s.bioImageUrl }}"
-                                                 class="img-thumbnail"><br>
-                                        {% endif %}
-                                        {{ s.bioIntro | raw }}<br>
-                                    </div>
-
-
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
+                    {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
 
 
                 </div>
