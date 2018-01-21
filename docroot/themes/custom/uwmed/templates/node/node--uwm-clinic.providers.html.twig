@@ -1,0 +1,103 @@
+{% set bios = [] %}
+
+{% for h,i in _cli.careNetworks %}
+    {% for j,k in i.bioInformations %}
+        {% set bios = bios|merge({ (j): k }) %}
+    {% endfor %}
+{% endfor %}
+
+
+<p>{{ "@count provider@s" | t({'@count': bios|length,
+        '@s': (bios|length > 0 ? 's': '')}) }}</p>
+
+<div class="row">
+
+    {% for s in bios %}
+
+        {% set title = s.fullName %}
+        {% set href = '/bios/'~ s.friendlyUrl %}
+        {% set backgroundImage = 'noimage.jpg' in s.bioImageUrl ?
+        '' : s.bioImageUrl %}
+
+        {% set specialities = [] %}
+
+        {% for j,k in s.expertise %}
+            {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
+        {% endfor %}
+
+
+        {% set loopClasses = [
+
+            loop.index is odd ? 'even' : 'odd',
+            'loop-'~ loop.index,
+            loop.first ? 'loop-first' : '',
+            loop.last ? 'loop-last' : '',
+            loop.index == loop.length-1 ? 'loop-last-1' : ''
+
+        ]  %}
+        <div class="provider col-xs-12 col-sm-6 {{ loopClasses|join(' ') }}">
+
+            <div class="wrapper">
+
+                <div class="profile-image">
+
+                    <div class="bg-image"
+                         style="background-image: url({{ backgroundImage }})"></div>
+
+                    {% if 'noimage.jpg' not in s.bioImageUrl %}
+                        <img src="{{ s.bioImageUrl }}" class="img-thumbnail">
+                    {% endif %}
+
+                </div>
+
+                <div class="profile-details">
+
+                    <h4><a href="{{ href }}">{{ title }}</a></h4>
+
+                    <div class="accepting-apts">
+                        {% if s.acceptingAppointments %}
+                            <i class="fa fa-check-circle"
+                               aria-hidden="true"></i>
+                            {{ "Accepting new patients"| t }}
+                        {% else %}
+                            <i class="fa fa-ban" aria-hidden="true"></i>
+                            {{ "Not accepting patients"| t }}
+                        {% endif %}
+                    </div>
+
+                    <div class="specialities">
+                        {% if specialities %}
+                            <p><strong>{{ "Specialities"| t }}: </strong></p>
+                            {% for i in specialities %}
+                                {{ i }}
+                                {% if not loop.last %}
+                                    |
+                                {% endif %}
+                            {% endfor %}
+
+                        {% endif %}
+                    </div>
+
+
+                </div>
+
+                <div class="accepting-apts-cta">
+                    {% if s.acceptingAppointments %}
+                        <a class="btn btn-default" href="#">
+                            <i class="u-ips"></i> {{ "Request Appointment"|t }}
+                        </a>
+                    {% else %}
+                        <a class="btn btn-default disabled" href="#">
+                            <i class="u-ips"></i> {{ "Request Appointment"|t }}
+                        </a>
+
+                    {% endif %}
+                </div>
+
+
+            </div>
+
+
+        </div>
+    {% endfor %}
+</div>

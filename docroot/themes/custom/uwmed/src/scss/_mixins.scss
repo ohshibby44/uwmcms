@@ -64,6 +64,71 @@
     border-color: $uwmed-accent-tan transparent transparent transparent;
   }
 
+}
 
+@mixin uw-ghost-button($button-el, $accent-el, $accent-color: $uwmed-menu-yellow) {
 
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 6px;
+  margin-top: 6px;
+
+  #{$accent-el} {
+    @include uw-skew(-45deg);
+    position: absolute;
+    display: block !important;
+    top: -6px;
+    left: -11px;
+    height: 20px;
+    width: 20px;
+    background: $accent-color;
+  }
+
+  #{$button-el} {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 6px 25px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid $accent-color;
+    transition-property: color;
+    transition-duration: 0.5s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $accent-color;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 0.7s;
+      transition-timing-function: ease-out;
+      z-index: -1;
+    }
+
+    &:hover {
+      color: $uwmed-light-purple;
+      @if $accent-color == $uwmed-light-purple {
+        color: white;
+      }
+
+      &:before {
+        transform: scaleX(1);
+        transition-timing-function: $transition-timing-function;
+      }
+
+    }
+
+  }
+  @content;
 }

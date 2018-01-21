@@ -11,10 +11,30 @@ view_mode ? view_mode|clean_class,
 
 <article{{ attributes.addClass(classes) }}>
 
-    <section class="clinic-header">
+    <section class="remove-padding clinic-header">
+
+        <div class="visible-xs-block m-head">
+
+            <div class="col-xs-12 remove-padding m-image">
+                {{ content.field_clinic_image }}
+                <h1{{ title_attributes }}>
+                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+                </h1>
+            </div>
+            <div class="col-xs-12 m-hours">
+                {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+            </div>
+            <div class="col-xs-12 m-address">
+                <address>{{ _cli.address }} <i class="uw-s"></i>
+                    {{ _cli.city }},
+                    {{ _cli.state }}
+                    {{ _cli.zipcode }}
+                </address>
+            </div>
+        </div>
 
         <div class="col-sm-4 left">
-            <div class="col-xs-12">
+            <div class="col-xs-12 hidden-xs remove-padding">
                 {{ content.field_clinic_image }}
                 {#<pre>{{ dump(content.field_clinic_image) }}</pre>#}
                 {#1. {{ content.field_clinic_image }}#}
@@ -64,7 +84,7 @@ view_mode ? view_mode|clean_class,
             </div>
         </div>
 
-        <div class="col-sm-8 right">
+        <div class="col-sm-8 hidden-xs right">
 
             <div class="col-sm-12 title">
                 {{ title_prefix }}
@@ -73,102 +93,15 @@ view_mode ? view_mode|clean_class,
                 </h1>
                 {{ title_suffix }}
 
-                <address><h4>{{ _cli.address }} <i class="uw-s"></i>
+                <address>{{ _cli.address }} <i class="uw-s"></i>
                         {{ _cli.city }},
                         {{ _cli.state }}
                         {{ _cli.zipcode }}
-                    </h4></address>
+                    </address>
             </div>
 
-            <div class="col-sm-6 times">
-                <h4>Primary Care</h4>
-                {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
+            {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
 
-                {#{% set n = date('w')|number_format %}#}
-                {#{% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}#}
-                {#{{ s.dayOfWeek }} .. {{ n }}#}
-                {#{% if s.dayOfWeek == n %}#}
-                {#111<p class="opens-at">Opens at {{ s.startTime|date ('g:ia') }}</p>#}
-                {#{% endif %}#}
-                {#{% endfor %}#}
-
-                <ul>
-
-                    {% for i in 0..6 %}
-                        {% set open = false %}
-
-                        <li>
-
-                            {% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-                                {% if s.dayOfWeek == i %}
-
-                                    {% set open = true %}
-                                    <span class="day">{{ days[i] }}</span>
-                                    <span class="hours"><span>
-
-                                        {{ "@start - @end"
-                                        |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                            '@end': s.endTime|date ('g:ia')|trim('m')
-                                        }) }}
-                                    </span></span>
-
-                                {% endif %}
-                            {% endfor %}
-                            {% if open == false %}
-
-                                <span class="day">{{ days[i] }}</span>
-                                <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                            {% endif %}
-
-                        </li>
-
-                    {% endfor %}
-
-                </ul>
-            </div>
-
-            {% if _cli.clinicTimeUseMasters[1].timeModelName == "Urgent Care Hours" %}
-                <div class="col-sm-6 times times-uc">
-                    <h4>Urgent Care</h4>
-                    <p class="opens-at">Opens at 0am</p>
-                    <ul>
-
-                        {% for i in 0..6 %}
-                            {% set open = false %}
-
-                            <li>
-
-                                {% for s in _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-                                    {% if s.dayOfWeek == i %}
-
-                                        {% set open = true %}
-                                        <span class="day">{{ days[i] }}</span>
-                                        <span class="hours"><span>
-
-                                         {{ "@start - @end"
-                                         |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                             '@end': s.endTime|date ('g:ia')|trim('m')
-                                         }) }}
-                                    </span></span>
-
-                                    {% endif %}
-                                {% endfor %}
-                                {% if open == false %}
-
-                                    <span class="day">{{ days[i] }}</span>
-                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                                {% endif %}
-
-                            </li>
-
-                        {% endfor %}
-
-
-                    </ul>
-                </div>
-            {% endif %}
             <div class="col-sm-12 foot">
                 <p class="u-911">
                     <i class="fa u-911i"></i>
@@ -187,7 +120,7 @@ view_mode ? view_mode|clean_class,
 
 
         <div data-example-id="togglable-tabs">
-            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+            <ul class="nav nav-tabs uw-nav-tabs" id="myTabs" role="tablist">
                 <li role="presentation" class="active"><a href="#services"
                                                           id="services-tab"
                                                           role="tab"
@@ -206,7 +139,7 @@ view_mode ? view_mode|clean_class,
                                            aria-controls="directions"
                                            aria-expanded="false">
                         <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Directions/Parking'|t }}
+                        {{ 'Directions/ Parking'|t }}
 
                     </a>
                 </li>
@@ -224,7 +157,7 @@ view_mode ? view_mode|clean_class,
             </ul>
             <div class="tab-content">
 
-                <div class="tab-pane fade active in" role="tabpanel"
+                <div class="tab-pane services-tab active in" role="tabpanel"
                      id="services"
                      aria-labelledby="services-tab">
 
@@ -237,46 +170,36 @@ view_mode ? view_mode|clean_class,
                                    aria-hidden="true"></i>
                                 {{ s.serviceName|t }}</li>
                         {% endfor %}
+                        {% for s in _cli.expertises %}
+                            <li>
+                                <i class="fa fa-check-circle-o"
+                                   aria-hidden="true"></i>
+                                {{ s.expertiseName|t }}(e)</li>
+                        {% endfor %}
                     </ul>
                     {#<div class="view-more"><a href="#">View More <i#}
-                                    {#class="fa fa-angle-down"#}
-                                    {#aria-hidden="true"></i></a></div>#}
+                    {#class="fa fa-angle-down"#}
+                    {#aria-hidden="true"></i></a></div>#}
 
 
                 </div>
 
-                <div class="tab-pane fade" role="tabpanel"
+                <div class="tab-pane directions-tab" role="tabpanel"
                      id="directions" aria-labelledby="directions-tab">
 
                     <h3>Directions & Parking</h3>
 
-                    {{ _cli.location.drivingDirections|raw }}
+                    {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+
 
                 </div>
 
-                <div class="tab-pane fade" role="tabpanel" id="providers"
+                <div class="tab-pane providers-tab" role="tabpanel" id="providers"
                      aria-labelledby="providers-tab">
 
                     <h3>Care Providers</h3>
-                    <div class="row">
-                        {% for cn in _cli.careNetworks %}
 
-                            {% for s in cn.bioInformations %}
-                                <div class="prov-block col-xs-6 col-sm-4">
-                                    <div class="wrapper">
-                                        <b>{{ s.fullName }}</b><br>
-                                        {% if 'noimage.jpg' not in s.bioImageUrl %}
-                                            <img src="{{ s.bioImageUrl }}"
-                                                 class="img-thumbnail"><br>
-                                        {% endif %}
-                                        {{ s.bioIntro | raw }}<br>
-                                    </div>
-
-
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    </div>
+                    {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
 
 
                 </div>
@@ -322,8 +245,8 @@ view_mode ? view_mode|clean_class,
             {{ content.field_bottom_content_blocks }}
 
             {#<div class="view-more hidden"><a href="#">View More <i#}
-                            {#class="fa fa-angle-down"#}
-                            {#aria-hidden="true"></i></a>#}
+            {#class="fa fa-angle-down"#}
+            {#aria-hidden="true"></i></a>#}
             {#</div>#}
 
         </section>
