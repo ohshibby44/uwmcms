@@ -7,7 +7,7 @@ i.uw-ico, span.uwmed-icon {
   b {
     display: none;
   }
-
+  display: inline-block;
   width: 22px;
   height: 22px;
   background-repeat: no-repeat;
@@ -39,7 +39,8 @@ i.uw-ico, span.uwmed-icon {
     //icon_accepting_patients.svg
     background-image: url('#{$uw-images-folder}/Icons/icon_accepting_patients.svg');
   }
-  &.appointment {
+  &.appointment,
+  &.uwmed-icon__appointment {
     //icon_appointment.svg
     background-image: url('#{$uw-images-folder}/Icons/icon_appointment.svg');
   }
@@ -99,7 +100,8 @@ i.uw-ico, span.uwmed-icon {
     //icon_instagram.svg
     background-image: url('#{$uw-images-folder}/Icons/icon_instagram.svg');
   }
-  &.languages {
+  &.languages,
+  &.uwmed-icon__languages {
     //icon_languages.svg
     background-image: url('#{$uw-images-folder}/Icons/icon_languages.svg');
   }

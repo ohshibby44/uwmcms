@@ -12,7 +12,7 @@
 
             $('section.clinic-header a[href^="#"]').click(function () {
                 var href = $(this).attr('href');
-                $('.nav a[href="' + href + '"]').tab('show');
+                $('.nav-tabs a[href="' + href + '"]').trigger('click');
             });
 
         }

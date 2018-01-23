@@ -25,9 +25,9 @@ bootstrap-scripts:
 clinic-nodes:
   js:
     dist/js/node--uwm-clinic.js: { preprocess: false }
-  drupalSettings:
-    clinicMapsApiKey: 123
-
+  dependencies:
+      - core/jquery
+      - core/drupalSettings
 
 google-fonts:
   css:

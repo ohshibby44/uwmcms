@@ -2,11 +2,6 @@
   background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 2px, #fff 2px, #fff 4px);
 }
 
-%controls-font {
-  font-variant: all-small-caps;
-  font-size: 14px;
-}
-
 body.page-node-type-uwm-clinic {
 
   h1.page-header {
@@ -36,6 +31,10 @@ body.page-node-type-uwm-clinic {
 
           p.h1.hero__heading {
             display: none;
+          }
+          ul, li {
+            margin: 0;
+            padding: 0;
           }
         }
       }
@@ -198,11 +197,11 @@ body.page-node-type-uwm-clinic {
         .clinic-hours-table {
           margin-bottom: 40px;
 
-          h3 {
+          p.open-at {
             border-bottom: 4px solid transparent;
             border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
-            font-size: 18px;
             padding: 0 0 4px 0;
+            margin-bottom: 6px;
           }
 
           ul {
@@ -273,6 +272,10 @@ body.page-node-type-uwm-clinic {
           background: $uwmed-solid-dark-purple;
           text-decoration: none;
           padding: 12px 34px;
+          i.fa {
+            font-size: 27px;
+            padding-right: 6px;
+          }
         }
         > li.active > a {
           color: $uwmed-light-purple;
@@ -476,7 +479,7 @@ body.page-node-type-uwm-clinic {
 
       div.field.field--name-field-heading {
         .item {
-          @extend .h3, %controls-font;
+          @extend .h3;
           @include uw-bottom-accent-heading();
         }
       }
