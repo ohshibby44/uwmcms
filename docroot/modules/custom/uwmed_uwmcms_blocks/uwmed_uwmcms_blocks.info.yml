@@ -1,0 +1,8 @@
+name: UW Medicine CMS Custom Blocks
+type: module
+description: Default content for blocks provided by the uwmed theme.
+package: uwmed
+core: 8.x
+dependencies:
+  - drupal:block
+  - drupal:node

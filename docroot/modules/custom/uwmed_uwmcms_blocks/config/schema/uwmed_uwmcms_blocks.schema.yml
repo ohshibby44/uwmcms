@@ -1,0 +1,7 @@
+block.settings.accelerate_promotion_full_width:
+  type: block_settings
+  label: 'UW Medicine CMS Accelerate Promotion (full-width) Content editable block'
+  mapping:
+    accelerate_promotion_full_width_block_string:
+      type: text
+      label: 'Block contents'
