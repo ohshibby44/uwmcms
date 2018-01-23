@@ -83,20 +83,18 @@ body.page-node-type-uwm-clinic {
               //@extend .fa .fa-heartbeat;
               @include uw-awesome-ico();
               float: left;
-              margin: 2px 0 0 -26px;
-              position: relative;
-              font-size: 20px;
+              margin: -1px 0 0 -30px;
 
-              &:after {
-                //.fa-heartbeat:before
-                content: "\f21e";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: white;
-              }
+              //&:after {
+              //  //.fa-heartbeat:before
+              //  content: "\f21e";
+              //  position: absolute;
+              //  top: 0;
+              //  left: 0;
+              //  right: 0;
+              //  bottom: 0;
+              //  background: white;
+              //}
             }
 
             span.fa-angle-right {
@@ -459,6 +457,7 @@ body.page-node-type-uwm-clinic {
         opacity: .9;
         background-color: #f8f8f8;
         background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
+        background-size: cover;
 
         &::after {
           bottom: 0;

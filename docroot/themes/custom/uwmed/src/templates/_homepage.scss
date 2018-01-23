@@ -20,6 +20,12 @@
     .uwmed-icon {
       padding-left: $padding-base-horizontal;
       color: $uwmed-purple-icon;
+      background-image: none !important;
+
+      b {
+        display: initial;
+        font-weight: 400;
+      }
 
       @media(min-width: $screen-lg-min) {
         padding-left: $padding-base-horizontal * 1.5;
