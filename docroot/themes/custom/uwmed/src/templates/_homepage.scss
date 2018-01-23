@@ -157,6 +157,22 @@
 
   .homepage-section {
     position: relative;
+    opacity: 0;
+
+    &.fade-in-animation {
+      transition: opacity;
+      transition-duration: 400ms;
+      transition-timing-function: cubic-bezier(0.24, 0, 0.64, 1);
+      transition-delay: 0.05s;
+      transform: translate3d(0, 100px, 0);
+      opacity: 0.0001
+    }
+
+
+    &.animation-applied {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
 
     @media(min-width: $screen-lg-min) {
       &:nth-of-type(1) {
