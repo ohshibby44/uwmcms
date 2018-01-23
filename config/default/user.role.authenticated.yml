@@ -16,3 +16,4 @@ permissions:
   - 'view media'
   - 'view paragraph content homepage_section'
   - 'view paragraph content link_with_icon'
+  - 'view paragraph content reusable_content'
