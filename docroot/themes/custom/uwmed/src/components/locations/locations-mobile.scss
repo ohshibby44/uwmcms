@@ -41,8 +41,11 @@ body.page-node-type-uwm-clinic {
             a[role="button"] {
               float: right;
               margin-right: -20px;
+              &[aria-expanded="true"] .fa:before {
+                //.fa-minus-circle:before {
+                content: "\f056";
+              }
             }
-
           }
 
         }

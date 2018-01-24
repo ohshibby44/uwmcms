@@ -24,7 +24,7 @@
 }
 
 @mixin uw-awesome-ico() {
-  // TODO: Include Fontawesome SASS to allow
+  // TODO: Include Fontawesome SASS to allow extends.
   // @ extend .fa;
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -37,7 +37,7 @@
 
   position: relative;
   margin-bottom: 20px;
-  font-variant: all-small-caps;
+  text-transform: uppercase;
 
   &:after {
     position: absolute;

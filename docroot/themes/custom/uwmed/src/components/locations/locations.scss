@@ -2,11 +2,6 @@
   background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 2px, #fff 2px, #fff 4px);
 }
 
-%controls-font {
-  font-variant: all-small-caps;
-  font-size: 14px;
-}
-
 body.page-node-type-uwm-clinic {
 
   h1.page-header {
@@ -36,6 +31,10 @@ body.page-node-type-uwm-clinic {
 
           p.h1.hero__heading {
             display: none;
+          }
+          ul, li {
+            margin: 0;
+            padding: 0;
           }
         }
       }
@@ -83,20 +82,18 @@ body.page-node-type-uwm-clinic {
               //@extend .fa .fa-heartbeat;
               @include uw-awesome-ico();
               float: left;
-              margin: 2px 0 0 -26px;
-              position: relative;
-              font-size: 20px;
+              margin: -1px 0 0 -30px;
 
-              &:after {
-                //.fa-heartbeat:before
-                content: "\f21e";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: white;
-              }
+              //&:after {
+              //  //.fa-heartbeat:before
+              //  content: "\f21e";
+              //  position: absolute;
+              //  top: 0;
+              //  left: 0;
+              //  right: 0;
+              //  bottom: 0;
+              //  background: white;
+              //}
             }
 
             span.fa-angle-right {
@@ -195,16 +192,22 @@ body.page-node-type-uwm-clinic {
         }
       }
 
-      .clinic-hours-table {
-        margin-bottom: 40px;
+      .clinic-hours-container {
+        min-height: 300px;
+        .clinic-hours-table {
+          margin-bottom: 40px;
 
-        h3 {
-          border-bottom: 4px solid transparent;
-          border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
-          font-size: 18px;
-          padding: 0 0 4px 0;
-        }
+          p.open-at {
+            border-bottom: 4px solid transparent;
+            border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
+            padding: 0 0 4px 0;
+            margin-bottom: 6px;
+          }
 
+          ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
         ul {
           margin: 0;
           padding: 0;
@@ -218,15 +221,7 @@ body.page-node-type-uwm-clinic {
           }
         }
 
-        span.day {
-          float: left;
-        }
-
-        span.hours {
-          float: right;
-        }
       }
-
       .u-911 {
         @extend .sml-italic;
         padding-left: 50px;
@@ -236,13 +231,17 @@ body.page-node-type-uwm-clinic {
           margin: 0 0 0 -50px;
           height: 50px;
           width: 50px;
-          background: url('/themes/custom/uwmed/dist/assets/911_Icon.png') top left no-repeat;
+          background: url('#{$uw-images-folder}/911_Icon.png') top left no-repeat;
         }
       }
 
       address {
         @extend .h4;
         color: $uwmed-pop-blue;
+        a {
+          color: $uwmed-pop-blue;
+          text-decoration: none;
+        }
 
         i.uw-s {
           @include uw-separator();
@@ -253,6 +252,7 @@ body.page-node-type-uwm-clinic {
           border-right: 1px solid $uwmed-light-gray;
         }
       }
+
 
     }
 
@@ -268,6 +268,10 @@ body.page-node-type-uwm-clinic {
           background: $uwmed-solid-dark-purple;
           text-decoration: none;
           padding: 12px 34px;
+          i.fa {
+            font-size: 27px;
+            padding-right: 6px;
+          }
         }
         > li.active > a {
           color: $uwmed-light-purple;
@@ -358,7 +362,7 @@ body.page-node-type-uwm-clinic {
             &.odd {
               border-right-color: transparent;
             }
-            &.even.loop-last,&.even.loop-last-1 {
+            &.even.loop-last, &.even.loop-last-1 {
               border-bottom-color: transparent;
 
             }
@@ -368,17 +372,14 @@ body.page-node-type-uwm-clinic {
               .profile-image {
 
                 @extend .pull-left;
-
-                div.bg-image {
-                  margin: 0 20px 20px 0;
-                  width: 180px;
-                  height: 240px;
-                  background-image: none;
-                  background-repeat: no-repeat;
-                  background-position: 50% 0;
-                  background-size: 103% auto;
-
-                }
+                margin: 0 20px 20px 0;
+                width: 180px;
+                max-width: 35%;
+                height: 240px;
+                background-image: none;
+                background-repeat: no-repeat;
+                background-position: 50% 0;
+                background-size: 103% auto;
                 img {
                   @extend .hidden;
                 }
@@ -386,7 +387,6 @@ body.page-node-type-uwm-clinic {
               }
 
               .profile-details {
-                margin-left: 180px;
                 > div, h4 {
                   margin: 0 0 20px 0;
                 }
@@ -409,6 +409,10 @@ body.page-node-type-uwm-clinic {
                 a.btn {
                   width: 180px;
                   padding: 4px;
+                  &.disabled {
+                    opacity: .4;
+                  }
+
                 }
 
               }
@@ -421,8 +425,12 @@ body.page-node-type-uwm-clinic {
 
         .services-tab {
 
-          li {
-            @extend .col-xs-12, .col-sm-6, .col-md-3;
+          ul {
+            margin-top: 30px;
+            li {
+              @extend .col-xs-12, .col-sm-6, .col-md-3;
+            }
+
           }
 
         }
@@ -446,7 +454,8 @@ body.page-node-type-uwm-clinic {
         height: 320px;
         opacity: .9;
         background-color: #f8f8f8;
-        //background-image: url('https://cdn.aarp.net/content/dam/travel/destination-images/wyoming/grand-teton-national-park/1400-poi-grand-teton-national-park-snake-river-moose-wildlife.imgcache.rev4a80648c1cc2803e6e4c71cc00ce71bd.web.jpg');
+        background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
+        background-size: cover;
 
         &::after {
           bottom: 0;
@@ -465,7 +474,7 @@ body.page-node-type-uwm-clinic {
 
       div.field.field--name-field-heading {
         .item {
-          @extend .h3, %controls-font;
+          @extend .h3;
           @include uw-bottom-accent-heading();
         }
       }
@@ -476,8 +485,8 @@ body.page-node-type-uwm-clinic {
 
       background-color: #f8f8f8;
       margin-bottom: 30px;
-      padding: 20px 45px;
-
+      padding: 20px 45px 45px 45px;
+      
     }
 
     section.clinic-foot-paragraphs {

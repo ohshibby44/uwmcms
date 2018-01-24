@@ -1,3 +1,5 @@
+{{ attach_library('uwmed/clinic-nodes') }}
+
 {% set classes = [
 node.bundle|clean_class,
 node.isPromoted() ? 'is-promoted',
@@ -8,6 +10,11 @@ view_mode ? view_mode|clean_class,
 ] %}
 
 {% set _cli = node.uwmcs_reader_api_values %}
+
+{% set phone = _cli.seoPhone|slice(0, 3)
+~'-'~ _cli.seoPhone|slice(3, 3)
+~'-'~ _cli.seoPhone|slice(6, 4)
+%}
 
 <article{{ attributes.addClass(classes) }}>
 
@@ -28,7 +35,8 @@ view_mode ? view_mode|clean_class,
                 <address>{{ _cli.address }} <i class="uw-s"></i>
                     {{ _cli.city }},
                     {{ _cli.state }}
-                    {{ _cli.zipcode }}
+                    {{ _cli.zipcode }} <i class="uw-s"></i>
+                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
                 </address>
             </div>
         </div>
@@ -53,19 +61,8 @@ view_mode ? view_mode|clean_class,
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </a>
 
-
             </div>
-            <div class="col-xs-12 l">
-                <a href="#">{{ "Call @a.@b.@c"
-                    |t({
-                        '@a': _cli.seoPhone|slice(0, 3),
-                        '@b': _cli.seoPhone|slice(3, 3),
-                        '@c': _cli.seoPhone|slice(6, 4)
-                    }) }}<i class="fa fa-angle-right"
-                            aria-hidden="true"></i>
-                </a>
 
-            </div>
             <div class="col-xs-12 l">
 
                 <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
@@ -96,11 +93,17 @@ view_mode ? view_mode|clean_class,
                 <address>{{ _cli.address }} <i class="uw-s"></i>
                         {{ _cli.city }},
                         {{ _cli.state }}
-                        {{ _cli.zipcode }}
-                    </address>
+                        {{ _cli.zipcode }} <i class="uw-s"></i>
+                        <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+
+                </address>
             </div>
 
-            {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+            <div class="col-xs-12 remove-padding clinic-hours-container">
+
+                {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+
+            </div>
 
             <div class="col-sm-12 foot">
                 <p class="u-911">
@@ -122,6 +125,7 @@ view_mode ? view_mode|clean_class,
         <div data-example-id="togglable-tabs">
             <ul class="nav nav-tabs uw-nav-tabs" id="myTabs" role="tablist">
                 <li role="presentation" class="active"><a href="#services"
+                                                          name="services"
                                                           id="services-tab"
                                                           role="tab"
                                                           data-toggle="tab"
@@ -133,6 +137,7 @@ view_mode ? view_mode|clean_class,
                     </a>
                 </li>
                 <li role="presentation"><a href="#directions"
+                                           name="directions"
                                            role="tab"
                                            id="directions-tab"
                                            data-toggle="tab"
@@ -144,6 +149,7 @@ view_mode ? view_mode|clean_class,
                     </a>
                 </li>
                 <li role="presentation"><a href="#providers"
+                                           name="providers"
                                            role="tab"
                                            id="providers-tab"
                                            data-toggle="tab"
@@ -158,11 +164,10 @@ view_mode ? view_mode|clean_class,
             <div class="tab-content">
 
                 <div class="tab-pane services-tab active in" role="tabpanel"
-                     id="services"
-                     aria-labelledby="services-tab">
-
+                     id="services" aria-labelledby="services-tab">
+                     
                     <h3>Services</h3>
-                    <p class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</p>
+                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
                     <ul>
                         {% for s in _cli.services %}
                             <li>
@@ -174,7 +179,7 @@ view_mode ? view_mode|clean_class,
                             <li>
                                 <i class="fa fa-check-circle-o"
                                    aria-hidden="true"></i>
-                                {{ s.expertiseName|t }}(e)</li>
+                                {{ s.expertiseName|t }}</li>
                         {% endfor %}
                     </ul>
                     {#<div class="view-more"><a href="#">View More <i#}
@@ -194,8 +199,8 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="tab-pane providers-tab" role="tabpanel" id="providers"
-                     aria-labelledby="providers-tab">
+                <div class="tab-pane providers-tab" role="tabpanel"
+                     id="providers" aria-labelledby="providers-tab">
 
                     <h3>Care Providers</h3>
 

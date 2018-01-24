@@ -16,8 +16,10 @@
 
         {% set title = s.fullName %}
         {% set href = '/bios/'~ s.friendlyUrl %}
-        {% set backgroundImage = 'noimage.jpg' in s.bioImageUrl ?
-        '' : s.bioImageUrl %}
+        {% set profileImage = ('noimage.jpg' in s.bioImageUrl) ?
+            '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' :
+            s.bioImageUrl
+        %}
 
         {% set specialities = [] %}
 
@@ -39,15 +41,8 @@
 
             <div class="wrapper">
 
-                <div class="profile-image">
-
-                    <div class="bg-image"
-                         style="background-image: url({{ backgroundImage }})"></div>
-
-                    {% if 'noimage.jpg' not in s.bioImageUrl %}
-                        <img src="{{ s.bioImageUrl }}" class="img-thumbnail">
-                    {% endif %}
-
+                <div class="profile-image" style="background-image: url({{ profileImage }})">
+                    <img src="{{ profileImage }}" class="img-thumbnail">
                 </div>
 
                 <div class="profile-details">

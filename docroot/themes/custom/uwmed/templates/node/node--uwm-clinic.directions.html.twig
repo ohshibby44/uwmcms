@@ -9,88 +9,86 @@
 
     <ul class="nav nav-tabs" role="tablist">
 
-        {% set class =_cli.location.additionalInfo is empty ? 'disabled' : '' %}
-        {% set tab =_cli.location.additionalInfo is empty ? '#' : '#directions-main' %}
+        {% if _cli.location.additionalInfo %}
         <li role="presentation" class="{{ class }}">
-            <a href="{{ tab }}" role="tab" data-toggle="tab">
-
+            <a href="#directions-main" role="tab" data-toggle="tab">
                 <i class="uw-ico uw-ico-dir-place"></i>
             </a>
         </li>
+        {% endif %}
 
-        {% set class =_cli.location.drivingDirections is empty ? 'disabled' : '' %}
-        {% set tab =_cli.location.drivingDirections is empty ? '#' : '#directions-auto' %}
+        {% if _cli.location.drivingDirections %}
         <li role="presentation" class="{{ class }}">
-            <a href="{{ tab }}" role="tab" data-toggle="tab">
-
+            <a href="#directions-auto" role="tab" data-toggle="tab">
                 <i class="uw-ico uw-ico-dir-auto"></i>
-
             </a>
         </li>
+        {% endif %}
 
-        {% set class =_cli.location.busDirections is empty ? 'disabled' : '' %}
-        {% set tab =_cli.location.busDirections is empty ? '#' : '#directions-public' %}
+        {% if _cli.location.busDirections %}
         <li role="presentation" class="{{ class }}">
-            <a href="{{ tab }}" role="tab" data-toggle="tab">
-
+            <a href="#directions-public" role="tab" data-toggle="tab">
                 <i class="uw-ico uw-ico-dir-public"></i>
-
             </a>
         </li>
+        {% endif %}
 
-        {% set class =_cli.location.parkingDirections is empty ? 'disabled' : '' %}
-        {% set tab =_cli.location.parkingDirections is empty ? '#' : '#directions-parking' %}
+        {% if _cli.location.parkingDirections %}
         <li role="presentation" class="{{ class }}">
-            <a href="{{ tab }}" role="tab" data-toggle="tab">
-
+            <a href="#directions-parking" role="tab" data-toggle="tab">
                 <i class="uw-ico uw-ico-dir-parking"></i>
             </a>
         </li>
+        {% endif %}
 
-        <li role="presentation" class="disabled">
-            <a href="#directions-biking" role="tab" data-toggle="tab">
+        {#<li role="presentation" class="disabled">#}
+            {#<a href="#directions-biking" role="tab" data-toggle="tab">#}
+                {#<i class="uw-ico uw-ico-dir-biking"></i>#}
+            {#</a>#}
+        {#</li>#}
 
-                <i class="uw-ico uw-ico-dir-biking"></i>
-
-            </a>
-        </li>
-
-
-        {% set class =_cli.location.accessibilityNotes is empty ? 'disabled' : '' %}
-        {% set tab =_cli.location.accessibilityNotes is empty ? '#' : '#directions-walking' %}
+        {% if _cli.location.accessibilityNotes %}
         <li role="presentation" class="{{ class }}">
-            <a href="{{ tab }}" role="tab" data-toggle="tab">
-
+            <a href="#directions-walking" role="tab" data-toggle="tab">
                 <i class="uw-ico uw-ico-dir-walking"></i>
-
             </a>
         </li>
+        {% endif %}
+
     </ul>
 
     <div class="tab-content">
 
+        {% if _cli.location.additionalInfo %}
         <div role="tabpanel" class="tab-pane active" id="directions-main">
             {{ _cli.location.additionalInfo|raw }}
         </div>
+        {% endif %}
 
-        <div role="tabpanel" class="tab-pane" id="directions-auto">
+        {% if _cli.location.drivingDirections %}
+        <div role="tabpanel" class="tab-pane active" id="directions-auto">
             {{ _cli.location.drivingDirections|raw }}
         </div>
+        {% endif %}
 
-        <div role="tabpanel" class="tab-pane" id="directions-public">
+        {% if _cli.location.busDirections %}
+        <div role="tabpanel" class="tab-pane active" id="directions-public">
             {{ _cli.location.busDirections|raw }}
         </div>
+        {% endif %}
 
-        <div role="tabpanel" class="tab-pane" id="directions-parking">
+        {% if _cli.location.parkingDirections %}
+        <div role="tabpanel" class="tab-pane active" id="directions-parking">
             {{ _cli.location.parkingDirections|raw }}
         </div>
+        {% endif %}
 
-        <div role="tabpanel" class="tab-pane" id="directions-biking">
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="directions-walking">
+        {% if _cli.location.accessibilityNotes %}
+        <div role="tabpanel" class="tab-pane active" id="directions-walking">
             {{ _cli.location.accessibilityNotes|raw }}
         </div>
+        {% endif %}
+
 
 
     </div>
