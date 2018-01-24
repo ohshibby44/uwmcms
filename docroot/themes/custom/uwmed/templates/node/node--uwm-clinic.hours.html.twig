@@ -15,15 +15,14 @@
             'ends': ('now'|date('Y-m-d ')~' '~ s.endTime)|date('U')
             } %}
 
-{#<pre>#}
-    {#n: {{ t.now }}#}
-    {#s: {{ t.starts }}#}
-    {#e: {{ t.ends }}#}
-    {#n: {{ t.now|date('r') }}#}
-    {#s: {{ t.starts|date('r') }}#}
-    {#e: {{ t.ends|date('r') }}#}
-
-{#</pre>#}
+<pre class="hidden">
+    n: {{ t.now }}
+    s: {{ t.starts }}
+    e: {{ t.ends }}
+    n: {{ t.now|date('r') }}
+    s: {{ t.starts|date('r') }}
+    e: {{ t.ends|date('r') }}
+</pre>
             {% if (t.starts < t.now and t.now < t.ends) %}
                 {% set _isOpen = s %}
 

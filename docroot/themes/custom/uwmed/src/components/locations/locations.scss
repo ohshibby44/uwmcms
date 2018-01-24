@@ -208,21 +208,16 @@ body.page-node-type-uwm-clinic {
             margin: 0;
             padding: 0;
             list-style-type: none;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
 
-            li {
-              list-style-type: none;
-              margin: 0 0 6px 0;
-              float: left;
-              width: 100%;
-            }
-          }
-
-          span.day {
+          li {
+            list-style-type: none;
+            margin: 0 0 6px 0;
             float: left;
-          }
-
-          span.hours {
-            float: right;
+            width: 100%;
           }
         }
 
@@ -257,6 +252,7 @@ body.page-node-type-uwm-clinic {
           border-right: 1px solid $uwmed-light-gray;
         }
       }
+
 
     }
 
@@ -376,7 +372,6 @@ body.page-node-type-uwm-clinic {
               .profile-image {
 
                 @extend .pull-left;
-
                 margin: 0 20px 20px 0;
                 width: 180px;
                 max-width: 35%;
@@ -385,7 +380,6 @@ body.page-node-type-uwm-clinic {
                 background-repeat: no-repeat;
                 background-position: 50% 0;
                 background-size: 103% auto;
-
                 img {
                   @extend .hidden;
                 }
@@ -393,7 +387,6 @@ body.page-node-type-uwm-clinic {
               }
 
               .profile-details {
-
                 > div, h4 {
                   margin: 0 0 20px 0;
                 }
@@ -419,6 +412,7 @@ body.page-node-type-uwm-clinic {
                   &.disabled {
                     opacity: .4;
                   }
+
                 }
 
               }
@@ -436,6 +430,7 @@ body.page-node-type-uwm-clinic {
             li {
               @extend .col-xs-12, .col-sm-6, .col-md-3;
             }
+
           }
 
         }
@@ -491,7 +486,7 @@ body.page-node-type-uwm-clinic {
       background-color: #f8f8f8;
       margin-bottom: 30px;
       padding: 20px 45px 45px 45px;
-
+      
     }
 
     section.clinic-foot-paragraphs {
