@@ -8,16 +8,11 @@ body {
 
   }
 
-
-
-
   div#main-container {
 
     min-height: 600px;
 
   }
-
-
 
   footer {
 
@@ -27,11 +22,29 @@ body {
     transition-duration: 600ms;
   }
 
-
-
   pre {
     max-height: 300px;
     overflow: auto;
   }
 
 }
+
+.remove-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.collapse-mobile {
+  @extend .hidden-xs;
+}
+
+.collapse-mobile.in {
+  @extend .visible-xs-block;
+}
+
+
+
+
+
+
+

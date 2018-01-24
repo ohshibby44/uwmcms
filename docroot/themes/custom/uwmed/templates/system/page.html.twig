@@ -4,7 +4,7 @@
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
 {# Navbar #}
-{% include 'themes/custom/uwmed/templates/system/page.header.html.twig' %}
+{% include directory ~'/templates/system/page.header.html.twig' %}
 
 {# Main #}
 {% block main %}
@@ -35,7 +35,7 @@
           page.sidebar_first and page.sidebar_second ? 'col-sm-6',
           page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
           page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+          page.sidebar_first is empty and page.sidebar_second is empty ? ''
         ]
       %}
       <section{{ content_attributes.addClass(content_classes).addClass('page-main') }}>
@@ -74,4 +74,4 @@
 {% endblock %}
 
 {# Footer #}
-{% include 'themes/custom/uwmed/templates/system/page.footer.html.twig' %}
+{% include directory ~'/templates/system/page.footer.html.twig' %}

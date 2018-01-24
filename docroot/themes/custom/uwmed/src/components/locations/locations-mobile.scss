@@ -1,0 +1,103 @@
+body.page-node-type-uwm-clinic {
+
+  article.uwm-clinic {
+
+    .visible-xs-block.m-head {
+
+      .m-image {
+
+        position: relative;
+        h1 {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          text-align: center;
+
+          a {
+            color: #fff;
+            text-shadow: 1px 1px 1px #333;
+          }
+        }
+
+      }
+
+      .m-hours {
+
+        background: $uwmed-white;
+        box-shadow: 4px 2px 4px #dcdcdc;
+
+        .clinic-hours-table {
+
+          margin-bottom: 0;
+
+          .intro h4 {
+            margin: 0;
+            padding: 0 20px 0 0;
+            font-size: $font-size-base;
+            text-transform: uppercase;
+            em {
+              text-transform: none;
+            }
+            a[role="button"] {
+              float: right;
+              margin-right: -20px;
+              &[aria-expanded="true"] .fa:before {
+                //.fa-minus-circle:before {
+                content: "\f056";
+              }
+            }
+          }
+
+        }
+        .clinic-hours-table:nth-child(2) {
+          border-top: 1px solid #dcdcdc;
+        }
+
+      }
+
+      .m-address {
+        color: $uwmed-pop-blue;
+        i.uw-s {
+          margin: 0 4px -5px 0;
+        }
+      }
+
+    }
+
+    @media(max-width: $screen-xs-max) {
+
+      section.clinic-tabs {
+
+        ul.uw-nav-tabs {
+
+          li {
+            max-width: 33%;
+            a {
+              padding: 12px 8px;
+              height: 60px;
+              text-transform: uppercase;
+              text-align: center;
+              .fa {
+                display: none;
+              }
+            }
+            &:first-child > a {
+
+              margin: 0 !important;
+            }
+          }
+        }
+
+        .directions-tab {
+
+          .directions-map-wrapper {
+            //@extend .pull-left;
+
+          }
+
+        }
+      }
+    }
+  }
+}
+

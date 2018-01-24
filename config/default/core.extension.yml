@@ -16,7 +16,6 @@ module:
   ctools_block: 0
   datetime: 0
   dblog: 0
-  devel: 0
   devel_generate: 0
   diff: 0
   editor: 0
@@ -89,11 +88,11 @@ module:
   twig_tweak: 0
   user: 0
   uwmcs_reader: 0
+  uwmed_uwmcms_blocks: 0
   uwmcs_utils: 0
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
-  views_ui: 0
   workbench_moderation: 0
   menu_link_content: 1
   pathauto: 1

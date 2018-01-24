@@ -78,6 +78,11 @@ body {
         font-style: italic;
       }
 
+      a.btn-default:hover,
+      a.btn-default:focus {
+        color: $link-hover-color;
+      }
+
     }
 
     footer {
