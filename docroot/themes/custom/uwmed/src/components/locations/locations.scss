@@ -75,7 +75,7 @@ body.page-node-type-uwm-clinic {
 
             &:hover {
               background-color: transparent;
-              text-decoration: none;
+              text-decoration: underline;
             }
 
             span.uwmed-icon {
@@ -197,7 +197,7 @@ body.page-node-type-uwm-clinic {
         .clinic-hours-table {
           margin-bottom: 40px;
 
-          p.open-at {
+          p.opens-at {
             border-bottom: 4px solid transparent;
             border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
             padding: 0 0 4px 0;
@@ -419,7 +419,11 @@ body.page-node-type-uwm-clinic {
                   &.disabled {
                     opacity: .4;
                   }
+                  &:hover {
+                    color: white;
+                  }
                 }
+
 
               }
 
