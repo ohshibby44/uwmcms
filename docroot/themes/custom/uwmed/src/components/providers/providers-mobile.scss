@@ -1,0 +1,50 @@
+@media(max-width: $screen-xs-max) {
+
+  body.page-node-type-uwm-provider {
+
+    div.main-container article.uwm-provider {
+
+      section.left {
+
+        > .profile-image {
+
+        }
+
+        > .specialities {
+        }
+
+        > .languages.l {
+          border-bottom-color: transparent;
+        }
+
+        > .make-an-appointment.l {
+          border-bottom: 1px solid #dcdcdc;
+        }
+
+        .l {
+          float: right;
+        }
+
+        ul {
+          margin: 0;
+
+          li {
+            list-style-type: none;
+            float: left;
+            margin-right: .5em;
+          }
+          li:after {
+            content: ", ";
+          }
+          li:last-child:after {
+            content: "";
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}

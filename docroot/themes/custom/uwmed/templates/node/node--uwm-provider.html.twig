@@ -1,0 +1,174 @@
+{% set classes = [
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
+
+{% set _bio = node.uwmcs_reader_api_values %}
+
+{% set title = s.fullName %}
+{% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
+    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
+
+{% set specialities = [] %}
+{% for j,k in _bio.expertise %}
+    {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
+{% endfor %}
+
+
+<article{{ attributes.addClass(classes) }}>
+
+    <section class="col-xs-12 col-sm-3 left">
+
+        <div class="col-xs-4 col-sm-12 profile-image">
+            <img src="{{ profileImage }}">
+        </div>
+
+        <div class="col-sm-12 hidden-xs make-an-appointment l">
+            <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </div>
+
+        {#<div class="col-xs-12 ratings l">#}
+            {##}
+        {#</div>#}
+
+        <div class="col-xs-8 col-sm-12 specialities l">
+
+            {% if specialities %}
+                <h5>{{ "Specialities"| t }}</h5>
+                <ul>
+                    {% for i in specialities %}
+                        <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-8 col-sm-12 languages l">
+
+            {% if _bio.languages %}
+                <h5>{{ "Languages"| t }}</h5>
+                <ul>
+                    {% for i in _bio.languages %}
+                        <li>{{ i.languageName }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+        </div>
+
+        <div class="col-xs-12 visible-xs-block make-an-appointment l">
+
+            <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
+        </div>
+
+    </section>
+
+
+    <section class="col-sm-9 right">
+
+            <ul class="nav nav-tabs uwm-nav-tabs" role="tablist">
+
+                <li role="presentation" class="active"><a href="#overview"
+                                                          name="overview"
+                                                          id="overview-tab"
+                                                          role="tab"
+                                                          data-toggle="tab"
+                                                          aria-controls="overview"
+                                                          aria-expanded="true">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        {{ 'Overview'|t }}
+
+                    </a>
+                </li>
+
+                <li role="presentation"><a href="#locations"
+                                           name="locations"
+                                           role="tab"
+                                           id="locations-tab"
+                                           data-toggle="tab"
+                                           aria-controls="locations"
+                                           aria-expanded="false">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        {{ 'Locations'|t }}
+
+                    </a>
+                </li>
+
+                <li role="presentation"><a href="#education"
+                                           name="education"
+                                           role="tab"
+                                           id="education-tab"
+                                           data-toggle="tab"
+                                           aria-controls="education"
+                                           aria-expanded="false">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        {{ 'Education'|t }}
+
+                    </a>
+                </li>
+
+                <li role="presentation"><a href="#education"
+                                           name="education"
+                                           role="tab"
+                                           id="education-tab"
+                                           data-toggle="tab"
+                                           aria-controls="education"
+                                           aria-expanded="false">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                        {{ 'Education'|t }}
+
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="tab-content uwm-tab-content">
+
+                <div class="tab-pane active in overview-tab" role="tabpanel"
+                     id="overview" aria-labelledby="services-tab">
+
+                    <h4>{{ 'Biography'|t }}</h4>
+                    {{ _bio.fullBio|raw }}
+
+                    {% if _bio.personalInterests %}
+                        <h4>{{ 'Personal Interests'|t }}</h4>
+                        {{ _bio.personalInterests|raw }}
+                    {% endif %}
+
+                </div>
+
+                <div class="tab-pane locations-tab" role="tabpanel"
+                     id="locations" aria-labelledby="locations-tab">
+
+                    <h3>Locations</h3>
+
+                    {#{% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}#}
+
+
+                </div>
+
+                <div class="tab-pane education-tab" role="tabpanel"
+                     id="education" aria-labelledby="providers-tab">
+
+                    <h3>Education</h3>
+
+                    {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+
+                </div>
+
+
+            </div>
+
+
+    </section>
+
+
+</article>

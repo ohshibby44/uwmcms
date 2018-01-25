@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set _bio = node.uwmcs_reader_api_values %}
+
+<div class="title-wrapper">
+
+    <span{{ attributes }}>
+      {%- for item in items -%}
+          {{ item.content }}
+      {%- endfor -%}
+    </span>
+
+    <span class="accepting">
+
+        {% if _bio.acceptingAppointments %}
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            {{ "Accepting new patients"| t }}
+        {% else %}
+            <i class="fa fa-ban" aria-hidden="true"></i>
+            {{ "Not accepting patients"| t }}
+        {% endif %}
+
+  </span>
+
+</div>

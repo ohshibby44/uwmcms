@@ -1,5 +1,5 @@
 %gray-background {
-  background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 2px, #fff 2px, #fff 4px);
+  background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 2px, $uwmed-white 2px, $uwmed-white 4px);
 }
 
 body.page-node-type-uwm-clinic {
@@ -129,10 +129,12 @@ body.page-node-type-uwm-clinic {
       }
 
       .left {
-        div.l, div.ll {
-          margin: 0 0 6px 0;
-          padding: 6px;
-          border-bottom: 1px solid #dcdcdc;
+
+        div.l {
+
+          padding: 15px 2px;
+          border-top: 1px solid #dcdcdc;
+          border-bottom: 1px solid transparent;
           color: $uwmed-pop-blue;
           font-size: 15px;
 
@@ -152,8 +154,8 @@ body.page-node-type-uwm-clinic {
         }
 
         div.ll {
-          border-top: 1px solid #dcdcdc;
-          padding-top: 10px;
+          border-bottom: 1px solid #dcdcdc;
+          //border-bottom-color: transparent;
         }
 
         .get-in-line {
@@ -263,34 +265,21 @@ body.page-node-type-uwm-clinic {
     section.clinic-tabs {
 
       ul.uw-nav-tabs {
+
         @extend %gray-background;
         margin: 0 -15px;
         border-bottom: 1px solid #dcdcdc;
 
-        > li > a {
-          color: $uwmed-white;
-          background: $uwmed-solid-dark-purple;
-          text-decoration: none;
-          padding: 12px 34px;
-          i.fa {
-            font-size: 27px;
-            padding-right: 6px;
-          }
-        }
-        > li.active > a {
-          color: $uwmed-light-purple;
-          background: $uwmed-white;
-          border: 0 none;
-        }
         > li:first-child > a {
           margin-left: 40px;
         }
+
       }
 
-      div.tab-content {
+      div.uwm-tab-content {
         min-height: 200px;
         border: 0 none;
-
+        padding: 12px 0;
         h3 {
           @include uw-bottom-accent-heading($uwmed-accent-blue);
         }
@@ -314,14 +303,10 @@ body.page-node-type-uwm-clinic {
           margin: 40px 0 10px 0;
           border-top: 1px solid #999;
         }
-      }
 
-      .tab-content {
+        // sub nav-tabs
+        ul.nav-tabs {
 
-        padding: 12px 0;
-
-        // sub nav
-        .nav-tabs {
           border: 0 none;
           > li.active > a, > li.active > a:hover, > li.active > a:focus {
             border: 1px solid green;
@@ -420,10 +405,9 @@ body.page-node-type-uwm-clinic {
                     opacity: .4;
                   }
                   &:hover {
-                    color: white;
+                    color: $uwmed-white;
                   }
                 }
-
 
               }
 

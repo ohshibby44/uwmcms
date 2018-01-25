@@ -13,8 +13,7 @@ view_mode ? view_mode|clean_class,
 
 {% set phone = _cli.seoPhone|slice(0, 3)
 ~'-'~ _cli.seoPhone|slice(3, 3)
-~'-'~ _cli.seoPhone|slice(6, 4)
-%}
+~'-'~ _cli.seoPhone|slice(6, 4) %}
 
 <article{{ attributes.addClass(classes) }}>
 
@@ -49,7 +48,7 @@ view_mode ? view_mode|clean_class,
                 {#2. <img class="swiper-image" src="{{ file_url(node.field_slides[key].entity.uri.value) }}" alt="{{ node.field_slides[key].alt  }}" />#}
                 {#3. {{ content.field_clinic_image[key].entity.uri.value | image_style('Large') }}#}
             </div>
-            <div class="col-xs-12 l ll">
+            <div class="col-xs-12 l">
 
                 <a href="#directions"
                    role="tab"
@@ -63,7 +62,7 @@ view_mode ? view_mode|clean_class,
 
             </div>
 
-            <div class="col-xs-12 l">
+            <div class="col-xs-12 l ll">
 
                 <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -91,10 +90,10 @@ view_mode ? view_mode|clean_class,
                 {{ title_suffix }}
 
                 <address>{{ _cli.address }} <i class="uw-s"></i>
-                        {{ _cli.city }},
-                        {{ _cli.state }}
-                        {{ _cli.zipcode }} <i class="uw-s"></i>
-                        <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                    {{ _cli.city }},
+                    {{ _cli.state }}
+                    {{ _cli.zipcode }} <i class="uw-s"></i>
+                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
 
                 </address>
             </div>
@@ -121,96 +120,94 @@ view_mode ? view_mode|clean_class,
 
     <section class="clinic-tabs">
 
+        <ul class="nav nav-tabs uwm-nav-tabs" id="myTabs" role="tablist">
+            <li role="presentation" class="active"><a href="#services"
+                                                      name="services"
+                                                      id="services-tab"
+                                                      role="tab"
+                                                      data-toggle="tab"
+                                                      aria-controls="services"
+                                                      aria-expanded="true">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Services & Resources'|t }}
 
-        <div data-example-id="togglable-tabs">
-            <ul class="nav nav-tabs uw-nav-tabs" id="myTabs" role="tablist">
-                <li role="presentation" class="active"><a href="#services"
-                                                          name="services"
-                                                          id="services-tab"
-                                                          role="tab"
-                                                          data-toggle="tab"
-                                                          aria-controls="services"
-                                                          aria-expanded="true">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Services & Resources'|t }}
+                </a>
+            </li>
+            <li role="presentation"><a href="#directions"
+                                       name="directions"
+                                       role="tab"
+                                       id="directions-tab"
+                                       data-toggle="tab"
+                                       aria-controls="directions"
+                                       aria-expanded="false">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Directions/ Parking'|t }}
 
-                    </a>
-                </li>
-                <li role="presentation"><a href="#directions"
-                                           name="directions"
-                                           role="tab"
-                                           id="directions-tab"
-                                           data-toggle="tab"
-                                           aria-controls="directions"
-                                           aria-expanded="false">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Directions/ Parking'|t }}
+                </a>
+            </li>
+            <li role="presentation"><a href="#providers"
+                                       name="providers"
+                                       role="tab"
+                                       id="providers-tab"
+                                       data-toggle="tab"
+                                       aria-controls="providers"
+                                       aria-expanded="false">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Care Providers'|t }}
 
-                    </a>
-                </li>
-                <li role="presentation"><a href="#providers"
-                                           name="providers"
-                                           role="tab"
-                                           id="providers-tab"
-                                           data-toggle="tab"
-                                           aria-controls="providers"
-                                           aria-expanded="false">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Care Providers'|t }}
+                </a>
+            </li>
+        </ul>
 
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
+        <div class="tab-content uwm-tab-content">
 
-                <div class="tab-pane services-tab active in" role="tabpanel"
-                     id="services" aria-labelledby="services-tab">
+            <div class="tab-pane services-tab active in" role="tabpanel"
+                 id="services" aria-labelledby="services-tab">
 
-                    <h3>Services</h3>
-                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
-                    <ul>
-                        {% for s in _cli.services %}
-                            <li>
-                                <i class="fa fa-check-circle-o"
-                                   aria-hidden="true"></i>
-                                {{ s.serviceName|t }}</li>
-                        {% endfor %}
-                        {% for s in _cli.expertises %}
-                            <li>
-                                <i class="fa fa-check-circle-o"
-                                   aria-hidden="true"></i>
-                                {{ s.expertiseName|t }}</li>
-                        {% endfor %}
-                    </ul>
-                    {#<div class="view-more"><a href="#">View More <i#}
-                    {#class="fa fa-angle-down"#}
-                    {#aria-hidden="true"></i></a></div>#}
-
-
-                </div>
-
-                <div class="tab-pane directions-tab" role="tabpanel"
-                     id="directions" aria-labelledby="directions-tab">
-
-                    <h3>Directions & Parking</h3>
-
-                    {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+                <h3>Services</h3>
+                <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+                <ul>
+                    {% for s in _cli.services %}
+                        <li>
+                            <i class="fa fa-check-circle-o"
+                               aria-hidden="true"></i>
+                            {{ s.serviceName|t }}</li>
+                    {% endfor %}
+                    {% for s in _cli.expertises %}
+                        <li>
+                            <i class="fa fa-check-circle-o"
+                               aria-hidden="true"></i>
+                            {{ s.expertiseName|t }}</li>
+                    {% endfor %}
+                </ul>
+                {#<div class="view-more"><a href="#">View More <i#}
+                {#class="fa fa-angle-down"#}
+                {#aria-hidden="true"></i></a></div>#}
 
 
-                </div>
-
-                <div class="tab-pane providers-tab" role="tabpanel"
-                     id="providers" aria-labelledby="providers-tab">
-
-                    <h3>Care Providers</h3>
-
-                    {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
-
-
-                </div>
             </div>
 
+            <div class="tab-pane directions-tab" role="tabpanel"
+                 id="directions" aria-labelledby="directions-tab">
+
+                <h3>Directions & Parking</h3>
+
+                {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+
+
+            </div>
+
+            <div class="tab-pane providers-tab" role="tabpanel"
+                 id="providers" aria-labelledby="providers-tab">
+
+                <h3>Care Providers</h3>
+
+                {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
+
+
+            </div>
         </div>
+
 
     </section>
 

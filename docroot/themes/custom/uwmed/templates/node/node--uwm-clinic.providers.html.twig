@@ -22,7 +22,6 @@
         %}
 
         {% set specialities = [] %}
-
         {% for j,k in s.expertise %}
             {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
         {% endfor %}
