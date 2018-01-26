@@ -25,12 +25,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    // If missing, try to find clinic data on API.
+    // If missing, try to find data by current url.
     if (empty((array) $data)) {
       $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
     }
 
-    // If we have a location, fetch additional details and driving directions.
+    // If clinic has location, fetch full location details.
     if (!empty($data->location->url)) {
       $location = $fetcher->getUrl($data->location->url);
       if (!empty($location->id)) {
@@ -38,7 +38,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       }
     }
 
-    // Attach all bio details.
+    // If clinic has providers, populate full provider details.
     // @TODO: Change this attach bio-node.
     if (!empty($data->careNetworks)) {
 
@@ -47,6 +47,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         foreach ($network->bioInformations as &$bio) {
 
           if (!empty($bio->url)) {
+
             $detail = $fetcher->getUrl($bio->url);
             if (!empty($bio->id)) {
               $bio = $detail;
@@ -66,17 +67,39 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
   if ($entity->getType() === "uwm_provider") {
 
-    // Fetch Information Manager (IM) data from API endpoint.
+    // Fetch Information Manager (IM) data from API.
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    // If missing, try to find clinic data on API.
+    // If missing, try to find clinic using current URL.
     if (empty((array) $data)) {
       $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
     }
 
-    $entity->uwmcs_reader_api_values = $data;
+    // If provider has clinics, populate full clinic details.
+    // @TODO: Change this to node-load locations.
+    if (!empty($data->careNetworks[0]->clinicBases)) {
 
+      foreach ($data->careNetworks as &$network) {
+
+        foreach ($network->clinicBases as &$clinic) {
+
+          if (!empty($clinic->url)) {
+
+            $detail = $fetcher->getUrl($clinic->url);
+            if (!empty($clinic->id)) {
+              $clinic = $detail;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    $entity->uwmcs_reader_api_values = $data;
   }
 
 }

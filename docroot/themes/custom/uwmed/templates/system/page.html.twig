@@ -8,13 +8,13 @@
 
 {# Main #}
 {% block main %}
-  <div id="main-container" role="main" class="main-container {{ container }} js-quickedit-main-content">
-    <div class="row">
+  <div id="main-container" role="main" class="main-container container-fluid js-quickedit-main-content">
+    <div class="{{ container }} ">
 
       {# Header #}
       {% if page.header %}
         {% block header %}
-          <div class="col-sm-12 u-r-header" role="heading">
+          <div class="col-sm-12 page-header" role="heading">
             {{ page.header }}
           </div>
         {% endblock %}
@@ -23,7 +23,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="col-sm-3 page-left" role="complementary">1111
+          <aside class="col-sm-3 page-left" role="complementary">
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}

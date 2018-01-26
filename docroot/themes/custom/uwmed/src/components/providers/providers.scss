@@ -1,0 +1,168 @@
+%box-shadow {
+  box-shadow: 1px 1px 10px 1px #dcdcdc;
+}
+
+body.page-node-type-uwm-provider {
+
+
+  div.main-container {
+
+    background-image: url('#{$uw-images-folder}/angled-bg-light.png');
+    background-repeat: repeat;
+
+    h1.page-header {
+
+      span.accepting {
+
+        display: inline-block;
+        font-size: 14px;
+        .fa-check-circle {
+          color: green;
+        }
+        .fa-ban {
+          color: red;
+        }
+
+      }
+
+    }
+
+  }
+
+  div.main-container article.uwm-provider {
+
+    section {
+
+      div.field {
+        div.field--label {
+        }
+      }
+
+      div.tab-pane {
+        @extend .row;
+        margin: 0;
+      }
+
+
+
+    }
+
+
+    section.left {
+
+      margin-bottom: 40px;
+
+      > .profile-image {
+        margin-bottom: 40px;
+        padding-left: 0;
+        padding-right: 0;
+
+        img {
+          @extend %box-shadow;
+          width: 100%;
+        }
+
+      }
+
+      > .make-an-appointment {
+
+      }
+
+      > .specialities {
+
+      }
+
+      > .languages.l {
+        border-bottom: 1px solid #dcdcdc;
+        margin-bottom: 20px;
+      }
+
+      h5 {
+        color: $uwmed-light-purple;
+        margin-top: 0;
+      }
+
+
+      div.l {
+
+        padding: 15px 2px;
+        border-top: 1px solid #dcdcdc;
+        border-bottom: 1px solid transparent;
+        font-size: 15px;
+
+        a {
+          color: $uwmed-pop-blue;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          .fa {
+            float: right;
+            padding-top: 3px;
+          }
+
+        }
+
+      }
+
+    }
+
+    section.right {
+
+      .uwm-tab-content {
+        @extend %box-shadow;
+        background: $uwmed-white;
+
+        min-height: 600px;
+        margin-bottom: 40px;
+        padding: 30px;
+
+        .row.tab-pane {
+          margin: 0;
+        }
+
+        > h3 {
+          @include uw-bottom-accent-heading();
+        }
+
+
+        .provider-location {
+
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid #dcdcdc;
+          &:last-child {
+            border-bottom-color: transparent;
+          }
+
+          .location-image {
+            background-size: 120%;
+            background-repeat: no-repeat;
+            height: 200px;
+            background-position: 20% top;
+
+          }
+
+        }
+
+        .col-xs-7.k {
+
+          margin-bottom: 15px;
+          padding-left: 45px;
+
+          .uw-ico {
+            margin-left: -30px
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
