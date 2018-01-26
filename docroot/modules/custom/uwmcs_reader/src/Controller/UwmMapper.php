@@ -14,7 +14,6 @@ class UwmMapper {
    *
    * @param string|null $apiFieldValue
    *   Description here.
-   *
    * @param string|null $nodePathAlias
    *   Description here.
    *
