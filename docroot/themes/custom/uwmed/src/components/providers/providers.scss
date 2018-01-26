@@ -2,13 +2,30 @@
   box-shadow: 1px 1px 10px 1px #dcdcdc;
 }
 
-
 body.page-node-type-uwm-provider {
+
 
   div.main-container {
 
     background-image: url('#{$uw-images-folder}/angled-bg-light.png');
     background-repeat: repeat;
+
+    h1.page-header {
+
+      span.accepting {
+
+        display: inline-block;
+        font-size: 14px;
+        .fa-check-circle {
+          color: green;
+        }
+        .fa-ban {
+          color: red;
+        }
+
+      }
+
+    }
 
   }
 
@@ -21,41 +38,30 @@ body.page-node-type-uwm-provider {
         }
       }
 
-      div.field.field--name-field-content-blocks,
-      div.field.field--name-field-bottom-content-blocks {
-
+      div.tab-pane {
         @extend .row;
-
-        div.paragraph {
-          @extend .col-sm-6;
-          @extend .col-md-4;
-
-          p.h1.hero__heading {
-            display: none;
-          }
-          ul, li {
-            //margin: 0;
-            //padding: 0;
-          }
-
-        }
-
+        margin: 0;
       }
 
+
+
     }
+
 
     section.left {
 
       margin-bottom: 40px;
-      padding-left: 0;
 
       > .profile-image {
+        margin-bottom: 40px;
+        padding-left: 0;
+        padding-right: 0;
 
         img {
           @extend %box-shadow;
           width: 100%;
         }
-        margin-bottom: 40px
+
       }
 
       > .make-an-appointment {
@@ -101,12 +107,9 @@ body.page-node-type-uwm-provider {
 
       }
 
-
     }
 
     section.right {
-
-      padding-right: 0;
 
       .uwm-tab-content {
         @extend %box-shadow;
@@ -115,6 +118,45 @@ body.page-node-type-uwm-provider {
         min-height: 600px;
         margin-bottom: 40px;
         padding: 30px;
+
+        .row.tab-pane {
+          margin: 0;
+        }
+
+        > h3 {
+          @include uw-bottom-accent-heading();
+        }
+
+
+        .provider-location {
+
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid #dcdcdc;
+          &:last-child {
+            border-bottom-color: transparent;
+          }
+
+          .location-image {
+            background-size: 120%;
+            background-repeat: no-repeat;
+            height: 200px;
+            background-position: 20% top;
+
+          }
+
+        }
+
+        .col-xs-7.k {
+
+          margin-bottom: 15px;
+          padding-left: 45px;
+
+          .uw-ico {
+            margin-left: -30px
+          }
+        }
+
       }
 
     }

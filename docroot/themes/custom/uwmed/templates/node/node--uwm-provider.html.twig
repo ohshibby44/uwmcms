@@ -11,11 +11,20 @@ view_mode ? view_mode|clean_class,
 
 {% set title = s.fullName %}
 {% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
-    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
+'/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
 
 {% set specialities = [] %}
 {% for j,k in _bio.expertise %}
     {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
+{% endfor %}
+
+{% set locations = [] %}
+{% set i = 0 %}
+{% for j,k in _bio.careNetworks %}
+    {% for l,m in k.clinicBases %}
+        {% set i = i+1 %}
+        {% set locations = locations|merge({ (i): m }) %}
+    {% endfor %}
 {% endfor %}
 
 
@@ -33,7 +42,7 @@ view_mode ? view_mode|clean_class,
         </div>
 
         {#<div class="col-xs-12 ratings l">#}
-            {##}
+        {##}
         {#</div>#}
 
         <div class="col-xs-8 col-sm-12 specialities l">
@@ -74,98 +83,113 @@ view_mode ? view_mode|clean_class,
 
     <section class="col-sm-9 right">
 
-            <ul class="nav nav-tabs uwm-nav-tabs" role="tablist">
+        <ul class="nav nav-tabs uwm-nav-tabs" role="tablist">
 
-                <li role="presentation" class="active"><a href="#overview"
-                                                          name="overview"
-                                                          id="overview-tab"
-                                                          role="tab"
-                                                          data-toggle="tab"
-                                                          aria-controls="overview"
-                                                          aria-expanded="true">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Overview'|t }}
+            <li role="presentation" class="active"><a href="#overview"
+                                                      name="overview"
+                                                      id="overview-tab"
+                                                      role="tab"
+                                                      data-toggle="tab"
+                                                      aria-controls="overview"
+                                                      aria-expanded="true">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Overview'|t }}
 
-                    </a>
-                </li>
+                </a>
+            </li>
 
-                <li role="presentation"><a href="#locations"
-                                           name="locations"
-                                           role="tab"
-                                           id="locations-tab"
-                                           data-toggle="tab"
-                                           aria-controls="locations"
-                                           aria-expanded="false">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Locations'|t }}
+            <li role="presentation"><a href="#locations"
+                                       name="locations"
+                                       role="tab"
+                                       id="locations-tab"
+                                       data-toggle="tab"
+                                       aria-controls="locations"
+                                       aria-expanded="false">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Locations'|t }}
 
-                    </a>
-                </li>
+                </a>
+            </li>
 
-                <li role="presentation"><a href="#education"
-                                           name="education"
-                                           role="tab"
-                                           id="education-tab"
-                                           data-toggle="tab"
-                                           aria-controls="education"
-                                           aria-expanded="false">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Education'|t }}
+            <li role="presentation"><a href="#education"
+                                       name="education"
+                                       role="tab"
+                                       id="education-tab"
+                                       data-toggle="tab"
+                                       aria-controls="education"
+                                       aria-expanded="false">
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    {{ 'Education'|t }}
 
-                    </a>
-                </li>
+                </a>
+            </li>
 
-                <li role="presentation"><a href="#education"
-                                           name="education"
-                                           role="tab"
-                                           id="education-tab"
-                                           data-toggle="tab"
-                                           aria-controls="education"
-                                           aria-expanded="false">
-                        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                        {{ 'Education'|t }}
+        </ul>
 
-                    </a>
-                </li>
+        <div class="tab-content uwm-tab-content">
 
-            </ul>
+            <div class="row tab-pane active in overview-tab" role="tabpanel"
+                 id="overview" aria-labelledby="services-tab">
 
-            <div class="tab-content uwm-tab-content">
+                <h4>{{ 'Biography'|t }}</h4>
+                {{ _bio.fullBio|raw }}
 
-                <div class="tab-pane active in overview-tab" role="tabpanel"
-                     id="overview" aria-labelledby="services-tab">
+                {% if _bio.personalInterests %}
+                    <h4>{{ 'Personal Interests'|t }}</h4>
+                    {{ _bio.personalInterests|raw }}
+                {% endif %}
 
-                    <h4>{{ 'Biography'|t }}</h4>
-                    {{ _bio.fullBio|raw }}
+            </div>
 
-                    {% if _bio.personalInterests %}
-                        <h4>{{ 'Personal Interests'|t }}</h4>
-                        {{ _bio.personalInterests|raw }}
-                    {% endif %}
+            <div class="row tab-pane locations-tab" role="tabpanel"
+                 id="locations" aria-labelledby="locations-tab">
 
-                </div>
+                <h4>Locations</h4>
+                <p class="location-count">{{ "@count location@s" | t({'@count': locations|length,
+                        '@s': (locations|length > 0 ? 's': '')}) }}</p>
 
-                <div class="tab-pane locations-tab" role="tabpanel"
-                     id="locations" aria-labelledby="locations-tab">
-
-                    <h3>Locations</h3>
-
-                    {#{% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}#}
-
-
-                </div>
-
-                <div class="tab-pane education-tab" role="tabpanel"
-                     id="education" aria-labelledby="providers-tab">
-
-                    <h3>Education</h3>
-
-                    {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
-
-                </div>
+                {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
 
 
             </div>
+
+            <div class="row tab-pane education-tab" role="tabpanel"
+                 id="education" aria-labelledby="providers-tab">
+
+                {% if _bio.educationHistories %}
+                    <h4>Education</h4>
+
+                    {% for e in _bio.educationHistories %}
+
+                        <h5>{{ e.institutionName }}</h5>
+                        <p>
+                            {% if e.educationType %}{{ e.educationType }}, {% endif %}
+                            {% if e.gradYear %}{{ e.gradYear }}, {% endif %}
+                            {% if e.specialty %}{{ e.specialty }}{% endif %}
+                        </p>
+
+                    {% endfor %}
+
+                {% endif %}
+
+                {#{% if _bio.bioPublications %}#}
+                {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
+                {#<h4>Publications</h4>#}
+
+                {#{% for p in _bio.bioPublications %}#}
+
+                {#<h5>{{ p.pubMedId }}</h5>#}
+
+                {#{% endfor %}#}
+
+                {#{% endif %}#}
+
+                {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+
+            </div>
+
+
+        </div>
 
 
     </section>
