@@ -7,8 +7,10 @@
 {% endfor %}
 
 
-<p>{{ "@count provider@s" | t({'@count': bios|length,
-        '@s': (bios|length > 0 ? 's': '')}) }}</p>
+
+{% set n = bios|length %}
+<p>{{ "@count provider@s" | t({'@count': n,
+        '@s': (n != 1 ? 's': '')}) }}</p>
 
 <div class="row">
 
@@ -17,9 +19,8 @@
         {% set title = s.fullName %}
         {% set href = '/bios/'~ s.friendlyUrl %}
         {% set profileImage = ('noimage.jpg' in s.bioImageUrl) ?
-            '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' :
-            s.bioImageUrl
-        %}
+        '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' :
+        s.bioImageUrl %}
 
         {% set specialities = [] %}
         {% for j,k in s.expertise %}
@@ -29,18 +30,19 @@
 
         {% set loopClasses = [
 
-            loop.index is odd ? 'even' : 'odd',
-            'loop-'~ loop.index,
-            loop.first ? 'loop-first' : '',
-            loop.last ? 'loop-last' : '',
-            loop.index == loop.length-1 ? 'loop-last-1' : ''
+        loop.index is odd ? 'even' : 'odd',
+        'loop-'~ loop.index,
+        loop.first ? 'loop-first' : '',
+        loop.last ? 'loop-last' : '',
+        loop.index == loop.length-1 ? 'loop-last-1' : ''
 
-        ]  %}
+        ] %}
         <div class="provider col-xs-12 col-sm-6 {{ loopClasses|join(' ') }}">
 
             <div class="wrapper">
 
-                <div class="profile-image" style="background-image: url({{ profileImage }})">
+                <div class="profile-image"
+                     style="background-image: url({{ profileImage }})">
                     <img src="{{ profileImage }}" class="img-thumbnail">
                 </div>
 
@@ -59,15 +61,30 @@
                         {% endif %}
                     </div>
 
-                    <div class="specialities">
+                    <div class="specialities s-{{ s.id }}">
                         {% if specialities %}
                             <p><strong>{{ "Specialities"| t }}: </strong></p>
                             {% for i in specialities %}
-                                {{ i }}
-                                {% if not loop.last %}
-                                    |
+
+                                {% if loop.index > 3 %}
+                                    <i class="collapse">
+                                        {% if not loop.first %}
+                                            |
+                                        {% endif %}
+                                        {{ i }}</i>
+                                {% else %}
+                                    {% if not loop.first %}
+                                        |
+                                    {% endif %}
+                                    {{ i }}
                                 {% endif %}
+
                             {% endfor %}
+
+                            {% if specialities|length > 3 %}
+                            <i class="toggle" data-toggle="collapse"
+                               data-target=".s-{{ s.id }} .collapse">...</i>
+                            {% endif %}
 
                         {% endif %}
                     </div>

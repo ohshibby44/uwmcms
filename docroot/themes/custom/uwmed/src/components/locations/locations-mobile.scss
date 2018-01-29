@@ -32,20 +32,25 @@ body.page-node-type-uwm-clinic {
 
           .intro h4 {
             margin: 0;
-            padding: 0 20px 0 0;
+            padding: 6px 20px 6px 0;
             font-size: $font-size-base;
             text-transform: uppercase;
-            em {
-              text-transform: none;
-            }
-            a[role="button"] {
-              float: right;
-              margin-right: -20px;
+            a {
+              display: block;
+              .fa {
+                float: right;
+                margin-right: -20px;
+
+              }
               &[aria-expanded="true"] .fa:before {
-                //.fa-minus-circle:before {
+                //.fa-minus-circle:before
                 content: "\f056";
               }
             }
+            em {
+              text-transform: none;
+            }
+
           }
 
         }

@@ -45,9 +45,12 @@ body.page-node-type-uwm-clinic {
 
       div.field.field--name-field-link {
 
-        .item {
-          @include uw-ghost-button('a', 'i.u-ips');
-        }
+        //.item {
+        //  @include uw-ghost-button('a', 'i.u-ips');
+        //}
+
+        @include uw-ghost-button('.item', 'i.u-ips');
+
 
       }
 
@@ -163,13 +166,13 @@ body.page-node-type-uwm-clinic {
           box-shadow: 1px 1px 10px 1px #dcdcdc;
           background: #f8f8f8;
           padding-bottom: 10px;
-          background: url("/themes/custom/uwmed/dist/assets/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
+          background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
           color: $uwmed-body-text-color;
           font-size: 28px;
 
           h4 {
             border-bottom: 5px solid transparent;
-            border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
+            border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
             padding-bottom: 10px;
 
             a, a:hover {
@@ -201,8 +204,8 @@ body.page-node-type-uwm-clinic {
 
           p.opens-at {
             border-bottom: 4px solid transparent;
-            border-image: url('/themes/custom/uwmed/dist/assets/angled-bg-dark.png') 10 10;
-            padding: 0 0 4px 0;
+            border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
+            padding: 6px 20px 6px 0;
             margin-bottom: 6px;
           }
 
@@ -264,7 +267,7 @@ body.page-node-type-uwm-clinic {
 
     section.clinic-tabs {
 
-      ul.uw-nav-tabs {
+      ul.uwm-nav-tabs {
 
         @extend %gray-background;
         margin: 0 -15px;
@@ -326,6 +329,7 @@ body.page-node-type-uwm-clinic {
 
           .directions-map-wrapper {
             position: relative;
+            margin-bottom: 30px;
             padding-bottom: 75%; // This is the aspect ratio
             height: 0;
             overflow: hidden;
@@ -381,6 +385,17 @@ body.page-node-type-uwm-clinic {
 
                 > div, h4 {
                   margin: 0 0 20px 0;
+                }
+
+                .specialities {
+
+                  i.toggle {
+                    cursor: pointer;
+                  }
+                  .collapse.in {
+                    display: initial;
+                  }
+
                 }
 
               }

@@ -131,6 +131,12 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane active in overview-tab" role="tabpanel"
                  id="overview" aria-labelledby="services-tab">
 
+                {% if content.field_content_blocks %}
+                    <div class="col-sm-5 pull-right">
+                        {{ content.field_content_blocks }}
+                    </div>
+                {% endif %}
+
                 <h4>{{ 'Biography'|t }}</h4>
                 {{ _bio.fullBio|raw }}
 
@@ -145,8 +151,9 @@ view_mode ? view_mode|clean_class,
                  id="locations" aria-labelledby="locations-tab">
 
                 <h4>Locations</h4>
-                <p class="location-count">{{ "@count location@s" | t({'@count': locations|length,
-                        '@s': (locations|length > 0 ? 's': '')}) }}</p>
+                {% set n = locations|length %}
+                <p class="location-count">{{ "@count location@s" | t({'@count': n,
+                        '@s': (n != 1 ? 's': '')}) }}</p>
 
                 {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
 
@@ -162,11 +169,18 @@ view_mode ? view_mode|clean_class,
                     {% for e in _bio.educationHistories %}
 
                         <h5>{{ e.institutionName }}</h5>
-                        <p>
-                            {% if e.educationType %}{{ e.educationType }}, {% endif %}
-                            {% if e.gradYear %}{{ e.gradYear }}, {% endif %}
-                            {% if e.specialty %}{{ e.specialty }}{% endif %}
-                        </p>
+                        {% set ed = [] %}
+                        {% if e.educationType %}
+                            {% set ed = ed|merge([e.educationType]) %}
+                        {% endif %}
+                        {% if e.gradYear %}
+                            {% set ed = ed|merge([e.gradYear]) %}
+                        {% endif %}
+                        {% if e.specialty %}
+                            {% set ed = ed|merge([e.specialty]) %}
+                        {% endif %}
+
+                        <p>{{ ed|join(', ') }}</p>
 
                     {% endfor %}
 
@@ -196,3 +210,4 @@ view_mode ? view_mode|clean_class,
 
 
 </article>
+

@@ -4,7 +4,6 @@
 
 body.page-node-type-uwm-provider {
 
-
   div.main-container {
 
     background-image: url('#{$uw-images-folder}/angled-bg-light.png');
@@ -43,10 +42,7 @@ body.page-node-type-uwm-provider {
         margin: 0;
       }
 
-
-
     }
-
 
     section.left {
 
@@ -81,7 +77,6 @@ body.page-node-type-uwm-provider {
         color: $uwmed-light-purple;
         margin-top: 0;
       }
-
 
       div.l {
 
@@ -127,34 +122,66 @@ body.page-node-type-uwm-provider {
           @include uw-bottom-accent-heading();
         }
 
+        > .overview-tab {
 
-        .provider-location {
+          .col-sm-5.pull-right {
+            border-left: 1px solid #dcdcdc;
+            margin-left: 25px;
+            padding: 25px 0 25px 25px;
 
-          padding-bottom: 20px;
-          margin-bottom: 20px;
-          border-bottom: 1px solid #dcdcdc;
-          &:last-child {
-            border-bottom-color: transparent;
-          }
+            div.paragraph {
 
-          .location-image {
-            background-size: 120%;
-            background-repeat: no-repeat;
-            height: 200px;
-            background-position: 20% top;
+              margin-bottom: 25px;
+              padding: 10px;
+              box-shadow: 1px 1px 10px 1px #dcdcdc;
+              background: #f8f8f8;
+
+              .field {
+                margin-bottom: 10px;
+              }
+
+              .field--name-field-heading {
+                @include uw-bottom-accent-heading($uwmed-accent-blue);
+              }
+
+            }
 
           }
 
         }
 
-        .col-xs-7.k {
+        > .locations-tab {
 
-          margin-bottom: 15px;
-          padding-left: 45px;
+          .provider-location {
 
-          .uw-ico {
-            margin-left: -30px
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dcdcdc;
+            &:last-child {
+              border-bottom-color: transparent;
+            }
+
+            .location-image {
+              background-size: 120%;
+              background-repeat: no-repeat;
+              height: 200px;
+              background-position: 20% top;
+
+            }
+            .col-xs-7.k {
+
+              margin-bottom: 15px;
+              padding-left: 45px;
+
+              .uw-ico {
+                margin-left: -30px
+              }
+            }
           }
+        }
+
+        > .education-tab {
+
         }
 
       }
