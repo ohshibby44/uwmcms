@@ -11,14 +11,11 @@
     Drupal.behaviors.uwmedNavHover = {
 
         attach: function (context, settings) {
-
             $('header .header-main-navigation .dropdown').hover(function () {
                 $(this).find('.dropdown-menu').first().stop(true, true).show();
             }, function () {
                 $(this).find('.dropdown-menu').first().stop(true, true).hide();
-
             });
-
         }
 
     };
@@ -26,12 +23,22 @@
     Drupal.behaviors.uwMainNavClick = {
 
         attach: function (context, settings) {
-            $('header .header-main-navigation ul > li a.dropdown-toggle').click(function (e) {
+            $('header .header-main-navigation li.dropdown a.dropdown-toggle').click(function (e) {
                 e.preventDefault();
                 $(this).trigger('mouseenter');
             });
         }
     };
+
+    // Drupal.behaviors.uwMainSubNavClick = {
+    //
+    //     attach: function (context, settings) {
+    //         $('header .header-main-navigation li.dropdown-submenu a.dropdown-toggle').click(function (e) {
+    //             e.preventDefault();
+    //             $(this).parents('li').first().find('.dropdown-menu').first().toggleClass('dropdown-submenu-open');
+    //         });
+    //     }
+    // };
 
     Drupal.behaviors.uwHeaderSearchClick = {
 

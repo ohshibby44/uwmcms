@@ -131,7 +131,7 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane active in overview-tab" role="tabpanel"
                  id="overview" aria-labelledby="services-tab">
 
-                {% if content.field_content_blocks %}
+                {% if content.field_content_blocks|render %}
                     <div class="col-sm-5 pull-right">
                         {{ content.field_content_blocks }}
                     </div>
