@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.uwm_provider.field_content_blocks
     - field.field.node.uwm_provider.field_information_manager_url
-    - field.field.node.uwm_provider.field_promotional_bi_line
-    - field.field.node.uwm_provider.field_promotional_bi_line_image
+    - field.field.node.uwm_provider.field_meta_tags
+    - field.field.node.uwm_provider.field_node_media
     - node.type.uwm_provider
   module:
-    - image
+    - entity_reference_revisions
+    - metatag
     - panelizer
     - user
 third_party_settings:
@@ -22,25 +24,37 @@ targetEntityType: node
 bundle: uwm_provider
 mode: default
 content:
-  field_promotional_bi_line:
-    weight: 1
-    label: above
+  field_content_blocks:
+    weight: 3
+    label: hidden
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    type: string
+    type: entity_reference_revisions_entity_view
     region: content
-  field_promotional_bi_line_image:
-    weight: 2
+  field_meta_tags:
+    weight: 5
     label: above
-    settings:
-      image_style: ''
-      image_link: ''
+    settings: {  }
     third_party_settings: {  }
-    type: image
+    type: metatag_empty_formatter
+    region: content
+  field_node_media:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
     region: content
     settings: {  }
     third_party_settings: {  }

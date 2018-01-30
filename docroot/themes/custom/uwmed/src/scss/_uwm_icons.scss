@@ -14,6 +14,14 @@ i.uw-ico, span.uwmed-icon {
   background-size: contain;
   background-position: left 50%;
 
+  &.uw-ico-md {
+    width: 28px;
+    height: 28px;
+    margin: 0 0 -7px 0;
+
+  }
+
+
 
   &.uw-ico-dir-auto {
     background-image: url('#{$uw-images-folder}/Icons/icon_drive.svg');
@@ -31,7 +39,7 @@ i.uw-ico, span.uwmed-icon {
     background-image: url('#{$uw-images-folder}/Icons/icon_walk.svg');
   }
 
-  &.5_star_rating {
+  &.five_star_rating {
     //icon_5_star_rating.svg
     background-image: url('#{$uw-images-folder}/Icons/icon_5_star_rating.svg');
   }

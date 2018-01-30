@@ -4,6 +4,23 @@
     ~ _cli.city ~ ',' ~_cli.state ~ ' ' ~_cli.zipcode) |trim |url_encode
 %}
 
+<div class="col-xs-12 col-md-7 pull-right directions-map-wrapper">
+
+    <div class="map">
+
+        <iframe src="https://www.google.com/maps/embed/v1/place?key={{ map_api_key }}&q={{ map_query }}"
+                width="800" height="600" frameborder="0" style="border:0"
+                allowfullscreen></iframe>
+
+        {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10532.572935125596!2d-122.91114763022459!3d48.70274320000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54858fa349c5a55d%3A0x40682082f3224313!2sUW+Medicine+Orcas+Island+Clinic!5e0!3m2!1sen!2sus!4v1516409862407"#}
+        {#width="800" height="600" frameborder="0" style="border:0"#}
+        {#allowfullscreen></iframe>#}
+
+        {#<iframe src="https://www.google.com/maps/d/embed?mid=1wUx8i9_Yn0Ok7PCZHLKwtAzUh7cdKkzu" width="640" height="480"></iframe>#}
+
+    </div>
+
+</div>
 
 <div class="col-xs-12 col-md-5 directions-info-wrapper">
 
@@ -95,23 +112,6 @@
 </div>
 
 
-<div class="col-xs-12 col-md-7 directions-map-wrapper">
 
-    <div class="map">
-
-        <iframe src="https://www.google.com/maps/embed/v1/place?key={{ map_api_key }}&q={{ map_query }}"
-                width="800" height="600" frameborder="0" style="border:0"
-                allowfullscreen></iframe>
-
-        {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10532.572935125596!2d-122.91114763022459!3d48.70274320000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54858fa349c5a55d%3A0x40682082f3224313!2sUW+Medicine+Orcas+Island+Clinic!5e0!3m2!1sen!2sus!4v1516409862407"#}
-        {#width="800" height="600" frameborder="0" style="border:0"#}
-        {#allowfullscreen></iframe>#}
-
-        {#<iframe src="https://www.google.com/maps/d/embed?mid=1wUx8i9_Yn0Ok7PCZHLKwtAzUh7cdKkzu" width="640" height="480"></iframe>#}
-
-    </div>
-
-
-</div>
 
 
