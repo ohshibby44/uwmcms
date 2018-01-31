@@ -30,5 +30,6 @@ permissions:
   - 'update paragraph content links_list'
   - 'update paragraph content media_feature'
   - 'update paragraph content reusable_content'
+  - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format simple_formatted_text'

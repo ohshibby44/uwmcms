@@ -39,6 +39,36 @@ font-awesome:
     theme:
       //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }
 
+googlemaps:
+  js:
+    //maps.googleapis.com/maps/api/js?key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}
+
+swipejs:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/swipejs/2.2.11/swipe.min.js: {}
+  dependencies:
+    - core/jquery
+
+slickquiz:
+  js:
+    /libraries/slickquiz/slickQuiz.js: {}
+  css:
+    theme:
+      /libraries/slickquiz/SlickQuiz.css: {}
+  dependencies:
+    - core/jquery
+
+medical-service:
+  js:
+    dist/js/back-pain-quiz.js: {}
+    dist/js/medical-service.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - uwmed/swipejs
+    - uwmed/slickquiz
+
 scroll-magic:
   js:
     //cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js: { type: external, minified: true }

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ctools
     - system
   theme:
     - uwmed
@@ -25,3 +26,11 @@ visibility:
     pages: '<front>'
     negate: true
     context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      homepage: homepage
+      uwm_medical_service: uwm_medical_service
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,40 @@
+<div class="col-xs-12">
+    <h2>Urgent Care locations and wait times</h2>
+
+    <p>Can't get in for a same-day appointment? UW Medicine urgent care clinics
+    are open for walk-ins 7 days a week with locations throughout the Puget Sound
+    region.</p>
+
+  <div class="row">
+  {% for clinic in urgent_care_clinics %}
+    <div class="clinic col-lg-3 col-md-4 col-sm-6">
+      <img class="clinic__image img img-responsive" src="{{ clinic.image_url | image_style('large')  }}" alt="" />
+      <div class="clinic__info">
+        <h3 class="clinic__name h4">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</h3>
+        <address><i class="uw-ico uw-ico-md clinic_locations"></i>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}</address>
+        <p class="clinic__wait-time"><i class="fa fa-clock-o" aria-hidden="true"></i>20 minute wait<br /><a href="#">Get in line</a></p>
+        <p class="clinic__directions"><a class="btn btn-default" href="https://www.google.com/maps/place/{{ clinic.clinicName | replace(" ", "+") }}">Directions</a></p>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+<div class="virtual-clinic col-xs-12">
+  <div class="virtual-clinic__background visible-lg"
+     style="background-image: url('http://www.uwmed.local/sites/default/files/styles/hero/public/ElderLady_Yoga_FPO%402x.png?itok=RmlyVtPo')"
+     alt=""></div>
+  <div class="virtual-clinic__title col-md-6">
+    <h2 class="h3">Virtual Clinic</h2>
+    <span class="uwmed-slant"><span></span></span>
+  </div>
+  <div class="virtual-clinic__content col-lg-6">
+    <p class="h2">UW Medicine Virtual Clinic</p>
+    <p class="virtual-clinic__subheading">
+      Prescriptions and on-call care, available day and night, from the comfort of your breakfast table to the edge of the bunk bed. No appointments necessary, no hidden fees.
+    </p>
+    <p class="h4">$35 per visit</p>
+    <a class="virtual-clinic__link btn btn-default" href="">
+      Get Care Now
+    </a>
+  </div>
+</div>
