@@ -42,6 +42,9 @@ body.page-node-type-uwm-clinic {
       h1.page-header, .field--label {
         @extend .hidden;
       }
+      h2.accent, h3.accent {
+        @include uw-bottom-accent-heading($uwmed-accent-blue);
+      }
 
       div.field.field--name-field-link {
 
@@ -50,7 +53,6 @@ body.page-node-type-uwm-clinic {
         //}
 
         @include uw-ghost-button('.item', 'i.u-ips');
-
 
       }
 
@@ -162,10 +164,11 @@ body.page-node-type-uwm-clinic {
         }
 
         .get-in-line {
+          display: none;
           margin-top: 20px;
           box-shadow: 1px 1px 10px 1px #dcdcdc;
           background: #f8f8f8;
-          padding-bottom: 10px;
+          padding-bottom: 20px;
           background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
           color: $uwmed-body-text-color;
           font-size: 28px;
@@ -174,6 +177,7 @@ body.page-node-type-uwm-clinic {
             border-bottom: 5px solid transparent;
             border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
             padding-bottom: 10px;
+            margin-bottom: 20px;
 
             a, a:hover {
               float: right;
@@ -198,6 +202,7 @@ body.page-node-type-uwm-clinic {
       }
 
       .clinic-hours-container {
+
         min-height: 300px;
         .clinic-hours-table {
           margin-bottom: 40px;
@@ -283,9 +288,7 @@ body.page-node-type-uwm-clinic {
         min-height: 200px;
         border: 0 none;
         padding: 12px 0;
-        h3 {
-          @include uw-bottom-accent-heading($uwmed-accent-blue);
-        }
+
         li {
           list-style: none;
           margin-bottom: 1em;
@@ -432,17 +435,16 @@ body.page-node-type-uwm-clinic {
 
         }
 
-        .services-tab {
+      }
 
-          ul {
-            margin-top: 30px;
-            li {
-              @extend .col-xs-12, .col-sm-6, .col-md-3;
-            }
-          }
+    }
 
+    section.services {
+
+      ul {
+        li {
+          @extend .col-xs-12, .col-sm-6, .col-md-3;
         }
-
       }
 
     }

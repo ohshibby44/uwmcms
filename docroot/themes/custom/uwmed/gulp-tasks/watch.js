@@ -16,16 +16,13 @@ module.exports = function (gulp, plugins, options) {
     ], function () {
       plugins.runSequence(
         'lint:js',
-        'lint:css',
+        'compile:js',
         'browser-sync:reload'
       );
     });
   });
 
   gulp.task('watch:sass', function () {
-    console.log('Watching sass: ', [
-        options.sass.files, options.sass.componentFiles
-    ]);
     return gulp.watch([
         options.sass.files, options.sass.componentFiles
     ], function () {

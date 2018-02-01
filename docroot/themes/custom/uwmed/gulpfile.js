@@ -66,7 +66,6 @@
 /* global require */
 
 var gulp = require('gulp');
-var util = util = require('gulp-util');
 gulp.gutil = require('gulp-util');
 
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
@@ -215,9 +214,9 @@ var options = {
         showFailedOnly: true, // show errors only and override reporter
         reporter: 'console',
         log: {
-            debug: console.log.bind(console),
-            error: console.error.bind(console),
-            info: console.info.bind(console)
+            // debug: console.log.bind(console),
+            // error: console.error.bind(console),
+            // info: console.info.bind(console)
         },
         standard: 'WCAG2AA', // choose from Section508, WCAG2A, WCAG2AA, and WCAG2AAA
         page: {

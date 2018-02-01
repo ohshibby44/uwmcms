@@ -1,4 +1,4 @@
-uuid: 724a6b84-2111-40ba-846a-94eaaef50a86
+uuid: dd9b49d0-9e20-48bd-a8b5-482eab3669cd
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: uwmed_local_actions
 theme: uwmed
 region: content
-weight: -2
+weight: 0
 provider: null
 plugin: local_actions_block
 settings:

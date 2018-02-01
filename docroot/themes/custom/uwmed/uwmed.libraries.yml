@@ -39,6 +39,10 @@ font-awesome:
     theme:
       //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }
 
+clockwise-wait-times:
+  js:
+    dist/js/clinic-clockwise-wait-times.js: {}
+
 googlemaps:
   js:
     //maps.googleapis.com/maps/api/js?key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}

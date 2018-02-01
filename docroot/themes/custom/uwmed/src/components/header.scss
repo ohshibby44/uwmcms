@@ -1,6 +1,7 @@
 body > header {
 
   margin-bottom: 10px; // ..match shadow
+
   .row.purple {
 
     color: #fff;
@@ -26,6 +27,7 @@ body > header {
         height: 28px;
         margin: 4px 0 0 0;
       }
+
       i.fa.fa-search {
         position: absolute;
         right: 0;
@@ -56,7 +58,6 @@ body > header {
 
       li > i.uw-b {
         @include uw-skew(-15deg);
-        //transform: rotate(15deg);
         width: 1px;
         height: 12px;
         opacity: .2;
@@ -76,72 +77,113 @@ body > header {
 
     .header-main-navigation {
 
-      ul.nav > li {
+      .navbar {
 
-        padding: 0;
+        margin: 0;
 
-        a {
+        ul.navbar-nav > li {
 
-          &:hover {
-            color: #3375d4;
-            background: transparent;
+          padding: 0;
+
+          a {
+
+            &:hover {
+              color: #3375d4;
+              background: transparent;
+            }
+            &.dropdown-toggle:after {
+              // More forgiving hover zone
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: -4px;
+              content: "";
+              z-index: 2;
+            }
           }
-        }
 
-        i.uw-b {
-          @include uw-skew(-15deg);
-          width: 1px;
-          height: 30px;
-          opacity: .2;
-          background: #000;
-          display: inline-block;
-          margin: 10px 6px 0 6px;
-          box-shadow: 0 3px 0;
-        }
-        a.dropdown-toggle:after {
-          // More forgiving hover zone
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: -4px;
-          content: "";
-          z-index: 2;
-        }
-        ul.dropdown-menu {
+          ul.dropdown-menu {
 
-          box-shadow: none;
-          margin: 2px 0 0 -4px;
-          border-top: 0 solid transparent;
-          background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 2%);
-          //transition: all 850ms linear;
-          width: 250px;
+            box-shadow: none;
+            // More forgiving hover zone
+            margin: 0 0 0 -4px;
+            border-top: 0 solid transparent;
+            background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 2%);
+            //transition: all 850ms linear;
+            width: 300px;
 
-          li {
-            a {
+            li {
 
-              padding: 10px 6px 10px 0;
-              border-bottom: 1px solid #e5e5e6;
-              margin: 6px 15px;
+              a {
+                margin: 10px;
+                padding: 10px;
+                border-bottom: 1px solid #e5e5e6;
 
-              i.fa.fa-angle-right {
-                float: right;
-                display: block;
-                padding: 2px 0 0 0;
+                i.fa {
+                  float: right;
+                  display: block;
+                  padding: 2px 0 0 0;
+                }
+                &.anchor, &[href^="#"] {
+                  color: #3375d4;
+                  font-style: italic;
+                  padding-top: 20px;
+                }
+
+              }
+              &:last-child > a {
+                border-bottom: none;
               }
 
             }
-            &:last-child > a {
-              border-bottom: none;
+
+            li.dropdown-submenu {
+
+              a {
+                border-bottom: 1px solid transparent;
+              }
+
+              ul.dropdown-menu {
+                display: block;
+                position: relative;
+                padding: 0 20px 10px;
+                border: 0 none;
+
+                li {
+
+                  a {
+                    border: 0 none;
+                    padding-left: 20px;
+                    padding-top: 0;
+                    &.anchor, &[href^="#"] {
+                      color: #3375d4;
+                      font-style: italic;
+                      padding-top: 20px;
+                    }
+                  }
+
+                }
+
+              }
+
             }
 
           }
 
+          i.uw-b {
+            @include uw-skew(-15deg);
+            width: 1px;
+            height: 30px;
+            opacity: .2;
+            background: #000;
+            display: inline-block;
+            margin: 10px 6px 0 6px;
+            box-shadow: 0 3px 0;
+          }
+
         }
 
-      }
-      .navbar {
-        margin: 0;
       }
 
     }

@@ -1,10 +1,7 @@
-uuid: 4042bdb3-7261-4c55-90e4-a59d7c756644
+uuid: bd401853-299f-4529-8c42-3cc57340efa6
 langcode: en
 status: true
 dependencies:
-  module:
-    - ctools
-    - system
   theme:
     - uwmed
 _core:
@@ -20,17 +17,4 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: '<front>'
-    negate: true
-    context_mapping: {  }
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      homepage: homepage
-      uwm_medical_service: uwm_medical_service
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
+visibility: {  }

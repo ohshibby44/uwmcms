@@ -65,7 +65,7 @@
     {% else %}
 
         {% if _isOpen %}
-            <p class="opens-at">Open: <em>{{ "Closes at @end" | t({
+            <p class="opens-at">Open now: <em>{{ "Closes at @end" | t({
                         '@end': _isOpen.endTime|date ('g:ia') }) }}</em>
             </p>
         {% elseif _opensSoon %}

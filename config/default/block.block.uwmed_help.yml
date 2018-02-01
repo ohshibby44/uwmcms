@@ -1,4 +1,4 @@
-uuid: 92b9c034-012c-46e1-b98e-e33bb64db55e
+uuid: f0899346-b44b-4621-a12e-2e41da8e5881
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: uwmed_help
 theme: uwmed
 region: content
-weight: -4
+weight: -2
 provider: null
 plugin: help_block
 settings:

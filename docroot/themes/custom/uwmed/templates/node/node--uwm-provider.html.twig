@@ -36,10 +36,12 @@ view_mode ? view_mode|clean_class,
             <img src="{{ profileImage }}">
         </div>
 
+        {% if _bio.acceptingAppointments %}
         <div class="col-sm-12 hidden-xs make-an-appointment l">
             <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
                 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
+        {% endif %}
 
         {#<div class="col-xs-12 ratings l">#}
         {##}
@@ -131,7 +133,7 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane active in overview-tab" role="tabpanel"
                  id="overview" aria-labelledby="services-tab">
 
-                {% if content.field_content_blocks %}
+                {% if content.field_content_blocks|render %}
                     <div class="col-sm-5 pull-right">
                         {{ content.field_content_blocks }}
                     </div>
