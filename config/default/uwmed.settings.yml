@@ -7,12 +7,17 @@ schemas:
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: profiles/contrib/lightning/favicon.ico
-  url: 'http://uwmed.local/themes/custom/uwmed/favicon.ico'
-  use_default: true
+  url: 'http://uwmed.local/profiles/contrib/lightning/favicon.ico'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
 logo:
   path: profiles/contrib/lightning/lightning.png
   url: ''
-  use_default: true
+  use_default: false
 region_wells:
   branding: ''
   navigation: ''
@@ -22,14 +27,9 @@ region_wells:
   content_header: ''
   content: ''
   sidebar_first: ''
-  sidebar_second: ''
+  sidebar_second: well
   footer_first: ''
   footer_second: ''
+forms_smart_descriptions: 0
 table_responsive: '-1'
 table: ''
-image_shape: ''
-features:
-  comment_user_picture: true
-  comment_user_verification: true
-  favicon: true
-  node_user_picture: true

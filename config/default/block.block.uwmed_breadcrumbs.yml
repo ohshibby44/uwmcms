@@ -1,4 +1,4 @@
-uuid: 013d57d7-f9cb-48d1-a5ab-13c5421c0679
+uuid: 172cf26f-975b-4072-b543-ca490646b1fc
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
 id: uwmed_breadcrumbs
 theme: uwmed
-region: content_header
-weight: -4
+region: branding
+weight: 0
 provider: null
 plugin: system_breadcrumb_block
 settings:
