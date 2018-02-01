@@ -96,6 +96,11 @@ AddEncoding gzip svgz
   RewriteCond %{HTTP_HOST} huddle.cms.uwmedicine.org
   RewriteRule ^(.*)$ https://huddle.uwmedicine.org%{REQUEST_URI} [L,R=301]
 
+  # Redirect naked uwmedicine.org and uwmedicinetest.org to www version
+  RewriteCond %{HTTP_HOST} ^uwmedicine(test)?.org
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
   ## DRUPAL-SPECIFIC RULES ##
     # Block access to "hidden" directories whose names begin with a period. This
   # includes directories used by version control systems such as Subversion or

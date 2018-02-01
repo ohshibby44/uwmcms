@@ -5,6 +5,7 @@
  * Module for reading an API and providing API data to themes.
  */
 
+use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
@@ -100,6 +101,49 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     }
 
     $entity->uwmcs_reader_api_values = $data;
+  }
+
+  if ($entity->getType() === "uwm_medical_service") {
+
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
+    // TODO: Add field_information_manager_url field to medical service
+    // content type
+    // $medical_service_data = $fetcher->getUrl($entity->
+    // field_information_manager_url->value);.
+    $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
+
+    if (!empty($urgent_care_data->clinics)) {
+      foreach ($urgent_care_data->clinics as &$clinic) {
+        if ($clinic->clinicUrl) {
+          // Hack - convert urgent-care-name to primary-care-name until urgent
+          // care clinics are in Drupal
+          // TODO: Pull image from urgent care clinic instead of primary care
+          // clinic.
+          $pc_url = str_replace('urgent', 'primary', $clinic->clinicUrl);
+          $pc_path = \Drupal::service('path.alias_manager')->getPathByAlias($pc_url);
+
+          if (!empty($pc_path)) {
+            if (preg_match('/node\/(\d+)/', $pc_path, $matches)) {
+              $node = Node::load($matches[1]);
+            }
+          }
+
+          if (!empty($node)) {
+            if (!empty($node->get('field_clinic_image')->getValue()[0]['target_id'])) {
+              $pc_image_id = $node->get('field_clinic_image')->getValue()[0]['target_id'];
+              $pc_image_entity = Drupal::entityTypeManager()->getStorage("media")->load($pc_image_id);
+            }
+          }
+
+          if (!empty($pc_image_entity->image->entity)) {
+            $clinic->image_url = $pc_image_entity->image->entity->getFileUri();
+          }
+        }
+      }
+
+      $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
+    }
   }
 
 }
