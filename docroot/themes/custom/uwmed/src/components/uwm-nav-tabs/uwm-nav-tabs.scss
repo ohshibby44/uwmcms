@@ -21,7 +21,7 @@ ul.uwm-nav-tabs {
 
   }
 
-  > li.active > a {
+  > li.active > a, > li.active > a:focus {
     color: $uwmed-light-purple;
     background: $uwmed-white;
     border: 0 none;

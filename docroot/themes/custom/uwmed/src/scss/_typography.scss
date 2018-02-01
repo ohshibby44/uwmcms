@@ -239,7 +239,7 @@ h6, .h6 {
 // -------------------------
 
 p {
-  margin: 0 0 ($line-height-computed + $font-size-base);
+  margin: 0 0 (($line-height-computed/2) + $font-size-base);
 }
 
 .lead {

@@ -79,10 +79,10 @@
         if (options.displayStyle == 'plain') {
 
             if (!cwResult) {
-                formattedTime = 'Please call';
+                formattedTime = 'Please call for wait-times';
             }
             else if (cwResult.indexOf('n/a') > -1) {
-                formattedTime = 'Please call';
+                formattedTime = 'Please call for wait-times';
             }
             else if (cwResult.indexOf('closed') > -1) {
                 formattedTime = 'Closed';
@@ -98,7 +98,7 @@
                 formattedTime = makeHoursAndMinutes(tt);
             }
             else {
-                formattedTime = 'Please call';
+                formattedTime = 'Please call for wait-times';
             }
 
             return formattedTime;
@@ -139,7 +139,7 @@
             if (shortFormat) {
                 return minutes + ' mins';
             }
-            return minutes + ' minutes';
+            return minutes + ' minutes wait';
         }
 
         // 1 hr
@@ -155,7 +155,7 @@
             if (shortFormat) {
                 return hours + ' hr ' + remainder + ' mins';
             }
-            return hours + ' hour ' + remainder + ' minutes';
+            return hours + ' hour ' + remainder + ' minutes wait';
         }
 
         // 4 hrs
@@ -170,7 +170,7 @@
         if (shortFormat) {
             return hours + ' hrs ' + remainder + ' mins';
         }
-        return hours + ' hours ' + remainder + ' minutes';
+        return hours + ' hours ' + remainder + ' minutes wait';
 
     }
 

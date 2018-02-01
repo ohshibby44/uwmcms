@@ -32,7 +32,7 @@ view_mode ? view_mode|clean_class,
                 {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
             </div>
             <div class="col-xs-12 m-address">
-                <address>{{ _cli.address }} <i class="uw-s"></i>
+                <address>{{ _cli.address }},
                     {{ _cli.city }},
                     {{ _cli.state }}
                     {{ _cli.zipcode }} <i class="uw-s"></i>
@@ -70,14 +70,20 @@ view_mode ? view_mode|clean_class,
 
 
             </div>
+
             <div class="col-xs-12 get-in-line">
                 <h4>{{ "Urgent Care"|t }}
                     <a href="#">Get in line<i class="fa fa-angle-right"
                                               aria-hidden="true"></i>
                     </a></h4>
-                <p class="wait">
-                    <span class="m">20</span> minutes wait
-                </p>
+                {% if content.field_clinic_wait_time_snippet|render is not empty %}
+                    {#{{ entity.field_name.value }}#}
+                    {{ content.field_clinic_wait_time_snippet }}
+                {% else %}
+                    <p class="wait">
+                        <span class="m">20</span> minutes wait
+                    </p>
+                {% endif %}
             </div>
         </div>
 
@@ -90,7 +96,7 @@ view_mode ? view_mode|clean_class,
                 </h1>
                 {{ title_suffix }}
 
-                <address>{{ _cli.address }} <i class="uw-s"></i>
+                <address>{{ _cli.address }},
                     {{ _cli.city }},
                     {{ _cli.state }}
                     {{ _cli.zipcode }} <i class="uw-s"></i>
@@ -122,12 +128,12 @@ view_mode ? view_mode|clean_class,
     <section class="clinic-tabs">
 
         <ul class="nav nav-tabs uwm-nav-tabs" id="myTabs" role="tablist">
-            <li role="presentation" class="active"><a href="#services"
-                                                      name="services"
-                                                      id="services-tab"
+            <li role="presentation" class="active"><a href="#main"
+                                                      name="main"
+                                                      id="main-tab"
                                                       role="tab"
                                                       data-toggle="tab"
-                                                      aria-controls="services"
+                                                      aria-controls="main"
                                                       aria-expanded="true">
                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
                     {{ 'Services & Resources'|t }}
@@ -162,28 +168,61 @@ view_mode ? view_mode|clean_class,
 
         <div class="tab-content uwm-tab-content">
 
-            <div class="row tab-pane services-tab active in" role="tabpanel"
-                 id="services" aria-labelledby="services-tab">
+            <div class="row tab-pane main-tab active in" role="tabpanel"
+                 id="main" aria-labelledby="main-tab">
 
-                <h3>Services</h3>
-                <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
-                <ul>
-                    {% for s in _cli.services %}
-                        <li>
-                            <i class="fa fa-check-circle-o"
-                               aria-hidden="true"></i>
-                            {{ s.serviceName|t }}</li>
-                    {% endfor %}
-                    {% for s in _cli.expertises %}
-                        <li>
-                            <i class="fa fa-check-circle-o"
-                               aria-hidden="true"></i>
-                            {{ s.expertiseName|t }}</li>
-                    {% endfor %}
-                </ul>
-                {#<div class="view-more"><a href="#">View More <i#}
-                {#class="fa fa-angle-down"#}
-                {#aria-hidden="true"></i></a></div>#}
+                <section class="services">
+
+                    <h3 class="accent">Services</h3>
+
+                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+
+                    <ul>
+                        {% for s in _cli.services %}
+                            <li>
+                                <i class="fa fa-check-circle-o"
+                                   aria-hidden="true"></i>
+                                {{ s.serviceName|t }}</li>
+                        {% endfor %}
+                        {% for s in _cli.expertises %}
+                            <li>
+                                <i class="fa fa-check-circle-o"
+                                   aria-hidden="true"></i>
+                                {{ s.expertiseName|t }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    {#<div class="view-more"><a href="#">View More <i#}
+                    {#class="fa fa-angle-down"#}
+                    {#aria-hidden="true"></i></a></div>#}
+                
+                </section>
+
+                {% if content.field_content_blocks |render is not empty %}
+                    <section class="clinic-paragraphs">
+                        <div class="bg"></div>
+
+                        {% if content.field_content_blocks_heading|render is not empty %}
+                            <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
+                        {% endif %}
+
+                        {{ content.field_content_blocks }}
+
+                    </section>
+                {% endif %}
+
+                {% if content.body |render is not empty %}
+                    <section class="clinic-body">
+
+                        <h3 class="accent">{{ "Clinic Overview"|t }}</h3>
+
+                        <div{{ content_attributes.addClass('content') }}>
+                            {{ content.body }}
+                            {#{{ content }}#}
+                        </div>
+
+                    </section>
+                {% endif %}
 
 
             </div>
@@ -191,7 +230,7 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane directions-tab" role="tabpanel"
                  id="directions" aria-labelledby="directions-tab">
 
-                <h3>Directions & Parking</h3>
+                <h3 class="accent">Directions & Parking</h3>
 
                 {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
 
@@ -201,7 +240,7 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane providers-tab" role="tabpanel"
                  id="providers" aria-labelledby="providers-tab">
 
-                <h3>Care Providers</h3>
+                <h3 class="accent">Care Providers</h3>
 
                 {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
 
@@ -211,32 +250,6 @@ view_mode ? view_mode|clean_class,
 
 
     </section>
-
-
-    {% if content.field_content_blocks |render is not empty %}
-        <section class="clinic-paragraphs">
-            <div class="bg"></div>
-
-            {% if content.field_content_blocks_heading|render is not empty %}
-                <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
-            {% endif %}
-
-            {{ content.field_content_blocks }}
-
-        </section>
-    {% endif %}
-
-
-    {% if content.body |render is not empty %}
-        <section class="clinic-body">
-
-            <div{{ content_attributes.addClass('content') }}>
-                {{ content.body }}
-                {#{{ content }}#}
-            </div>
-
-        </section>
-    {% endif %}
 
 
     {% if content.field_bottom_content_blocks |render is not empty %}

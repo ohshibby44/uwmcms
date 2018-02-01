@@ -12,7 +12,10 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 
   // Add content type suggestions.
   if ($node = \Drupal::request()->attributes->get('node')) {
-    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+    if (is_object($node)) {
+      array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+
+    }
   }
 
 }

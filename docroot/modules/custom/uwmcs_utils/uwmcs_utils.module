@@ -5,7 +5,11 @@
  * Custom module for small, utility-type routines.
  */
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldItemListInterface;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -27,5 +31,30 @@ function uwmcs_utils_page_attachments(array &$attachments) {
   if ($admin_context->isAdminRoute()) {
     $attachments['#attached']['library'][] = 'uwmcs_utils/admin-css';
   }
+
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function uwmcs_utils_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
+
+  $allowedFields = [
+    'field_clinic_wait_time_snippet',
+    'title',
+  ];
+
+  $account = \Drupal::currentUser();
+  if ($operation === 'edit' &&
+      in_array('staff_clinic_manager', $account->getRoles())) {
+
+    if (in_array($field_definition->getName(), $allowedFields)) {
+
+      return AccessResult::neutral();
+    }
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
 
 }
