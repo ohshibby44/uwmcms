@@ -1,0 +1,9 @@
+{% extends 'field.html.twig' %}
+{% set wrapper_classes = ['feature-story__title', 'col-md-6'] %}
+{% set item_element = 'h2' %}
+{% set item_classes = ['h3'] %}
+
+{% block item %}
+  {{ parent() }}
+  {% include '@uwmed/accents/uwmed-slant.twig' %}
+{% endblock item %}

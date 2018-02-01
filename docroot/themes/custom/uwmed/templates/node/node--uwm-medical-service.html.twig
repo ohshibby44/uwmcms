@@ -1,0 +1,281 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+     Only "getter" methods (method names starting with "get", "has", or "is")
+     and a few common methods such as "id" and "label" are available. Calling
+     other methods (such as node.delete) will result in an exception.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+{% set classes = [
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
+{{ attach_library('uwmed/medical-service') }}
+{#{{ attach_library('uwmed/googlemaps') }}#}
+
+
+{% set urgent_care_clinics = node.uwmcms_reader_urgent_care_clinics %}
+
+<article{{ attributes.addClass(classes) }}>
+  <section>
+    <div class="medical-service-hero"> {# row #}
+      <div class="medical-service-hero__background" style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})"></div>
+      <div class="medical-service-hero__content col-lg-7">
+        <h1 class="medical-service-hero__heading">{{ label }}</h1>
+        <img class="hero__angle-divider hidden-lg" src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png')}}" alt="" />
+        {{ content.field_subheading }}
+      </div>
+      <div class="medical-service-hero__links-with-icon__desktop col-lg-3 visible-lg">
+        {{ content.field_links_with_icon }}
+      </div>
+    </div>
+
+    <div class="medical-service-hero__links-with-icon hidden-lg"> {# row #}
+      {{ content.field_links_with_icon }}
+    </div>
+
+
+  </section>
+
+  <section class="medical-service-tabs"> {# row #}
+    <ul class="nav nav-tabs col-xs-12" id="navTabs" role="tablist">
+      <li role="presentation" class="active"><a href="#approach"
+                                                id="approach-tab"
+                                                role="tab" data-toggle="tab"
+                                                aria-controls="approach"
+                                                aria-expanded="true">
+          <i class="fa fa-heartbeat" aria-hidden="true"></i> {{ 'Our Approach'|t }}
+
+        </a>
+      </li>
+      <li role="presentation"><a href="#resources"
+                                 role="tab"
+                                 id="resources-tab"
+                                 data-toggle="tab"
+                                 aria-controls="resources"
+                                 aria-expanded="false">
+          <i class="fa fa-heartbeat" aria-hidden="true"></i> {{ 'Patient Resources'|t }}
+
+        </a>
+      </li>
+      <li role="presentation"><a href="#carenow"
+                                 role="tab"
+                                 id="carenow-tab"
+                                 data-toggle="tab"
+                                 aria-controls="carenow"
+                                 aria-expanded="false">
+          <i class="fa fa-heartbeat" aria-hidden="true"></i> {{ 'Get Care Now'|t }}
+
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+
+      <div class="tab-pane fade active in" role="tabpanel"
+           id="approach"
+           aria-labelledby="approach-tab">
+
+        <div class="col-xs-12">
+          <h2>Let us get to know you.</h2>
+        </div>
+
+        {{ content.field_proof_points }}
+
+        <div class="medical-service__common-services">
+          <div class="col-xs-12">
+            <h2>Some of our common services.</h2>
+          </div>
+          {{ content.field_common_services }}
+        </div>
+
+
+        {{ content.field_feature_story }}
+
+        <div class="find-a-location clearfix">
+          <div class="find-a-location__heading col-xs-12">
+            <h2 class="h3">Find a local location</h2>
+            {% include '@uwmed/accents/uwmed-slant.twig' %}
+          </div>
+
+          <div class="find-a-location__content col-lg-6">
+            <h3 class="h2">Convenient care in your neighborhood, near your job or online.</h3>
+            <ul class="links-with-icon__list list-unstyled">
+              <li class="links-with-icon__item">
+                {% spaceless %}
+                <a class="btn btn-default" href="#">
+                  <span class="uwmed-icon uwmed-icon__generic-heart">i</span>
+                  Find a location
+                  <span class="fa fa-angle-right fa-fw fa-lg" aria-hidden="true"></span>
+                </a>
+               {% endspaceless %}
+              </li>
+              <li class="links-with-icon__item">
+                {% spaceless %}
+                <a class="btn btn-default" href="#">
+                  <span class="uwmed-icon uwmed-icon__generic-heart">i</span>
+                  Urgent care
+                  <span class="fa fa-angle-right fa-fw fa-lg" aria-hidden="true"></span>
+                </a>
+                {% endspaceless %}
+              </li>
+              <li class="links-with-icon__item">
+                {% spaceless %}
+                  <a class="btn btn-default" href="#">
+                    <span class="uwmed-icon uwmed-icon__generic-heart">i</span>
+                    Virtual clinic
+                    <span class="fa fa-angle-right fa-fw fa-lg" aria-hidden="true"></span>
+                  </a>
+                {% endspaceless %}
+              </li>
+            </ul>
+          </div>
+          <div class="find-a-location__map col-lg-6">
+            {#<div id="map" style="width: 100%; height: 300px; background-color: yellow;">MAP</div>#}
+            <iframe style="border: none; width: 100%; height: 300px;" src="https://www.google.com/maps/d/u/1/embed?mid=1Abfyz0Zy3ikGsXkdkfSS2BjGsVA"></iframe>
+          </div>
+        </div>
+        <div class="featured-specialties col-xs-12">
+          <h2>Coordinating your care with world-class specialists.</h2>
+          {{ content.field_featured_specialties }}
+        </div>
+
+        <div class="patient-engagement col-xs-12">
+          <div class="patient-engagement__wrapper">
+            <div class="quiz col-md-6 col-lg-9">
+              <div class="col-lg-9">
+                <h2 class="h3">Did you know?</h2>
+                {% include '@uwmed/accents/uwmed-slant.twig' %}
+              </div>
+
+              <div class="all-quizzes col-lg-3 visible-lg">
+                <p><a href="http://healthlibrary.uwmedicine.org/InteractiveTools/Quizzes/">See all quizzes &nbsp;<span class="fa fa-angle-right" aria-hidden="true"></span> </a></p>
+              </div>
+              <div class="col-lg-6" id="slickQuiz">
+                <h3 class="h4 quizName"><!-- where the quiz name goes --></h3>
+
+                <div class="quizArea">
+                  <div class="quizHeader">
+                    <!-- where the quiz main copy goes -->
+
+                    <a class="button startQuiz" href="#">Get Started!</a>
+                  </div>
+                  <!-- where the quiz gets built -->
+                </div>
+
+                <div class="quizResults">
+                  <h4 class="quizScore">You Scored: <span><!-- where the quiz score goes --></span></h4>
+
+                  <h4 class="quizLevel"><strong>Ranking:</strong> <span><!-- where the quiz ranking level goes --></span></h4>
+
+                  <div class="quizResultsCopy">
+                    <!-- where the quiz result copy goes -->
+                  </div>
+                </div>
+              </div>
+              <div class="all-quizzes col-md-12 hidden-lg">
+                <p><a href="http://healthlibrary.uwmedicine.org/InteractiveTools/Quizzes/">See all quizzes &nbsp;<span class="fa fa-angle-right" aria-hidden="true"></span> </a></p>
+              </div>
+
+              <div class="quizPhoto col-lg-5 col-lg-offset-1 visible-lg">
+                <img class="img img-responsive hidden-xs" src="http://via.placeholder.com/300x150" alt="" />
+              </div>
+            </div>
+            <div class="featured-provider col-lg-3 col-md-5 col-md-push-1 col-lg-push-0" style="background-image: url('http://via.placeholder.com/300x150');">
+              <h2 class="h3">New Provider</h2>
+              {% include '@uwmed/accents/uwmed-slant.twig' %}
+
+              <div class="featured-provider__content">
+                <h3 class="h4">Welcome</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur, adipiscing elit, sed</p>
+                <p><a class="btn btn-outline">Read More</a></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" role="tabpanel"
+           id="resources" aria-labelledby="resources-tab">
+
+        {% include 'node--uwm-medical-service.patient-resources.html.twig' %}
+
+      </div>
+
+      <div class="tab-pane fade" role="tabpanel" id="carenow"
+           aria-labelledby="carenow-tab">
+
+        {% include 'node--uwm-medical-service.care-now.html.twig' %}
+
+      </div>
+    </div>
+
+    <div id="condition-spotlight" class="condition-spotlight">
+      {{ content.field_condition_spotlight }}
+    </div>
+  </section>
+</article>

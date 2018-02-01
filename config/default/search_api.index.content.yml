@@ -27,6 +27,8 @@ field_settings:
           page: default
           landing_page: full
           homepage: default
+          uwm_medical_service: default
+          condition_spotlight: default
   label:
     label: Label
     property_path: aggregated_field

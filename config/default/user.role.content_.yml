@@ -67,6 +67,7 @@ permissions:
   - 'use published_archived transition'
   - 'use published_draft transition'
   - 'use published_published transition'
+  - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format rich_text'
   - 'use text format simple_formatted_text'
