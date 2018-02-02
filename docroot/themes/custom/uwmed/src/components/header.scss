@@ -1,21 +1,26 @@
 body > header {
-  
+
   .row.purple {
 
     color: #fff;
-    padding: 1em 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background: $uwmed-gradient-light-to-dark;
 
     .header-logo {
 
       a.logo {
-        margin: 10px 15px;
+        margin: 10px 0 0 30px;
         display: inline-block;
       }
 
     }
 
     .header-search {
+
+      @extend .pull-right;
+      //@TODO: Make a lrg-only rule:
+      margin: 0 30px 0 20px;
 
       input.form-control {
         background-color: rgba(255, 255, 255, 0.5);
@@ -29,7 +34,7 @@ body > header {
       i.fa.fa-search {
         position: absolute;
         right: 0;
-        top: 4px;
+        top: 3px;
         font-size: 16px;
         cursor: pointer;
         z-index: 10;
@@ -41,12 +46,14 @@ body > header {
 
     .quick-links {
 
-      li {
+      ul, li {
         @extend .pull-right;
       }
 
       li > a {
         color: #fff;
+        padding-left: 8px;
+        padding-right: 8px;
         &:hover {
           color: #fff;
           background-color: transparent;
@@ -71,96 +78,97 @@ body > header {
 
   .row.white {
 
-    height: 50px;
+    box-shadow: 0 1px 8px #dcdcdc;
 
     .header-main-navigation {
 
       .navbar {
-
+        min-height: 0;
         margin: 0;
+      }
 
-        ul.navbar-nav > li {
+      ul.navbar-nav > li {
 
-          padding: 0;
+        padding: 0;
 
-          a {
+        > a, > a.dropdown-toggle {
 
-            &:hover {
-              color: #3375d4;
-              background: transparent;
-            }
-            &.dropdown-toggle:after {
-              // More forgiving hover zone
-              position: absolute;
-              left: 0;
-              right: 0;
-              top: 0;
-              bottom: -4px;
-              content: "";
-              z-index: 2;
-            }
+          padding: 10px 15px;
+
+          &:hover {
+            color: #3375d4;
+            background: transparent;
           }
-
-          ul.dropdown-menu {
-
-            box-shadow: none;
+          &.dropdown-toggle:after {
             // More forgiving hover zone
-            margin: 0 0 0 -4px;
-            border-top: 0 solid transparent;
-            background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 2%);
-            //transition: all 850ms linear;
-            width: 300px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: -4px;
+            content: "";
+            z-index: 2;
+          }
+        }
 
-            li {
+        ul.dropdown-menu {
 
-              a {
-                margin: 10px;
-                padding: 10px;
-                border-bottom: 1px solid #e5e5e6;
+          box-shadow: none;
+          // More forgiving hover zone
+          margin: 0 0 0 -4px;
+          border-top: 0 solid transparent;
+          background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 2%);
+          //transition: all 850ms linear;
+          width: 300px;
 
-                i.fa {
-                  float: right;
-                  display: block;
-                  padding: 2px 0 0 0;
-                }
-                &.anchor, &[href^="#"] {
-                  color: #3375d4;
-                  font-style: italic;
-                  padding-top: 20px;
-                }
+          li {
 
-              }
-              &:last-child > a {
-                border-bottom: none;
-              }
+            a {
+              margin: 10px;
+              padding: 10px;
+              border-bottom: 1px solid #e5e5e6;
 
-            }
-
-            li.dropdown-submenu {
-
-              a {
-                border-bottom: 1px solid transparent;
-              }
-
-              ul.dropdown-menu {
+              i.fa {
+                float: right;
                 display: block;
-                position: relative;
-                padding: 0 20px 10px;
-                border: 0 none;
+                padding: 2px 0 0 0;
+              }
+              &.anchor, &[href^="#"] {
+                color: #3375d4;
+                font-style: italic;
+                padding-top: 20px;
+              }
 
-                li {
+            }
+            &:last-child > a {
+              border-bottom: none;
+            }
 
-                  a {
-                    border: 0 none;
-                    padding-left: 20px;
-                    padding-top: 0;
-                    &.anchor, &[href^="#"] {
-                      color: #3375d4;
-                      font-style: italic;
-                      padding-top: 20px;
-                    }
+          }
+
+          li.dropdown-submenu {
+
+            a {
+              border-bottom: 1px solid transparent;
+            }
+
+            ul.dropdown-menu {
+              display: block;
+              position: relative;
+              padding: 0 20px 10px;
+              border: 0 none;
+
+              li {
+
+                a {
+                  border: 0 none;
+                  padding-left: 20px;
+                  padding-top: 0;
+                  &.anchor, &[href^="#"] {
+                    color: #3375d4;
+                    font-style: italic;
+                    padding-top: 20px;
                   }
-
                 }
 
               }
@@ -169,62 +177,54 @@ body > header {
 
           }
 
-          i.uw-b {
-            @include uw-skew(-15deg);
-            width: 1px;
-            height: 30px;
-            opacity: .2;
-            background: #000;
-            display: inline-block;
-            margin: 10px 6px 0 6px;
-            box-shadow: 0 3px 0;
-          }
+        }
 
+        i.uw-b {
+          @include uw-skew(-15deg);
+          width: 1px;
+          height: 20px;
+          opacity: .2;
+          background: #000;
+          display: inline-block;
+          margin: 10px 6px 0 6px;
+          box-shadow: 0 3px 0;
         }
 
       }
 
     }
 
-    .make-gift {
+    .make-a-gift {
 
       overflow: hidden;
+      padding-left: 0;
+      padding-right: 0;
 
-      .wrap {
-        position: relative;
-        float: right;
-        background: #e5e5e6;
-        margin-right: -15px;
-        padding-right: 15px;
-
-        .bg {
-          @include uw-skew(-7.5deg);
+      .bg-c {
+        .bg-i {
+          @include uw-skew(-18deg);
           position: absolute;
-          background: #e5e5e6;
-          border-left: 4px solid #CFCFCF;
+          background: #fff;
+          border-right: 5px solid #CFCFCF;
           width: 50px;
           height: 100px;
           left: -25px;
           top: -25px;
         }
-        .nav li a {
-          display: inline-block;
-          font-variant: all-small-caps;
+      }
+
+      ul.menu.nav {
+        background: #e5e5e6;
+        li a {
+          @extend .pull-right;
           font-size: 12px;
+          text-transform: uppercase;
+          padding: 13px 45px 17px 0;
           &:hover {
             background: transparent;
           }
         }
-
       }
-
-    }
-
-    .shadow {
-      height: 6px;
-
-      box-shadow: 0 3px 6px #dcdcdc;
-      margin-top: -8px;
 
     }
 
