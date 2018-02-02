@@ -4,427 +4,415 @@
 
 body.page-node-type-uwm-clinic {
 
-  h1.page-header {
+  h1.page-header, .field--label {
     @extend .hidden;
   }
 
-  article.uwm-clinic {
+  div.main-container {
 
-    section {
+    padding-left: 0;
+    padding-right: 0;
 
-      @extend .col-xs-12;
-      padding-bottom: 40px;
+    article.uwm-clinic {
 
-      div.field {
-        div.field--label {
-        }
-      }
+      section {
 
-      div.field.field--name-field-content-blocks,
-      div.field.field--name-field-bottom-content-blocks {
+        @extend .col-xs-12;
+        padding-bottom: 40px;
 
-        @extend .row;
-
-        div.paragraph {
-          @extend .col-sm-6;
-          @extend .col-md-4;
-
-          p.h1.hero__heading {
-            display: none;
-          }
-          ul, li {
-            margin: 0;
-            padding: 0;
+        div.field {
+          div.field--label {
           }
         }
-      }
 
-      h1.page-header, .field--label {
-        @extend .hidden;
-      }
-      h2.accent, h3.accent {
-        @include uw-bottom-accent-heading($uwmed-accent-blue);
-      }
+        div.field.field--name-field-content-blocks,
+        div.field.field--name-field-bottom-content-blocks {
 
-      div.field.field--name-field-link {
+          @extend .row;
 
-        //.item {
-        //  @include uw-ghost-button('a', 'i.u-ips');
-        //}
+          div.paragraph {
+            @extend .col-sm-6;
+            @extend .col-md-4;
 
-        @include uw-ghost-button('.item', 'i.u-ips');
-
-      }
-
-      div.field.field--name-field-links-paragraph {
-        float: left;
-        width: 100%;
-
-        .item {
-          &:last-child li a.btn.btn-default {
-            border-bottom: 1px solid #dcdc;
-          }
-
-          li {
-            list-style-type: none;
-          }
-
-          a.btn.btn-default {
-            @extend .col-xs-12;
-            margin: 0;
-            padding: 8px 0 8px 30px;
-            border: 0 none;
-            border-top: 1px solid #dcdc;
-            text-align: left;
-            text-decoration: none;
-
-            &:hover {
-              background-color: transparent;
-              text-decoration: underline;
+            p.h1.hero__heading {
+              display: none;
             }
-
-            span.uwmed-icon {
-              //@extend .fa .fa-heartbeat;
-              @include uw-awesome-ico();
-              float: left;
-              margin: -1px 0 0 -30px;
-
-              //&:after {
-              //  //.fa-heartbeat:before
-              //  content: "\f21e";
-              //  position: absolute;
-              //  top: 0;
-              //  left: 0;
-              //  right: 0;
-              //  bottom: 0;
-              //  background: white;
-              //}
-            }
-
-            span.fa-angle-right {
-              float: right;
-            }
-          }
-        }
-      }
-
-    }
-
-    section.clinic-header {
-
-      @extend %gray-background;
-      margin-top: -6px;
-      padding-top: 20px;
-
-      .field.field--name-field-clinic-image .field--label {
-        @extend .hidden;
-      }
-
-      .field--name-field-clinic-image {
-
-        img.img-responsive {
-          display: block;
-          max-width: 100%;
-          height: auto;
-        }
-      }
-
-      h1, h1 a, h4, h4 a {
-        color: $uwmed-light-purple;
-      }
-
-      .left {
-
-        div.l {
-
-          padding: 15px 2px;
-          border-top: 1px solid #dcdcdc;
-          border-bottom: 1px solid transparent;
-          color: $uwmed-pop-blue;
-          font-size: 15px;
-
-          a {
-            color: $uwmed-pop-blue;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-
-            .fa {
-              float: right;
-              padding-top: 3px;
+            ul, li {
+              margin: 0;
+              padding: 0;
             }
           }
         }
 
-        div.ll {
-          border-bottom: 1px solid #dcdcdc;
-          //border-bottom-color: transparent;
+
+        h2.accent, h3.accent {
+          @include uw-bottom-accent-heading($uwmed-accent-blue);
         }
 
-        .get-in-line {
-          display: none;
-          margin-top: 20px;
-          box-shadow: 1px 1px 10px 1px #dcdcdc;
-          background: #f8f8f8;
-          padding-bottom: 20px;
-          background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
-          color: $uwmed-body-text-color;
-          font-size: 28px;
+        div.field.field--name-field-link {
+          @include uw-ghost-button('.item', 'i.u-ips');
 
-          h4 {
-            border-bottom: 5px solid transparent;
-            border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        }
 
-            a, a:hover {
-              float: right;
-              margin: 0 8px 0 4px;
-              font-size: 14px;
-              font-variant: all-small-caps;
-              text-decoration: none;
-              color: $uwmed-pop-blue;
+        div.field.field--name-field-links-paragraph {
+          float: left;
+          width: 100%;
 
-              .fa {
-                margin: 0 0 0 5px;
-              }
+          .item {
+            &:last-child li a.btn.btn-default {
+              border-bottom: 1px solid #dcdc;
             }
-          }
-
-          .wait span.m {
-            font-size: 34px;
-            font-weight: 600;
-            color: $uwmed-light-purple;
-          }
-        }
-      }
-
-      .clinic-hours-container {
-
-        min-height: 300px;
-        .clinic-hours-table {
-          margin-bottom: 40px;
-
-          p.opens-at {
-            border-bottom: 4px solid transparent;
-            border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
-            padding: 6px 20px 6px 0;
-            margin-bottom: 6px;
-          }
-
-          ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
 
             li {
               list-style-type: none;
-              margin: 0 0 6px 0;
-              float: left;
-              width: 100%;
+            }
+
+            a.btn.btn-default {
+              @extend .col-xs-12;
+              margin: 0;
+              padding: 8px 0 8px 30px;
+              border: 0 none;
+              border-top: 1px solid #dcdc;
+              text-align: left;
+              text-decoration: none;
+
+              &:hover {
+                background-color: transparent;
+                text-decoration: underline;
+              }
+
+              span.uwmed-icon {
+
+                @include uw-awesome-ico();
+                float: left;
+                margin: -1px 0 0 -30px;
+
+              }
+
+              span.fa-angle-right {
+                float: right;
+              }
+            }
+          }
+        }
+
+      }
+
+      section.clinic-header {
+
+        @extend %uwmed-gradient-angled-background;
+        margin-top: -6px;
+        padding-top: 20px;
+
+        h1, h1 a, h4, h4 a {
+          color: $uwmed-light-purple;
+        }
+
+        .left {
+
+          div.l {
+
+            padding: 15px 2px;
+            border-top: 1px solid #dcdcdc;
+            border-bottom: 1px solid transparent;
+            color: $uwmed-pop-blue;
+            font-size: 15px;
+
+            a {
+              color: $uwmed-pop-blue;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+
+              .fa {
+                float: right;
+                padding-top: 3px;
+              }
             }
           }
 
-          span.day {
+          div.ll {
+            border-bottom: 1px solid #dcdcdc;
+            //border-bottom-color: transparent;
+          }
+
+          .clinic-image {
+            min-height: 170px;
+            img.img-responsive {
+              display: block;
+              max-width: 100%;
+              height: auto;
+            }
+          }
+
+          .get-in-line {
+            display: none;
+            margin-top: 20px;
+            box-shadow: 1px 1px 10px 1px #dcdcdc;
+            background: #f8f8f8;
+            padding-bottom: 20px;
+            background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right no-repeat $uwmed-white;
+            color: $uwmed-body-text-color;
+            font-size: 28px;
+
+            h4 {
+              border-bottom: 5px solid transparent;
+              border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
+              padding-bottom: 10px;
+              margin-bottom: 20px;
+
+              a, a:hover {
+                float: right;
+                margin: 0 8px 0 4px;
+                font-size: 14px;
+                font-variant: all-small-caps;
+                text-decoration: none;
+                color: $uwmed-pop-blue;
+
+                .fa {
+                  margin: 0 0 0 5px;
+                }
+              }
+            }
+
+            .wait span.m {
+              font-size: 34px;
+              font-weight: 600;
+              color: $uwmed-light-purple;
+            }
+          }
+        }
+
+        .clinic-hours-container {
+
+          min-height: 300px;
+          .clinic-hours-table {
+            margin-bottom: 40px;
+
+            p.opens-at {
+              border-bottom: 4px solid transparent;
+              border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
+              padding: 6px 20px 6px 0;
+              margin-bottom: 6px;
+            }
+
+            ul {
+              margin: 0;
+              padding: 0;
+              list-style-type: none;
+
+              li {
+                list-style-type: none;
+                margin: 0 0 6px 0;
+                float: left;
+                width: 100%;
+              }
+            }
+
+            span.day {
+              float: left;
+            }
+
+            span.hours {
+              float: right;
+            }
+          }
+
+        }
+        .u-911 {
+          @extend .sml-italic;
+          padding-left: 50px;
+
+          .u-911i {
+            @extend .pull-left;
+            margin: 0 0 0 -50px;
+            height: 50px;
+            width: 50px;
+            background: url('#{$uw-images-folder}/911_Icon.png') top left no-repeat;
+          }
+        }
+
+        address {
+          @extend .h4;
+          color: $uwmed-pop-blue;
+          a {
+            color: $uwmed-pop-blue;
+            text-decoration: none;
+          }
+
+          i.uw-s {
+            @include uw-separator();
+            @include uw-skew(-15deg);
+            height: 22px;
+            width: 10px;
+            margin: 0 16px -2px 8px;
+            border-right: 1px solid $uwmed-light-gray;
+          }
+        }
+
+      }
+
+      section.clinic-tabs {
+
+        ul.uwm-nav-tabs {
+
+          @extend %gray-background;
+          margin: 0 -15px;
+          border-bottom: 1px solid #dcdcdc;
+
+          > li:first-child > a {
+            margin-left: 40px;
+          }
+
+        }
+
+        div.uwm-tab-content {
+          min-height: 200px;
+          border: 0 none;
+          //padding: 12px 0;
+
+          li {
+            list-style: none;
+            margin-bottom: 1em;
+          }
+
+          li .fa {
+            padding: 0 10px 0 0;
+            color: purple;
+          }
+
+          .prov-block img {
+            max-width: 150px;
             float: left;
           }
 
-          span.hours {
-            float: right;
+          .view-more {
+            text-align: center;
+            margin: 40px 0 10px 0;
+            border-top: 1px solid #999;
           }
-        }
 
-      }
-      .u-911 {
-        @extend .sml-italic;
-        padding-left: 50px;
+          // sub nav-tabs
+          ul.nav-tabs {
 
-        .u-911i {
-          @extend .pull-left;
-          margin: 0 0 0 -50px;
-          height: 50px;
-          width: 50px;
-          background: url('#{$uw-images-folder}/911_Icon.png') top left no-repeat;
-        }
-      }
-
-      address {
-        @extend .h4;
-        color: $uwmed-pop-blue;
-        a {
-          color: $uwmed-pop-blue;
-          text-decoration: none;
-        }
-
-        i.uw-s {
-          @include uw-separator();
-          @include uw-skew(-15deg);
-          height: 22px;
-          width: 10px;
-          margin: 0 16px -2px 8px;
-          border-right: 1px solid $uwmed-light-gray;
-        }
-      }
-
-    }
-
-    section.clinic-tabs {
-
-      ul.uwm-nav-tabs {
-
-        @extend %gray-background;
-        margin: 0 -15px;
-        border-bottom: 1px solid #dcdcdc;
-
-        > li:first-child > a {
-          margin-left: 40px;
-        }
-
-      }
-
-      div.uwm-tab-content {
-        min-height: 200px;
-        border: 0 none;
-        padding: 12px 0;
-
-        li {
-          list-style: none;
-          margin-bottom: 1em;
-        }
-
-        li .fa {
-          padding: 0 10px 0 0;
-          color: purple;
-        }
-
-        .prov-block img {
-          max-width: 150px;
-          float: left;
-        }
-
-        .view-more {
-          text-align: center;
-          margin: 40px 0 10px 0;
-          border-top: 1px solid #999;
-        }
-
-        // sub nav-tabs
-        ul.nav-tabs {
-
-          border: 0 none;
-          > li.active > a, > li.active > a:hover, > li.active > a:focus {
-            border: 1px solid green;
-          }
-          > li.disabled {
-            opacity: .4;
-          }
-          > li.active a {
-            i.uw-ico {
-              fill: green;
+            border: 0 none;
+            > li.active > a, > li.active > a:hover, > li.active > a:focus {
+              border: 1px solid green;
             }
+            > li.disabled {
+              opacity: .4;
+            }
+            > li.active a {
+              i.uw-ico {
+                fill: green;
+              }
+            }
+
           }
 
-        }
+          .directions-tab {
 
-        .directions-tab {
+            .directions-map-wrapper {
+              position: relative;
+              margin-bottom: 30px;
+              padding-bottom: 75%; // This is the aspect ratio
+              height: 0;
+              overflow: hidden;
 
-          .directions-map-wrapper {
-            position: relative;
-            margin-bottom: 30px;
-            padding-bottom: 75%; // This is the aspect ratio
-            height: 0;
-            overflow: hidden;
-
-            iframe {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100% !important;
-              height: 100% !important;
+              iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+              }
             }
+
           }
 
-        }
+          .providers-tab {
 
-        .providers-tab {
+            .provider {
 
-          .provider {
+              border-bottom: 1px solid #dcdcdc;
+              border-right: 1px solid #dcdcdc;
 
-            border-bottom: 1px solid #dcdcdc;
-            border-right: 1px solid #dcdcdc;
-
-            &.odd {
-              border-right-color: transparent;
-            }
-            &.even.loop-last, &.even.loop-last-1 {
-              border-bottom-color: transparent;
-
-            }
-            .wrapper {
-              padding: 20px;
-
-              .profile-image {
-
-                @extend .pull-left;
-
-                margin: 0 20px 20px 0;
-                width: 180px;
-                max-width: 35%;
-                height: 240px;
-                background-image: none;
-                background-repeat: no-repeat;
-                background-position: 50% 0;
-                background-size: 103% auto;
-
-                img {
-                  @extend .hidden;
-                }
+              &.odd {
+                border-right-color: transparent;
+              }
+              &.even.loop-last, &.even.loop-last-1 {
+                border-bottom-color: transparent;
 
               }
+              .wrapper {
 
-              .profile-details {
+                padding-top: 20px;
+                padding-bottom: 20px;
 
-                > div, h4 {
-                  margin: 0 0 20px 0;
-                }
+                .profile-image {
 
-                .specialities {
+                  @extend .pull-left;
 
-                  i.toggle {
-                    cursor: pointer;
-                  }
-                  .collapse.in {
-                    display: initial;
-                  }
-
-                }
-
-              }
-
-              i.fa-check-circle {
-                color: green;
-              }
-              i.fa-ban {
-                color: red;
-              }
-
-              div.accepting-apts-cta {
-
-                @include uw-ghost-button('a.btn', 'i.u-ips', $uwmed-light-purple);
-                margin: 0;
-                width: 100%;
-
-                a.btn {
+                  margin: 0 20px 20px 0;
                   width: 180px;
-                  padding: 4px;
-                  &.disabled {
-                    opacity: .4;
+                  max-width: 35%;
+                  height: 240px;
+                  background-image: none;
+                  background-repeat: no-repeat;
+                  background-position: 50% 0;
+                  background-size: 103% auto;
+
+                  img {
+                    @extend .hidden;
                   }
-                  &:hover {
-                    color: $uwmed-white;
+
+                }
+
+                .profile-details {
+
+                  > div, h4 {
+                    margin: 0 0 20px 0;
                   }
+
+                  .specialities {
+
+                    i.toggle {
+                      cursor: pointer;
+                    }
+                    .collapse.in {
+                      display: initial;
+                    }
+
+                  }
+
+                }
+
+                i.fa-check-circle {
+                  color: green;
+                }
+                i.fa-ban {
+                  color: red;
+                }
+
+                div.accepting-apts-cta {
+
+                  @include uw-ghost-button('a.btn', 'i.u-ips', $uwmed-light-purple);
+                  margin: 0;
+                  width: 100%;
+
+                  a.btn {
+                    width: 180px;
+                    padding: 4px;
+                    &.disabled {
+                      opacity: .4;
+                    }
+                    &:hover {
+                      color: $uwmed-white;
+                    }
+                  }
+
                 }
 
               }
@@ -437,85 +425,86 @@ body.page-node-type-uwm-clinic {
 
       }
 
-    }
+      section.services {
 
-    section.services {
-
-      ul {
-        li {
-          @extend .col-xs-12, .col-sm-6, .col-md-3;
+        ul {
+          li {
+            @extend .col-xs-12, .col-sm-6, .col-md-3;
+          }
         }
+
       }
 
-    }
+      section.clinic-paragraphs {
 
-    section.clinic-paragraphs {
-
-      position: relative;
-      padding: 0 25px;
-      background-color: #f8f8f8;
-      min-height: 320px;
-
-      .bg {
-        @include angled-edge('inside bottom', 'upper right', #f8f8f8);
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 320px;
-        opacity: .9;
+        position: relative;
+        padding: 0 25px;
         background-color: #f8f8f8;
-        background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
-        background-size: cover;
+        min-height: 320px;
 
-        &::after {
-          bottom: 0;
+        .bg {
+          @include angled-edge('inside bottom', 'upper right', #f8f8f8);
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 320px;
+          opacity: .9;
+          background-color: #f8f8f8;
+          background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
+          background-size: cover;
+
+          &::after {
+            bottom: 0;
+          }
         }
-      }
 
-      div.paragraph > .wrapper, h2.bi-line {
-        @extend .col-xs-12;
-        margin: 30px 0;
-        padding: 20px 28px;
-        background: $uwmed-white;
-        opacity: .8;
-        box-shadow: 0 0 4px 0 #dcdcdc;
+        div.paragraph > .wrapper, h2.bi-line {
+          @extend .col-xs-12;
+          margin: 30px 0;
+          padding: 20px 28px;
+          background: $uwmed-white;
+          opacity: .8;
+          box-shadow: 0 0 4px 0 #dcdcdc;
 
-      }
-
-      div.field.field--name-field-heading {
-        .item {
-          @extend .h3;
-          @include uw-bottom-accent-heading();
         }
-      }
 
-    }
-
-    section.clinic-body {
-
-      background-color: #f8f8f8;
-      margin-bottom: 30px;
-      padding: 20px 45px 45px 45px;
-
-    }
-
-    section.clinic-foot-paragraphs {
-
-      div.field.field--name-field-bottom-content-blocks-head {
-        .item {
-          @include uw-bottom-accent-heading();
-          @extend .h3;
+        div.field.field--name-field-heading {
+          .item {
+            @extend .h3;
+            @include uw-bottom-accent-heading();
+          }
         }
+
       }
 
-      div.field.field--name-field-heading {
-        .item {
-          @extend .h4;
+      section.clinic-body {
+
+        background-color: #f8f8f8;
+        margin-bottom: 30px;
+        padding-top: 20px;
+        padding-bottom: 45px;
+
+      }
+
+      section.clinic-foot-paragraphs {
+
+        div.field.field--name-field-bottom-content-blocks-head {
+          .item {
+            @include uw-bottom-accent-heading();
+            @extend .h3;
+            margin-bottom: 40px
+          }
         }
-      }
 
-      .paragraph {
-        border-left: 1px solid #dcdcdc
+        div.field.field--name-field-heading {
+          .item {
+            @extend .h4;
+          }
+        }
+
+        .paragraph {
+          border-left: 1px solid #dcdcdc
+        }
       }
     }
   }

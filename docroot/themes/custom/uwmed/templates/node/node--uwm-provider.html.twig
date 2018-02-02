@@ -152,10 +152,10 @@ view_mode ? view_mode|clean_class,
             <div class="row tab-pane locations-tab" role="tabpanel"
                  id="locations" aria-labelledby="locations-tab">
 
-                <h4>Locations</h4>
-                {% set n = locations|length %}
-                <p class="location-count">{{ "@count location@s" | t({'@count': n,
-                        '@s': (n != 1 ? 's': '')}) }}</p>
+                {#<h4>Locations</h4>#}
+                {#{% set n = locations|length %}#}
+                {#<p class="location-count">{{ "@count location@s" | t({'@count': n,#}
+                        {#'@s': (n != 1 ? 's': '')}) }}</p>#}
 
                 {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
 
@@ -166,7 +166,7 @@ view_mode ? view_mode|clean_class,
                  id="education" aria-labelledby="providers-tab">
 
                 {% if _bio.educationHistories %}
-                    <h4>Education</h4>
+                    {#<h4>Education</h4>#}
 
                     {% for e in _bio.educationHistories %}
 
