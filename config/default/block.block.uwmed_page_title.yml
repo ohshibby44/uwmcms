@@ -9,7 +9,7 @@ _core:
 id: uwmed_page_title
 theme: uwmed
 region: content
-weight: -3
+weight: -4
 provider: null
 plugin: page_title_block
 settings:
