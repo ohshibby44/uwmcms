@@ -5,11 +5,11 @@ body.page-node-type-uwm-clinic {
     .visible-xs-block.m-head {
 
       .m-image {
-
+        min-height: 80px;
         position: relative;
         h1 {
           position: absolute;
-          bottom: 10px;
+          bottom: 0;
           left: 10px;
           text-align: center;
 

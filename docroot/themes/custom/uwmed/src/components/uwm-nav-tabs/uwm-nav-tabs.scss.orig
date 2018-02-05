@@ -3,6 +3,8 @@
 // Custom styling for Bootstrap nav-tabs element.
 //
 
+
+//
 ul.uwm-nav-tabs {
 
   border-bottom: 1px solid #dcdcdc;
@@ -21,7 +23,11 @@ ul.uwm-nav-tabs {
 
   }
 
+<<<<<<< HEAD
   > li.active > a, > li.active > a:hover, > li.active > a:focus {
+=======
+  > li.active > a, > li.active > a:focus {
+>>>>>>> origin/develop
     color: $uwmed-light-purple;
     background: $uwmed-white;
     border: 0 none;

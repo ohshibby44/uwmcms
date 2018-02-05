@@ -82,8 +82,21 @@
                                 {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
                             </li>
 
+<<<<<<< HEAD
                         {% endif %}
                     {% else %}
+=======
+                                <li class="dropdown-submenu">
+                                    {#<a href="{{ item.url }}">{{ item.title }}#}
+
+                                    <a href="{{ item.url }}"
+                                       class="dropdown-toggle"
+                                       data-toggle="dropdown">{{ item.title }}
+                                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </a>
+                                    {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+                                </li>
+>>>>>>> origin/develop
 
                         <li {{ item.attributes }}>
 
@@ -97,6 +110,7 @@
 
                             {% else %}
 
+<<<<<<< HEAD
                                 {% set title %}
                                     <i class="fa u-a"
                                             aria-hidden="true"></i>
@@ -105,6 +119,27 @@
                                         aria-hidden="true"></i>
                                 {% endset %}
                                 {{ link(title, item.url) }}
+=======
+                            <li {{ item.attributes }}>
+
+                                {% if (item.url|render) starts with "#" %}
+
+                                    <a class="anchor">{{ item.title }}</a>
+
+                                {% elseif (item.url|render) is empty %}
+
+                                    <a class="anchor">{{ item.title }}</a>
+
+                                {% else %}
+
+                                    {% set title %}
+                                        {{ item.title }} <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {% endset %}
+                                    {{ link(title, item.url) }}
+
+                                {% endif %}
+
+>>>>>>> origin/develop
 
                             {% endif %}
 

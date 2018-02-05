@@ -209,12 +209,27 @@ view_mode ? view_mode|clean_class,
                 {% endif %}
 
                 {% if content.body |render is not empty %}
+<<<<<<< HEAD
 
                     <section class="clinic-body">
+=======
+                    <section class="clinic-body">
+
+                        <h3 class="accent">{{ "Clinic Overview"|t }}</h3>
+
+                        <div{{ content_attributes.addClass('content') }}>
+                            {{ content.body }}
+                            {#{{ content }}#}
+                        </div>
+
+                    </section>
+                {% endif %}
+>>>>>>> origin/develop
 
                         <div class="col-xs-12">
                             <h3 class="accent">{{ "Clinic Overview"|t }}</h3>
 
+<<<<<<< HEAD
                             <div{{ content_attributes.addClass('content') }}>
                                 {{ content.body }}
                                 {#{{ content }}#}
@@ -246,6 +261,27 @@ view_mode ? view_mode|clean_class,
 
                     {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
                 </div>
+=======
+            </div>
+
+            <div class="row tab-pane directions-tab" role="tabpanel"
+                 id="directions" aria-labelledby="directions-tab">
+
+                <h3 class="accent">Directions & Parking</h3>
+
+                {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+
+
+            </div>
+
+            <div class="row tab-pane providers-tab" role="tabpanel"
+                 id="providers" aria-labelledby="providers-tab">
+
+                <h3 class="accent">Care Providers</h3>
+
+                {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
+
+>>>>>>> origin/develop
 
             </div>
         </div>

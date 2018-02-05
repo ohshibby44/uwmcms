@@ -10,6 +10,7 @@ body {
 
   div.main-container {
 
+<<<<<<< HEAD
     > .wrapper {
 
       .page-left {
@@ -34,6 +35,33 @@ body {
               margin: 0 0 5px 0;
               padding: 4px;
 
+=======
+    .page-left {
+    }
+
+
+    .page-right {
+
+
+    }
+    .page-center {
+
+      min-height: 400px;
+
+        article {
+
+
+          .paragraph {
+
+            input {
+              width: 100%;
+              background: #dcdcdc;
+              opacity: .6;
+              border: 1px solid darken(#dcdcdc, 15%);
+              margin: 0 0 5px 0;
+              padding: 4px;
+
+>>>>>>> origin/develop
               &::placeholder {
                 text-transform: uppercase;
               }
@@ -44,9 +72,14 @@ body {
             }
           }
 
+<<<<<<< HEAD
         }
       }
 
+=======
+
+      }
+>>>>>>> origin/develop
     }
   }
 
