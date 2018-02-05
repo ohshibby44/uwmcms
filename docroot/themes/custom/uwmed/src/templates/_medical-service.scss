@@ -632,6 +632,7 @@
       padding-bottom: $padding-base-vertical;
     }
 
+
     .field--name-field-link a {
       @extend .btn;
       @extend .btn-default;
@@ -702,6 +703,10 @@
         margin-right: 15px;
         margin-bottom: 19px;
         width: 100%;
+      }
+
+      .quizPhoto {
+        margin-bottom: 19px;
       }
 
       .h4 {

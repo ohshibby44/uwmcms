@@ -18,6 +18,7 @@
 
       // detect media query change and turn condition spotlight swipe on/off
       function WidthChange(mq) {
+
         if (mq.matches) {
           // window width is less than 1200px
           window.conditionSpotlightSwipe = $('.condition-spotlight__content').Swipe({
