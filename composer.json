@@ -54,7 +54,6 @@
         "drupal/media_entity_soundcloud": "^1.0@RC",
         "drupal/taxonomy_menu": "^3.3",
         "drupal/menu_block": "^1.4",
-        "drupal/field_permissions": "^1.0@beta",
         "drupal/permissions_by_term": "^1.19",
         "drupal/views_taxonomy_term_name_depth": "^1.2",
         "drupal/date": "1.x-dev",
@@ -87,7 +86,8 @@
         "drupal/menu_export": "^1.0",
         "drupal/simple_oauth": "^3.3",
         "drupal/externalauth": "^1.0",
-        "drupal/paragraphs_admin": "^1.0"
+        "drupal/paragraphs_admin": "^1.0",
+        "drupal/xmlsitemap": "^1.0@alpha"
     },
     "require-dev": {},
     "extra": {
