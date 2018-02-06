@@ -83,7 +83,7 @@ body.page-node-type-uwm-clinic {
 
               span.uwmed-icon {
 
-                @include uw-awesome-ico();
+                //@include uw-awesome-ico();
                 float: left;
                 margin: -1px 0 0 -30px;
 
@@ -101,7 +101,6 @@ body.page-node-type-uwm-clinic {
       section.clinic-header {
 
         @extend %uwmed-gradient-angled-background;
-        margin-top: -6px;
         padding-top: 20px;
 
         h1, h1 a, h4, h4 a {
@@ -258,8 +257,8 @@ body.page-node-type-uwm-clinic {
 
         ul.uwm-nav-tabs {
 
-          //@extend %gray-background;
-          margin: 0 -15px;
+          @extend %uwmed-gradient-angled-background;
+          margin: 0x -15px;
           border-bottom: 1px solid #dcdcdc;
 
           > li:first-child > a {

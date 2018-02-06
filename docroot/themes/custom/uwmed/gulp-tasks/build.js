@@ -9,6 +9,7 @@ module.exports = function (gulp, plugins, options) {
   'use strict';
 
   gulp.task('build', [
+    'move:assets',
     'compile:sass',
     'minify:css',
     'compile:styleguide',
@@ -22,6 +23,7 @@ module.exports = function (gulp, plugins, options) {
   ]);
 
   gulp.task('build:dev', [
+    'move:assets',
     'compile:sass',
     'minify:css',
     'compile:styleguide',

@@ -87,6 +87,10 @@ var path = require('path');
 
 // These are used in the options below.
 var paths = {
+    assets: {
+        source: 'src/assets',
+        destination: 'dist/assets'
+    },
     styles: {
         source: 'src/scss',
         destination: 'dist/styles',
@@ -128,6 +132,13 @@ var options = {
         open: 'external',
         xip: true,
         logConnections: true
+    },
+
+    // ----- ASSETS ----- //
+
+    assets: {
+        files: path.join(paths.assets.source, '**/*'),
+        destination: path.join(paths.assets.destination)
     },
 
     // ----- CSS ----- //
@@ -236,6 +247,7 @@ var options = {
 };
 
 // Tasks
+require('./gulp-tasks/move-assets')(gulp, plugins, options);
 require('./gulp-tasks/browser-sync')(gulp, plugins, options);
 require('./gulp-tasks/build')(gulp, plugins, options);
 require('./gulp-tasks/clean')(gulp, plugins, options);
