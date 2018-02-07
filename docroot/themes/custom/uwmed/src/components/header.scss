@@ -243,6 +243,18 @@ body > header {
     padding-left: 0;
   }
 
+  .row.shadow {
+    margin: 0;
+    height: 1px;
+    background: #dcdcdc;
+    box-shadow: 0 2px 2px #dcdcdc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
 }
 
 

@@ -257,8 +257,7 @@ body.page-node-type-uwm-clinic {
 
         ul.uwm-nav-tabs {
 
-          @extend %uwmed-gradient-angled-background;
-          margin: 0x -15px;
+          margin: 0 -15px;
           border-bottom: 1px solid #dcdcdc;
 
           > li:first-child > a {
