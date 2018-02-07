@@ -1,8 +1,11 @@
-
-
 //
 // --- UW Custom Icons
 //
+
+
+$uw-images-folder: '/themes/custom/uwmed/dist/assets';
+
+
 @font-face {
   font-family: 'uwmico';
   src: url('#{$uw-images-folder}/uwm-icons/font/uwm-ico.eot?af95ny');
@@ -15,19 +18,21 @@
 }
 
 
-i.uw-ico, span.uwmed-icon {
+i.uw-ico, .uwmed-icon {
 
-  font-family: 'uwmico' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  font-size: 22px;
+  &:before {
+    font-family: 'uwmico' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 22px;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+  }
 
   //@include uw-awesome-ico();
   b {
@@ -50,7 +55,12 @@ i.uw-ico, span.uwmed-icon {
   // -- CUSTOM FONT CHARACTERS:
   //
 
-  &.five_star_rating {
+  &.default:before,
+  &:before {
+    content: "\e901";
+  }
+
+  &.five_star_rating, &.uwmed-icon__5-star-rating {
     &.svg {
       //icon_5_star_rating.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_5_star_rating.svg');
@@ -59,7 +69,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e900";
     }
   }
-  &.accepting_patients {
+  &.accepting_patients, &.uwmed-icon__accepting-patients {
     &.svg {
       //icon_accepting_patients.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_accepting_patients.svg');
@@ -68,8 +78,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e901";
     }
   }
-  &.appointment,
-  &.uwmed-icon__appointment {
+  &.appointment, &.uwmed-icon__appointment {
     &.svg {
       //icon_appointment.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_appointment.svg');
@@ -78,7 +87,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e902";
     }
   }
-  &.bike, &.uw-ico-dir-biking {
+  &.bike, &.uw-ico-dir-biking, &.uwmed-icon__biking {
     &.svg {
       //icon_bike.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_bike.svg');
@@ -97,7 +106,7 @@ i.uw-ico, span.uwmed-icon {
       color: green; //@TODO
     }
   }
-  &.call_online {
+  &.call_online, &.uwmed-icon__phone-outline {
     &.svg {
       //icon_call_online.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_call_online.svg');
@@ -106,7 +115,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e904";
     }
   }
-  &.call_solid {
+  &.call_solid, &.uwmed-icon__phone-solid {
     &.svg {
       //icon_call_solid.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_call_solid.svg');
@@ -115,7 +124,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e905";
     }
   }
-  &.careers {
+  &.careers, &.uwmed-icon__careers {
     &.svg {
       //icon_careers.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_careers.svg');
@@ -124,7 +133,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e906";
     }
   }
-  &.clinic_locations {
+  &.clinic_locations, &.uwmed-icon__clinic-locations {
     &.svg {
       //icon_clinic_locations.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_clinic_locations.svg');
@@ -133,7 +142,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e907";
     }
   }
-  &.drive, &.uw-ico-dir-auto {
+  &.drive, &.uw-ico-dir-auto, &.uwmed-icon__driving {
     &.svg {
       //icon_drive.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_drive.svg');
@@ -152,7 +161,7 @@ i.uw-ico, span.uwmed-icon {
       color: green; //@TODO
     }
   }
-  &.driving_directions {
+  &.driving_directions, &.uwmed-icon__driving-directions {
     &.svg {
       //icon_driving_directions.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_driving_directions.svg');
@@ -161,7 +170,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e909";
     }
   }
-  &.email {
+  &.email, &.uwmed-icon__email {
     &.svg {
       //icon_email.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_email.svg');
@@ -170,7 +179,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e90a";
     }
   }
-  &.fb {
+  &.fb, &.uwmed-icon__facebook {
     &.svg {
       //icon_fb.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_fb.svg');
@@ -179,7 +188,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e90b";
     }
   }
-  &.find_a_doctor {
+  &.find_a_doctor, &.uwmed-icon__find-a-provider {
     &.svg {
       //icon_find_a_doctor.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_find_a_doctor.svg');
@@ -188,7 +197,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e90c";
     }
   }
-  &.find_a_location {
+  &.find_a_location, &.uwmed-icon__find-a-location {
     &.svg {
       //icon_find_a_location.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_find_a_location.svg');
@@ -235,7 +244,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e912";
     }
   }
-  &.medical_research {
+  &.medical_research &.uwmed-icon__medical-research {
     &.svg {
       //icon_medical_research.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_medical_research.svg');
@@ -244,7 +253,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e913";
     }
   }
-  &.medical_services {
+  &.medical_services, &.uwmed-icon__medical-service {
     &.svg {
       //icon_medical_services.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_medical_services.svg');
@@ -253,7 +262,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e914";
     }
   }
-  &.medical_specialists {
+  &.medical_specialists, &.uwmed-icon__medical-specialty {
     &.svg {
       //icon_medical_specialists.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_medical_specialists.svg');
@@ -262,7 +271,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e915";
     }
   }
-  &.my_location {
+  &.my_location, &.uwmed-icon__my-location {
     &.svg {
       //icon_my_location.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_my_location.svg');
@@ -271,7 +280,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e916";
     }
   }
-  &.not_accepting_patients {
+  &.not_accepting_patients, &.uwmed-icon__not-accepting-patients {
     &.svg {
       //icon_not_accepting_patients.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_not_accepting_patients.svg');
@@ -280,7 +289,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e917";
     }
   }
-  &.parking, &.uw-ico-dir-parking {
+  &.parking, &.uw-ico-dir-parking, &.uwmed-icon__parking-directions {
     &.svg {
       //icon_parking.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_parking.svg');
@@ -319,7 +328,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91a";
     }
   }
-  &.pinterest {
+  &.pinterest, &.uwmed-icon__pintrest {
     &.svg {
       //icon_pinterest.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_pinterest.svg');
@@ -328,7 +337,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91b";
     }
   }
-  &.print {
+  &.print, &.uwmed-icon__print {
     &.svg {
       //icon_print.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_print.svg');
@@ -337,7 +346,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91c";
     }
   }
-  &.provider {
+  &.provider, &.uwmed-icon__provider {
     &.svg {
       //icon_provider.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_provider.svg');
@@ -346,7 +355,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e920";
     }
   }
-  &.provider_bio {
+  &.provider_bio, &.uwmed-icon__provider-bio {
     &.svg {
       //icon_provider_bio.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_provider_bio.svg');
@@ -355,7 +364,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91d";
     }
   }
-  &.provider_interests {
+  &.provider_interests, &.uwmed-icon__provider-interests {
     &.svg {
       //icon_provider_interests.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_provider_interests.svg');
@@ -364,7 +373,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91f";
     }
   }
-  &.provider_interests_alt {
+  &.provider_interests_alt, &.uwmed-icon__provider-interests-alt {
     &.svg {
       //icon_provider_interests_alt.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_provider_interests_alt.svg');
@@ -373,7 +382,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e91e";
     }
   }
-  &.refer_patient {
+  &.refer_patient, &.uwmed-icon__refer-patient {
     &.svg {
       //icon_refer_patient.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_refer_patient.svg');
@@ -382,7 +391,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e921";
     }
   }
-  &.request_translation {
+  &.request_translation, &.uwmed-icon__request-translation {
     &.svg {
       //icon_request_translation.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_request_translation.svg');
@@ -391,7 +400,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e922";
     }
   }
-  &.search {
+  &.search, &.uwmed-icon__search {
     &.svg {
       //icon_search.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_search.svg');
@@ -400,7 +409,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e923";
     }
   }
-  &.transit, &.uw-ico-dir-public {
+  &.transit, &.uw-ico-dir-public, &.uwmed-icon__public-transportation {
     &.svg {
       //icon_transit.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_transit.svg');
@@ -419,7 +428,7 @@ i.uw-ico, span.uwmed-icon {
       color: green; //@TODO
     }
   }
-  &.twitter {
+  &.twitter, &.uwmed-icon__twitter {
     &.svg {
       //icon_twitter.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_twitter.svg');
@@ -428,7 +437,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e925";
     }
   }
-  &.walk, &.uw-ico-dir-walking {
+  &.walk, &.uw-ico-dir-walking, &.uwmed-icon__walking {
     &.svg {
       //icon_walk.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_walk.svg');
@@ -447,7 +456,7 @@ i.uw-ico, span.uwmed-icon {
       color: green; //@TODO
     }
   }
-  &.youtube {
+  &.youtube, &.uwmed-icon__youtube {
     &.svg {
       //icon_youtube.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_youtube.svg');
@@ -456,7 +465,7 @@ i.uw-ico, span.uwmed-icon {
       content: "\e927";
     }
   }
-  &.home {
+  &.home, &.uwmed-icon__home {
     &.svg {
     }
     &:before {
@@ -465,11 +474,21 @@ i.uw-ico, span.uwmed-icon {
   }
 
   &.uwmed-icon__heart-waveform::before {
-    @include uw-awesome-ico();
+    @extend %uw-awesome-ico;
     content: "\f21e";
     font-size: 20px;
   }
 
+}
+
+
+%uw-awesome-ico {
+  //@extend .fa;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 

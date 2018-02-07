@@ -67,6 +67,8 @@
 
 var gulp = require('gulp');
 gulp.gutil = require('gulp-util');
+gulp.concat = require('gulp-concat');
+
 
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 var plugins = require('gulp-load-plugins')({
@@ -268,6 +270,8 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
+require('./gulp-tasks/compile-admin-page-assets')(gulp, plugins);
+
 
 // Credits:
 //
