@@ -11,7 +11,7 @@ _core:
 id: adminimal_theme_help
 theme: adminimal_theme
 region: help
-weight: 0
+weight: -4
 provider: null
 plugin: help_block
 settings:
