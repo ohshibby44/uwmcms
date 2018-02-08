@@ -1,0 +1,50 @@
+//
+// -- Adminimal styling
+//
+// Used on admin pages. Gulp compiles this to destination:
+// ./modules/custom/uwmcs_utils/assets/adminimal_theme/styles.css
+//
+
+
+@import "../scss/uwm_icons";
+
+
+
+body.adminimal {
+
+  // More breathing room on node-edit forms: 
+  form {
+    details#edit-group-c {
+      margin: 2em 0;
+    }
+
+    div.form-wrapper {
+      margin-bottom: 2em;
+    }
+
+    details details {
+      border-color: aliceblue;
+    }
+
+    thead th.field-label {
+      border-top: 1px solid #dcdcdc;
+    }
+  }
+
+
+  // Block on admin pages demonstrating icons: 
+  .view.view-uwm-terms.view-display-id-block_1 {
+
+    li {
+      padding: .5em;
+      float: left;
+      list-style-type: none;
+    }
+
+    li:hover {
+      background: aliceblue;
+    }
+
+  }
+
+}

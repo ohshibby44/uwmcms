@@ -8,7 +8,7 @@
 var opts = {
     admin_page: {
         sass_files: [
-            './src/scss/uwm_icons.scss'
+            './src/adminimal_theme/*.scss'
         ],
         sass_dest: '../../../modules/custom/uwmcs_utils/assets/uwmed_theme'
     }

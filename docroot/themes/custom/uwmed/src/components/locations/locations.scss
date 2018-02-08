@@ -273,11 +273,12 @@ body.page-node-type-uwm-clinic {
 
           li {
             list-style: none;
-            margin-bottom: 1em;
+            padding: 0 0 1em 20px;
           }
 
           li .fa {
-            padding: 0 10px 0 0;
+            float: left;
+            margin: 2px 0 0 -20px;
             color: purple;
           }
 
