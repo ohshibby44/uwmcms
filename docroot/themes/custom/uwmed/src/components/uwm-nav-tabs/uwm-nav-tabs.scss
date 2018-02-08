@@ -7,7 +7,7 @@ ul.uwm-nav-tabs {
 
   border-bottom: 1px solid #dcdcdc;
 
-  > li > a, > li > a:hover  {
+  > li > a, > li > a:hover, > li > a:focus  {
     color: $uwmed-white;
     background: $uwmed-solid-dark-purple;
     border: 1px solid transparent;
@@ -21,7 +21,7 @@ ul.uwm-nav-tabs {
 
   }
 
-  > li.active > a, > li.active > a:focus {
+  > li.active > a, > li.active > a:hover, > li.active > a:focus {
     color: $uwmed-light-purple;
     background: $uwmed-white;
     border: 0 none;

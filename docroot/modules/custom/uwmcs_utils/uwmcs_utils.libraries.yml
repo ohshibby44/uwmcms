@@ -2,4 +2,5 @@ admin-css:
   version: 1.x
   css:
     theme:
-      uwmcs_utils.admin.css: {}
+      assets/uwmcs_utils.admin.css: {}
+      assets/uwmed_theme/styles.css: {}

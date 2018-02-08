@@ -67,6 +67,8 @@
 
 var gulp = require('gulp');
 gulp.gutil = require('gulp-util');
+gulp.concat = require('gulp-concat');
+
 
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 var plugins = require('gulp-load-plugins')({
@@ -87,6 +89,10 @@ var path = require('path');
 
 // These are used in the options below.
 var paths = {
+    assets: {
+        source: 'src/assets',
+        destination: 'dist/assets'
+    },
     styles: {
         source: 'src/scss',
         destination: 'dist/styles',
@@ -128,6 +134,13 @@ var options = {
         open: 'external',
         xip: true,
         logConnections: true
+    },
+
+    // ----- ASSETS ----- //
+
+    assets: {
+        files: path.join(paths.assets.source, '**/*'),
+        destination: path.join(paths.assets.destination)
     },
 
     // ----- CSS ----- //
@@ -236,6 +249,7 @@ var options = {
 };
 
 // Tasks
+require('./gulp-tasks/move-assets')(gulp, plugins, options);
 require('./gulp-tasks/browser-sync')(gulp, plugins, options);
 require('./gulp-tasks/build')(gulp, plugins, options);
 require('./gulp-tasks/clean')(gulp, plugins, options);
@@ -256,6 +270,8 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
+require('./gulp-tasks/compile-admin-page-assets')(gulp, plugins);
+
 
 // Credits:
 //

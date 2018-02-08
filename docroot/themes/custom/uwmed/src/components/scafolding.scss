@@ -10,20 +10,19 @@ body {
 
   div.main-container {
 
-    .page-left {
-    }
+    > .wrapper {
 
+      .page-left {
+      }
 
-    .page-right {
+      .page-right {
 
+      }
+      .page-center {
 
-    }
-    .page-center {
-
-      min-height: 400px;
+        min-height: 400px;
 
         article {
-
 
           .paragraph {
 
@@ -45,8 +44,9 @@ body {
             }
           }
 
-
+        }
       }
+
     }
   }
 

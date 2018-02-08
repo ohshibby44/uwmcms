@@ -6,8 +6,7 @@ body.page-node-type-uwm-provider {
 
   div.main-container {
 
-    background-image: url('#{$uw-images-folder}/angled-bg-light.png');
-    background-repeat: repeat;
+    @extend %uwmed-gradient-angled-background;
 
     h1.page-header {
 

@@ -1,5 +1,5 @@
 .gradient-divider {
-  @include uwmed-mixin-gradient-light-to-dark;
+  @extend %uwmed-mixin-gradient-light-to-dark;
   text-align: center;
   color: white;
 }

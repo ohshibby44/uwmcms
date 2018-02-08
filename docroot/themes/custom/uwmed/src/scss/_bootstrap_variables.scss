@@ -212,6 +212,10 @@ $screen-xs-max:              ($screen-sm-min - 1);
 $screen-sm-max:              ($screen-md-min - 1);
 $screen-md-max:              ($screen-lg-min - 1);
 
+$screen-xl:                   1920px;
+$screen-xl-min:               $screen-xl;
+$screen-lg-max:              ($screen-xl-min - 1);
+
 //== Grid system
 //
 //## Define your custom responsive grid.
@@ -240,6 +244,10 @@ $container-md:                 $container-desktop;
 $container-large-desktop:      (1140px + $grid-gutter-width);
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop;
+
+// Extra large screen
+$container-xl-desktop:         (1340 + $grid-gutter-width);
+$container-xl:                 $container-xl-desktop;
 
 //== Navbar
 //

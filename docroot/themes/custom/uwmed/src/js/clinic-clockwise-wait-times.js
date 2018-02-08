@@ -72,8 +72,8 @@
 
         var formattedTime = 'Please call';
 
-        var cwResult = Clockwise.Waits[clinicClockwiseId()];
-        var tt = cleanNumber($(cwResult).text().toLowerCase()),
+        var cwResult = Clockwise.Waits[clinicClockwiseId()].toLowerCase();
+        var tt = cleanNumber($(cwResult).text()),
             tp = cleanNumber(0);
 
         if (options.displayStyle == 'plain') {
