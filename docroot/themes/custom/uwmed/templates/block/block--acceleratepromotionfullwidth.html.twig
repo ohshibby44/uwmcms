@@ -62,10 +62,12 @@ set classes = [
 
   {% block content %}
     <div class="accelerate-promotion-block row" style="background-image: url('{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-background.png') }}');">
-      <div class="accelerate-promotion-block__logo col-lg-3">
-        <img class="img img-responsive" src="{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-logo.png') }}" alt="Accelerate: The Campaign for UW Medicine" />
+      <div class="container">
+        <div class="accelerate-promotion-block__logo col-lg-3">
+          <img class="img img-responsive" src="{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-logo.png') }}" alt="Accelerate: The Campaign for UW Medicine" />
+        </div>
+        {{ content }}
       </div>
-      {{ content }}
     </div>
 
   {% endblock %}

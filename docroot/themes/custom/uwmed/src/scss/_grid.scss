@@ -1,0 +1,22 @@
+// Add a container width for extra large screens (1920 width)
+.container-lg {
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
+.full-width-image {
+  max-width: $screen-xl;
+
+  @media(min-width: $screen-xl-min + 20px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
