@@ -1,14 +1,14 @@
 {% extends 'field.html.twig' %}
 {% set include_wrapper = 'false' %}
-{% set item_classes = ['homepage-section','row', 'fade-in-animation'] %}
+{% set item_classes = ['homepage-section','container-lg', 'fade-in-animation'] %}
 {% set item_element = 'section' %}
 
 {% block content %}
-  <div class="homepage-sections">
+  <div class="homepage-sections row">
     {% if bg_image_urls %}
-      <div class="homepage-section-background-lg visible-lg row">
+      <div class="homepage-section-background-lg visible-lg">
         {% for file_url in bg_image_urls %}
-          <div class="homepage-section-background-lg__item-{{ loop.index }}">
+          <div class="homepage-section-background-lg__item-{{ loop.index }} full-width-image">
             <img class="img img-responsive" src="{{file_url(file_url | image_style('hero'))}}" alt="" />
           </div>
           <div class="homepage-section-background-lg__footing"></div>

@@ -91,8 +91,6 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        margin-left: 30px;
-        margin-right: 30px;
       }
 
     }
@@ -137,16 +135,14 @@
     top: 0;
     left: 0;
     right: 0;
-
-    div {
-      margin-top: -61px;
-    }
+    bottom: 0;
 
     .homepage-section-background-lg__item-1 {
       transform: skewY(6deg);
       border-bottom: 5px solid white;
       overflow: hidden;
-      height: 588px;
+      height: 700px;
+      margin-top: -140px;
 
 
       img {
@@ -155,18 +151,20 @@
     }
 
     .homepage-section-background-lg__item-2 {
-      height: 744px;
+      height: 900px;
+      margin-top: -105px;
     }
 
     .homepage-section-background-lg__item-3 {
       transform: skewY(-6deg);
       border-top: 5px solid white;
       overflow: hidden;
-      height: 706px;
+      margin-top: -150px;
+
       img {
         transform: skewY(6deg);
-        position: absolute;
-        top: -51px;
+        position: relative;
+        top: -105px;
       }
     }
   }
@@ -196,51 +194,53 @@
 
     @media(min-width: $screen-lg-min) {
       &:nth-of-type(1) {
-        height: 558px;
+        height: 700px;
 
         .homepage-section__title {
           top: 36px;
-          left: 28px;
         }
 
         .homepage-section__content {
           top: 116px;
-          left: 28px;
         }
       }
 
       &:nth-of-type(2) {
-        height: 706px;
+        height: 470px;
 
         .homepage-section__title {
-          top: 76px;
-          right: 28px;
-        }
-
-        .homepage-section__content {
-          top: 156px;
-          right: 28px;
-        }
-      }
-
-      &:nth-of-type(3) {
-        height: 530px;
-
-        .homepage-section__title {
-          top: 0;
-          left: 28px;
+          top: 0px;
+          right: 0;
         }
 
         .homepage-section__content {
           top: 80px;
-          left: 28px;
+          right: 0;
         }
+      }
+
+      &:nth-of-type(3) {
+        height: 760px;
+
+        .homepage-section__title {
+          top: 160px;
+        }
+
+        .homepage-section__content {
+          top: 240px;
+        }
+      }
+    }
+
+    @media(min-width: 1200px) and (max-width: 1370px) {
+      &:nth-of-type(3) {
+        height: 61.25vw;
       }
     }
 
     .homepage-section__background {
       @media(min-width: $screen-lg-min) {
-        background-size: 0;
+        background-image: none !important;
       }
     }
 
