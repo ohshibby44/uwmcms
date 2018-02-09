@@ -28,27 +28,9 @@ i.uw-ico, .uwmed-icon {
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    font-size: 22px;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
-  }
-
-  //@include uw-awesome-ico();
-  b {
-    display: none;
-  }
-  //
-  //display: inline-block;
-  //width: 22px;
-  //height: 22px;
-  //background-repeat: no-repeat;
-  //background-size: contain;
-  //background-position: left 50%;
-
-  &.uw-ico-md {
-    font-size: 28px;
-
   }
 
   //
@@ -206,7 +188,7 @@ i.uw-ico, .uwmed-icon {
       content: "\e90d";
     }
   }
-  &.instagram {
+  &.instagram, &.uwmed-icon__instagram {
     &.svg {
       //icon_instagram.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_instagram.svg');
@@ -225,7 +207,7 @@ i.uw-ico, .uwmed-icon {
       content: "\e910";
     }
   }
-  &.linkedin {
+  &.linkedin, &.uwmed-icon__linkedin {
     &.svg {
       //icon_linkedin.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_linkedin.svg');

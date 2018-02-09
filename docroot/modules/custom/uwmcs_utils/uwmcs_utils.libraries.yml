@@ -1,6 +1,6 @@
-admin-css:
+admin-pages-css:
   version: 1.x
   css:
     theme:
-      assets/uwmcs_utils.admin.css: {}
-      assets/uwmed_theme/styles.css: {}
+      assets/uwmcs_utils.css: {}
+      assets/adminimal_theme/styles.css: {}

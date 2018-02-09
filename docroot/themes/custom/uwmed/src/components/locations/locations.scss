@@ -12,6 +12,7 @@ body.page-node-type-uwm-clinic {
 
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0;
 
     article.uwm-clinic {
 
@@ -102,6 +103,7 @@ body.page-node-type-uwm-clinic {
 
         @extend %uwmed-gradient-angled-background;
         padding-top: 20px;
+        padding-bottom: 80px;
 
         h1, h1 a, h4, h4 a {
           color: $uwmed-light-purple;
@@ -255,6 +257,8 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-tabs {
 
+        margin-top: -50px;
+
         ul.uwm-nav-tabs {
 
           margin: 0 -15px;
@@ -273,11 +277,12 @@ body.page-node-type-uwm-clinic {
 
           li {
             list-style: none;
-            margin-bottom: 1em;
+            padding: 0 0 1em 20px;
           }
 
           li .fa {
-            padding: 0 10px 0 0;
+            float: left;
+            margin: 2px 0 0 -20px;
             color: purple;
           }
 

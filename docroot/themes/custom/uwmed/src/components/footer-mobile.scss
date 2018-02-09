@@ -1,11 +1,12 @@
 @media(max-width: $screen-xs-max) {
 
-  footer {
+  body > footer {
 
-    text-align: center;
+    .wrapper {
+      padding: 0;
+    }
 
     .row.navigation-row {
-      text-align: center;
 
       .menu.nav i.uw-s {
         display: none;
@@ -18,7 +19,7 @@
         text-align: center;
       }
 
-      .foot-fourth {
+      .foot-first, .foot-second, .foot-third, .foot-fourth {
         text-align: center;
       }
 
@@ -26,14 +27,12 @@
 
     .row.enterprise-row {
 
-      text-align: center;
-
       > div {
         padding-top: 6px;
         padding-bottom: 6px;
       }
 
-      .enterprise-nav {
+      .first.copyright, .second.navigation {
         text-align: center;
       }
 

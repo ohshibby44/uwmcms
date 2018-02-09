@@ -1,0 +1,30 @@
+uuid: 1926235d-f682-4bfa-a9dc-cfa5d6e1df31
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - webform
+  theme:
+    - uwmed
+id: webform
+theme: uwmed
+region: sidebar_second
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: visible
+  webform_id: health_news_signup
+  default_data: ''
+visibility:
+  'entity_bundle:webform_submission':
+    id: 'entity_bundle:webform_submission'
+    bundles:
+      health_news_signup: health_news_signup
+    negate: false
+    context_mapping:
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'

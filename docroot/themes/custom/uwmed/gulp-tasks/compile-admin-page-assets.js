@@ -8,9 +8,9 @@
 var opts = {
     admin_page: {
         sass_files: [
-            './src/scss/uwm_icons.scss'
+            './src/adminimal_theme/styles.scss'
         ],
-        sass_dest: '../../../modules/custom/uwmcs_utils/assets/uwmed_theme'
+        sass_dest: '../../../modules/custom/uwmcs_utils/assets/adminimal_theme'
     }
 };
 
@@ -25,19 +25,19 @@ module.exports = function (gulp, plugins) {
                 opts.admin_page.sass_files
             )
                 .pipe(plugins.plumber())
-                .pipe(plugins.sourcemaps.init())
+                //.pipe(plugins.sourcemaps.init())
                 .pipe(plugins.sass({
                     errLogToConsole: true,
                     outputStyle: 'expanded'
                     // includePaths: options.sass.bootstrapFiles
                 }))
-                .pipe(plugins.sourcemaps.write({includeContent: false}))
-                .pipe(plugins.sourcemaps.init({loadMaps: true}))
+                //.pipe(plugins.sourcemaps.write({includeContent: false}))
+                //.pipe(plugins.sourcemaps.init({loadMaps: true}))
                 .pipe(plugins.autoprefixer({
                     browsers: ['last 2 versions'],
                     cascade: false
                 }))
-                .pipe(plugins.sourcemaps.write())
+                //.pipe(plugins.sourcemaps.write())
                 .pipe(gulp.concat('styles.css'))
                 .pipe(gulp.dest(opts.admin_page.sass_dest));
         });
