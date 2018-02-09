@@ -3,20 +3,55 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.reusable_content.field_heading
     - field.field.paragraph.reusable_content.field_other_reference
+    - field.field.paragraph.reusable_content.field_text_snippet
+    - field.field.paragraph.reusable_content.field_webform_reference
     - paragraphs.paragraphs_type.reusable_content
   module:
+    - allowed_formats
+    - text
+    - webform
     - workbench_moderation
 id: paragraph.reusable_content.default
 targetEntityType: paragraph
 bundle: reusable_content
 mode: default
 content:
+  field_heading:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textfield
+    region: content
   field_other_reference:
-    weight: 7
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_text_snippet:
+    weight: 1
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textarea
+    region: content
+  field_webform_reference:
+    weight: 3
+    settings:
+      default_data: false
+    third_party_settings: {  }
+    type: webform_entity_reference_select
     region: content
 hidden:
   created: true

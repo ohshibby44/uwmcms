@@ -16,12 +16,13 @@ body.adminimal {
 
   // More breathing room on node-edit forms: 
   form {
-    details#edit-group-c {
-      margin: 2em 0;
+
+    tr.odd .form-item, tr.even .form-item {
+      margin-bottom: 2em;
     }
 
-    div.form-wrapper {
-      margin-bottom: 2em;
+    details#edit-group-c {
+      margin: 2em 0;
     }
 
     details details {
