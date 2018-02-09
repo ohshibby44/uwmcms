@@ -80,105 +80,105 @@ body > header {
 
   .row.white {
 
-
     .navbar {
       min-height: 0;
       margin: 0;
     }
 
-    .header-main-navigation {
+    .desktop-main-navigation {
 
-      min-width: 650px;
+      min-width: 600px;
 
       ul.navbar-nav > li {
 
         padding: 0;
 
-        > a, > a.dropdown-toggle {
-
+        > a.dropdown-toggle {
           padding: 10px 15px;
-
           &:hover {
             color: #3375d4;
             background: transparent;
           }
-          &.dropdown-toggle:after {
-            // More forgiving hover zone
+          // More forgiving hover zone
+          i.fa.fa-angle-down:after {
             position: absolute;
+            top: 0;
+            bottom: -10px;
             left: 0;
             right: 0;
-            top: 0;
-            bottom: -4px;
             content: "";
-            z-index: 2;
+            z-index: 9999999;
           }
-
         }
 
-      }
+        ul.dropdown-menu {
 
-      ul.dropdown-menu {
+          box-shadow: none;
+          margin: 3px 0 0 -20px;
+          border-top: 0 solid transparent;
+          background: darken(#fff, 3%);
+          width: 300px;
 
-        box-shadow: none;
-        // More forgiving hover zone
-        margin: 3px 0 0 -20px;
-        border-top: 0 solid transparent;
-        background: darken(#fff, 3%);
-        //background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 2%);
-        //transition: all 850ms linear;
-        width: 300px;
+          li {
 
-        li {
+            a {
+              margin: 10px;
+              padding: 0 10px 10px 10px;
+              border-bottom: 1px solid #e5e5e6;
+              background: transparent;
 
-          a {
-            margin: 10px;
-            padding: 0 10px 10px 10px;
-            border-bottom: 1px solid #e5e5e6;
+              i.fa {
+                float: right;
+                display: block;
+                padding: 2px 0 0 0;
+              }
+              &.anchor, &[href^="#"] {
+                color: #3375d4;
+                font-style: italic;
+                padding-top: 10px;
+              }
 
-            i.fa {
-              float: right;
-              display: block;
-              padding: 2px 0 0 0;
             }
-            &.anchor, &[href^="#"] {
-              color: #3375d4;
-              font-style: italic;
-              padding-top: 20px;
+            &:last-child > a {
+              border-bottom: none;
+              padding-bottom: 0;
             }
 
           }
-          &:last-child > a {
-            border-bottom: none;
-            padding-bottom: 0;
-          }
 
-        }
+          li.dropdown-submenu {
 
-        li.dropdown-submenu {
+            ul.dropdown-menu {
+              display: none;
+              margin: -10px 0 10px 0;
+              border: 0 none;
+              position: relative;
+              width: 85%;
 
-          a {
-            border-bottom: 1px solid transparent;
-          }
-
-          ul.dropdown-menu {
-            display: block;
-            position: relative;
-            padding: 0 20px 10px;
-            border: 0 none;
-
-            li {
-
-              a {
-                border: 0 none;
-                padding-left: 20px;
-                padding-top: 0;
-                &.anchor, &[href^="#"] {
-                  color: #3375d4;
-                  font-style: italic;
-                  padding-top: 20px;
+              li {
+                a {
+                  border: 0 none;
+                  padding: 0 0 0 30px;
+                  //&.anchor, &[href^="#"] {
+                  //  color: #3375d4;
+                  //  font-style: italic;
+                  //  padding-top: 20px;
+                  //}
                 }
               }
 
+            }
+            &.open {
+              > a .fa-angle-down:before {
+                // .fa-angle-up:before
+                content: "\f106";
+              }
+              a {
+                border-bottom: 1px solid transparent;
+              }
+              ul.dropdown-menu {
+                display: block;
+              }
             }
 
           }

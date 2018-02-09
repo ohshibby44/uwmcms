@@ -1,3 +1,11 @@
+/*!
+//
+// -- Adminimal styling
+//
+// Used on admin pages. Gulp compiles this to destination:
+// ./modules/custom/uwmcs_utils/assets/adminimal_theme/styles.css
+//
+ */
 @font-face {
   font-family: 'uwmico';
   src: url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.eot?af95ny");
@@ -14,17 +22,8 @@ i.uw-ico:before, .uwmed-icon:before {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 22px;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
-}
-
-i.uw-ico b, .uwmed-icon b {
-  display: none;
-}
-
-i.uw-ico.uw-ico-md, .uwmed-icon.uw-ico-md {
-  font-size: 28px;
 }
 
 i.uw-ico.default:before, i.uw-ico:before, .uwmed-icon.default:before, .uwmed-icon:before {
@@ -161,11 +160,11 @@ i.uw-ico.find_a_location:before, i.uw-ico.uwmed-icon__find-a-location:before, .u
   content: "\e90d";
 }
 
-i.uw-ico.instagram.svg, .uwmed-icon.instagram.svg {
+i.uw-ico.instagram.svg, i.uw-ico.uwmed-icon__instagram.svg, .uwmed-icon.instagram.svg, .uwmed-icon.uwmed-icon__instagram.svg {
   background-image: url("/themes/custom/uwmed/dist/assets/uwm-icons/icon_instagram.svg");
 }
 
-i.uw-ico.instagram:before, .uwmed-icon.instagram:before {
+i.uw-ico.instagram:before, i.uw-ico.uwmed-icon__instagram:before, .uwmed-icon.instagram:before, .uwmed-icon.uwmed-icon__instagram:before {
   content: "\e90f";
 }
 
@@ -177,11 +176,11 @@ i.uw-ico.languages:before, i.uw-ico.uwmed-icon__languages:before, .uwmed-icon.la
   content: "\e910";
 }
 
-i.uw-ico.linkedin.svg, .uwmed-icon.linkedin.svg {
+i.uw-ico.linkedin.svg, i.uw-ico.uwmed-icon__linkedin.svg, .uwmed-icon.linkedin.svg, .uwmed-icon.uwmed-icon__linkedin.svg {
   background-image: url("/themes/custom/uwmed/dist/assets/uwm-icons/icon_linkedin.svg");
 }
 
-i.uw-ico.linkedin:before, .uwmed-icon.linkedin:before {
+i.uw-ico.linkedin:before, i.uw-ico.uwmed-icon__linkedin:before, .uwmed-icon.linkedin:before, .uwmed-icon.uwmed-icon__linkedin:before {
   content: "\e911";
 }
 

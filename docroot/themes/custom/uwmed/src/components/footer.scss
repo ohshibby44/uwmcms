@@ -49,23 +49,25 @@ body > footer {
 
       @media (min-width: $screen-md-min) {
         margin-bottom: -30px;
+        z-index: 2;
       }
 
       .service-icons {
         color: $uwmed-medium-gray;
         a {
           color: $uwmed-medium-gray;
+          text-decoration: none;
           &:hover {
             color: $uwmed-pop-blue;
+            text-decoration: none;
           }
         }
 
         i.uw-s {
-          @include uw-separator();
-          @include uw-skew(-15deg);
+          @include uw-separator(-15deg);
           height: 22px;
-          width: 18px;
-          margin: 0 9px -4px 0;
+          width: 2px;
+          margin: 0 10px -2px 5px;
           border-right-color: $uwmed-medium-gray;
         }
 
