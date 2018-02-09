@@ -404,12 +404,12 @@ i.uw-ico.uwmed-icon__heart-waveform::before, .uwmed-icon.uwmed-icon__heart-wavef
   -webkit-font-smoothing: antialiased;
 }
 
-body.adminimal form details#edit-group-c {
-  margin: 2em 0;
+body.adminimal form tr.odd .form-item, body.adminimal form tr.even .form-item {
+  margin-bottom: 2em;
 }
 
-body.adminimal form div.form-wrapper {
-  margin-bottom: 2em;
+body.adminimal form details#edit-group-c {
+  margin: 2em 0;
 }
 
 body.adminimal form details details {
