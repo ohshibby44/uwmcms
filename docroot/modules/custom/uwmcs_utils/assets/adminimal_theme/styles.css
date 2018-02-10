@@ -8,8 +8,8 @@
  */
 @font-face {
   font-family: 'uwmico';
-  src: url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.eot?af95ny");
-  src: url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.eot?af95ny#iefix") format("embedded-opentype"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.ttf?af95ny") format("truetype"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.woff?af95ny") format("woff"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.svg?af95ny#uwm-ico") format("svg");
+  src: url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.eot?dohu14");
+  src: url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.eot?dohu14#iefix") format("embedded-opentype"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.ttf?dohu14") format("truetype"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.woff?dohu14") format("woff"), url("/themes/custom/uwmed/dist/assets/uwm-icons/font/uwm-ico.svg?dohu14#uwm-ico") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -24,10 +24,11 @@ i.uw-ico:before, .uwmed-icon:before {
   line-height: 1;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 i.uw-ico.default:before, i.uw-ico:before, .uwmed-icon.default:before, .uwmed-icon:before {
-  content: "\e901";
+  content: "\e902";
 }
 
 i.uw-ico.five_star_rating.svg, i.uw-ico.uwmed-icon__5-star-rating.svg, .uwmed-icon.five_star_rating.svg, .uwmed-icon.uwmed-icon__5-star-rating.svg {
@@ -35,7 +36,7 @@ i.uw-ico.five_star_rating.svg, i.uw-ico.uwmed-icon__5-star-rating.svg, .uwmed-ic
 }
 
 i.uw-ico.five_star_rating:before, i.uw-ico.uwmed-icon__5-star-rating:before, .uwmed-icon.five_star_rating:before, .uwmed-icon.uwmed-icon__5-star-rating:before {
-  content: "\e900";
+  content: "\e901";
 }
 
 i.uw-ico.accepting_patients.svg, i.uw-ico.uwmed-icon__accepting-patients.svg, .uwmed-icon.accepting_patients.svg, .uwmed-icon.uwmed-icon__accepting-patients.svg {
@@ -43,7 +44,7 @@ i.uw-ico.accepting_patients.svg, i.uw-ico.uwmed-icon__accepting-patients.svg, .u
 }
 
 i.uw-ico.accepting_patients:before, i.uw-ico.uwmed-icon__accepting-patients:before, .uwmed-icon.accepting_patients:before, .uwmed-icon.uwmed-icon__accepting-patients:before {
-  content: "\e901";
+  content: "\e902";
 }
 
 i.uw-ico.appointment.svg, i.uw-ico.uwmed-icon__appointment.svg, .uwmed-icon.appointment.svg, .uwmed-icon.uwmed-icon__appointment.svg {
@@ -51,7 +52,7 @@ i.uw-ico.appointment.svg, i.uw-ico.uwmed-icon__appointment.svg, .uwmed-icon.appo
 }
 
 i.uw-ico.appointment:before, i.uw-ico.uwmed-icon__appointment:before, .uwmed-icon.appointment:before, .uwmed-icon.uwmed-icon__appointment:before {
-  content: "\e902";
+  content: "\e903";
 }
 
 i.uw-ico.bike.svg, i.uw-ico.uw-ico-dir-biking.svg, i.uw-ico.uwmed-icon__biking.svg, .uwmed-icon.bike.svg, .uwmed-icon.uw-ico-dir-biking.svg, .uwmed-icon.uwmed-icon__biking.svg {
@@ -59,7 +60,7 @@ i.uw-ico.bike.svg, i.uw-ico.uw-ico-dir-biking.svg, i.uw-ico.uwmed-icon__biking.s
 }
 
 i.uw-ico.bike:before, i.uw-ico.uw-ico-dir-biking:before, i.uw-ico.uwmed-icon__biking:before, .uwmed-icon.bike:before, .uwmed-icon.uw-ico-dir-biking:before, .uwmed-icon.uwmed-icon__biking:before {
-  content: "\e903";
+  content: "\e904";
 }
 
 i.uw-ico.bike_selected.svg, .uwmed-icon.bike_selected.svg {
@@ -67,7 +68,7 @@ i.uw-ico.bike_selected.svg, .uwmed-icon.bike_selected.svg {
 }
 
 i.uw-ico.bike_selected:before, .uwmed-icon.bike_selected:before {
-  content: "\e903";
+  content: "\e904";
   color: green;
 }
 
@@ -76,7 +77,7 @@ i.uw-ico.call_online.svg, i.uw-ico.uwmed-icon__phone-outline.svg, .uwmed-icon.ca
 }
 
 i.uw-ico.call_online:before, i.uw-ico.uwmed-icon__phone-outline:before, .uwmed-icon.call_online:before, .uwmed-icon.uwmed-icon__phone-outline:before {
-  content: "\e904";
+  content: "\e905";
 }
 
 i.uw-ico.call_solid.svg, i.uw-ico.uwmed-icon__phone-solid.svg, .uwmed-icon.call_solid.svg, .uwmed-icon.uwmed-icon__phone-solid.svg {
@@ -84,7 +85,7 @@ i.uw-ico.call_solid.svg, i.uw-ico.uwmed-icon__phone-solid.svg, .uwmed-icon.call_
 }
 
 i.uw-ico.call_solid:before, i.uw-ico.uwmed-icon__phone-solid:before, .uwmed-icon.call_solid:before, .uwmed-icon.uwmed-icon__phone-solid:before {
-  content: "\e905";
+  content: "\e906";
 }
 
 i.uw-ico.careers.svg, i.uw-ico.uwmed-icon__careers.svg, .uwmed-icon.careers.svg, .uwmed-icon.uwmed-icon__careers.svg {
@@ -92,7 +93,7 @@ i.uw-ico.careers.svg, i.uw-ico.uwmed-icon__careers.svg, .uwmed-icon.careers.svg,
 }
 
 i.uw-ico.careers:before, i.uw-ico.uwmed-icon__careers:before, .uwmed-icon.careers:before, .uwmed-icon.uwmed-icon__careers:before {
-  content: "\e906";
+  content: "\e907";
 }
 
 i.uw-ico.clinic_locations.svg, i.uw-ico.uwmed-icon__clinic-locations.svg, .uwmed-icon.clinic_locations.svg, .uwmed-icon.uwmed-icon__clinic-locations.svg {
@@ -100,7 +101,7 @@ i.uw-ico.clinic_locations.svg, i.uw-ico.uwmed-icon__clinic-locations.svg, .uwmed
 }
 
 i.uw-ico.clinic_locations:before, i.uw-ico.uwmed-icon__clinic-locations:before, .uwmed-icon.clinic_locations:before, .uwmed-icon.uwmed-icon__clinic-locations:before {
-  content: "\e907";
+  content: "\e908";
 }
 
 i.uw-ico.drive.svg, i.uw-ico.uw-ico-dir-auto.svg, i.uw-ico.uwmed-icon__driving.svg, .uwmed-icon.drive.svg, .uwmed-icon.uw-ico-dir-auto.svg, .uwmed-icon.uwmed-icon__driving.svg {
@@ -108,7 +109,7 @@ i.uw-ico.drive.svg, i.uw-ico.uw-ico-dir-auto.svg, i.uw-ico.uwmed-icon__driving.s
 }
 
 i.uw-ico.drive:before, i.uw-ico.uw-ico-dir-auto:before, i.uw-ico.uwmed-icon__driving:before, .uwmed-icon.drive:before, .uwmed-icon.uw-ico-dir-auto:before, .uwmed-icon.uwmed-icon__driving:before {
-  content: "\e908";
+  content: "\e909";
 }
 
 i.uw-ico.drive_selected.svg, .uwmed-icon.drive_selected.svg {
@@ -116,7 +117,7 @@ i.uw-ico.drive_selected.svg, .uwmed-icon.drive_selected.svg {
 }
 
 i.uw-ico.drive_selected:before, .uwmed-icon.drive_selected:before {
-  content: "\e908";
+  content: "\e909";
   color: green;
 }
 
@@ -125,7 +126,7 @@ i.uw-ico.driving_directions.svg, i.uw-ico.uwmed-icon__driving-directions.svg, .u
 }
 
 i.uw-ico.driving_directions:before, i.uw-ico.uwmed-icon__driving-directions:before, .uwmed-icon.driving_directions:before, .uwmed-icon.uwmed-icon__driving-directions:before {
-  content: "\e909";
+  content: "\e90a";
 }
 
 i.uw-ico.email.svg, i.uw-ico.uwmed-icon__email.svg, .uwmed-icon.email.svg, .uwmed-icon.uwmed-icon__email.svg {
@@ -133,7 +134,7 @@ i.uw-ico.email.svg, i.uw-ico.uwmed-icon__email.svg, .uwmed-icon.email.svg, .uwme
 }
 
 i.uw-ico.email:before, i.uw-ico.uwmed-icon__email:before, .uwmed-icon.email:before, .uwmed-icon.uwmed-icon__email:before {
-  content: "\e90a";
+  content: "\e90b";
 }
 
 i.uw-ico.fb.svg, i.uw-ico.uwmed-icon__facebook.svg, .uwmed-icon.fb.svg, .uwmed-icon.uwmed-icon__facebook.svg {
@@ -141,7 +142,7 @@ i.uw-ico.fb.svg, i.uw-ico.uwmed-icon__facebook.svg, .uwmed-icon.fb.svg, .uwmed-i
 }
 
 i.uw-ico.fb:before, i.uw-ico.uwmed-icon__facebook:before, .uwmed-icon.fb:before, .uwmed-icon.uwmed-icon__facebook:before {
-  content: "\e90b";
+  content: "\e90v";
 }
 
 i.uw-ico.find_a_doctor.svg, i.uw-ico.uwmed-icon__find-a-provider.svg, .uwmed-icon.find_a_doctor.svg, .uwmed-icon.uwmed-icon__find-a-provider.svg {
@@ -149,7 +150,7 @@ i.uw-ico.find_a_doctor.svg, i.uw-ico.uwmed-icon__find-a-provider.svg, .uwmed-ico
 }
 
 i.uw-ico.find_a_doctor:before, i.uw-ico.uwmed-icon__find-a-provider:before, .uwmed-icon.find_a_doctor:before, .uwmed-icon.uwmed-icon__find-a-provider:before {
-  content: "\e90c";
+  content: "\e90d";
 }
 
 i.uw-ico.find_a_location.svg, i.uw-ico.uwmed-icon__find-a-location.svg, .uwmed-icon.find_a_location.svg, .uwmed-icon.uwmed-icon__find-a-location.svg {
@@ -157,7 +158,15 @@ i.uw-ico.find_a_location.svg, i.uw-ico.uwmed-icon__find-a-location.svg, .uwmed-i
 }
 
 i.uw-ico.find_a_location:before, i.uw-ico.uwmed-icon__find-a-location:before, .uwmed-icon.find_a_location:before, .uwmed-icon.uwmed-icon__find-a-location:before {
-  content: "\e90d";
+  content: "\e90e";
+}
+
+i.uw-ico.heart.svg, i.uw-ico.uwmed-icon__heart-waveform.svg, .uwmed-icon.heart.svg, .uwmed-icon.uwmed-icon__heart-waveform.svg {
+  background-image: url("/themes/custom/uwmed/dist/assets/uwm-icons/icon_heart.svg");
+}
+
+i.uw-ico.heart:before, i.uw-ico.uwmed-icon__heart-waveform:before, .uwmed-icon.heart:before, .uwmed-icon.uwmed-icon__heart-waveform:before {
+  content: "\e90f";
 }
 
 i.uw-ico.instagram.svg, i.uw-ico.uwmed-icon__instagram.svg, .uwmed-icon.instagram.svg, .uwmed-icon.uwmed-icon__instagram.svg {
@@ -165,7 +174,7 @@ i.uw-ico.instagram.svg, i.uw-ico.uwmed-icon__instagram.svg, .uwmed-icon.instagra
 }
 
 i.uw-ico.instagram:before, i.uw-ico.uwmed-icon__instagram:before, .uwmed-icon.instagram:before, .uwmed-icon.uwmed-icon__instagram:before {
-  content: "\e90f";
+  content: "\e911";
 }
 
 i.uw-ico.languages.svg, i.uw-ico.uwmed-icon__languages.svg, .uwmed-icon.languages.svg, .uwmed-icon.uwmed-icon__languages.svg {
@@ -173,7 +182,7 @@ i.uw-ico.languages.svg, i.uw-ico.uwmed-icon__languages.svg, .uwmed-icon.language
 }
 
 i.uw-ico.languages:before, i.uw-ico.uwmed-icon__languages:before, .uwmed-icon.languages:before, .uwmed-icon.uwmed-icon__languages:before {
-  content: "\e910";
+  content: "\e912";
 }
 
 i.uw-ico.linkedin.svg, i.uw-ico.uwmed-icon__linkedin.svg, .uwmed-icon.linkedin.svg, .uwmed-icon.uwmed-icon__linkedin.svg {
@@ -181,7 +190,7 @@ i.uw-ico.linkedin.svg, i.uw-ico.uwmed-icon__linkedin.svg, .uwmed-icon.linkedin.s
 }
 
 i.uw-ico.linkedin:before, i.uw-ico.uwmed-icon__linkedin:before, .uwmed-icon.linkedin:before, .uwmed-icon.uwmed-icon__linkedin:before {
-  content: "\e911";
+  content: "\e913";
 }
 
 i.uw-ico.media.svg, i.uw-ico.uwmed-icon__media.svg, .uwmed-icon.media.svg, .uwmed-icon.uwmed-icon__media.svg {
@@ -189,7 +198,7 @@ i.uw-ico.media.svg, i.uw-ico.uwmed-icon__media.svg, .uwmed-icon.media.svg, .uwme
 }
 
 i.uw-ico.media:before, i.uw-ico.uwmed-icon__media:before, .uwmed-icon.media:before, .uwmed-icon.uwmed-icon__media:before {
-  content: "\e912";
+  content: "\e914";
 }
 
 i.uw-ico.medical_research i.uw-ico.uwmed-icon__medical-research.svg, .uwmed-icon.medical_research i.uw-ico.uwmed-icon__medical-research.svg, i.uw-ico.medical_research .uwmed-icon.uwmed-icon__medical-research.svg, .uwmed-icon.medical_research .uwmed-icon.uwmed-icon__medical-research.svg {
@@ -197,7 +206,7 @@ i.uw-ico.medical_research i.uw-ico.uwmed-icon__medical-research.svg, .uwmed-icon
 }
 
 i.uw-ico.medical_research i.uw-ico.uwmed-icon__medical-research:before, .uwmed-icon.medical_research i.uw-ico.uwmed-icon__medical-research:before, i.uw-ico.medical_research .uwmed-icon.uwmed-icon__medical-research:before, .uwmed-icon.medical_research .uwmed-icon.uwmed-icon__medical-research:before {
-  content: "\e913";
+  content: "\e915";
 }
 
 i.uw-ico.medical_services.svg, i.uw-ico.uwmed-icon__medical-service.svg, .uwmed-icon.medical_services.svg, .uwmed-icon.uwmed-icon__medical-service.svg {
@@ -205,7 +214,7 @@ i.uw-ico.medical_services.svg, i.uw-ico.uwmed-icon__medical-service.svg, .uwmed-
 }
 
 i.uw-ico.medical_services:before, i.uw-ico.uwmed-icon__medical-service:before, .uwmed-icon.medical_services:before, .uwmed-icon.uwmed-icon__medical-service:before {
-  content: "\e914";
+  content: "\e916";
 }
 
 i.uw-ico.medical_specialists.svg, i.uw-ico.uwmed-icon__medical-specialty.svg, .uwmed-icon.medical_specialists.svg, .uwmed-icon.uwmed-icon__medical-specialty.svg {
@@ -213,7 +222,7 @@ i.uw-ico.medical_specialists.svg, i.uw-ico.uwmed-icon__medical-specialty.svg, .u
 }
 
 i.uw-ico.medical_specialists:before, i.uw-ico.uwmed-icon__medical-specialty:before, .uwmed-icon.medical_specialists:before, .uwmed-icon.uwmed-icon__medical-specialty:before {
-  content: "\e915";
+  content: "\e917";
 }
 
 i.uw-ico.my_location.svg, i.uw-ico.uwmed-icon__my-location.svg, .uwmed-icon.my_location.svg, .uwmed-icon.uwmed-icon__my-location.svg {
@@ -221,7 +230,7 @@ i.uw-ico.my_location.svg, i.uw-ico.uwmed-icon__my-location.svg, .uwmed-icon.my_l
 }
 
 i.uw-ico.my_location:before, i.uw-ico.uwmed-icon__my-location:before, .uwmed-icon.my_location:before, .uwmed-icon.uwmed-icon__my-location:before {
-  content: "\e916";
+  content: "\e918";
 }
 
 i.uw-ico.not_accepting_patients.svg, i.uw-ico.uwmed-icon__not-accepting-patients.svg, .uwmed-icon.not_accepting_patients.svg, .uwmed-icon.uwmed-icon__not-accepting-patients.svg {
@@ -229,7 +238,7 @@ i.uw-ico.not_accepting_patients.svg, i.uw-ico.uwmed-icon__not-accepting-patients
 }
 
 i.uw-ico.not_accepting_patients:before, i.uw-ico.uwmed-icon__not-accepting-patients:before, .uwmed-icon.not_accepting_patients:before, .uwmed-icon.uwmed-icon__not-accepting-patients:before {
-  content: "\e917";
+  content: "\e919";
 }
 
 i.uw-ico.parking.svg, i.uw-ico.uw-ico-dir-parking.svg, i.uw-ico.uwmed-icon__parking-directions.svg, .uwmed-icon.parking.svg, .uwmed-icon.uw-ico-dir-parking.svg, .uwmed-icon.uwmed-icon__parking-directions.svg {
@@ -237,7 +246,7 @@ i.uw-ico.parking.svg, i.uw-ico.uw-ico-dir-parking.svg, i.uw-ico.uwmed-icon__park
 }
 
 i.uw-ico.parking:before, i.uw-ico.uw-ico-dir-parking:before, i.uw-ico.uwmed-icon__parking-directions:before, .uwmed-icon.parking:before, .uwmed-icon.uw-ico-dir-parking:before, .uwmed-icon.uwmed-icon__parking-directions:before {
-  content: "\e918";
+  content: "\e91a";
 }
 
 i.uw-ico.parking_selected.svg, .uwmed-icon.parking_selected.svg {
@@ -245,7 +254,7 @@ i.uw-ico.parking_selected.svg, .uwmed-icon.parking_selected.svg {
 }
 
 i.uw-ico.parking_selected:before, .uwmed-icon.parking_selected:before {
-  content: "\e918";
+  content: "\e91a";
   color: green;
 }
 
@@ -254,7 +263,7 @@ i.uw-ico.patient_resources.svg, i.uw-ico.uwmed-icon__patient-resource.svg, .uwme
 }
 
 i.uw-ico.patient_resources:before, i.uw-ico.uwmed-icon__patient-resource:before, .uwmed-icon.patient_resources:before, .uwmed-icon.uwmed-icon__patient-resource:before {
-  content: "\e919";
+  content: "\e91b";
 }
 
 i.uw-ico.pdf.svg, i.uw-ico.uwmed-icon__pdf.svg, .uwmed-icon.pdf.svg, .uwmed-icon.uwmed-icon__pdf.svg {
@@ -262,7 +271,7 @@ i.uw-ico.pdf.svg, i.uw-ico.uwmed-icon__pdf.svg, .uwmed-icon.pdf.svg, .uwmed-icon
 }
 
 i.uw-ico.pdf:before, i.uw-ico.uwmed-icon__pdf:before, .uwmed-icon.pdf:before, .uwmed-icon.uwmed-icon__pdf:before {
-  content: "\e91a";
+  content: "\e91v";
 }
 
 i.uw-ico.pinterest.svg, i.uw-ico.uwmed-icon__pintrest.svg, .uwmed-icon.pinterest.svg, .uwmed-icon.uwmed-icon__pintrest.svg {
@@ -270,7 +279,7 @@ i.uw-ico.pinterest.svg, i.uw-ico.uwmed-icon__pintrest.svg, .uwmed-icon.pinterest
 }
 
 i.uw-ico.pinterest:before, i.uw-ico.uwmed-icon__pintrest:before, .uwmed-icon.pinterest:before, .uwmed-icon.uwmed-icon__pintrest:before {
-  content: "\e91b";
+  content: "\e91d";
 }
 
 i.uw-ico.print.svg, i.uw-ico.uwmed-icon__print.svg, .uwmed-icon.print.svg, .uwmed-icon.uwmed-icon__print.svg {
@@ -278,7 +287,7 @@ i.uw-ico.print.svg, i.uw-ico.uwmed-icon__print.svg, .uwmed-icon.print.svg, .uwme
 }
 
 i.uw-ico.print:before, i.uw-ico.uwmed-icon__print:before, .uwmed-icon.print:before, .uwmed-icon.uwmed-icon__print:before {
-  content: "\e91c";
+  content: "\e91e";
 }
 
 i.uw-ico.provider.svg, i.uw-ico.uwmed-icon__provider.svg, .uwmed-icon.provider.svg, .uwmed-icon.uwmed-icon__provider.svg {
@@ -286,7 +295,7 @@ i.uw-ico.provider.svg, i.uw-ico.uwmed-icon__provider.svg, .uwmed-icon.provider.s
 }
 
 i.uw-ico.provider:before, i.uw-ico.uwmed-icon__provider:before, .uwmed-icon.provider:before, .uwmed-icon.uwmed-icon__provider:before {
-  content: "\e920";
+  content: "\e900";
 }
 
 i.uw-ico.provider_bio.svg, i.uw-ico.uwmed-icon__provider-bio.svg, .uwmed-icon.provider_bio.svg, .uwmed-icon.uwmed-icon__provider-bio.svg {
@@ -294,7 +303,7 @@ i.uw-ico.provider_bio.svg, i.uw-ico.uwmed-icon__provider-bio.svg, .uwmed-icon.pr
 }
 
 i.uw-ico.provider_bio:before, i.uw-ico.uwmed-icon__provider-bio:before, .uwmed-icon.provider_bio:before, .uwmed-icon.uwmed-icon__provider-bio:before {
-  content: "\e91d";
+  content: "\e91f";
 }
 
 i.uw-ico.provider_interests.svg, i.uw-ico.uwmed-icon__provider-interests.svg, .uwmed-icon.provider_interests.svg, .uwmed-icon.uwmed-icon__provider-interests.svg {
@@ -302,7 +311,7 @@ i.uw-ico.provider_interests.svg, i.uw-ico.uwmed-icon__provider-interests.svg, .u
 }
 
 i.uw-ico.provider_interests:before, i.uw-ico.uwmed-icon__provider-interests:before, .uwmed-icon.provider_interests:before, .uwmed-icon.uwmed-icon__provider-interests:before {
-  content: "\e91f";
+  content: "\e921";
 }
 
 i.uw-ico.provider_interests_alt.svg, i.uw-ico.uwmed-icon__provider-interests-alt.svg, .uwmed-icon.provider_interests_alt.svg, .uwmed-icon.uwmed-icon__provider-interests-alt.svg {
@@ -310,7 +319,7 @@ i.uw-ico.provider_interests_alt.svg, i.uw-ico.uwmed-icon__provider-interests-alt
 }
 
 i.uw-ico.provider_interests_alt:before, i.uw-ico.uwmed-icon__provider-interests-alt:before, .uwmed-icon.provider_interests_alt:before, .uwmed-icon.uwmed-icon__provider-interests-alt:before {
-  content: "\e91e";
+  content: "\e920";
 }
 
 i.uw-ico.refer_patient.svg, i.uw-ico.uwmed-icon__refer-patient.svg, .uwmed-icon.refer_patient.svg, .uwmed-icon.uwmed-icon__refer-patient.svg {
@@ -318,7 +327,7 @@ i.uw-ico.refer_patient.svg, i.uw-ico.uwmed-icon__refer-patient.svg, .uwmed-icon.
 }
 
 i.uw-ico.refer_patient:before, i.uw-ico.uwmed-icon__refer-patient:before, .uwmed-icon.refer_patient:before, .uwmed-icon.uwmed-icon__refer-patient:before {
-  content: "\e921";
+  content: "\e922";
 }
 
 i.uw-ico.request_translation.svg, i.uw-ico.uwmed-icon__request-translation.svg, .uwmed-icon.request_translation.svg, .uwmed-icon.uwmed-icon__request-translation.svg {
@@ -326,7 +335,7 @@ i.uw-ico.request_translation.svg, i.uw-ico.uwmed-icon__request-translation.svg, 
 }
 
 i.uw-ico.request_translation:before, i.uw-ico.uwmed-icon__request-translation:before, .uwmed-icon.request_translation:before, .uwmed-icon.uwmed-icon__request-translation:before {
-  content: "\e922";
+  content: "\e923";
 }
 
 i.uw-ico.search.svg, i.uw-ico.uwmed-icon__search.svg, .uwmed-icon.search.svg, .uwmed-icon.uwmed-icon__search.svg {
@@ -334,7 +343,7 @@ i.uw-ico.search.svg, i.uw-ico.uwmed-icon__search.svg, .uwmed-icon.search.svg, .u
 }
 
 i.uw-ico.search:before, i.uw-ico.uwmed-icon__search:before, .uwmed-icon.search:before, .uwmed-icon.uwmed-icon__search:before {
-  content: "\e923";
+  content: "\e924";
 }
 
 i.uw-ico.transit.svg, i.uw-ico.uw-ico-dir-public.svg, i.uw-ico.uwmed-icon__public-transportation.svg, .uwmed-icon.transit.svg, .uwmed-icon.uw-ico-dir-public.svg, .uwmed-icon.uwmed-icon__public-transportation.svg {
@@ -342,7 +351,7 @@ i.uw-ico.transit.svg, i.uw-ico.uw-ico-dir-public.svg, i.uw-ico.uwmed-icon__publi
 }
 
 i.uw-ico.transit:before, i.uw-ico.uw-ico-dir-public:before, i.uw-ico.uwmed-icon__public-transportation:before, .uwmed-icon.transit:before, .uwmed-icon.uw-ico-dir-public:before, .uwmed-icon.uwmed-icon__public-transportation:before {
-  content: "\e924";
+  content: "\e925";
 }
 
 i.uw-ico.transit_selected.svg, .uwmed-icon.transit_selected.svg {
@@ -359,7 +368,7 @@ i.uw-ico.twitter.svg, i.uw-ico.uwmed-icon__twitter.svg, .uwmed-icon.twitter.svg,
 }
 
 i.uw-ico.twitter:before, i.uw-ico.uwmed-icon__twitter:before, .uwmed-icon.twitter:before, .uwmed-icon.uwmed-icon__twitter:before {
-  content: "\e925";
+  content: "\e926";
 }
 
 i.uw-ico.walk.svg, i.uw-ico.uw-ico-dir-walking.svg, i.uw-ico.uwmed-icon__walking.svg, .uwmed-icon.walk.svg, .uwmed-icon.uw-ico-dir-walking.svg, .uwmed-icon.uwmed-icon__walking.svg {
@@ -367,7 +376,7 @@ i.uw-ico.walk.svg, i.uw-ico.uw-ico-dir-walking.svg, i.uw-ico.uwmed-icon__walking
 }
 
 i.uw-ico.walk:before, i.uw-ico.uw-ico-dir-walking:before, i.uw-ico.uwmed-icon__walking:before, .uwmed-icon.walk:before, .uwmed-icon.uw-ico-dir-walking:before, .uwmed-icon.uwmed-icon__walking:before {
-  content: "\e926";
+  content: "\e927";
 }
 
 i.uw-ico.walk_selected.svg, .uwmed-icon.walk_selected.svg {
@@ -375,7 +384,7 @@ i.uw-ico.walk_selected.svg, .uwmed-icon.walk_selected.svg {
 }
 
 i.uw-ico.walk_selected:before, .uwmed-icon.walk_selected:before {
-  content: "\e926";
+  content: "\e927";
   color: green;
 }
 
@@ -384,24 +393,11 @@ i.uw-ico.youtube.svg, i.uw-ico.uwmed-icon__youtube.svg, .uwmed-icon.youtube.svg,
 }
 
 i.uw-ico.youtube:before, i.uw-ico.uwmed-icon__youtube:before, .uwmed-icon.youtube:before, .uwmed-icon.uwmed-icon__youtube:before {
-  content: "\e927";
+  content: "\e928";
 }
 
 i.uw-ico.home:before, i.uw-ico.uwmed-icon__home:before, .uwmed-icon.home:before, .uwmed-icon.uwmed-icon__home:before {
-  content: "\e90e";
-}
-
-i.uw-ico.uwmed-icon__heart-waveform::before, .uwmed-icon.uwmed-icon__heart-waveform::before {
-  content: "\f21e";
-  font-size: 20px;
-}
-
-i.uw-ico.uwmed-icon__heart-waveform::before, .uwmed-icon.uwmed-icon__heart-waveform::before {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  content: "\e910";
 }
 
 body.adminimal form tr.odd .form-item, body.adminimal form tr.even .form-item {
