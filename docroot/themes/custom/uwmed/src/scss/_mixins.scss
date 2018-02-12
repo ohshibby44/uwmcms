@@ -12,15 +12,17 @@
   -webkit-transform-style: preserve-3d;
 }
 
-@mixin uw-separator() {
+@mixin uw-separator($angle: false) {
+
+  @if $angle {
+    @include uw-skew($angle);
+  }
+
   height: 1em;
   width: 1em;
   margin: 0 1em;
   border-right: 1px solid transparent;
   display: inline-block;
-  //&.skew {
-  //  @include uw-skew(-15deg);
-  //}
 }
 
 @mixin uw-awesome-ico() {

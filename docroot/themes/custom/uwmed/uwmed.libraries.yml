@@ -6,6 +6,7 @@ styles:
 scripts:
   js:
     dist/js/global.js: {}
+    dist/js/header-footer.js: {}
 
 bootstrap-scripts:
   js:

@@ -10,44 +10,43 @@ body {
 
   div.main-container {
 
-    > .wrapper {
+    padding-top: 100px;
+    min-height: 400px;
 
-      .page-left {
-      }
+    .page-left {
+    }
 
-      .page-right {
+    .page-right {
 
-      }
-      .page-center {
+    }
+    .page-center {
 
-        min-height: 400px;
+      article {
 
-        article {
+        .paragraph {
 
-          .paragraph {
+          input {
+            width: 100%;
+            background: #dcdcdc;
+            opacity: .6;
+            border: 1px solid darken(#dcdcdc, 15%);
+            margin: 0 0 5px 0;
+            padding: 4px;
 
-            input {
-              width: 100%;
-              background: #dcdcdc;
-              opacity: .6;
-              border: 1px solid darken(#dcdcdc, 15%);
-              margin: 0 0 5px 0;
-              padding: 4px;
-
-              &::placeholder {
-                text-transform: uppercase;
-              }
-            }
-
-            p {
-              margin-bottom: 12px;
+            &::placeholder {
+              text-transform: uppercase;
             }
           }
 
+          p {
+            margin-bottom: 12px;
+          }
         }
+
       }
 
     }
+
   }
 
   footer {

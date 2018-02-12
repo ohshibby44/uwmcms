@@ -29,7 +29,7 @@ function uwmcs_utils_page_attachments(array &$attachments) {
 
   $admin_context = \Drupal::service('router.admin_context');
   if ($admin_context->isAdminRoute()) {
-    $attachments['#attached']['library'][] = 'uwmcs_utils/admin-css';
+    $attachments['#attached']['library'][] = 'uwmcs_utils/admin-pages-css';
   }
 
 }

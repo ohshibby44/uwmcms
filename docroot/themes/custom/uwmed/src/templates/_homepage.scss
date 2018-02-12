@@ -1,5 +1,11 @@
 .page-node-type-homepage {
+  .main-container {
+    padding-top: 0;
+  }
 
+  .uwmed-icon:before {
+    font-size: 16px;
+  }
 
 
   .links-with-icon__list {
@@ -21,15 +27,12 @@
       padding-left: $padding-base-horizontal;
       color: $uwmed-purple-icon;
       background-image: none !important;
-
-      b {
-        display: initial;
-        font-weight: 400;
-      }
+      transition-property: color;
+      transition-duration: 0.7s;
 
       @media(min-width: $screen-lg-min) {
-        padding-left: $padding-base-horizontal * 1.5;
-        padding-right: $padding-base-horizontal;
+        padding-left: $padding-base-horizontal;
+        padding-right: $padding-base-horizontal / 2;
         color: white;
       }
     }
@@ -41,6 +44,8 @@
       text-align: left;
       background: none;
       border: none;
+      transition-property: color;
+      transition-duration: 0.7s;
 
       @media(min-width: $screen-lg-min) {
         color: white;
@@ -48,16 +53,20 @@
 
         @include angled-edge('inside top', 'lower right', rgba(255, 255, 255, .23), 15, 15);
         &::before {
+          transition-property: opacity;
+          transition-duration: 0.7s;
           background-position: left 0;
         }
 
         &:hover {
           &::before {
-            background: none;
+            opacity: 0;
           }
         }
       }
     }
+
+
 
     .fa-angle-right {
       position: absolute;
@@ -69,6 +78,8 @@
         position: static;
         padding-right: 0;
         padding-left: $line-height-computed / 2;
+        transition-property: color;
+        transition-duration: 0.7s;
       }
     }
   }
@@ -107,9 +118,11 @@
       }
 
       .btn-default {
+
         @media(min-width: $screen-lg-min) {
+          z-index: 1;
+
           &:hover {
-            background-color: rgba(255,255,255, .7);
             color: $text-color;
 
             .uwmed-icon {
@@ -118,6 +131,28 @@
 
             .fa-angle-right {
               color: $text-color;
+            }
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, .7);
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition-property: transform;
+            transition-duration: 0.7s;
+            transition-timing-function: ease-out;
+            z-index: -1;
+          }
+
+          &:hover {
+            &::after {
+              transform: scaleX(1);
             }
           }
         }
@@ -395,6 +430,10 @@
 
     .fa-angle-right {
       line-height: 1.018;
+
+      @media(min-width: $screen-lg-min) {
+        display: none;
+      }
     }
   }
 
@@ -404,8 +443,12 @@
     font-weight: 600;
     font-family: $headings-font-family;
     font-size: $font-size-h3;
+    transition-property: color;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+    z-index: 1;
 
-    @media(max-width: $screen-md-max) {
+    @media(max-width: $screen-sm-max) {
       width: 100%;
     }
 
@@ -414,16 +457,42 @@
       padding-right: 18px;
     }
 
-    &:hover {
+
+    &.btn-default:hover {
+      text-decoration: none;
       color: white;
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 0.7s;
+      transition-timing-function: ease-out;
+      z-index: -1;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+
   }
   .accent-blue .homepage-section__link  {
     @include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
     &::before {
       background-position: left 0;
     }
-    &:hover {
+
+    &::after {
       background-color: $uwmed-accent-blue;
     }
   }
@@ -432,16 +501,18 @@
     &::before {
       background-position: left 0;
     }
-    &:hover {
+    &::after {
       background-color: $uwmed-accent-orange;
     }
+
   }
   .accent-teal .homepage-section__link {
     @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
     &::before {
       background-position: left 0;
     }
-    &:hover {
+
+    &::after {
       background-color: $uwmed-accent-teal;
     }
   }
