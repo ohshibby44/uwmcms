@@ -53,6 +53,9 @@ body.page-node-type-uwm-clinic {
           @include uw-ghost-button('.item', 'i.u-ips');
 
         }
+        form div.form-actions {
+          @include uw-ghost-button('button', 'i.u-ips');
+        }
 
         div.field.field--name-field-links-paragraph {
           float: left;
