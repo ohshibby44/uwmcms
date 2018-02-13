@@ -52,7 +52,7 @@ i.uw-ico, .uwmed-icon {
       content: "\e901";
     }
   }
-  &.accepting_patients, &.uwmed-icon__accepting-patients {
+  &.checkmark, &.accepting_patients, &.uwmed-icon__accepting-patients {
     &.svg {
       //icon_accepting_patients.svg
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_accepting_patients.svg');
@@ -168,7 +168,7 @@ i.uw-ico, .uwmed-icon {
       background-image: url('#{$uw-images-folder}/uwm-icons/icon_fb.svg');
     }
     &:before {
-      content: "\e90v";
+      content: "\e90c";
     }
   }
   &.find_a_doctor, &.uwmed-icon__find-a-provider {
@@ -476,5 +476,4 @@ i.uw-ico, .uwmed-icon {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
-
 
