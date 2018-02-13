@@ -48,8 +48,11 @@ body > header {
 
     .quick-links {
 
-      ul, li {
+      ul {
         @extend .pull-right;
+        li {
+          @extend .pull-left;
+        }
       }
 
       li > a {

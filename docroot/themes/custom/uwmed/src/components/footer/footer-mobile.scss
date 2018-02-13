@@ -12,15 +12,19 @@
         display: none;
       }
 
-      .foot-third {
+      .foot-first, .foot-second, .foot-third, .foot-fourth {
+        text-align: center;
+      }
 
+      .foot-third {
         background: #EFEFEF;
         padding: 15px;
         text-align: center;
       }
 
-      .foot-first, .foot-second, .foot-third, .foot-fourth {
-        text-align: center;
+      .foot-first .nav > li, .nav > li {
+        margin: 0;
+        padding: 0 0 1em 0;
       }
 
     }
