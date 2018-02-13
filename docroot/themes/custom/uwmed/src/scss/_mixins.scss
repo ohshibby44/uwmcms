@@ -76,6 +76,7 @@
   margin-top: 6px;
 
   #{$button-el}, #{$button-el} * {
+    color: $uwmed-body-text-color;
     cursor: pointer;
     border-radius: 0;
     font-size: 13px;

@@ -51,11 +51,10 @@ view_mode ? view_mode|clean_class,
             </div>
             <div class="col-xs-12 l">
 
-                <a href="#directions"
+                <a href="#directions-tab"
                    role="tab"
-                   id="directions-tab"
                    data-toggle="tab"
-                   aria-controls="directions"
+                   aria-controls="directions-tab"
                    aria-expanded="false">
                     {{ 'Driving Directions'|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -125,38 +124,32 @@ view_mode ? view_mode|clean_class,
     <section class="clinic-tabs">
 
         <ul class="nav nav-tabs uwm-nav-tabs" id="myTabs" role="tablist">
-            <li role="presentation" class="active"><a href="#main"
-                                                      name="main"
-                                                      id="main-tab"
+            <li role="presentation" class="active"><a href="#main-tab"
                                                       role="tab"
                                                       data-toggle="tab"
-                                                      aria-controls="main"
+                                                      aria-controls="main-tab"
                                                       aria-expanded="true">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Services & Resources'|t }}
 
                 </a>
             </li>
-            <li role="presentation"><a href="#directions"
-                                       name="directions"
+            <li role="presentation"><a href="#directions-tab"
                                        role="tab"
-                                       id="directions-tab"
                                        data-toggle="tab"
-                                       aria-controls="directions"
+                                       aria-controls="directions-tab"
                                        aria-expanded="false">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Directions/ Parking'|t }}
 
                 </a>
             </li>
-            <li role="presentation"><a href="#providers"
-                                       name="providers"
+            <li role="presentation"><a href="#providers-tab"
                                        role="tab"
-                                       id="providers-tab"
                                        data-toggle="tab"
-                                       aria-controls="providers"
+                                       aria-controls="providers-tab"
                                        aria-expanded="false">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                    <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Care Providers'|t }}
 
                 </a>
@@ -166,33 +159,33 @@ view_mode ? view_mode|clean_class,
         <div class="tab-content uwm-tab-content">
 
             <div class="row tab-pane main-tab active in" role="tabpanel"
-                 id="main" aria-labelledby="main-tab">
+                 id="main-tab" aria-labelledby="main-tab">
+                <a name="main" id="main"></a>
 
                 <section class="services">
-
                     <h3 class="accent">Services</h3>
 
                     <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
 
                     <ul>
-                        {% for s in _cli.services %}
-                            <li>
-                                <i class="fa fa-check-circle-o"
-                                   aria-hidden="true"></i>
-                                {{ s.serviceName|t }}</li>
-                        {% endfor %}
+                        {#{% for s in _cli.services %}#}
+                            {#<li>#}
+                                {#<i class="uw-ico checkmark"#}
+                                   {#aria-hidden="true"></i>#}
+                                {#{{ s.serviceName|t }}</li>#}
+                        {#{% endfor %}#}
                         {% for s in _cli.expertises %}
                             <li>
-                                <i class="fa fa-check-circle-o"
+                                <i class="uw-ico checkmark"
                                    aria-hidden="true"></i>
                                 {{ s.expertiseName|t }}</li>
                         {% endfor %}
                     </ul>
-                    
+
                     {#<div class="view-more"><a href="#">View More <i#}
                     {#class="fa fa-angle-down"#}
                     {#aria-hidden="true"></i></a></div>#}
-                
+
                 </section>
 
                 {% if content.field_content_blocks |render is not empty %}
@@ -228,7 +221,8 @@ view_mode ? view_mode|clean_class,
             </div>
 
             <div class="row tab-pane directions-tab" role="tabpanel"
-                 id="directions" aria-labelledby="directions-tab">
+                 id="directions-tab" aria-labelledby="directions-tab">
+                <a name="directions" id="directions"></a>
 
                 <div class="col-xs-12">
                     <h3 class="accent">Directions & Parking</h3>
@@ -239,7 +233,8 @@ view_mode ? view_mode|clean_class,
             </div>
 
             <div class="row tab-pane providers-tab" role="tabpanel"
-                 id="providers" aria-labelledby="providers-tab">
+                 id="providers-tab" aria-labelledby="providers-tab">
+                <a name="providers" id="providers"></a>
 
                 <div class="col-xs-12">
                     <h3 class="accent">Care Providers</h3>

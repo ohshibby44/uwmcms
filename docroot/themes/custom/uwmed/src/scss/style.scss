@@ -67,10 +67,10 @@
 @import "uwm_icons";
 @import "admin_elements";
 @import "../components/scafolding";
-@import "../components/header";
-@import "../components/header-mobile";
-@import "../components/footer";
-@import "../components/footer-mobile";
+@import "../components/header/header";
+@import "../components/header/header-mobile";
+@import "../components/footer/footer";
+@import "../components/footer/footer-mobile";
 
 @import "../components/uwm-nav-tabs/uwm-nav-tabs";
 @import "../templates/blocks";
