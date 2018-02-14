@@ -13,6 +13,7 @@ regions:
   help: 'Help'
   content_header: 'Content Header'
   content: 'Content'
+  content_innner_sidebar: 'Content Inner Sidebar'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
   footer_first: 'Footer First'
