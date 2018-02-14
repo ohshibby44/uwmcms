@@ -29,187 +29,192 @@ view_mode ? view_mode|clean_class,
 
 
 <article{{ attributes.addClass(classes) }}>
+    <div class="row">
+        <section class="col-xs-12 col-sm-3 left">
 
-    <section class="col-xs-12 col-sm-3 left">
+            <div class="col-xs-4 col-sm-12 profile-image">
+                <img src="{{ profileImage }}">
+            </div>
 
-        <div class="col-xs-4 col-sm-12 profile-image">
-            <img src="{{ profileImage }}">
-        </div>
-
-        {% if _bio.acceptingAppointments %}
-        <div class="col-sm-12 hidden-xs make-an-appointment l">
-            <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
-                <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-        </div>
-        {% endif %}
-
-        {#<div class="col-xs-12 ratings l">#}
-        {##}
-        {#</div>#}
-
-        <div class="col-xs-8 col-sm-12 specialities l">
-
-            {% if specialities %}
-                <h5>{{ "Specialities"| t }}</h5>
-                <ul>
-                    {% for i in specialities %}
-                        <li>{{ i }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-        </div>
-
-        <div class="col-xs-8 col-sm-12 languages l">
-
-            {% if _bio.languages %}
-                <h5>{{ "Languages"| t }}</h5>
-                <ul>
-                    {% for i in _bio.languages %}
-                        <li>{{ i.languageName }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-        </div>
-
-        <div class="col-xs-12 visible-xs-block make-an-appointment l">
-
-            <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
-                <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-
-        </div>
-
-    </section>
-
-
-    <section class="col-sm-9 right">
-
-        <ul class="nav nav-tabs uwm-nav-tabs" role="tablist">
-
-            <li role="presentation" class="active"><a href="#overview"
-                                                      name="overview"
-                                                      id="overview-tab"
-                                                      role="tab"
-                                                      data-toggle="tab"
-                                                      aria-controls="overview"
-                                                      aria-expanded="true">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                    {{ 'Overview'|t }}
-
-                </a>
-            </li>
-
-            <li role="presentation"><a href="#locations"
-                                       name="locations"
-                                       role="tab"
-                                       id="locations-tab"
-                                       data-toggle="tab"
-                                       aria-controls="locations"
-                                       aria-expanded="false">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                    {{ 'Locations'|t }}
-
-                </a>
-            </li>
-
-            <li role="presentation"><a href="#education"
-                                       name="education"
-                                       role="tab"
-                                       id="education-tab"
-                                       data-toggle="tab"
-                                       aria-controls="education"
-                                       aria-expanded="false">
-                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
-                    {{ 'Education'|t }}
-
-                </a>
-            </li>
-
-        </ul>
-
-        <div class="tab-content uwm-tab-content">
-
-            <div class="row tab-pane active in overview-tab" role="tabpanel"
-                 id="overview" aria-labelledby="services-tab">
-
-                {% if content.field_content_blocks|render %}
-                    <div class="col-sm-5 pull-right">
-                        {{ content.field_content_blocks }}
-                    </div>
+            <div class="col-sm-12 hidden-xs make-an-appointment l">
+                {% if _bio.acceptingAppointments %}
+                    <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                        <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                {% else %}
+                    <a href="/search/providers">{{ "Find a Provider"|t }}
+                        <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% endif %}
+            </div>
 
-                <h4>{{ 'Biography'|t }}</h4>
-                {{ _bio.fullBio|raw }}
+            {#<div class="col-xs-12 ratings l">#}
+            {##}
+            {#</div>#}
 
-                {% if _bio.personalInterests %}
-                    <h4>{{ 'Personal Interests'|t }}</h4>
-                    {{ _bio.personalInterests|raw }}
+            <div class="col-xs-8 col-sm-12 specialities l">
+
+                {% if specialities %}
+                    <h5>{{ "Specialities"| t }}</h5>
+                    <ul>
+                        {% for i in specialities %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
 
             </div>
 
-            <div class="row tab-pane locations-tab" role="tabpanel"
-                 id="locations" aria-labelledby="locations-tab">
+            <div class="col-xs-8 col-sm-12 languages l">
 
-                {#<h4>Locations</h4>#}
-                {#{% set n = locations|length %}#}
-                {#<p class="location-count">{{ "@count location@s" | t({'@count': n,#}
-                        {#'@s': (n != 1 ? 's': '')}) }}</p>#}
-
-                {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
-
-
-            </div>
-
-            <div class="row tab-pane education-tab" role="tabpanel"
-                 id="education" aria-labelledby="providers-tab">
-
-                {% if _bio.educationHistories %}
-                    {#<h4>Education</h4>#}
-
-                    {% for e in _bio.educationHistories %}
-
-                        <h5>{{ e.institutionName }}</h5>
-                        {% set ed = [] %}
-                        {% if e.educationType %}
-                            {% set ed = ed|merge([e.educationType]) %}
-                        {% endif %}
-                        {% if e.gradYear %}
-                            {% set ed = ed|merge([e.gradYear]) %}
-                        {% endif %}
-                        {% if e.specialty %}
-                            {% set ed = ed|merge([e.specialty]) %}
-                        {% endif %}
-
-                        <p>{{ ed|join(', ') }}</p>
-
-                    {% endfor %}
-
+                {% if _bio.languages %}
+                    <h5>{{ "Languages"| t }}</h5>
+                    <ul>
+                        {% for i in _bio.languages %}
+                            <li>{{ i.languageName }}</li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
 
-                {#{% if _bio.bioPublications %}#}
-                {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
-                {#<h4>Publications</h4>#}
+            </div>
 
-                {#{% for p in _bio.bioPublications %}#}
+            <div class="col-xs-12 visible-xs-block make-an-appointment l">
 
-                {#<h5>{{ p.pubMedId }}</h5>#}
+                <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                    <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
-                {#{% endfor %}#}
+            </div>
 
-                {#{% endif %}#}
+        </section>
 
-                {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+
+        <section class="col-sm-9 right">
+
+            <ul class="nav nav-tabs uwm-nav-tabs" role="tablist">
+
+                <li role="presentation" class="active"><a href="#overview"
+                                                          name="overview"
+                                                          id="overview-tab"
+                                                          role="tab"
+                                                          data-toggle="tab"
+                                                          aria-controls="overview"
+                                                          aria-expanded="true">
+                        <i class="uw-ico heart" aria-hidden="true"></i>
+                        {{ 'Overview'|t }}
+
+                    </a>
+                </li>
+
+                <li role="presentation"><a href="#locations"
+                                           name="locations"
+                                           role="tab"
+                                           id="locations-tab"
+                                           data-toggle="tab"
+                                           aria-controls="locations"
+                                           aria-expanded="false">
+                        <i class="uw-ico heart" aria-hidden="true"></i>
+                        {{ 'Locations'|t }}
+
+                    </a>
+                </li>
+
+                <li role="presentation"><a href="#education"
+                                           name="education"
+                                           role="tab"
+                                           id="education-tab"
+                                           data-toggle="tab"
+                                           aria-controls="education"
+                                           aria-expanded="false">
+                        <i class="uw-ico heart" aria-hidden="true"></i>
+                        {{ 'Education'|t }}
+
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="tab-content uwm-tab-content">
+
+                <div class="row tab-pane active in overview-tab" role="tabpanel"
+                     id="overview" aria-labelledby="services-tab">
+
+                    {% if content.field_content_blocks|render or (drupal_region('content_innner_sidebar')) is not empty %}
+                        <aside class="col-sm-5 pull-right" role="complementary">
+                            {{ content.field_content_blocks }}
+                            {{ drupal_region('content_innner_sidebar') }}
+                        </aside>
+                    {% endif %}
+
+
+                    <h4>{{ 'Biography'|t }}</h4>
+                    {{ _bio.fullBio|raw }}
+
+                    {% if _bio.personalInterests %}
+                        <h4>{{ 'Personal Interests'|t }}</h4>
+                        {{ _bio.personalInterests|raw }}
+                    {% endif %}
+
+                </div>
+
+                <div class="row tab-pane locations-tab" role="tabpanel"
+                     id="locations" aria-labelledby="locations-tab">
+
+                    {#<h4>Locations</h4>#}
+                    {#{% set n = locations|length %}#}
+                    {#<p class="location-count">{{ "@count location@s" | t({'@count': n,#}
+                    {#'@s': (n != 1 ? 's': '')}) }}</p>#}
+
+                    {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
+
+
+                </div>
+
+                <div class="row tab-pane education-tab" role="tabpanel"
+                     id="education" aria-labelledby="providers-tab">
+
+                    {% if _bio.educationHistories %}
+                        {#<h4>Education</h4>#}
+
+                        {% for e in _bio.educationHistories %}
+
+                            <h5>{{ e.institutionName }}</h5>
+                            {% set ed = [] %}
+                            {% if e.educationType %}
+                                {% set ed = ed|merge([e.educationType]) %}
+                            {% endif %}
+                            {% if e.gradYear %}
+                                {% set ed = ed|merge([e.gradYear]) %}
+                            {% endif %}
+                            {% if e.specialty %}
+                                {% set ed = ed|merge([e.specialty]) %}
+                            {% endif %}
+
+                            <p>{{ ed|join(', ') }}</p>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                    {#{% if _bio.bioPublications %}#}
+                    {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
+                    {#<h4>Publications</h4>#}
+
+                    {#{% for p in _bio.bioPublications %}#}
+
+                    {#<h5>{{ p.pubMedId }}</h5>#}
+
+                    {#{% endfor %}#}
+
+                    {#{% endif %}#}
+
+                    {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+
+                </div>
+
 
             </div>
 
 
-        </div>
+        </section>
 
-
-    </section>
-
-
+    </div>
 </article>
 
