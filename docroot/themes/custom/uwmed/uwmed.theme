@@ -153,5 +153,3 @@ function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
   $variables['bg_image_urls'] = $bg_image_urls;
 
 }
-
-
