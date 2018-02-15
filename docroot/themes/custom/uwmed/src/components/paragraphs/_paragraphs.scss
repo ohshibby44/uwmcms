@@ -1,15 +1,19 @@
+//
+// -- PARAGRAPHS STYLING
+// Special formatting for paragraphs, when used
+// within these fields or the content aside.
+//
 
-article {
+
+aside,
+div.field.field--name-field-content-blocks,
+div.field.field--name-field-bottom-content-blocks
+{
+
 
   .paragraph {
 
     @extend .col-xs-12;
-
-
-    ul, li {
-      margin: 0;
-      padding: 0;
-    }
 
     a.btn, a.btn-default {
       background-color: transparent;
@@ -29,12 +33,6 @@ article {
         @include uw-bottom-accent-heading();
       }
     }
-
-
-
-
-
-
 
   }
 
