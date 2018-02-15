@@ -1,3 +1,38 @@
+//
+// -- BLOCK STYLING
+//
+
+
+//
+// GENERAL RULES
+//
+aside section.block {
+
+  @extend .col-xs-12;
+
+  margin-bottom: 25px;
+  padding: 10px;
+  box-shadow: 1px 1px 10px 1px #dcdcdc;
+  background: #f8f8f8;
+
+  h2.block-title {
+    @extend .h3;
+    @include uw-bottom-accent-heading();
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+
+}
+
+
+//
+// OTHER BLOCKS
+//
+
 .accelerate-promotion-block {
     background-size: cover;
     color: white;

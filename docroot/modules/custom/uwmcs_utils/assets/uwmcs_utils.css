@@ -1,3 +1,6 @@
+@import url('/themes/custom/uwmed/dist/adminimal_theme/assets/styles.css');
+
+
 
 /* ADMIN TOOLBAR */
 body.user-logged-in nav#toolbar-bar {

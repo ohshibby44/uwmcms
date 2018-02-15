@@ -1,0 +1,44 @@
+
+article {
+
+  .paragraph {
+
+    @extend .col-xs-12;
+
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    a.btn, a.btn-default {
+      background-color: transparent;
+    }
+
+    div.field.field--name-field-link {
+      @include uw-ghost-button('.item', 'i.u-ips');
+    }
+
+    form div.form-actions {
+      @include uw-ghost-button('button', 'i.u-ips');
+    }
+
+    div.field.field--name-field-heading {
+      .item {
+        @extend .h3;
+        @include uw-bottom-accent-heading();
+      }
+    }
+
+
+
+
+
+
+
+  }
+
+}
+
+
+

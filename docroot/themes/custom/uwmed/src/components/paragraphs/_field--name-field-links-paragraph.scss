@@ -1,0 +1,64 @@
+// List of links:
+div.paragraph, section.block {
+
+
+
+  div.field.field--name-field-links-paragraph {
+
+    @extend .row;
+    margin: 0;
+
+    > .item {
+      &:nth-last-child(2) li a.btn.btn-default {
+        border-bottom-color: transparent;
+      }
+
+      ul li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0 0 1em 1em;
+      }
+
+      a.btn.btn-default {
+        @extend .col-xs-12;
+        margin: 0;
+        padding: 8px 0 8px 30px;
+        border: 0 none;
+        border-bottom: 1px solid #dcdc;
+        text-align: left;
+        text-decoration: none;
+        background-color: transparent;
+
+        &:hover {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+
+        span.uwmed-icon {
+          float: left;
+          margin: -1px 0 0 -30px;
+          b {
+            @extend .hidden;
+          }
+        }
+
+        span.fa-angle-right {
+          float: right;
+        }
+
+      }
+
+
+    }
+
+    div.field.field--name-field-link {
+      @include uw-ghost-button('.item', 'i.u-ips');
+      @extend .col-xs-12;
+      margin: 1em 0 0 0;
+    }
+
+  }
+
+
+
+}

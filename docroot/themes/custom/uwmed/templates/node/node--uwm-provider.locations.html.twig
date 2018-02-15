@@ -1,71 +1,74 @@
-{% for clinic in locations %}
+<div class="row">
+    {% for clinic in locations %}
 
-    {% set clinicImage = clinic.externalUrl ~ '/PublishingImages/splash1.jpg' %}
+        {% set clinicImage = clinic.externalUrl ~ '/PublishingImages/splash1.jpg' %}
 
-    <div class="col-xs-12 col-xl-6 provider-location">
+        <div class="col-xs-12 col-xl-6 provider-location">
 
-        {% set locationImage = clinicImage ? clinicImage :
+            {% set locationImage = clinicImage ? clinicImage :
             clinic.externalUrl ~ '/PublishingImages/splash1.jpg' %}
 
-        <div class="col-xs-5 location-image"
-             style="background-image: url({{ locationImage }})">
-            <img src="{{ locationImage }}" class="hidden">
-        </div>
+            <div class="col-xs-5 location-image"
+                 style="background-image: url({{ locationImage }})">
+                <img src="{{ locationImage }}" class="hidden">
+            </div>
 
-        <h4 class="col-xs-7 pull-right location-title k">
+            <h4 class="col-xs-7 pull-right location-title">
 
-            <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
+                <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
 
-        </h4>
+            </h4>
 
-        <address class="col-xs-7 pull-right location-address k">
-            <i class="uw-ico uw-ico-md clinic_locations"></i>
-            {{ clinic.address }}
-            {{ clinic.city }},
-            {{ clinic.state }}
-            {{ clinic.zipcode }}
-        </address>
+            <address class="col-xs-7 pull-right location-address k">
+                <i class="uw-ico uw-ico-md clinic_locations"></i>
+                {{ clinic.address }}
+                {{ clinic.city }},
+                {{ clinic.state }}
+                {{ clinic.zipcode }}
+            </address>
 
-        <div class="col-xs-7 pull-right location-phone k">
-            <i class="uw-ico uw-ico-md call_solid"></i>
-            {% set phone = clinic.seoPhone|slice(0, 3)
-            ~'-'~ clinic.seoPhone|slice(3, 3)
-            ~'-'~ clinic.seoPhone|slice(6, 4) %}
-            <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
-        </div>
+            <div class="col-xs-7 pull-right location-phone k">
+                <i class="uw-ico uw-ico-md call_solid"></i>
+                {% set phone = clinic.seoPhone|slice(0, 3)
+                ~'-'~ clinic.seoPhone|slice(3, 3)
+                ~'-'~ clinic.seoPhone|slice(6, 4) %}
+                <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+            </div>
 
-        <div class="col-xs-7 pull-right location-hours k">
+            <div class="col-xs-7 pull-right location-hours k">
 
-            {% if clinic.clinicTimeUseMasters %}
-                {% set _dn = 'now'|date('w')|number_format %}
-                {% set _isOpen = false %}
+                {% if clinic.clinicTimeUseMasters %}
+                    {% set _dn = 'now'|date('w')|number_format %}
+                    {% set _isOpen = false %}
 
-                {% for t in clinic.clinicTimeUseMasters %}
-                    {% for s in t.hoursOfOperation %}
+                    {% for t in clinic.clinicTimeUseMasters %}
+                        {% for s in t.hoursOfOperation %}
 
-                        {% if s.dayOfWeek == _dn %}
-                            {% set _isOpen = s %}
-                        {% endif %}
+                            {% if s.dayOfWeek == _dn %}
+                                {% set _isOpen = s %}
+                            {% endif %}
 
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
 
-                {% if _isOpen %}
-                    <p>
-                        <i class="uw-ico uw-ico-md appointment"></i>
-                        <strong>Open:</strong> {{ "@start - @end" | t({
-                            '@start': _isOpen.startTime|date ('g:ia')|trim('m'),
-                            '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}</p>
-                {% else %}
-                    <p>
-                        <i class="uw-ico uw-ico-md appointment"></i>
-                        {{ 'Closed'|t }}</p>
+                    {% if _isOpen %}
+                        <p>
+                            <i class="uw-ico uw-ico-md appointment"></i>
+                            <strong>Open:</strong> {{ "@start - @end" | t({
+                                '@start': _isOpen.startTime|date ('g:ia')|trim('m'),
+                                '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}
+                        </p>
+                    {% else %}
+                        <p>
+                            <i class="uw-ico uw-ico-md appointment"></i>
+                            {{ 'Closed'|t }}</p>
 
+                    {% endif %}
                 {% endif %}
-            {% endif %}
+
+            </div>
 
         </div>
 
-    </div>
-
-{% endfor %}
+    {% endfor %}
+</div>
