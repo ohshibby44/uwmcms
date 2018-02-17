@@ -1,21 +1,14 @@
 <div class="row">
     {% for clinic in locations %}
 
-        {% set clinicImage = clinic.externalUrl ~ '/PublishingImages/splash1.jpg' %}
-
         <div class="col-xs-12 col-xl-6 provider-location">
 
-            {% set locationImage = clinicImage ?
-            clinicImage : clinic.externalUrl ~ '/PublishingImages/splash1.jpg' %}
-
             <div class="col-xs-5 location-image">
-                <img src="{{ locationImage }}">
+                <img src="{{ clinic.externalUrl ~ '/PublishingImages/splash1.jpg' }}">
             </div>
 
             <h4 class="col-xs-7 pull-right location-title">
-
                 <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
-
             </h4>
 
             <address class="col-xs-7 pull-right location-address k">

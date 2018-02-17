@@ -21,7 +21,7 @@ _core:
   default_config_hash: 5YJZbVUYycSo7ymVZnMwmvytiKmX03hJ0dloGv_lv-M
 name: 'UWM Clinic'
 type: uwm_clinic
-description: 'The content type of UW locations and clinics. '
+description: ''
 help: ''
 new_revision: false
 preview_mode: 1

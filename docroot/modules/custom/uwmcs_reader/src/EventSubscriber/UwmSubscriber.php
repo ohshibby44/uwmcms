@@ -20,7 +20,7 @@ class UwmSubscriber implements EventSubscriberInterface {
   public function onException(GetResponseForExceptionEvent $event) {
 
     $uwm = new UwmCreator();
-    $uwm->validateRemoteNode(TRUE);
+    $uwm->createMissingApiNode(TRUE);
 
   }
 

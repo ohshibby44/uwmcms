@@ -7,10 +7,8 @@
 {% endfor %}
 
 
-
-{% set n = bios|length %}
-<p>{{ "@count provider@s" | t({'@count': n,
-        '@s': (n != 1 ? 's': '')}) }}</p>
+<p>{{ "@count provider@s" | t({'@count': bios|length,
+        '@s': (bios|length != 1 ? 's': '')}) }}</p>
 
 <div class="row">
 
@@ -29,20 +27,17 @@
 
 
         {% set loopClasses = [
+            loop.index is odd ? 'even' : 'odd',
+            'loop-'~ loop.index,
+            loop.first ? 'loop-first' : '',
+            loop.last ? 'loop-last' : '',
+            loop.index == loop.length-1 ? 'loop-last-1' : '' ] %}
 
-        loop.index is odd ? 'even' : 'odd',
-        'loop-'~ loop.index,
-        loop.first ? 'loop-first' : '',
-        loop.last ? 'loop-last' : '',
-        loop.index == loop.length-1 ? 'loop-last-1' : ''
-
-        ] %}
         <div class="provider col-xs-12 col-sm-6 {{ loopClasses|join(' ') }}">
 
             <div class="wrapper">
 
-                <div class="profile-image"
-                     style="background-image: url({{ profileImage }})">
+                <div class="profile-image">
                     <img src="{{ profileImage }}" class="img-thumbnail">
                 </div>
 
