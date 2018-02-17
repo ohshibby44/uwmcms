@@ -10,7 +10,7 @@ var opts = {
         sass_files: [
             './src/adminimal_theme/styles.scss'
         ],
-        sass_dest: '../../../modules/custom/uwmcs_utils/assets/adminimal_theme'
+        sass_dest: './dist/adminimal_theme/assets'
     }
 };
 

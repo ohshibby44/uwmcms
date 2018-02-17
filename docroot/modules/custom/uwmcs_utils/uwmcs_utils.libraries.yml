@@ -3,4 +3,3 @@ admin-pages-css:
   css:
     theme:
       assets/uwmcs_utils.css: {}
-      assets/adminimal_theme/styles.css: {}

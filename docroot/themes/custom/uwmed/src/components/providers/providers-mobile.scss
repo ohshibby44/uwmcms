@@ -1,29 +1,15 @@
 @media(max-width: $screen-xs-max) {
 
+
+
   body.page-node-type-uwm-provider {
 
     div.main-container article.uwm-provider {
 
       section.left {
 
-        > .profile-image {
+        .profile-image {
           padding-right: 15px;
-
-        }
-
-        > .specialities {
-        }
-
-        > .languages.l {
-          border-bottom-color: transparent;
-        }
-
-        > .make-an-appointment.l {
-          border-bottom: 1px solid #dcdcdc;
-        }
-
-        .l {
-          float: right;
         }
 
         ul {
@@ -32,8 +18,8 @@
 
           li {
             list-style-type: none;
-            float: left;
-            margin-right: .5em;
+            margin: 0 .3em 0 0;
+            display: inline-block;
           }
           li:after {
             content: ", ";

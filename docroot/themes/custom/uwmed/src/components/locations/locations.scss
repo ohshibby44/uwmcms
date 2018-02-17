@@ -38,61 +38,7 @@ body.page-node-type-uwm-clinic {
             p.h1.hero__heading {
               display: none;
             }
-            ul, li {
-              margin: 0;
-              padding: 0;
-            }
-          }
-        }
 
-        h2.accent, h3.accent {
-          @include uw-bottom-accent-heading($uwmed-accent-blue);
-        }
-
-        div.field.field--name-field-link {
-          @include uw-ghost-button('.item', 'i.u-ips');
-
-        }
-        form div.form-actions {
-          @include uw-ghost-button('button', 'i.u-ips');
-        }
-
-        div.field.field--name-field-links-paragraph {
-          float: left;
-          width: 100%;
-
-          .item {
-            &:last-child li a.btn.btn-default {
-              border-bottom: 1px solid #dcdc;
-            }
-
-            li {
-              list-style-type: none;
-            }
-
-            a.btn.btn-default {
-              @extend .col-xs-12;
-              margin: 0;
-              padding: 8px 0 8px 30px;
-              border: 0 none;
-              border-top: 1px solid #dcdc;
-              text-align: left;
-              text-decoration: none;
-
-              &:hover {
-                background-color: transparent;
-                text-decoration: underline;
-              }
-
-              span.uwmed-icon {
-                float: left;
-                margin: -1px 0 0 -30px;
-              }
-
-              span.fa-angle-right {
-                float: right;
-              }
-            }
           }
         }
 
@@ -113,8 +59,7 @@ body.page-node-type-uwm-clinic {
           div.l {
 
             padding: 15px 2px;
-            border-top: 1px solid #dcdcdc;
-            border-bottom: 1px solid transparent;
+            border-bottom: 1px solid #dcdcdc;
             color: $uwmed-pop-blue;
             font-size: 15px;
 
@@ -134,14 +79,15 @@ body.page-node-type-uwm-clinic {
           }
 
           div.ll {
-            border-bottom: 1px solid #dcdcdc;
             //border-bottom-color: transparent;
           }
 
           .clinic-image {
             min-height: 170px;
             img.img-responsive {
+              @extend .img-thumbnail;
               display: block;
+              width: 100%;
               max-width: 100%;
               height: auto;
             }
@@ -160,6 +106,7 @@ body.page-node-type-uwm-clinic {
             font-size: 28px;
 
             h4 {
+              border: 0 none;
               border-bottom: 5px solid transparent;
               border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
               padding-bottom: 10px;
@@ -279,22 +226,6 @@ body.page-node-type-uwm-clinic {
           border: 0 none;
           //padding: 12px 0;
 
-          li {
-            list-style: none;
-            padding: 0 0 1em 20px;
-          }
-
-          li .fa {
-            float: left;
-            margin: 2px 0 0 -20px;
-            color: purple;
-          }
-
-          .prov-block img {
-            max-width: 150px;
-            float: left;
-          }
-
           .view-more {
             text-align: center;
             margin: 40px 0 10px 0;
@@ -379,13 +310,11 @@ body.page-node-type-uwm-clinic {
                   width: 180px;
                   max-width: 35%;
                   height: 240px;
-                  background-image: none;
-                  background-repeat: no-repeat;
-                  background-position: 50% 0;
-                  background-size: 103% auto;
+                  overflow: hidden;
 
                   img {
-                    @extend .hidden;
+                    @extend .img-thumbnail;
+                    width: 100%;
                   }
 
                 }
@@ -450,6 +379,14 @@ body.page-node-type-uwm-clinic {
         ul {
           li {
             @extend .col-xs-12, .col-sm-6, .col-md-3;
+            list-style: none;
+            padding: 0 0 1em 20px;
+
+            .fa {
+              float: left;
+              margin: 2px 0 0 -20px;
+              color: purple;
+            }
           }
         }
 
@@ -494,14 +431,7 @@ body.page-node-type-uwm-clinic {
           color: #fff;
           box-shadow: none;
           padding: 0;
-          text-shadow: 0 0px 1px #dcdcdc;
-        }
-
-        div.field.field--name-field-heading {
-          .item {
-            @extend .h3;
-            @include uw-bottom-accent-heading();
-          }
+          text-shadow: 0 0 1px #dcdcdc;
         }
 
       }

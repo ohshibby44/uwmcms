@@ -4,8 +4,7 @@ $transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
   body > header {
 
-    // @grid-float-breakpoint
-    position: unset;
+    position: static;
 
     header.mobile {
 

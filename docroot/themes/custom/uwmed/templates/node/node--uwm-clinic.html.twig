@@ -44,12 +44,8 @@ view_mode ? view_mode|clean_class,
         <div class="col-sm-4 left">
             <div class="col-xs-12 hidden-xs clinic-image remove-padding">
                 {{ content.field_clinic_image }}
-                {#<pre>{{ dump(content.field_clinic_image) }}</pre>#}
-                {#1. {{ content.field_clinic_image }}#}
-                {#2. <img class="swiper-image" src="{{ file_url(node.field_slides[key].entity.uri.value) }}" alt="{{ node.field_slides[key].alt  }}" />#}
-                {#3. {{ content.field_clinic_image[key].entity.uri.value | image_style('Large') }}#}
             </div>
-            <div class="col-xs-12 l">
+            <div class="col-xs-12 l ll">
 
                 <a href="#directions-tab"
                    role="tab"
@@ -62,7 +58,7 @@ view_mode ? view_mode|clean_class,
 
             </div>
 
-            <div class="col-xs-12 l ll">
+            <div class="col-xs-12 l">
 
                 <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i></a>

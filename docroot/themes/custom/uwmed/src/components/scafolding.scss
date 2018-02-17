@@ -78,7 +78,9 @@ body {
   @extend .visible-xs-block;
 }
 
-
+h2.accent, h3.accent, h4.accent {
+  @include uw-bottom-accent-heading($uwmed-accent-blue);
+}
 
 
 
