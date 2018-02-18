@@ -1,8 +1,13 @@
 .page-node-type-uwm-medical-service {
-  .main-container > .wrapper {
-    overflow: hidden;
-    margin-left: -15px;
-    margin-right: -15px;
+
+
+  .main-container {
+    padding-top: 0;
+    > .wrapper {
+      overflow: hidden;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
   }
 
   .medical-service-hero {

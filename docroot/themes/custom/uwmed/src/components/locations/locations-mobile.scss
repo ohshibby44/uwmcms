@@ -72,34 +72,32 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-tabs {
 
-        ul.uwm-nav-tabs {
+        //ul.uwm-nav-tabs {
+        //
+        //  li {
+        //    max-width: 33%;
+        //    a {
+        //      padding: 12px 8px;
+        //      height: 60px;
+        //      text-transform: uppercase;
+        //      text-align: center;
+        //      .fa, .uw-ico {
+        //        display: none;
+        //      }
+        //    }
+        //    &:first-child > a {
+        //
+        //      margin: 0 !important;
+        //    }
+        //  }
+        //}
 
-          li {
-            max-width: 33%;
-            a {
-              padding: 12px 8px;
-              height: 60px;
-              text-transform: uppercase;
-              text-align: center;
-              .fa, .uw-ico {
-                display: none;
-              }
-            }
-            &:first-child > a {
-
-              margin: 0 !important;
-            }
-          }
-        }
-
-        .directions-tab {
-
-          .directions-map-wrapper {
-            //@extend .pull-left;
-
-          }
-
-        }
+        //.directions-tab {
+        //
+        //  .directions-map-wrapper {
+        //    //@extend .pull-left;
+        //  }
+        //}
       }
     }
   }
