@@ -46,7 +46,9 @@ clockwise-wait-times:
 
 googlemaps:
   js:
-    //maps.googleapis.com/maps/api/js?key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}
+    //maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}
+  dependencies:
+    - uwmed/medical-service
 
 swipejs:
   js:
@@ -67,8 +69,10 @@ medical-service:
   js:
     dist/js/back-pain-quiz.js: {}
     dist/js/medical-service.js: {}
+    dist/js/google-map-display-locations.js: {}
   dependencies:
     - core/drupal
+    - core/drupalSettings
     - core/jquery
     - core/jquery.once
     - uwmed/swipejs
