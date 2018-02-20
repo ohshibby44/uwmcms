@@ -63,6 +63,7 @@ body.page-node-type-uwm-clinic {
             a {
               color: $uwmed-pop-blue;
               text-decoration: none;
+              display: block;
 
               &:hover {
                 text-decoration: underline;
@@ -191,13 +192,16 @@ body.page-node-type-uwm-clinic {
             color: $uwmed-pop-blue;
             text-decoration: none;
           }
+          small.tel span {
+            color: $uwmed-medium-gray;
+          }
 
           i.uw-s {
             @include uw-separator();
             @include uw-skew(-15deg);
             height: 22px;
             width: 10px;
-            margin: 0 16px -2px 8px;
+            margin: 0 8px -2px 3px;
             border-right: 1px solid $uwmed-light-gray;
           }
         }

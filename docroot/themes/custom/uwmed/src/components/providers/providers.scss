@@ -65,6 +65,7 @@ body.page-node-type-uwm-provider {
           a {
             color: $uwmed-pop-blue;
             text-decoration: none;
+            display: block;
             &:hover {
               text-decoration: underline;
             }
