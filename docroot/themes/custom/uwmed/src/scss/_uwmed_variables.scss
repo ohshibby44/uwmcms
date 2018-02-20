@@ -153,7 +153,11 @@ $uwmed-solid-dark-purple: #3f3952;
 }
 
 %uwmed-gradient-angled-background {
-  background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 4px, #fff 5px, #fff 4px);
+  background: repeating-linear-gradient(-65deg, $uwmed-white, $uwmed-white 2px, #f8f8f8 2px, #f8f8f8 4px);
+}
+
+%uwmed-box-shadow {
+  box-shadow: 1px 1px 10px 1px #dcdcdc;
 }
 
 

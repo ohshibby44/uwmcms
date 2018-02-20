@@ -57,19 +57,22 @@ div.uwm-tab-content {
     ul.uwm-nav-tabs {
 
       > li {
-
-        max-width: 33%;
+        
+        max-width: 30%;
+        
         &:first-child > a {
           margin: 0 !important;
         }
 
         > a, > a:hover, > a:focus  {
 
-          min-height: 50px;
-          padding: 12px 8px;
-          height: auto;
+          padding: 16px;
           text-transform: uppercase;
           text-align: center;
+          word-spacing: 100vw; // Force each word onto separate line.
+          display: table-cell;
+          vertical-align: bottom;
+          float: none;
 
           .uw-ico, .fa {
             display: none;
