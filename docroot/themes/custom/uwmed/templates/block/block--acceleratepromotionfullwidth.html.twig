@@ -51,6 +51,7 @@ set classes = [
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
 'clearfix',
+'container-lg'
 ]
 %}
 <section{{ attributes.addClass(classes) }}>
@@ -61,12 +62,14 @@ set classes = [
   {{ title_suffix }}
 
   {% block content %}
-    <div class="accelerate-promotion-block row" style="background-image: url('{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-background.png') }}');">
+    <div class="accelerate-promotion-block col-xs-12" style="background-image: url('{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-background.png') }}');">
       <div class="container">
-        <div class="accelerate-promotion-block__logo col-lg-3">
-          <img class="img img-responsive" src="{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-logo.png') }}" alt="Accelerate: The Campaign for UW Medicine" />
+        <div class="row">
+          <div class="accelerate-promotion-block__logo col-lg-3">
+            <img class="img img-responsive" src="{{ file_url('/themes/custom/uwmed/dist/assets/accelerate-logo.png') }}" alt="Accelerate: The Campaign for UW Medicine" />
+          </div>
+          {{ content }}
         </div>
-        {{ content }}
       </div>
     </div>
 

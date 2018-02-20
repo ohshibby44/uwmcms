@@ -87,7 +87,8 @@
         "drupal/externalauth": "^1.0",
         "drupal/paragraphs_admin": "^1.0",
         "drupal/xmlsitemap": "^1.0@alpha",
-        "drupal/webform": "^5.0@RC"
+        "drupal/webform": "^5.0@RC",
+        "drupal/entityqueue": "1.0-alpha7"
     },
     "require-dev": {},
     "extra": {

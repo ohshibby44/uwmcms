@@ -1,0 +1,52 @@
+uuid: 5408536f-35ff-4d49-b8f5-0ab709fb73aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.content_spotlight.field_image
+    - field.field.node.content_spotlight.field_link
+    - image.style.hero_1x_1140_width_
+    - node.type.content_spotlight
+  module:
+    - image
+    - link
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.content_spotlight.default
+targetEntityType: node
+bundle: content_spotlight
+mode: default
+content:
+  field_image:
+    weight: 102
+    label: hidden
+    settings:
+      image_style: hero_1x_1140_width_
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_link:
+    weight: 103
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
