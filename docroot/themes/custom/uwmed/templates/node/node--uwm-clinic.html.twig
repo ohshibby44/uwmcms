@@ -16,7 +16,11 @@ view_mode ? view_mode|clean_class,
 ~'-'~ _cli.seoPhone|slice(3, 3)
 ~'-'~ _cli.seoPhone|slice(6, 4) %}
 
-<article{{ attributes.addClass(classes) }}>
+{% set fax = _cli.seoFax|slice(0, 3)
+~'-'~ _cli.seoPhone|slice(3, 3)
+~'-'~ _cli.seoPhone|slice(6, 4) %}
+
+<article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
     <section class="remove-padding clinic-header">
 
@@ -28,23 +32,36 @@ view_mode ? view_mode|clean_class,
                     <a href="{{ url }}" rel="bookmark">{{ label }}</a>
                 </h1>
             </div>
+
             <div class="col-xs-12 m-hours">
                 {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
             </div>
+
             <div class="col-xs-12 m-address">
                 <address>{{ _cli.address }},
                     {{ _cli.city }},
                     {{ _cli.state }}
-                    {{ _cli.zipcode }} <i class="uw-s"></i>
-                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                    {{ _cli.zipcode }}
+                    <br>
+                    <small class="tel">
+                        <a href="tel:{{ phone }}">
+                            <span class="uwmed-icon uwmed-icon__phone-solid"></span>
+                            {{ phone|replace({'-': '.'}) }}</a>
+                        <i class="uw-s"></i>
+                        <a>{{ fax|replace({'-': '.'}) }}
+                            <span>fax</span></a>
+                    </small>
                 </address>
             </div>
+
         </div>
 
         <div class="col-sm-4 left">
+
             <div class="col-xs-12 hidden-xs clinic-image remove-padding">
                 {{ content.field_clinic_image }}
             </div>
+
             <div class="col-xs-12 l ll">
 
                 <a href="#directions-tab"
@@ -75,8 +92,9 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 get-in-line {{ _c }}">
                 <h4>{{ "Urgent Care"|t }}
-                    <a href="/patient-care/making-an-appointment">Get in line<i class="fa fa-angle-right"
-                                              aria-hidden="true"></i>
+                    <a href="/patient-care/making-an-appointment">Get in line<i
+                                class="fa fa-angle-right"
+                                aria-hidden="true"></i>
                     </a></h4>
                 {% if content.field_clinic_wait_time_snippet|render is not empty %}
                     {{ content.field_clinic_wait_time_snippet }}
@@ -100,8 +118,15 @@ view_mode ? view_mode|clean_class,
                 <address>{{ _cli.address }},
                     {{ _cli.city }},
                     {{ _cli.state }}
-                    {{ _cli.zipcode }} <i class="uw-s"></i>
-                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                    {{ _cli.zipcode }}<br>
+
+                    <small class="tel">
+                        <a href="tel:{{ phone }}">
+                            <span class="uwmed-icon uwmed-icon__phone-solid"></span>
+                            {{ phone|replace({'-': '.'}) }}</a>
+                        <i class="uw-s"></i>
+                        <a>{{ fax|replace({'-': '.'}) }} <span>fax</span></a>
+                    </small>
 
                 </address>
             </div>
@@ -171,10 +196,10 @@ view_mode ? view_mode|clean_class,
 
                     <ul>
                         {#{% for s in _cli.services %}#}
-                            {#<li>#}
-                                {#<i class="uw-ico checkmark"#}
-                                   {#aria-hidden="true"></i>#}
-                                {#{{ s.serviceName|t }}</li>#}
+                        {#<li>#}
+                        {#<i class="uw-ico checkmark"#}
+                        {#aria-hidden="true"></i>#}
+                        {#{{ s.serviceName|t }}</li>#}
                         {#{% endfor %}#}
                         {% for s in _cli.expertises %}
                             <li>

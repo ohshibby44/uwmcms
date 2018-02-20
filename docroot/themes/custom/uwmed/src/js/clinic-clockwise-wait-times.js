@@ -43,8 +43,8 @@
             {i: 1463, u: 'primary-care-issaquah'},
             {i: 1464, u: 'primary-care-federal-way'},
             {i: 1465, u: 'primary-care-shoreline'},
-            {i: 1466, u: 'primary-care-ballard'}
-            //{1462: 'woodinville'},
+            {i: 1466, u: 'primary-care-ballard'},
+            {i: 1462, u: 'primary-care-woodinville'}
             //{0: 'factoria'},
             //{0: 'olympia'}
         ]
