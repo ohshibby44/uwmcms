@@ -2,9 +2,9 @@
 
 var quizJSON = {
   "info": {
-    "name":    "How Much Do You Know About Your Back?",
+    "name":    "How much do you know about your back?",
     "main":    "<p>You probably take your back for granted—until it starts to hurt. Think about it—your back is a part of your body that's in nearly constant use. Whether you're sitting, standing, or moving, your back and its muscles are providing support all day, every day. Test your knowledge of the back by taking this quiz.</p>",
-    "results": "<h5>Learn More</h5><p>Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit amet purus.</p>"
+    "results": "<p>Are you a quiz wiz? Test your health knowledge with our <a href='http://healthlibrary.uwmedicine.org/InteractiveTools/Quizzes/'>other quizzes.</a></p>"
   },
   "questions": [
     { // Question 1

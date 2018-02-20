@@ -212,7 +212,7 @@ body > header {
 
     .make-a-gift-navigation {
 
-      overflow: hidden;
+      overflow: visible;
 
       ul.nav.navbar-nav {
         float: right;
@@ -223,9 +223,14 @@ body > header {
           text-transform: uppercase;
           padding: 10px 15px 10px 30px;
           white-space: nowrap;
+          transition: all 0.35s ease-out;
 
           &:hover {
             background: transparent;
+            i.fa.u-a {
+              border-left: 5px solid darken(#cfcfcf, 5%);
+              background: lighten(#e5e5e6, 5%);
+            }
           }
 
           i.fa.u-a {

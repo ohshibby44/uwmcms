@@ -75,19 +75,18 @@ view_mode ? view_mode|clean_class,
 'clearfix',
 ]
 %}
-
-<div class="condition-spotlight__heading">
-  <h3>Condition Spotlight</h3>
-  {% include '@uwmed/accents/uwmed-slant.twig' %}
-</div>
-
-<article{{ attributes.addClass(classes) }}>
-  <h4 {{ title_attributes }}>
-  {{ label }}
-  </h4>
-
-  <div{{ content_attributes.addClass('condition-spotlight__content swipe') }}>
-    {{ content }}
+<div class="container">
+  <div class="condition-spotlight__heading">
+    <h3>Condition Spotlight</h3>
+    {% include '@uwmed/accents/uwmed-slant.twig' %}
   </div>
+  <article{{ attributes.addClass(classes) }}>
+    <h4 {{ title_attributes }}>
+      {{ label }}
+    </h4>
 
-</article>
+    <div{{ content_attributes.addClass('condition-spotlight__content swipe') }}>
+      {{ content }}
+    </div>
+  </article>
+</div>

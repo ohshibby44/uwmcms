@@ -1,11 +1,14 @@
+<div class="container">
+  <div class="row">
 <div class="col-xs-12">
     <h2>Urgent Care locations and wait times</h2>
 
-    <p>Can't get in for a same-day appointment? UW Medicine urgent care clinics
+    <p class="care-now__intro">Can't get in for a same-day appointment? UW Medicine urgent care clinics
     are open for walk-ins 7 days a week with locations throughout the Puget Sound
     region.</p>
-
-  <div class="row">
+</div>
+  </div>
+    <div class="row">
   {% for clinic in urgent_care_clinics %}
     <div class="clinic col-lg-3 col-md-4 col-sm-6">
       <img class="clinic__image img img-responsive" src="{{ clinic.image_url | image_style('large')  }}" alt="" />
@@ -19,22 +22,26 @@
   {% endfor %}
   </div>
 </div>
-<div class="virtual-clinic col-xs-12">
-  <div class="virtual-clinic__background visible-lg"
-     style="background-image: url('{{ file_url("/themes/custom/uwmed/dist/assets/virtual-clinic-placeholder.png") }}'); background-position: center;"
-     alt=""></div>
-  <div class="virtual-clinic__title col-md-6">
-    <h2 class="h3">Virtual Clinic</h2>
-    <span class="uwmed-slant"><span></span></span>
-  </div>
-  <div class="virtual-clinic__content col-lg-6">
-    <p class="h2">UW Medicine Virtual Clinic</p>
-    <p class="virtual-clinic__subheading">
-      Prescriptions and on-call care, available day and night, from the comfort of your breakfast table to the edge of the bunk bed. No appointments necessary, no hidden fees, some insurance accepted.
-    </p>
-    <p class="h4">$35 per visit</p>
-    <a class="virtual-clinic__link btn btn-default" href="/locations/virtual-clinic">
-      Get Care Now
-    </a>
+
+
+<div class="virtual-clinic col-xs-12" style="background-image: url('{{ file_url("/themes/custom/uwmed/dist/assets/virtual-clinic-woman-laptop.jpg") }}'); background-position: center;">
+  <div class="container">
+    <div class="row">
+      <div class="virtual-clinic__title col-md-offset-6 col-md-6">
+        <h2 class="h3">Virtual Clinic</h2>
+        <span class="uwmed-slant"><span></span></span>
+      </div>
+      <div class="virtual-clinic__content col-md-offset-6 col-md-6">
+        <p class="h2">UW Medicine Virtual Clinic</p>
+        <p class="virtual-clinic__subheading">
+          Prescriptions and on-call care, available day and night, from the comfort of your breakfast table to the edge of the bunk bed. No appointments necessary, no hidden fees, some insurance accepted.
+        </p>
+        <p class="h4">$35 per visit</p>
+        <a class="virtual-clinic__link btn btn-default" href="/locations/virtual-clinic">
+          Get Care Now
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>

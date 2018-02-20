@@ -131,19 +131,22 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
           if (!empty($node)) {
             if (!empty($node->get('field_clinic_image')->getValue()[0]['target_id'])) {
-              $pc_image_id = $node->get('field_clinic_image')->getValue()[0]['target_id'];
-              $pc_image_entity = Drupal::entityTypeManager()->getStorage("media")->load($pc_image_id);
+              $pc_image_entity = $node->get('field_clinic_image')->first()->get('entity')->getTarget()->getValue();
             }
           }
 
-          if (!empty($pc_image_entity->image->entity)) {
-            $clinic->image_url = $pc_image_entity->image->entity->getFileUri();
+          if (!empty($pc_image_entity)) {
+            $clinic->image_url = $pc_image_entity->getFileUri();
           }
         }
       }
 
       $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
     }
-  }
 
+    $primary_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/57');
+    if (!empty($primary_care_data->clinics)) {
+      $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
+    }
+  }
 }

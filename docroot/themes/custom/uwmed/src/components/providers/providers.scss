@@ -1,6 +1,3 @@
-%box-shadow {
-  box-shadow: 1px 1px 10px 1px #dcdcdc;
-}
 
 body.page-node-type-uwm-provider {
 
@@ -13,7 +10,6 @@ body.page-node-type-uwm-provider {
 
 
     article.uwm-provider {
-
 
 
       section div.tab-pane {
@@ -33,7 +29,7 @@ body.page-node-type-uwm-provider {
           padding-left: 0;
           padding-right: 0;
           img {
-            @extend %box-shadow, .img-thumbnail;
+            @extend %uwmed-box-shadow, .img-thumbnail;
             width: 100%;
           }
         }
@@ -60,6 +56,7 @@ body.page-node-type-uwm-provider {
           padding-bottom: 15px;
           font-size: 15px;
           border-bottom: 1px solid #dcdcdc;
+          overflow: hidden;
 
           &.ll {
             border-top: 1px solid #dcdcdc;
@@ -82,13 +79,17 @@ body.page-node-type-uwm-provider {
 
       section.right {
 
+        ul.uwm-nav-tabs > li {
+          margin-bottom: 0;
+        }
+
         .uwm-tab-content {
 
-          @extend %box-shadow;
+          @extend %uwmed-box-shadow;
           background: $uwmed-white;
           min-height: 600px;
           margin-bottom: 40px;
-          padding: 30px;
+          padding: 20px 30px;
 
           > h3 {
             @include uw-bottom-accent-heading();
@@ -99,9 +100,11 @@ body.page-node-type-uwm-provider {
             padding-bottom: 20px;
             margin-bottom: 20px;
             border-bottom: 1px solid #dcdcdc;
+
             &:last-child {
               border-bottom-color: transparent;
             }
+
             h4 {
               margin-top: 0;
             }
@@ -109,7 +112,7 @@ body.page-node-type-uwm-provider {
             .location-image {
               padding: 0;
               img {
-                @extend %box-shadow, .img-thumbnail;
+                @extend %uwmed-box-shadow, .img-thumbnail;
                 width: 100%;
               }
 
@@ -117,10 +120,12 @@ body.page-node-type-uwm-provider {
             .col-xs-7.k {
 
               margin-bottom: 15px;
-              padding-left: 45px;
+              padding-left: 30px;
 
               .uw-ico {
-                margin-left: -30px
+                margin: -1px 0 0 -20px;
+                float: left;
+                font-size: 18px;
               }
             }
           }
@@ -134,7 +139,7 @@ body.page-node-type-uwm-provider {
         &.hidden-xs {
           border-left: 1px solid #dcdcdc;
           margin-left: 25px;
-          padding: 25px 0 25px 25px;
+          padding: 0 0 25px 25px;
         }
 
         div.paragraph {
@@ -167,9 +172,11 @@ body.page-node-type-uwm-provider {
       color: red;
     }
   }
+
   h1.page-header span.accepting-apts {
     font-size: 14px;
   }
+
   @media(max-width: $screen-md-max) {
     h1.page-header span.accepting-apts {
       display: none;

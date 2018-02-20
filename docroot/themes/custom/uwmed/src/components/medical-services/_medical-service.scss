@@ -1,8 +1,12 @@
 .page-node-type-uwm-medical-service {
-  .main-container > .wrapper {
-    overflow: hidden;
-    margin-left: -15px;
-    margin-right: -15px;
+
+  .main-container {
+    padding-top: 0;
+    > .wrapper {
+      overflow: hidden;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
   }
 
   .medical-service-hero {
@@ -31,6 +35,8 @@
     left: 0;
     background-size: cover;
     background-position: center;
+    box-shadow: inset 0 0 0 2000px rgba(71, 71, 71, 0.5);
+
 
     @media(min-width: $screen-lg-min) {
       @include angled-edge('inside bottom', 'upper right', #fff, 50);
@@ -47,7 +53,6 @@
 
     @media(min-width: $screen-lg-min) {
       text-align: left;
-      margin-left: 30px;
     }
   }
 
@@ -127,9 +132,9 @@
   }
 
   .medical-service-hero__links-with-icon__desktop {
-    position: absolute;
+    position: relative;
     top: 60px;
-    right: 30px;
+    float: right;
 
     .links-with-icon__item {
       background: none;
@@ -244,6 +249,7 @@
     .tab-content {
       background-color: rgba(255, 255, 255, .9);
       display: inline-block;
+      width: 100%;
     }
   }
 
@@ -273,6 +279,10 @@
         padding-bottom: $padding-base-vertical;
       }
     }
+  }
+
+  .field--name-field-heading {
+    @extend .h5;
   }
 
   .field--name-field-proof-points > div:nth-child(2) > div:nth-child(2) {
@@ -454,6 +464,12 @@
       background-color: #f5f5f5;
       box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
     }
+
+    .row-lg {
+      @media(min-width: $screen-lg-min) {
+        @include make-row();
+      }
+    }
   }
 
   .find-a-location__heading {
@@ -472,6 +488,7 @@
   .find-a-location .links-with-icon__item {
     background-color: inherit;
     color: $text-color;
+    font-weight: 600;
     padding: $padding-base-vertical 0;
 
     @media (max-width: $screen-md-max) {
@@ -521,13 +538,87 @@
   }
 
   .find-a-location__map {
-    padding-top: $padding-base-vertical;
-    padding-bottom: $padding-base-vertical;
+    width: 100%;
+    min-height: 300px;
+    margin-top: $padding-base-vertical;
+    margin-bottom: $padding-base-vertical;
 
     @media(min-width: $screen-lg-min) {
       padding-top: 0;
     }
   }
+
+  .find-a-location__clinic-info {
+    margin-top: $padding-base-vertical * 2;
+    margin-bottom: $padding-base-vertical * 3;
+
+    .h5 {
+      margin-top: 0;
+    }
+  }
+
+  .find-a-location__controls {
+    padding-bottom: $padding-base-vertical * 3;
+  }
+
+  .find-a-location__clinic-list__view-all {
+    width: 100%;
+    margin-top: $padding-base-vertical *2;
+  }
+
+  .find-a-location__clinic-list {
+    padding-bottom: $padding-base-vertical * 3;
+  }
+
+  .find-a-location__clinic {
+    margin-bottom: $padding-base-vertical * 5;
+
+    @media(min-width: $screen-lg-min) {
+      margin-bottom: $padding-base-vertical * 3;
+      min-height: 170px;
+
+      address p, address h4 {
+        margin-right: 15px;
+      }
+
+      &:nth-child(odd) > address, &:nth-child(odd) > p {
+        margin-bottom: 0;
+        padding-bottom: $padding-base-vertical * 3;
+        border-right: 2px solid #ccc;
+      }
+    }
+  }
+  .find-a-location__clinic, .find-a-location__clinic-info {
+    address a {
+      text-decoration: none;
+    }
+
+    .btn-default {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: $headings-font-family;
+      font-size: $font-size-h3;
+
+      &:hover {
+        color: $text-color;
+      }
+
+      @media(min-width: $screen-lg-min) {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+      &::before {
+        background-position: left 0;
+      }
+      &:hover {
+        background-color: $uwmed-accent-yellow;
+      }
+    }
+  }
+
 
   .featured-specialties {
 
@@ -552,14 +643,7 @@
     }
   }
 
-  .condition-spotlight {
-    margin-left: 15px;
-    margin-right: 15px;
 
-    article {
-      margin-left: 0;
-    }
-  }
 
   .condition-spotlight__heading {
     text-transform: uppercase;
@@ -592,19 +676,43 @@
     }
   }
 
+  .condition-spotlight__item-wrap > .item {
+    background-color: #EFEFEF;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    padding: 10px 15px;
+  }
+
+  .condition-spotlight__item-wrap .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+
+    @media (min-width: $screen-sm-min) {
+      height: 200px;
+    }
+
+    @media (min-width: $screen-md-min) {
+      height: 175px;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      height: 375px;
+    }
+
+    .field--name-field-link {
+      margin-top: auto;
+    }
+  }
+
   .condition-spotlight__content {
-    //margin-left: -3px;
-    //margin-right: -3px;
 
     @media(max-width: $screen-md-max) {
       width: 90%;
     }
 
     .condition-spotlight__item-wrap {
-
-      @media(min-width: $screen-lg-min) {
-        display: flex;
-      }
+      display: flex;
 
       div:nth-child(1) {
         z-index: 40;
@@ -615,13 +723,13 @@
       div:nth-child(3) {
         z-index: 20;
       }
+      div:nth-child(4) {
+        z-index: 10;
+      }
     }
 
     .paragraph--type--content-snippet {
-      background-color: #EFEFEF;
-      border-left: 3px solid white;
-      border-right: 3px solid white;
-      padding: 10px 15px;
+
     }
 
     .field--name-field-heading p {
@@ -637,18 +745,14 @@
       @extend .btn;
       @extend .btn-default;
 
-      margin-top: 18px;
-      margin-bottom: 9.5px;
-
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 600;
       font-family: $headings-font-family;
       font-size: $font-size-h3;
 
-      @media(max-width: $screen-md-max) {
-        width: 100%;
-      }
+      position: absolute;
+      bottom: 10px;
 
       @media(min-width: $screen-lg-min) {
         padding-left: 18px;
@@ -686,9 +790,6 @@
     .patient-engagement__wrapper {
       padding-top: 19px;
       padding-bottom: 19px;
-      display: table;
-      width: 94%;
-      margin: 0 auto;
     }
 
     .quiz {
@@ -866,6 +967,10 @@
   }
 
   #carenow {
+    .care-now__intro {
+      margin-bottom: 38px;
+    }
+
     .clinic {
       padding-bottom: 15px;
       margin-bottom: 30px;
@@ -922,25 +1027,25 @@
     position: relative;
     width: 100%;
     padding: 0;
+    background-size: cover;
 
     @media(max-width: $screen-md-max) {
       background-color: #f5f5f5;
+      background-image: none;
       padding: 20px;
     }
 
-    .virtual-clinic__background {
-      background-size: cover;
-      min-height: 346px;
-
-      @media(min-width: $screen-lg-min) {
-        min-height: 470px;
+    .container {
+      @media(min-width: $screen-md-min) {
+        margin-top: 50px;
+        margin-bottom: 50px;
       }
     }
 
     .virtual-clinic__title {
-      width: 100%;
       background-color: white;
       display: inline-block;
+      float: left;
 
       .h3 {
         text-transform: uppercase;
@@ -952,13 +1057,11 @@
       padding-left: 38px;
       padding-right: 38px;
 
+      @media(max-width: $screen-sm-max) {
+        width: 100%;
+      }
       @media(min-width: $screen-lg-min) {
         background-color: rgba(255, 255, 255, 0.9);
-
-        position: absolute;
-        top: 36px;
-        right: 28px;
-        width: 44%;
       }
 
       .uwmed-slant span {
@@ -967,19 +1070,14 @@
     }
 
     .virtual-clinic__content {
-      display: inline-block;
       background-color: white;
       padding-bottom: 38px;
-      width: 100%;
       padding-left: 38px;
       padding-right: 38px;
+      float: left;
 
       @media(min-width: $screen-lg-min) {
         background-color: rgba(255, 255, 255, .9);
-        position: absolute;
-        top: 116px;
-        right: 28px;
-        width: 44%;
       }
 
       .h2 {
@@ -999,10 +1097,6 @@
         font-weight: 600;
         font-family: $headings-font-family;
         font-size: $font-size-h3;
-
-        @media(max-width: $screen-md-max) {
-          width: 100%;
-        }
 
         @media(min-width: $screen-lg-min) {
           padding-left: 18px;
@@ -1025,18 +1119,14 @@
   }
 
   #resources {
-    .eCare, .eCare__information, .cards {
-      padding-left: 15px;
-      padding-right: 15px;
-      margin-bottom: 30px;
-    }
-
-    .eCare {
-      padding: 0;
+    .eCare__information {
+      margin-bottom: $padding-base-vertical * 3;
     }
 
     .ecare__login {
-      text-align: right;
+      @media(min-width: $screen-md-min) {
+        text-align: right;
+      }
     }
 
     .ecare__login-button {
@@ -1045,16 +1135,10 @@
       font-weight: 600;
       font-family: $headings-font-family;
       font-size: $font-size-h3;
-      width: 80%;
-      margin-top: 25px;
 
-      @media(max-width: $screen-md-max) {
+      @media(min-width: $screen-md-min) {
         width: 100%;
-      }
-
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
+        margin-top: 28px;
       }
 
       &:hover {
@@ -1117,12 +1201,46 @@
       color: $uwmed-accent-teal;
     }
 
-    a.btn-default {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+    .patient-resources {
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .item-1 li a.btn.btn-default {
+        border-top: 1px solid #dcdc;
+      }
+
+      a.btn-default {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: $headings-font-family;
+        font-size: $font-size-h3;
+        border: none;
+        border-bottom: 1px solid #dcdc;
+
+        padding: $padding-base-vertical * 2;
+        padding-left: 0;
+
+        @media(max-width: $screen-md-max) {
+          width: 100%;
+        }
+      }
+    }
+
+    .webform-button--submit {
+      @extend .btn;
+      @extend .btn-default;
+
+      @media(max-width: $screen-md-max) {
+        width: 100%;
+      }
 
       @media(min-width: $screen-lg-min) {
         padding-left: 18px;
@@ -1133,10 +1251,6 @@
         color: white;
       }
 
-      @media(max-width: $screen-md-max) {
-        width: 100%;
-      }
-
       @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
       &::before {
         background-position: left 0;
@@ -1145,6 +1259,7 @@
         background-color: $uwmed-accent-teal;
       }
     }
+
 
     .card {
       background: white;

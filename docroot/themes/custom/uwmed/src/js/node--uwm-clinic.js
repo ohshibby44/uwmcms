@@ -10,7 +10,7 @@
     Drupal.behaviors.clinicExtraTabLinks = {
         attach: function (context, settings) {
 
-            $('section.clinic-header a[href^="#"]').click(function () {
+            $('section.medical-service-tabs a[href^="#"]').click(function () {
                 var href = $(this).attr('href');
                 $('.nav-tabs a[href="' + href + '"]').trigger('click');
             });

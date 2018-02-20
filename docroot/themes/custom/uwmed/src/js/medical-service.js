@@ -1,6 +1,11 @@
 (function ($, Drupal) {
   Drupal.behaviors.medicalServices = {
     attach: function() {
+      $('.find-a-location__content a[href^="#"]').click(function () {
+        var href = $(this).attr('href').slice(0, -4);
+        $('.nav-tabs a[href="' + href + '"]').trigger('click');
+      });
+
       $('a#approach-tab')
         .on('shown.bs.tab', function () {
           $('#condition-spotlight').show()
