@@ -503,7 +503,7 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} !^/bios/ying-zhang$
   RewriteCond %{REQUEST_URI} !^/bios/hong-zhou$
   RewriteCond %{REQUEST_URI} !^/bios/maryellen-zinsley$
-  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
+  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P, CO=uwm-proxied-page-visit:true:www.uwmedicinetest.org:0:/]
 
   ## DRUPAL-SPECIFIC RULES ##
     # Block access to "hidden" directories whose names begin with a period. This
