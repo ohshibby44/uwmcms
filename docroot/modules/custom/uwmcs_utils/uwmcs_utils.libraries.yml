@@ -2,4 +2,4 @@ admin-pages-css:
   version: 1.x
   css:
     theme:
-      assets/uwmcs_utils.css: {}
+      assets/uwmcs_utils.css: { preprocess: false }

@@ -58,7 +58,7 @@
 
                     <div class="specialities s-{{ s.id }}">
                         {% if specialities %}
-                            <p><strong>{{ "Specialities"| t }}: </strong></p>
+                            <p><strong>{{ "Specialities"| t }}: </strong><br>
                             {% for i in specialities %}
 
                                 {% if loop.index > 3 %}
@@ -80,7 +80,7 @@
                             <i class="toggle" data-toggle="collapse"
                                data-target=".s-{{ s.id }} .collapse">...</i>
                             {% endif %}
-
+                            </p>
                         {% endif %}
                     </div>
 
@@ -89,7 +89,7 @@
 
                 <div class="accepting-apts-cta">
                     {% if s.acceptingAppointments %}
-                        <a class="btn btn-default" href="#">
+                        <a class="btn btn-default" href="/patient-care/making-an-appointment">
                             <i class="u-ips"></i> {{ "Request Appointment"|t }}
                         </a>
                     {% else %}
