@@ -1,9 +1,14 @@
 <div class="feature-story__background" style="background-image: url('{{file_url(image_url | image_style('hero'))}}')"></div>
 
-{{ content.field_title }}
+<div class="container">
+  <div class="row">
+    {{ content.field_title }}
 
-<div class="feature-story__content col-lg-6">
-  {{ content.field_heading }}
-  {{ content.field_subheading }}
-  {{ content.field_link }}
+    <div class="feature-story__content col-lg-6">
+      {{ content.field_heading }}
+      {{ content.field_subheading }}
+      {{ content.field_link }}
+    </div>
+  </div>
 </div>
+
