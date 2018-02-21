@@ -118,18 +118,20 @@ view_mode ? view_mode|clean_class,
                     </a>
                 </li>
 
-                <li role="presentation"><a href="#education"
-                                           name="education"
-                                           role="tab"
-                                           id="education-tab"
-                                           data-toggle="tab"
-                                           aria-controls="education"
-                                           aria-expanded="false">
-                        <i class="uw-ico heart" aria-hidden="true"></i>
-                        {{ 'Education'|t }}
+                {% if _bio.educationHistories %}
+                    <li role="presentation"><a href="#education"
+                                               name="education"
+                                               role="tab"
+                                               id="education-tab"
+                                               data-toggle="tab"
+                                               aria-controls="education"
+                                               aria-expanded="false">
+                            <i class="uw-ico heart" aria-hidden="true"></i>
+                            {{ 'Education'|t }}
 
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                {% endif %}
 
             </ul>
 
@@ -170,10 +172,10 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="row tab-pane education-tab" role="tabpanel"
-                     id="education" aria-labelledby="providers-tab">
+                {% if _bio.educationHistories %}
+                    <div class="row tab-pane education-tab" role="tabpanel"
+                         id="education" aria-labelledby="providers-tab">
 
-                    {% if _bio.educationHistories %}
                         {#<h4>Education</h4>#}
 
                         {% for e in _bio.educationHistories %}
@@ -194,23 +196,23 @@ view_mode ? view_mode|clean_class,
 
                         {% endfor %}
 
-                    {% endif %}
 
-                    {#{% if _bio.bioPublications %}#}
-                    {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
-                    {#<h4>Publications</h4>#}
+                        {#{% if _bio.bioPublications %}#}
+                        {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
+                        {#<h4>Publications</h4>#}
 
-                    {#{% for p in _bio.bioPublications %}#}
+                        {#{% for p in _bio.bioPublications %}#}
 
-                    {#<h5>{{ p.pubMedId }}</h5>#}
+                        {#<h5>{{ p.pubMedId }}</h5>#}
 
-                    {#{% endfor %}#}
+                        {#{% endfor %}#}
 
-                    {#{% endif %}#}
+                        {#{% endif %}#}
 
-                    {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+                        {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
 
-                </div>
+                    </div>
+                {% endif %}
 
 
             </div>

@@ -14,17 +14,18 @@ ul.uwm-nav-tabs {
     > a, > a:hover, > a:focus  {
 
       margin: 0;
-      padding: 16px 34px 4px 34px;
+      padding: 16px 34px 4px 26px;
       float: left;
       color: $uwmed-white;
       background: $uwmed-solid-dark-purple;
       border: 0 none;
       text-decoration: none;
+      text-transform: uppercase;
 
       i.uw-ico.heart {
         font-size: 26px;
         float: left;
-        margin: -6px 3px 0px 0;
+        margin: -6px 4px 0px 0;
       }
 
     }

@@ -136,14 +136,20 @@ body.page-node-type-uwm-clinic {
         .clinic-hours-container {
 
           min-height: 300px;
+          padding-top: 15px;
+          h4 {
+            margin-bottom: 0;
+          }
+
           .clinic-hours-table {
             margin-bottom: 40px;
 
             p.opens-at {
+              border: 0 none;
               border-bottom: 4px solid transparent;
               border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
               padding: 6px 20px 6px 0;
-              margin-bottom: 6px;
+              margin: 0 0 6px 0;
               color: $uwmed-light-purple;
 
               font-style: italic;
@@ -323,7 +329,7 @@ body.page-node-type-uwm-clinic {
                 .profile-details {
 
                   > div, h4 {
-                    margin: 0 0 20px 0;
+                    margin: 0 0 16px 0;
                   }
 
                   .specialities {
