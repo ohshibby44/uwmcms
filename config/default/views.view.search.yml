@@ -85,6 +85,7 @@ display:
               homepage: default
               uwm_medical_service: default
               condition_spotlight: default
+              content_spotlight: default
       fields:
         rendered:
           table: search_api_index_content

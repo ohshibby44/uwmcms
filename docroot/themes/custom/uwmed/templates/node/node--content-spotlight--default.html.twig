@@ -65,6 +65,7 @@
  *   in different view modes.
 */
 #}
+
 {%
 set classes = [
 node.bundle|clean_class,
@@ -76,28 +77,9 @@ view_mode ? view_mode|clean_class,
 ]
 %}
 
-{{ attach_library('uwmed/homepage-animation') }}
-
 <article{{ attributes.addClass(classes) }}>
-  <div class="hero full-width-image row" style="background-image:url({{ node.field_image.entity.uri.value | image_style('hero') }}">
-    <div class="hero__content col-xs-12">
-      {{ content.field_heading }}
-      <img class="hero__angle-divider" src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png')}}" alt="" />
-      {{ content.field_subheading }}
-    </div>
-    <div class="hero__filter visible-lg"></div>
-  </div>
-
-  <div class="row links-with-icon">
-    <div class="container">
-      {{ content.field_links_with_icon }}
-    </div>
-  </div>
-
-  <div class="row gradient-divider">
-    <span class="fa fa-angle-down fa-lg" aria-hidden="true"></span>
-  </div>
-
-  {{ content.field_homepage_sections }}
-
+  {{ content.field_image }}
+  <a class="content-spotlight__cta btn btn-default" href="{{ content.field_link[0]['#url'] }}">
+    {{ label }}
+  </a>
 </article>
