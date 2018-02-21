@@ -104,7 +104,7 @@ AddEncoding gzip svgz
   # Reverse proxy rules. When pages are migrated from SharePoint to Drupal, add a
   # rule below so Apache doesn't proxy to the www2 server
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteCond %{REQUEST_URI} ^/locations/PublishingImages/.*
+  RewriteCond %{REQUEST_URI} ^/locations/PublishingImages/.* [OR]
   RewriteCond %{REQUEST_URI} !^/index.php$
   RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules)/?.*
   RewriteCond %{REQUEST_URI} !^/?$
