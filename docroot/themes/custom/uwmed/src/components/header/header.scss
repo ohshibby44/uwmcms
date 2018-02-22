@@ -83,6 +83,7 @@ body > header {
 
   .row.white {
 
+    position: relative;
     .navbar {
       min-height: 0;
       margin: 0;
@@ -90,7 +91,7 @@ body > header {
 
     .desktop-main-navigation {
 
-      min-width: 600px;
+      min-width: 650px;
 
       .dropdown-menu > li > a {
         color: $link-color;
@@ -212,7 +213,11 @@ body > header {
 
     .make-a-gift-navigation {
 
-      overflow: visible;
+      overflow: hidden;
+      min-width: 200px;
+      position: absolute;
+      right: 0;
+      top: 0;
 
       ul.nav.navbar-nav {
         float: right;
