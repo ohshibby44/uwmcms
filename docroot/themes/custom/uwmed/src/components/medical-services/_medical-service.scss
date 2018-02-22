@@ -314,6 +314,12 @@
       .paragraph--type--content-snippet {
         @include make-md-column(5);
       }
+
+      &:nth-of-type(even) {
+        @media(max-width: $screen-sm-max) {
+          margin-top: $padding-base-vertical * 5;
+        }
+      }
     }
 
     .common-services__item:nth-of-type(even) {
@@ -360,7 +366,7 @@
 
   .feature-story__background {
     background-size: cover;
-    min-height: 346px;
+    min-height: 400px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
 
     @media(min-width: $screen-lg-min) {
@@ -392,7 +398,6 @@
       padding-left: 38px;
       padding-right: 38px;
       top: 36px;
-      left: 28px;
       width: 44%;
 
       .uwmed-slant span {
@@ -411,7 +416,6 @@
       padding-left: 38px;
       padding-right: 38px;
       top: 116px;
-      left: 28px;
       width: 44%;
     }
 
@@ -621,6 +625,10 @@
 
 
   .featured-specialties {
+
+    ul {
+      display: inline-block;
+    }
 
     @media (min-width: $screen-lg-min) {
       background-color: #F5F5F5;
@@ -1155,6 +1163,11 @@
     }
 
     .eCare__information-item {
+
+      li {
+        padding-bottom: $padding-base-vertical;
+      }
+
       @media (min-width: $screen-sm-min) {
         border-right: 1px solid #bababa;
       }
