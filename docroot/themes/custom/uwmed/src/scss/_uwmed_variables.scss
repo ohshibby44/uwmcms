@@ -153,7 +153,11 @@ $uwmed-solid-dark-purple: #3f3952;
 }
 
 %uwmed-gradient-angled-background {
-  background: repeating-linear-gradient(-65deg, $uwmed-white, $uwmed-white 2px, #f8f8f8 2px, #f8f8f8 4px);
+  background-image: url('#{$uw-images-folder}/angled-bg-light.png');
+}
+%uwmed-gradient-angled-dark-background {
+  background-image: url('#{$uw-images-folder}/angled-bg-dark.png');
+  background-color: #F8F8F8;
 }
 
 %uwmed-box-shadow {

@@ -31,6 +31,9 @@ div.field.field--name-field-bottom-content-blocks
       .item {
         @extend .h3;
         @include uw-bottom-accent-heading();
+        i {
+          text-transform: none;
+        }
       }
     }
 

@@ -2,7 +2,6 @@
 // -- BLOCK STYLING
 //
 
-
 //
 // GENERAL RULES
 //
@@ -18,24 +17,25 @@ aside section.block {
   h2.block-title {
     @extend .h3;
     @include uw-bottom-accent-heading();
+    i {
+      text-transform: none;
+    }
   }
 
-
 }
-
 
 //
 // OTHER BLOCKS
 //
 
 .accelerate-promotion-block {
-    background-size: cover;
-    color: white;
-    //height: 139px;
+  background-size: cover;
+  color: white;
+  //height: 139px;
 
-    @media(min-width: $screen-lg-min) {
-      height: 158px;
-    }
+  @media(min-width: $screen-lg-min) {
+    height: 158px;
+  }
 
   .accelerate-promotion-block__logo {
 
@@ -92,4 +92,12 @@ aside section.block {
       }
     }
   }
+}
+
+aside .block .wrapper.card-block-pt-resources .field.field--name-field-heading {
+  height: 6px;
+  .item {
+    display: none;
+  }
+
 }
