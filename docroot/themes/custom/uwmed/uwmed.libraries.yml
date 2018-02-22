@@ -58,10 +58,10 @@ swipejs:
 
 slickquiz:
   js:
-    /libraries/slickquiz/slickQuiz.js: {}
+    dist/js/slickQuiz.js: {}
   css:
     theme:
-      /libraries/slickquiz/SlickQuiz.css: {}
+      dist/styles/slickQuiz.css: {}
   dependencies:
     - core/jquery
 

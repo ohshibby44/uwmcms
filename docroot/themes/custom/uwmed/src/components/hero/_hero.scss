@@ -11,8 +11,8 @@
   flex-direction: column;
 
   @media (min-width: $screen-lg-min) {
-    min-height: 570px;
-    justify-content: end;
+    min-height: 600px;
+    justify-content: flex-end;
   }
 }
 
@@ -56,5 +56,4 @@
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.15) 18%, rgba(0, 0, 0, 0.8));
   height: 175px;
   width: 100%;
-  justify-self: flex-end;
 }

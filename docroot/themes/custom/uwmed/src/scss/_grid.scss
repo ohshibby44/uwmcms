@@ -12,6 +12,19 @@
   }
 }
 
+.container-lg {
+  // use when a container is only desired on large screens and up
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+}
+
 .full-width-image {
   max-width: $screen-xl;
 
