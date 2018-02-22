@@ -148,22 +148,6 @@ $uwmed-gradient-light-purple: #6f3178;
 $uwmed-gradient-light-to-dark: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
 $uwmed-solid-dark-purple: #3f3952;
 
-%uwmed-mixin-gradient-light-to-dark {
-  background: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
-}
-
-%uwmed-gradient-angled-background {
-  background-image: url('#{$uw-images-folder}/angled-bg-light.png');
-}
-%uwmed-gradient-angled-dark-background {
-  background-image: url('#{$uw-images-folder}/angled-bg-dark.png');
-  background-color: #F8F8F8;
-}
-
-%uwmed-box-shadow {
-  box-shadow: 1px 1px 10px 1px #dcdcdc;
-}
-
 
   $uwmed-light-gray: #DFE1E3;
   $uwmed-medium-gray: #9da1a6;
@@ -330,3 +314,20 @@ $uwmed-solid-dark-purple: #3f3952;
   $link-hover-decoration: underline;
 
 
+
+%uwmed-mixin-gradient-light-to-dark {
+  background: linear-gradient(95deg, $uwmed-gradient-dark-purple, $uwmed-gradient-dark-purple 45%, $uwmed-gradient-light-purple);
+}
+
+%uwmed-gradient-angled-background {
+  background-image: url('#{$uw-images-folder}/angled-bg-light.png');
+}
+
+%uwmed-gradient-angled-dark-background {
+  background-image: url('#{$uw-images-folder}/angled-bg-light.png');
+  background-color: #F8F8F8;
+}
+
+%uwmed-box-shadow {
+  box-shadow: 1px 1px 10px 1px #dcdcdc;
+}

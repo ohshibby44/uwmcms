@@ -38,16 +38,25 @@
  * @see template_preprocess_field()
  */
 #}
+
 {% for item in items %}
-  <a id="patientCarePlayButton" class="feature-story__link btn btn-default" href="#">
-    {{ item.content["#title"] }}
-  </a>
-  <div style="display: none;">
-    <div id="patientCareVideo">
-      <video id="patientCareVideoPlayer" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
-        <source src="{{ item.content["#url"]|render }}" type="video/mp4">
-        <track label="English" kind="captions" srclang="en" src="http://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/682/763/Dr. Hwang final cut.vtt" default="">
-      </video>
+  {% set title = item.content['#title'] %}
+  {% set url = item.content['#url']|render %}
+
+  {% if 'UWMC_-_Marketing' in url  %}
+    <span id="patientCarePlayButton" class="fa-stack fa-2x">
+      <i class="fa fa-circle-thin fa-stack-2x faa-burst animated"></i>
+      <i class="fa fa-play fa-stack-1x"></i>
+    </span>
+    <div style="display: none;">
+      <div id="patientCareVideo">
+        <video id="patientCareVideoPlayer" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
+          <source src="{{ url }}" type="video/mp4">
+          <track label="English" kind="captions" srclang="en" src="{{ title }}" default="">
+        </video>
+      </div>
     </div>
-  </div>
+   {% endif %}
 {% endfor %}
+
+
