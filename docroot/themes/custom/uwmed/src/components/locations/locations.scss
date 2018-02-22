@@ -43,7 +43,7 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-header {
 
-        @extend %uwmed-gradient-angled-background;
+        @extend %uwmed-gradient-angled-dark-background;
         padding-top: 20px;
         padding-bottom: 40px;
 
@@ -198,7 +198,7 @@ body.page-node-type-uwm-clinic {
             color: $uwmed-pop-blue;
             text-decoration: none;
           }
-          small.tel span {
+          small.tel, small.tel a {
             color: $uwmed-medium-gray;
           }
 
@@ -404,14 +404,14 @@ body.page-node-type-uwm-clinic {
         position: relative;
         padding: 0 25px;
         background-color: #f8f8f8;
-        min-height: 380px;
+        min-height: 450px;
 
         .bg {
           @include angled-edge('inside bottom', 'upper right', #f8f8f8);
           position: absolute;
           left: 0;
           right: 0;
-          height: 380px;
+          height: 450px;
           opacity: .9;
           background-color: #f8f8f8;
           background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
@@ -429,7 +429,7 @@ body.page-node-type-uwm-clinic {
           background: $uwmed-white;
           opacity: .8;
           box-shadow: 0 0 4px 0 #dcdcdc;
-          //min-height: 300px;
+          min-height: 340px;
         }
 
         h2 .field.field--name-field-content-blocks-heading {

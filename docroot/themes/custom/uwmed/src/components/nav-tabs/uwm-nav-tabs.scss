@@ -11,7 +11,7 @@ ul.uwm-nav-tabs {
 
     margin: 0 2px -1px 0;
 
-    > a, > a:hover, > a:focus  {
+    > a, > a:hover, > a:focus {
 
       margin: 0;
       padding: 16px 34px 4px 26px;
@@ -38,7 +38,6 @@ ul.uwm-nav-tabs {
     border: 0 none;
   }
 
-
 }
 
 div.uwm-tab-content {
@@ -47,43 +46,44 @@ div.uwm-tab-content {
   border: 0 none;
 
   .tab-pane.active.in {
-
+  }
+  // Sub-tabs:
+  div.tab-content, div.uwm-tab-content {
+    margin-top: 15px;
   }
 
 }
 
 @media(max-width: $screen-xs-max) {
 
+  ul.uwm-nav-tabs {
 
-    ul.uwm-nav-tabs {
+    > li {
 
-      > li {
-        
-        max-width: 30%;
-        
-        &:first-child > a {
-          margin: 0 !important;
-        }
+      max-width: 30%;
 
-        > a, > a:hover, > a:focus  {
+      &:first-child > a {
+        margin: 0 !important;
+      }
 
-          padding: 16px;
-          text-transform: uppercase;
-          text-align: center;
-          word-spacing: 100vw; // Force each word onto separate line.
-          display: table-cell;
-          vertical-align: bottom;
-          float: none;
+      > a, > a:hover, > a:focus {
 
-          .uw-ico, .fa {
-            display: none;
-          }
+        padding: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        word-spacing: 100vw; // Force each word onto separate line.
+        display: table-cell;
+        vertical-align: bottom;
+        float: none;
 
-
+        .uw-ico, .fa {
+          display: none;
         }
 
       }
 
     }
+
+  }
 
 }
