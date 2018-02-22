@@ -92,6 +92,7 @@ body > header {
     .desktop-main-navigation {
 
       min-width: 650px;
+      padding-right: 0;
 
       .dropdown-menu > li > a {
         color: $link-color;

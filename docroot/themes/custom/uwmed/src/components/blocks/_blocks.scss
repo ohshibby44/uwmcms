@@ -28,6 +28,21 @@ aside section.block {
 // OTHER BLOCKS
 //
 
+.block-accelerate-promotion-full-width-block.container-lg {
+  @media(max-width: $screen-xs-max) {
+    padding: 0;
+  }
+
+  @media(min-width: $screen-sm-min) {
+    margin-top: -68px;
+  }
+
+  @media(max-width: $screen-md-max) {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+
 .accelerate-promotion-block {
   background-size: cover;
   color: white;
@@ -94,10 +109,137 @@ aside section.block {
   }
 }
 
+
+.content-spotlight-block {
+  @extend .container-lg;
+}
+
+// homepage-specific content-block styles
+.block-views-blockcontent-spotlight-homepage-content-spotlight-block {
+  @include make-row();
+  background-color: #efefef;
+  padding: 0;
+
+  @media(min-width: $screen-sm-min) {
+    padding: 0 0 100px 0;
+  }
+
+  .block-title {
+    @extend .h3;
+
+    &::after {
+      position: relative;
+      content: " ";
+      display: block;
+      bottom: -6px;
+      width: 40px;
+      border-style: solid;
+      border-width: 3px 2px 0 2px;
+      border-color: #ffce00 transparent transparent transparent;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+  .view-header {
+    text-align: center;
+    margin-bottom: 19px;
+  }
+
+  .form-group {
+    @include make-xs-column(12);
+  }
+
+  .block-title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .field--name-items > .item {
+    margin-bottom: -50px;
+
+    @media(max-width: $screen-xs-max) {
+      @include make-row();
+    }
+
+    @media(min-width: $screen-sm-min) {
+      @include make-sm-column(6);
+      padding: 0;
+    }
+  };
+
+  .field--name-field-image {
+    @media (max-width: $screen-sm-min) {
+      border-bottom: 6px solid white;
+    }
+  }
+
+  .content-spotlight__cta {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+    bottom: 62px;
+    min-height: 50px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    background-color: rgba(255,255,255,.9);
+
+    transition-property: color;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+    z-index: 1;
+
+    @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+    &::before {
+      background-position: left 0;
+    }
+
+    span {
+      white-space: pre-wrap;
+    }
+
+    &.btn-default:hover {
+      text-decoration: none;
+      color: $text-color;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      transition-property: transform;
+      transition-duration: 0.7s;
+      transition-timing-function: ease-out;
+      z-index: -1;
+      background-color: $uwmed-accent-yellow;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+
 aside .block .wrapper.card-block-pt-resources .field.field--name-field-heading {
   height: 6px;
   .item {
     display: none;
   }
-
 }
