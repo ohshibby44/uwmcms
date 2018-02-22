@@ -29,6 +29,7 @@ div.paragraph, section.block {
         text-decoration: none;
         background-color: transparent;
         border-bottom: 1px solid #dcdc;
+        white-space: normal;
 
         &:hover {
           background-color: transparent;

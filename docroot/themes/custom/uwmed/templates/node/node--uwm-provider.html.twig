@@ -1,3 +1,12 @@
+{#
+
+
+    https://webservices.uwmedicine.org/api/bioinformation/299812
+    https://webservices.uwmedicine.org/api/bioinformation/252456
+
+
+
+#}
 {% set classes = [
 node.bundle|clean_class,
 node.isPromoted() ? 'is-promoted',
@@ -118,18 +127,20 @@ view_mode ? view_mode|clean_class,
                     </a>
                 </li>
 
-                <li role="presentation"><a href="#education"
-                                           name="education"
-                                           role="tab"
-                                           id="education-tab"
-                                           data-toggle="tab"
-                                           aria-controls="education"
-                                           aria-expanded="false">
-                        <i class="uw-ico heart" aria-hidden="true"></i>
-                        {{ 'Education'|t }}
+                {% if _bio.educationHistories %}
+                    <li role="presentation"><a href="#education"
+                                               name="education"
+                                               role="tab"
+                                               id="education-tab"
+                                               data-toggle="tab"
+                                               aria-controls="education"
+                                               aria-expanded="false">
+                            <i class="uw-ico heart" aria-hidden="true"></i>
+                            {{ 'Education'|t }}
 
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                {% endif %}
 
             </ul>
 
@@ -170,47 +181,86 @@ view_mode ? view_mode|clean_class,
 
                 </div>
 
-                <div class="row tab-pane education-tab" role="tabpanel"
-                     id="education" aria-labelledby="providers-tab">
+                {% if _bio.educationHistories %}
+                    <div class="row tab-pane education-tab" role="tabpanel"
+                         id="education" aria-labelledby="providers-tab">
 
-                    {% if _bio.educationHistories %}
                         {#<h4>Education</h4>#}
 
-                        {% for e in _bio.educationHistories %}
 
-                            <h5>{{ e.institutionName }}</h5>
-                            {% set ed = [] %}
-                            {% if e.educationType %}
-                                {% set ed = ed|merge([e.educationType]) %}
-                            {% endif %}
-                            {% if e.gradYear %}
-                                {% set ed = ed|merge([e.gradYear]) %}
-                            {% endif %}
-                            {% if e.specialty %}
-                                {% set ed = ed|merge([e.specialty]) %}
-                            {% endif %}
+                        {# @TODO Make descendings#}
 
-                            <p>{{ ed|join(', ') }}</p>
+                        {% if _bio.educationHistories %}
+                            {% for e in _bio.educationHistories %}
 
-                        {% endfor %}
+                                <h5>{{ e.institutionName }}</h5>
+                                {% set ed = [] %}
+                                {% if e.educationType %}
+                                    {% set ed = ed|merge([e.educationType]) %}
+                                {% endif %}
+                                {% if e.gradYear %}
+                                    {% set ed = ed|merge([e.gradYear]) %}
+                                {% endif %}
+                                {% if e.specialty %}
+                                    {% set ed = ed|merge([e.specialty]) %}
+                                {% endif %}
 
-                    {% endif %}
+                                <p>{{ ed|join(', ') }}</p>
 
-                    {#{% if _bio.bioPublications %}#}
-                    {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
-                    {#<h4>Publications</h4>#}
+                            {% endfor %}
+                        {% endif %}
 
-                    {#{% for p in _bio.bioPublications %}#}
+                        {#{% if _bio.extEducations %}#}
+                        {#{% endif %}#}
 
-                    {#<h5>{{ p.pubMedId }}</h5>#}
+                        {% if _bio.boardCertifications %}
 
-                    {#{% endfor %}#}
+                            <p>&nbsp;</p>
+                            <h5>{{ "Board Certifications"| t }}</h5>
 
-                    {#{% endif %}#}
+                            <ul>
+                                {% for e in _bio.boardCertifications %}
 
-                    {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+                                    {#<h5>{{ e.institutionName }}</h5>#}
+                                    {% set ed = [] %}
+                                    {% if e.specialtyName %}
+                                        {% set ed = ed|merge([e.specialtyName]) %}
+                                    {% endif %}
+                                    {% if e.certifiedYear %}
+                                        {% set ed = ed|merge([e.certifiedYear]) %}
+                                    {% endif %}
+                                    {% if e.boardName %}
+                                        {% set ed = ed|merge([e.boardName]) %}
+                                    {% endif %}
 
-                </div>
+                                    <li>{{ ed|join(', ') }}</li>
+
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+
+                        {#{% if _bio.bioPublications %}#}
+                        {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
+                        {#<h4>Publications</h4>#}
+
+                        {#{% for p in _bio.bioPublications %}#}
+
+                        {#<h5>{{ p.pubMedId }}</h5>#}
+
+                        {#{% endfor %}#}
+
+                        {#{% endif %}#}
+
+                        {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
+
+
+                        {#Degree:#}
+                        {##}
+
+
+                    </div>
+                {% endif %}
 
 
             </div>

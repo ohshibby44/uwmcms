@@ -43,7 +43,7 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-header {
 
-        @extend %uwmed-gradient-angled-background;
+        @extend %uwmed-gradient-angled-dark-background;
         padding-top: 20px;
         padding-bottom: 40px;
 
@@ -63,6 +63,7 @@ body.page-node-type-uwm-clinic {
             a {
               color: $uwmed-pop-blue;
               text-decoration: none;
+              display: block;
 
               &:hover {
                 text-decoration: underline;
@@ -135,14 +136,20 @@ body.page-node-type-uwm-clinic {
         .clinic-hours-container {
 
           min-height: 300px;
+          padding-top: 15px;
+          h4 {
+            margin-bottom: 0;
+          }
+
           .clinic-hours-table {
             margin-bottom: 40px;
 
             p.opens-at {
+              border: 0 none;
               border-bottom: 4px solid transparent;
               border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
               padding: 6px 20px 6px 0;
-              margin-bottom: 6px;
+              margin: 0 0 6px 0;
               color: $uwmed-light-purple;
 
               font-style: italic;
@@ -191,13 +198,16 @@ body.page-node-type-uwm-clinic {
             color: $uwmed-pop-blue;
             text-decoration: none;
           }
+          small.tel, small.tel a {
+            color: $uwmed-medium-gray;
+          }
 
           i.uw-s {
             @include uw-separator();
             @include uw-skew(-15deg);
             height: 22px;
             width: 10px;
-            margin: 0 16px -2px 8px;
+            margin: 0 8px -2px 3px;
             border-right: 1px solid $uwmed-light-gray;
           }
         }
@@ -319,7 +329,7 @@ body.page-node-type-uwm-clinic {
                 .profile-details {
 
                   > div, h4 {
-                    margin: 0 0 20px 0;
+                    margin: 0 0 16px 0;
                   }
 
                   .specialities {
@@ -394,14 +404,14 @@ body.page-node-type-uwm-clinic {
         position: relative;
         padding: 0 25px;
         background-color: #f8f8f8;
-        min-height: 380px;
+        min-height: 450px;
 
         .bg {
           @include angled-edge('inside bottom', 'upper right', #f8f8f8);
           position: absolute;
           left: 0;
           right: 0;
-          height: 380px;
+          height: 450px;
           opacity: .9;
           background-color: #f8f8f8;
           background-image: url('#{$uw-images-folder}/bg-clinic-ppgs.jpg');
@@ -419,7 +429,7 @@ body.page-node-type-uwm-clinic {
           background: $uwmed-white;
           opacity: .8;
           box-shadow: 0 0 4px 0 #dcdcdc;
-          //min-height: 300px;
+          min-height: 340px;
         }
 
         h2 .field.field--name-field-content-blocks-heading {

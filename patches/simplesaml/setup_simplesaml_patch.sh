@@ -36,7 +36,7 @@ CODE=`cat <<"EOF"
      ***/
     if(!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
-        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/%s/simplesamlphp/config/acquia_config.php',
+        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/simplesamlphp/%s/config/acquia_config.php',
             $_ENV['AH_SITE_GROUP'],
             $_ENV['AH_SITE_ENVIRONMENT'],
             $_ENV['AH_SITE_ENVIRONMENT']);
@@ -64,7 +64,7 @@ CODE=`cat <<"EOF"
      ***/
     if(!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
-        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/%s/simplesamlphp/config/authsources.php',
+        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/simplesamlphp/%s/config/authsources.php',
             $_ENV['AH_SITE_GROUP'],
             $_ENV['AH_SITE_ENVIRONMENT'],
             $_ENV['AH_SITE_ENVIRONMENT']);
@@ -93,7 +93,7 @@ CODE=`cat <<"EOF"
      ***/
     if(!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
-        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/%s/simplesamlphp/metadata/saml20-idp-remote.php',
+        $config_file = sprintf('/mnt/gfs/%s.%s/nobackup/cms.uwmedicine.org/simplesamlphp/%s/metadata/saml20-idp-remote.php',
             $_ENV['AH_SITE_GROUP'],
             $_ENV['AH_SITE_ENVIRONMENT'],
             $_ENV['AH_SITE_ENVIRONMENT']);

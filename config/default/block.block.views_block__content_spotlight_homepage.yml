@@ -1,31 +1,30 @@
-uuid: 5602d92d-6f04-49e4-9938-d5047ee4b3c3
+uuid: 404459c8-e5a5-4a9b-a3e5-cc8f8231f491
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.search
+    - views.view.content_spotlight
   module:
     - system
     - views
   theme:
     - uwmed
-_core:
-  default_config_hash: UDHpza-uTXT90uUqIrgPDBW4XrHBA1XpzSBQyyRB2Yg
-id: uwmed_search
+id: views_block__content_spotlight_homepage
 theme: uwmed
 region: content
-weight: -1
+weight: 1
 provider: null
-plugin: 'views_exposed_filter_block:search-page'
+plugin: 'views_block:content_spotlight-homepage_content_spotlight_block'
 settings:
-  id: 'views_exposed_filter_block:search-page'
+  id: 'views_block:content_spotlight-homepage_content_spotlight_block'
   label: ''
   provider: views
   label_display: visible
   views_label: ''
+  items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: /search
+    pages: '<front>'
     negate: false
     context_mapping: {  }

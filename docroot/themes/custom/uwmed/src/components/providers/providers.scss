@@ -65,6 +65,7 @@ body.page-node-type-uwm-provider {
           a {
             color: $uwmed-pop-blue;
             text-decoration: none;
+            display: block;
             &:hover {
               text-decoration: underline;
             }
@@ -105,8 +106,9 @@ body.page-node-type-uwm-provider {
               border-bottom-color: transparent;
             }
 
-            h4 {
+            h4, h5 {
               margin-top: 0;
+              margin-bottom: 0;
             }
 
             .location-image {
