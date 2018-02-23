@@ -13,8 +13,8 @@ body > footer {
       .nav > li {
         @extend .col-md-6;
 
-        margin-bottom: 15px;
         padding-right: 0;
+        padding-bottom: 15px;
 
         a {
           text-decoration: none;
