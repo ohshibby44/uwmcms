@@ -1,4 +1,5 @@
 {{ attach_library('uwmed/clinic-nodes') }}
+{{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clockwise-wait-times') }}
 
 {% set classes = [
@@ -189,29 +190,40 @@ view_mode ? view_mode|clean_class,
                  id="main-tab" aria-labelledby="main-tab">
                 <a name="main" id="main"></a>
 
-                <section class="services">
+                <section class="services uwm-toggle">
                     <h3 class="accent">Services</h3>
 
                     <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
 
-                    <ul>
-                        {#{% for s in _cli.services %}#}
-                        {#<li>#}
-                        {#<i class="uw-ico checkmark"#}
-                        {#aria-hidden="true"></i>#}
-                        {#{{ s.serviceName|t }}</li>#}
-                        {#{% endfor %}#}
+                    <ul class="expt">
+
                         {% for s in _cli.expertises %}
-                            <li>
-                                <i class="uw-ico checkmark"
-                                   aria-hidden="true"></i>
+
+                            {% if loop.index > 4 %}
+                                {% set c = "uw-t hidden" %}
+                            {% endif %}
+
+                            <li class="{{ c }}"><i class="uw-ico checkmark"
+                                                   aria-hidden="true"></i>
                                 {{ s.expertiseName|t }}</li>
                         {% endfor %}
                     </ul>
 
-                    {#<div class="view-more"><a href="#">View More <i#}
-                    {#class="fa fa-angle-down"#}
-                    {#aria-hidden="true"></i></a></div>#}
+
+                    {% if _cli.expertises|length > 4 %}
+                        <div class="uw-more">
+                            <a href="#"
+                               data-uwm-toggle
+                               data-toggle-selector=".uwm-toggle .uw-t"
+                               data-toggle-style="hidden"
+                               data-parent-selector=".uw-more"
+                               data-parent-style="on">View More <i
+                                        class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a></div>
+
+
+                    {% endif %}
+
 
                 </section>
 

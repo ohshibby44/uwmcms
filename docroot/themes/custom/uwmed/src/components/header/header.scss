@@ -108,7 +108,7 @@ body > header {
         > a.dropdown-toggle {
           padding: 10px 15px;
           &:hover {
-            color: #3375d4;
+            color: $uwmed-pop-blue;
             background: transparent;
           }
           // More forgiving hover zone

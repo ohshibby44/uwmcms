@@ -30,6 +30,13 @@ clinic-nodes:
       - core/jquery
       - core/drupalSettings
 
+uwm-toggle:
+  js:
+    dist/js/toggle.js: { preprocess: false }
+  dependencies:
+      - core/jquery
+      - core/drupalSettings
+
 google-fonts:
   css:
     theme:
