@@ -38,18 +38,30 @@
  * @see template_preprocess_field()
  */
 #}
-{% for item in items %}
 
-  <a id="patientCarePlayButton" class="feature-story__link btn btn-default" href="#">
-    <i class="hidden u-ips"></i>
-    {{ item.content["#title"] }}
-  </a>
-  <div style="display: none;">
-    <div id="patientCareVideo">
-      <video id="patientCareVideoPlayer" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
-        <source src="{{ item.content["#url"]|render }}" type="video/mp4">
-        <track label="English" kind="captions" srclang="en" src="https://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/682/763/Dr. Hwang final cut.vtt" default="">
-      </video>
-    </div>
+{% for item in items %}
+  {% set url = item.content['#url']|render %}
+
+  {% if 'UWMC_-_Marketing' in url  %}
+  <div class="section-story__play-button">
+    <span class="section-story__play-button-text">{{ item.content['#title'] }}</span>
+
+    <span id="patientCarePlayButton" class="fa-stack fa-2x">
+      <i class="fa fa-circle-thin fa-stack-2x faa-burst animated"></i>
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-play fa-stack-1x"></i>
+    </span>
   </div>
+
+    <div style="display: none;">
+      <div id="patientCareVideo">
+        <video id="patientCareVideoPlayer" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
+          <source src="https://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/682/763/Dr._Hwang_final_cut_1080p.mp4" type="video/mp4">
+          <track label="English" kind="captions" srclang="en" src="https://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/682/763/Dr.%20Hwang%20final%20cut.vtt" default="">
+        </video>
+      </div>
+    </div>
+   {% endif %}
 {% endfor %}
+
+

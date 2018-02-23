@@ -190,6 +190,10 @@
     }
 
     ul.nav-tabs {
+      .uw-ico {
+        display: none;
+      }
+
       border-bottom: none;
       @media(max-width: $screen-xs-max) {
         padding-left: 0;
@@ -197,9 +201,9 @@
 
       > li {
         margin-bottom: 0;
+        text-transform: uppercase;
       }
       > li > a {
-        height: 40px;
         background: $uwmed-tab-purple;
         color: #fff;
         text-decoration: none;
@@ -1055,7 +1059,8 @@
       .uw-ico {
         background-color: #F5F5F5;
         height: 20px;
-        margin-left: -27px;
+        margin-left: -22px;
+        margin-right: 8px
       }
     }
 
@@ -1102,7 +1107,7 @@
       padding: 20px;
     }
 
-    .container {
+    .container-lg {
       @media(min-width: $screen-md-min) {
         margin-top: 50px;
         margin-bottom: 50px;
@@ -1274,6 +1279,7 @@
       letter-spacing: .05em;
       margin-bottom: 6px;
       padding-top: 30px;
+      margin-top: 0;
     }
 
     h4 {
@@ -1341,6 +1347,12 @@
       //&:hover {
       //  background-color: $uwmed-accent-teal;
       //}
+    }
+
+    .webform-submission-health-news-signup-form {
+      .form-actions {
+        margin-bottom: 0;
+      }
     }
 
 

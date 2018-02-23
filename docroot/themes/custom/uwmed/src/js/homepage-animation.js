@@ -15,10 +15,11 @@
   function WidthChange(mq) {
     if (mq.matches) {
       // screen size is 1200px
-      if(window.controller && window.controller.enabled() === false) {
+      if (window.controller && window.controller.enabled() === false) {
         // there's already a controller but it's disabled
         window.controller.enabled(true);
-      } else {
+      }
+      else {
         // there's no controller so let's create one and add scenes
         window.controller = new ScrollMagic.Controller({
           globalSceneOptions: {
@@ -42,13 +43,13 @@
               })
         }
       }
-    } else {
+    }
+    else {
       // screen size is less than 1200px
-      if(window.controller && window.controller.enabled() === true) {
+      if (window.controller && window.controller.enabled() === true) {
         // there's a controller, let's disable it
         window.controller = controller.enabled(false);
       }
     }
   }
-  
 })(jQuery, Drupal);

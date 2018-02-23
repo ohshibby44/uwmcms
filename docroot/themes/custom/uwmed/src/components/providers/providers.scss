@@ -88,6 +88,12 @@ body.page-node-type-uwm-provider {
           margin-bottom: 0;
         }
 
+        .uwm-nav-tabs {
+          .uw-ico {
+            display: none;
+          }
+        }
+
         .uwm-tab-content {
 
           @extend %uwmed-box-shadow;
