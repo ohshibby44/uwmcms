@@ -90,6 +90,9 @@
   .links-with-icon {
     @media (min-width: $screen-lg-min) {
       margin-top: -67px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
 
     .links-with-icon__list {
@@ -222,7 +225,7 @@
         opacity: 1;
       }
     }
-    
+
 
     @media(min-width: $screen-lg-min) {
       &:nth-of-type(1) {
@@ -527,7 +530,7 @@
     .section-story__play-button-text {
       color: white;
       font-weight: 600;
-      text-shadow: 0px 3px 6px rgba(0,0,0,53)
+      text-shadow: 0px 3px 6px rgba(0,0,0,53);;
     }
 
     .fa-stack {
