@@ -8,10 +8,12 @@ dependencies:
     - field.field.node.homepage.field_homepage_sections
     - field.field.node.homepage.field_image
     - field.field.node.homepage.field_links_with_icon
+    - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_subheading
     - node.type.homepage
   module:
     - entity_browser
+    - metatag
     - paragraphs
     - text
     - workbench_moderation
@@ -70,6 +72,12 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_subheading:
     weight: 3
