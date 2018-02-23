@@ -77,6 +77,7 @@
 
   #{$button-el}, #{$button-el} * {
     color: $uwmed-body-text-color;
+    background-color: $uwmed-white;
     cursor: pointer;
     border-radius: 0;
     font-size: 13px;
@@ -115,7 +116,7 @@
 
     &:hover {
       color: $uwmed-light-purple;
-      @if $accent-color == $uwmed-light-purple {
+      @if $accent-color != $uwmed-menu-yellow {
         color: white;
       }
 
