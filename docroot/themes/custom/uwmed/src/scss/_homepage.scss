@@ -90,9 +90,6 @@
   .links-with-icon {
     @media (min-width: $screen-lg-min) {
       margin-top: -67px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
     }
 
     .links-with-icon__list {
