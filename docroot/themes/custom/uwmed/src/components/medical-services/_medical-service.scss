@@ -85,7 +85,7 @@
 
     a {
       text-decoration: none;
-      width: 100%;
+      width: 90%;
       font-size: 16px;
       text-align: left;
       background: none;
@@ -159,7 +159,6 @@
       }
 
       .uwmed-icon {
-        padding-left: $padding-base-horizontal * 1.5;
         padding-right: $padding-base-horizontal;
         color: white;
       }
@@ -433,6 +432,7 @@
   .feature-story__content {
     padding-bottom: 38px;
     width: 100%;
+    margin-top: 0 !important;
 
     @media(min-width: $screen-lg-min) {
       background-color: rgba(255, 255, 255, .9);
@@ -1163,7 +1163,7 @@
       }
 
       .virtual-clinic__cta {
-        @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-teal);
+        @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
       }
       .virtual-clinic__link {
         //margin-top: 20px;

@@ -174,7 +174,7 @@ view_mode ? view_mode|clean_class,
 
 
                     <h4>{{ 'Biography'|t }}</h4>
-                    {{ _bio.fullBio|raw }}
+                    {{ _bio.fullBio|striptags('<a><p>')|escape('html') }}
 
                     {% if _bio.personalInterests %}
                         <h4>{{ 'Personal Interests'|t }}</h4>

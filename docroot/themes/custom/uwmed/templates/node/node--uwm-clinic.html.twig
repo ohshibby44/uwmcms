@@ -63,11 +63,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 l ll">
 
-                <a href="#directions-tab"
-                   role="tab"
-                   data-toggle="tab"
-                   aria-controls="directions-tab"
-                   aria-expanded="false">
+                <a href="#directions-jump">
                     {{ 'Driving Directions'|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </a>
@@ -77,6 +73,14 @@ view_mode ? view_mode|clean_class,
             <div class="col-xs-12 l">
 
                 <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                    <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
+
+            </div>
+
+            <div class="col-xs-12 l">
+
+                <a href="#clinic-overview-jump">{{ "Clinic Overview"|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
 
@@ -158,7 +162,7 @@ view_mode ? view_mode|clean_class,
 
                 </a>
             </li>
-            <li role="presentation"><a href="#directions-tab"
+            <li role="presentation"><a id="directions-jump" href="#directions-tab"
                                        role="tab"
                                        data-toggle="tab"
                                        aria-controls="directions-tab"
@@ -210,13 +214,13 @@ view_mode ? view_mode|clean_class,
                         <div class="uw-more">
                             <a href="#"
                                data-uwm-toggle
-                               data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
+                               data-on-text="{{ 'View More'|t }}" data-off-text="{{ 'View Less'|t }}"
                                data-toggle-selector=".uwm-toggle .uw-t"
                                data-toggle-style="hidden"
                                data-parent-selector=".uw-more"
-                               data-parent-style="on">{{ 'View More'|t }} <i
-                                        class="fa fa-angle-down"
-                                        aria-hidden="true"></i></a></div>
+                               data-parent-style="on">{{ 'View More'|t }}
+                                {#<i class="fa fa-angle-down" aria-hidden="true"></i> #}
+                                </a></div>
 
 
                     {% endif %}
@@ -242,7 +246,7 @@ view_mode ? view_mode|clean_class,
                     <section class="clinic-body">
 
                         <div class="col-xs-12">
-                            <h3 class="accent">{{ "Clinic Overview"|t }}</h3>
+                            <h3 id="clinic-overview-jump" class="accent">{{ "Clinic Overview"|t }}</h3>
 
                             <div{{ content_attributes.addClass('content') }}>
                                 {{ content.body }}
