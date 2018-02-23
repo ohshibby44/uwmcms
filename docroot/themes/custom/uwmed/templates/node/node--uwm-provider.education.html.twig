@@ -1,0 +1,53 @@
+
+{# @TODO Make descending#}
+
+{% if _bio.educationHistories %}
+    {% for e in _bio.educationHistories %}
+
+        <h5>{{ e.institutionName }}</h5>
+        {% set ed = [] %}
+        {% if e.educationType %}
+            {% set ed = ed|merge([e.educationType]) %}
+        {% endif %}
+        {% if e.gradYear %}
+            {% set ed = ed|merge([e.gradYear]) %}
+        {% endif %}
+        {% if e.specialty %}
+            {% set ed = ed|merge([e.specialty]) %}
+        {% endif %}
+
+        <p>{{ ed|join(', ') }}</p>
+
+    {% endfor %}
+{% endif %}
+
+{#{% if _bio.extEducations %}#}
+
+{#{% endif %}#}
+
+{% if _bio.boardCertifications %}
+
+    <p>&nbsp;</p>
+    <h5>{{ "Board Certifications"| t }}</h5>
+
+    <ul>
+        {% for e in _bio.boardCertifications %}
+
+            {#<h5>{{ e.institutionName }}</h5>#}
+            {% set ed = [] %}
+            {% if e.specialtyName %}
+                {% set ed = ed|merge([e.specialtyName]) %}
+            {% endif %}
+            {% if e.certifiedYear %}
+                {% set ed = ed|merge([e.certifiedYear]) %}
+            {% endif %}
+            {% if e.boardName %}
+                {% set ed = ed|merge([e.boardName]) %}
+            {% endif %}
+
+            <li>{{ ed|join(', ') }}</li>
+
+        {% endfor %}
+    </ul>
+
+{% endif %}

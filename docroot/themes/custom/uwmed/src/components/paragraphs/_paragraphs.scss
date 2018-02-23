@@ -15,6 +15,24 @@ div.field.field--name-field-bottom-content-blocks
 
     @extend .col-xs-12;
 
+    input {
+      width: 100%;
+      background: #dcdcdc;
+      color: #000;
+      opacity: .7;
+      border: 1px solid darken(#dcdcdc, 15%);
+      margin: 0 0 5px 0;
+      padding: 4px;
+
+      &::placeholder {
+        text-transform: uppercase;
+      }
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
     a.btn, a.btn-default {
       background-color: transparent;
     }
@@ -28,6 +46,7 @@ div.field.field--name-field-bottom-content-blocks
     }
 
     div.field.field--name-field-heading {
+
       .item {
         @extend .h3;
         @include uw-bottom-accent-heading();
@@ -35,6 +54,7 @@ div.field.field--name-field-bottom-content-blocks
           text-transform: none;
         }
       }
+
     }
 
   }

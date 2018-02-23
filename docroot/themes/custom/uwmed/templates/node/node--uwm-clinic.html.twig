@@ -1,4 +1,5 @@
 {{ attach_library('uwmed/clinic-nodes') }}
+{{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clockwise-wait-times') }}
 
 {% set classes = [
@@ -28,9 +29,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 remove-padding m-image">
                 {{ content.field_clinic_image }}
-                <h1{{ title_attributes }}>
-                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-                </h1>
+                <h1{{ title_attributes }}>{{ label }}</h1>
             </div>
 
             <div class="col-xs-12 m-hours">
@@ -48,15 +47,15 @@ view_mode ? view_mode|clean_class,
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
                         <i class="uw-s"></i>
-                        <a>{{ fax|replace({'-': '.'}) }}
-                            <span>fax</span></a>
+                        {{ fax|replace({'-': '.'}) }}
+                            <span>fax</span>
                     </small>
                 </address>
             </div>
 
         </div>
 
-        <div class="col-sm-4 left">
+        <div class="col-sm-5 col-md-4 left">
 
             <div class="col-xs-12 hidden-xs clinic-image remove-padding">
                 {{ content.field_clinic_image }}
@@ -106,13 +105,11 @@ view_mode ? view_mode|clean_class,
             </div>
         </div>
 
-        <div class="col-sm-8 hidden-xs right">
+        <div class="col-sm-7 col-md-8 hidden-xs right">
 
             <div class="col-sm-12 title">
                 {{ title_prefix }}
-                <h1{{ title_attributes }}>
-                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-                </h1>
+                <h1{{ title_attributes }}>{{ label }}</h1>
                 {{ title_suffix }}
 
                 <address>{{ _cli.address }},
@@ -125,13 +122,13 @@ view_mode ? view_mode|clean_class,
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
                         <i class="uw-s"></i>
-                        <a>{{ fax|replace({'-': '.'}) }} <span>fax</span></a>
+                        {{ fax|replace({'-': '.'}) }} <span>fax</span>
                     </small>
 
                 </address>
             </div>
 
-            <div class="col-xs-12 remove-padding clinic-hours-container">
+            <div class="col-xs-12 col-md-9 remove-padding clinic-hours-container">
 
                 {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
 
@@ -189,29 +186,40 @@ view_mode ? view_mode|clean_class,
                  id="main-tab" aria-labelledby="main-tab">
                 <a name="main" id="main"></a>
 
-                <section class="services">
+                <section class="services uwm-toggle">
                     <h3 class="accent">Services</h3>
 
                     <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
 
-                    <ul>
-                        {#{% for s in _cli.services %}#}
-                        {#<li>#}
-                        {#<i class="uw-ico checkmark"#}
-                        {#aria-hidden="true"></i>#}
-                        {#{{ s.serviceName|t }}</li>#}
-                        {#{% endfor %}#}
+                    <ul class="expt">
+
                         {% for s in _cli.expertises %}
-                            <li>
-                                <i class="uw-ico checkmark"
-                                   aria-hidden="true"></i>
+
+                            {% if loop.index > 4 %}
+                                {% set c = "uw-t hidden" %}
+                            {% endif %}
+
+                            <li class="{{ c }}"><i class="uw-ico checkmark"
+                                                   aria-hidden="true"></i>
                                 {{ s.expertiseName|t }}</li>
                         {% endfor %}
                     </ul>
 
-                    {#<div class="view-more"><a href="#">View More <i#}
-                    {#class="fa fa-angle-down"#}
-                    {#aria-hidden="true"></i></a></div>#}
+
+                    {% if _cli.expertises|length > 4 %}
+                        <div class="uw-more">
+                            <a href="#"
+                               data-uwm-toggle
+                               data-toggle-selector=".uwm-toggle .uw-t"
+                               data-toggle-style="hidden"
+                               data-parent-selector=".uw-more"
+                               data-parent-style="on">View More <i
+                                        class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a></div>
+
+
+                    {% endif %}
+
 
                 </section>
 

@@ -156,13 +156,11 @@ body.page-node-type-uwm-clinic {
             }
 
             ul {
-              margin: 0;
               padding: 0;
-              list-style-type: none;
 
               li {
                 list-style-type: none;
-                margin: 0 0 6px 0;
+                padding-bottom: 6px;
                 float: left;
                 width: 100%;
               }
@@ -200,6 +198,10 @@ body.page-node-type-uwm-clinic {
           }
           small.tel, small.tel a {
             color: $uwmed-medium-gray;
+
+          }
+          small.tel a:hover {
+            color: $uwmed-pop-blue;
           }
 
           i.uw-s {
@@ -233,11 +235,6 @@ body.page-node-type-uwm-clinic {
           border: 0 none;
           //padding: 12px 0;
 
-          .view-more {
-            text-align: center;
-            margin: 40px 0 10px 0;
-            border-top: 1px solid #999;
-          }
 
           // sub nav-tabs
           ul.nav-tabs {

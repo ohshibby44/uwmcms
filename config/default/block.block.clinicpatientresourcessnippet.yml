@@ -17,7 +17,7 @@ provider: null
 plugin: 'block_content:98cec0af-e559-4a0b-8239-83e813e1657c'
 settings:
   id: 'block_content:98cec0af-e559-4a0b-8239-83e813e1657c'
-  label: 'Clinic Patient Resources Snippet'
+  label: 'Patient Resources'
   provider: block_content
   label_display: visible
   status: true

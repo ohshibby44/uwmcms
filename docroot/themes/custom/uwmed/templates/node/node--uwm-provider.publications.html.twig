@@ -1,0 +1,49 @@
+
+
+{% if _bio.bioPublicationsDetails %}
+
+    <ul>
+        {% for a in _bio.bioPublicationsDetails %}
+
+            {#<h5>{{ e.institutionName }}</h5>#}
+            <li>
+                {% if a.Authors %}
+                    {{ a.Authors }}
+                {% endif %}
+
+                {% if a.PubMedId %}
+
+                    <a
+                            href="http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=retrieve&db=PubMed&tool=UWMedicine&dopt=Abstract&list_uids={{ a.PubMedId }}"
+                            target="_blank">{{ a.ArticleTitle }}</a>
+
+                {% endif %}
+
+                {% if a.JournalTitle %}
+                    <em>{{ a.JournalTitle }}</em>&nbsp;
+                {% endif %}
+
+                {% if a.JournalYear %}
+                    {{ a.JournalYear }}&nbsp;
+                {% endif %}
+
+                {% if a.JournalMonth %}
+                    {{ a.JournalMonth }};&nbsp;
+                {% endif %}
+
+                {% if a.JournalVolume %}
+                    {{ a.JournalVolume }};&nbsp;
+                {% endif %}
+
+                {% if a.JournalIssue %}
+                    {{ a.JournalIssue }};&nbsp;
+                {% endif %}
+
+                {% if a.PagingNumber %}
+                    {{ a.PagingNumber }};&nbsp;
+                {% endif %}
+            </li>
+
+        {% endfor %}
+    </ul>
+{% endif %}
