@@ -198,6 +198,10 @@ body.page-node-type-uwm-clinic {
           }
           small.tel, small.tel a {
             color: $uwmed-medium-gray;
+
+          }
+          small.tel a:hover {
+            color: $uwmed-pop-blue;
           }
 
           i.uw-s {

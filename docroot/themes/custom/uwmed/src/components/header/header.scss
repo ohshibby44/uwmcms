@@ -221,39 +221,44 @@ body > header {
       position: absolute;
       right: 0;
       top: 0;
+      padding-right: 0;
 
       ul.nav.navbar-nav {
         float: right;
 
-        li a {
-          float: right;
-          font-size: 12px;
-          text-transform: uppercase;
-          padding: 10px 15px 10px 30px;
-          white-space: nowrap;
-          transition: all 0.35s ease-out;
+        li {
+          padding: 0;
+          a {
+            float: right;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 10px 30px 10px 30px;
+            white-space: nowrap;
+            transition: all 0.35s ease-out;
 
-          &:hover {
-            background: transparent;
-            i.fa.u-a {
-              border-left: 5px solid darken(#cfcfcf, 5%);
-              background: lighten(#e5e5e6, 5%);
+            &:hover {
+              background: transparent;
+              i.fa.u-a {
+                border-left: 5px solid darken(#cfcfcf, 5%);
+                background: lighten(#e5e5e6, 5%);
+              }
             }
-          }
 
-          i.fa.u-a {
-            @include uw-skew(-18deg);
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            left: 0;
-            top: -50px;
-            border-left: 5px solid #cfcfcf;
-            background: #e5e5e6;
-            z-index: -1;
-          }
+            i.fa.u-a {
+              @include uw-skew(-18deg);
+              position: absolute;
+              width: 200px;
+              height: 200px;
+              left: 0;
+              top: -50px;
+              border-left: 5px solid #cfcfcf;
+              background: #e5e5e6;
+              z-index: -1;
+            }
 
+          }
         }
+
 
       }
 

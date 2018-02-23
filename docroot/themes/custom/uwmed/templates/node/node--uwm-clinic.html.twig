@@ -49,8 +49,8 @@ view_mode ? view_mode|clean_class,
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
                         <i class="uw-s"></i>
-                        <a>{{ fax|replace({'-': '.'}) }}
-                            <span>fax</span></a>
+                        {{ fax|replace({'-': '.'}) }}
+                            <span>fax</span>
                     </small>
                 </address>
             </div>
@@ -126,7 +126,7 @@ view_mode ? view_mode|clean_class,
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
                         <i class="uw-s"></i>
-                        <a>{{ fax|replace({'-': '.'}) }} <span>fax</span></a>
+                        {{ fax|replace({'-': '.'}) }} <span>fax</span>
                     </small>
 
                 </address>
