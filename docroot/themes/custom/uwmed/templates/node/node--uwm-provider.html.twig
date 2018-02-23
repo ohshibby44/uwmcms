@@ -142,6 +142,21 @@ view_mode ? view_mode|clean_class,
                     </li>
                 {% endif %}
 
+                {% if _bio.bioPublicationsDetails %}
+                    <li role="presentation"><a href="#publications"
+                                               name="publications"
+                                               role="tab"
+                                               id="publications-tab"
+                                               data-toggle="tab"
+                                               aria-controls="publications"
+                                               aria-expanded="false">
+                            <i class="uw-ico heart" aria-hidden="true"></i>
+                            {{ 'Publications'|t }}
+
+                        </a>
+                    </li>
+                {% endif %}
+
             </ul>
 
             <div class="tab-content uwm-tab-content">
@@ -171,13 +186,7 @@ view_mode ? view_mode|clean_class,
                 <div class="row tab-pane locations-tab" role="tabpanel"
                      id="locations" aria-labelledby="locations-tab">
 
-                    {#<h4>Locations</h4>#}
-                    {#{% set n = locations|length %}#}
-                    {#<p class="location-count">{{ "@count location@s" | t({'@count': n,#}
-                    {#'@s': (n != 1 ? 's': '')}) }}</p>#}
-
                     {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
-
 
                 </div>
 
@@ -185,83 +194,19 @@ view_mode ? view_mode|clean_class,
                     <div class="row tab-pane education-tab" role="tabpanel"
                          id="education" aria-labelledby="providers-tab">
 
-                        {#<h4>Education</h4>#}
-
-
-                        {# @TODO Make descending#}
-
-                        {% if _bio.educationHistories %}
-                            {% for e in _bio.educationHistories %}
-
-                                <h5>{{ e.institutionName }}</h5>
-                                {% set ed = [] %}
-                                {% if e.educationType %}
-                                    {% set ed = ed|merge([e.educationType]) %}
-                                {% endif %}
-                                {% if e.gradYear %}
-                                    {% set ed = ed|merge([e.gradYear]) %}
-                                {% endif %}
-                                {% if e.specialty %}
-                                    {% set ed = ed|merge([e.specialty]) %}
-                                {% endif %}
-
-                                <p>{{ ed|join(', ') }}</p>
-
-                            {% endfor %}
-                        {% endif %}
-
-                        {#{% if _bio.extEducations %}#}
-                        {#{% endif %}#}
-
-                        {% if _bio.boardCertifications %}
-
-                            <p>&nbsp;</p>
-                            <h5>{{ "Board Certifications"| t }}</h5>
-
-                            <ul>
-                                {% for e in _bio.boardCertifications %}
-
-                                    {#<h5>{{ e.institutionName }}</h5>#}
-                                    {% set ed = [] %}
-                                    {% if e.specialtyName %}
-                                        {% set ed = ed|merge([e.specialtyName]) %}
-                                    {% endif %}
-                                    {% if e.certifiedYear %}
-                                        {% set ed = ed|merge([e.certifiedYear]) %}
-                                    {% endif %}
-                                    {% if e.boardName %}
-                                        {% set ed = ed|merge([e.boardName]) %}
-                                    {% endif %}
-
-                                    <li>{{ ed|join(', ') }}</li>
-
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-
-
-                        {#{% if _bio.bioPublications %}#}
-                        {#https://www.ncbi.nlm.nih.gov/pmc/tools/get-metadata/#}
-                        {#<h4>Publications</h4>#}
-
-                        {#{% for p in _bio.bioPublications %}#}
-
-                        {#<h5>{{ p.pubMedId }}</h5>#}
-
-                        {#{% endfor %}#}
-
-                        {#{% endif %}#}
-
-                        {#{% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}#}
-
-
-                        {#Degree:#}
-                        {##}
-
+                        {% include directory ~'/templates/node/node--uwm-provider.education.html.twig' %}
 
                     </div>
                 {% endif %}
 
+                {% if _bio.bioPublicationsDetails %}
+                <div class="row tab-pane publications-tab" role="tabpanel"
+                     id="publications" aria-labelledby="publications-tab">
+
+                    {% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}
+
+                </div>
+                {% endif %}
 
             </div>
 
