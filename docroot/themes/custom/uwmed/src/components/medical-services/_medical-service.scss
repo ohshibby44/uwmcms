@@ -352,8 +352,8 @@
         }
 
         li:before {
-          content: "\f05d";
-          font-family: "FontAwesome";
+          content: "\e902";
+          font-family: "uwmico";
           width: 10px;
           height: 10px;
           margin-left: -1.5em;
@@ -362,6 +362,26 @@
         }
       }
     }
+
+
+    &.uwm-toggle {
+
+      li:nth-child(n+4) {
+        display: none;
+      }
+      &.on li:nth-child(n+4) {
+        display: block;
+      }
+      .uw-more {
+        @extend .col-xs-12;
+      }
+
+    }
+
+
+
+
+
   }
 
   .feature-story {
@@ -436,12 +456,14 @@
       margin-bottom: $line-height-computed;
     }
 
+    @include uw-ghost-button('.feature-story__link', 'i.u-ips', $uwmed-accent-orange);
+
     .feature-story__link {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      //text-transform: uppercase;
+      //text-decoration: none;
+      //font-weight: 600;
+      //font-family: $headings-font-family;
+      //font-size: $font-size-h3;
 
       @media(max-width: $screen-md-max) {
         width: 100%;
@@ -452,17 +474,17 @@
         padding-right: 18px;
       }
 
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-orange;
-      }
+    //  &:hover {
+    //    color: white;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-orange;
+    //  }
     }
   }
 
@@ -490,13 +512,21 @@
 
   .find-a-location .links-with-icon__list {
     padding-top: $padding-base-vertical;
-    //padding-bottom: 38px;
+    padding-bottom: 38px;
+    @media(min-width: $screen-lg-min) {
+      @include uw-ghost-button('.links-with-icon__item', 'i.u-ips');
+      width: 200px;
+    }
+
+
+
   }
 
   .find-a-location .links-with-icon__item {
-    background-color: inherit;
-    color: $text-color;
-    font-weight: 600;
+    //background-color: inherit;
+    //color: $text-color;
+    //font-weight: 600;
+    width: 100%;
     padding: $padding-base-vertical 0;
 
     @media (max-width: $screen-md-max) {
@@ -507,7 +537,7 @@
       }
 
       a {
-        font-size: inherit;
+        //font-size: inherit;
         padding: $padding-base-horizontal 0;
         border: none;
 
@@ -520,20 +550,20 @@
     @media (min-width: $screen-lg-min) {
       width: 200px;
 
-      a {
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-
-        &:hover {
-          background-color: $uwmed-accent-yellow;
-          
-          &::before {
-            background: none;
-          }
-        }
-      }
+      //a {
+      //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+      //  &::before {
+      //    background-position: left 0;
+      //  }
+      //
+      //  &:hover {
+      //    background-color: $uwmed-accent-yellow;
+      //
+      //    &::before {
+      //      background: none;
+      //    }
+      //  }
+      //}
     }
 
     .uwmed-icon {
@@ -601,37 +631,41 @@
       text-decoration: none;
     }
 
-    .btn-default {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
 
-      &:hover {
-        color: $text-color;
-      }
+    @include uw-ghost-button('.btn-default', 'i.u-ips');
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
 
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-yellow;
-      }
-    }
+    //.btn-default {
+    //  text-transform: uppercase;
+    //  text-decoration: none;
+    //  font-weight: 600;
+    //  font-family: $headings-font-family;
+    //  font-size: $font-size-h3;
+    //
+    //  &:hover {
+    //    color: $text-color;
+    //  }
+    //
+    //  @media(min-width: $screen-lg-min) {
+    //    padding-left: 18px;
+    //    padding-right: 18px;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-yellow;
+    //  }
+    //}
   }
 
 
   .featured-specialties {
 
     ul {
-      display: inline-block;
+      @extend .col-xs-12;
     }
 
     @media (min-width: $screen-lg-min) {
@@ -653,6 +687,22 @@
         color: $uwmed-purple-icon;
       }
     }
+
+    &.uwm-toggle {
+
+      li:nth-child(n+6) {
+        display: none;
+
+      }
+      &.on li:nth-child(n+6) {
+        display: block;
+      }
+      .uw-more {
+        @extend .col-xs-12;
+      }
+    }
+
+
   }
 
 
@@ -752,37 +802,41 @@
       padding-bottom: $padding-base-vertical;
     }
 
+    .field--name-field-link {
 
-    .field--name-field-link a {
-      @extend .btn;
-      @extend .btn-default;
+      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
 
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      a {
+        @extend .btn;
+        @extend .btn-default;
+        //
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;$font-size-h3
 
-      position: absolute;
-      bottom: 10px;
+        //position: absolute;
+        //bottom: 10px;
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
+        @media(min-width: $screen-lg-min) {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        //&:hover {
+        //  color: white;
+        //}
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-orange;
+        //}
+
       }
-
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-orange;
-      }
-
     }
   }
 
@@ -862,6 +916,8 @@
         margin-left: 5px;
       }
 
+      @include uw-ghost-button('a.button', 'i.u-ips', $uwmed-accent-teal);
+
       a.button {
         @extend .btn;
         @extend .btn-default;
@@ -869,11 +925,11 @@
         margin-top: 18px;
         margin-bottom: 9.5px;
 
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        font-family: $headings-font-family;
-        font-size: $font-size-h3;
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;
 
         @media(max-width: $screen-md-max) {
           width: 100%;
@@ -884,18 +940,18 @@
           padding-right: 18px;
         }
 
-        &:hover {
-          color: white;
-          text-decoration: none;
-        }
-
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-        &:hover {
-          background-color: $uwmed-accent-teal;
-        }
+        //&:hover {
+        //  color: white;
+        //  text-decoration: none;
+        //}
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-teal;
+        //}
       }
     }
 
@@ -1017,23 +1073,26 @@
       }
     }
 
-    .clinic__directions a {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-family: $headings-font-family;
-
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-teal;
-      }
+    .clinic__directions {
+      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
     }
+    //.clinic__directions a {
+    //  text-decoration: none;
+    //  text-transform: uppercase;
+    //  font-family: $headings-font-family;
+    //
+    //  &:hover {
+    //    color: white;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-teal;
+    //  }
+    //}
   }
 
   .virtual-clinic {
@@ -1103,30 +1162,33 @@
         //margin-bottom: $line-height-computed;
       }
 
+      .virtual-clinic__cta {
+        @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-teal);
+      }
       .virtual-clinic__link {
-        margin-top: 20px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        font-family: $headings-font-family;
-        font-size: $font-size-h3;
+        //margin-top: 20px;
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;
 
         @media(min-width: $screen-lg-min) {
           padding-left: 18px;
           padding-right: 18px;
         }
 
-        &:hover {
-          color: white;
-        }
-
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-        &:hover {
-          background-color: $uwmed-accent-blue;
-        }
+        //&:hover {
+        //  color: white;
+        //}
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-blue;
+        //}
       }
     }
   }
@@ -1137,34 +1199,38 @@
     }
 
     .ecare__login {
+
+      @include uw-ghost-button('.ecare__login-button', 'i.u-ips', $uwmed-tab-purple);
+
+
       @media(min-width: $screen-md-min) {
         text-align: right;
       }
     }
 
     .ecare__login-button {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      //text-transform: uppercase;
+      //text-decoration: none;
+      //font-weight: 600;
+      //font-family: $headings-font-family;
+      //font-size: $font-size-h3;
 
       @media(min-width: $screen-md-min) {
         width: 100%;
         margin-top: 28px;
       }
 
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-tab-purple, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-tab-purple;
-      }
+      //&:hover {
+      //  color: white;
+      //}
+      //
+      //@include angled-edge('inside top', 'lower right', $uwmed-tab-purple, 15, 15);
+      //&::before {
+      //  background-position: left 0;
+      //}
+      //&:hover {
+      //  background-color: $uwmed-tab-purple;
+      //}
     }
 
     .eCare__information-item {
@@ -1253,30 +1319,34 @@
       }
     }
 
-    .webform-button--submit {
-      @extend .btn;
-      @extend .btn-default;
+    .form-actions {
+      @include uw-ghost-button('.webform-button--submit', 'i.u-ips', $uwmed-accent-teal);
 
-      @media(max-width: $screen-md-max) {
-        width: 100%;
+      //@extend .btn;
+      //@extend .btn-default;
+      .webform-button--submit {
+        @media(max-width: $screen-md-max) {
+          width: 100%;
+        }
+
+        @media(min-width: $screen-lg-min) {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
       }
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+      //&:hover {
+      //  color: white;
+      //}
 
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-teal;
-      }
+      //@include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+      //&::before {
+      //  background-position: left 0;
+      //}
+      //&:hover {
+      //  background-color: $uwmed-accent-teal;
+      //}
     }
 
     .webform-submission-health-news-signup-form {
