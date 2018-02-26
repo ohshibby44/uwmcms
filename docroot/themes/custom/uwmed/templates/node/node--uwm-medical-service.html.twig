@@ -21,6 +21,7 @@ view_mode ? view_mode|clean_class,
 {{ attach_library('uwmed/medical-service') }}
 {{ attach_library('uwmed/googlemaps') }}
 {{ attach_library('uwmed/uwm-toggle') }}
+{{ attach_library('uwmed/bootstrap-tab-history') }}
 
 {% set urgent_care_clinics = node.uwmcms_reader_urgent_care_clinics %}
 {% set primary_care_clinics = node.uwmcms_reader_primary_care_clinics %}
@@ -62,7 +63,10 @@ view_mode ? view_mode|clean_class,
                                                     id="approach-tab"
                                                     role="tab" data-toggle="tab"
                                                     aria-controls="approach"
-                                                    aria-expanded="true">
+                                                    aria-expanded="true"
+                                                    data-tab-history="true"
+                                                    data-tab-history-changer="push"
+                                                    data-tab-history-update-url="true">
               <i class="uw-ico heart"
                  aria-hidden="true"></i> {{ 'Our Approach'|t }}
 
@@ -73,7 +77,10 @@ view_mode ? view_mode|clean_class,
                                      id="resources-tab"
                                      data-toggle="tab"
                                      aria-controls="resources"
-                                     aria-expanded="false">
+                                     aria-expanded="false"
+                                     data-tab-history="true"
+                                     data-tab-history-changer="push"
+                                     data-tab-history-update-url="true">
               <i class="uw-ico heart"
                  aria-hidden="true"></i> {{ 'Patient Resources'|t }}
 
@@ -84,7 +91,10 @@ view_mode ? view_mode|clean_class,
                                      id="carenow-tab"
                                      data-toggle="tab"
                                      aria-controls="carenow"
-                                     aria-expanded="false">
+                                     aria-expanded="false"
+                                     data-tab-history="true"
+                                     data-tab-history-changer="push"
+                                     data-tab-history-update-url="true">
               <i class="uw-ico heart"
                  aria-hidden="true"></i> {{ 'Get Care Now'|t }}
 

@@ -15,18 +15,13 @@
             $('.nav-tabs a[href="' + href + '"]').trigger('click');
           });
 
-          // TO DO: trigger main tab when user clicks on clinic overview, then jump
-          // $('section.clinic-header a[href="#clinic-overview-jump"]').click(function (e) {
-          //   e.preventDefault();
-          //   var href = '#main-tab';
-          //   $('.nav-tabs a[href="' + href + '"]').trigger('click');
-          //   this.trigger('click');
-          // });
-
-            // $('section.medical-service-tabs a[href^="#"]').click(function () {
-            //     var href = $(this).attr('href');
-            //     $('.nav-tabs a[href="' + href + '"]').trigger('click');
-            // });
+          // trigger main tab when user clicks on clinic overview, then jump
+          $('section.clinic-header a[href="#clinic-overview-jump"]').click(function (e) {
+            e.preventDefault();
+            var href = "#main-tab";
+            $('.nav-tabs a[href="' + href + '"]').trigger('click');
+            window.location.href = '#clinic-overview-jump';
+          });
 
         }
     };

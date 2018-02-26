@@ -1,6 +1,7 @@
 {{ attach_library('uwmed/clinic-nodes') }}
 {{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clockwise-wait-times') }}
+{{ attach_library('uwmed/bootstrap-tab-history') }}
 
 {% set classes = [
 node.bundle|clean_class,
@@ -156,7 +157,10 @@ view_mode ? view_mode|clean_class,
                                                       role="tab"
                                                       data-toggle="tab"
                                                       aria-controls="main-tab"
-                                                      aria-expanded="true">
+                                                      aria-expanded="true"
+                                                      data-tab-history="true"
+                                                      data-tab-history-changer="push"
+                                                      data-tab-history-update-url="true">
                     <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Services/ Resources'|t }}
 
@@ -166,7 +170,10 @@ view_mode ? view_mode|clean_class,
                                        role="tab"
                                        data-toggle="tab"
                                        aria-controls="directions-tab"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       data-tab-history="true"
+                                       data-tab-history-changer="push"
+                                       data-tab-history-update-url="true">
                     <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Directions/ Parking'|t }}
 
@@ -176,8 +183,12 @@ view_mode ? view_mode|clean_class,
                                        role="tab"
                                        data-toggle="tab"
                                        aria-controls="providers-tab"
-                                       aria-expanded="false">
-                    <i class="uw-ico heart" aria-hidden="true"></i>
+                                       aria-expanded="false"
+                                       data-tab-history="true"
+                                       data-tab-history-changer="push"
+                                       data-tab-history-update-url="true">
+                    <i class="uw-ico heart" aria-hidden="true"
+                    ></i>
                     {{ 'Care Providers'|t }}
 
                 </a>
