@@ -72,6 +72,16 @@ slickquiz:
   dependencies:
     - core/jquery
 
+colorbox:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js: { type: external, minified: true }
+    dist/js/patient-care-video.js: {}
+  css:
+    theme:
+      dist/styles/colorbox.css: {}
+  dependencies:
+    - core/jquery
+
 medical-service:
   js:
     dist/js/back-pain-quiz.js: {}
@@ -84,6 +94,7 @@ medical-service:
     - core/jquery.once
     - uwmed/swipejs
     - uwmed/slickquiz
+    - uwmed/colorbox
 
 scroll-magic:
   js:
@@ -94,3 +105,4 @@ homepage-animation:
     dist/js/homepage-animation.js: {}
   dependencies:
     - uwmed/scroll-magic
+    - uwmed/colorbox

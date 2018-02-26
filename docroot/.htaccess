@@ -109,6 +109,7 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules)/?.*
   RewriteCond %{REQUEST_URI} !^/?$
   RewriteCond %{REQUEST_URI} !^/services/primary-care/?.*
+  RewriteCond %{REQUEST_URI} !^/locations/location-hours/.*
   RewriteCond %{REQUEST_URI} !^/locations/adult-medicine-harborview/?.*
   RewriteCond %{REQUEST_URI} !^/locations/family-medicine-harborview/?.*
   RewriteCond %{REQUEST_URI} !^/locations/general-internal-medicine-center-uwmc-roosevelt/?.*
