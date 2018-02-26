@@ -1,7 +1,7 @@
 uuid: 88572f11-c662-4b21-83e1-ad224859c823
-name: uwmc
+name: 'UW Medicine'
 mail: uwmweb@uw.edu
-slogan: 'Welcome to UWMCS'
+slogan: ''
 page:
   403: ''
   404: ''

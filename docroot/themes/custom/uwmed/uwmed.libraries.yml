@@ -37,6 +37,12 @@ uwm-toggle:
       - core/jquery
       - core/drupalSettings
 
+bootstrap-tab-history:
+  js:
+    dist/js/bootstrap-tab-history.js: { preprocess: false }
+  dependencies:
+    - core/jquery
+
 google-fonts:
   css:
     theme:

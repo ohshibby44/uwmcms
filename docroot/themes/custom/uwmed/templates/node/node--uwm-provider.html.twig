@@ -7,6 +7,9 @@
 
 
 #}
+
+{{ attach_library('uwmed/bootstrap-tab-history') }}
+
 {% set classes = [
 node.bundle|clean_class,
 node.isPromoted() ? 'is-promoted',
@@ -107,7 +110,10 @@ view_mode ? view_mode|clean_class,
                                                           role="tab"
                                                           data-toggle="tab"
                                                           aria-controls="overview"
-                                                          aria-expanded="true">
+                                                          aria-expanded="true"
+                                                          data-tab-history="true"
+                                                          data-tab-history-changer="push"
+                                                          data-tab-history-update-url="true">
                         <i class="uw-ico heart" aria-hidden="true"></i>
                         {{ 'Overview'|t }}
 
@@ -120,8 +126,12 @@ view_mode ? view_mode|clean_class,
                                            id="locations-tab"
                                            data-toggle="tab"
                                            aria-controls="locations"
-                                           aria-expanded="false">
-                        <i class="uw-ico heart" aria-hidden="true"></i>
+                                           aria-expanded="false"
+                                           data-tab-history="true"
+                                           data-tab-history-changer="push"
+                                           data-tab-history-update-url="true">
+                        <i class="uw-ico heart" aria-hidden="true"
+                        ></i>
                         {{ 'Locations'|t }}
 
                     </a>
@@ -134,7 +144,10 @@ view_mode ? view_mode|clean_class,
                                                id="education-tab"
                                                data-toggle="tab"
                                                aria-controls="education"
-                                               aria-expanded="false">
+                                               aria-expanded="false"
+                                               data-tab-history="true"
+                                               data-tab-history-changer="push"
+                                               data-tab-history-update-url="true">
                             <i class="uw-ico heart" aria-hidden="true"></i>
                             {{ 'Education'|t }}
 
@@ -174,7 +187,7 @@ view_mode ? view_mode|clean_class,
 
 
                     <h4>{{ 'Biography'|t }}</h4>
-                    {{ _bio.fullBio|raw }}
+                    {{ _bio.fullBio|striptags('<a><p><br>')|raw }}
 
                     {% if _bio.personalInterests %}
                         <h4>{{ 'Personal Interests'|t }}</h4>

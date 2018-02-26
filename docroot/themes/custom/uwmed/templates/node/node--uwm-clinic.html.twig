@@ -1,6 +1,7 @@
 {{ attach_library('uwmed/clinic-nodes') }}
 {{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clockwise-wait-times') }}
+{{ attach_library('uwmed/bootstrap-tab-history') }}
 
 {% set classes = [
 node.bundle|clean_class,
@@ -12,6 +13,9 @@ view_mode ? view_mode|clean_class,
 ] %}
 
 {% set _cli = node.uwmcs_reader_api_values %}
+
+{% set urgentCareTimes = _cli.clinicTimeUseMasters[1].hoursOfOperation %}
+
 
 {% set phone = _cli.seoPhone|slice(0, 3)
 ~'-'~ _cli.seoPhone|slice(3, 3)
@@ -63,11 +67,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 l ll">
 
-                <a href="#directions-tab"
-                   role="tab"
-                   data-toggle="tab"
-                   aria-controls="directions-tab"
-                   aria-expanded="false">
+                <a href="#directions-jump">
                     {{ 'Driving Directions'|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </a>
@@ -77,6 +77,14 @@ view_mode ? view_mode|clean_class,
             <div class="col-xs-12 l">
 
                 <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                    <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
+
+            </div>
+
+            <div class="col-xs-12 l">
+
+                <a href="#clinic-overview-jump">{{ "Clinic Overview"|t }}
                     <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
 
@@ -152,17 +160,23 @@ view_mode ? view_mode|clean_class,
                                                       role="tab"
                                                       data-toggle="tab"
                                                       aria-controls="main-tab"
-                                                      aria-expanded="true">
+                                                      aria-expanded="true"
+                                                      data-tab-history="true"
+                                                      data-tab-history-changer="push"
+                                                      data-tab-history-update-url="true">
                     <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Services/ Resources'|t }}
 
                 </a>
             </li>
-            <li role="presentation"><a href="#directions-tab"
+            <li role="presentation"><a id="directions-jump" href="#directions-tab"
                                        role="tab"
                                        data-toggle="tab"
                                        aria-controls="directions-tab"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       data-tab-history="true"
+                                       data-tab-history-changer="push"
+                                       data-tab-history-update-url="true">
                     <i class="uw-ico heart" aria-hidden="true"></i>
                     {{ 'Directions/ Parking'|t }}
 
@@ -172,8 +186,12 @@ view_mode ? view_mode|clean_class,
                                        role="tab"
                                        data-toggle="tab"
                                        aria-controls="providers-tab"
-                                       aria-expanded="false">
-                    <i class="uw-ico heart" aria-hidden="true"></i>
+                                       aria-expanded="false"
+                                       data-tab-history="true"
+                                       data-tab-history-changer="push"
+                                       data-tab-history-update-url="true">
+                    <i class="uw-ico heart" aria-hidden="true"
+                    ></i>
                     {{ 'Care Providers'|t }}
 
                 </a>
@@ -188,8 +206,11 @@ view_mode ? view_mode|clean_class,
 
                 <section class="services uwm-toggle">
                     <h3 class="accent">Services</h3>
-
-                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+                    {% if urgentCareTimes %}
+                        <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+                    {% else %}
+                        <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
+                    {% endif %}
 
                     <ul class="expt">
 
@@ -242,7 +263,7 @@ view_mode ? view_mode|clean_class,
                     <section class="clinic-body">
 
                         <div class="col-xs-12">
-                            <h3 class="accent">{{ "Clinic Overview"|t }}</h3>
+                            <h3 id="clinic-overview-jump" class="accent">{{ "Clinic Overview"|t }}</h3>
 
                             <div{{ content_attributes.addClass('content') }}>
                                 {{ content.body }}

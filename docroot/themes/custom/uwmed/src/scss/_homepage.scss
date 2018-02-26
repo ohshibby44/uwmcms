@@ -90,6 +90,9 @@
   .links-with-icon {
     @media (min-width: $screen-lg-min) {
       margin-top: -67px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
 
     .links-with-icon__list {
@@ -159,6 +162,7 @@
 
   .homepage-sections {
     position: relative;
+    overflow: hidden;
   }
 
   .homepage-section-background-lg {
@@ -222,7 +226,7 @@
         opacity: 1;
       }
     }
-    
+
 
     @media(min-width: $screen-lg-min) {
       &:nth-of-type(1) {
@@ -280,12 +284,21 @@
       &:nth-child(even) {
         .homepage-section__background {
           @include angled-edge('inside bottom', 'upper right', #fff, 50);
+          &::after {
+            width: 105%;
+            margin-bottom: -1px;
+          }
         }
       }
       &:nth-child(odd) {
         .homepage-section__background {
           @include angled-edge('inside bottom', 'upper left', #fff, 50);
+          &::after {
+            width: 105%;
+            margin-bottom: -1px;
+          }
         }
+
       }
     }
   }
@@ -324,7 +337,7 @@
 
     .h3 {
       text-transform: uppercase;
-      text-shadow: 0px 3px 6px rgba(0,0,0,53);
+      text-shadow: 0px 3px 6px rgba(0,0,0,.53);
       color: white;
       letter-spacing: .05em;
       margin-bottom: 6px;
@@ -338,7 +351,7 @@
   }
 
   .homepage-section__heading {
-    margin-top: 0;
+    margin-top: 12px;
   }
 
   .homepage-section__subheading {
@@ -437,7 +450,6 @@
   .homepage-section__link {
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: 600;
     font-family: $headings-font-family;
     font-size: $font-size-h3;
     transition-property: color;
@@ -527,7 +539,7 @@
     .section-story__play-button-text {
       color: white;
       font-weight: 600;
-      text-shadow: 0px 3px 6px rgba(0,0,0,53)
+      text-shadow: 0px 3px 6px rgba(0,0,0,.53);
     }
 
     .fa-stack {
