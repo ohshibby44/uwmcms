@@ -8,7 +8,11 @@
             </div>
 
             <h4 class="col-xs-7 pull-right location-title">
+              {% if clinic.clinicUrl %}
                 <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
+              {% elseif clinic.externalUrl %}
+                <a href="{{ clinic.externalUrl }}">{{ clinic.clinicName }}</a>
+              {% endif %}
             </h4>
 
             <address class="col-xs-7 pull-right location-address k">
@@ -20,11 +24,13 @@
             </address>
 
             <div class="col-xs-7 pull-right location-phone k">
+              {% if clinic.seoPhone %}
                 <i class="uw-ico uw-ico-md call_solid"></i>
                 {% set phone = clinic.seoPhone|slice(0, 3)
                 ~'-'~ clinic.seoPhone|slice(3, 3)
                 ~'-'~ clinic.seoPhone|slice(6, 4) %}
                 <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+              {% endif %}
             </div>
 
             <div class="col-xs-7 pull-right location-hours k">
