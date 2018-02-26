@@ -114,6 +114,10 @@ var paths = {
         watchSource: 'src/',
         destination: 'styleguide'
     },
+    packages: {
+        sourceScripts: 'src/packages',
+        destination: 'dist/packages'
+    },
     fonts: {
         bootstrapSource: 'node_modules/bootstrap-sass/assets/fonts/bootstrap',
         bootstrapDestination: 'dist/vendor/fonts'
@@ -172,10 +176,15 @@ var options = {
 
     // ----- Custom Packages ----- //
     custom_packages: {
-        folder_base: path.join('./src/custom-packages/'),
-        destination: path.join('./dst/'),
-        jsFiles: path.join('./src/custom-packages/**/*.js'),
-        sassFiles: path.join('./src/custom-packages/**/*.scss')
+        base: paths.packages.base,
+        destination: paths.packages.destination,
+        jsFiles: path.join(paths.packages.sourceScripts, '**/*.js'),
+        sassFiles: path.join(paths.packages.sourceScripts, '**/*.scss'),
+        sassIncludes: [
+            //@TODO: Fix SASS variable includes
+            path.join(paths.styles.source, '_bootstrap_variables.scss'),
+            path.join(paths.styles.source, '_uwmed_variables.scss')
+            ]
     },
 
 
@@ -279,7 +288,7 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
-require('./gulp-tasks/compile-components')(gulp, plugins, options);
+require('./gulp-tasks/compile-custom-packages')(gulp, plugins, options);
 require('./gulp-tasks/compile-admin-page-assets')(gulp, plugins);
 
 

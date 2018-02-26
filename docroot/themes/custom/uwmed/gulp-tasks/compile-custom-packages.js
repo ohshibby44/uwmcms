@@ -11,29 +11,35 @@ module.exports = function (gulp, plugins, options) {
 
     gulp.task('compile:compile-custom-packages-sass', function () {
 
+
+        gulp.gutil.log('Compiling packages scripts ', options.custom_packages.sassFiles);
+
         return gulp.src(
-            options.components.sassFiles,
-            {base: options.components.folder_base}
+            [options.custom_packages.sassFiles],
+            {base: options.custom_packages.base}
         )
             .pipe(plugins.plumber())
             .pipe(plugins.sass({
                 errLogToConsole: true,
-                outputStyle: 'expanded'
+                outputStyle: 'expanded',
+                includePaths: options.custom_packages.sassIncludes
             }))
             .pipe(plugins.autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
             }))
-            .pipe(gulp.dest(options.components.destination));
+            .pipe(gulp.dest(options.custom_packages.destination));
 
     });
 
     gulp.task('compile:compile-custom-packages-js', function () {
 
-        return gulp.src([
-            options.component_js_source_files,
-            {base: options.component_source_base}
-        ])
+        gulp.gutil.log('Compiling packages scripts ', options.custom_packages.jsFiles);
+
+        return gulp.src(
+            [options.custom_packages.jsFiles],
+            {base: options.custom_packages.base}
+        )
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.babel({
@@ -41,9 +47,10 @@ module.exports = function (gulp, plugins, options) {
             }))
             .pipe(plugins.sourcemaps.write())
             .pipe(plugins.plumber.stop())
-            .pipe(gulp.dest(options.components.destination));
+            .pipe(gulp.dest(options.custom_packages.destination));
 
     });
+
 
 
 };

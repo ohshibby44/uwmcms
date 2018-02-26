@@ -1,0 +1,33 @@
+.uwm-toggle {
+
+  .uw-t {
+    transition: opacity 1s ease-out;
+    opacity: 1;
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  .uw-more {
+
+    float: left;
+    width: 100%;
+    margin: 20px 0 10px 0;
+    padding: 10px 15px;
+    border-top: 1px solid #f8f8f8;
+    text-align: center;
+    opacity: .8;
+
+    a {
+      color: #3375d4;
+      text-decoration: none;
+      &.on i.fa-angle-down:before {
+        // angle-up content:
+        content: "\f106";
+
+      }
+    }
+
+  }
+
+}
