@@ -20,6 +20,8 @@ module.exports = function (gulp, plugins, options) {
     'compress:images',
     'move:bootstrap-fonts',
     'move:bootstrap-scripts',
+    'compile:compile-custom-packages-sass',
+    'compile:compile-custom-packages-js',
     'compile:admin-page-assets'
   ]);
 

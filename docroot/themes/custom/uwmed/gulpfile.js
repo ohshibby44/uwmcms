@@ -170,6 +170,15 @@ var options = {
         bootstrapDestination: paths.scripts.bootstrapDestination
     },
 
+    // ----- Custom Packages ----- //
+    custom_packages: {
+        folder_base: path.join('./src/custom-packages/'),
+        destination: path.join('./dst/'),
+        jsFiles: path.join('./src/custom-packages/**/*.js'),
+        sassFiles: path.join('./src/custom-packages/**/*.scss')
+    },
+
+
     // ----- Images ----- //
     images: {
         files: path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
@@ -270,6 +279,7 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
+require('./gulp-tasks/compile-components')(gulp, plugins, options);
 require('./gulp-tasks/compile-admin-page-assets')(gulp, plugins);
 
 
