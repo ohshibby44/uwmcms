@@ -66,11 +66,11 @@
 {% endif %}
 
 #}
-{% set include_wrapper = 'false' %}
-{% set item_element = 'p' %}
-{% set item_classes = ['feature-story__subheading'] %}
+{% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
 {% set wrapper_classes = wrapper_classes ?: ['field', 'field--name-' ~ field_name|clean_class] %}
+{% set item_element = item_element ?: 'div' %}
+{% set item_classes = item_classes ? item_classes %}
 {% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
 
 {% set n = 0 %}

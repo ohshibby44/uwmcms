@@ -29,14 +29,13 @@
                     $this.removeClass(parentStyle);
                     $(toggleSelector).addClass(toggleStyle);
                     $(parentSelector).removeClass(parentStyle);
-                    $this.html($this.html().replace(onText, offText));
+                    $(this).children().first().text(onText);
                 }
                 else {
                     $this.addClass(parentStyle);
                     // We remove the style on first run
                     $(toggleSelector).removeClass(toggleStyle);
-                    $(parentSelector).addClass(parentStyle);
-                    $this.html($this.html().replace(offText, onText));
+                    $(this).children().first().text(offText);
                 }
 
                 e.preventDefault();

@@ -12,6 +12,10 @@ ul.uwm-nav-tabs {
     margin: 0 2px -1px 0;
     padding-bottom: 0;
 
+    &.active {
+      z-index: 3;
+    }
+
     > a, > a:hover, > a:focus {
 
       margin: 0;
