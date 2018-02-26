@@ -60,6 +60,7 @@
     padding-top: $line-height-computed*2;
     padding-bottom: $line-height-computed/2;
     color: white;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.16);
 
     @media(min-width: $screen-lg-min) {
       margin-top: 60px;
@@ -70,8 +71,10 @@
     padding-bottom: $line-height-computed * 2;
     color: white;
     font-family: $font-family-base;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.16);
 
     @media(min-width: $screen-lg-min) {
+      text-shadow: none;
       padding: 0;
       font-size: $font-size-h2-mobile;
       line-height: $line-height-h2-mobile;
@@ -85,7 +88,7 @@
 
     a {
       text-decoration: none;
-      width: 90%;
+      width: 100%;
       font-size: 16px;
       text-align: left;
       background: none;
@@ -145,6 +148,7 @@
       }
 
       a {
+        width: 90%;
         border: 1px solid rgba(255, 255, 255, .5);
         @include angled-edge('inside top', 'lower right', rgba(255, 255, 255, .23), 15, 15);
         &::before {
@@ -164,8 +168,8 @@
       }
 
       .btn-default {
+        z-index: 1;
         &:hover {
-          background-color: rgba(255, 255, 255, .7);
           color: $text-color;
 
           .uwmed-icon {
@@ -174,6 +178,28 @@
 
           .fa-angle-right {
             color: $text-color;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, .7);
+          transform: scaleX(0);
+          transform-origin: 0 50%;
+          transition-property: transform;
+          transition-duration: 0.7s;
+          transition-timing-function: ease-out;
+          z-index: -1;
+        }
+
+        &:hover {
+          &::after {
+            transform: scaleX(1);
           }
         }
       }
@@ -189,6 +215,8 @@
     }
 
     ul.nav-tabs {
+      display: flex;
+
       .uw-ico {
         display: none;
       }
@@ -201,6 +229,10 @@
       > li {
         margin-bottom: 0;
         text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $uwmed-tab-purple;
       }
       > li > a {
         background: $uwmed-tab-purple;
@@ -216,35 +248,35 @@
         }
       }
 
+      > li.active {
+        background: rgba(255, 255, 255, .9);
+      }
       > li.active > a {
         color: $uwmed-purple-icon;
-        background: rgba(255, 255, 255, .9);
+        background: transparent;
         border: none;
       }
 
-      > li:first-child > a {
-        margin-left: 40px;
-      }
-
       @media (max-width: $screen-xs-max) {
-        padding-right: 0;
+    //    padding-right: 0;
 
         li {
           max-width: 33%;
-          a {
-            padding: 12px 8px;
-            height: 60px;
-            text-transform: uppercase;
-            text-align: center;
-            .fa {
-              display: none;
-            }
-          }
-          &:first-child > a {
-
-            margin: 0 !important;
-          }
         }
+    //      a {
+    //        padding: 12px 8px;
+    //        height: 60px;
+    //        text-transform: uppercase;
+    //        text-align: center;
+    //        .fa {
+    //          display: none;
+    //        }
+    //      }
+    //      &:first-child > a {
+    //
+    //        margin: 0 !important;
+    //      }
+    //    }
       }
 
     }
@@ -391,6 +423,10 @@
     background-size: cover;
     min-height: 400px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
+    &::after {
+      width: 100%;
+      margin-bottom: -1px;
+    }
 
     @media(min-width: $screen-lg-min) {
       min-height: 700px;
@@ -432,7 +468,6 @@
   .feature-story__content {
     padding-bottom: 38px;
     width: 100%;
-    margin-top: 0 !important;
 
     @media(min-width: $screen-lg-min) {
       background-color: rgba(255, 255, 255, .9);
@@ -457,6 +492,7 @@
     }
 
     @include uw-ghost-button('.feature-story__link', 'i.u-ips', $uwmed-accent-orange);
+    margin-top: 0;
 
     .feature-story__link {
       //text-transform: uppercase;
@@ -602,6 +638,7 @@
   .find-a-location__clinic-list__view-all {
     width: 100%;
     margin-top: $padding-base-vertical *2;
+    text-transform: uppercase;
   }
 
   .find-a-location__clinic-list {
@@ -689,20 +726,18 @@
     }
 
     &.uwm-toggle {
-
-      li:nth-child(n+6) {
+      li:nth-child(n+9) {
         display: none;
 
       }
-      &.on li:nth-child(n+6) {
+      &.on li:nth-child(n+9) {
         display: block;
       }
+
       .uw-more {
         @extend .col-xs-12;
       }
     }
-
-
   }
 
 
@@ -748,7 +783,12 @@
   .condition-spotlight__item-wrap .wrapper {
     display: flex;
     flex-direction: column;
-    height: 250px;
+
+    height: 340px;
+
+    @media(min-width: 360px) {
+      height: 300px;
+    }
 
     @media (min-width: $screen-sm-min) {
       height: 200px;
@@ -824,9 +864,9 @@
           padding-right: 18px;
         }
 
-        //&:hover {
-        //  color: white;
-        //}
+        &:hover {
+          text-decoration: none;
+        }
         //
         //@include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
         //&::before {
@@ -940,10 +980,9 @@
           padding-right: 18px;
         }
 
-        //&:hover {
-        //  color: white;
-        //  text-decoration: none;
-        //}
+        &:hover {
+          text-decoration: none;
+        }
         //
         //@include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
         //&::before {
@@ -1114,6 +1153,17 @@
       }
     }
 
+    @media (max-width: $screen-lg-min) {
+      .row {
+        margin: 0;
+      }
+
+      .virtual-clinic__title {
+        margin-bottom: -1px;
+      }
+    }
+
+
     .virtual-clinic__title {
       background-color: white;
       display: inline-block;
@@ -1166,7 +1216,7 @@
         @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
       }
       .virtual-clinic__link {
-        //margin-top: 20px;
+        margin-top: 20px;
         //text-transform: uppercase;
         //text-decoration: none;
         //font-weight: 600;
