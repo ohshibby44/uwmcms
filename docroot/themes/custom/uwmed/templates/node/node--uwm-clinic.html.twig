@@ -1,6 +1,6 @@
 {{ attach_library('uwmed/clinic-nodes') }}
 {{ attach_library('uwmed/uwm-toggle') }}
-{{ attach_library('uwmed/clockwise-wait-times') }}
+{{ attach_library('uwmed/clinic-hours') }}
 {{ attach_library('uwmed/bootstrap-tab-history') }}
 
 {% set classes = [
@@ -94,21 +94,21 @@ view_mode ? view_mode|clean_class,
 
             {% set _c = "" %}
             {% if content.field_clinic_wait_time_snippet|render is empty %}
-                {% set _c = "clockwise-js-visibility" %}
+                {% set _c = "fade-out" %}
             {% elseif 'none' in content.field_clinic_wait_time_snippet|render|render %}
                 {% set _c = "hidden" %}
             {% endif %}
 
-            <div class="col-xs-12 get-in-line {{ _c }}">
+            <div class="col-xs-12 get-in-line {{ _c }}"  data-uwm-clockwise-snippet="{{ _cli.clinicName }}">
                 <h4>{{ "Urgent Care"|t }}
-                    <a href="/patient-care/making-an-appointment">Get in line<i
+                    <a href="/patient-care/making-an-appointment" class="wait-link">Get in line<i
                                 class="fa fa-angle-right"
                                 aria-hidden="true"></i>
                     </a></h4>
                 {% if content.field_clinic_wait_time_snippet|render is not empty %}
                     {{ content.field_clinic_wait_time_snippet }}
                 {% else %}
-                    <p class="wait">
+                    <p class="wait-text wait">
                         <span class="m">20</span> minutes wait
                     </p>
                 {% endif %}
@@ -235,12 +235,13 @@ view_mode ? view_mode|clean_class,
                         <div class="uw-more">
                             <a href="#"
                                data-uwm-toggle
-                               data-on-text="{{ 'View More'|t }}" data-off-text="{{ 'View Less'|t }}"
+                               data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
                                data-toggle-selector=".uwm-toggle .uw-t"
                                data-toggle-style="hidden"
                                data-parent-selector=".uw-more"
-                               data-parent-style="on"><span>{{ 'View More'|t }}</span> <i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a></div>
+                               data-parent-style="on">{{ 'View more'|t }} <i
+                                        class="fa fa-angle-down"
+                                        aria-hidden="true"></i></a></div>
 
 
                     {% endif %}

@@ -67,12 +67,13 @@ body {
   @extend .visible-xs-block;
 }
 
+.fade-out {
+  opacity: 0;
+}
+
 h2.accent, h3.accent, h4.accent {
   @include uw-bottom-accent-heading($uwmed-accent-blue);
 }
-
-
-
 
 
 

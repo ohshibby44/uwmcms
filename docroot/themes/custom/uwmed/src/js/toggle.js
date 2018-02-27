@@ -35,7 +35,6 @@
                     $this.addClass(parentStyle);
                     // We remove the style on first run
                     $(toggleSelector).removeClass(toggleStyle);
-                    $(parentSelector).addClass(parentStyle);
                     $(this).children().first().text(offText);
                 }
 

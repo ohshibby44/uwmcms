@@ -1,78 +1,118 @@
+/**
+ * @file
+ * Shows the clinic wait-times.
+ *
+ * Fetches results from ClockwiseMd.com and appends
+ * a formatted wait-time to our container tag. Note
+ * ClockwiseMd has id's for clinics that Drupal doesn't
+ * know about. To use this code, include the library in
+ * your template and add the attribute to a HTML tag.
+ *
+ * @example
+ * {{ attach_library('uwmed/clinic-hours') }}
+ * <p class="hiddendata-uwm-clockwise-snippet="{{ _cli.clinicName }}"></p>
+ *
+ *
+ */
+
 (function ($, Drupal) {
 
-    /**
-     * Show a clinic wait-times after getting a
-     * time result from ClockwiseMd.com.
-     *
-     */
-    Drupal.behaviors.uwmShowClockwiseTime = {
-
-        attach: function (context, settings) {
-
-            var $widgetBlock = $('article.uwm-clinic .get-in-line');
-            if ($widgetBlock.length && clinicClockwiseId() > 0) {
-
-                $.getScript('https://www.clockwisemd.com/hospitals/clockwise_api.js', function () {
-                    startClockwiseRepeatingCheck();
-                });
-
-                // When clockwisemd.com JSONP fires, update our page wait-time:
-                $('body').off('clockwise_waits_loaded')
-                    .on('clockwise_waits_loaded', function () {
-
-                        $widgetBlock.find('p.wait').html(getFormattedClockwiseTime());
-                        $widgetBlock.find('h4 a').attr('href', 'https://www.clockwisemd.com/hospitals/' +
-                            clinicClockwiseId() + '/appointments/new');
-                        $widgetBlock.fadeIn();
-
-                    });
-            }
-        }
-    };
+    'use strict';
 
     /**
      * Map of Drupal nodes to Clockwise clinics.
      */
     var options = {
-
         timeBuffer: 0,
         displayStyle: 'plain',
         refreshInterval: (1000 * 60 * 5),
         clinics: [
-            {i: 1461, u: 'primary-care-ravenna'},
-            {i: 1463, u: 'primary-care-issaquah'},
-            {i: 1464, u: 'primary-care-federal-way'},
-            {i: 1465, u: 'primary-care-shoreline'},
-            {i: 1466, u: 'primary-care-ballard'},
-            {i: 1462, u: 'primary-care-woodinville'}
-            //{0: 'factoria'},
-            //{0: 'olympia'}
+            {i: 1461, u: 'ravenna'},
+            {i: 1463, u: 'issaquah'},
+            {i: 1464, u: 'federal-way'},
+            {i: 1465, u: 'shoreline'},
+            {i: 1466, u: 'ballard'},
+            {i: 1462, u: 'woodinville'}
+            // {0: 'factoria'},
+            // {0: 'olympia'}
         ]
+    };
+
+
+    Drupal.behaviors.uwmShowClockwiseTime = {
+
+        attach: function (context, settings) {
+
+            window.Clockwise = window.Clockwise || {};
+            window.Clockwise.Waits = window.Clockwise.Waits || {};
+
+            $('[data-uwm-clockwise-snippet]', context).each(function () {
+
+                var title = $(this).attr('data-uwm-clockwise-snippet');
+                var id = getClockwiseIdByName(title);
+                $(this).attr('data-uwm-clockwise-snippet', id);
+
+                startClockwiseRepeatingCheck(id);
+
+
+            });
+
+
+            // ClockwiseMd.com triggers a jsonp event. When it fires,
+            // update element's wait string:
+            $('body').on('clockwise_waits_loaded', function (e, data) {
+
+                var clockwiseId = cleanNumber(data);
+                var $elm = $('[data-uwm-clockwise-snippet=' + clockwiseId + ']');
+
+                if ($elm.length && window.Clockwise.Waits[clockwiseId] !== 'undefined') {
+
+                    var cwResult = window.Clockwise.Waits[clockwiseId].toLowerCase();
+
+                    $elm.find('.wait-text').html(getClockwiseWaitTime(cwResult));
+                    $elm.find('.wait-link').attr('href', getClockwiseWaitUri(clockwiseId));
+                    $elm.removeClass('fade-out');
+
+                }
+
+
+            });
+
+        }
+
     };
 
 
     /**
      * Behavior helpers.
      */
-    function startClockwiseRepeatingCheck() {
+
+    function startClockwiseRepeatingCheck(id) {
+
+        if (!id || typeof window.Clockwise.CurrentWait !== 'function') {return;}
 
         // Execute global ClockWise Md callback function:
-        Clockwise.CurrentWait(clinicClockwiseId(), 'html'); // 'json' : 'html'
+        window.Clockwise.CurrentWait(id, 'html'); // 'json' : 'html'
 
         setTimeout(function () {
-
-            startClockwiseRepeatingCheck();
-
+            startClockwiseRepeatingCheck(id);
         }, options.refreshInterval);
 
     }
 
 
-    function getFormattedClockwiseTime(e, id) {
+    function getClockwiseWaitUri(id) {
+
+        return 'https://www.clockwisemd.com/hospitals/' +
+            id + '/appointments/new';
+
+    }
+
+
+    function getClockwiseWaitTime(cwResult) {
 
         var formattedTime = 'Please call';
 
-        var cwResult = Clockwise.Waits[clinicClockwiseId()].toLowerCase();
         var tt = cleanNumber($(cwResult).text()),
             tp = cleanNumber(0);
 
@@ -107,13 +147,15 @@
 
     }
 
-    function clinicClockwiseId() {
+    function getClockwiseIdByName(searchWord) {
 
-        var url = window.location.href.toLowerCase();
+        var arr = searchWord.toLowerCase().split(' ');
 
         for (var k in options.clinics) {
-            if (url.indexOf(options.clinics[k].u) > 0) {
-                return options.clinics[k].i;
+            for (var d in arr) {
+                if (arr[d].indexOf(options.clinics[k].u) > -1) {
+                    return options.clinics[k].i;
+                }
             }
         }
 
