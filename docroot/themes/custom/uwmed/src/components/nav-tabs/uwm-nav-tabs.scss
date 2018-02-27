@@ -27,6 +27,10 @@ ul.uwm-nav-tabs {
       text-decoration: none;
       text-transform: uppercase;
 
+      @media(max-width: 350px) {
+        font-size: 12.5px;
+      }
+
       i.uw-ico.heart {
         font-size: 26px;
         float: left;
@@ -63,7 +67,14 @@ div.uwm-tab-content {
 
   ul.uwm-nav-tabs {
 
+    @media(max-width: 350px) {
+      overflow: hidden;
+    }
+
     > li {
+      @media(max-width: 350px) {
+        max-width: 32.5%;
+      }
 
       max-width: 30%;
 

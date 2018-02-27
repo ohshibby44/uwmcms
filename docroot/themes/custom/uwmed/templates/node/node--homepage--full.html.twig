@@ -77,9 +77,10 @@ view_mode ? view_mode|clean_class,
 %}
 
 {{ attach_library('uwmed/homepage-animation') }}
+{{ attach_library('uwmed/patient-care-video') }}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="hero full-width-image row" style="background-image:url({{ node.field_image.entity.uri.value | image_style('hero') }}">
+  <div class="hero full-width-image row" style="background-image:url({{ node.field_image.entity.uri.value | image_style('hero') }})">
     <div class="hero__content col-xs-12">
       {{ content.field_heading }}
       <img class="hero__angle-divider" src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png')}}" alt="" />

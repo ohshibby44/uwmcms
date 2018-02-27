@@ -10,4 +10,8 @@
 
 #colorbox {
   z-index: 500;
+
+  &:focus {
+    outline-color: #37236a;
+  }
 }

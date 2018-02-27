@@ -36,13 +36,6 @@
     background-size: cover;
     background-position: center;
     box-shadow: inset 0 0 0 2000px rgba(71, 71, 71, 0.5);
-
-
-    @media(min-width: $screen-lg-min) {
-      @include angled-edge('inside bottom', 'upper right', #fff, 50);
-      position: absolute;
-      height: 570px;
-    }
   }
 
   .medical-service-hero__content {
@@ -421,6 +414,8 @@
 
   .feature-story__background {
     background-size: cover;
+    background-position: center;
+
     min-height: 400px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
     &::after {

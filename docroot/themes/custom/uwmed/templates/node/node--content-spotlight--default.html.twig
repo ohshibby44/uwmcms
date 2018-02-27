@@ -78,7 +78,7 @@ view_mode ? view_mode|clean_class,
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="content-spotlight__image" style="background-image:url({{ content.field_image[0]["#item"].entity.uri.value | image_style('hero') }}"></div>
+  <div class="content-spotlight__image" style="background-image:url({{ content.field_image[0]["#item"].entity.uri.value | image_style('hero') }})"></div>
   {#{{ content.field_image }}#}
   <a class="content-spotlight__cta btn btn-default" href="{{ content.field_link[0]['#url'] }}">
     {{ label }}

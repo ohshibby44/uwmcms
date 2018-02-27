@@ -22,8 +22,8 @@ view_mode ? view_mode|clean_class,
 ~'-'~ _cli.seoPhone|slice(6, 4) %}
 
 {% set fax = _cli.seoFax|slice(0, 3)
-~'-'~ _cli.seoPhone|slice(3, 3)
-~'-'~ _cli.seoPhone|slice(6, 4) %}
+~'-'~ _cli.seoFax|slice(3, 3)
+~'-'~ _cli.seoFax|slice(6, 4) %}
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
@@ -50,9 +50,11 @@ view_mode ? view_mode|clean_class,
                         <a href="tel:{{ phone }}">
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
+                        {% if fax %}
                         <i class="uw-s"></i>
                         {{ fax|replace({'-': '.'}) }}
                             <span>fax</span>
+                        {% endif %}
                     </small>
                 </address>
             </div>
@@ -129,8 +131,10 @@ view_mode ? view_mode|clean_class,
                         <a href="tel:{{ phone }}">
                             <span class="uwmed-icon uwmed-icon__phone-solid"></span>
                             {{ phone|replace({'-': '.'}) }}</a>
-                        <i class="uw-s"></i>
+                      {% if fax %}
+                          <i class="uw-s"></i>
                         {{ fax|replace({'-': '.'}) }} <span>fax</span>
+                      {% endif %}
                     </small>
 
                 </address>

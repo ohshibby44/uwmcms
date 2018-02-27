@@ -43,10 +43,10 @@
   {% set url = item.content['#url']|render %}
 
   {% if 'UWMC_-_Marketing' in url  %}
-  <div class="section-story__play-button">
+  <div class="section-story__play-button" id="patientCarePlayButton">
     <span class="section-story__play-button-text">{{ item.content['#title'] }}</span>
 
-    <span id="patientCarePlayButton" class="fa-stack fa-2x">
+    <span class="fa-stack fa-2x">
       <i class="fa fa-circle-thin fa-stack-2x faa-burst animated"></i>
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa fa-play fa-stack-1x"></i>

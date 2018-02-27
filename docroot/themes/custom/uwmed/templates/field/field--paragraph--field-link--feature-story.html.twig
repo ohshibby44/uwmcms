@@ -40,10 +40,10 @@
 #}
 {% for item in items %}
 
-  <a id="patientCarePlayButton" class="feature-story__link btn btn-default" href="#">
+  <button id="patientCarePlayButton" class="feature-story__link btn btn-default">
     <i class="hidden u-ips"></i>
     {{ item.content["#title"] }}
-  </a>
+  </button>
   <div style="display: none;">
     <div id="patientCareVideo">
       <video id="patientCareVideoPlayer" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
