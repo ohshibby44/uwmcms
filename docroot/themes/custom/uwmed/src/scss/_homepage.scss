@@ -90,9 +90,9 @@
   .links-with-icon {
     @media (min-width: $screen-lg-min) {
       margin-top: -67px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      //display: flex;
+      //justify-content: center;
+      //align-items: flex-end;
     }
 
     .links-with-icon__list {
@@ -277,6 +277,7 @@
     .homepage-section__background {
       @media(min-width: $screen-lg-min) {
         background-image: none !important;
+        height: 0;
       }
     }
 
@@ -305,6 +306,7 @@
 
   .homepage-section__background {
     background-size: cover;
+    background-position: center;
     min-height: 346px;
 
     @media(min-width: $screen-lg-min) {
@@ -534,6 +536,10 @@
 
     @media(min-width: $screen-lg-min) {
       margin-top: -200px;
+    }
+
+    .section-story__play-button {
+      cursor: pointer;
     }
 
     .section-story__play-button-text {
