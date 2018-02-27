@@ -2,13 +2,6 @@
   Drupal.behaviors.patientCareVideo = {
     attach: function () {
 
-      // $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
-      //   var state = document.fullScreen || document.mozFullScreen || document.webkitDisplayingFullScreen;
-      //   var event = state ? 'FullscreenOn' : 'FullscreenOff';
-      //
-      //   // Now do something interesting
-      //   console.log(state);
-      // });
       var video = $('#patientCareVideoPlayer')[0];
       var touchEvents = ('ontouchstart' in document.documentElement);
 
@@ -23,7 +16,6 @@
           if (!screenfull.isFullscreen) {
             video.pause();
             $('#patientCareVideo').parents().first().hide();
-            console.log('full screen over');
           }
         });
 
@@ -43,17 +35,6 @@
           $('#patientCareVideo').parents().first().show();
           video.webkitEnterFullscreen();
           video.play();
-        });
-
-        $(video).on('ended', function() {
-          if (!video.webkitDisplayingFullscreen) {
-            $('#patientCareVideo').parents().first().hide();
-          }
-        });
-        $(video).on('pause', function() {
-          if (!video.webkitDisplayingFullscreen) {
-            $('#patientCareVideo').parents().first().hide();
-          }
         });
       } else {
         // we're on a desktop or this device doesn't support full screen,
