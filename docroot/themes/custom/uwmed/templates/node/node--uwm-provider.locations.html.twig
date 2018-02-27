@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-xl-6 provider-location">
 
             <div class="col-xs-5 location-image">
-                <img src="{{ clinic.externalUrl ~ '/PublishingImages/splash1.jpg' }}">
+                <img src="{{ clinic.externalUrl|replace({'http://': 'https://'}) ~ '/PublishingImages/splash1.jpg' }}">
             </div>
 
             <h4 class="col-xs-7 pull-right location-title">
