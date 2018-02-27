@@ -53,8 +53,10 @@ font-awesome:
     theme:
       //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }
 
-clockwise-wait-times:
+clinic-hours:
   js:
+    //www.clockwisemd.com/hospitals/clockwise_api.js: {}
+    dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}
 
 googlemaps:
