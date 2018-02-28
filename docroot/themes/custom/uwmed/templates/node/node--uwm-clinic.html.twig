@@ -223,26 +223,21 @@ view_mode ? view_mode|clean_class,
                     <ul class="expt">
 
                         {% for s in _cli.expertises %}
-
-                            {% if loop.index > 4 %}
-                                {% set c = "uw-t hidden" %}
-                            {% endif %}
-
-                            <li class="{{ c }}"><i class="uw-ico checkmark"
-                                                   aria-hidden="true"></i>
+                            <li><i class="uw-ico checkmark"
+                                aria-hidden="true"></i>
                                 {{ s.expertiseName|t }}</li>
                         {% endfor %}
+
                     </ul>
 
 
                     {% if _cli.expertises|length > 4 %}
                         <div class="uw-more">
-                            <a href="#"
-                               data-uwm-toggle
-                               data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
-                               data-toggle-selector=".uwm-toggle .uw-t"
-                               data-toggle-style="hidden"
-                               data-parent-selector=".uw-more"
+                            <a href="#" data-uwm-toggle
+                               data-on-text="{{ 'View less'|t }}"
+                               data-off-text="{{ 'View more'|t }}"
+                               data-toggle-selector=".services li"
+                               data-toggle-style="on"
                                data-parent-style="on">{{ 'View more'|t }} <i
                                         class="fa fa-angle-down"
                                         aria-hidden="true"></i></a></div>
