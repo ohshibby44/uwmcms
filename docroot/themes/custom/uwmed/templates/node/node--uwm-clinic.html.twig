@@ -2,6 +2,9 @@
 {{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clinic-hours') }}
 {{ attach_library('uwmed/bootstrap-tab-history') }}
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
+
+
 
 {% set classes = [
 node.bundle|clean_class,
@@ -21,10 +24,11 @@ view_mode ? view_mode|clean_class,
 ~'-'~ _cli.seoPhone|slice(3, 3)
 ~'-'~ _cli.seoPhone|slice(6, 4) %}
 
-{% set fax = _cli.seoFax|slice(0, 3)
-~'-'~ _cli.seoFax|slice(3, 3)
-~'-'~ _cli.seoFax|slice(6, 4) %}
-
+{% if _cli.seoFax|length == 10 %}
+	{% set fax = _cli.seoFax|slice(0, 3)
+	~'-'~ _cli.seoFax|slice(3, 3)
+	~'-'~ _cli.seoFax|slice(6, 4) %}
+{% endif %}
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
     <section class="remove-padding clinic-header">
@@ -37,7 +41,7 @@ view_mode ? view_mode|clean_class,
             </div>
 
             <div class="col-xs-12 m-hours">
-                {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+                {{ _clinicHours.uwHoursTable(_cli) }}
             </div>
 
             <div class="col-xs-12 m-address">
@@ -142,7 +146,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 col-md-9 remove-padding clinic-hours-container">
 
-                {% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+                {{ _clinicHours.uwHoursTable(_cli) }}
 
             </div>
 
@@ -219,26 +223,21 @@ view_mode ? view_mode|clean_class,
                     <ul class="expt">
 
                         {% for s in _cli.expertises %}
-
-                            {% if loop.index > 4 %}
-                                {% set c = "uw-t hidden" %}
-                            {% endif %}
-
-                            <li class="{{ c }}"><i class="uw-ico checkmark"
-                                                   aria-hidden="true"></i>
+                            <li><i class="uw-ico checkmark"
+                                aria-hidden="true"></i>
                                 {{ s.expertiseName|t }}</li>
                         {% endfor %}
+
                     </ul>
 
 
                     {% if _cli.expertises|length > 4 %}
                         <div class="uw-more">
-                            <a href="#"
-                               data-uwm-toggle
-                               data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
-                               data-toggle-selector=".uwm-toggle .uw-t"
-                               data-toggle-style="hidden"
-                               data-parent-selector=".uw-more"
+                            <a href="#" data-uwm-toggle
+                               data-on-text="{{ 'View less'|t }}"
+                               data-off-text="{{ 'View more'|t }}"
+                               data-toggle-selector=".services li"
+                               data-toggle-style="on"
                                data-parent-style="on">{{ 'View more'|t }} <i
                                         class="fa fa-angle-down"
                                         aria-hidden="true"></i></a></div>

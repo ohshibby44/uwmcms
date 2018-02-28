@@ -153,6 +153,9 @@ body.page-node-type-uwm-clinic {
               color: $uwmed-light-purple;
 
               font-style: italic;
+              i.uw-ico {
+                @extend .hidden;
+              }
             }
 
             ul {
@@ -395,7 +398,16 @@ body.page-node-type-uwm-clinic {
               color: purple;
             }
           }
+          li:nth-child(n+6) {
+            display: none;
+          }
+          li.on:nth-child(n+6) {
+            display: block;
+          }
+
         }
+
+
 
       }
 

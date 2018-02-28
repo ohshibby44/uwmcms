@@ -393,7 +393,8 @@
       li:nth-child(n+4) {
         display: none;
       }
-      &.on li:nth-child(n+4) {
+      &.on li:nth-child(n+4),
+      li.on:nth-child(n+4) {
         display: block;
       }
       .uw-more {
@@ -725,7 +726,8 @@
         display: none;
 
       }
-      &.on li:nth-child(n+9) {
+      &.on li:nth-child(n+9),
+      li.on:nth-child(n+9) {
         display: block;
       }
 

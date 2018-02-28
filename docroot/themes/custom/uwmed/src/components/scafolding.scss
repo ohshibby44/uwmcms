@@ -71,9 +71,12 @@ body {
   opacity: 0;
 }
 
+
 h2.accent, h3.accent, h4.accent {
   @include uw-bottom-accent-heading($uwmed-accent-blue);
 }
 
-
+.form-required:after {
+  background-image: none;
+}
 

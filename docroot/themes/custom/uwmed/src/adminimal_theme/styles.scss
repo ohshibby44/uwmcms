@@ -8,14 +8,9 @@
 //
  */
 
-body.adminimal {
-
-  @import "../scss/uwm_icons";
+@import "../scss/uwm_icons";
 
 
-
-
-}
 
 body.adminimal {
 
@@ -43,16 +38,19 @@ body.adminimal {
   // Block on admin pages demonstrating icons: 
   .view.view-uwm-terms.view-display-id-block_1 {
 
-    li {
-      padding: .5em;
+    .item-list {
       float: left;
-      list-style-type: none;
+      width: 100%;
+      margin: 10px 0;
+      li {
+        padding: .5em;
+        float: left;
+        list-style-type: none;
+      }
+      li:hover {
+        background: aliceblue;
+      }
     }
-
-    li:hover {
-      background: aliceblue;
-    }
-
   }
 
 }

@@ -1,4 +1,4 @@
-{% macro uwOpensAt(clinicApiHourValues, showTrimmed = FALSE) %}
+{% macro uwOpensAt(clinicApiHourValues, briefText = FALSE) %}
 
     {% set _dn = 'now'|date('w')|number_format %}
     {% set _isOpen = false %}
@@ -15,14 +15,14 @@
             'ends': ('now'|date('Y-m-d ')~' '~ s.endTime)|date('U')
             } %}
 
-            {#<pre class="hidden">#}
-            {#n: {{ t.now }}#}
-                {#s: {{ t.starts }}#}
-                {#e: {{ t.ends }}#}
-                {#rn: {{ t.now|date('r') }}#}
-                {#rs: {{ t.starts|date('r') }}#}
-                {#re: {{ t.ends|date('r') }}#}
-            {#</pre>#}
+            <!--
+n: {{ t.now }}
+s: {{ t.starts }}
+e: {{ t.ends }}
+rn: {{ t.now|date('r') }}
+rs: {{ t.starts|date('r') }}
+re: {{ t.ends|date('r') }}
+-->
 
             {% if (t.starts < t.now and t.now < t.ends) %}
                 {% set _isOpen = s %}
@@ -45,7 +45,7 @@
     {% endif %}
 
 
-    {% if showTrimmed %}
+    {% if briefText %}
 
         {% if _isOpen %}
             <em><strong>Open</strong> - Closes {{ "@end" | t({
@@ -62,17 +62,22 @@
 
     {% else %}
 
+        {%  set icon %} <i class="uw-ico uw-ico-md uwmed-icon__appointment"></i> {% endset %}
+
         {% if _isOpen %}
-            <p class="opens-at">Open now: <em>{{ "Closes at @end" | t({
+            <p class="opens-at">{{ icon }}
+                Open now: <em>{{ "Closes at @end" | t({
                         '@end': _isOpen.endTime|date ('g:ia') }) }}</em>
             </p>
         {% elseif _opensSoon %}
-            <p class="opens-at">Opens soon: <em>{{ "@start - @end" | t({
+            <p class="opens-at">{{ icon }}
+                Opens soon: <em>{{ "@start - @end" | t({
                         '@start': _opensSoon.startTime|date ('g:ia'),
                         '@end': _opensSoon.endTime|date ('g:ia') }) }}</em>
             </p>
         {% elseif _opensNext %}
-            <p class="opens-at">Opens soon: <em>{{ "@start - @end" | t({
+            <p class="opens-at">{{ icon }}
+                Opens soon: <em>{{ "@start - @end" | t({
                         '@start': _opensNext.startTime|date ('g:ia'),
                         '@end': _opensNext.endTime|date ('g:ia') }) }}</em>
             </p>
@@ -80,51 +85,54 @@
 
     {% endif %}
 
-
-
 {% endmacro %}
 
 
-{% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
-{% set primaryCareTimes = _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-{% set urgentCareTimes = _cli.clinicTimeUseMasters[1].hoursOfOperation %}
 
-<div class="clinic-hours-wrapper hidden">
 
-    {% if primaryCareTimes %}
+{% macro uwHoursTable(apiClinicObject) %}
 
-        <div class="col-xs-12 col-md-6 clinic-hours-table">
+    {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
+    {% set primaryCareTimes = apiClinicObject.clinicTimeUseMasters[0].hoursOfOperation %}
+    {% set urgentCareTimes = apiClinicObject.clinicTimeUseMasters[1].hoursOfOperation %}
 
-            <div class="visible-xs-block intro">
-                <h4>
-                    <a role="button" data-toggle="collapse"
-                       href="#primaryCareTimes"
-                       aria-expanded="false" aria-controls="primaryCareTimes">
-                        {{ "Primary Care:"|t }}
-                        {{ _self.uwOpensAt(primaryCareTimes, TRUE) }}
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    </a>
-                </h4>
-            </div>
-            <div class="hidden-xs intro">
-                <h4>{{ "Primary Care"|t }}</h4>
-                {{ _self.uwOpensAt(primaryCareTimes) }}
-            </div>
+    <div class="clinic-hours-wrapper">
 
-            <div class="wrapper collapse-mobile" id="primaryCareTimes">
-                <ul>
+        {% if primaryCareTimes %}
 
-                    {% for n,day in days %}
-                        {% set timeExists = false %}
+            <div class="col-xs-12 col-md-6 clinic-hours-table">
 
-                        <li>
+                <div class="visible-xs-block intro">
+                    <h4>
+                        <a role="button" data-toggle="collapse"
+                           href="#primaryCareTimes"
+                           aria-expanded="false"
+                           aria-controls="primaryCareTimes">
+                            {{ "Primary Care:"|t }}
+                            {{ _self.uwOpensAt(primaryCareTimes, TRUE) }}
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </a>
+                    </h4>
+                </div>
+                <div class="hidden-xs intro">
+                    <h4>{{ "Primary Care"|t }}</h4>
+                    {{ _self.uwOpensAt(primaryCareTimes) }}
+                </div>
 
-                            {% for s in primaryCareTimes %}
-                                {% if s.dayOfWeek == n %}
+                <div class="wrapper collapse-mobile" id="primaryCareTimes">
+                    <ul>
 
-                                    {% set timeExists = true %}
-                                    <span class="day">{{ day }}</span>
-                                    <span class="hours"><span>
+                        {% for n,day in days %}
+                            {% set timeExists = false %}
+
+                            <li>
+
+                                {% for s in primaryCareTimes %}
+                                    {% if s.dayOfWeek == n %}
+
+                                        {% set timeExists = true %}
+                                        <span class="day">{{ day }}</span>
+                                        <span class="hours"><span>
 
                                             {{ "@start - @end"
                                             |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
@@ -132,65 +140,66 @@
                                             }) }}
                                         </span></span>
 
-                                {% endif %}
-                            {% endfor %}
-                            {% if not timeExists %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not timeExists %}
 
-                                <span class="day">{{ day }}</span>
-                                <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                            {% endif %}
-
-                        </li>
-
-                    {% endfor %}
-
-                </ul>
-            </div>
-
-        </div>
-
-    {% endif %}
-
-    {% if urgentCareTimes %}
-
-        <div class="col-xs-12 col-md-6 clinic-hours-table urgent-care">
-
-            <div class="visible-xs-block intro">
-                <h4>
-                    <a role="button" data-toggle="collapse"
-                       href="#urgentCareTimes"
-                       aria-expanded="false" aria-controls="urgentCareTimes">
-                        {{ "Urgent Care:"|t }}
-                        {{ _self.uwOpensAt(urgentCareTimes, TRUE) }}
-
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    </a>
-
-                </h4>
-            </div>
-
-            <div class="hidden-xs intro">
-                <h4>{{ "Urgent Care"|t }}</h4>
-                {{ _self.uwOpensAt(urgentCareTimes) }}
-            </div>
-
-
-            <div class="wrapper collapse-mobile" id="urgentCareTimes">
-
-                <ul>
-
-                    {% for n,day in days %}
-                        {% set timeExists = false %}
-
-                        <li>
-
-                            {% for s in urgentCareTimes %}
-                                {% if s.dayOfWeek == n %}
-
-                                    {% set timeExists = true %}
                                     <span class="day">{{ day }}</span>
-                                    <span class="hours"><span>
+                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
+
+                                {% endif %}
+
+                            </li>
+
+                        {% endfor %}
+
+                    </ul>
+                </div>
+
+            </div>
+
+        {% endif %}
+
+        {% if urgentCareTimes %}
+
+            <div class="col-xs-12 col-md-6 clinic-hours-table urgent-care">
+
+                <div class="visible-xs-block intro">
+                    <h4>
+                        <a role="button" data-toggle="collapse"
+                           href="#urgentCareTimes"
+                           aria-expanded="false"
+                           aria-controls="urgentCareTimes">
+                            {{ "Urgent Care:"|t }}
+                            {{ _self.uwOpensAt(urgentCareTimes, TRUE) }}
+
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </a>
+
+                    </h4>
+                </div>
+
+                <div class="hidden-xs intro">
+                    <h4>{{ "Urgent Care"|t }}</h4>
+                    {{ _self.uwOpensAt(urgentCareTimes) }}
+                </div>
+
+
+                <div class="wrapper collapse-mobile" id="urgentCareTimes">
+
+                    <ul>
+
+                        {% for n,day in days %}
+                            {% set timeExists = false %}
+
+                            <li>
+
+                                {% for s in urgentCareTimes %}
+                                    {% if s.dayOfWeek == n %}
+
+                                        {% set timeExists = true %}
+                                        <span class="day">{{ day }}</span>
+                                        <span class="hours"><span>
 
                                         {{ "@start - @end"
                                         |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
@@ -198,24 +207,26 @@
                                         }) }}
                                     </span></span>
 
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not timeExists %}
+
+                                    <span class="day">{{ day }}</span>
+                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
+
                                 {% endif %}
-                            {% endfor %}
-                            {% if not timeExists %}
 
-                                <span class="day">{{ day }}</span>
-                                <span class="hours"><span>{{ "Closed"|t }}</span></span>
+                            </li>
 
-                            {% endif %}
+                        {% endfor %}
 
-                        </li>
+                    </ul>
+                </div>
 
-                    {% endfor %}
-
-                </ul>
             </div>
 
-        </div>
+        {% endif %}
 
-    {% endif %}
+    </div>
 
-</div>
+{% endmacro %}
