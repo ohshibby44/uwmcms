@@ -29,7 +29,16 @@ view_mode ? view_mode|clean_class,
 	~'-'~ _cli.seoFax|slice(3, 3)
 	~'-'~ _cli.seoFax|slice(6, 4) %}
 {% endif %}
+
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
+{#<pre>#}
+
+    {#{{ 'abc DEF 123'|uwm_test_filter }}#}
+    {#{{ classes|join|uwm_test_filter('<br/>') }}#}
+    {#{{ 'abc DEF 123'|check_markup }}#}
+    {#{{ uwm_test_func(true) }}#}
+
+{#</pre>#}
 
     <section class="remove-padding clinic-header">
 
