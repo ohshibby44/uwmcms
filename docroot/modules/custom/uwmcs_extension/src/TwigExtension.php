@@ -3,9 +3,9 @@
 namespace Drupal\uwmcs_extension;
 
 /**
- * A test Twig extension that adds a custom function and a custom filter.
+ * A Twig extension that adds custom functions/filters.
  */
-class UwmcsTwigExtension extends \Twig_Extension {
+class TwigExtension extends \Twig_Extension {
 
   /**
    * Generates a list of all Twig functions that this extension defines.
@@ -15,14 +15,14 @@ class UwmcsTwigExtension extends \Twig_Extension {
    *   function name used in the tag, e.g.:
    *
    * @code
-   *   {{ testfunc() }}
+   *   {{ uwm_test_func() }}
    * @endcode
    *
    *   The value is a standard PHP callback that defines what the function does.
    */
   public function getFunctions() {
     return [
-      'testfunc' => new \Twig_Function_Function(['Drupal\uwmcs_extension\TwigExtension\UwmcsExtension', 'testFunction']),
+      new \Twig_SimpleFunction('uwm_test_func', [$this, 'testFunction']),
     ];
   }
 
@@ -34,14 +34,15 @@ class UwmcsTwigExtension extends \Twig_Extension {
    *   filter name used in the tag, e.g.:
    *
    * @code
-   *   {{ foo|testfilter }}
+   *   {{ foo|uwm_test_filter }}
    * @endcode
    *
    *   The value is a standard PHP callback that defines what the filter does.
    */
   public function getFilters() {
     return [
-      'testfilter' => new \Twig_Filter_Function(['Drupal\uwmcs_extension\TwigExtension\UwmcsExtension', 'testFilter']),
+      new \Twig_SimpleFilter('uwm_test_filter', [$this, 'testFilter']),
+
     ];
   }
 
@@ -56,25 +57,17 @@ class UwmcsTwigExtension extends \Twig_Extension {
   }
 
   /**
-   * Outputs either an uppercase or lowercase test phrase.
-   *
-   * The function generates either an uppercase or lowercase version of the
-   * phrase "The quick brown fox jumps over the lazy dog 123.", depending on
-   * whether or not the $upperCase parameter evaluates to TRUE. If $upperCase
-   * evaluates to TRUE, the result will be uppercase, and if it evaluates to
-   * FALSE, the result will be lowercase.
+   * Description text.
    *
    * @param bool $upperCase
-   *   (optional) Whether the result is uppercase (true) or lowercase (false).
+   *   Description text.
    *
    * @return string
-   *   The generated string.
-   *
-   * @see \Drupal\system\Tests\Theme\TwigExtensionTest::testTwigExtensionFunction()
+   *   Description text.
    */
   public static function testFunction($upperCase = FALSE) {
     $string = "The quick brown box jumps over the lazy dog 123.";
-    if ($upperCase == TRUE) {
+    if ($upperCase) {
       return strtoupper($string);
     }
     else {
@@ -83,18 +76,16 @@ class UwmcsTwigExtension extends \Twig_Extension {
   }
 
   /**
-   * Replaces all instances of "animal" in a string with "plant".
+   * Description text.
    *
    * @param string $string
-   *   The string to be filtered.
+   *   Description text.
    *
    * @return string
-   *   The filtered string.
-   *
-   * @see \Drupal\system\Tests\Theme\TwigExtensionTest::testTwigExtensionFilter()
+   *   Description text.
    */
-  public static function testFilter($string) {
-    return str_replace(['animal'], ['plant'], $string);
+  public static function testFilter(string $string) {
+    return strtolower($string);
   }
 
 }

@@ -1,5 +1,5 @@
 services:
   uwmcs_extension.twig_extension:
-    class: Drupal\uwmcs_extension\UwmcsTwigExtension
+    class: Drupal\uwmcs_extension\TwigExtension
     tags:
       - { name: twig.extension }
