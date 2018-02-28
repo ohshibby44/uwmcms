@@ -35,6 +35,12 @@ function uwmed_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_views_view().
+ */
+function uwmed_preprocess_views_view(&$variables) {
+}
+
+/**
  * Implements theme_preprocess_page().
  */
 function uwmed_page_bottom(array &$page_bottom) {

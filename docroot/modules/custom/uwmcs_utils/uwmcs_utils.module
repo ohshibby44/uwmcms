@@ -10,6 +10,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -56,5 +57,16 @@ function uwmcs_utils_entity_field_access($operation, FieldDefinitionInterface $f
   }
 
   return AccessResult::neutral();
+
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function uwmcs_utils_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+
+  if ($view->id() == 'clinic_hours') {
+    // $args[0] = '4566';.
+  }
 
 }
