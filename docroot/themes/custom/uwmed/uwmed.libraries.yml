@@ -30,6 +30,19 @@ clinic-nodes:
       - core/jquery
       - core/drupalSettings
 
+uwm-toggle:
+  js:
+    dist/js/toggle.js: { preprocess: false }
+  dependencies:
+      - core/jquery
+      - core/drupalSettings
+
+bootstrap-tab-history:
+  js:
+    dist/js/bootstrap-tab-history.js: { preprocess: false }
+  dependencies:
+    - core/jquery
+
 google-fonts:
   css:
     theme:
@@ -40,8 +53,10 @@ font-awesome:
     theme:
       //maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css: { type: external, minified: true }
 
-clockwise-wait-times:
+clinic-hours:
   js:
+    //www.clockwisemd.com/hospitals/clockwise_api.js: {}
+    dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}
 
 googlemaps:
@@ -68,12 +83,22 @@ slickquiz:
 colorbox:
   js:
     //cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js: { type: external, minified: true }
-    dist/js/patient-care-video.js: {}
   css:
     theme:
       dist/styles/colorbox.css: {}
   dependencies:
     - core/jquery
+
+screenfull:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.min.js: { type: external, minified: true }
+
+patient-care-video:
+  js:
+    dist/js/patient-care-video.js: {}
+  dependencies:
+    - uwmed/screenfull
+    - uwmed/colorbox
 
 medical-service:
   js:
@@ -87,7 +112,7 @@ medical-service:
     - core/jquery.once
     - uwmed/swipejs
     - uwmed/slickquiz
-    - uwmed/colorbox
+
 
 scroll-magic:
   js:
@@ -98,4 +123,3 @@ homepage-animation:
     dist/js/homepage-animation.js: {}
   dependencies:
     - uwmed/scroll-magic
-    - uwmed/colorbox

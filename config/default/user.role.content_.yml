@@ -27,6 +27,7 @@ permissions:
   - 'access user profiles'
   - 'administer blocks'
   - 'administer media'
+  - 'administer menu'
   - 'administer meta tags'
   - 'administer moderation states'
   - 'administer nodes'

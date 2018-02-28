@@ -23,30 +23,15 @@ body {
 
       article {
 
-        .paragraph {
-
-          input {
-            width: 100%;
-            background: #dcdcdc;
-            color: #000;
-            opacity: .7;
-            border: 1px solid darken(#dcdcdc, 15%);
-            margin: 0 0 5px 0;
-            padding: 4px;
-
-            &::placeholder {
-              text-transform: uppercase;
-            }
-          }
-
-          p {
-            margin-bottom: 12px;
-          }
-        }
-
         img {
           max-width: 100%;
         }
+
+        ul.nav-tabs > li {
+          padding-bottom: 0;
+        }
+
+
 
       }
 
@@ -59,7 +44,7 @@ body {
   }
 
   a:hover, a:focus {
-    transition-duration: 600ms;
+    transition-duration: 400ms;
   }
 
   pre {
@@ -82,12 +67,16 @@ body {
   @extend .visible-xs-block;
 }
 
+.fade-out {
+  opacity: 0;
+}
+
+
 h2.accent, h3.accent, h4.accent {
   @include uw-bottom-accent-heading($uwmed-accent-blue);
 }
 
-
-
-
-
+.form-required:after {
+  background-image: none;
+}
 

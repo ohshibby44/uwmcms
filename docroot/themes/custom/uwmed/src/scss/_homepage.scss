@@ -90,9 +90,9 @@
   .links-with-icon {
     @media (min-width: $screen-lg-min) {
       margin-top: -67px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      //display: flex;
+      //justify-content: center;
+      //align-items: flex-end;
     }
 
     .links-with-icon__list {
@@ -162,6 +162,7 @@
 
   .homepage-sections {
     position: relative;
+    overflow: hidden;
   }
 
   .homepage-section-background-lg {
@@ -225,7 +226,7 @@
         opacity: 1;
       }
     }
-    
+
 
     @media(min-width: $screen-lg-min) {
       &:nth-of-type(1) {
@@ -242,6 +243,7 @@
 
       &:nth-of-type(2) {
         height: 470px;
+        z-index: 10;
 
         .homepage-section__title {
           top: 0px;
@@ -276,6 +278,7 @@
     .homepage-section__background {
       @media(min-width: $screen-lg-min) {
         background-image: none !important;
+        height: 0;
       }
     }
 
@@ -283,18 +286,28 @@
       &:nth-child(even) {
         .homepage-section__background {
           @include angled-edge('inside bottom', 'upper right', #fff, 50);
+          &::after {
+            width: 105%;
+            margin-bottom: -1px;
+          }
         }
       }
       &:nth-child(odd) {
         .homepage-section__background {
           @include angled-edge('inside bottom', 'upper left', #fff, 50);
+          &::after {
+            width: 105%;
+            margin-bottom: -1px;
+          }
         }
+
       }
     }
   }
 
   .homepage-section__background {
     background-size: cover;
+    background-position: center;
     min-height: 346px;
 
     @media(min-width: $screen-lg-min) {
@@ -327,7 +340,7 @@
 
     .h3 {
       text-transform: uppercase;
-      text-shadow: 0px 3px 6px rgba(0,0,0,53);
+      text-shadow: 0px 3px 6px rgba(0,0,0,.53);
       color: white;
       letter-spacing: .05em;
       margin-bottom: 6px;
@@ -341,7 +354,7 @@
   }
 
   .homepage-section__heading {
-    margin-top: 0;
+    margin-top: 12px;
   }
 
   .homepage-section__subheading {
@@ -440,7 +453,6 @@
   .homepage-section__link {
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: 600;
     font-family: $headings-font-family;
     font-size: $font-size-h3;
     transition-property: color;
@@ -517,11 +529,30 @@
   }
 
   .homepage-section__story-link {
+    margin-top: -100px;
+    float: right;
+    margin-right: 18px;
+    position: absolute;
+    right: 0px;
+
+    @media(min-width: $screen-lg-min) {
+      margin-top: -200px;
+    }
+
+    .section-story__play-button {
+      cursor: pointer;
+      text-align: right;
+    }
+
+    .section-story__play-button-text {
+      color: white;
+      font-weight: 600;
+      text-shadow: 0px 3px 6px rgba(0,0,0,.53);
+    }
 
     .fa-stack {
-      margin-top: -100px;
-      float: right;
-      margin-right: 18px;
+      transition: opacity .15s linear;
+      margin-left: 20px;
 
       &:hover {
         cursor: pointer;
@@ -531,7 +562,12 @@
         }
 
         .fa-circle-thin {
+          opacity: .5;
+        }
+
+        .fa-circle {
           opacity: 1;
+          color: rgba(255,255,255,.5);
         }
       }
     }
@@ -544,17 +580,26 @@
 
     @media(min-width: $screen-lg-min) {
       .fa-stack {
-        margin-top: -180px;
         float: right;
+        margin-top: -20px;
       }
     }
 
     .fa-play {
       color: white;
+      margin-top: 2px;
+      margin-left: 2px;
     }
 
     .fa-play::before {
       margin-left: 6px;
+    }
+    .fa-circle {
+      opacity: 0;
+      color: (255, 255, 255, .5);
+      width: 58px;
+      height: 58px;
+      margin-top: 2px;
     }
 
     .fa-circle-thin {
@@ -563,7 +608,10 @@
 
     .faa-burst.animated {
       animation: burst 2.5s infinite;
-      animation-delay: .5s;
+      border: 2px solid rgba(255, 255, 255, .9);
+      border-radius: 50%;
+      width: 58px;
+      height: 58px;
     }
 
     @keyframes burst {

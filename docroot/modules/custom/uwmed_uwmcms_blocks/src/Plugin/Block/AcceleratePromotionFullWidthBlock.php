@@ -33,7 +33,7 @@ class AcceleratePromotionFullWidthBlock extends BlockBase {
   public function defaultConfiguration() {
     $block_html = '<div class="accelerate-promotion-block__content visible-lg col-lg-7">';
     $block_html .= '<p>Right now, UW researchers, faculty and students are leading efforts to find cures, promote health and wellness around the world, and improve our community. Accelerate: The Campaign for UW Medicine allows you to be a part of this exciting future. See what\'s happening now and make a gift today.</p></div>';
-    $block_html .= '<div class="accelerate-promotion-block__cta"><a class="btn btn-default" href="http://www.acceleratemed.org">View More</a></div>';
+    $block_html .= '<div class="accelerate-promotion-block__cta"><a class="btn btn-default" href="http://www.acceleratemed.org">Learn More</a></div>';
 
     return [
       'accelerate_promotion_full_width_string' => $block_html,

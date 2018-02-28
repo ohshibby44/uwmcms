@@ -139,12 +139,31 @@ class UwmFetcher {
 
       try {
 
-        $response = Request::get($apiUri)
-          ->expectsJson()
-          ->send();
+        // @TODO: Move special cases to request builder.
+        if (stripos($apiUri, 'api/publications')) {
+
+          // Extract JSONP and prepare JSON.
+          $response = Request::get($apiUri)->parseWith(function ($body) {
+
+            if ($body[0] !== '[' && $body[0] !== '{') {
+              $body = substr($body, strpos($body, '('));
+            }
+            return json_decode(trim($body, '();'));
+
+          })->send();
+
+        }
+        else {
+
+          $response = Request::get($apiUri)
+            ->expectsJson()
+            ->send();
+
+        }
 
         $this->validateResponse($response);
         $this->cacheSet($apiUri, $response->body);
+
         return $response->body;
 
       }

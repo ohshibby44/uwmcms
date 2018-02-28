@@ -1,5 +1,6 @@
 name: uwmcs_mediaamp
 description: 'Adds custom MediaAMP video provider and enables content editor buttons. '
+package: UWMed
 type: module
 core: 8.x
 dependencies:

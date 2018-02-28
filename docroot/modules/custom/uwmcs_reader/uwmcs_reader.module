@@ -5,9 +5,9 @@
  * Module for reading an API and providing API data to themes.
  */
 
-use Drupal\node\Entity\Node;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\Node;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
@@ -77,6 +77,20 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
     }
 
+    // Fetch details for publications.
+    if (!empty($data->bioPublications[0]->pubMedId)) {
+
+      $pubIds = [];
+      foreach ($data->bioPublications as $k => $v) {
+        array_push($pubIds, $v->pubMedId);
+      }
+
+      $data->bioPublicationsDetails = $fetcher->getUrl(
+        'http://webservices.uwmedicine.org/api/publications?ids=' .
+        implode(',', $pubIds));
+
+    }
+
     // If provider has clinics, populate full clinic details.
     // @TODO: Change this to node-load locations.
     if (!empty($data->careNetworks[0]->clinicBases)) {
@@ -121,7 +135,8 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
           // TODO: Pull image from urgent care clinic instead of primary care
           // clinic.
           $pc_url = str_replace('urgent', 'primary', $clinic->clinicUrl);
-          $pc_path = \Drupal::service('path.alias_manager')->getPathByAlias($pc_url);
+          $pc_path = \Drupal::service('path.alias_manager')
+            ->getPathByAlias($pc_url);
 
           if (!empty($pc_path)) {
             if (preg_match('/node\/(\d+)/', $pc_path, $matches)) {
@@ -130,8 +145,14 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
           }
 
           if (!empty($node)) {
-            if (!empty($node->get('field_clinic_image')->getValue()[0]['target_id'])) {
-              $pc_image_entity = $node->get('field_clinic_image')->first()->get('entity')->getTarget()->getValue();
+            if (!empty($node->get('field_clinic_image')
+              ->getValue()[0]['target_id'])
+            ) {
+              $pc_image_entity = $node->get('field_clinic_image')
+                ->first()
+                ->get('entity')
+                ->getTarget()
+                ->getValue();
             }
           }
 

@@ -1,3 +1,5 @@
+window.initMap = function() {}; // initialize function in time for google maps to find it
+
 (function ($, Drupal, drupalSettings) {
   Drupal.behaviors.googleMapDisplayLocations = {
     attach: function () {
@@ -45,6 +47,11 @@
 
         // if we have a device's location, pan to closest location
         panToClosestLocation(map, markers);
+
+        // create a global variable to indicate map was loaded,
+        // if initMap didn't trigger and set this variable, we'll trigger
+        // it below
+        window.initMapComplete = true;
       };
 
       // marker event handlers
@@ -160,7 +167,22 @@
 
           })
         }
-      }
+      };
     }
   }
 })(jQuery,Drupal, drupalSettings);
+
+// when document is ready, initMap for IE11
+if(document.readyState === 'complete') {
+  if(!window.initMapComplete) {
+    initMap();
+  }
+}
+else {
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete')
+      if(!window.initMapComplete) {
+        initMap();
+      }
+  });
+}

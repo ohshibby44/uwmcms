@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.homepage.field_homepage_sections
     - field.field.node.homepage.field_image
     - field.field.node.homepage.field_links_with_icon
+    - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_subheading
     - node.type.homepage
   module:
     - entity_reference_revisions
     - image
+    - metatag
     - panelizer
     - text
     - user
@@ -59,6 +61,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
     region: content
   field_subheading:
     weight: 103

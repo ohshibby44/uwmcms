@@ -36,13 +36,6 @@
     background-size: cover;
     background-position: center;
     box-shadow: inset 0 0 0 2000px rgba(71, 71, 71, 0.5);
-
-
-    @media(min-width: $screen-lg-min) {
-      @include angled-edge('inside bottom', 'upper right', #fff, 50);
-      position: absolute;
-      height: 570px;
-    }
   }
 
   .medical-service-hero__content {
@@ -60,6 +53,7 @@
     padding-top: $line-height-computed*2;
     padding-bottom: $line-height-computed/2;
     color: white;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.16);
 
     @media(min-width: $screen-lg-min) {
       margin-top: 60px;
@@ -70,8 +64,10 @@
     padding-bottom: $line-height-computed * 2;
     color: white;
     font-family: $font-family-base;
+    text-shadow: 2px 2px 0 rgba(0,0,0,.16);
 
     @media(min-width: $screen-lg-min) {
+      text-shadow: none;
       padding: 0;
       font-size: $font-size-h2-mobile;
       line-height: $line-height-h2-mobile;
@@ -145,6 +141,7 @@
       }
 
       a {
+        width: 90%;
         border: 1px solid rgba(255, 255, 255, .5);
         @include angled-edge('inside top', 'lower right', rgba(255, 255, 255, .23), 15, 15);
         &::before {
@@ -159,14 +156,13 @@
       }
 
       .uwmed-icon {
-        padding-left: $padding-base-horizontal * 1.5;
         padding-right: $padding-base-horizontal;
         color: white;
       }
 
       .btn-default {
+        z-index: 1;
         &:hover {
-          background-color: rgba(255, 255, 255, .7);
           color: $text-color;
 
           .uwmed-icon {
@@ -175,6 +171,28 @@
 
           .fa-angle-right {
             color: $text-color;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, .7);
+          transform: scaleX(0);
+          transform-origin: 0 50%;
+          transition-property: transform;
+          transition-duration: 0.7s;
+          transition-timing-function: ease-out;
+          z-index: -1;
+        }
+
+        &:hover {
+          &::after {
+            transform: scaleX(1);
           }
         }
       }
@@ -190,6 +208,12 @@
     }
 
     ul.nav-tabs {
+      display: flex;
+
+      .uw-ico {
+        display: none;
+      }
+
       border-bottom: none;
       @media(max-width: $screen-xs-max) {
         padding-left: 0;
@@ -197,9 +221,13 @@
 
       > li {
         margin-bottom: 0;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: $uwmed-tab-purple;
       }
       > li > a {
-        height: 40px;
         background: $uwmed-tab-purple;
         color: #fff;
         text-decoration: none;
@@ -213,35 +241,35 @@
         }
       }
 
+      > li.active {
+        background: rgba(255, 255, 255, .9);
+      }
       > li.active > a {
         color: $uwmed-purple-icon;
-        background: rgba(255, 255, 255, .9);
+        background: transparent;
         border: none;
       }
 
-      > li:first-child > a {
-        margin-left: 40px;
-      }
-
       @media (max-width: $screen-xs-max) {
-        padding-right: 0;
+    //    padding-right: 0;
 
         li {
           max-width: 33%;
-          a {
-            padding: 12px 8px;
-            height: 60px;
-            text-transform: uppercase;
-            text-align: center;
-            .fa {
-              display: none;
-            }
-          }
-          &:first-child > a {
-
-            margin: 0 !important;
-          }
         }
+    //      a {
+    //        padding: 12px 8px;
+    //        height: 60px;
+    //        text-transform: uppercase;
+    //        text-align: center;
+    //        .fa {
+    //          display: none;
+    //        }
+    //      }
+    //      &:first-child > a {
+    //
+    //        margin: 0 !important;
+    //      }
+    //    }
       }
 
     }
@@ -348,8 +376,8 @@
         }
 
         li:before {
-          content: "\f05d";
-          font-family: "FontAwesome";
+          content: "\e902";
+          font-family: "uwmico";
           width: 10px;
           height: 10px;
           margin-left: -1.5em;
@@ -358,6 +386,27 @@
         }
       }
     }
+
+
+    &.uwm-toggle {
+
+      li:nth-child(n+4) {
+        display: none;
+      }
+      &.on li:nth-child(n+4),
+      li.on:nth-child(n+4) {
+        display: block;
+      }
+      .uw-more {
+        @extend .col-xs-12;
+      }
+
+    }
+
+
+
+
+
   }
 
   .feature-story {
@@ -366,8 +415,14 @@
 
   .feature-story__background {
     background-size: cover;
+    background-position: center;
+
     min-height: 400px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
+    &::after {
+      width: 100%;
+      margin-bottom: -1px;
+    }
 
     @media(min-width: $screen-lg-min) {
       min-height: 700px;
@@ -432,12 +487,15 @@
       margin-bottom: $line-height-computed;
     }
 
+    @include uw-ghost-button('.feature-story__link', 'i.u-ips', $uwmed-accent-orange);
+    margin-top: 0;
+
     .feature-story__link {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      //text-transform: uppercase;
+      //text-decoration: none;
+      //font-weight: 600;
+      //font-family: $headings-font-family;
+      //font-size: $font-size-h3;
 
       @media(max-width: $screen-md-max) {
         width: 100%;
@@ -448,17 +506,17 @@
         padding-right: 18px;
       }
 
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-orange;
-      }
+    //  &:hover {
+    //    color: white;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-orange;
+    //  }
     }
   }
 
@@ -486,13 +544,21 @@
 
   .find-a-location .links-with-icon__list {
     padding-top: $padding-base-vertical;
-    //padding-bottom: 38px;
+    padding-bottom: 38px;
+    @media(min-width: $screen-lg-min) {
+      @include uw-ghost-button('.links-with-icon__item', 'i.u-ips');
+      width: 200px;
+    }
+
+
+
   }
 
   .find-a-location .links-with-icon__item {
-    background-color: inherit;
-    color: $text-color;
-    font-weight: 600;
+    //background-color: inherit;
+    //color: $text-color;
+    //font-weight: 600;
+    width: 100%;
     padding: $padding-base-vertical 0;
 
     @media (max-width: $screen-md-max) {
@@ -503,7 +569,7 @@
       }
 
       a {
-        font-size: inherit;
+        //font-size: inherit;
         padding: $padding-base-horizontal 0;
         border: none;
 
@@ -516,20 +582,20 @@
     @media (min-width: $screen-lg-min) {
       width: 200px;
 
-      a {
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-
-        &:hover {
-          background-color: $uwmed-accent-yellow;
-          
-          &::before {
-            background: none;
-          }
-        }
-      }
+      //a {
+      //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+      //  &::before {
+      //    background-position: left 0;
+      //  }
+      //
+      //  &:hover {
+      //    background-color: $uwmed-accent-yellow;
+      //
+      //    &::before {
+      //      background: none;
+      //    }
+      //  }
+      //}
     }
 
     .uwmed-icon {
@@ -568,6 +634,7 @@
   .find-a-location__clinic-list__view-all {
     width: 100%;
     margin-top: $padding-base-vertical *2;
+    text-transform: uppercase;
   }
 
   .find-a-location__clinic-list {
@@ -597,37 +664,41 @@
       text-decoration: none;
     }
 
-    .btn-default {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
 
-      &:hover {
-        color: $text-color;
-      }
+    @include uw-ghost-button('.btn-default', 'i.u-ips');
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
 
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-yellow;
-      }
-    }
+    //.btn-default {
+    //  text-transform: uppercase;
+    //  text-decoration: none;
+    //  font-weight: 600;
+    //  font-family: $headings-font-family;
+    //  font-size: $font-size-h3;
+    //
+    //  &:hover {
+    //    color: $text-color;
+    //  }
+    //
+    //  @media(min-width: $screen-lg-min) {
+    //    padding-left: 18px;
+    //    padding-right: 18px;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-yellow;
+    //  }
+    //}
   }
 
 
   .featured-specialties {
 
     ul {
-      display: inline-block;
+      @extend .col-xs-12;
     }
 
     @media (min-width: $screen-lg-min) {
@@ -647,6 +718,21 @@
         margin-left: -1em;
         float: left;
         color: $uwmed-purple-icon;
+      }
+    }
+
+    &.uwm-toggle {
+      li:nth-child(n+9) {
+        display: none;
+
+      }
+      &.on li:nth-child(n+9),
+      li.on:nth-child(n+9) {
+        display: block;
+      }
+
+      .uw-more {
+        @extend .col-xs-12;
       }
     }
   }
@@ -694,7 +780,12 @@
   .condition-spotlight__item-wrap .wrapper {
     display: flex;
     flex-direction: column;
-    height: 250px;
+
+    height: 340px;
+
+    @media(min-width: 360px) {
+      height: 300px;
+    }
 
     @media (min-width: $screen-sm-min) {
       height: 200px;
@@ -748,37 +839,41 @@
       padding-bottom: $padding-base-vertical;
     }
 
+    .field--name-field-link {
 
-    .field--name-field-link a {
-      @extend .btn;
-      @extend .btn-default;
+      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
 
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      a {
+        @extend .btn;
+        @extend .btn-default;
+        //
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;$font-size-h3
 
-      position: absolute;
-      bottom: 10px;
+        //position: absolute;
+        //bottom: 10px;
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
+        @media(min-width: $screen-lg-min) {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-orange;
+        //}
+
       }
-
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-orange, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-orange;
-      }
-
     }
   }
 
@@ -858,6 +953,8 @@
         margin-left: 5px;
       }
 
+      @include uw-ghost-button('a.button', 'i.u-ips', $uwmed-accent-teal);
+
       a.button {
         @extend .btn;
         @extend .btn-default;
@@ -865,11 +962,11 @@
         margin-top: 18px;
         margin-bottom: 9.5px;
 
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        font-family: $headings-font-family;
-        font-size: $font-size-h3;
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;
 
         @media(max-width: $screen-md-max) {
           width: 100%;
@@ -881,17 +978,17 @@
         }
 
         &:hover {
-          color: white;
           text-decoration: none;
         }
 
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-        &:hover {
-          background-color: $uwmed-accent-teal;
-        }
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-teal;
+        //}
       }
     }
 
@@ -999,7 +1096,8 @@
       .uw-ico {
         background-color: #F5F5F5;
         height: 20px;
-        margin-left: -27px;
+        margin-left: -22px;
+        margin-right: 8px
       }
     }
 
@@ -1012,23 +1110,26 @@
       }
     }
 
-    .clinic__directions a {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-family: $headings-font-family;
-
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-teal;
-      }
+    .clinic__directions {
+      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
     }
+    //.clinic__directions a {
+    //  text-decoration: none;
+    //  text-transform: uppercase;
+    //  font-family: $headings-font-family;
+    //
+    //  &:hover {
+    //    color: white;
+    //  }
+    //
+    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+    //  &::before {
+    //    background-position: left 0;
+    //  }
+    //  &:hover {
+    //    background-color: $uwmed-accent-teal;
+    //  }
+    //}
   }
 
   .virtual-clinic {
@@ -1043,12 +1144,23 @@
       padding: 20px;
     }
 
-    .container {
+    .container-lg {
       @media(min-width: $screen-md-min) {
         margin-top: 50px;
         margin-bottom: 50px;
       }
     }
+
+    @media (max-width: $screen-lg-min) {
+      .row {
+        margin: 0;
+      }
+
+      .virtual-clinic__title {
+        margin-bottom: -1px;
+      }
+    }
+
 
     .virtual-clinic__title {
       background-color: white;
@@ -1098,30 +1210,33 @@
         //margin-bottom: $line-height-computed;
       }
 
+      .virtual-clinic__cta {
+        @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
+      }
       .virtual-clinic__link {
         margin-top: 20px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 600;
-        font-family: $headings-font-family;
-        font-size: $font-size-h3;
+        //text-transform: uppercase;
+        //text-decoration: none;
+        //font-weight: 600;
+        //font-family: $headings-font-family;
+        //font-size: $font-size-h3;
 
         @media(min-width: $screen-lg-min) {
           padding-left: 18px;
           padding-right: 18px;
         }
 
-        &:hover {
-          color: white;
-        }
-
-        @include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
-        &::before {
-          background-position: left 0;
-        }
-        &:hover {
-          background-color: $uwmed-accent-blue;
-        }
+        //&:hover {
+        //  color: white;
+        //}
+        //
+        //@include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
+        //&::before {
+        //  background-position: left 0;
+        //}
+        //&:hover {
+        //  background-color: $uwmed-accent-blue;
+        //}
       }
     }
   }
@@ -1132,34 +1247,38 @@
     }
 
     .ecare__login {
+
+      @include uw-ghost-button('.ecare__login-button', 'i.u-ips', $uwmed-tab-purple);
+
+
       @media(min-width: $screen-md-min) {
         text-align: right;
       }
     }
 
     .ecare__login-button {
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: $headings-font-family;
-      font-size: $font-size-h3;
+      //text-transform: uppercase;
+      //text-decoration: none;
+      //font-weight: 600;
+      //font-family: $headings-font-family;
+      //font-size: $font-size-h3;
 
       @media(min-width: $screen-md-min) {
         width: 100%;
         margin-top: 28px;
       }
 
-      &:hover {
-        color: white;
-      }
-
-      @include angled-edge('inside top', 'lower right', $uwmed-tab-purple, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-tab-purple;
-      }
+      //&:hover {
+      //  color: white;
+      //}
+      //
+      //@include angled-edge('inside top', 'lower right', $uwmed-tab-purple, 15, 15);
+      //&::before {
+      //  background-position: left 0;
+      //}
+      //&:hover {
+      //  background-color: $uwmed-tab-purple;
+      //}
     }
 
     .eCare__information-item {
@@ -1208,6 +1327,7 @@
       letter-spacing: .05em;
       margin-bottom: 6px;
       padding-top: 30px;
+      margin-top: 0;
     }
 
     h4 {
@@ -1247,29 +1367,39 @@
       }
     }
 
-    .webform-button--submit {
-      @extend .btn;
-      @extend .btn-default;
+    .form-actions {
+      @include uw-ghost-button('.webform-button--submit', 'i.u-ips', $uwmed-accent-teal);
 
-      @media(max-width: $screen-md-max) {
-        width: 100%;
+      //@extend .btn;
+      //@extend .btn-default;
+      .webform-button--submit {
+        @media(max-width: $screen-md-max) {
+          width: 100%;
+        }
+
+        @media(min-width: $screen-lg-min) {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
       }
 
-      @media(min-width: $screen-lg-min) {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+      //&:hover {
+      //  color: white;
+      //}
 
-      &:hover {
-        color: white;
-      }
+      //@include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
+      //&::before {
+      //  background-position: left 0;
+      //}
+      //&:hover {
+      //  background-color: $uwmed-accent-teal;
+      //}
+    }
 
-      @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-      &::before {
-        background-position: left 0;
-      }
-      &:hover {
-        background-color: $uwmed-accent-teal;
+    .webform-submission-health-news-signup-form {
+      .form-actions {
+        margin-bottom: 0;
       }
     }
 

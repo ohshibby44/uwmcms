@@ -10,17 +10,26 @@ ul.uwm-nav-tabs {
   > li {
 
     margin: 0 2px -1px 0;
+    padding-bottom: 0;
+
+    &.active {
+      z-index: 3;
+    }
 
     > a, > a:hover, > a:focus {
 
       margin: 0;
-      padding: 16px 34px 4px 26px;
+      padding: 16px 34px 16px 26px;
       float: left;
       color: $uwmed-white;
       background: $uwmed-solid-dark-purple;
       border: 0 none;
       text-decoration: none;
       text-transform: uppercase;
+
+      @media(max-width: 350px) {
+        font-size: 12.5px;
+      }
 
       i.uw-ico.heart {
         font-size: 26px;
@@ -58,7 +67,14 @@ div.uwm-tab-content {
 
   ul.uwm-nav-tabs {
 
+    @media(max-width: 350px) {
+      overflow: hidden;
+    }
+
     > li {
+      @media(max-width: 350px) {
+        max-width: 32.5%;
+      }
 
       max-width: 30%;
 

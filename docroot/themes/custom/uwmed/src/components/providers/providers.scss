@@ -21,8 +21,12 @@ body.page-node-type-uwm-provider {
 
         margin-bottom: 40px;
 
-        ul li {
-          margin: 8px 0 0 0;
+        //ul li {
+        //  margin: 8px 0 0 0;
+        //}
+
+        i.uw-hr {
+          display: none;
         }
 
         .profile-image {
@@ -84,6 +88,12 @@ body.page-node-type-uwm-provider {
           margin-bottom: 0;
         }
 
+        .uwm-nav-tabs {
+          .uw-ico {
+            display: none;
+          }
+        }
+
         .uwm-tab-content {
 
           @extend %uwmed-box-shadow;
@@ -108,7 +118,6 @@ body.page-node-type-uwm-provider {
 
             h4, h5 {
               margin-top: 0;
-              margin-bottom: 0;
             }
 
             .location-image {
@@ -121,7 +130,7 @@ body.page-node-type-uwm-provider {
             }
             .col-xs-7.k {
 
-              margin-bottom: 15px;
+              margin-bottom: 9.5px;
               padding-left: 30px;
 
               .uw-ico {
@@ -139,7 +148,7 @@ body.page-node-type-uwm-provider {
       aside.inner-sidebar {
 
         &.hidden-xs {
-          border-left: 1px solid #dcdcdc;
+          border-left: 1px solid #f8f8f8;
           margin-left: 25px;
           padding: 0 0 25px 25px;
         }
