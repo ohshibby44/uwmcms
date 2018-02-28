@@ -1,4 +1,6 @@
 {{ attach_library('uwmed/clinic-hours') }}
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
+
 
 <div class="row">
     {% for clinic in locations %}
@@ -36,36 +38,9 @@
             </div>
 
             <div class="col-xs-7 pull-right location-hours k">
-
-                {% if clinic.clinicTimeUseMasters %}
-                    {% set _dn = 'now'|date('w')|number_format %}
-                    {% set _isOpen = false %}
-
-                    {% for t in clinic.clinicTimeUseMasters %}
-                        {% for s in t.hoursOfOperation %}
-
-                            {% if s.dayOfWeek == _dn %}
-                                {% set _isOpen = s %}
-                            {% endif %}
-
-                        {% endfor %}
-                    {% endfor %}
-
-                    {% if _isOpen %}
-                        <p>
-                            <i class="uw-ico uw-ico-md appointment"></i>
-                            <strong>Open:</strong> {{ "@start - @end" | t({
-                                '@start': _isOpen.startTime|date ('g:ia')|trim('m'),
-                                '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}
-                        </p>
-                    {% else %}
-                        <p>
-                            <i class="uw-ico uw-ico-md appointment"></i>
-                            {{ 'Closed'|t }}</p>
-
-                    {% endif %}
+                {% if clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+                {{ _clinicHours.uwOpensAt(clinic.clinicTimeUseMasters[0].hoursOfOperation, FALSE) }}
                 {% endif %}
-
             </div>
 
         </div>

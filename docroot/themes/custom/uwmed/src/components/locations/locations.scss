@@ -153,6 +153,9 @@ body.page-node-type-uwm-clinic {
               color: $uwmed-light-purple;
 
               font-style: italic;
+              i.uw-ico {
+                @extend .hidden;
+              }
             }
 
             ul {
