@@ -67,10 +67,10 @@ body {
   @extend .visible-xs-block;
 }
 
-.fade-out {
-  opacity: .001;
+.fade-out, .fade-out p {
+  opacity: 0;
 }
-.fade-in {
+.fade-in, .fade-in p {
    opacity: 1;
  }
 

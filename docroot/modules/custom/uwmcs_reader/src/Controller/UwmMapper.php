@@ -77,22 +77,24 @@ class UwmMapper {
    *   ::getNidByInformationManagerUri('api/clinic/7664');
    * @endcode
    *
-   * @param string $informationManagerEndpoint
+   * @param string $informationManagerUri
    *   Trailing portion of Information Manager endpoint,
    *   having this node's data.
    *
    * @return int|null
    *   Node id, if found.
    */
-  public static function getNidByInformationManagerUri(string $informationManagerEndpoint) {
+  public static function getNidByInformationManagerUri(string $informationManagerUri) {
 
+    $apiPath = parse_url($informationManagerUri, PHP_URL_PATH);
     $query = \Drupal::entityQuery('node')
       // ->condition('status', 1)
-      ->condition('field_information_manager_url', $informationManagerEndpoint, 'ENDS_WITH');
+      ->condition('field_information_manager_url', $apiPath, 'ENDS_WITH');
     $nids = $query->execute();
 
     if (!empty($nids) && is_array($nids)) {
-      return array_shift(array_values($nids));
+      $values = array_values($nids);
+      return array_shift($values);
     }
 
     // $node = entity_load('node', $nids[1]);.

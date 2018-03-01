@@ -2,6 +2,8 @@
 
 namespace Drupal\uwmcs_extension;
 
+use Drupal\uwmcs_reader\Controller\UwmMapper;
+
 /**
  * A Twig extension that adds custom functions/filters.
  */
@@ -90,7 +92,6 @@ class TwigExtension extends \Twig_Extension {
     return strtolower($string);
   }
 
-
   /**
    * Description text.
    *
@@ -102,11 +103,9 @@ class TwigExtension extends \Twig_Extension {
    */
   public static function getPathNid(string $string) {
 
-    return \Drupal\uwmcs_reader\Controller\UwmMapper
-      ::getNidByPathAlias($string);
+    return UwmMapper::getNidByPathAlias($string);
 
   }
-
 
   /**
    * Description text.
@@ -119,12 +118,8 @@ class TwigExtension extends \Twig_Extension {
    */
   public static function getApiPathNid(string $string) {
 
-    return \Drupal\uwmcs_reader\Controller\UwmMapper
-      ::getNidByInformationManagerUri($string);
+    return UwmMapper::getNidByInformationManagerUri($string);
 
   }
-
-
-
 
 }
