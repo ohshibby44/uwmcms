@@ -10,7 +10,7 @@ id: health_news_signup
 title: 'Health News Signup'
 description: ''
 category: ''
-elements: "markup:\n  '#type': webform_markup\n  '#markup': 'Keep me in the loop about timely and relevant health information.'\nname:\n  '#type': textfield\n  '#title': Name\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': Name\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': Email\n  '#required': true\nzipcode:\n  '#type': textfield\n  '#title': Zipcode\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': Zipcode\n  '#required': true\n"
+elements: "markup:\n  '#type': webform_markup\n  '#markup': 'Keep me in the loop with timely and relevant health information.'\nname:\n  '#type': textfield\n  '#title': Name\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': Name\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': Email\n  '#required': true\nzipcode:\n  '#type': textfield\n  '#title': 'Zip code'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': 'Zip code'\n  '#required': true\n  '#required_error': 'Zip code should be 5 digits.'\n  '#pattern': '[0-9]{5}'\n"
 css: ''
 javascript: ''
 settings:
