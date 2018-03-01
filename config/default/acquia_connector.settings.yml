@@ -72,8 +72,8 @@ spi:
     variables: {  }
     time: 0
   cron_interval: 28800
-  site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmeddev
-  site_uuid: 2a73b91f-1cb1-4e80-8867-aebe8c3afcea
+  site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmed
+  site_uuid: 3b1793fd-299e-4c26-8c17-c62c3f07068d
 mapping:
   acquia_spi_send_node_user:
     - acquia_connector.settings

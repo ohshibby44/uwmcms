@@ -18,17 +18,17 @@
       <img class="clinic__image img img-responsive" src="{{ clinic.image_url | image_style('large')  }}" alt="" />
       <div class="clinic__info">
         <h3 class="clinic__name h4"><a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a></h3>
-        <address><i class="uw-ico uw-ico-md clinic_locations"></i>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}</address>
-        <p class="clinic__clinic-phone">
-              <i class="uw-ico uw-ico-md call_solid"></i>
+        <address class="f-li"><i class="uw-ico clinic_locations"></i>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}</address>
+        <p class="clinic__clinic-phone f-li">
+              <i class="uw-ico call_solid"></i>
                 {% set phone = clinic.seoPhone|slice(0, 3)
                 ~'-'~ clinic.seoPhone|slice(3, 3)
                 ~'-'~ clinic.seoPhone|slice(6, 4) %}
               <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
 
         </p>
-        <p class="clinic__wait-time fade-out" data-uwm-clockwise-snippet="{{ clinic.clinicName }}">
-          <i class="fa fa-clock-o" aria-hidden="true"></i><span class="wait-text"></span>. <a class="wait-link">Get in line</a>.
+        <p class="clinic__wait-time f-li fade-out" data-uwm-clockwise-snippet="{{ clinic.clinicName }}">
+          <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i><span class="wait-text"></span>. <a class="wait-link">Get in line</a>.
         </p>
         <p class="clinic__directions"><a class="btn btn-default" href="https://www.google.com/maps/place/{{ clinic.clinicName | replace(" ", "+") }}">
             <i class="hidden u-ips"></i>
