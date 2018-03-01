@@ -2,7 +2,7 @@
 {{ attach_library('uwmed/uwm-toggle') }}
 {{ attach_library('uwmed/clinic-hours') }}
 {{ attach_library('uwmed/bootstrap-tab-history') }}
-{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _hoursMacro %}
 
 
 
@@ -50,7 +50,7 @@ view_mode ? view_mode|clean_class,
             </div>
 
             <div class="col-xs-12 m-hours">
-                {{ _clinicHours.uwHoursTable(_cli) }}
+                {{ _hoursMacro.uwHoursTable(_cli, node.id) }}
             </div>
 
             <div class="col-xs-12 m-address">
@@ -155,7 +155,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-xs-12 col-md-9 remove-padding clinic-hours-container">
 
-                {{ _clinicHours.uwHoursTable(_cli) }}
+                {{ _hoursMacro.uwHoursTable(_cli, node.id) }}
 
             </div>
 

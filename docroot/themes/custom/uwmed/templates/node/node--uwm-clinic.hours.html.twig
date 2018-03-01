@@ -1,11 +1,19 @@
-{% macro uwOpensAt(clinicApiHourValues, briefText = FALSE) %}
+{% macro uwOpensAt(apiData, briefText = FALSE, clinicNid = FALSE) %}
 
     {% set _dn = 'now'|date('w')|number_format %}
     {% set _isOpen = false %}
     {% set _opensNext = false %}
     {% set _opensSoon = false %}
 
-    {% for s in clinicApiHourValues %}
+    {% if clinicNid|number_format > 0 %}
+        {% set attr = 'data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"
+        data-uwm-refresh-id="def-' ~ clinicNid ~'"' %}
+    {% endif %}
+
+
+    <span class="hours-macro-wrapper fade-out" {{ attr|raw }}>
+
+    {% for s in apiData %}
 
         {% if s.dayOfWeek == _dn %}
 
@@ -15,23 +23,19 @@
             'ends': ('now'|date('Y-m-d ')~' '~ s.endTime)|date('U')
             } %}
 
-            <!--
-n: {{ t.now }}
-s: {{ t.starts }}
-e: {{ t.ends }}
-rn: {{ t.now|date('r') }}
-rs: {{ t.starts|date('r') }}
-re: {{ t.ends|date('r') }}
--->
+            <!--  n: {{ t.now }}
+            s: {{ t.starts }}
+            e: {{ t.ends }}
+            rn: {{ t.now|date('r') }}
+            rs: {{ t.starts|date('r') }}
+            re: {{ t.ends|date('r') }}   -->
 
             {% if (t.starts < t.now and t.now < t.ends) %}
                 {% set _isOpen = s %}
 
             {% elseif (t.now < t.starts) %}
                 {% set _opensSoon = s %}
-
             {% endif %}
-
         {% endif %}
 
         {% if s.dayOfWeek > _dn and not _opensNext %}
@@ -40,63 +44,69 @@ re: {{ t.ends|date('r') }}
 
     {% endfor %}
 
-    {% if not _opensNext %}
-        {% set _opensNext = clinicApiHourValues|first %}
-    {% endif %}
-
-
-    {% if briefText %}
-
-        {% if _isOpen %}
-            <em><strong>Open</strong> - Closes {{ "@end" | t({
-                    '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}</em>
-        {% elseif _opensSoon %}
-            <em><strong>Open</strong> {{ "@start - @end" | t({
-                    '@start': _opensSoon.startTime|date ('g:ia')|trim('m'),
-                    '@end': _opensSoon.endTime|date ('g:ia')|trim('m') }) }}
-            </em>
-        {% elseif _opensNext %}
-            <em>{{ "Opens at @start" | t({
-                    '@start': _opensNext.startTime|date ('g:ia')|trim('m') }) }}</em>
+        {% if not _opensNext %}
+            {% set _opensNext = apiData|first %}
         {% endif %}
+
+        {% if briefText %}
+
+            {% if _isOpen %}
+                <em><strong>Open</strong> - Closes {{ "@end" | t({
+                        '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}</em>
+            {% elseif _opensSoon %}
+                <em><strong>Open</strong> {{ "@start - @end" | t({
+                        '@start': _opensSoon.startTime|date ('g:ia')|trim('m'),
+                        '@end': _opensSoon.endTime|date ('g:ia')|trim('m') }) }}
+                </em>
+            {% elseif _opensNext %}
+                <em>{{ "Opens at @start" | t({
+                        '@start': _opensNext.startTime|date ('g:ia')|trim('m') }) }}</em>
+            {% endif %}
 
     {% else %}
 
-        {%  set icon %} <i class="uw-ico uw-ico-md uwmed-icon__appointment"></i> {% endset %}
+            {% set icon %} <i
+                    class="uw-ico uw-ico-md uwmed-icon__appointment"></i> {% endset %}
 
         {% if _isOpen %}
-            <p class="opens-at">{{ icon }}
-                Open now: <em>{{ "Closes at @end" | t({
-                        '@end': _isOpen.endTime|date ('g:ia') }) }}</em>
-            </p>
+                <p class="opens-at">{{ icon }}
+                    Open now: <em>{{ "Closes at @end" | t({
+                            '@end': _isOpen.endTime|date ('g:ia') }) }}</em>
+                </p>
         {% elseif _opensSoon %}
-            <p class="opens-at">{{ icon }}
-                Opens soon: <em>{{ "@start - @end" | t({
-                        '@start': _opensSoon.startTime|date ('g:ia'),
-                        '@end': _opensSoon.endTime|date ('g:ia') }) }}</em>
-            </p>
-        {% elseif _opensNext %}
-            <p class="opens-at">{{ icon }}
-                Opens soon: <em>{{ "@start - @end" | t({
-                        '@start': _opensNext.startTime|date ('g:ia'),
-                        '@end': _opensNext.endTime|date ('g:ia') }) }}</em>
-            </p>
-        {% endif %}
+                <p class="opens-at">{{ icon }}
+                    Opens soon: <em>{{ "@start - @end" | t({
+                            '@start': _opensSoon.startTime|date ('g:ia'),
+                            '@end': _opensSoon.endTime|date ('g:ia') }) }}</em>
+                </p>
+            {% elseif _opensNext %}
+                <p class="opens-at">{{ icon }}
+                    Opens soon: <em>{{ "@start - @end" | t({
+                            '@start': _opensNext.startTime|date ('g:ia'),
+                            '@end': _opensNext.endTime|date ('g:ia') }) }}</em>
+                </p>
+            {% endif %}
 
-    {% endif %}
+        {% endif %}
+    </span>
 
 {% endmacro %}
 
 
 
 
-{% macro uwHoursTable(apiClinicObject) %}
+{% macro uwHoursTable(apiData, clinicNid = FALSE) %}
 
     {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
-    {% set primaryCareTimes = apiClinicObject.clinicTimeUseMasters[0].hoursOfOperation %}
-    {% set urgentCareTimes = apiClinicObject.clinicTimeUseMasters[1].hoursOfOperation %}
+    {% set primaryCareTimes = apiData.clinicTimeUseMasters[0].hoursOfOperation %}
+    {% set urgentCareTimes = apiData.clinicTimeUseMasters[1].hoursOfOperation %}
 
-    <div class="clinic-hours-wrapper">
+    {% if clinicNid|number_format > 0 %}
+    {% set attr = 'data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"
+        data-uwm-refresh-id="abc-' ~ clinicNid|raw ~'"' %}
+    {% endif %}
+
+    <div class="hours-macro-wrapper fade-out" {{ attr|raw }}>
 
         {% if primaryCareTimes %}
 

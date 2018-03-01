@@ -1101,13 +1101,15 @@
       }
     }
 
-    .clinic__wait-time {
+    .clinic__wait-time, .clinic__clinic-phone {
       padding-left: 22px;
-
-      .fa {
+      .fa, .uw-ico {
         margin-right: 9px;
         margin-left: -20px;
       }
+    }
+    .clinic__wait-time {
+      min-height: 42px;
     }
 
     .clinic__directions {
