@@ -7,6 +7,7 @@ scripts:
   js:
     dist/js/global.js: {}
     dist/js/header-footer.js: {}
+    dist/js/refresh-from.js: {}
 
 bootstrap-scripts:
   js:

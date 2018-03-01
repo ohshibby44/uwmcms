@@ -68,8 +68,11 @@ body {
 }
 
 .fade-out {
-  opacity: 0;
+  opacity: .001;
 }
+.fade-in {
+   opacity: 1;
+ }
 
 
 h2.accent, h3.accent, h4.accent {

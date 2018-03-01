@@ -1,5 +1,23 @@
+{#}
+
+This template is called by a view.
+Show the open hours for a given clinic.
+Sometimes called by AJAX, to prevent showing
+cached hours on a page.
+
+
+{#}
 
 {% set _cli = node.uwmcs_reader_api_values %}
+{% set _clinicNid = node.id %}
+{#{% set _clinicNid = uwm_get_path_nid(_cli.url) %}#}
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
 
-{% include directory ~'/templates/node/node--uwm-clinic.hours.html.twig' %}
+{#{{ devel_breakpoint() }}#}
 
+
+{{ _clinicHours.uwHoursTable(_cli, _clinicNid) }}
+
+{% if _cli.clinicTimeUseMasters[0].hoursOfOperation %}
+    {{ _clinicHours.uwOpensAt(_cli.clinicTimeUseMasters[0].hoursOfOperation, FALSE, _clinicNid) }}
+{% endif %}

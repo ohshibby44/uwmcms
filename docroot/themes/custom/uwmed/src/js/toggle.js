@@ -1,9 +1,26 @@
 /**
- * Scripting for clinic-type nodes.
+ * @file
+ * Toggles classes on elements.
+ *
+ * Use by setting a selector and on and off states for the matched
+ * elements. For example, to toggle ".on" for a list of li's,
+ * and set the clicked element class to ".active", use:
+ *
+ * @example
+ * <div class="uw-more">
+ *     <a href="#"
+ *      data-uwm-toggle
+ *      data-on-text="{{ 'View less'|t }}"
+ *      data-off-text="{{ 'View more'|t }}"
+ *      data-toggle-selector=".some-class > li"
+ *      data-toggle-style="on"
+ *      data-parent-style="active">{{ 'View more'|t }}
+ *          <i class="fa fa-angle-down" aria-hidden="true"></i>
+ *          </a></div>
+ *
  */
 
-
-(function ($, Drupal, drupalSettings) {
+ (function ($, Drupal, drupalSettings) {
 
     'use strict';
 

@@ -23,6 +23,8 @@ class TwigExtension extends \Twig_Extension {
   public function getFunctions() {
     return [
       new \Twig_SimpleFunction('uwm_test_func', [$this, 'testFunction']),
+      new \Twig_SimpleFunction('uwm_get_path_nid', [$this, 'getPathNid']),
+      new \Twig_SimpleFunction('uwm_get_api_nid', [$this, 'getApiPathNid']),
     ];
   }
 
@@ -87,5 +89,42 @@ class TwigExtension extends \Twig_Extension {
   public static function testFilter(string $string) {
     return strtolower($string);
   }
+
+
+  /**
+   * Description text.
+   *
+   * @param string $string
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function getPathNid(string $string) {
+
+    return \Drupal\uwmcs_reader\Controller\UwmMapper
+      ::getNidByPathAlias($string);
+
+  }
+
+
+  /**
+   * Description text.
+   *
+   * @param string $string
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function getApiPathNid(string $string) {
+
+    return \Drupal\uwmcs_reader\Controller\UwmMapper
+      ::getNidByInformationManagerUri($string);
+
+  }
+
+
+
 
 }
