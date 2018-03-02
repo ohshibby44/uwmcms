@@ -7,7 +7,6 @@ scripts:
   js:
     dist/js/global.js: {}
     dist/js/header-footer.js: {}
-    dist/js/refresh-from.js: {}
 
 bootstrap-scripts:
   js:
@@ -57,8 +56,11 @@ font-awesome:
 clinic-hours:
   js:
     //www.clockwisemd.com/hospitals/clockwise_api.js: {}
+    dist/js/refresh-from.js: {}
     dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}
+  dependencies:
+      - core/jquery
 
 googlemaps:
   js:

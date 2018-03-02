@@ -1,23 +1,32 @@
 {#}
 
-This template is called by a view.
-Show the open hours for a given clinic.
-Sometimes called by AJAX, to prevent showing
-cached hours on a page.
+This template is called on some clinic pages via AJAX.
+
+Hours listed on the page are refreshed by this non-cached version.
 
 
 {#}
 
-{% set _cli = node.uwmcs_reader_api_values %}
-{% set _clinicNid = node.id %}
-{#{% set _clinicNid = uwm_get_path_nid(_cli.url) %}#}
-{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as hoursMacro %}
+
+
+{% set clinic = node.uwmcs_reader_api_values %}
+{% set clinicId = node.id %}
+{#{% set clinicId = uwm_get_path_nid(clinic.url) %}#}
 
 {#{{ devel_breakpoint() }}#}
 
 
-{{ _clinicHours.uwHoursTable(_cli, _clinicNid) }}
+{{ hoursMacro.uwHoursTable(clinic, clinicId) }}
 
-{% if _cli.clinicTimeUseMasters[0].hoursOfOperation %}
-    {{ _clinicHours.uwOpensAt(_cli.clinicTimeUseMasters[0].hoursOfOperation, FALSE, _clinicNid) }}
+{% if clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+    {{ hoursMacro.uwOpensAt(clinic.clinicTimeUseMasters[0].hoursOfOperation, FALSE, clinicId) }}
+{% endif %}
+
+
+{% if content.field_clinic_wait_time_snippet.0 is not empty %}
+<div class="fade-out" data-uwm-refresh-id="wait-{{ clinicId }}">
+    <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
+    {{ content.field_clinic_wait_time_snippet.0 }}
+</div>
 {% endif %}

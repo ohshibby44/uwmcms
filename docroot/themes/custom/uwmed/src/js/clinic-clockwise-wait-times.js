@@ -33,8 +33,8 @@
             {i: 1465, u: 'shoreline'},
             {i: 1466, u: 'ballard'},
             {i: 1462, u: 'woodinville'}
-            // {0: 'factoria'},
-            // {0: 'olympia'}
+            // {i: 0, u: 'factoria'},
+            // {i: 0, u: 'olympia'}
         ]
     };
 
@@ -48,30 +48,35 @@
 
             $('[data-uwm-clockwise-snippet]', context).each(function () {
 
-                var title = $(this).attr('data-uwm-clockwise-snippet');
-                var id = getClockwiseIdByName(title);
-                $(this).attr('data-uwm-clockwise-snippet', id);
+                var id = getClockwiseIdByName(
+                    $(this).attr('data-uwm-clockwise-snippet'));
 
-                startClockwiseRepeatingCheck(id);
-
+                if (id > 0) {
+                    $(this).attr('data-uwm-clockwise-snippet', id);
+                    startClockwiseRepeatingCheck(id);
+                }
 
             });
-
 
             // ClockwiseMd.com triggers a jsonp event. When it fires,
             // update element's wait string:
             $('body').on('clockwise_waits_loaded', function (e, data) {
 
-                var clockwiseId = cleanNumber(data);
-                var $elm = $('[data-uwm-clockwise-snippet=' + clockwiseId + ']');
+                var id = cleanNumber(data);
+                var $elm = $('[data-uwm-clockwise-snippet=' + id + ']');
 
-                if ($elm.length && window.Clockwise.Waits[clockwiseId] !== 'undefined') {
+                if ($elm.length && window.Clockwise.Waits[id] !== 'undefined') {
 
-                    var cwResult = window.Clockwise.Waits[clockwiseId].toLowerCase();
+                    var snippet = getClockwiseWaitTime(
+                        window.Clockwise.Waits[id].toLowerCase());
 
-                    $elm.find('.wait-text').html(getClockwiseWaitTime(cwResult));
-                    $elm.find('.wait-link').attr('href', getClockwiseWaitUri(clockwiseId));
-                    $elm.removeClass('fade-out');
+                    if (snippet.length > 0) {
+                        $elm.find('.wait-text').html(snippet);
+                        $elm.find('.wait-link').attr('href', getClockwiseWaitUri(id));
+                        $elm.removeClass('fade-out');
+
+                    }
+
 
                 }
 
@@ -89,7 +94,9 @@
 
     function startClockwiseRepeatingCheck(id) {
 
-        if (!id || typeof window.Clockwise.CurrentWait !== 'function') {return;}
+        if (!id || typeof window.Clockwise.CurrentWait !== 'function') {
+            return;
+        }
 
         // Execute global ClockWise Md callback function:
         window.Clockwise.CurrentWait(id, 'html'); // 'json' : 'html'
@@ -181,7 +188,7 @@
             if (shortFormat) {
                 return minutes + ' mins';
             }
-            return minutes + ' minutes wait';
+            return minutes + ' minute wait';
         }
 
         // 1 hr
@@ -197,7 +204,7 @@
             if (shortFormat) {
                 return hours + ' hr ' + remainder + ' mins';
             }
-            return hours + ' hour ' + remainder + ' minutes wait';
+            return hours + ' hour ' + remainder + ' minute wait';
         }
 
         // 4 hrs
@@ -212,7 +219,7 @@
         if (shortFormat) {
             return hours + ' hrs ' + remainder + ' mins';
         }
-        return hours + ' hours ' + remainder + ' minutes wait';
+        return hours + ' hours ' + remainder + ' minute wait';
 
     }
 
