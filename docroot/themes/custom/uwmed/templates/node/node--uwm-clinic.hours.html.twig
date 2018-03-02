@@ -6,12 +6,15 @@
     {% set _opensSoon = false %}
 
     {% if clinicNid|number_format > 0 %}
-        {% set attr = 'data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"
-        data-uwm-refresh-id="def-' ~ clinicNid ~'"' %}
+        {% set attr =
+        ' data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"' ~
+        ' data-uwm-refresh-id="hours-macro-short-wrapper-' ~ clinicNid|raw ~ '"' ~
+        ' class="fade-out"'
+        %}
     {% endif %}
 
 
-    <span class="hours-macro-wrapper fade-out" {{ attr|raw }}>
+    <span {{ attr|raw }}>
 
     {% for s in apiData %}
 
@@ -102,11 +105,14 @@
     {% set urgentCareTimes = apiData.clinicTimeUseMasters[1].hoursOfOperation %}
 
     {% if clinicNid|number_format > 0 %}
-    {% set attr = 'data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"
-        data-uwm-refresh-id="abc-' ~ clinicNid|raw ~'"' %}
+    {% set attr =
+        ' data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid ~ '"' ~
+        ' data-uwm-refresh-id="hours-macro-wrapper-' ~ clinicNid|raw ~ '"' ~
+        ' class="fade-out"'
+    %}
     {% endif %}
 
-    <div class="hours-macro-wrapper fade-out" {{ attr|raw }}>
+    <div {{ attr|raw }}>
 
         {% if primaryCareTimes %}
 
