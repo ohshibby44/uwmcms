@@ -37,8 +37,8 @@
                     var $replacement = $('[data-uwm-refresh-id=' + refreshSelectorMatch + ']', data);
 
                     if ($replacement.length > 0) {
-                        $replacement.addClass('fade-in');
-                        $target.replaceWith($replacement);
+                        $target.html($replacement.html())
+                            .removeClass('fade-out hidden');
 
                     }
 
