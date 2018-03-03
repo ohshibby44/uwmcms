@@ -96,6 +96,11 @@
   }
 
   .medical-service-hero__links-with-icon {
+
+    &.hidden-lg .links-with-icon__item .btn-default:hover {
+      background: transparent;
+    }
+
     .links-with-icon__item {
       border-bottom: 2px solid white;
       padding: 0;

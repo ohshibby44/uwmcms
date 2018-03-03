@@ -12,18 +12,22 @@ Hours listed on the page are refreshed by this non-cached version.
 
 {% set clinic = node.uwmcs_reader_api_values %}
 {% set clinicId = node.id %}
+{% set clinicHours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
 {#{% set clinicId = uwm_get_path_nid(clinic.url) %}#}
 
 {#{{ devel_breakpoint() }}#}
 
 
-{{ hoursMacro.uwHoursTable(clinic, clinicId) }}
+{{ hoursMacro.uwOpenHoursTable_withRefresh(clinic, clinicId) }}
 
-{% if clinic.clinicTimeUseMasters[0].hoursOfOperation %}
-    {{ hoursMacro.uwOpensAt(clinic.clinicTimeUseMasters[0].hoursOfOperation, FALSE, clinicId) }}
+{% if clinicHours %}
+    {{ hoursMacro.uwOpensNextSnippet_withRefresh(clinicHours, clinicId) }}
 {% endif %}
 
-
+{#
+    For Olympia clinic;
+    It shows wait-time saved as node field:
+#}
 {% if content.field_clinic_wait_time_snippet.0 is not empty %}
 <div class="fade-out" data-uwm-refresh-id="wait-{{ clinicId }}">
     <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
