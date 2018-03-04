@@ -186,12 +186,15 @@ view_mode ? view_mode|clean_class,
                     {% endif %}
 
 
-                    <h4>{{ 'Biography'|t }}</h4>
-                    {{ _bio.fullBio|preg_replace('/<style .*style>/s', '')|striptags('<p><br><a>')|raw }}
+                    {% if _bio.fullBio %}
+                        <h4>{{ 'Biography'|t }}</h4>
+                        {{ _bio.fullBio|uwm_replace_markup|check_markup('basic_html') }}
+                        {#|preg_replace('/<style .*style>/s', '')|striptags('<p><br><a>')|raw }}#}
+                    {% endif %}
 
                     {% if _bio.personalInterests %}
                         <h4>{{ 'Personal Interests'|t }}</h4>
-                        {{ _bio.personalInterests|raw }}
+                        {{ _bio.personalInterests|uwm_replace_markup|check_markup('basic_html') }}
                     {% endif %}
 
                 </div>

@@ -46,6 +46,9 @@ class TwigExtension extends \Twig_Extension {
   public function getFilters() {
     return [
       new \Twig_SimpleFilter('uwm_test_filter', [$this, 'testFilter']),
+      new \Twig_SimpleFilter('uwm_replace_markup', [$this, 'convertInlineStyles']),
+      new \Twig_SimpleFilter('uwm_join_parts', [$this, 'joinArray']),
+      new \Twig_SimpleFilter('uwm_format_phone', [$this, 'formatPhone']),
 
     ];
   }
@@ -120,6 +123,104 @@ class TwigExtension extends \Twig_Extension {
 
     return UwmMapper::getNidByInformationManagerUri($string);
 
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $string
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function convertInlineStyles(string $string) {
+
+    $patterns = [
+      '/style="[^"]?italic[^>]+>([^<]+)/',
+      '/style="[^"]?bold[^>]+>([^<]+)/',
+    ];
+
+    $replacements = [
+      '<em>$1</em>',
+      '<strong>$1</strong>',
+    ];
+
+    return preg_replace($patterns, $replacements, $string);
+
+  }
+
+  /**
+   * Description text.
+   *
+   * @param array $parts
+   *   Description text.
+   * @param string $separator
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function joinArray(array $parts = NULL, string $separator = '') {
+
+    $cleanArr = [];
+
+    foreach ($parts as $part) {
+      $cleanPart = trim(
+        preg_replace('/\s+/', ' ', $part)
+      );
+      if (!empty($cleanPart)) {
+        $cleanArr[] = $cleanPart;
+      }
+    }
+
+    return implode($separator, $parts);
+
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $phone
+   *   Description text.
+   * @param string $separator
+   *   Description text.
+   *
+   * @return null|string
+   *   Description text.
+   */
+  public static function formatPhone(string $phone = NULL, string $separator = '-') {
+
+    $digits = preg_replace('/[^0-9]/', '', $phone);
+
+    if (strlen($digits) > 10) {
+      return implode(
+        [
+          substr($digits, 0, strlen($digits) - 10),
+          '(' . substr($digits, -10, 3) . ')',
+          substr($digits, -7, 3),
+          substr($digits, -4, 4),
+        ], $separator);
+
+    }
+    elseif (strlen($digits) == 10) {
+      return implode(
+        [
+          substr($digits, 0, 3),
+          substr($digits, 3, 3),
+          substr($digits, 6, 4),
+        ], $separator);
+
+    }
+    elseif (strlen($digits) == 7) {
+      return implode(
+        [
+          substr($digits, 0, 3),
+          substr($digits, 3, 4),
+        ], $separator);
+    }
+
+    return NULL;
   }
 
 }
