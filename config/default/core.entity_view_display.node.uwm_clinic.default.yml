@@ -113,5 +113,7 @@ content:
   workbench_moderation_control:
     weight: -20
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_information_manager_url: true
