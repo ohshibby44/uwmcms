@@ -17,6 +17,12 @@
         {#{{ devel_breakpoint() }}#}
 
         {% for clinic in urgent_care_clinics %}
+
+            {% set address = [
+            clinic.address,
+            clinic.city ~ ' '~  clinic.state  ~ ', '~  clinic.zipcode
+            ] | uwm_join_parts(', ') %}
+
             <div class="clinic col-lg-3 col-md-4 col-sm-6">
                 <img class="clinic__image img img-responsive"
                      src="{{ clinic.image_url | image_style('large') }}"
@@ -26,15 +32,12 @@
                                 href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
                     </h3>
                     <address class="f-li"><i
-                                class="uw-ico clinic_locations"></i>{{ clinic.address }}
-                        , {{ clinic.city }}
-                        , {{ clinic.state }} {{ clinic.zipcode }}</address>
+                                class="uw-ico clinic_locations"></i>
+                        {{ address }}</address>
                     <p class="clinic__clinic-phone f-li">
                         <i class="uw-ico call_solid"></i>
-                        {% set phone = clinic.seoPhone|slice(0, 3)
-                        ~'-'~ clinic.seoPhone|slice(3, 3)
-                        ~'-'~ clinic.seoPhone|slice(6, 4) %}
-                        <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                        <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
+                            {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
 
                     </p>
                     {#
@@ -42,12 +45,12 @@
                       The Olympia clinic has a custom wait-time;
                       fetch clinics' wait-time field here:
                     #}
-                    {% set path = clinic.clinicUrl|replace({'urgent': 'primary'}) %}
-                    {% set clinicId = uwm_get_path_nid(path) %}
-                    {% if clinicId %}
+                    {% set p = clinic.clinicUrl|replace({'urgent': 'primary'}) %}
+                    {% set nid = uwm_get_path_nid(p) %}
+                    {% if nid %}
                         {% set attr = '
-                            data-uwm-refresh-from="/locations/location-hours/'~ clinicId ~'"
-                            data-uwm-refresh-id="wait-'~ clinicId ~'"' %}
+                            data-uwm-refresh-from="/locations/location-hours/'~ nid ~'"
+                            data-uwm-refresh-id="wait-'~ nid ~'"' %}
                     {% endif %}
                     <p class="clinic__wait-time fade-out f-li"
                        data-uwm-clockwise-snippet="{{ clinic.clinicName }}"

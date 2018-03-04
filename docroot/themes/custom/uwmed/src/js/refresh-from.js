@@ -6,7 +6,7 @@
  * from another page. An example is below, where we refresh contents of
  * the "test-example-123" by replacing it from the same div found
  * at "/views/no-cache-content/123".
- *
+ *==-
  * @example
  * <div data-uwm-refresh-from=
  *      "/views/no-cache-content/123"

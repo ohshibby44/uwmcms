@@ -40,9 +40,10 @@
             </div>
 
             <div class="col-xs-7 pull-right location-hours k">
-                {% set clinicNid = uwm_get_api_nid(clinic.url) %}
-                {% if clinic.clinicTimeUseMasters[0].hoursOfOperation and clinicNid %}
-                {{ _clinicHours.uwOpensAt(clinic.clinicTimeUseMasters[0].hoursOfOperation, FALSE, clinicNid) }}
+                {% set nid = uwm_get_api_nid(clinic.url) %}
+                {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+                {% if hours and nid %}
+                {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
                 {% endif %}
             </div>
 
