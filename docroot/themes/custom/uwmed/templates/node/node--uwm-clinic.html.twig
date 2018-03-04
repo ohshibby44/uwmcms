@@ -20,7 +20,7 @@ view_mode ? view_mode|clean_class,
 {% set address = [ _cli.address,
     _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
     ]|uwm_join_parts(', ') %}
-<pre>{{ dump(_cli) }}</pre>
+{#<pre>{{ dump(_cli) }}</pre>#}
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 {#<pre>#}
