@@ -31,8 +31,6 @@ body {
           padding-bottom: 0;
         }
 
-
-
       }
 
     }
@@ -68,12 +66,12 @@ body {
 }
 
 .fade-out, .fade-out p {
-  opacity: 0;
+  opacity: .05;
 }
-.fade-in, .fade-in p {
-   opacity: 1;
- }
 
+.fade-in, .fade-in p {
+  opacity: 1;
+}
 
 h2.accent, h3.accent, h4.accent {
   @include uw-bottom-accent-heading($uwmed-accent-blue);
