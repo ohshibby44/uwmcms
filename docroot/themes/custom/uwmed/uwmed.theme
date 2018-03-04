@@ -31,7 +31,6 @@ function uwmed_preprocess_region(&$variables) {
  * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
-
 }
 
 /**

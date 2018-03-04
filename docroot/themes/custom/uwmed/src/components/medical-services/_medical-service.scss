@@ -96,6 +96,11 @@
   }
 
   .medical-service-hero__links-with-icon {
+
+    &.hidden-lg .links-with-icon__item .btn-default:hover {
+      background: transparent;
+    }
+
     .links-with-icon__item {
       border-bottom: 2px solid white;
       padding: 0;
@@ -1086,28 +1091,38 @@
       padding: 15px;
     }
 
-    address {
+    .f-li {
       padding-left: 22px;
+      .fa, .uw-ico {
+        margin-right: 9px;
+        margin-left: -20px;
+      }
+    }
+
+    address {
+      //padding-left: 22px;
 
       @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
         min-height: 38px;
       }
 
-      .uw-ico {
-        background-color: #F5F5F5;
-        height: 20px;
-        margin-left: -22px;
-        margin-right: 8px
-      }
+      //.uw-ico {
+      //  background-color: #F5F5F5;
+      //  height: 20px;
+      //  margin-left: -22px;
+      //  margin-right: 8px
+      //}
     }
 
+    //.clinic__wait-time, .clinic__clinic-phone {
+    //  padding-left: 22px;
+    //  .fa, .uw-ico {
+    //    margin-right: 9px;
+    //    margin-left: -20px;
+    //  }
+    //}
     .clinic__wait-time {
-      padding-left: 22px;
-
-      .fa {
-        margin-right: 9px;
-        margin-left: -20px;
-      }
+      min-height: 42px;
     }
 
     .clinic__directions {

@@ -1,4 +1,6 @@
 {{ attach_library('uwmed/clinic-hours') }}
+
+
 {% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
 
 
@@ -38,8 +40,10 @@
             </div>
 
             <div class="col-xs-7 pull-right location-hours k">
-                {% if clinic.clinicTimeUseMasters[0].hoursOfOperation %}
-                {{ _clinicHours.uwOpensAt(clinic.clinicTimeUseMasters[0].hoursOfOperation, FALSE) }}
+                {% set nid = uwm_get_api_nid(clinic.url) %}
+                {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+                {% if hours and nid %}
+                {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
                 {% endif %}
             </div>
 

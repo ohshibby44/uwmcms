@@ -2,8 +2,6 @@
 
 namespace Drupal\uwmcs_reader\Controller;
 
-use Drupal\node\Entity\Node;
-
 /**
  * Controller connects API fields to Drupal fields.
  */
@@ -37,18 +35,69 @@ class UwmMapper {
 
     }
 
-    if (empty($node) && !empty($nodePathAlias)) {
+  }
 
-      $path = \Drupal::service('path.alias_manager')
-        ->getPathByAlias($nodePathAlias);
-      if (preg_match('/node\/(\d+)/', $path, $matches)) {
+  /**
+   * Find a node Id based on it's URL path.
+   *
+   * @code
+   * \Drupal\uwmcs_reader\Controller\UwmMapper
+   *   ::getNidByPathAlias('/locations/urgent-care-federal-way/');
+   * @endcode
+   *
+   * @param string $pathAlias
+   *   Value in node page's URL PATH SETTINGS.
+   *
+   * @return int|null
+   *   Node id, if found.
+   */
+  public static function getNidByPathAlias(string $pathAlias) {
 
-        return Node::load($matches[1]);
+    $alias = '/' . trim($pathAlias, ' \/');
+    $path = \Drupal::service('path.alias_manager')
+      ->getPathByAlias($alias);
+    if (preg_match('/node\/(\d+)/', $path, $matches)) {
 
-      }
+      // Return Node::load($matches[1]);.
+      return $matches[1];
 
     }
 
+  }
+
+  /**
+   * Find a node Id based on IM-API address.
+   *
+   * This value is stored on nodes and corresponds
+   * to Information Manager endpoint having data for
+   * clinic, provider, expertise, etc.
+   *
+   * @code
+   * \Drupal\uwmcs_reader\Controller\UwmMapper
+   *   ::getNidByInformationManagerUri('api/clinic/7664');
+   * @endcode
+   *
+   * @param string $informationManagerUri
+   *   Trailing portion of Information Manager endpoint,
+   *   having this node's data.
+   *
+   * @return int|null
+   *   Node id, if found.
+   */
+  public static function getNidByInformationManagerUri(string $informationManagerUri) {
+
+    $apiPath = parse_url($informationManagerUri, PHP_URL_PATH);
+    $query = \Drupal::entityQuery('node')
+      // ->condition('status', 1)
+      ->condition('field_information_manager_url', $apiPath, 'ENDS_WITH');
+    $nids = $query->execute();
+
+    if (!empty($nids) && is_array($nids)) {
+      $values = array_values($nids);
+      return array_shift($values);
+    }
+
+    // $node = entity_load('node', $nids[1]);.
   }
 
 }

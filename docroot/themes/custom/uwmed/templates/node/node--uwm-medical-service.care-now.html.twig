@@ -1,64 +1,103 @@
-
 {{ attach_library('uwmed/clinic-hours') }}
 
 
 <div class="container">
-  <div class="row">
-<div class="col-xs-12">
-    <h2>Urgent Care and Virtual Clinic &mdash; help when and where you need it.</h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Urgent Care and Virtual Clinic &mdash; help when and where you
+                need it.</h2>
 
-    <p class="care-now__intro">Can't get in for a same-day appointment? UW Medicine urgent care clinics are open for walk-ins 7 days a week with locations throughout the Puget Sound region. Virtual Clinic is available online 24/7.</p>
-</div>
-  </div>
+            <p class="care-now__intro">Can't get in for a same-day appointment?
+                UW Medicine urgent care clinics are open for walk-ins 7 days a
+                week with locations throughout the Puget Sound region. Virtual
+                Clinic is available online 24/7.</p>
+        </div>
+    </div>
     <div class="row">
         {#{{ devel_breakpoint() }}#}
 
-  {% for clinic in urgent_care_clinics %}
-    <div class="clinic col-lg-3 col-md-4 col-sm-6">
-      <img class="clinic__image img img-responsive" src="{{ clinic.image_url | image_style('large')  }}" alt="" />
-      <div class="clinic__info">
-        <h3 class="clinic__name h4"><a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a></h3>
-        <address><i class="uw-ico uw-ico-md clinic_locations"></i>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}</address>
-        <p class="clinic__clinic-phone">
-              <i class="uw-ico uw-ico-md call_solid"></i>
-                {% set phone = clinic.seoPhone|slice(0, 3)
-                ~'-'~ clinic.seoPhone|slice(3, 3)
-                ~'-'~ clinic.seoPhone|slice(6, 4) %}
-              <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+        {% for clinic in urgent_care_clinics %}
 
-        </p>
-        <p class="clinic__wait-time fade-out" data-uwm-clockwise-snippet="{{ clinic.clinicName }}">
-          <i class="fa fa-clock-o" aria-hidden="true"></i><span class="wait-text"></span>. <a class="wait-link">Get in line</a>.
-        </p>
-        <p class="clinic__directions"><a class="btn btn-default" href="https://www.google.com/maps/place/{{ clinic.clinicName | replace(" ", "+") }}">
-            <i class="hidden u-ips"></i>
-            {{ 'Directions'|t }}</a></p>
-      </div>
+            {% set address = [
+            clinic.address,
+            clinic.city ~ ' '~  clinic.state  ~ ', '~  clinic.zipcode
+            ] | uwm_join_parts(', ') %}
+
+            <div class="clinic col-lg-3 col-md-4 col-sm-6">
+                <img class="clinic__image img img-responsive"
+                     src="{{ clinic.image_url | image_style('large') }}"
+                     alt=""/>
+                <div class="clinic__info">
+                    <h3 class="clinic__name h4"><a
+                                href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
+                    </h3>
+                    <address class="f-li"><i
+                                class="uw-ico clinic_locations"></i>
+                        {{ address }}</address>
+                    <p class="clinic__clinic-phone f-li">
+                        <i class="uw-ico call_solid"></i>
+                        <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
+                            {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
+
+                    </p>
+                    {#
+                        @TODO: Remove after 4/1 Olympia ClockWise go-live.
+                      The Olympia clinic has a custom wait-time;
+                      fetch clinics' wait-time field here:
+                    #}
+                    {% set p = clinic.clinicUrl|replace({'urgent': 'primary'}) %}
+                    {% set nid = uwm_get_path_nid(p) %}
+                    {% if nid %}
+                        {% set attr = '
+                            data-uwm-refresh-from="/locations/location-hours/'~ nid ~'"
+                            data-uwm-refresh-id="wait-'~ nid ~'"' %}
+                    {% endif %}
+                    <p class="clinic__wait-time fade-out f-li"
+                       data-uwm-clockwise-snippet="{{ clinic.clinicName }}"
+                       {{ attr|raw }}
+                    >
+                        <i class="uw-ico uwmed-icon__appointment"
+                           aria-hidden="true"></i>
+                        <span class="wait-text"></span>. <a class="wait-link">Get
+                            in line</a>.
+                    </p>
+                    <p class="clinic__directions">
+                        <a class="btn btn-default"
+                           href="https://www.google.com/maps/place/{{ clinic.clinicName | replace(" ", "+") }}">
+                            <i class="hidden u-ips"></i>
+                            {{ 'Directions'|t }}</a></p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-  {% endfor %}
-  </div>
 </div>
 
 
-<div class="virtual-clinic col-xs-12" style="background-image: url('{{ file_url("/themes/custom/uwmed/dist/assets/virtual-clinic-woman-laptop.jpg") }}'); background-position: center;">
-  <div class="container-lg">
-    <div class="row">
-      <div class="virtual-clinic__title col-md-offset-6 col-md-6">
-        <h2 class="h3">Virtual Clinic</h2>
-        <span class="uwmed-slant"><span></span></span>
-      </div>
-      <div class="virtual-clinic__content col-md-offset-6 col-md-6">
-        <p class="h2">UW Medicine Virtual Clinic</p>
-        <p class="virtual-clinic__subheading">
-          Prescriptions and on-call care, available day and night, from the comfort of your breakfast table to the edge of the bunk bed. No appointments necessary, no hidden fees, some insurance accepted.
-        </p>
-        <p class="h4">$35 per visit</p>
-        <p class="virtual-clinic__cta"><a class="virtual-clinic__link btn btn-default" href="/locations/virtual-clinic">
-          <i class="hidden u-ips"></i>
-          {{ 'Get Care Now'|t }}
-        </a></p>
-      </div>
-    </div>
+<div class="virtual-clinic col-xs-12"
+     style="background-image: url('{{ file_url("/themes/custom/uwmed/dist/assets/virtual-clinic-woman-laptop.jpg") }}'); background-position: center;">
+    <div class="container-lg">
+        <div class="row">
+            <div class="virtual-clinic__title col-md-offset-6 col-md-6">
+                <h2 class="h3">Virtual Clinic</h2>
+                <span class="uwmed-slant"><span></span></span>
+            </div>
+            <div class="virtual-clinic__content col-md-offset-6 col-md-6">
+                <p class="h2">UW Medicine Virtual Clinic</p>
+                <p class="virtual-clinic__subheading">
+                    Prescriptions and on-call care, available day and night,
+                    from the comfort of your breakfast table to the edge of the
+                    bunk bed. No appointments necessary, no hidden fees, some
+                    insurance accepted.
+                </p>
+                <p class="h4">$35 per visit</p>
+                <p class="virtual-clinic__cta"><a
+                            class="virtual-clinic__link btn btn-default"
+                            href="/locations/virtual-clinic">
+                        <i class="hidden u-ips"></i>
+                        {{ 'Get Care Now'|t }}
+                    </a></p>
+            </div>
+        </div>
 
-  </div>
+    </div>
 </div>

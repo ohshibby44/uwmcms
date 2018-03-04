@@ -67,9 +67,12 @@ body {
   @extend .visible-xs-block;
 }
 
-.fade-out {
+.fade-out, .fade-out p {
   opacity: 0;
 }
+.fade-in, .fade-in p {
+   opacity: 1;
+ }
 
 
 h2.accent, h3.accent, h4.accent {
