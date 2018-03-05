@@ -97,8 +97,10 @@
 
   .medical-service-hero__links-with-icon {
 
-    &.hidden-lg .links-with-icon__item .btn-default:hover {
-      background: transparent;
+    &.hidden-lg .links-with-icon__item .btn-default {
+      &:hover, &:focus, &:active {
+        background: $uwmed-accent-tan;
+      }
     }
 
     .links-with-icon__item {
