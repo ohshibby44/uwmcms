@@ -22,7 +22,7 @@
             </h4>
 
             <address class="col-xs-7 pull-right location-address k">
-                <i class="uw-ico uw-ico-md clinic_locations"></i>
+                <i class="uw-ico clinic_locations"></i>
                 {{ clinic.address }}
                 {{ clinic.city }},
                 {{ clinic.state }}
@@ -30,14 +30,21 @@
             </address>
 
             <div class="col-xs-7 pull-right location-phone k">
-              {% if clinic.seoPhone %}
-                <i class="uw-ico uw-ico-md call_solid"></i>
-                {% set phone = clinic.seoPhone|slice(0, 3)
-                ~'-'~ clinic.seoPhone|slice(3, 3)
-                ~'-'~ clinic.seoPhone|slice(6, 4) %}
-                <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
-              {% endif %}
+                {% if clinic.seoPhone %}
+                    <i class="uw-ico call_solid"></i>
+                    {% set phone = clinic.seoPhone|slice(0, 3)
+                    ~'-'~ clinic.seoPhone|slice(3, 3)
+                    ~'-'~ clinic.seoPhone|slice(6, 4) %}
+                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                {% endif %}
             </div>
+            {##}
+            {#<div class="col-xs-7 pull-right location-phone k">#}
+                {#{% if clinic.expertises %}#}
+                    {#<i class="uw-ico checkmark"></i>#}
+                    {#{{ uwm_extract_parts(clinic.expertises, 'expertiseName')|slice(0, 4)|uwm_join_parts(', ') }}#}
+                {#{% endif %}#}
+            {#</div>#}
 
             <div class="col-xs-7 pull-right location-hours k">
                 {% set nid = uwm_get_api_nid(clinic.url) %}
