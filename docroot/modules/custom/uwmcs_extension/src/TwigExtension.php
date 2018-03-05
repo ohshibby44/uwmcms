@@ -137,13 +137,13 @@ class TwigExtension extends \Twig_Extension {
   public static function convertInlineStyles(string $string) {
 
     $patterns = [
-      '/style="[^"]?italic[^>]+>([^<]+)/',
-      '/style="[^"]?bold[^>]+>([^<]+)/',
+      '/(style="[^"]?italic[^>]+>)([^<]+)/',
+      '/(style="[^"]?bold[^>]+>)([^<]+)/',
     ];
 
     $replacements = [
-      '<em>$1</em>',
-      '<strong>$1</strong>',
+      '$1<em>$2</em>',
+      '$1<strong>$2</strong>',
     ];
 
     return preg_replace($patterns, $replacements, $string);
