@@ -69,6 +69,7 @@
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
 {% set wrapper_classes = wrapper_classes ?: ['field', 'field--name-' ~ field_name|clean_class] %}
+{% set wrapper_id = wrapper_id ?: '' %}
 {% set item_element = item_element ?: 'div' %}
 {% set item_classes = item_classes ? item_classes %}
 {% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
@@ -78,7 +79,7 @@
 {% block content %}
 
     {% if include_wrapper == 'true' %}
-        <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}>
+        <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}{% if wrapper_id %}{{ attributes.setAttribute('id', wrapper_id)}}{% endif %}>
     {% endif %}
 
     {% if not label_hidden %}

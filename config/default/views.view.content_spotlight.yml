@@ -177,7 +177,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<h3 class="h2">Your daily download from the world of UW Medicine</h3>'
+            value: '<h3 class="h2">Your daily download from the world of UW Medicine.</h3>'
             format: basic_html
           plugin_id: text
     cache_metadata:
