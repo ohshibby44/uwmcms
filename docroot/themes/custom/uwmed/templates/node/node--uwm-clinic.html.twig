@@ -33,8 +33,8 @@ view_mode ? view_mode|clean_class,
 {#</pre>#}
 
     <section class="clinic-header">
-        <div class="row">
-            <div class="container">
+        <div class="container-lg">
+            <div class="row">
                 <div class="visible-xs-block m-head">
 
                     <div class="col-xs-12 remove-padding m-image">
@@ -160,7 +160,7 @@ view_mode ? view_mode|clean_class,
 
     <section class="clinic-tabs">
     <div class="row">
-        <div class="container">
+        <div class="container-lg">
             <ul class="nav nav-tabs uwm-nav-tabs col-xs-12" id="myTabs" role="tablist">
                 <li role="presentation" class="active"><a href="#main-tab"
                                                           role="tab"
@@ -214,39 +214,41 @@ view_mode ? view_mode|clean_class,
                 <a name="main" id="main"></a>
 
                 <section class="services uwm-toggle">
-                    <div class="container">
-                        <div class="col-xs-12">
-                            <h3 class="accent">Services</h3>
-                          {% if _cli.clinicTimeUseMasters[1].hoursOfOperation %}
-                              <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
-                          {% else %}
-                              <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
-                          {% endif %}
+                    <div class="container-lg">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3 class="accent">Services</h3>
+                              {% if _cli.clinicTimeUseMasters[1].hoursOfOperation %}
+                                  <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+                              {% else %}
+                                  <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
+                              {% endif %}
 
-                            <ul class="expt">
+                                <ul class="expt">
 
-                              {% for s in _cli.expertises %}
-                                  <li><i class="uw-ico checkmark"
-                                         aria-hidden="true"></i>
-                                    {{ s.expertiseName|t }}</li>
-                              {% endfor %}
+                                  {% for s in _cli.expertises %}
+                                      <li><i class="uw-ico checkmark"
+                                             aria-hidden="true"></i>
+                                        {{ s.expertiseName|t }}</li>
+                                  {% endfor %}
 
-                            </ul>
-
-
-                          {% if _cli.expertises|length > 4 %}
-                              <div class="uw-more">
-                                  <a href="#" data-uwm-toggle
-                                     data-on-text="{{ 'View less'|t }}"
-                                     data-off-text="{{ 'View more'|t }}"
-                                     data-toggle-selector=".services li"
-                                     data-toggle-style="on"
-                                     data-parent-style="on">{{ 'View more'|t }} <i
-                                        class="fa fa-angle-down"
-                                        aria-hidden="true"></i></a></div>
+                                </ul>
 
 
-                          {% endif %}
+                              {% if _cli.expertises|length > 4 %}
+                                  <div class="uw-more">
+                                      <a href="#" data-uwm-toggle
+                                         data-on-text="{{ 'View less'|t }}"
+                                         data-off-text="{{ 'View more'|t }}"
+                                         data-toggle-selector=".services li"
+                                         data-toggle-style="on"
+                                         data-parent-style="on">{{ 'View more'|t }} <i
+                                            class="fa fa-angle-down"
+                                            aria-hidden="true"></i></a></div>
+
+
+                              {% endif %}
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -254,13 +256,15 @@ view_mode ? view_mode|clean_class,
                 {% if content.field_content_blocks |render is not empty %}
                     <section class="clinic-paragraphs">
                         <div class="bg"></div>
-                            <div class="container">
-                                <div class="col-xs-12">
-                                  {% if content.field_content_blocks_heading|render is not empty %}
-                                      <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
-                                  {% endif %}
+                            <div class="container-lg">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                      {% if content.field_content_blocks_heading|render is not empty %}
+                                          <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
+                                      {% endif %}
 
-                                  {{ content.field_content_blocks }}
+                                      {{ content.field_content_blocks }}
+                                    </div>
                                 </div>
                             </div>
                     </section>
@@ -269,13 +273,15 @@ view_mode ? view_mode|clean_class,
                 {% if content.body |render is not empty %}
 
                     <section class="clinic-body">
-                        <div class="container">
-                            <div class="col-xs-12">
-                                <h3 id="clinic-overview-jump" class="accent">{{ "Clinic Overview"|t }}</h3>
+                        <div class="container-lg">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3 id="clinic-overview-jump" class="accent">{{ "Clinic Overview"|t }}</h3>
 
-                                <div{{ content_attributes.addClass('content') }}>
-                                    {{ content.body }}
-                                    {#{{ content }}#}
+                                    <div{{ content_attributes.addClass('content') }}>
+                                      {{ content.body }}
+                                      {#{{ content }}#}
+                                    </div>
                                 </div>
                             </div>
                         </div>
