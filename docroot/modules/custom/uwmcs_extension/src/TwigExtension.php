@@ -24,9 +24,15 @@ class TwigExtension extends \Twig_Extension {
    */
   public function getFunctions() {
     return [
-      new \Twig_SimpleFunction('uwm_test_func', [$this, 'testFunction']),
-      new \Twig_SimpleFunction('uwm_get_path_nid', [$this, 'getPathNid']),
-      new \Twig_SimpleFunction('uwm_get_api_nid', [$this, 'getApiPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_test_func', [$this, 'testFunction']),
+      new \Twig_SimpleFunction(
+        'uwm_get_path_nid', [$this, 'getPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_get_api_nid', [$this, 'getApiPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_extract_parts', [$this, 'extractArrayValues']),
+
     ];
   }
 
@@ -45,10 +51,14 @@ class TwigExtension extends \Twig_Extension {
    */
   public function getFilters() {
     return [
-      new \Twig_SimpleFilter('uwm_test_filter', [$this, 'testFilter']),
-      new \Twig_SimpleFilter('uwm_replace_markup', [$this, 'convertInlineStyles']),
-      new \Twig_SimpleFilter('uwm_join_parts', [$this, 'joinArray']),
-      new \Twig_SimpleFilter('uwm_format_phone', [$this, 'formatPhone']),
+      new \Twig_SimpleFilter(
+        'uwm_test_filter', [$this, 'testFilter']),
+      new \Twig_SimpleFilter(
+        'uwm_replace_markup', [$this, 'convertInlineStyles']),
+      new \Twig_SimpleFilter(
+        'uwm_join_parts', [$this, 'joinArray']),
+      new \Twig_SimpleFilter(
+        'uwm_format_phone', [$this, 'formatPhone']),
 
     ];
   }
@@ -137,13 +147,13 @@ class TwigExtension extends \Twig_Extension {
   public static function convertInlineStyles(string $string) {
 
     $patterns = [
-      '/style="[^"]?italic[^>]+>([^<]+)/',
-      '/style="[^"]?bold[^>]+>([^<]+)/',
+      '/(style="[^"]?italic[^>]+>)([^<]+)/',
+      '/(style="[^"]?bold[^>]+>)([^<]+)/',
     ];
 
     $replacements = [
-      '<em>$1</em>',
-      '<strong>$1</strong>',
+      '$1<em>$2</em>',
+      '$1<strong>$2</strong>',
     ];
 
     return preg_replace($patterns, $replacements, $string);
@@ -161,7 +171,7 @@ class TwigExtension extends \Twig_Extension {
    * @return string
    *   Description text.
    */
-  public static function joinArray(array $parts = NULL, string $separator = '') {
+  public static function joinArray(array $parts = NULL, string $separator = ', ') {
 
     $cleanArr = [];
 
