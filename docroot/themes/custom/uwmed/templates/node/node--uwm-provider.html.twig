@@ -189,7 +189,8 @@ view_mode ? view_mode|clean_class,
 
                     {% if _bio.fullBio %}
                         <h4>{{ 'Biography'|t }}</h4>
-                        {{ _bio.fullBio|uwm_replace_markup|check_markup('basic_html') }}
+                        {{ _bio.fullBio|uwm_replace_markup|striptags('<p><br><a>')|raw }}
+                        {#{{ _bio.fullBio|uwm_replace_markup|check_markup('basic_html') }}#}
                         {#|preg_replace('/<style .*style>/s', '')|striptags('<p><br><a>')|raw }}#}
                     {% endif %}
 
