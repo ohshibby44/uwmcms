@@ -130,6 +130,10 @@ aside section.block {
       &:hover {
         &::after {
           transform: scaleX(1);
+
+          @media(hover: none) {
+            transition-duration: 0s;
+          }
         }
       }
     }
