@@ -149,11 +149,13 @@ class TwigExtension extends \Twig_Extension {
     $patterns = [
       '/(style="[^"]?italic[^>]+>)([^<]+)/',
       '/(style="[^"]?bold[^>]+>)([^<]+)/',
+      '/<style .*style>/s',
     ];
 
     $replacements = [
       '$1<em>$2</em>',
       '$1<strong>$2</strong>',
+      '',
     ];
 
     return preg_replace($patterns, $replacements, $string);
