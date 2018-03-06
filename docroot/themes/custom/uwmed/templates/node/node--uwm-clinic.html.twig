@@ -102,45 +102,6 @@ view_mode ? view_mode|clean_class,
                     {% set _c = "hidden" %}
                   {% endif %}
 
-
-                <div class="col-sm-5 col-md-4 left">
-
-                    <div class="col-xs-12 hidden-xs clinic-image remove-padding">
-                      {{ content.field_clinic_image }}
-                    </div>
-
-                    <div class="col-xs-12 l ll">
-
-                        <a href="#directions-jump">
-                          {{ 'Driving Directions'|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="col-xs-12 l">
-
-                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="col-xs-12 l">
-
-                        <a href="#clinic-overview-jump">{{ "Clinic Overview"|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                  {% set _c = "" %}
-                  {% if content.field_clinic_wait_time_snippet|render is empty %}
-                    {% set _c = "fade-out" %}
-                  {% elseif 'none' in content.field_clinic_wait_time_snippet|render|render %}
-                    {% set _c = "hidden" %}
-                  {% endif %}
-
                     <div class="col-xs-12 get-in-line {{ _c }}"  data-uwm-clockwise-snippet="{{ _cli.clinicName }}">
                         <h4>{{ "Urgent Care"|t }}
                             <a href="/patient-care/making-an-appointment" class="wait-link">Get in line<i
