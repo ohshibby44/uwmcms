@@ -210,7 +210,7 @@ body.page-node-type-uwm-clinic {
             text-decoration: none;
           }
           small.tel, small.tel a {
-            color: $uwmed-medium-gray;
+            color: $uwmed-body-text-color;
 
           }
           small.tel a:hover {
@@ -231,29 +231,31 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-tabs {
 
+        border-top: 1px solid #dcdcdc;
+
         > .row {
 
+          height: 69px;
           margin-top: -69px;
 
           @media(min-width: $screen-sm-min) {
+            height: 50px;
             margin-top: -50px;
           }
         }
 
         ul.uwm-nav-tabs {
+          border: 0 none;
           .uw-ico {
             display: none;
           }
-
-          border-bottom: 1px solid #dcdcdc;
 
         }
 
         div.uwm-tab-content {
           min-height: 200px;
-          border: 0 none;
-          //padding: 12px 0;
 
+          //padding: 12px 0;
 
           // sub nav-tabs
           ul.nav-tabs {
@@ -313,7 +315,7 @@ body.page-node-type-uwm-clinic {
               &.odd {
                 border-right-color: transparent;
               }
-              &.loop-last, &.loop-last-1 {
+              &.loop-last, &.even.loop-last-1 {
                 border-bottom-color: transparent;
               }
               .wrapper {
@@ -422,8 +424,6 @@ body.page-node-type-uwm-clinic {
           }
 
         }
-
-
 
       }
 

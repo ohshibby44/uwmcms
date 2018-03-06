@@ -33,7 +33,7 @@
             loop.last ? 'loop-last' : '',
             loop.index == loop.length-1 ? 'loop-last-1' : '' ] %}
 
-        <div class="provider col-xs-12 col-sm-6 {{ loopClasses|join(' ') }}">
+        <div class="provider col-xs-12 col-sm-6 {{ loopClasses|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 

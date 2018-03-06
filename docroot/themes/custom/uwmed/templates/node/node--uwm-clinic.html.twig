@@ -18,32 +18,35 @@ view_mode ? view_mode|clean_class,
 {% set _cli = node.uwmcs_reader_api_values %}
 
 {% set address = [ _cli.address,
-    _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
-    ]|uwm_join_parts(', ') %}
+_cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
+]|uwm_join_parts(', ') %}
 
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
-{#<pre>#}
+    {#<pre>#}
 
     {#{{ 'abc DEF 123'|uwm_test_filter }}#}
     {#{{ classes|join|uwm_test_filter('<br/>') }}#}
     {#{{ 'abc DEF 123'|check_markup }}#}
     {#{{ uwm_test_func(true) }}#}
 
-{#</pre>#}
+    {#</pre>#}
 
     <section class="clinic-header">
+
         <div class="container-lg">
+
             <div class="row">
+
                 <div class="visible-xs-block m-head">
 
                     <div class="col-xs-12 remove-padding m-image">
-                      {{ content.field_clinic_image }}
+                        {{ content.field_clinic_image }}
                         <h1{{ title_attributes }}>{{ label }}</h1>
                     </div>
 
                     <div class="col-xs-12 m-hours">
-                      {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
+                        {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
                     </div>
 
                     <div class="col-xs-12 m-address">
@@ -52,12 +55,14 @@ view_mode ? view_mode|clean_class,
                             <small class="tel">
                                 <a href="tel:{{ _cli.seoPhone|uwm_format_phone }}">
                                     <span class="uwmed-icon uwmed-icon__phone-solid"></span>
-                                  {{ _cli.seoPhone|uwm_format_phone('.') }}</a>
+                                    {{ _cli.seoPhone|uwm_format_phone('.') }}
+                                </a>
 
-                              {% if _cli.seoFax|uwm_format_phone %}
-                                  <i class="uw-s"></i>
-                                {{ _cli.seoFax|uwm_format_phone('.') }} <span>fax</span>
-                              {% endif %}
+                                {% if _cli.seoFax|uwm_format_phone %}
+                                    <i class="uw-s"></i>
+                                    {{ _cli.seoFax|uwm_format_phone('.') }}
+                                    <span>fax</span>
+                                {% endif %}
                             </small>
                         </address>
                     </div>
@@ -67,13 +72,13 @@ view_mode ? view_mode|clean_class,
                 <div class="col-sm-5 col-md-4 left">
 
                     <div class="col-xs-12 hidden-xs clinic-image remove-padding">
-                      {{ content.field_clinic_image }}
+                        {{ content.field_clinic_image }}
                     </div>
 
                     <div class="col-xs-12 l ll">
 
                         <a href="#directions-jump">
-                          {{ 'Driving Directions'|t }}
+                            {{ 'Driving Directions'|t }}
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
 
@@ -95,86 +100,50 @@ view_mode ? view_mode|clean_class,
 
                     </div>
 
-                  {% set _c = "" %}
-                  {% if content.field_clinic_wait_time_snippet|render is empty %}
-                    {% set _c = "fade-out" %}
-                  {% elseif 'none' in content.field_clinic_wait_time_snippet|render|render %}
-                    {% set _c = "hidden" %}
-                  {% endif %}
 
+                    {#{% if 'none' in content.field_clinic_wait_time_snippet|render|render %}#}
+                    {#{% else %}#}
 
-                <div class="col-sm-5 col-md-4 left">
+                    {#<div class="col-xs-12 get-in-line fade-out"#}
+                    {#data-uwm-clockwise-snippet="{{ _cli.clinicName }}">#}
+                    {#<h4>{{ "Urgent Care"|t }}#}
+                    {#<a href="/patient-care/making-an-appointment"#}
+                    {#class="wait-link">Get in line<i#}
+                    {#class="fa fa-angle-right"#}
+                    {#aria-hidden="true"></i>#}
+                    {#</a></h4>#}
+                    {#{% if content.field_clinic_wait_time_snippet|render is not empty %}#}
+                    {#{{ content.field_clinic_wait_time_snippet }}#}
+                    {#{% else %}#}
+                    {#<p class="wait-text wait">#}
+                    {#<span class="m"></span>#}
+                    {#</p>#}
+                    {#{% endif %}#}
+                    {#</div>#}
+                    {#{% endif %}#}
 
-                    <div class="col-xs-12 hidden-xs clinic-image remove-padding">
-                      {{ content.field_clinic_image }}
-                    </div>
-
-                    <div class="col-xs-12 l ll">
-
-                        <a href="#directions-jump">
-                          {{ 'Driving Directions'|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="col-xs-12 l">
-
-                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                    <div class="col-xs-12 l">
-
-                        <a href="#clinic-overview-jump">{{ "Clinic Overview"|t }}
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-
-                    </div>
-
-                  {% set _c = "" %}
-                  {% if content.field_clinic_wait_time_snippet|render is empty %}
-                    {% set _c = "fade-out" %}
-                  {% elseif 'none' in content.field_clinic_wait_time_snippet|render|render %}
-                    {% set _c = "hidden" %}
-                  {% endif %}
-
-                    <div class="col-xs-12 get-in-line {{ _c }}"  data-uwm-clockwise-snippet="{{ _cli.clinicName }}">
-                        <h4>{{ "Urgent Care"|t }}
-                            <a href="/patient-care/making-an-appointment" class="wait-link">Get in line<i
-                                  class="fa fa-angle-right"
-                                  aria-hidden="true"></i>
-                            </a></h4>
-                      {% if content.field_clinic_wait_time_snippet|render is not empty %}
-                        {{ content.field_clinic_wait_time_snippet }}
-                      {% else %}
-                          <p class="wait-text wait">
-                              <span class="m"></span>
-                          </p>
-                      {% endif %}
-                    </div>
                 </div>
 
                 <div class="col-sm-7 col-md-8 hidden-xs right">
 
                     <div class="col-sm-12 title">
-                      {{ title_prefix }}
+                        {{ title_prefix }}
                         <h1{{ title_attributes }}>{{ label }}</h1>
-                      {{ title_suffix }}
+                        {{ title_suffix }}
 
                         <address>{{ address }}
                             <br>
                             <small class="tel">
                                 <a href="tel:{{ _cli.seoPhone|uwm_format_phone }}">
                                     <span class="uwmed-icon uwmed-icon__phone-solid"></span>
-                                  {{ _cli.seoPhone|uwm_format_phone('.') }}</a>
+                                    {{ _cli.seoPhone|uwm_format_phone('.') }}
+                                </a>
 
-                              {% if _cli.seoFax|uwm_format_phone %}
-                                  <i class="uw-s"></i>
-                                {{ _cli.seoFax|uwm_format_phone('.') }} <span>fax</span>
-                              {% endif %}
+                                {% if _cli.seoFax|uwm_format_phone %}
+                                    <i class="uw-s"></i>
+                                    {{ _cli.seoFax|uwm_format_phone('.') }}
+                                    <span>fax</span>
+                                {% endif %}
                             </small>
 
                         </address>
@@ -182,25 +151,28 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 col-md-9 remove-padding clinic-hours-container">
 
-                      {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
+                        {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
 
                     </div>
 
                     <div class="col-sm-12 foot">
                         <div class="u-911">
                             <i class="fa u-911i"></i>
-                          {{ drupal_entity('block_content', 6) }}
+                            {{ drupal_entity('block_content', 6) }}
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
     </section>
 
     <section class="clinic-tabs">
-    <div class="row">
-        <div class="container-lg">
-            <ul class="nav nav-tabs uwm-nav-tabs col-xs-12" id="myTabs" role="tablist">
+
+        <div class="row container-lg">
+            <ul class="nav nav-tabs uwm-nav-tabs col-xs-12" id="myTabs"
+                role="tablist">
                 <li role="presentation" class="active"><a href="#main-tab"
                                                           role="tab"
                                                           data-toggle="tab"
@@ -210,11 +182,12 @@ view_mode ? view_mode|clean_class,
                                                           data-tab-history-changer="push"
                                                           data-tab-history-update-url="true">
                         <i class="uw-ico heart" aria-hidden="true"></i>
-                    {{ 'Services/ Resources'|t }}
+                        {{ 'Services/ Resources'|t }}
 
                     </a>
                 </li>
-                <li role="presentation"><a id="directions-jump" href="#directions-tab"
+                <li role="presentation"><a id="directions-jump"
+                                           href="#directions-tab"
                                            role="tab"
                                            data-toggle="tab"
                                            aria-controls="directions-tab"
@@ -223,7 +196,7 @@ view_mode ? view_mode|clean_class,
                                            data-tab-history-changer="push"
                                            data-tab-history-update-url="true">
                         <i class="uw-ico heart" aria-hidden="true"></i>
-                    {{ 'Directions/ Parking'|t }}
+                        {{ 'Directions/ Parking'|t }}
 
                     </a>
                 </li>
@@ -237,13 +210,13 @@ view_mode ? view_mode|clean_class,
                                            data-tab-history-update-url="true">
                         <i class="uw-ico heart" aria-hidden="true"
                         ></i>
-                    {{ 'Care Providers'|t }}
+                        {{ 'Care Providers'|t }}
 
                     </a>
                 </li>
             </ul>
+
         </div>
-    </div>
 
 
         <div class="tab-content uwm-tab-content">
@@ -257,36 +230,38 @@ view_mode ? view_mode|clean_class,
                         <div class="row">
                             <div class="col-xs-12">
                                 <h3 class="accent">Services</h3>
-                              {% if _cli.clinicTimeUseMasters[1].hoursOfOperation %}
-                                  <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
-                              {% else %}
-                                  <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
-                              {% endif %}
+                                {% if _cli.clinicTimeUseMasters[1].hoursOfOperation %}
+                                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
+                                {% else %}
+                                    <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
+                                {% endif %}
 
                                 <ul class="expt">
 
-                                  {% for s in _cli.expertises %}
-                                      <li><i class="uw-ico checkmark"
-                                             aria-hidden="true"></i>
-                                        {{ s.expertiseName|t }}</li>
-                                  {% endfor %}
+                                    {% for s in _cli.expertises %}
+                                        <li><i class="uw-ico checkmark"
+                                               aria-hidden="true"></i>
+                                            {{ s.expertiseName|t }}</li>
+                                    {% endfor %}
 
                                 </ul>
 
 
-                              {% if _cli.expertises|length > 4 %}
-                                  <div class="uw-more">
-                                      <a href="#" data-uwm-toggle
-                                         data-on-text="{{ 'View less'|t }}"
-                                         data-off-text="{{ 'View more'|t }}"
-                                         data-toggle-selector=".services li"
-                                         data-toggle-style="on"
-                                         data-parent-style="on">{{ 'View more'|t }} <i
-                                            class="fa fa-angle-down"
-                                            aria-hidden="true"></i></a></div>
+                                {% if _cli.expertises|length > 6 %}
+                                    <div class="uw-more">
+                                        <a href="#" data-uwm-toggle
+                                           data-on-text="{{ 'View less'|t }}"
+                                           data-off-text="{{ 'View more'|t }}"
+                                           data-toggle-selector=".services li"
+                                           data-toggle-style="on"
+                                           data-parent-style="on">{{ 'View more'|t }}
+                                            <i
+                                                    class="fa fa-angle-down"
+                                                    aria-hidden="true"></i></a>
+                                    </div>
 
 
-                              {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -295,17 +270,15 @@ view_mode ? view_mode|clean_class,
                 {% if content.field_content_blocks |render is not empty %}
                     <section class="clinic-paragraphs">
                         <div class="bg"></div>
-                            <div class="container-lg">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                      {% if content.field_content_blocks_heading|render is not empty %}
-                                          <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
-                                      {% endif %}
+                        <div class="container-lg">
 
-                                      {{ content.field_content_blocks }}
-                                    </div>
-                                </div>
-                            </div>
+                            {% if content.field_content_blocks_heading|render is not empty %}
+                                <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
+                            {% endif %}
+
+                            {{ content.field_content_blocks }}
+                        </div>
+
                     </section>
                 {% endif %}
 
@@ -313,16 +286,15 @@ view_mode ? view_mode|clean_class,
 
                     <section class="clinic-body">
                         <div class="container-lg">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <h3 id="clinic-overview-jump" class="accent">{{ "Clinic Overview"|t }}</h3>
 
-                                    <div{{ content_attributes.addClass('content') }}>
-                                      {{ content.body }}
-                                      {#{{ content }}#}
-                                    </div>
-                                </div>
+                            <h3 id="clinic-overview-jump"
+                                class="accent">{{ "Clinic Overview"|t }}</h3>
+
+                            <div{{ content_attributes.addClass('content') }}>
+                                {{ content.body }}
+                                {#{{ content }}#}
                             </div>
+
                         </div>
                     </section>
                 {% endif %}
@@ -334,10 +306,14 @@ view_mode ? view_mode|clean_class,
                  id="directions-tab" aria-labelledby="directions-tab">
                 <a name="directions" id="directions"></a>
 
-                <div class="col-xs-12">
-                    <h3 class="accent">Directions & Parking</h3>
+                <div class="container-lg">
 
-                    {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+                    <div class="col-xs-12">
+                        <h3 class="accent">Directions & Parking</h3>
+
+                        {% include directory ~'/templates/node/node--uwm-clinic.directions.html.twig' %}
+                    </div>
+
                 </div>
 
             </div>
@@ -346,12 +322,15 @@ view_mode ? view_mode|clean_class,
                  id="providers-tab" aria-labelledby="providers-tab">
                 <a name="providers" id="providers"></a>
 
-                <div class="col-xs-12">
-                    <h3 class="accent">Care Providers</h3>
+                <div class="container-lg">
 
-                    {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
+                    <div class="col-xs-12">
+                        <h3 class="accent">Care Providers</h3>
+
+                        {% include directory ~'/templates/node/node--uwm-clinic.providers.html.twig' %}
+                    </div>
+
                 </div>
-
             </div>
         </div>
 
@@ -362,14 +341,18 @@ view_mode ? view_mode|clean_class,
     {% if content.field_bottom_content_blocks |render is not empty %}
         <section class="clinic-foot-paragraphs">
 
-            <div class="col-xs-12">
-                {% if content.field_bottom_content_blocks_head|render is not empty %}
-                    <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
-                {% endif %}
+            <div class="container-lg">
 
                 <div class="col-xs-12">
-                    {{ content.field_bottom_content_blocks }}
+                    {% if content.field_bottom_content_blocks_head|render is not empty %}
+                        <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
+                    {% endif %}
+
+                    <div class="col-xs-12">
+                        {{ content.field_bottom_content_blocks }}
+                    </div>
                 </div>
+
             </div>
 
             {#<div class="view-more hidden"><a href="#">View More <i#}
