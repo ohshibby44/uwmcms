@@ -156,8 +156,8 @@ body.page-node-type-uwm-clinic {
 
             p.opens-at {
               border: 0 none;
-              border-bottom: 4px solid transparent;
-              border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
+              border-bottom: 4px solid $uwmed-light-gray;
+              //border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
               padding: 6px 20px 6px 0;
               margin: 0 0 6px 0;
               color: $uwmed-light-purple;
@@ -281,6 +281,12 @@ body.page-node-type-uwm-clinic {
 
           .directions-tab {
 
+            .container-lg {
+              @media(max-width: $screen-md-max) {
+                padding: 0 15px;
+              }
+            }
+
             .directions-map-wrapper {
               position: relative;
               margin-bottom: 30px;
@@ -306,6 +312,12 @@ body.page-node-type-uwm-clinic {
               .provider.even.loop-last, .provider.even.loop-last-1 {
                 border-bottom: 1px solid #dcdcdc;
                 border-right-color: transparent;
+              }
+            }
+
+            .container-lg {
+              @media(max-width: $screen-md-max) {
+                padding: 0 15px;
               }
             }
 

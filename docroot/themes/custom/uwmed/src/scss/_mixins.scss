@@ -120,9 +120,17 @@
         color: white;
       }
 
+      @media(hover: none) {
+        transition-duration: 0s;
+      }
+
       &:before {
         transform: scaleX(1);
         transition-timing-function: $transition-timing-function;
+
+        @media(hover: none) {
+          transition-duration: 0s;
+        }
       }
     }
   }
