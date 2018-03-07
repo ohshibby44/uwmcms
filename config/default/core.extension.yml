@@ -1,5 +1,6 @@
 module:
   acquia_connector: 0
+  acquia_purge: 0
   allowed_formats: 0
   block: 0
   block_content: 0
@@ -19,6 +20,7 @@ module:
   devel: 0
   devel_generate: 0
   diff: 0
+  dynamic_page_cache: 0
   editor: 0
   embed: 0
   entity: 0
@@ -73,6 +75,13 @@ module:
   paragraphs_admin: 0
   paragraphs_type_permissions: 0
   path: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_processor_lateruntime: 0
+  purge_queuer_coretags: 0
+  purge_tokens: 0
+  purge_ui: 0
   quickedit: 0
   rdf: 0
   scheduled_updates: 0
