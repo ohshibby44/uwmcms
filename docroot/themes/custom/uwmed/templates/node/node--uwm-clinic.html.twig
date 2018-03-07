@@ -335,33 +335,35 @@ _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
         </div>
 
 
+        {% if content.field_bottom_content_blocks |render is not empty %}
+            <section class="clinic-foot-paragraphs">
+
+                <div class="container-lg">
+
+                    <div class="col-xs-12">
+                        {% if content.field_bottom_content_blocks_head|render is not empty %}
+                            <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
+                        {% endif %}
+
+                        <div class="col-xs-12">
+                            {{ content.field_bottom_content_blocks }}
+                        </div>
+                    </div>
+
+                </div>
+
+                {#<div class="view-more hidden"><a href="#">View More <i#}
+                {#class="fa fa-angle-down"#}
+                {#aria-hidden="true"></i></a>#}
+                {#</div>#}
+
+            </section>
+        {% endif %}
+
     </section>
 
 
-    {% if content.field_bottom_content_blocks |render is not empty %}
-        <section class="clinic-foot-paragraphs">
 
-            <div class="container-lg">
-
-                <div class="col-xs-12">
-                    {% if content.field_bottom_content_blocks_head|render is not empty %}
-                        <h2 class="bi-line"> {{ content.field_bottom_content_blocks_head }}</h2>
-                    {% endif %}
-
-                    <div class="col-xs-12">
-                        {{ content.field_bottom_content_blocks }}
-                    </div>
-                </div>
-
-            </div>
-
-            {#<div class="view-more hidden"><a href="#">View More <i#}
-            {#class="fa fa-angle-down"#}
-            {#aria-hidden="true"></i></a>#}
-            {#</div>#}
-
-        </section>
-    {% endif %}
 
     {#<pre>{{ dump(_cli) }}</pre>#}
 

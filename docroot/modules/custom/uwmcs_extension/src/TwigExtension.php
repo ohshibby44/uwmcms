@@ -188,7 +188,7 @@ class TwigExtension extends \Twig_Extension {
       }
     }
 
-    return implode($separator, $parts);
+    return implode($separator, $cleanArr);
 
   }
 
