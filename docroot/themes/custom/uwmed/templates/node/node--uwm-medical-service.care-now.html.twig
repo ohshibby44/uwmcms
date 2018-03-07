@@ -28,18 +28,22 @@
                      src="{{ clinic.image_url | image_style('large') }}"
                      alt=""/>
                 <div class="clinic__info">
+
                     <h3 class="clinic__name h4"><a
                                 href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
                     </h3>
+
                     <address class="f-li"><i
                                 class="uw-ico clinic_locations"></i>
                         {{ address }}</address>
+
                     <p class="clinic__clinic-phone f-li">
                         <i class="uw-ico call_solid"></i>
                         <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
                             {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
 
                     </p>
+
                     {#
                         @TODO: Remove after 4/1 Olympia ClockWise go-live.
                       The Olympia clinic has a custom wait-time;
@@ -52,21 +56,23 @@
                             data-uwm-refresh-from="/locations/location-hours/'~ nid ~'"
                             data-uwm-refresh-id="wait-'~ nid ~'"' %}
                     {% endif %}
+                    {#
+                        @TODO:  End todo
+                    #}
                     <p class="clinic__wait-time fade-out f-li"
-                       data-uwm-clockwise-snippet="{{ clinic.clinicName }}"
-                       {{ attr|raw }}
-                    >
-                        <i class="uw-ico uwmed-icon__appointment"
-                           aria-hidden="true"></i>
-                        <span class="wait-text"></span>. <a class="wait-link">Get
-                            in line</a>.
+                       data-uwm-clockwise-snippet="{{ clinic.clinicName }}" {{ attr|raw }}>
+                        <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
+                        <span class="wait-text"></span>. <a class="wait-link">Get in line</a>.
                     </p>
+
                     <p class="clinic__directions">
                         <a class="btn btn-default"
                            href="https://www.google.com/maps/place/{{ clinic.clinicName | replace(" ", "+") }}">
-                            <i class="hidden u-ips"></i>
-                            {{ 'Directions'|t }}</a></p>
+                            <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
+                    </p>
+
                 </div>
+
             </div>
         {% endfor %}
     </div>

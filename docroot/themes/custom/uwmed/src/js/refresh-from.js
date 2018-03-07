@@ -39,7 +39,7 @@
 
                     if ($replacement.length > 0) {
                         $target.html($replacement.html())
-                            .removeClass('fade-out hidden')
+                            .removeClass('fade-out hidden invisible')
                             .attr('data-uwm-refresh-end', new Date().toLocaleString());
 
                     }
