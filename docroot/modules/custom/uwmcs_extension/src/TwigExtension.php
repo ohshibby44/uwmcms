@@ -24,9 +24,15 @@ class TwigExtension extends \Twig_Extension {
    */
   public function getFunctions() {
     return [
-      new \Twig_SimpleFunction('uwm_test_func', [$this, 'testFunction']),
-      new \Twig_SimpleFunction('uwm_get_path_nid', [$this, 'getPathNid']),
-      new \Twig_SimpleFunction('uwm_get_api_nid', [$this, 'getApiPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_test_func', [$this, 'testFunction']),
+      new \Twig_SimpleFunction(
+        'uwm_get_path_nid', [$this, 'getPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_get_api_nid', [$this, 'getApiPathNid']),
+      new \Twig_SimpleFunction(
+        'uwm_extract_parts', [$this, 'extractArrayValues']),
+
     ];
   }
 
@@ -45,10 +51,16 @@ class TwigExtension extends \Twig_Extension {
    */
   public function getFilters() {
     return [
-      new \Twig_SimpleFilter('uwm_test_filter', [$this, 'testFilter']),
-      new \Twig_SimpleFilter('uwm_replace_markup', [$this, 'convertInlineStyles']),
-      new \Twig_SimpleFilter('uwm_join_parts', [$this, 'joinArray']),
-      new \Twig_SimpleFilter('uwm_format_phone', [$this, 'formatPhone']),
+      new \Twig_SimpleFilter(
+        'uwm_test_filter', [$this, 'testFilter']),
+      new \Twig_SimpleFilter(
+        'uwm_replace_markup', [$this, 'convertInlineStyles']),
+      new \Twig_SimpleFilter(
+        'uwm_join_parts', [$this, 'joinArray']),
+      new \Twig_SimpleFilter(
+        'uwm_sort_parts', [$this, 'sortArrayByValues']),
+      new \Twig_SimpleFilter(
+        'uwm_format_phone', [$this, 'formatPhone']),
 
     ];
   }
@@ -137,13 +149,15 @@ class TwigExtension extends \Twig_Extension {
   public static function convertInlineStyles(string $string) {
 
     $patterns = [
-      '/style="[^"]?italic[^>]+>([^<]+)/',
-      '/style="[^"]?bold[^>]+>([^<]+)/',
+      '/(style="[^"]?italic[^>]+>)([^<]+)/',
+      '/(style="[^"]?bold[^>]+>)([^<]+)/',
+      '/<style .*style>/s',
     ];
 
     $replacements = [
-      '<em>$1</em>',
-      '<strong>$1</strong>',
+      '$1<em>$2</em>',
+      '$1<strong>$2</strong>',
+      '',
     ];
 
     return preg_replace($patterns, $replacements, $string);
@@ -161,7 +175,7 @@ class TwigExtension extends \Twig_Extension {
    * @return string
    *   Description text.
    */
-  public static function joinArray(array $parts = NULL, string $separator = '') {
+  public static function joinArray(array $parts = NULL, string $separator = ', ') {
 
     $cleanArr = [];
 
@@ -174,7 +188,85 @@ class TwigExtension extends \Twig_Extension {
       }
     }
 
-    return implode($separator, $parts);
+    return implode($separator, $cleanArr);
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param mixed $data
+   *   Description here.
+   * @param string|null $desiredKeyName
+   *   Description here.
+   * @param array $resultArray
+   *   Description here.
+   *
+   * @code
+   * These are all valid:
+   * {{ uwm_extract_parts(clinic, 'expertiseName') | uwm_join_parts(',<br>') |
+   *   raw }}
+   * {{ uwm_extract_parts(clinic.expertise, 'expertiseName') | slice(0, 4) |
+   *   uwm_join_parts(',<br>') | raw }}
+   * @endcode
+   *
+   * @return array
+   *   Description here.
+   */
+  public static function extractArrayValues($data, string $desiredKeyName = NULL, array &$resultArray = []) {
+
+    foreach ((array) $data as $key => $value) {
+
+      if ($key === $desiredKeyName) {
+        $resultArray[] = $value;
+      }
+
+      elseif (is_array($value) || is_object($value)) {
+
+        self::extractArrayValues($value, $desiredKeyName, $resultArray);
+
+      }
+
+    }
+
+    return (array) $resultArray;
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param mixed $data
+   *   Description here.
+   * @param string|null $sortKey
+   *   Description here.
+   *
+   * @return mixed
+   *   Description here.
+   */
+  public static function sortArrayByValues($data, string $sortKey = NULL) {
+
+    usort($data, function ($a, $b) use ($sortKey) {
+
+      if (isset($sortKey)) {
+
+        if (is_array($a) && isset($a[$sortKey])) {
+
+          return $a[$sortKey] <=> $b[$sortKey];
+
+        }
+        elseif (is_object($a) && isset($a->{$sortKey})) {
+
+          return $a->{$sortKey} <=> $b->{$sortKey};
+
+        }
+      }
+
+      return $a <=> $b;
+
+    });
+
+    return $data;
 
   }
 

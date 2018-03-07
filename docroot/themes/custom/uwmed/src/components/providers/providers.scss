@@ -1,11 +1,15 @@
 
 body.page-node-type-uwm-provider {
 
+  h1.page-header .title-wrapper {
+    @extend small;
+  }
+
 
   div.main-container {
 
 
-    @extend %uwmed-gradient-angled-background;
+    @extend %uwmed-gradient-angled-dark-background;
     padding-top: 0;
 
 
@@ -34,7 +38,8 @@ body.page-node-type-uwm-provider {
           padding-right: 0;
           img {
             @extend %uwmed-box-shadow, .img-thumbnail;
-            width: 100%;
+            max-width: 100%;
+            max-height: 434px;
           }
         }
 

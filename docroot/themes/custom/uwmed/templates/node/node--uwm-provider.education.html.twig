@@ -2,7 +2,7 @@
 {# @TODO Make descending#}
 
 {% if _bio.educationHistories %}
-    {% for e in _bio.educationHistories %}
+    {% for e in _bio.educationHistories|uwm_sort_parts('gradYear')|reverse %}
 
         <h5>{{ e.institutionName }}</h5>
         {% set ed = [] %}
@@ -31,7 +31,7 @@
     <h5>{{ "Board Certifications"| t }}</h5>
 
     <ul>
-        {% for e in _bio.boardCertifications %}
+        {% for e in _bio.boardCertifications|uwm_sort_parts('certifiedYear')|reverse %}
 
             {#<h5>{{ e.institutionName }}</h5>#}
             {% set ed = [] %}

@@ -3,7 +3,7 @@
 {% if _bio.bioPublicationsDetails %}
 
     <ul>
-        {% for a in _bio.bioPublicationsDetails %}
+        {% for a in _bio.bioPublicationsDetails|uwm_sort_parts('JournalYear')|reverse %}
 
             {#<h5>{{ e.institutionName }}</h5>#}
             <li>

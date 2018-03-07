@@ -36,6 +36,12 @@ body.page-node-type-uwm-clinic {
               display: none;
             }
 
+            .field--name-field-link {
+              padding: 0;
+            }
+            div.field.field--name-field-links-paragraph > .item ul li {
+              padding: 0 0 1em 0;
+            }
           }
         }
 
@@ -45,7 +51,11 @@ body.page-node-type-uwm-clinic {
 
         @extend %uwmed-gradient-angled-dark-background;
         padding-top: 20px;
-        padding-bottom: 40px;
+        padding-bottom: 110px;
+
+        @media(min-width: $screen-sm-min) {
+          padding-bottom: 90px;
+        }
 
         h1, h1 a, h4, h4 a {
           color: $uwmed-light-purple;
@@ -146,8 +156,8 @@ body.page-node-type-uwm-clinic {
 
             p.opens-at {
               border: 0 none;
-              border-bottom: 4px solid transparent;
-              border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
+              border-bottom: 4px solid $uwmed-light-gray;
+              //border-image: url('#{$uw-images-folder}/angled-bg-dark.png') 10 10;
               padding: 6px 20px 6px 0;
               margin: 0 0 6px 0;
               color: $uwmed-light-purple;
@@ -200,7 +210,7 @@ body.page-node-type-uwm-clinic {
             text-decoration: none;
           }
           small.tel, small.tel a {
-            color: $uwmed-medium-gray;
+            color: $uwmed-body-text-color;
 
           }
           small.tel a:hover {
@@ -221,26 +231,31 @@ body.page-node-type-uwm-clinic {
 
       section.clinic-tabs {
 
+        border-top: 1px solid #dcdcdc;
+
+        > .row {
+
+          height: 69px;
+          margin-top: -69px;
+
+          @media(min-width: $screen-sm-min) {
+            height: 50px;
+            margin-top: -50px;
+          }
+        }
+
         ul.uwm-nav-tabs {
+          border: 0 none;
           .uw-ico {
             display: none;
-          }
-
-          @extend %uwmed-gradient-angled-dark-background;
-          margin: 0 -15px;
-          border-bottom: 1px solid #dcdcdc;
-
-          > li:first-child > a {
-            margin-left: 40px;
           }
 
         }
 
         div.uwm-tab-content {
           min-height: 200px;
-          border: 0 none;
-          //padding: 12px 0;
 
+          //padding: 12px 0;
 
           // sub nav-tabs
           ul.nav-tabs {
@@ -265,6 +280,12 @@ body.page-node-type-uwm-clinic {
           }
 
           .directions-tab {
+
+            .container-lg {
+              @media(max-width: $screen-md-max) {
+                padding: 0 15px;
+              }
+            }
 
             .directions-map-wrapper {
               position: relative;
@@ -294,13 +315,19 @@ body.page-node-type-uwm-clinic {
               }
             }
 
+            .container-lg {
+              @media(max-width: $screen-md-max) {
+                padding: 0 15px;
+              }
+            }
+
             .provider {
               border-bottom: 1px solid #dcdcdc;
               border-right: 1px solid #dcdcdc;
               &.odd {
                 border-right-color: transparent;
               }
-              &.even.loop-last, &.even.loop-last-1 {
+              &.loop-last, &.even.loop-last-1 {
                 border-bottom-color: transparent;
               }
               .wrapper {
@@ -339,6 +366,7 @@ body.page-node-type-uwm-clinic {
 
                     i.toggle {
                       cursor: pointer;
+                      color: $uwmed-pop-blue;
                     }
                     .collapse.in {
                       display: initial;
@@ -387,10 +415,12 @@ body.page-node-type-uwm-clinic {
       section.services {
 
         ul {
+          padding-left: 0;
+
           li {
             @extend .col-xs-12, .col-sm-6, .col-md-3;
             list-style: none;
-            padding: 0 0 1em 20px;
+            padding: 0 0 1em 0px;
 
             .fa {
               float: left;
@@ -407,14 +437,12 @@ body.page-node-type-uwm-clinic {
 
         }
 
-
-
       }
 
       section.clinic-paragraphs {
 
         position: relative;
-        padding: 0 25px;
+        //padding: 0 25px;
         background-color: #f8f8f8;
         min-height: 450px;
 
@@ -484,6 +512,7 @@ body.page-node-type-uwm-clinic {
           border-left: 1px solid #dcdcdc
         }
       }
+
     }
   }
 }

@@ -10,11 +10,12 @@ aside section.block {
   @extend .col-xs-12;
 
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 1px 1px 3px 0 #dcdcdc;
   background: #f8f8f8;
 
   h2.block-title {
+    margin-left: 15px;
     @extend .h3;
     @include uw-bottom-accent-heading();
     i {
@@ -129,6 +130,10 @@ aside section.block {
       &:hover {
         &::after {
           transform: scaleX(1);
+
+          @media(hover: none) {
+            transition-duration: 0s;
+          }
         }
       }
     }

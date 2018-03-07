@@ -27,7 +27,7 @@
   }
 
   .medical-service-hero__background {
-    height: 360px;
+    height: 421px;
     position: absolute;
     top: 0;
     right: 0;
@@ -97,8 +97,10 @@
 
   .medical-service-hero__links-with-icon {
 
-    &.hidden-lg .links-with-icon__item .btn-default:hover {
-      background: transparent;
+    &.hidden-lg .links-with-icon__item .btn-default {
+      &:hover, &:focus, &:active {
+        background: $uwmed-accent-tan;
+      }
     }
 
     .links-with-icon__item {
@@ -198,6 +200,10 @@
         &:hover {
           &::after {
             transform: scaleX(1);
+
+            @media(hover: none) {
+              transition-duration: 0s;
+            }
           }
         }
       }
@@ -231,6 +237,10 @@
         flex-direction: column;
         justify-content: center;
         background: $uwmed-tab-purple;
+
+        @media(max-width: $screen-xs-max) {
+          flex: 1;
+        }
       }
       > li > a {
         background: $uwmed-tab-purple;
@@ -883,7 +893,7 @@
   }
 
   .patient-engagement {
-    background: repeating-linear-gradient(-65deg, #f8f8f8, #f8f8f8 2px, $uwmed-white 2px, $uwmed-white 4px);
+    @extend %uwmed-gradient-angled-dark-background;
     display: inline-block;
 
     .h3 {

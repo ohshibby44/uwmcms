@@ -246,6 +246,10 @@ $transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
               transition-duration: 0.7s;
               transition-timing-function: ease-out;
               z-index: -1;
+
+              @media(hover: none) {
+                transition-duration: 0s;
+              }
             }
 
             &:hover {

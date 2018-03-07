@@ -30,6 +30,7 @@
                 var $this = $(b);
                 var refreshFromUri = $this.attr('data-uwm-refresh-from');
                 var refreshSelectorMatch = $this.attr('data-uwm-refresh-id');
+                $this.attr('data-uwm-refresh-start', new Date().toLocaleString());
 
                 $.get(refreshFromUri, function (data) {
 
@@ -38,7 +39,8 @@
 
                     if ($replacement.length > 0) {
                         $target.html($replacement.html())
-                            .removeClass('fade-out hidden');
+                            .removeClass('fade-out hidden')
+                            .attr('data-uwm-refresh-end', new Date().toLocaleString());
 
                     }
 

@@ -29,12 +29,12 @@
         clinics: [
             {i: 1461, u: 'ravenna'},
             {i: 1463, u: 'issaquah'},
-            {i: 1464, u: 'federal-way'},
+            {i: 1464, u: 'federal'},
             {i: 1465, u: 'shoreline'},
             {i: 1466, u: 'ballard'},
-            {i: 1462, u: 'woodinville'}
-            // {i: 0, u: 'factoria'},
-            // {i: 0, u: 'olympia'}
+            {i: 1462, u: 'woodinville'},
+            // {i: 1909, u: 'factoria'}, // No longer has Urgent Care
+            {i: 1909, u: 'olympia'}
         ]
     };
 
