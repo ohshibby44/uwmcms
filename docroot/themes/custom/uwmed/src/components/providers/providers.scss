@@ -5,16 +5,12 @@ body.page-node-type-uwm-provider {
     @extend small;
   }
 
-
   div.main-container {
-
 
     @extend %uwmed-gradient-angled-dark-background;
     padding-top: 0;
 
-
     article.uwm-provider {
-
 
       section div.tab-pane {
         @extend .row;
@@ -121,8 +117,10 @@ body.page-node-type-uwm-provider {
               border-bottom-color: transparent;
             }
 
-            h4, h5 {
-              margin-top: 0;
+            @media (max-width: $screen-sm-max) {
+              h4, h5 {
+                margin-top: 0;
+              }
             }
 
             .location-image {
@@ -133,17 +131,7 @@ body.page-node-type-uwm-provider {
               }
 
             }
-            .col-xs-7.k {
 
-              margin-bottom: 9.5px;
-              padding-left: 30px;
-
-              .uw-ico {
-                margin: -1px 0 0 -20px;
-                float: left;
-                font-size: 18px;
-              }
-            }
           }
 
         }
