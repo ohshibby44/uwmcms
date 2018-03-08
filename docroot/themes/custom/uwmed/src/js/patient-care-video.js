@@ -5,9 +5,12 @@
       var video = $('#patientCareVideoPlayer')[0];
       var touchEvents = ('ontouchstart' in document.documentElement);
 
-      if(typeof(video.play) === "undefined" || !video.duration > 0) {
-        // hide the play button because this browser can't play this video
-        $(".homepage-section__story-link").hide();
+      if(typeof(video.play) === "undefined" || (!video.duration > 0)) {
+        if(typeof(video.duration !== "undefined")) {
+          // hide the play button because this browser can't play this video
+          $(".homepage-section__story-link").hide();
+          $("#patientCarePlayButton").hide();
+        }
       }
 
       if(screenfull.enabled && touchEvents) {
