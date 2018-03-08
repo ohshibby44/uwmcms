@@ -101,12 +101,16 @@ AddEncoding gzip svgz
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Reverse proxy rules. These images should be served from SharePoint
+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
+  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.*
+  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
+
   # Reverse proxy rules. When pages are migrated from SharePoint to Drupal, add a
   # rule below so Apache doesn't proxy to the www2 server
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.* [OR]
   RewriteCond %{REQUEST_URI} !^/index.php$
-  RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules)/?.*
+  RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules|node)/?.*
   RewriteCond %{REQUEST_URI} !^/?$
   RewriteCond %{REQUEST_URI} !^/services/primary-care/?.*
   RewriteCond %{REQUEST_URI} !^/locations/location-hours/.*
