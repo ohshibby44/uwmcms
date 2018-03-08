@@ -11,25 +11,44 @@
     Drupal.behaviors.uwmedNavHover = {
 
         attach: function (context, settings) {
-            var $primaryDropDowns = $('header .desktop-main-navigation ul.nav > li.dropdown');
 
-            $primaryDropDowns.hover(function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).show();
+            var $navItems = $('header .desktop-main-navigation .navbar-collapse > ul.nav > li.dropdown');
+
+            // Deactivate other menus when hovering:
+            $navItems.hover(function () {
+
+                var $this = $(this),
+                    $subMenu = $this.find('.dropdown-menu').first();
+
+                $navItems.not($this).removeClass('hold-open');
+                $subMenu.stop(true, true).show();
+
             }, function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).hide();
-                $(this).find('li').removeClass('open');
+
+                var $this = $(this),
+                    $subMenu = $this.find('.dropdown-menu').first();
+
+                $subMenu.stop(true, true).hide();
+
             });
-        }
 
-    };
+            // Trigger hover when clicked:
+            $(' > a.dropdown-toggle', $navItems).click(function (e) {
 
-    Drupal.behaviors.uwMainNavClick = {
-
-        attach: function (context, settings) {
-            // Trigger hover when top-nav clicked:
-            $('header .header-main-navigation .dropdown a.dropdown-toggle').click(function (e) {
+                e.stopPropagation();
                 e.preventDefault();
-                $(this).trigger('mouseenter');
+
+                $navItems.removeClass('hold-open');
+
+                var $parent = $(this).parents('li').first();
+                $parent.trigger('mouseenter').addClass('hold-open');
+
+            });
+
+            // Close clicked menus:
+            $(window).click(function (e) {
+                $navItems.trigger('focusout').trigger('mouseleave').removeClass('hold-open');
+                $navItems.removeClass('open').find('li').removeClass('open');
             });
 
         }

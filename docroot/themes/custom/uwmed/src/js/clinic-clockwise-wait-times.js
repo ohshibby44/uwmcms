@@ -52,8 +52,10 @@
                     $(this).attr('data-uwm-clockwise-snippet'));
 
                 if (id > 0) {
+
                     $(this).attr('data-uwm-clockwise-snippet', id);
                     startClockwiseRepeatingCheck(id);
+
                 }
 
             });
@@ -71,9 +73,10 @@
                         window.Clockwise.Waits[id].toLowerCase());
 
                     if (snippet.length > 0) {
+
                         $elm.find('.wait-text').html(snippet);
                         $elm.find('.wait-link').attr('href', getClockwiseWaitUri(id));
-                        $elm.removeClass('fade-out');
+                        $elm.removeClass('fade-out invisible hidden');
 
                     }
 
