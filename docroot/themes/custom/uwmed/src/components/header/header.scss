@@ -94,11 +94,12 @@ body > header {
       min-width: 650px;
       padding-right: 0;
 
-      .dropdown-menu > li > a {
-        color: $link-color;
+      .hold-open > ul.dropdown-menu {
+        display: block !important;
       }
-      .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-        color: $link-hover-color;
+
+      a, a:hover, a:focus, a:active {
+        color: $uwmed-body-text-color;
       }
 
       ul.navbar-nav > li {
@@ -136,6 +137,7 @@ body > header {
             padding: 0;
 
             a {
+              color: $link-color;
               margin: 10px;
               padding: 0 10px 10px 10px;
               border-bottom: 1px solid #e5e5e6;
@@ -146,8 +148,16 @@ body > header {
                 display: block;
                 padding: 2px 0 0 0;
               }
+
+              &:hover, &:focus, &:active {
+                color: $link-hover-color;
+                i.fa {
+                  color: $link-hover-color;
+                }
+              }
+
               &.anchor, &[href^="#"] {
-                color: #3375d4;
+                color: $uwmed-dark-purple;
                 font-style: italic;
                 padding-top: 10px;
               }
@@ -258,7 +268,6 @@ body > header {
 
           }
         }
-
 
       }
 

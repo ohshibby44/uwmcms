@@ -22,9 +22,8 @@ view_mode ? view_mode|clean_class,
 
 {% set _bio = node.uwmcs_reader_api_values %}
 
-{% set title = s.fullName %}
 {% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
-'/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
+    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
 
 {% set specialities = [] %}
 {% for j,k in _bio.expertise %}
@@ -187,11 +186,14 @@ view_mode ? view_mode|clean_class,
                     {% endif %}
 
 
+                    <h4>{{ 'Biography'|t }}</h4>
                     {% if _bio.fullBio %}
-                        <h4>{{ 'Biography'|t }}</h4>
                         {{ _bio.fullBio|uwm_replace_markup|striptags('<p><br><a>')|raw }}
                         {#{{ _bio.fullBio|uwm_replace_markup|check_markup('basic_html') }}#}
                         {#|preg_replace('/<style .*style>/s', '')|striptags('<p><br><a>')|raw }}#}
+                    {% else %}
+                        We’ll have {{ _bio.fullName }}’s bio available soon.
+
                     {% endif %}
 
                     {% if _bio.personalInterests %}
@@ -218,12 +220,12 @@ view_mode ? view_mode|clean_class,
                 {% endif %}
 
                 {% if _bio.bioPublicationsDetails %}
-                <div class="row tab-pane publications-tab" role="tabpanel"
-                     id="publications" aria-labelledby="publications-tab">
+                    <div class="row tab-pane publications-tab" role="tabpanel"
+                         id="publications" aria-labelledby="publications-tab">
 
-                    {% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}
+                        {% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}
 
-                </div>
+                    </div>
                 {% endif %}
 
             </div>
