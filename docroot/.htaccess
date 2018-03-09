@@ -682,11 +682,11 @@ AddEncoding gzip svgz
 
   # Redirect migrated location directions sub-page to tab on redesigned clinic template
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteRule ^locations/(.*)/directions/?(.*)?$ "https://www.uwmedicine.org/locations/$1#directions-tab" [L,R=301]
+  RewriteRule ^locations/(.*)/directions/?(.*)?$ "https://www.uwmedicine.org/locations/$1#directions-tab" [NE,L,R=301]
 
   # Redirect migrated location providers sub-page to tab on redesigned clinic template
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteRule ^locations/(.*)/providers/?(.*)?$ "https://www.uwmedicine.org/locations/$1#providers-tab" [L,R=301]
+  RewriteRule ^locations/(.*)/providers/?(.*)?$ "https://www.uwmedicine.org/locations/$1#providers-tab" [NE,L,R=301]
 
 # Redirect all other sub-pages for migrated location to location homepage
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
