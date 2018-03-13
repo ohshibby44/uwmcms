@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2c255e4ba15d9181b92a3c56deafa2f",
+    "content-hash": "66a911a1297d3d1d99d2d42cba35600d",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3159,6 +3159,61 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/amp",
                 "issues": "http://drupal.org/project/issues/amp"
+            }
+        },
+        {
+            "name": "drupal/ape",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ape",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ape-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "1b9e28c77dfa8eab239c0dbfa125707a84a3fcb5"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1500416942",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bonus",
+                    "homepage": "https://www.drupal.org/user/360002"
+                },
+                {
+                    "name": "grasmash",
+                    "homepage": "https://www.drupal.org/user/455714"
+                },
+                {
+                    "name": "steel-track",
+                    "homepage": "https://www.drupal.org/user/847488"
+                }
+            ],
+            "description": "Allows finer control of the Cache Control header.",
+            "homepage": "https://www.drupal.org/project/ape",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ape"
             }
         },
         {
