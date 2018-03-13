@@ -103,7 +103,12 @@ AddEncoding gzip svgz
 
   # Reverse proxy rules. These images should be served from SharePoint
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.*
+  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.* [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-belltown/internal-medicine-residency-program/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-kent-des-moines/pediatric/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-kent-des-moines/residencia-pediatrica/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-northgate/family-medicine-residency-program/?
+  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
   RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 
   # Reverse proxy rules. When pages are migrated from SharePoint to Drupal, add a
