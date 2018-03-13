@@ -85,6 +85,8 @@ body.page-node-type-uwm-provider {
 
       section.right {
 
+        padding-bottom: 40px;
+
         ul.uwm-nav-tabs > li {
           margin-bottom: 0;
         }
@@ -117,7 +119,7 @@ body.page-node-type-uwm-provider {
               border-bottom-color: transparent;
             }
 
-            @media (max-width: $screen-sm-max) {
+            @media (min-width: $screen-sm-max) {
               h4, h5 {
                 margin-top: 0;
               }
