@@ -225,6 +225,8 @@ aside section.block {
 
   .content-spotlight__cta {
 
+    @include uw-ghost-button('a.btn', 'i.u-ips');
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -240,48 +242,51 @@ aside section.block {
     text-decoration: none;
     font-weight: 600;
 
-    background-color: rgba(255,255,255,.9);
-
-    transition-property: color;
-    transition-duration: 0.7s;
-    transition-timing-function: ease-out;
-    z-index: 1;
-
-    @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
-    &::before {
-      background-position: left 0;
+    a.btn {
+      background-color: rgba(255,255,255,.9);
+      width: 100%;
     }
-
-    span {
-      white-space: pre-wrap;
-    }
-
-    &.btn-default:hover {
-      text-decoration: none;
-      color: $text-color;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      transition-property: transform;
-      transition-duration: 0.7s;
-      transition-timing-function: ease-out;
-      z-index: -1;
-      background-color: $uwmed-accent-yellow;
-    }
-
-    &:hover {
-      &::after {
-        transform: scaleX(1);
-      }
-    }
+  //
+  //  transition-property: color;
+  //  transition-duration: 0.7s;
+  //  transition-timing-function: ease-out;
+  //  z-index: 1;
+  //
+  //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
+  //  &::before {
+  //    background-position: left 0;
+  //  }
+  //
+  //  span {
+  //    white-space: pre-wrap;
+  //  }
+  //
+  //  &.btn-default:hover {
+  //    text-decoration: none;
+  //    color: $text-color;
+  //  }
+  //
+  //  &::after {
+  //    content: "";
+  //    position: absolute;
+  //    top: 0;
+  //    left: 0;
+  //    right: 0;
+  //    bottom: 0;
+  //    transform: scaleX(0);
+  //    transform-origin: 0 50%;
+  //    transition-property: transform;
+  //    transition-duration: 0.7s;
+  //    transition-timing-function: ease-out;
+  //    z-index: -1;
+  //    background-color: $uwmed-accent-yellow;
+  //  }
+  //
+  //  &:hover {
+  //    &::after {
+  //      transform: scaleX(1);
+  //    }
+  //  }
   }
 }
 
