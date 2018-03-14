@@ -40,7 +40,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     }
 
     // If clinic has providers, populate full provider details.
-    // @TODO: Change this attach bio-node.
+    // @TODO: Change to attach uwm_provider node.
     if (!empty($data->careNetworks)) {
 
       foreach ($data->careNetworks as &$network) {

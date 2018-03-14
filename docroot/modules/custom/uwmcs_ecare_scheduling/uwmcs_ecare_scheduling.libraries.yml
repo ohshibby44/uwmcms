@@ -1,0 +1,12 @@
+epic-mychart-scheduling:
+  version: 1.x
+  js:
+    //devecare16.medical.washington.edu/mychartpoc/Content/EmbeddedWidgetController.js: {}
+    assets/epic-ecare-open-scheduling.js: { preprocess: false }
+  css:
+    theme:
+      //devecare16.medical.washington.edu/mychartpoc/Content/EmbeddedWidget.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
