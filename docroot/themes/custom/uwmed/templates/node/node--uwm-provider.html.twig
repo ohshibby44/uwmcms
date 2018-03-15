@@ -42,10 +42,6 @@ view_mode ? view_mode|clean_class,
 
 <article{{ attributes.addClass(classes) }}>
 
-    {{ ecare_link }}
-    {{ ecare_widget }}
-
-
     <div class="row">
 
         <section class="col-xs-12 col-sm-3 left">
@@ -73,6 +69,21 @@ view_mode ? view_mode|clean_class,
                         <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% endif %}
             </div>
+
+            {% if ecare_link %}
+            <div class="col-sm-12 schedule-with-ecare l">
+
+                {% set title = [{'#markup' : "Schedule With eCare Now"|t
+                    ~ '<i class="fa fa-angle-right" aria-hidden="true"></i>'}] %}
+                {% set ecare_link = ecare_link|merge({'#title': title}) %}
+
+                {{ ecare_link }}
+                {{ ecare_content }}
+            </div>
+            {% endif %}
+
+
+
 
             {#<div class="col-xs-12 ratings l">#}
             {##}

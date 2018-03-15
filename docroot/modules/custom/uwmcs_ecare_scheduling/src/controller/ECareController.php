@@ -4,6 +4,7 @@ namespace Drupal\uwmcs_ecare_scheduling\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
+use Drupal\Core\Render\Markup;
 
 /**
  * Provides widget iframe for EPIC MyChart eCare.
@@ -21,9 +22,11 @@ class ECareController extends ControllerBase {
    * @return int
    *   Description here.
    */
-  public function getProviderId(string $searchString) {
+  public function findProviderId(string $searchString) {
 
-    return 111;
+    preg_match('/' . self::ECARE_TAG_ATTRIBUTE . '="(?P<id>[-_0-9]+)"/',
+      $searchString, $matches);
+    return $matches['id'] ?? NULL;
 
   }
 
@@ -42,21 +45,26 @@ class ECareController extends ControllerBase {
       '#type' => 'html_tag',
       '#tag' => 'iframe',
       '#attributes' => [
-        'class' => 'widgetframe',
-        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;',
+        // 'class' => 'widgetframe modal-dialog modal-lg',
+        // 'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;',
+        // 'src' => 'https://komo.com/',
         'src' => 'https://devecare16.medical.washington.edu/mychartpoc/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain',
+
       ],
     ];
 
     return [
       '#type' => 'html_tag',
       '#tag' => 'div',
+      '#theme' => 'bootstrap_modal',
       '#attributes' => [
-        'id' => 'ecare' . $providerId,
-        'class' => 'hidden scheduleContainer',
-        self::ECARE_TAG_ATTRIBUTE => $providerId,
+        'id' => 'ecare-container-' . $providerId,
+        'class' => 'ecare scheduleContainer',
       ],
       '#value' => render($iframe),
+      // If our theme suggestion is used,
+      // set body for Bootstrap-modal.html.twig.
+      '#body' => render($iframe),
     ];
 
   }
@@ -72,15 +80,21 @@ class ECareController extends ControllerBase {
    */
   public function eCareLink(int $providerId = 0) {
 
-    $url = Url::fromRoute('entity.node.edit_form', ['node' => $providerId]);
-    $url = Url::fromUserInput('#ecare' . $providerId);
+    $anchor = '#ecare-container-' . $providerId;
+    // $url = Url::fromRoute('entity.node',
+    // ['node' => $nodeId], ['fragment' => $anchor]);.
+    $url = Url::fromUserInput($anchor);
 
     return [
       '#type' => 'link',
       '#url' => $url,
-      '#title' => t('This link was rendered'),
+      '#title' => Markup::create('Schedule an Appointment Online'),
+
       '#attributes' => [
-        'class' => 'colorbox',
+        'class' => '',
+        'data-toggle' => 'modal',
+        'data-target' => '#ecare-container-' . $providerId,
+        'data-anchor' => $anchor,
       ],
     ];
 
