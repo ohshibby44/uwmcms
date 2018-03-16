@@ -101,6 +101,9 @@ body > footer {
       text-decoration: none;
       background-color: transparent;
     }
+    a:hover {
+      text-decoration: underline;
+    }
 
     .first, .second {
       padding-bottom: 15px;
@@ -132,8 +135,11 @@ body > footer {
         }
 
       }
+
     }
+
   }
+
 }
 
 

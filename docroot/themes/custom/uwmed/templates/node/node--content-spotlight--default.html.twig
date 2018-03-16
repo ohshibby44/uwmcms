@@ -66,21 +66,24 @@
 */
 #}
 
-{%
-set classes = [
+{% set classes = [
 node.bundle|clean_class,
 node.isPromoted() ? 'is-promoted',
 node.isSticky() ? 'is-sticky',
 not node.isPublished() ? 'is-unpublished',
 view_mode ? view_mode|clean_class,
 'clearfix',
-]
-%}
+] %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="content-spotlight__image" style="background-image:url({{ content.field_image[0]["#item"].entity.uri.value | image_style('hero') }})"></div>
-  {#{{ content.field_image }}#}
-  <a class="content-spotlight__cta btn btn-default" href="{{ content.field_link[0]['#url'] }}">
-    {{ label }}
-  </a>
+    <div class="content-spotlight__image"
+         style="background-image:url({{ content.field_image[0]["#item"].entity.uri.value | image_style('hero') }})"></div>
+    {#{{ content.field_image }}#}
+
+    <div class="content-spotlight__cta">
+        <a class="btn btn-default" href="{{ content.field_link[0]['#url'] }}">
+            <i class="hidden u-ips"></i>
+            {{ label }}
+        </a>
+    </div>
 </article>

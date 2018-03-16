@@ -101,12 +101,21 @@ AddEncoding gzip svgz
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Reverse proxy rules. These images should be served from SharePoint
+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
+  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.* [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-belltown/internal-medicine-residency-program/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-kent-des-moines/pediatric/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-kent-des-moines/residencia-pediatrica/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/primary-care-northgate/family-medicine-residency-program/?
+  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
+  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
+
   # Reverse proxy rules. When pages are migrated from SharePoint to Drupal, add a
   # rule below so Apache doesn't proxy to the www2 server
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-  RewriteCond %{REQUEST_URI} ^/locations/.*/PublishingImages/.* [OR]
   RewriteCond %{REQUEST_URI} !^/index.php$
-  RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules)/?.*
+  RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules|node)/?.*
   RewriteCond %{REQUEST_URI} !^/?$
   RewriteCond %{REQUEST_URI} !^/services/primary-care/?.*
   RewriteCond %{REQUEST_URI} !^/locations/location-hours/.*
@@ -676,6 +685,14 @@ AddEncoding gzip svgz
   RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
   RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 
+  # Redirect migrated location directions sub-page to tab on redesigned clinic template
+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
+  RewriteRule ^locations/(.*)/directions/?(.*)?$ "https://www.uwmedicine.org/locations/$1#directions-tab" [NE,L,R=301]
+
+  # Redirect migrated location providers sub-page to tab on redesigned clinic template
+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
+  RewriteRule ^locations/(.*)/providers/(.*)?$ "https://www.uwmedicine.org/locations/$1#providers-tab" [NE,L,R=301]
+
   ## DRUPAL-SPECIFIC RULES ##
     # Block access to "hidden" directories whose names begin with a period. This
   # includes directories used by version control systems such as Subversion or
@@ -733,7 +750,7 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
-  RewriteRule ^ index.php [L]
+  RewriteRule ^ index.php [L,CO=uwm-non-proxied-page-visit:true:%{HTTP_HOST}:0:/]
 
   # For security reasons, deny access to other PHP files on public sites.
   # Note: The following URI conditions are not anchored at the start (^),
@@ -749,7 +766,7 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
 
 
-RewriteCond %{REQUEST_URI} !^/simplesaml
+  RewriteCond %{REQUEST_URI} !^/simplesaml
 
 
 

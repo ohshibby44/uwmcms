@@ -11,46 +11,86 @@
     Drupal.behaviors.uwmedNavHover = {
 
         attach: function (context, settings) {
-            var $primaryDropDowns = $('header .desktop-main-navigation ul.nav > li.dropdown');
 
-            $primaryDropDowns.hover(function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).show();
+            var $navItems = $('header .desktop-main-navigation .navbar-collapse > ul.nav > li.dropdown');
+
+            var closeClickMenus = function ($exceptThis) {
+                $navItems.not($exceptThis)
+                    .removeClass('uw-hold-open')
+                    .find('ul, li').removeClass('uw-hold-open');
+            };
+
+            var closeHoverMenus = function ($exceptThis) {
+                $navItems.not($exceptThis)
+                    .removeClass('open uw-open')
+                    .find('ul, li').removeClass('open uw-open');
+            };
+
+            $navItems.hover(function (e) {
+
+                closeHoverMenus();
+
+                $(this).stop(true, true).addClass('uw-open');
+
             }, function () {
-                $(this).find('.dropdown-menu').first().stop(true, true).hide();
-                $(this).find('li').removeClass('open');
+
+                closeHoverMenus();
+
             });
-        }
 
-    };
+            // Hold open when clicked:
+            $navItems.click(function (e) {
 
-    Drupal.behaviors.uwMainNavClick = {
-
-        attach: function (context, settings) {
-            // Trigger hover when top-nav clicked:
-            $('header .header-main-navigation .dropdown a.dropdown-toggle').click(function (e) {
+                e.stopPropagation(); // Prevent bubling to window close event
                 e.preventDefault();
-                $(this).trigger('mouseenter');
+
+                closeHoverMenus();
+
+                // Tablets bind hover as touch, so don't duplicate:
+                if (!!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)) {
+                    return;
+                }
+                closeClickMenus($(this));
+
+                $(this).toggleClass('uw-hold-open');
+
+            });
+
+            // Open 3rd menus:
+            $navItems.find('li.dropdown-submenu').click(function (e) {
+
+                e.stopPropagation(); // Prevent bubling to window close event
+                e.preventDefault();
+
+                $(this).toggleClass('uw-hold-open');
+
+            });
+
+            // Close all menus:
+            $(window).click(function (e) {
+                closeClickMenus();
+                closeHoverMenus();
             });
 
         }
     };
 
-    // Drupal.behaviors.uwMainSubNavClick = {
-    //
-    //     attach: function (context, settings) {
-    //         $('header .header-main-navigation li.dropdown-submenu a.dropdown-toggle').click(function (e) {
-    //             e.preventDefault();
-    //             $(this).parents('li').first().find('.dropdown-menu').first().toggleClass('dropdown-submenu-open');
-    //         });
-    //     }
-    // };
+
 
     Drupal.behaviors.uwHeaderSearchClick = {
 
         attach: function (context, settings) {
+
             $('header form i.fa.fa-search').click(function (e) {
 
                 $(this).parents('form').first().submit();
+
+            });
+
+            $('header.mobile button[data-target=".search-collapse"]').click(function (e) {
+
+                $('header.mobile input[name="k"]').val('');
+
             });
         }
     };

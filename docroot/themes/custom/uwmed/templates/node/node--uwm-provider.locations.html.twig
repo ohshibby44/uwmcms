@@ -9,49 +9,53 @@
 
         <div class="col-xs-12 col-xl-6 provider-location">
 
-            <div class="col-xs-5 location-image">
+            <div class="col-xs-12 col-sm-5 location-image">
                 <img src="{{ clinic.externalUrl|replace({'http://': 'https://'}) ~ '/PublishingImages/splash1.jpg' }}">
             </div>
 
-            <h4 class="col-xs-7 pull-right location-title">
-                {% if clinic.clinicUrl %}
-                    <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
-                {% elseif clinic.externalUrl %}
-                    <a href="{{ clinic.externalUrl }}">{{ clinic.clinicName }}</a>
-                {% endif %}
-            </h4>
+            <div class="col-xs-12 col-sm-7">
 
-            <address class="col-xs-7 pull-right location-address k">
-                <i class="uw-ico clinic_locations"></i>
-                {{ clinic.address }}
-                {{ clinic.city }},
-                {{ clinic.state }}
-                {{ clinic.zipcode }}
-            </address>
+                <h4 class="location-title">
+                    {% if clinic.clinicUrl %}
+                        <a href="{{ clinic.clinicUrl }}">{{ clinic.clinicName }}</a>
+                    {% elseif clinic.externalUrl %}
+                        <a href="{{ clinic.externalUrl }}">{{ clinic.clinicName }}</a>
+                    {% endif %}
+                </h4>
 
-            <div class="col-xs-7 pull-right location-phone k">
-                {% if clinic.seoPhone %}
-                    <i class="uw-ico call_solid"></i>
-                    {% set phone = clinic.seoPhone|slice(0, 3)
-                    ~'-'~ clinic.seoPhone|slice(3, 3)
-                    ~'-'~ clinic.seoPhone|slice(6, 4) %}
-                    <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
-                {% endif %}
-            </div>
+                <address class="location-address k">
+                    <i class="uw-ico clinic_locations"></i>
+                    {{ clinic.address }}
+                    {{ clinic.city }},
+                    {{ clinic.state }}
+                    {{ clinic.zipcode }}
+                </address>
 
-            <div class="col-xs-7 pull-right location-phone k">
-                {% if clinic.expertises %}
-                    <i class="uw-ico checkmark"></i>
-                    {{ uwm_extract_parts(clinic, 'expertiseName')|slice(0, 4)|uwm_join_parts(', ') }}
-                {% endif %}
-            </div>
+                <p class="location-phone k">
+                    {% if clinic.seoPhone %}
+                        <i class="uw-ico call_solid"></i>
+                        {% set phone = clinic.seoPhone|slice(0, 3)
+                        ~'-'~ clinic.seoPhone|slice(3, 3)
+                        ~'-'~ clinic.seoPhone|slice(6, 4) %}
+                        <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a>
+                    {% endif %}
+                </p>
 
-            <div class="col-xs-7 pull-right location-hours k">
-                {% set nid = uwm_get_api_nid(clinic.url) %}
-                {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
-                {% if hours and nid %}
-                    {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
-                {% endif %}
+                <p class="location-services k">
+                    {% if clinic.expertises %}
+                        <i class="uw-ico checkmark"></i>
+                        {{ uwm_extract_parts(clinic, 'expertiseName')|slice(0, 4)|uwm_join_parts(', ') }}
+                    {% endif %}
+                </p>
+
+                <div class="location-hours k">
+                    {% set nid = uwm_get_api_nid(clinic.url) %}
+                    {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+                    {% if hours and nid %}
+                        {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
+                    {% endif %}
+                </div>
+
             </div>
 
         </div>
