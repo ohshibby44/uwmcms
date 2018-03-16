@@ -116,6 +116,7 @@ AddEncoding gzip svgz
   RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
   RewriteCond %{REQUEST_URI} !^/index.php$
   RewriteCond %{REQUEST_URI} !^/(user|admin|themes|core|simplesaml|sites|libraries|profiles|modules|node)/?.*
+  RewriteCond %{REQUEST_URI} !^/(views|editor|media_browser|filter|contextual|history)/.+
   RewriteCond %{REQUEST_URI} !^/?$
   RewriteCond %{REQUEST_URI} !^/services/primary-care/?.*
   RewriteCond %{REQUEST_URI} !^/locations/location-hours/.*
