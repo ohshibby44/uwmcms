@@ -109,6 +109,8 @@ AddEncoding gzip svgz
   RewriteCond %{REQUEST_URI} ^/locations/primary-care-kent-des-moines/residencia-pediatrica/? [OR]
   RewriteCond %{REQUEST_URI} ^/locations/primary-care-northgate/family-medicine-residency-program/? [OR]
   RewriteCond %{REQUEST_URI} ^/locations/orcas-island-clinic/faqs/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/orcas-island-clinic/welcome/? [OR]
+  RewriteCond %{REQUEST_URI} ^/locations/lopez-island-clinic/welcome/? [OR]
   RewriteCond %{REQUEST_URI} ^/locations/lopez-island-clinic/faqs/?
   RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
   RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
