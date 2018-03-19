@@ -45,11 +45,20 @@ class ECareController extends ControllerBase {
       '#type' => 'html_tag',
       '#tag' => 'iframe',
       '#attributes' => [
-        // 'class' => 'widgetframe modal-dialog modal-lg',
-        // 'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;',
-        // 'src' => 'https://komo.com/',
+        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;width:100%;min-height:400px',
+        'scrolling' => 'no',
         'src' => 'https://devecare16.medical.washington.edu/mychartpoc/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain',
+        // 'src' => '/sites/default/files/MyChart%20-%20EmbeddedSchedule.html'.
+      ],
+    ];
 
+    $button = [
+      '#type' => 'html_tag',
+      '#tag' => 'button',
+      '#value' => t('Close'),
+      '#attributes' => [
+        'class' => 'btn btn-default',
+        'data-dismiss' => 'modal',
       ],
     ];
 
@@ -59,12 +68,13 @@ class ECareController extends ControllerBase {
       '#theme' => 'bootstrap_modal',
       '#attributes' => [
         'id' => 'ecare-container-' . $providerId,
-        'class' => 'ecare scheduleContainer',
+        'class' => 'ecare scheduleContainer modal-fluid modal-full-height',
       ],
       '#value' => render($iframe),
       // If our theme suggestion is used,
       // set body for Bootstrap-modal.html.twig.
       '#body' => render($iframe),
+      '#footer' => render($button),
     ];
 
   }
