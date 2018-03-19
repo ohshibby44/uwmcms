@@ -428,12 +428,11 @@ body.page-node-type-uwm-clinic {
               color: purple;
             }
           }
-          li:nth-child(n+6) {
-            display: none;
+
+          div.uw-more {
+            display: none !important;
           }
-          li.on:nth-child(n+6) {
-            display: block;
-          }
+
 
         }
 
