@@ -1109,6 +1109,13 @@
       }
     }
 
+    .field.field--name-field-clinic-wait-time-snippet, .field.field--name-field-clinic-wait-time-snippet * {
+      display: inline;
+    }
+    .field.field--name-field-clinic-wait-time-snippet .field--label {
+      display: none !important;
+    }
+
     address {
       //padding-left: 22px;
 
@@ -1446,3 +1453,4 @@
     }
   }
 }
+
