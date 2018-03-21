@@ -1,7 +1,0 @@
-uwmed_clockwise/waits:
-  js:
-    //www.clockwisemd.com/hospitals/clockwise_api.js: {}
-    assets/clockwise-wait-times.js: {}
-  dependencies:
-      - core/jquery
-      - core/drupalSettings

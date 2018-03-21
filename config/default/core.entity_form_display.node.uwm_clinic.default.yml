@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.uwm_clinic.field_bottom_content_blocks_head
     - field.field.node.uwm_clinic.field_clinic_image
     - field.field.node.uwm_clinic.field_clinic_wait_time_snippet
+    - field.field.node.uwm_clinic.field_clockwise_id
     - field.field.node.uwm_clinic.field_content_blocks
     - field.field.node.uwm_clinic.field_content_blocks_heading
     - field.field.node.uwm_clinic.field_information_manager_url
@@ -129,6 +130,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_clockwise_id:
+    weight: 30
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_content_blocks:
     type: entity_reference_paragraphs

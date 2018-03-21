@@ -10,7 +10,7 @@
  *
  * @example
  * {{ attach_library('uwmed/clinic-hours') }}
- * <p class="hiddendata-uwm-clockwise-snippet="{{ _cli.clinicName }}"></p>
+ * <p class="hiddendata-uwm-clockwise-wait-time="{{ _cli.clinicName }}"></p>
  *
  *
  */
@@ -46,14 +46,13 @@
             window.Clockwise = window.Clockwise || {};
             window.Clockwise.Waits = window.Clockwise.Waits || {};
 
-            $('[data-uwm-clockwise-snippet]', context).each(function () {
+            $('[data-uwm-clockwise-wait-time]', context).each(function () {
 
-                var id = getClockwiseIdByName(
-                    $(this).attr('data-uwm-clockwise-snippet'));
+                var id = $(this).attr('data-uwm-clockwise-wait-time');
 
                 if (id > 0) {
 
-                    $(this).attr('data-uwm-clockwise-snippet', id)
+                    $(this).attr('data-uwm-clockwise-wait-time', id)
                         .attr('data-uwm-clockwise-refresh-start', new Date().toLocaleString());
                     startClockwiseRepeatingCheck(id);
 
@@ -66,7 +65,7 @@
             $('body').on('clockwise_waits_loaded', function (e, data) {
 
                 var id = cleanNumber(data);
-                var $elm = $('[data-uwm-clockwise-snippet=' + id + ']');
+                var $elm = $('[data-uwm-clockwise-wait-time=' + id + ']');
 
                 if ($elm.length && window.Clockwise.Waits[id] !== 'undefined') {
 

@@ -17,10 +17,7 @@ view_mode ? view_mode|clean_class,
 
 {% set _cli = node.uwmcs_reader_api_values %}
 
-{% set address = [ _cli.address,
-_cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
-]|uwm_join_parts(', ') %}
-
+{% set address = [ _cli.address, _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode ]|uwm_join_parts(', ') %}
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
     {#<pre>#}
@@ -100,8 +97,11 @@ _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode
 
                     </div>
 
-                    <div class="col-xs-12 get-in-line fade-out"
-                         data-uwm-clockwise-wait-time="{{ node.id }}">
+                    {% set classes = [
+                        content.field_clinic_wait_time_snippet|render is not empty ? 'fade-in' : '',
+                    ] %}
+                    <div class="col-xs-12 get-in-line fade-out {{ classes|uwm_join_parts(' ') }}"
+                         data-uwm-clockwise-wait-time="{{ content.field_clockwise_id[0]['#markup'] }}">
                         <h4>{{ "Urgent Care"|t }}
                             <a href="/patient-care/making-an-appointment"
                                class="wait-link">Get in line<i
