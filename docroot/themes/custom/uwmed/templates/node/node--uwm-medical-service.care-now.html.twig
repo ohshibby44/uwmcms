@@ -18,10 +18,7 @@
 
         {% for clinic in urgent_care_clinics %}
 
-            {% set address = [
-            clinic.address,
-            clinic.city ~ ' '~  clinic.state  ~ ', '~  clinic.zipcode
-            ] | uwm_join_parts(', ') %}
+            {% set address = [clinic.address, clinic.city ~ ' '~  clinic.state  ~ ', '~  clinic.zipcode] | uwm_join_parts(', ') %}
 
             <div class="clinic col-lg-3 col-md-4 col-sm-6">
                 <img class="clinic__image img img-responsive"
@@ -41,28 +38,17 @@
                         <i class="uw-ico call_solid"></i>
                         <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
                             {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
-
                     </p>
 
-                    {#
-                        @TODO: Remove after 4/1 Olympia ClockWise go-live.
-                      The Olympia clinic has a custom wait-time;
-                      fetch clinics' wait-time field here:
-                    #}
-                    {% set p = clinic.clinicUrl|replace({'urgent': 'primary'}) %}
-                    {% set nid = uwm_get_path_nid(p) %}
-                    {% if nid %}
-                        {% set attr = '
-                            data-uwm-refresh-from="/locations/location-hours/'~ nid ~'"
-                            data-uwm-refresh-id="wait-'~ nid ~'"' %}
-                    {% endif %}
-                    {#
-                        @TODO:  End todo
-                    #}
+                    {% set primaryCare_nid = uwm_get_path_nid(clinic.clinicUrl|replace({'urgent': 'primary'})) %}
+                    {% set cw = drupal_field('field_clockwise_id', 'node', primaryCare_nid) %}
+                    {% set wt = drupal_field('field_clinic_wait_time_snippet', 'node', primaryCare_nid) %}
+                    {#{{ devel_breakpoint() }}#}
                     <p class="clinic__wait-time fade-out f-li"
-                       data-uwm-clockwise-snippet="{{ clinic.clinicName }}" {{ attr|raw }}>
+                       data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
                         <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
-                        <span class="wait-text"></span>. <a class="wait-link">Get in line</a>.
+                        <span class="wait-text">{{ wt[0]['#context']['value'] }}</span>.
+                        <a href="/patient-care/making-an-appointment" class="wait-link">Get in line</a>.
                     </p>
 
                     <p class="clinic__directions">

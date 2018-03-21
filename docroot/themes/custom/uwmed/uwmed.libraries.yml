@@ -55,10 +55,8 @@ font-awesome:
 
 clinic-hours:
   js:
-    //www.clockwisemd.com/hospitals/clockwise_api.js: {}
     dist/js/refresh-from.js: { preprocess: false }
     dist/js/clinic-hours.js: {}
-    dist/js/clinic-clockwise-wait-times.js: {}
   dependencies:
       - core/jquery
       - core/drupalSettings

@@ -1,0 +1,5 @@
+name: uwmed_clockwise
+description: 'Adds ClockwiseMd wait-times to select clinics.'
+package: UWMed
+type: module
+core: 8.x
