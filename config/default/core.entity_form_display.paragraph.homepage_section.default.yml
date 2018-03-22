@@ -15,10 +15,33 @@ dependencies:
     - paragraphs.paragraphs_type.homepage_section
   module:
     - entity_browser
+    - field_group
     - link
     - paragraphs
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_homepage_section:
+      children:
+        - field_title
+        - field_accent_color
+        - field_heading
+        - field_subheading
+        - field_links_with_icon
+        - field_link
+        - field_section_image
+        - field_section_story_link
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Homepage section'
 id: paragraph.homepage_section.default
 targetEntityType: paragraph
 bundle: homepage_section
