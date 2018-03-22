@@ -5,7 +5,7 @@ subscription_data:
   uuid: 9394ee80-5a9e-429f-a976-264b955abd86
   subscription_name: 'UW Medicine'
   expiration_date:
-    value: '2018-03-07T00:00:00'
+    value: '2019-03-07T00:00:00'
   product:
     view: 'Acquia Network'
   derived_key_salt: 507a9e192c8925a819a74b907dd7f4e2

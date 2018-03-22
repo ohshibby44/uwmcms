@@ -23,12 +23,7 @@ view_mode ? view_mode|clean_class,
 {% set _bio = node.uwmcs_reader_api_values %}
 
 {% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
-    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
-
-{% set specialities = [] %}
-{% for j,k in _bio.expertise %}
-    {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
-{% endfor %}
+'/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
 
 {% set locations = [] %}
 {% set i = 0 %}
@@ -76,10 +71,10 @@ view_mode ? view_mode|clean_class,
             {#</div>#}
 
             <div class="col-sm-12 specialities l">
-                {% if specialities %}
+                {% if uwm_extract_parts(_bio.expertise, 'expertiseName') %}
                     <h5>{{ "Specialities"| t }}</h5>
                     <ul>
-                        {% for i in specialities %}
+                        {% for i in uwm_extract_parts(_bio.expertise, 'expertiseName') %}
                             <li>{{ i }}</li>
                         {% endfor %}
                     </ul>
@@ -90,8 +85,8 @@ view_mode ? view_mode|clean_class,
                 {% if _bio.languages %}
                     <h5>{{ "Languages"| t }}</h5>
                     <ul>
-                        {% for i in _bio.languages %}
-                            <li>{{ i.languageName }}</li>
+                        {% for i in uwm_extract_parts(_bio.languages, 'languageName') %}
+                            <li>{{ i }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}

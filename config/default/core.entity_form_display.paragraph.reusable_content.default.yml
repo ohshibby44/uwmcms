@@ -10,16 +10,35 @@ dependencies:
     - paragraphs.paragraphs_type.reusable_content
   module:
     - allowed_formats
+    - field_group
     - text
     - webform
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_default:
+      children:
+        - field_heading
+        - field_text_snippet
+        - field_other_reference
+        - field_webform_reference
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Reusable content'
 id: paragraph.reusable_content.default
 targetEntityType: paragraph
 bundle: reusable_content
 mode: default
 content:
   field_heading:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -30,13 +49,13 @@ content:
     type: text_textfield
     region: content
   field_other_reference:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_text_snippet:
-    weight: 1
+    weight: 2
     settings:
       rows: 3
       placeholder: ''
@@ -47,7 +66,7 @@ content:
     type: text_textarea
     region: content
   field_webform_reference:
-    weight: 3
+    weight: 4
     settings:
       default_data: false
     third_party_settings: {  }

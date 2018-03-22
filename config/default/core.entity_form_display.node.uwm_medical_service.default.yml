@@ -28,8 +28,8 @@ third_party_settings:
         - title
         - field_subheading
         - field_links_with_icon
-      parent_name: ''
-      weight: 0
+      parent_name: group_page_
+      weight: 4
       format_type: fieldset
       format_settings:
         id: ''
@@ -37,30 +37,64 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Hero Area'
+    group_page_:
+      children:
+        - group_hero_area
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Page Top'
+    group_proof_points:
+      children:
+        - field_proof_points
+      parent_name: ''
+      weight: 1
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Proof Points'
+    group_common_serives:
+      children:
+        - field_common_services
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Common Services'
+    group_featured_s:
+      children:
+        - field_feature_story
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Featured Story'
 id: node.uwm_medical_service.default
 targetEntityType: node
 bundle: uwm_medical_service
 mode: default
 content:
   field_common_services:
-    type: entity_reference_paragraphs
-    weight: 2
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    region: content
-  field_condition_spotlight:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_feature_story:
     type: entity_reference_paragraphs
     weight: 3
     settings:
@@ -72,8 +106,26 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_featured_specialties:
+  field_condition_spotlight:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_feature_story:
+    type: entity_reference_paragraphs
     weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_featured_specialties:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -107,7 +159,7 @@ content:
     region: content
   field_proof_points:
     type: entity_reference_paragraphs
-    weight: 1
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -127,13 +179,13 @@ content:
     region: content
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true

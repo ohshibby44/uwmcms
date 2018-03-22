@@ -9,16 +9,34 @@ dependencies:
     - paragraphs.paragraphs_type.content_snippet
   module:
     - allowed_formats
+    - field_group
     - link
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_content_snippet:
+      children:
+        - field_heading
+        - field_text_snippet
+        - field_link
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Content Snippet'
 id: paragraph.content_snippet.default
 targetEntityType: paragraph
 bundle: content_snippet
 mode: default
 content:
   field_heading:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -37,7 +55,7 @@ content:
     type: link_default
     region: content
   field_text_snippet:
-    weight: 1
+    weight: 2
     settings:
       rows: 3
       placeholder: ''
