@@ -16,7 +16,11 @@ use Httpful\Response;
  */
 class UwmFetcher {
 
+  protected static $cachePrefix = 'uwmftc';
+
   protected static $apiUri = 'http://webservices.uwmedicine.org';
+
+  protected static $apiDevelopmentUri = 'http://uatwebservices.uwmedicine.org';
 
   protected static $clinicEndpoint = '/api/clinic';
 
@@ -38,6 +42,15 @@ class UwmFetcher {
    *   Description here.
    */
   public function getUrl(string $apiEndpoint = NULL) {
+
+    if (self::isDevelopmentHost()) {
+
+      $devHost = parse_url(self::$apiDevelopmentUri, PHP_URL_HOST);
+      $prodHost = parse_url(self::$apiUri, PHP_URL_HOST);
+
+      $apiEndpoint = str_ireplace($prodHost, $devHost, $apiEndpoint);
+
+    }
 
     $data = $this->fetchItem($apiEndpoint);
     return $data;
@@ -182,6 +195,25 @@ class UwmFetcher {
   /**
    * Description here.
    *
+   * @return bool
+   *   Description here.
+   */
+  private function isDevelopmentHost() {
+
+    if ($_ENV['AH_NON_PRODUCTION']) {
+      return TRUE;
+    }
+    elseif (!file_exists('/var/www/site-php') && empty($_ENV['AH_SITE_ENVIRONMENT'])) {
+      return TRUE;
+    }
+
+    return FALSE;
+
+  }
+
+  /**
+   * Description here.
+   *
    * @param string $key
    *   Description here.
    *
@@ -190,7 +222,11 @@ class UwmFetcher {
    */
   private function cacheGet(string $key) {
 
-    $key = $this->cacheName($key);
+    if (self::isDevelopmentHost()) {
+      return FALSE;
+    }
+
+    $key = $this->cacheKey($key);
 
     return \Drupal::cache()->get($key);
 
@@ -206,7 +242,7 @@ class UwmFetcher {
    */
   private function cacheSet(string $key, $data) {
 
-    $key = $this->cacheName($key);
+    $key = $this->cacheKey($key);
 
     \Drupal::cache()->set($key, $data,
       CacheBackendInterface::CACHE_PERMANENT
@@ -223,11 +259,11 @@ class UwmFetcher {
    * @return mixed
    *   Description here.
    */
-  private function cacheName(string $dataUniqueUri = NULL) {
+  private function cacheKey(string $dataUniqueUri = NULL) {
 
     $key = $dataUniqueUri;
 
-    return preg_replace("/[^A-Za-z0-9 ]/", '_', $key);
+    return preg_replace("/[^A-Za-z0-9 ]/", '', $key);
 
   }
 
