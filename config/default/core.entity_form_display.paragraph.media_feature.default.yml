@@ -10,15 +10,33 @@ dependencies:
     - paragraphs.paragraphs_type.media_feature
   module:
     - entity_browser
+    - field_group
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_media_:
+      children:
+        - field_heading
+        - field_text_snippet
+        - field_media
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Media Feature'
 id: paragraph.media_feature.default
 targetEntityType: paragraph
 bundle: media_feature
 mode: default
 content:
   field_heading:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -27,7 +45,7 @@ content:
     region: content
   field_media:
     type: entity_browser_entity_reference
-    weight: 6
+    weight: 3
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity

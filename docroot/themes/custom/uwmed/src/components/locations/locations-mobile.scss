@@ -98,6 +98,20 @@ body.page-node-type-uwm-clinic {
         //  }
         //}
       }
+
+      section.services {
+
+        li:nth-child(n+6) {
+          display: none;
+        }
+        li.on:nth-child(n+6) {
+          display: block;
+        }
+
+
+      }
+
+
     }
   }
 }

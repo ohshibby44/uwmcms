@@ -9,17 +9,35 @@ dependencies:
     - field.field.paragraph.links_list.field_links_paragraph
     - paragraphs.paragraphs_type.links_list
   module:
+    - field_group
     - link
     - paragraphs
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_list_of_links:
+      children:
+        - field_heading
+        - field_links_paragraph
+        - field_link
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'List of Links'
 id: paragraph.links_list.default
 targetEntityType: paragraph
 bundle: links_list
 mode: default
 content:
   field_heading:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -27,7 +45,7 @@ content:
     type: text_textfield
     region: content
   field_link:
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -36,7 +54,7 @@ content:
     region: content
   field_links_paragraph:
     type: entity_reference_paragraphs
-    weight: 1
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs

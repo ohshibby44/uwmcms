@@ -53,4 +53,25 @@ body.adminimal {
     }
   }
 
+  // Node edit forms:
+  form.node-form {
+
+    .form-checkboxes {
+      float: left; width: 100%; }
+
+    .form-checkboxes .form-type-checkbox {
+      float: left; width: 30%; overflow: hidden;
+      &:hover {
+        overflow: visible;
+        label {
+          position: absolute;
+          background: aliceblue;
+        }
+      }
+    }
+
+
+  }
+
+
 }
