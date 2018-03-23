@@ -34,6 +34,42 @@ function uwmed_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements theme_preprocess_node().
+ */
+function uwmed_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($node->getType() === 'uwm_clinic') {
+
+    // Use Primary Care image for Urgent Care nodes:
+    /*
+     *
+    use Drupal\node\Entity\Node;
+    use Drupal\uwmcs_reader\Controller\UwmMapper;
+
+    if(empty($node->field_clinic_image->value)) {
+
+    if (stripos($node->title->value, 'Urgent') !== FALSE) {
+
+    $path = UwmMapper::getPathByNid($node->nid->value);
+    $pNid = UwmMapper::getNidByPathAlias(
+    str_replace('urgent', 'primary', $path));
+
+    if($pNid) {
+
+    $pNode = Node::load($pNid);
+    $node->field_clinic_image = $pNode->field_clinic_image;
+
+    }
+    }
+    }*/
+
+  }
+
+}
+
+/**
  * Implements template_preprocess_views_view().
  */
 function uwmed_preprocess_views_view(&$variables) {
@@ -165,8 +201,11 @@ function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
 function uwmed_preprocess_node__uwm_medical_service(&$variables) {
   $variables["#attached"]['drupalSettings']['uwmcms_reader_primary_care_clinics'] = $variables["node"]->uwmcms_reader_primary_care_clinics;
 
-  $webform                              = \Drupal::entityTypeManager()->getStorage('webform')->load('health_news_signup');
-  $view_builder                         = \Drupal::service('entity_type.manager')->getViewBuilder('webform');
-  $build                                = $view_builder->view($webform);
+  $webform = \Drupal::entityTypeManager()
+    ->getStorage('webform')
+    ->load('health_news_signup');
+  $view_builder = \Drupal::service('entity_type.manager')
+    ->getViewBuilder('webform');
+  $build = $view_builder->view($webform);
   $variables['health_news_you_can_use'] = $build;
 }

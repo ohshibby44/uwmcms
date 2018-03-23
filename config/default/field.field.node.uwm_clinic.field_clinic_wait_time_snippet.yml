@@ -10,7 +10,7 @@ field_name: field_clinic_wait_time_snippet
 entity_type: node
 bundle: uwm_clinic
 label: 'Clinic Wait Time Snippet'
-description: "Optional. Provide a message for the wait-time widget, such as \"35 minutes wait\"\r\nIf provided here, this snippet always overrides the ClockwiseMd.com time. To always hide the widget, enter \"<none>\" here. "
+description: "Optional. Provide a message for the widget, such as \"35 minutes wait.\" \r\nThis snippet will override the ClockwiseMd.com wait time. To always hide the widget, enter \"none\" here. "
 required: false
 translatable: false
 default_value: {  }
