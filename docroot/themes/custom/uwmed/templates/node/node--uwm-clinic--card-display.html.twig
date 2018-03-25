@@ -1,12 +1,13 @@
 {% set classes = [
-node.bundle|clean_class,
-node.isPromoted() ? 'is-promoted',
-node.isSticky() ? 'is-sticky',
-not node.isPublished() ? 'is-unpublished',
-view_mode ? view_mode|clean_class,
-'clearfix',
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
 ] %}
 
+{{ attach_library('uwmed/clinic-hours') }}
 
 {% set clinic = node.uwmcs_reader_api_values %}
 
@@ -58,6 +59,7 @@ view_mode ? view_mode|clean_class,
             {% set wt = drupal_field('field_clinic_wait_time_snippet', 'node', p_nid) %}
             {% set class = wt[0]['#context']['value'] ? 'fade-in' : '' %}
             {#{{ devel_breakpoint() }}#}
+
             <p class="clinic__wait-time fade-out f-li {{ class }}"
                data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
                 <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
