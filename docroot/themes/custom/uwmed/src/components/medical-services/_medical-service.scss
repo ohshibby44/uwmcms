@@ -9,6 +9,10 @@
     }
   }
 
+  .field--label {
+    @extend .hidden;
+  }
+
   .medical-service-hero {
     position: relative;
     height: 360px;
@@ -1087,184 +1091,182 @@
   }
 
   #carenow {
+
     .care-now__intro {
       margin-bottom: 38px;
     }
 
-    .clinic {
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-    }
+    article.uwm-clinic {
 
-    .clinic__info {
-      background-color: #F5F5F5;
-      padding: 15px;
-    }
+      @extend .col-lg-3, .col-md-4, .col-sm-6;
 
-    .f-li {
-      padding-left: 22px;
-      .fa, .uw-ico {
-        margin-right: 9px;
-        margin-left: -20px;
-      }
-    }
-
-    address {
-      //padding-left: 22px;
-
-      @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-        min-height: 38px;
+      .f-li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 15px;
+        .fa, .uw-ico {
+          position: absolute;
+          left: 0;
+          top: 2px;
+        }
       }
 
-      //.uw-ico {
-      //  background-color: #F5F5F5;
-      //  height: 20px;
-      //  margin-left: -22px;
-      //  margin-right: 8px
-      //}
+      .clinic__info {
+        @extend .well;
+        border: 0 none;
+        background-color: #F5F5F5;
+      }
+      .clinic__clinic-snippet p {
+        display: inline;
+      }
+      .clinic__directions {
+        @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
+      }
+
     }
 
-    //.clinic__wait-time, .clinic__clinic-phone {
-    //  padding-left: 22px;
-    //  .fa, .uw-ico {
-    //    margin-right: 9px;
-    //    margin-left: -20px;
-    //  }
-    //}
-    .clinic__wait-time {
-      min-height: 42px;
-    }
 
-    .clinic__directions {
-      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
-    }
-    //.clinic__directions a {
-    //  text-decoration: none;
-    //  text-transform: uppercase;
-    //  font-family: $headings-font-family;
-    //
-    //  &:hover {
-    //    color: white;
-    //  }
-    //
-    //  @include angled-edge('inside top', 'lower right', $uwmed-accent-teal, 15, 15);
-    //  &::before {
-    //    background-position: left 0;
-    //  }
-    //  &:hover {
-    //    background-color: $uwmed-accent-teal;
-    //  }
-    //}
-  }
+    .paragraph {
 
-  .virtual-clinic {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    background-size: cover;
+      .bg-featured-image {
+        @extend %uwmed-absolute-bg-box;
+        display: block !important;
+      }
 
-    @media(max-width: $screen-md-max) {
-      background-color: #f5f5f5;
-      background-image: none;
-      padding: 20px;
-    }
+      .wrapper {
 
-    .container-lg {
-      @media(min-width: $screen-md-min) {
+        @extend .well-lg, .col-xs-12, .col-md-6, .col-md-offset-5, .col-lg-5, .col-lg-offset-6;
         margin-top: 50px;
         margin-bottom: 50px;
-      }
-    }
+        background: $uwmed-white;
+        opacity: .9;
 
-    @media (max-width: $screen-lg-min) {
-      .row {
-        margin: 0;
-      }
-
-      .virtual-clinic__title {
-        margin-bottom: -1px;
-      }
-    }
-
-
-    .virtual-clinic__title {
-      background-color: white;
-      display: inline-block;
-      float: left;
-
-      .h3 {
-        text-transform: uppercase;
-        letter-spacing: .05em;
-        margin-bottom: 6px;
-        margin-top: 38px;
-      }
-
-      padding-left: 38px;
-      padding-right: 38px;
-
-      @media(max-width: $screen-sm-max) {
-        width: 100%;
-      }
-      @media(min-width: $screen-lg-min) {
-        background-color: rgba(255, 255, 255, 0.9);
-      }
-
-      .uwmed-slant span {
-        background-color: $uwmed-accent-blue;
-      }
-    }
-
-    .virtual-clinic__content {
-      background-color: white;
-      padding-bottom: 38px;
-      padding-left: 38px;
-      padding-right: 38px;
-      float: left;
-
-      @media(min-width: $screen-lg-min) {
-        background-color: rgba(255, 255, 255, .9);
-      }
-
-      .h2 {
-        color: $uwmed-accent-blue;
-        margin-bottom: 20px;
-      }
-
-      .virtual-clinic__subheading {
-        //margin-top: $line-height-computed;
-        //margin-bottom: $line-height-computed;
-      }
-
-      .virtual-clinic__cta {
-        @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
-      }
-      .virtual-clinic__link {
-        margin-top: 20px;
-        //text-transform: uppercase;
-        //text-decoration: none;
-        //font-weight: 600;
-        //font-family: $headings-font-family;
-        //font-size: $font-size-h3;
-
-        @media(min-width: $screen-lg-min) {
-          padding-left: 18px;
-          padding-right: 18px;
+        .field.field--name-field-heading {
+          @include uw-bottom-accent-heading($uwmed-accent-blue);
+          margin-bottom: 30px;
+        }
+        .field.field.field--name-field-link {
+          @include uw-ghost-button('.item', 'i.u-ips', $uwmed-accent-blue);
+        }
+        .field.field--name-field-featured-image {
+          @extend .hidden;
         }
 
-        //&:hover {
-        //  color: white;
-        //}
-        //
-        //@include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
-        //&::before {
-        //  background-position: left 0;
-        //}
-        //&:hover {
-        //  background-color: $uwmed-accent-blue;
-        //}
       }
+
+
     }
+
   }
+
+  //.virtual-clinic {
+  //  position: relative;
+  //  width: 100%;
+  //  padding: 0;
+  //  background-size: cover;
+  //
+  //  @media(max-width: $screen-md-max) {
+  //    background-color: #f5f5f5;
+  //    background-image: none;
+  //    padding: 20px;
+  //  }
+  //
+  //  .container-lg {
+  //    @media(min-width: $screen-md-min) {
+  //      margin-top: 50px;
+  //      margin-bottom: 50px;
+  //    }
+  //  }
+  //
+  //  @media (max-width: $screen-lg-min) {
+  //    .row {
+  //      margin: 0;
+  //    }
+  //
+  //    .virtual-clinic__title {
+  //      margin-bottom: -1px;
+  //    }
+  //  }
+  //
+  //
+  //  .virtual-clinic__title {
+  //    background-color: white;
+  //    display: inline-block;
+  //    float: left;
+  //
+  //    .h3 {
+  //      text-transform: uppercase;
+  //      letter-spacing: .05em;
+  //      margin-bottom: 6px;
+  //      margin-top: 38px;
+  //    }
+  //
+  //    padding-left: 38px;
+  //    padding-right: 38px;
+  //
+  //    @media(max-width: $screen-sm-max) {
+  //      width: 100%;
+  //    }
+  //    @media(min-width: $screen-lg-min) {
+  //      background-color: rgba(255, 255, 255, 0.9);
+  //    }
+  //
+  //    .uwmed-slant span {
+  //      background-color: $uwmed-accent-blue;
+  //    }
+  //  }
+  //
+  //  .virtual-clinic__content {
+  //    background-color: white;
+  //    padding-bottom: 38px;
+  //    padding-left: 38px;
+  //    padding-right: 38px;
+  //    float: left;
+  //
+  //    @media(min-width: $screen-lg-min) {
+  //      background-color: rgba(255, 255, 255, .9);
+  //    }
+  //
+  //    .h2 {
+  //      color: $uwmed-accent-blue;
+  //      margin-bottom: 20px;
+  //    }
+  //
+  //    .virtual-clinic__subheading {
+  //      //margin-top: $line-height-computed;
+  //      //margin-bottom: $line-height-computed;
+  //    }
+  //
+  //    .virtual-clinic__cta {
+  //      @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
+  //    }
+  //    .virtual-clinic__link {
+  //      margin-top: 20px;
+  //      //text-transform: uppercase;
+  //      //text-decoration: none;
+  //      //font-weight: 600;
+  //      //font-family: $headings-font-family;
+  //      //font-size: $font-size-h3;
+  //
+  //      @media(min-width: $screen-lg-min) {
+  //        padding-left: 18px;
+  //        padding-right: 18px;
+  //      }
+  //
+  //      //&:hover {
+  //      //  color: white;
+  //      //}
+  //      //
+  //      //@include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
+  //      //&::before {
+  //      //  background-position: left 0;
+  //      //}
+  //      //&:hover {
+  //      //  background-color: $uwmed-accent-blue;
+  //      //}
+  //    }
+  //  }
+  //}
 
   #resources {
     .eCare__information {

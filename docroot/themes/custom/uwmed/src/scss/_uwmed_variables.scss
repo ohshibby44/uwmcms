@@ -331,3 +331,14 @@ $uwmed-solid-dark-purple: #3f3952;
 %uwmed-box-shadow {
   box-shadow: 1px 1px 10px 1px #dcdcdc;
 }
+
+%uwmed-absolute-bg-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
