@@ -5,6 +5,9 @@
  * Custom PHP code for the UWMed theme.
  */
 
+use Drupal\node\Entity\Node;
+use Drupal\uwmcs_reader\Controller\UwmMapper;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -42,28 +45,25 @@ function uwmed_preprocess_node(&$variables) {
 
   if ($node->getType() === 'uwm_clinic') {
 
-    // Use Primary Care image for Urgent Care nodes:
-    /*
-     *
-    use Drupal\node\Entity\Node;
-    use Drupal\uwmcs_reader\Controller\UwmMapper;
+    // Copy Urgent/ Primary care node images:
+    if (empty($node->field_clinic_image->value)) {
 
-    if(empty($node->field_clinic_image->value)) {
+      if (stripos($node->title->value, 'Urgent') !== FALSE) {
 
-    if (stripos($node->title->value, 'Urgent') !== FALSE) {
+        $path = UwmMapper::getPathByNid($node->nid->value);
+        $primaryCareNid = UwmMapper::getNidByPathAlias(
+          str_replace('urgent', 'primary', $path));
 
-    $path = UwmMapper::getPathByNid($node->nid->value);
-    $pNid = UwmMapper::getNidByPathAlias(
-    str_replace('urgent', 'primary', $path));
+        if ($primaryCareNid) {
 
-    if($pNid) {
+          $pNode = Node::load($primaryCareNid);
+          $variables['content']['field_clinic_image'] = $pNode->field_clinic_image->view();
 
-    $pNode = Node::load($pNid);
-    $node->field_clinic_image = $pNode->field_clinic_image;
+        }
+
+      }
 
     }
-    }
-    }*/
 
   }
 
