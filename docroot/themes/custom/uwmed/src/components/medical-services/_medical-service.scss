@@ -1115,10 +1115,16 @@
         @extend .well;
         border: 0 none;
         background-color: #F5F5F5;
+
+        .h2, .h3, .h4 {
+          margin-top: 0;
+        }
+        .clinic__clinic-snippet p {
+          display: inline;
+        }
+
       }
-      .clinic__clinic-snippet p {
-        display: inline;
-      }
+
       .clinic__directions {
         @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
       }

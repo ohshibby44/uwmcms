@@ -19,6 +19,7 @@
         {% for clinic in urgent_care_clinics %}
 
             {% set clinicNid = uwm_get_api_nid(clinic.url) %}
+            <pre>{{ dump(clinicNid) }}</pre>
             {% if clinicNid %}
                 {{ drupal_entity('node', clinicNid, 'card_display') }}
             {% endif %}
