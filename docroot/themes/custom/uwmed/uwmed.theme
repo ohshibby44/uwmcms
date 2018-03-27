@@ -70,6 +70,24 @@ function uwmed_preprocess_node(&$variables) {
 }
 
 /**
+ * Implements theme_preprocess_field().
+ */
+function uwmed_preprocess_field(&$variables) {
+
+  // Get media object value for twig template:
+  $obj = $variables['element']['#object'] ?? NULL;
+  if ($obj) {
+
+    $variables['videoUrl'] = $obj->get('field_media_video_embed_field')
+      ->getValue();
+    $variables['captionUrl'] = $obj->get('field_media_video_caption_url')
+      ->getValue();
+
+  }
+
+}
+
+/**
  * Implements template_preprocess_views_view().
  */
 function uwmed_preprocess_views_view(&$variables) {

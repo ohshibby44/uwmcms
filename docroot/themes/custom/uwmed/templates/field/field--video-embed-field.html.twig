@@ -1,0 +1,29 @@
+{% extends 'field.html.twig' %}
+
+
+
+{% block content %}
+
+    {% if captionUrl.0.uri is not empty %}
+    and 'mp4' in videoUrl.0.value %}
+
+{#<pre>#}
+    {#{{ dump(videoUrl.0.value) }}#}
+    {#{{ dump(captionUrl.0.uri) }}#}
+    {#{{ dump(videoUrl) }}#}
+    {#{{ dump(captionUrl) }}#}
+{#</pre>#}
+        <video style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
+            <source src="{{ videoUrl.0.value }}" type="video/mp4">
+            <track label="English" kind="captions" srclang="en" src="{{ captionUrl.0.uri }}" default="">
+            <track label="English" kind="subtitles" srclang="en" src="{{ captionUrl.0.uri }}" default>
+
+        </video>
+
+    {% else %}
+
+        {% include 'field.html.twig' %}
+
+    {% endif %}
+
+{% endblock %}

@@ -207,8 +207,7 @@ http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5
 Link
 http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/_KkGEnglfZ9q?form=html
 
-http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5
-?form=html
+http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5?form=html
 
 Flash Only
 <embed src="http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/swf/select/media/
@@ -218,6 +217,8 @@ allowFullScreen="true" bgcolor="0x000000"/>
 <embed src="http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/swf/select/media/
 ellmMECE9wA5" width="480" height="270" type="application/x-shockwave-flash"
 allowFullScreen="true" bgcolor="0x000000"/>
+
+Caption URL: http://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/449/455/Dr.%20Dudley%20-final%20cut.srt
  *
  *
  */
