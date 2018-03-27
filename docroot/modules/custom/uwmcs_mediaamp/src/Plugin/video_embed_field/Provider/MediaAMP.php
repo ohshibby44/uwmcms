@@ -179,6 +179,9 @@ Querying the feed will depend on the type of ID you're using:
 - For media PIDs, it would be feed_url?byPid={PID}
 
 
+You can additionally customize the response payload to be JSON, cJSON, RSS,
+as well as limiting the response data to just what you want, eg:
+feed_url/{mediaID}?form=cjson&fields=defaultThumbnailUrl.
 
 
 Nick,

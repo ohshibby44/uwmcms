@@ -76,9 +76,9 @@ function uwmed_preprocess_field(&$variables) {
 
   // Get media object value for twig template:
   $obj = $variables['element']['#object'] ?? NULL;
-  if ($obj) {
+  if ($obj && $obj->hasField('field_media_video_data_url')) {
 
-    $variables['videoUrl'] = $obj->get('field_media_video_embed_field')
+    $variables['videoUrl'] = $obj->get('field_media_video_data_url')
       ->getValue();
     $variables['captionUrl'] = $obj->get('field_media_video_caption_url')
       ->getValue();

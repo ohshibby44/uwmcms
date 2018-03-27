@@ -2,21 +2,6 @@
  * @file
  * Opens any link in a Colorbox modal.
  *
- * Use by setting a selector and on and off states for the matched
- * elements. For example, to toggle ".on" for a list of li's,
- * and set the clicked element class to ".active", use:
- *
- * @example
- * <div class="uw-more">
- *     <a href="#"
- *      data-uwm-toggle
- *      data-on-text="{{ 'View less'|t }}"
- *      data-off-text="{{ 'View more'|t }}"
- *      data-toggle-selector=".some-class > li"
- *      data-toggle-style="on"
- *      data-parent-style="active">{{ 'View more'|t }}
- *          <i class="fa fa-angle-down" aria-hidden="true"></i>
- *          </a></div>
  *
  */
 
@@ -24,67 +9,158 @@
 
     'use strict';
 
-    Drupal.behaviors.uwmToggleCssClass = {
+    Drupal.behaviors.uwmColorboxLinks = {
 
         attach: function (context, settings) {
 
-            var doModalContent = function () {
 
-                $.colorbox({
+            // Colorbox class links
+            $('a.colorbox').on('click', handleColorbox);
+            // In-page call-to-action links
+            $('.field--name-field-link a[href^="#"]').on('click', handleColorbox);
+
+
+            function handleColorbox(e) {
+
+                var colorboxFunction = doModalIframe,
+                    $this = $(this), $target = null,
+                    href = $this.attr('href');
+
+                //
+                //
+                // Choose best Colorbox style:
+                //
+                if (href.indexOf('http') === 0) {
+                    colorboxFunction = doModalIframe;
+                }
+
+                if (href.indexOf('#') === 0) {
+
+                    colorboxFunction = doModalInline;
+                    $target = $('#' + href.substr(1));
+
+                }
+
+                if (href.indexOf('#') === 0 && $target.is('video') || $target.hasClass('colorbox-video')) {
+
+                    colorboxFunction = handleVideo;
+
+                }
+
+
+                colorboxFunction($this, $target);
+
+            }
+
+
+            function handleVideo($link, $target) {
+
+                var $video = $target.is('video') ? $target : $target.find('video');
+                var touchEvents = ('ontouchstart' in document.documentElement);
+
+                //
+                //
+                // Choose phone, tablet or default:
+                //
+                if (touchEvents && !!window.screenfull && !!window.screenfull.enabled) {
+
+                    doScreenfullVideo($video);
+
+                }
+                else if (touchEvents && typeof ($video[0].webkitEnterFullscreen) === 'function') {
+
+                    doWebkitFullScreen($video);
+
+                }
+                else {
+
+                    doModalVideo($link, $video);
+                }
+
+
+            }
+
+
+            /**
+             *
+             * Different Colorbox modal styles:
+             *
+             *
+             */
+
+            function doModalInline($link) {
+
+                $link.colorbox({
                     inline: true,
                     width: '50%'
                 });
 
-            };
+            }
 
-            var doModalVideo = function ($modalContent) {
 
-                $.colorbox(
-                    {
-                        inline: true,
-                        width: '75%',
-                        height: 'auto',
-                        href: target,
-                        scrolling: false,
-                        onOpen: function () {
-                            $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'paused');
-                            video.focus();
-                        },
-                        onClosed: function () {
-                            $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'running');
-                        },
-                        onComplete: function () {
-                            video.play();
-                        },
-                        onCleanup: function () {
-                            video.pause();
-                        }
-                    }
-                );
+            function doModalIframe($link) {
 
-            };
-
-            var doModalIframe = function () {
-
-                $.colorbox({
+                $link.colorbox({
                     iframe: true,
                     width: '80%',
                     height: '80%'
                 });
 
-            };
+            }
 
 
-            $('a.colorbox').on('click', function (e) {
+            function doModalVideo($link, $video) {
+
+                $link.colorbox(
+                    {
+                        inline: true,
+                        width: 'auto',
+                        height: 'auto',
+                        scrolling: false,
+                        onOpen: function () {
+                            $link.css('animation-play-state', 'paused');
+                            $video[0].focus();
+                        },
+                        onClosed: function () {
+                            $link.css('animation-play-state', 'running');
+                        },
+                        onComplete: function () {
+                            $video[0].play();
+                        },
+                        onCleanup: function () {
+                            // $video[0].pause();
+                        }
+                    }
+                );
+
+            }
 
 
-                var target = $(this).attr('href');
+            function doScreenfullVideo($video) {
+
+                // we can play full screen and this device has touch events, likely a mobile
+                window.screenfull.request($video[0]);
+                $video[0].play();
+
+                window.screenfull.on('change', function () {
+                    if (!window.screenfull.isFullscreen) {
+                        $video[0].pause();
+                    }
+                });
+            }
 
 
-                e.preventDefault();
+            function doWebkitFullScreen($video) {
 
+                // we can play full screen and this device has touch events, likely a mobile
+                // some iOS devices are not covered by screenfull
+                $video[0].webkitEnterFullscreen();
+                $video[0].play();
 
-            });
+                $video.on('webkitendfullscreen', function () {
+                    $video[0].pause();
+                });
+            }
 
 
         }
