@@ -89,7 +89,8 @@
         "drupal/xmlsitemap": "^1.0@alpha",
         "drupal/webform": "^5.0@RC",
         "drupal/entityqueue": "^1.0@alpha",
-        "drupal/ape": "^1.2"
+        "drupal/ape": "^1.2",
+        "drupal/core": "8.3.8"
     },
     "require-dev": {},
     "extra": {
