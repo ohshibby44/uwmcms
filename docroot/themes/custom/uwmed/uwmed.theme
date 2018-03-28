@@ -5,6 +5,9 @@
  * Custom PHP code for the UWMed theme.
  */
 
+use Drupal\node\Entity\Node;
+use Drupal\uwmcs_reader\Controller\UwmMapper;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
@@ -31,6 +34,57 @@ function uwmed_preprocess_region(&$variables) {
  * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
+}
+
+/**
+ * Implements theme_preprocess_node().
+ */
+function uwmed_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($node->getType() === 'uwm_clinic') {
+
+    // Copy Urgent/ Primary care node images:
+    if (empty($node->field_clinic_image->value)) {
+
+      if (stripos($node->title->value, 'Urgent') !== FALSE) {
+
+        $path = UwmMapper::getPathByNid($node->nid->value);
+        $primaryCareNid = UwmMapper::getNidByPathAlias(
+          str_replace('urgent', 'primary', $path));
+
+        if ($primaryCareNid) {
+
+          $pNode = Node::load($primaryCareNid);
+          $variables['content']['field_clinic_image'] = $pNode->field_clinic_image->view();
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/**
+ * Implements theme_preprocess_field().
+ */
+function uwmed_preprocess_field(&$variables) {
+
+  // Get media object value for twig template:
+  $obj = $variables['element']['#object'] ?? NULL;
+  if ($obj && $obj->hasField('field_media_video_data_url')) {
+
+    $variables['videoUrl'] = $obj->get('field_media_video_data_url')
+      ->getValue();
+    $variables['captionUrl'] = $obj->get('field_media_video_caption_url')
+      ->getValue();
+
+  }
+
 }
 
 /**
@@ -165,8 +219,11 @@ function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
 function uwmed_preprocess_node__uwm_medical_service(&$variables) {
   $variables["#attached"]['drupalSettings']['uwmcms_reader_primary_care_clinics'] = $variables["node"]->uwmcms_reader_primary_care_clinics;
 
-  $webform                              = \Drupal::entityTypeManager()->getStorage('webform')->load('health_news_signup');
-  $view_builder                         = \Drupal::service('entity_type.manager')->getViewBuilder('webform');
-  $build                                = $view_builder->view($webform);
+  $webform = \Drupal::entityTypeManager()
+    ->getStorage('webform')
+    ->load('health_news_signup');
+  $view_builder = \Drupal::service('entity_type.manager')
+    ->getViewBuilder('webform');
+  $build = $view_builder->view($webform);
   $variables['health_news_you_can_use'] = $build;
 }

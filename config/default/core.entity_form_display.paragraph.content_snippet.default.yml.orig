@@ -11,8 +11,11 @@ dependencies:
     - paragraphs.paragraphs_type.content_snippet
   module:
     - allowed_formats
-    - entity_browser
+<<<<<<< HEAD
     - field_group
+=======
+    - entity_browser
+>>>>>>> hotfix/virtual-clinic
     - link
     - text
     - workbench_moderation
@@ -23,7 +26,6 @@ third_party_settings:
         - field_heading
         - field_text_snippet
         - field_link
-        - field_featured_image
       parent_name: ''
       weight: 0
       format_type: tab
@@ -41,7 +43,7 @@ mode: default
 content:
   field_featured_image:
     type: entity_browser_file
-    weight: 4
+    weight: 6
     settings:
       entity_browser: image_browser
       field_widget_remove: true

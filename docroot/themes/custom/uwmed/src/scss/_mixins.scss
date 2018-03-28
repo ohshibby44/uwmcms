@@ -126,7 +126,8 @@
 
     &:hover {
       color: $uwmed-light-purple;
-      @if $accent-color != $uwmed-menu-yellow {
+      @if $accent-color != $uwmed-menu-yellow or
+      $accent-color == $uwmed-accent-blue {
         color: white;
       }
 

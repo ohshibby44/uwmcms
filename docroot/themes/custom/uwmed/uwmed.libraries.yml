@@ -84,18 +84,20 @@ slickquiz:
   dependencies:
     - core/jquery
 
+screenfull:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.min.js: { type: external, minified: true }
+
 colorbox:
   js:
     //cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js: { type: external, minified: true }
+    dist/js/uwm-colorbox.js: { preprocess: false }
   css:
     theme:
       dist/styles/colorbox.css: {}
   dependencies:
     - core/jquery
-
-screenfull:
-  js:
-    //cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.min.js: { type: external, minified: true }
+    - uwmed/screenfull
 
 patient-care-video:
   js:
@@ -116,6 +118,7 @@ medical-service:
     - core/jquery.once
     - uwmed/swipejs
     - uwmed/slickquiz
+    - uwmed/colorbox
 
 
 scroll-magic:

@@ -75,6 +75,7 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+<<<<<<< HEAD
   field_clinic_wait_time_snippet:
     weight: 10
     label: above
@@ -92,6 +93,8 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: content
+=======
+>>>>>>> hotfix/virtual-clinic
   field_content_blocks:
     type: entity_reference_revisions_entity_view
     weight: 3

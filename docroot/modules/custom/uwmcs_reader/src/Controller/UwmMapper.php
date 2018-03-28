@@ -66,6 +66,29 @@ class UwmMapper {
   }
 
   /**
+   * Find a node path based on it's nid.
+   *
+   * @code
+   * \Drupal\uwmcs_reader\Controller\UwmMapper
+   *   ::getPathByNid(201);
+   * @endcode
+   *
+   * @param int $nodeId
+   *   The node's internal id.
+   *
+   * @return string|null
+   *   Path alias, if found.
+   */
+  public static function getPathByNid(int $nodeId) {
+
+    $path = \Drupal::service('path.alias_manager')
+      ->getAliasByPath('/node/' . $nodeId);
+
+    return $path;
+
+  }
+
+  /**
    * Find a node Id based on IM-API address.
    *
    * This value is stored on nodes and corresponds

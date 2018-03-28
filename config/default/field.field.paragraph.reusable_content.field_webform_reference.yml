@@ -12,7 +12,7 @@ field_name: field_webform_reference
 entity_type: paragraph
 bundle: reusable_content
 label: 'Include Webform'
-description: ''
+description: 'Choose a webform <a href="/admin/structure/webform" target="new">form</a>.'
 required: false
 translatable: false
 default_value: {  }
