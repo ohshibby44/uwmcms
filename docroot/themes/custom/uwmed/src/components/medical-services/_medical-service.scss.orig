@@ -1098,7 +1098,19 @@
 
     article.uwm-clinic {
 
+<<<<<<< HEAD
       @extend .col-lg-3, .col-md-4, .col-sm-6;
+=======
+    .field.field--name-field-clinic-wait-time-snippet, .field.field--name-field-clinic-wait-time-snippet * {
+      display: inline;
+    }
+    .field.field--name-field-clinic-wait-time-snippet .field--label {
+      display: none !important;
+    }
+
+    address {
+      //padding-left: 22px;
+>>>>>>> themes/uwmcms
 
       .f-li {
         position: relative;
@@ -1111,22 +1123,11 @@
         }
       }
 
-<<<<<<< HEAD
-    .field.field--name-field-clinic-wait-time-snippet, .field.field--name-field-clinic-wait-time-snippet * {
-      display: inline;
-    }
-    .field.field--name-field-clinic-wait-time-snippet .field--label {
-      display: none !important;
-    }
 
-    address {
-      //padding-left: 22px;
-=======
       .clinic__info {
         @extend .well;
         border: 0 none;
         background-color: #F5F5F5;
->>>>>>> hotfix/virtual-clinic
 
         .h2, .h3, .h4 {
           margin-top: 0;
@@ -1169,7 +1170,12 @@
         .field.field--name-field-featured-image {
           @extend .hidden;
         }
-
+        .field.field--name-field-clinic-wait-time-snippet, .field.field--name-field-clinic-wait-time-snippet * {
+          display: inline;
+        }
+        .field.field--name-field-clinic-wait-time-snippet .field--label {
+          display: none !important;
+        }
       }
 
 

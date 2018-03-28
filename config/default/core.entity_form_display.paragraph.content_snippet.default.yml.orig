@@ -12,10 +12,10 @@ dependencies:
   module:
     - allowed_formats
 <<<<<<< HEAD
-    - field_group
-=======
     - entity_browser
->>>>>>> hotfix/virtual-clinic
+=======
+>>>>>>> themes/uwmcms
+    - field_group
     - link
     - text
     - workbench_moderation
@@ -26,6 +26,10 @@ third_party_settings:
         - field_heading
         - field_text_snippet
         - field_link
+<<<<<<< HEAD
+        - field_featured_image
+=======
+>>>>>>> themes/uwmcms
       parent_name: ''
       weight: 0
       format_type: tab
@@ -43,7 +47,7 @@ mode: default
 content:
   field_featured_image:
     type: entity_browser_file
-    weight: 6
+    weight: 4
     settings:
       entity_browser: image_browser
       field_widget_remove: true

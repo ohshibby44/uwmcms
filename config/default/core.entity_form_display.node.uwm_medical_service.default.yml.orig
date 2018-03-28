@@ -31,7 +31,11 @@ third_party_settings:
         - field_subheading
         - field_links_with_icon
       parent_name: group_page_
+<<<<<<< HEAD
+      weight: 0
+=======
       weight: 4
+>>>>>>> themes/uwmcms
       format_type: fieldset
       format_settings:
         id: ''
@@ -39,19 +43,11 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Hero Area'
-<<<<<<< HEAD
     group_page_:
       children:
         - group_hero_area
       parent_name: ''
       weight: 0
-=======
-    group_care_now_tab:
-      children:
-        - field_bottom_content_blocks
-      parent_name: ''
-      weight: 20
->>>>>>> hotfix/virtual-clinic
       format_type: tab
       format_settings:
         id: ''
@@ -59,7 +55,6 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-<<<<<<< HEAD
       label: 'Page Top'
     group_proof_points:
       children:
@@ -77,8 +72,14 @@ third_party_settings:
     group_common_serives:
       children:
         - field_common_services
+<<<<<<< HEAD
+        - field_condition_spotlight
+      parent_name: ''
+      weight: 3
+=======
       parent_name: ''
       weight: 2
+>>>>>>> themes/uwmcms
       format_type: tab
       format_settings:
         id: ''
@@ -90,8 +91,14 @@ third_party_settings:
     group_featured_s:
       children:
         - field_feature_story
+<<<<<<< HEAD
+        - field_featured_specialties
+      parent_name: ''
+      weight: 2
+=======
       parent_name: ''
       weight: 3
+>>>>>>> themes/uwmcms
       format_type: tab
       format_settings:
         id: ''
@@ -100,9 +107,34 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Featured Story'
-=======
+<<<<<<< HEAD
+    group_care_now_tab:
+      children:
+        - field_bottom_content_blocks
+      parent_name: ''
+      weight: 4
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
       label: 'Care Now Tab'
->>>>>>> hotfix/virtual-clinic
+    group_page_bottom:
+      children: {  }
+      parent_name: ''
+      weight: 5
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Page Bottom'
+=======
+>>>>>>> themes/uwmcms
 id: node.uwm_medical_service.default
 targetEntityType: node
 bundle: uwm_medical_service
@@ -133,7 +165,11 @@ content:
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
+<<<<<<< HEAD
+    weight: 4
+=======
     weight: 6
+>>>>>>> themes/uwmcms
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -170,7 +206,7 @@ content:
     region: content
     third_party_settings: {  }
   field_information_manager_url:
-    weight: 26
+    weight: 8
     settings:
       size: 60
       placeholder: ''

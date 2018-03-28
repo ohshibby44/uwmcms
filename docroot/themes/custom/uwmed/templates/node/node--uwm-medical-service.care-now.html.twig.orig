@@ -19,6 +19,12 @@
         {% for clinic in urgent_care_clinics %}
 
 <<<<<<< HEAD
+            {% set clinicNid = uwm_get_api_nid(clinic.url) %}
+            {% if clinicNid %}
+                {{ drupal_entity('node', clinicNid, 'card_display') }}
+            {% endif %}
+
+=======
             {% set address = [clinic.address, clinic.city ~ ' '~  clinic.state  ~ ', '~  clinic.zipcode] | uwm_join_parts(', ') %}
 
             <div class="clinic col-lg-3 col-md-4 col-sm-6">
@@ -62,13 +68,7 @@
                 </div>
 
             </div>
-=======
-            {% set clinicNid = uwm_get_api_nid(clinic.url) %}
-            {% if clinicNid %}
-                {{ drupal_entity('node', clinicNid, 'card_display') }}
-            {% endif %}
-
->>>>>>> hotfix/virtual-clinic
+>>>>>>> themes/uwmcms
         {% endfor %}
 
     </div>
