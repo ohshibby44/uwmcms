@@ -128,7 +128,7 @@
                             $video[0].play();
                         },
                         onCleanup: function () {
-                            // $video[0].pause();
+                            $video[0].pause();
                         }
                     }
                 );
