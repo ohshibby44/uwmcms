@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "af41bd7b78e4c897ecfeabb3152f2738",
+    "content-hash": "9517e23d9e8441cf309c17bca3d3b248",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4324,16 +4324,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.3.8",
+            "version": "8.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "5d991a86fc445ebe71a63eed8804c4209f8794c4"
+                "reference": "a83cbc50bf96ab5e8580413f6a359d999e981883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/5d991a86fc445ebe71a63eed8804c4209f8794c4",
-                "reference": "5d991a86fc445ebe71a63eed8804c4209f8794c4",
+                "url": "https://api.github.com/repos/drupal/core/zipball/a83cbc50bf96ab5e8580413f6a359d999e981883",
+                "reference": "a83cbc50bf96ab5e8580413f6a359d999e981883",
                 "shasum": ""
             },
             "require": {
@@ -4517,7 +4517,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2018-03-12T19:09:32+00:00"
+            "time": "2018-03-27T10:06:04+00:00"
         },
         {
             "name": "drupal/crop",
