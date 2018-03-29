@@ -18,7 +18,7 @@ use field defaults.
     {#{{ dump(videoUrl) }}#}
     {#{{ dump(captionUrl) }}#}
 {#</pre>#}
-        <video style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
+        <video id="{{ uwmFieldId }}" style="max-width: 100%;" controls="" preload="metadata" crossorigin="anonymous">
             <source src="{{ videoUrl.0.uri }}" type="video/mp4">
             <track label="English" kind="captions" srclang="en" src="{{ captionUrl.0.uri }}" default="">
         </video>
