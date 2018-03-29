@@ -22,15 +22,17 @@
 
             function handleColorbox(e) {
 
-                var colorboxFunction = doModalIframe,
-                    $this = $(this), $target = null,
+                var $this = $(this), $target = $(),
                     href = $this.attr('href');
 
                 //
                 //
                 // Choose best Colorbox style:
                 //
+                var colorboxFunction = doModalIframe;
+
                 if (href.indexOf('http') === 0) {
+
                     colorboxFunction = doModalIframe;
                 }
 
@@ -41,9 +43,9 @@
 
                 }
 
-                if (href.indexOf('#') === 0 && $target.is('video') || $target.hasClass('colorbox-video')) {
+                if ($target.length > 0 && $target.is('video')) {
 
-                    colorboxFunction = handleVideo;
+                    colorboxFunction = handleMovie;
 
                 }
 
@@ -53,10 +55,16 @@
             }
 
 
-            function handleVideo($link, $target) {
+            function handleMovie($link, $container) {
 
-                var $video = $target.is('video') ? $target : $target.find('video');
+                var $video = $container.is('video') ? $container : $container.find('video');
                 var touchEvents = ('ontouchstart' in document.documentElement);
+
+                if ($video.length < 1) {
+
+                    return;
+                }
+
 
                 //
                 //
@@ -75,8 +83,8 @@
                 else {
 
                     doModalVideo($link, $video);
-                }
 
+                }
 
             }
 
@@ -111,8 +119,7 @@
 
             function doModalVideo($link, $video) {
 
-                $link.colorbox(
-                    {
+                $link.colorbox({
                         inline: true,
                         width: 'auto',
                         height: 'auto',
@@ -130,8 +137,7 @@
                         onCleanup: function () {
                             $video[0].pause();
                         }
-                    }
-                );
+                    });
 
             }
 
@@ -139,12 +145,17 @@
             function doScreenfullVideo($video) {
 
                 // we can play full screen and this device has touch events, likely a mobile
-                window.screenfull.request($video[0]);
-                $video[0].play();
+                var $visibleVideo = $video.clone();
+                $('html').append($visibleVideo);
+
+                window.screenfull.request($visibleVideo[0]);
+                $visibleVideo[0].play();
 
                 window.screenfull.on('change', function () {
                     if (!window.screenfull.isFullscreen) {
-                        $video[0].pause();
+                        $visibleVideo[0].pause();
+                        $visibleVideo.remove();
+                        $.colorbox.close();
                     }
                 });
             }
@@ -159,6 +170,7 @@
 
                 $video.on('webkitendfullscreen', function () {
                     $video[0].pause();
+                    $.colorbox.close();
                 });
             }
 
