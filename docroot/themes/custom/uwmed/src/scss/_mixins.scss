@@ -125,11 +125,17 @@
     }
 
     &:hover {
+      
       color: $uwmed-light-purple;
-      @if $accent-color != $uwmed-menu-yellow or
-      $accent-color == $uwmed-accent-blue {
-        color: white;
+      @if $accent-color != $uwmed-menu-yellow {
+        color: white !important;
       }
+      //#{$button-el}, #{$button-el} * {
+      //  color: $uwmed-light-purple;
+      //  @if $accent-color != $uwmed-menu-yellow {
+      //    color: white !important;
+      //  }
+      //}
 
       &:before {
         transform: scaleX(1);
