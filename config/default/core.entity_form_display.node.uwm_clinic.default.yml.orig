@@ -146,7 +146,11 @@ content:
     type: string_textfield
     region: content
   field_clockwise_id:
+<<<<<<< HEAD
     weight: 14
+=======
+    weight: 30
+>>>>>>> themes/uwmcms
     settings:
       placeholder: ''
     third_party_settings: {  }

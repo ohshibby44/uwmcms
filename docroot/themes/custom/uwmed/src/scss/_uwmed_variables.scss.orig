@@ -332,6 +332,8 @@ $uwmed-solid-dark-purple: #3f3952;
   box-shadow: 1px 1px 10px 1px #dcdcdc;
 }
 
+<<<<<<< HEAD
+=======
 %uwmed-absolute-bg-box {
   position: absolute;
   top: 0;
@@ -342,3 +344,4 @@ $uwmed-solid-dark-purple: #3f3952;
   background-repeat: no-repeat;
   background-position: center center;
 }
+>>>>>>> hotfix/virtual-clinic

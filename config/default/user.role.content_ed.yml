@@ -57,6 +57,7 @@ permissions:
   - 'use needs_review_needs_review transition'
   - 'use published_archived transition'
   - 'use published_draft transition'
+  - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format simple_formatted_text'
   - 'view all revisions'

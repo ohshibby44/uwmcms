@@ -11,7 +11,7 @@ field_name: field_other_reference
 entity_type: paragraph
 bundle: reusable_content
 label: 'Block References'
-description: 'Choose a reusable block from the custom blocks at /admin/structure/block/block-content/.'
+description: 'Choose a reusable block from the <a href="/admin/structure/block/block-content" target="new">block library</a>.'
 required: false
 translatable: false
 default_value: {  }
