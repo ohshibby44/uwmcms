@@ -8,7 +8,7 @@
 }
 
 @mixin uwmed-no-transition() {
-  transition-timing-function: none;
+  transition-timing-function: unset;
   transition: none !important;
 }
 
@@ -85,9 +85,8 @@
   margin-bottom: 6px;
   margin-top: 6px;
 
-  #{$button-el}, #{$button-el} * {
+  #{$button-el}, #{$button-el} a {
     color: $uwmed-body-text-color;
-    //background-color: $uwmed-white;
     cursor: pointer;
     border-radius: 0;
     font-size: 13px;
@@ -125,17 +124,13 @@
     }
 
     &:hover {
-      
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
-        color: white !important;
+        color: $uwmed-white;
+        a {
+          color: $uwmed-white;
+        }
       }
-      //#{$button-el}, #{$button-el} * {
-      //  color: $uwmed-light-purple;
-      //  @if $accent-color != $uwmed-menu-yellow {
-      //    color: white !important;
-      //  }
-      //}
 
       &:before {
         transform: scaleX(1);
@@ -158,8 +153,6 @@
     width: 20px;
     background: $accent-color;
   }
-
-
 
   @content;
 }

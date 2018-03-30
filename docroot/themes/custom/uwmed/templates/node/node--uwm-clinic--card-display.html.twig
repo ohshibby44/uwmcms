@@ -62,7 +62,8 @@
             {#{{ devel_breakpoint() }}#}
 
             <p class="clinic__wait-time fade-out f-li {{ class }}"
-               data-uwm-clockwise-snippet="{{ clinic.clinicName }}"
+               {# @TODO: Removed when clockwise id moved to field, instead of javascript
+               data-uwm-clockwise-snippet="{{ clinic.clinicName }}"#}
                data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
                 <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
                 <span class="wait-text">{{ wt[0]['#context']['value'] }}</span>.

@@ -102,6 +102,7 @@ installed_extras:
   - nodejs
   - selenium
   - xdebug
+#  - blackfire
 
 # PHP 5.6 (PHP 7.1 is being tested, see: https://docs.acquia.com/node/25726).
 # -- UWMED Upgrade to 7.1 since 7.1 is running now in Acquia Cloud --

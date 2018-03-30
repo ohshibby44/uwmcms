@@ -16,6 +16,7 @@
 
             // Colorbox class links
             $('a.colorbox').on('click', handleColorbox);
+
             // In-page call-to-action links
             $('.field--name-field-link a[href^="#"]').on('click', handleColorbox);
 
@@ -25,10 +26,13 @@
                 var $this = $(this), $target = $(),
                     href = $this.attr('href');
 
-                //
-                //
-                // Choose best Colorbox style:
-                //
+                /**
+                 *
+                 * Choose best Colorbox style:
+                 *
+                 *
+                 *
+                 */
                 var colorboxFunction = doModalIframe;
 
                 if (href.indexOf('http') === 0) {
@@ -49,7 +53,6 @@
 
                 }
 
-
                 colorboxFunction($this, $target);
 
             }
@@ -66,10 +69,12 @@
                 }
 
 
-                //
-                //
-                // Choose phone, tablet or default:
-                //
+                /**
+                 *
+                 * Choose phone, tablet or default:
+                 *
+                 *
+                 */
                 if (touchEvents && !!window.screenfull && !!window.screenfull.enabled) {
 
                     doScreenfullVideo($video);
@@ -95,7 +100,6 @@
              *
              *
              */
-
             function doModalInline($link) {
 
                 $link.colorbox({
@@ -145,16 +149,16 @@
             function doScreenfullVideo($video) {
 
                 // we can play full screen and this device has touch events, likely a mobile
-                var $visibleVideo = $video.clone();
-                $('html').append($visibleVideo);
+                var $noHideVideo = $video.clone();
+                $('html').append($noHideVideo);
 
-                window.screenfull.request($visibleVideo[0]);
-                $visibleVideo[0].play();
+                window.screenfull.request($noHideVideo[0]);
+                $noHideVideo[0].play();
 
                 window.screenfull.on('change', function () {
                     if (!window.screenfull.isFullscreen) {
-                        $visibleVideo[0].pause();
-                        $visibleVideo.remove();
+                        $noHideVideo[0].pause();
+                        $noHideVideo.remove();
                         $.colorbox.close();
                     }
                 });
