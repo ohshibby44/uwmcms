@@ -12,19 +12,10 @@
 
 <div class="row">
 
-    {% for s in bios %}
+    {% for bio in bios %}
 
-        {% set title = s.fullName %}
-        {% set href = '/bios/'~ s.friendlyUrl %}
-        {% set profileImage = ('noimage.jpg' in s.bioImageUrl) ?
-        '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' :
-        s.bioImageUrl %}
-
-        {% set specialities = [] %}
-        {% for j,k in s.expertise %}
-            {% set specialities = specialities|merge({ (j): k.expertiseName }) %}
-        {% endfor %}
-
+        {% set title = bio.fullName %}
+        {% set href = '/bios/'~ bio.friendlyUrl %}
 
         {% set loopClasses = [
             loop.index is odd ? 'even' : 'odd',
@@ -38,7 +29,11 @@
             <div class="wrapper">
 
                 <div class="profile-image">
+                    {% set profileImage = ('noimage.jpg' in bio.bioImageUrl) ?
+                    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : bio.bioImageUrl %}
                     <img src="{{ profileImage }}" class="img-thumbnail">
+
+                    {# @TODO: Add responsive image cutdown. #}
                 </div>
 
                 <div class="profile-details">
@@ -46,7 +41,7 @@
                     <h4><a href="{{ href }}">{{ title }}</a></h4>
 
                     <div class="accepting-apts">
-                        {% if s.acceptingAppointments %}
+                        {% if bio.acceptingAppointments %}
                             <i class="fa fa-check-circle"
                                aria-hidden="true"></i>
                             {{ "Accepting new patients"| t }}
@@ -56,7 +51,9 @@
                         {% endif %}
                     </div>
 
-                    <div class="specialities s-{{ s.id }}">
+                    <div class="specialities s-{{ bio.id }}">
+
+                        {% set specialities = uwm_extract_parts(bio, 'expertiseName') %}
                         {% if specialities %}
                             <p><strong>{{ "Specialities"| t }}: </strong><br>
                             {% for i in specialities %}
@@ -78,7 +75,7 @@
 
                             {% if specialities|length > 3 %}
                             <i class="toggle" data-toggle="collapse"
-                               data-target=".s-{{ s.id }} .collapse">...</i>
+                               data-target=".s-{{ bio.id }} .collapse">...</i>
                             {% endif %}
                             </p>
                         {% endif %}
@@ -88,7 +85,7 @@
                 </div>
 
                 <div class="accepting-apts-cta">
-                    {% if s.acceptingAppointments %}
+                    {% if bio.acceptingAppointments %}
                         <a class="btn btn-default" href="/patient-care/making-an-appointment">
                             <i class="u-ips"></i> {{ "Request Appointment"|t }}
                         </a>
