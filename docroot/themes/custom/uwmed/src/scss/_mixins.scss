@@ -118,7 +118,10 @@
       
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
-        color: white !important;
+        color: $uwmed-white;
+        a {
+          color: $uwmed-white;
+        }
       }
       //#{$button-el}, #{$button-el} * {
       //  color: $uwmed-light-purple;
