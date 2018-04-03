@@ -1,0 +1,28 @@
+uuid: 1bfe9764-7274-4833-8a97-69b92e09b448
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.fact_page.body
+    - node.type.fact_page
+  module:
+    - text
+    - user
+id: node.fact_page.teaser
+targetEntityType: node
+bundle: fact_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
