@@ -51,11 +51,11 @@
             href: '#patientCareVideo',
             scrolling: false,
             onOpen: function () {
-              $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'paused')
+              $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'paused');
               video.focus();
             },
             onClosed: function () {
-              $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'running')
+              $('.page-node-type-homepage .homepage-section__story-link .faa-burst.animated').css('animation-play-state', 'running');
             },
             onComplete: function () {
               video.play();

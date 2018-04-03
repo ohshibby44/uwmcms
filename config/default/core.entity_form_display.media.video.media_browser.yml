@@ -51,4 +51,5 @@ hidden:
   created: true
   field_media_caption: true
   field_media_in_library: true
+  field_media_video_data_url: true
   uid: true
