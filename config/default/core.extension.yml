@@ -71,10 +71,6 @@ module:
   node: 0
   options: 0
   page_cache: 0
-  panelizer: 0
-  panelizer_quickedit: 0
-  panels: 0
-  panels_ipe: 0
   paragraphs: 0
   paragraphs_admin: 0
   paragraphs_type_permissions: 0

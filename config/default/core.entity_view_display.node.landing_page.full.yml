@@ -10,7 +10,6 @@ dependencies:
   module:
     - metatag
     - user
-third_party_settings:
 _core:
   default_config_hash: 1DX5sKy7WeRWbE0WI8lI3pD5qX2oK82YrzqWiZ5_VpY
 id: node.landing_page.full
