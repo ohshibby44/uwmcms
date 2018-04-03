@@ -91,7 +91,9 @@
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/ape": "^1.2",
         "drupal/minifyhtml": "^1.1",
-        "drupal/core": "8.3.9"
+        "drupal/core": "8.3.9",
+        "drupal/panels": "^4.2",
+        "drupal/page_manager": "^4.0@beta"
     },
     "require-dev": {},
     "extra": {

@@ -8,16 +8,10 @@ dependencies:
     - node.type.content_spotlight
     - responsive_image.styles.landscape_responsive_image
   module:
+    - image
     - link
-    - panelizer
     - responsive_image
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.content_spotlight.default
 targetEntityType: node
 bundle: content_spotlight
