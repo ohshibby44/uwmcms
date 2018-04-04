@@ -1,10 +1,10 @@
-uuid: 5367702b-35fb-4b9d-90fc-3deac0ba8044
+uuid: 6a209609-6f1d-4a41-8bbe-9448a8ec9733
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body_body_second
-    - node.type.fact_page
+    - field.storage.paragraph.field_text_snippet
+    - paragraphs.paragraphs_type.links_list
   module:
     - allowed_formats
     - text
@@ -14,14 +14,14 @@ third_party_settings:
     simple_formatted_text: '0'
     basic_html: '0'
     full_html: '0'
-id: node.fact_page.field_body_body_second
-field_name: field_body_body_second
-entity_type: node
-bundle: fact_page
-label: 'Blocks Subtext '
+id: paragraph.links_list.field_text_snippet
+field_name: field_text_snippet
+entity_type: paragraph
+bundle: links_list
+label: 'Text Snippet'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

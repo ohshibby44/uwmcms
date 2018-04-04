@@ -7,17 +7,14 @@
 // Is referenced from our custom Drupal module stylesheet.
 //
  */
-
 @import "../scss/uwm_icons";
-
-
 
 body.adminimal {
 
   // More breathing room on node-edit forms: 
   form {
 
-    tr.odd .form-item, tr.even .form-item {
+    tr.odd .form-wrapper, tr.even .form-wrapper {
       margin-bottom: 2em;
     }
 
@@ -34,21 +31,22 @@ body.adminimal {
     }
   }
 
-
-  // Block on admin pages demonstrating icons: 
+  // Block on admin pages demonstrating icons:
   .view.view-uwm-terms.view-display-id-block_1 {
 
-    .item-list {
+    @extend .well;
+    border: 1px solid #dcdcdc;
+    border-radius: 15px;
+
+    .item-list li {
+      padding: 0 1em 1em 0;
       float: left;
-      width: 100%;
-      margin: 10px 0;
-      li {
-        padding: .5em;
-        float: left;
-        list-style-type: none;
-      }
-      li:hover {
+      list-style-type: none;
+      margin: 0;
+
+      &:hover {
         background: aliceblue;
+
       }
     }
   }
@@ -57,10 +55,15 @@ body.adminimal {
   form.node-form {
 
     .form-checkboxes {
-      float: left; width: 100%; }
+      float: left;
+      width: 100%;
+    }
 
     .form-checkboxes .form-type-checkbox {
-      float: left; width: 30%; overflow: hidden;
+      float: left;
+      width: 30%;
+      overflow: hidden;
+
       &:hover {
         overflow: visible;
         label {
@@ -70,8 +73,6 @@ body.adminimal {
       }
     }
 
-
   }
-
 
 }

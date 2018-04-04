@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - search_api.server.database
-    - core.entity_view_mode.node.full
   module:
     - search_api
     - node
@@ -25,7 +24,6 @@ field_settings:
       view_mode:
         'entity:node':
           page: default
-          landing_page: full
           homepage: default
           uwm_medical_service: default
           condition_spotlight: default

@@ -7,8 +7,10 @@ dependencies:
     - field.field.paragraph.links_list.field_heading
     - field.field.paragraph.links_list.field_link
     - field.field.paragraph.links_list.field_links_paragraph
+    - field.field.paragraph.links_list.field_text_snippet
     - paragraphs.paragraphs_type.links_list
   module:
+    - allowed_formats
     - field_group
     - link
     - paragraphs
@@ -19,6 +21,7 @@ third_party_settings:
     group_list_of_links:
       children:
         - field_heading
+        - field_text_snippet
         - field_links_paragraph
         - field_link
       parent_name: ''
@@ -41,11 +44,14 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
     type: text_textfield
     region: content
   field_link:
-    weight: 3
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -54,7 +60,7 @@ content:
     region: content
   field_links_paragraph:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -63,6 +69,17 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_text_snippet:
+    weight: 2
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+    type: text_textarea
     region: content
 hidden:
   created: true

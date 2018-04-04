@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.fact_page.field_bottom_content_blocks
     - field.field.node.fact_page.field_content_blocks
     - field.field.node.fact_page.field_link
+    - field.field.node.fact_page.field_subheading
     - node.type.fact_page
   module:
     - entity_reference_revisions
@@ -63,8 +64,15 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  links:
+  field_subheading:
     weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

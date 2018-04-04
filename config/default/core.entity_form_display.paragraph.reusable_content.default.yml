@@ -18,8 +18,7 @@ third_party_settings:
   field_group:
     group_default:
       children:
-        - field_heading
-        - field_text_snippet
+        - group_content_extras
         - field_other_reference
         - field_webform_reference
       parent_name: ''
@@ -32,13 +31,27 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Reusable content'
+    group_content_extras:
+      children:
+        - field_heading
+        - field_text_snippet
+      parent_name: group_default
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Content Extras'
 id: paragraph.reusable_content.default
 targetEntityType: paragraph
 bundle: reusable_content
 mode: default
 content:
   field_heading:
-    weight: 1
+    weight: 21
     settings:
       size: 60
       placeholder: ''
@@ -49,13 +62,13 @@ content:
     type: text_textfield
     region: content
   field_other_reference:
-    weight: 3
+    weight: 23
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_text_snippet:
-    weight: 2
+    weight: 22
     settings:
       rows: 3
       placeholder: ''
@@ -66,7 +79,7 @@ content:
     type: text_textarea
     region: content
   field_webform_reference:
-    weight: 4
+    weight: 24
     settings:
       default_data: false
     third_party_settings: {  }

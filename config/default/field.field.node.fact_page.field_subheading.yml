@@ -1,28 +1,28 @@
-uuid: 5367702b-35fb-4b9d-90fc-3deac0ba8044
+uuid: 35d5e775-eb03-4045-b43a-b62d87ec2d67
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body_body_second
+    - field.storage.node.field_subheading
     - node.type.fact_page
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    plain_text: '0'
+    plain_text: plain_text
     simple_formatted_text: '0'
     basic_html: '0'
     full_html: '0'
-id: node.fact_page.field_body_body_second
-field_name: field_body_body_second
+id: node.fact_page.field_subheading
+field_name: field_subheading
 entity_type: node
 bundle: fact_page
-label: 'Blocks Subtext '
+label: 'Title Suffix'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: text

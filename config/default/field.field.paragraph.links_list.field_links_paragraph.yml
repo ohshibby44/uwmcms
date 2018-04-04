@@ -12,7 +12,7 @@ id: paragraph.links_list.field_links_paragraph
 field_name: field_links_paragraph
 entity_type: paragraph
 bundle: links_list
-label: 'Create Link of Links'
+label: 'List Link Items'
 description: 'Add multiple items to create a stylized list of links with icons. '
 required: false
 translatable: false
@@ -25,14 +25,14 @@ settings:
     target_bundles:
       link_with_icon: link_with_icon
     target_bundles_drag_drop:
-      blurb_and_list:
-        weight: 6
-        enabled: false
       content_snippet:
         weight: 7
         enabled: false
       homepage_section:
         weight: 8
+        enabled: false
+      feature_story:
+        weight: 9
         enabled: false
       links_list:
         weight: 9
@@ -40,4 +40,10 @@ settings:
       link_with_icon:
         enabled: true
         weight: 10
+      media_feature:
+        weight: 13
+        enabled: false
+      reusable_content:
+        weight: 14
+        enabled: false
 field_type: entity_reference_revisions
