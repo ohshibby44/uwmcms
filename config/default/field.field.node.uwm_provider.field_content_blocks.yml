@@ -31,15 +31,15 @@ settings:
       links_list: links_list
       reusable_content: reusable_content
     target_bundles_drag_drop:
-      blurb_and_list:
-        weight: 7
-        enabled: false
       content_snippet:
         enabled: true
         weight: 8
       media_feature:
         enabled: true
         weight: 8
+      feature_story:
+        weight: 9
+        enabled: false
       homepage_section:
         weight: 9
         enabled: false

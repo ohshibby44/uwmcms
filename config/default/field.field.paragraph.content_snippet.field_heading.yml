@@ -12,7 +12,8 @@ third_party_settings:
   allowed_formats:
     plain_text: plain_text
     simple_formatted_text: '0'
-    rich_text: '0'
+    basic_html: '0'
+    full_html: '0'
 id: paragraph.content_snippet.field_heading
 field_name: field_heading
 entity_type: paragraph

@@ -10,10 +10,10 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    simple_formatted_text: '0'
-    rich_text: '0'
-    full_html: '0'
     plain_text: '0'
+    simple_formatted_text: '0'
+    basic_html: '0'
+    full_html: '0'
 id: paragraph.media_feature.field_text_snippet
 field_name: field_text_snippet
 entity_type: paragraph

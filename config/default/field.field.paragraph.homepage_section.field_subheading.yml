@@ -6,7 +6,14 @@ dependencies:
     - field.storage.paragraph.field_subheading
     - paragraphs.paragraphs_type.homepage_section
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    plain_text: '0'
+    simple_formatted_text: '0'
+    basic_html: '0'
+    full_html: '0'
 id: paragraph.homepage_section.field_subheading
 field_name: field_subheading
 entity_type: paragraph
