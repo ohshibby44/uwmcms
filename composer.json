@@ -14,11 +14,17 @@
         "uwmcms-update-saml": [
             "sh ./patches/simplesaml/setup_simplesaml_patch.sh"
         ],
+        "uwmcms-patch-htccess": [
+            "sh ./patches/drupal-htaccess/htaccess_patch.sh ./patches/drupal-htaccess/htaccess.patch"
+        ],
         "post-install-cmd": [
             "@uwmcms-update-saml"
         ],
         "post-update-cmd": [
             "@uwmcms-update-saml"
+        ],
+        "post-drupal-scaffold-cmd": [
+            "@uwmcms-patch-htccess"
         ]
     },
     "require": {
