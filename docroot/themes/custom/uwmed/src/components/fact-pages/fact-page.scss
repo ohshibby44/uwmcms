@@ -8,45 +8,67 @@ body.page-node-type-fact-page {
   }
 
   h1.page-header {
+    @extend .col-xs-12;
     font-size: 28px;
     font-weight: 400;
     letter-spacing: .4px;
-    color: $uwmed-purple;
+
+    .title-wrapper {
+      color: $uwmed-purple;
+
+      .subheading {
+        color: $uwmed-pop-blue;
+        font-size: 20px;
+        margin-left: 30px;
+      }
+    }
+
   }
 
   article.fact-page {
 
-
     section.crocosmias {
 
-
       .field.field--name-field-body-body-second {
-        @extend .col-xs-12, .text-center;
+        @extend .col-xs-12, .text-center, .h5;
+        font-weight: normal;
         margin: 30px 0;
+        a {
+          font-weight: normal;
+        }
       }
 
       .field.field--name-field-content-blocks {
-        .paragraph {
-          @extend .well, .col-xs-12;
+        @extend .col-xs-12;
+        > .item .paragraph {
+          @extend .well;
+          margin-bottom: 0;
           background: $uwmed-white;
           box-shadow: 1px 1px 3px 0 #dcdcdc;
           background: #f8f8f8;
-        }
-        > .item, .n-twos > .item {
-          @extend .col-sm-6;
-        }
-        .n-threes > .item {
-          @extend .col-sm-4
+          > .wrapper {
+            margin-right: 3.5vw;
+          }
         }
 
+      }
+
+      .field.field--name-field-content-blocks > .item {
+        @extend .col-xs-12;
+      }
+      .paragraph-2s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-6;
+      }
+      .paragraph-3s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-4;
+      }
+      .paragraph-4s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-3;
       }
 
     }
 
-
-
     section.beesbalm {
-
 
       background: $uwmed-white;
       padding: 30px;
@@ -54,8 +76,10 @@ body.page-node-type-fact-page {
       .content {
 
         div.field.field--name-field-link {
-          @extend .col-sm-4;
           @include uw-ghost-button('.item', 'i.u-ips');
+          > .item {
+            margin-right: 15px;
+          }
         }
 
       }
@@ -76,6 +100,22 @@ body.page-node-type-fact-page {
 
   .field--label {
     @extend .hidden;
+  }
+
+  /**
+   * Equal heights:
+   */
+  .field.field--name-field-content-blocks > .item {
+    display: flex;
+    flex-direction: column;
+    > .paragraph {
+      height: 100%;
+    }
+  }
+
+  .field.field--name-field-content-blocks {
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }

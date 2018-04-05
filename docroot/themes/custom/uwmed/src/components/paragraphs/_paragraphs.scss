@@ -19,6 +19,10 @@ div.field.field--name-field-bottom-content-blocks
       @extend .hidden;
     }
 
+    .wrapper > .field {
+      margin-bottom: 30px;
+    }
+
     input {
       width: 100%;
       background: #dcdcdc;

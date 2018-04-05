@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_icon
     - paragraphs.paragraphs_type.link_with_icon
     - taxonomy.vocabulary.uw_medicine_icons
+  content:
+    - 'taxonomy_term:uw_medicine_icons:7e5c5403-31e4-400e-b64f-89b238667730'
 id: paragraph.link_with_icon.field_icon
 field_name: field_icon
 entity_type: paragraph
@@ -14,7 +16,9 @@ label: Icon
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 7e5c5403-31e4-400e-b64f-89b238667730
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

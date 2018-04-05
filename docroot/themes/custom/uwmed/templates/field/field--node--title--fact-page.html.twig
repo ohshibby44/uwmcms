@@ -21,10 +21,11 @@
  * @ingroup themeable
  */
 #}
+{% set subheading = drupal_field('field_subheading', 'node') %}
 
 
-
-<div class="title-wrapper container-lg">
+{#{{ devel_breakpoint() }}#}
+<div class="title-wrapper">
 
     <span{{ attributes }}>
       {%- for item in items -%}
@@ -32,6 +33,8 @@
       {%- endfor -%}
     </span>
 
-    {{ content.field_subheading }}
+    {% if subheading|render %}
+        <span class="subheading">{{ subheading.0['#text']|raw }}</span>
+    {% endif %}
 
 </div>
