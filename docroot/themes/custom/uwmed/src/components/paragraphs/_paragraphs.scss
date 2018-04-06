@@ -15,6 +15,14 @@ div.field.field--name-field-bottom-content-blocks
 
     @extend .col-xs-12;
 
+    .field--label {
+      @extend .hidden;
+    }
+
+    .wrapper > .field {
+      margin-bottom: 30px;
+    }
+
     input {
       width: 100%;
       background: #dcdcdc;
@@ -37,14 +45,6 @@ div.field.field--name-field-bottom-content-blocks
       background-color: transparent;
     }
 
-    div.field.field--name-field-link {
-      @include uw-ghost-button('.item', 'i.u-ips');
-    }
-
-    form div.form-actions {
-      @include uw-ghost-button('button', 'i.u-ips');
-    }
-
     div.field.field--name-field-heading {
 
       .item {
@@ -54,8 +54,24 @@ div.field.field--name-field-bottom-content-blocks
           text-transform: none;
         }
       }
-
     }
+
+    div.field.field--name-field-links-paragraph {
+
+      li.links-with-icon__item {
+        list-style-type: none;
+      }
+    }
+
+    form div.form-actions {
+      @include uw-ghost-button('button', 'i.u-ips');
+    }
+
+
+    div.field.field--name-field-link {
+      @include uw-ghost-button('.item', 'i.u-ips');
+    }
+
 
   }
 

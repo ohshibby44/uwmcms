@@ -8,18 +8,16 @@ screenshot: uwmed-screenshot.png
 regions:
   branding: 'Branding'
   navigation: 'Navigation'
-  header: 'Header'
-  highlighted: 'Highlighted'
+  page_content_top: 'Content Top'
   help: 'Help'
-  content_header: 'Content Header'
   content: 'Content'
+  content_header: 'Content Header'
   content_innner_sidebar: 'Content Inner Sidebar'
+  page_content_foot: 'Page Content Foot'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
   footer_first: 'Footer First'
   footer_second: 'Footer Second'
-  page_top: 'Page top'
-  page_bottom: 'Page bottom'
 
 libraries:
   - 'uwmed/styles'

@@ -1,15 +1,13 @@
-uuid: 8958fa94-f0ab-4428-b111-0fb8e9b304b9
+uuid: 2dfe5a53-43ed-4e0d-978b-c69e8b2d758c
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.landing_page
-_core:
-  default_config_hash: KZ4pDrGhkRiIo7Ee-E4HGZp7YPXKS_FLR0nLeUQ3P2U
-id: node.landing_page.promote
+    - node.type.fact_page
+id: node.fact_page.promote
 field_name: promote
 entity_type: node
-bundle: landing_page
+bundle: fact_page
 label: 'Promoted to front page'
 description: ''
 required: false

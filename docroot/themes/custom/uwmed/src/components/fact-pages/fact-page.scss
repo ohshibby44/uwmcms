@@ -1,0 +1,121 @@
+body.page-node-type-fact-page {
+
+  div.main-container {
+
+    @extend %uwmed-gradient-angled-dark-background;
+    padding-top: 0;
+
+  }
+
+  h1.page-header {
+    @extend .col-xs-12;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: .4px;
+
+    .title-wrapper {
+      color: $uwmed-purple;
+
+      .subheading {
+        color: $uwmed-pop-blue;
+        font-size: 20px;
+        margin-left: 30px;
+      }
+    }
+
+  }
+
+  article.fact-page {
+
+    section.crocosmias {
+
+      .field.field--name-field-body-body-second {
+        @extend .col-xs-12, .text-center, .h5;
+        font-weight: normal;
+        margin: 30px 0;
+        a {
+          font-weight: normal;
+        }
+      }
+
+      .field.field--name-field-content-blocks {
+        @extend .col-xs-12;
+        > .item .paragraph {
+          @extend .well;
+          margin-bottom: 0;
+          background: $uwmed-white;
+          box-shadow: 1px 1px 3px 0 #dcdcdc;
+          background: #f8f8f8;
+          > .wrapper {
+            margin-right: 3.5vw;
+          }
+        }
+
+      }
+
+      .field.field--name-field-content-blocks > .item {
+        @extend .col-xs-12;
+      }
+      .paragraph-2s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-6;
+      }
+      .paragraph-3s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-4;
+      }
+      .paragraph-4s .field.field--name-field-content-blocks > .item {
+        @extend .col-sm-3;
+      }
+
+    }
+
+    section.beesbalm {
+
+      background: $uwmed-white;
+      padding: 30px;
+
+      .content {
+
+        div.field.field--name-field-link {
+          @include uw-ghost-button('.item', 'i.u-ips');
+          > .item {
+            margin-right: 15px;
+          }
+        }
+
+      }
+
+      aside.inner-sidebar {
+
+        &.hidden-xs {
+          border-left: 1px solid #f8f8f8;
+          margin-left: 25px;
+          padding: 0 0 25px 25px;
+        }
+
+      }
+
+    }
+
+  }
+
+  .field--label {
+    @extend .hidden;
+  }
+
+  /**
+   * Equal heights:
+   */
+  .field.field--name-field-content-blocks > .item {
+    display: flex;
+    flex-direction: column;
+    > .paragraph {
+      height: 100%;
+    }
+  }
+
+  .field.field--name-field-content-blocks {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}

@@ -54,3 +54,12 @@
 
 
 </header>
+
+{# Header #}
+{% if page.header %}
+  {% block header %}
+      <div class="col-sm-12 page-header" role="heading">
+          {{ page.header }}
+      </div>
+  {% endblock %}
+{% endif %}

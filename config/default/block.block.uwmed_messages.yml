@@ -1,6 +1,6 @@
 uuid: 4a7e7b16-f3a0-466b-ad12-3034f85b7439
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
 id: uwmed_messages
 theme: uwmed
-region: highlighted
+region: branding
 weight: 0
 provider: null
 plugin: system_messages_block
