@@ -1,16 +1,16 @@
-container_id: ''
+container_id: GTM-0000
 path_toggle: 'exclude listed'
-path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*"
-role_toggle: 'include listed'
+path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*\n/media/*/edit\n/media/add*"
+role_toggle: 'exclude listed'
 role_list:
-  anonymous: anonymous
+  anonymous: '0'
   authenticated: '0'
   administrator: '0'
   content_ed: '0'
   content_: '0'
   staff_clinic_manager: '0'
 status_toggle: 'exclude listed'
-status_list: "403\n404"
+status_list: ''
 compact_snippet: true
 include_file: true
 rebuild_snippets: true

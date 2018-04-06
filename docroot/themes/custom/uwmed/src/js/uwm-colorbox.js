@@ -16,21 +16,27 @@
 
             // Colorbox class links
             $('a.colorbox').on('click', handleColorbox);
+
             // In-page call-to-action links
             $('.field--name-field-link a[href^="#"]').on('click', handleColorbox);
 
 
             function handleColorbox(e) {
 
-                var colorboxFunction = doModalIframe,
-                    $this = $(this), $target = null,
+                var $this = $(this), $target = $(),
                     href = $this.attr('href');
 
-                //
-                //
-                // Choose best Colorbox style:
-                //
+                /**
+                 *
+                 * Choose best Colorbox style:
+                 *
+                 *
+                 *
+                 */
+                var colorboxFunction = doModalIframe;
+
                 if (href.indexOf('http') === 0) {
+
                     colorboxFunction = doModalIframe;
                 }
 
@@ -41,27 +47,34 @@
 
                 }
 
-                if (href.indexOf('#') === 0 && $target.is('video') || $target.hasClass('colorbox-video')) {
+                if ($target.length > 0 && $target.is('video')) {
 
-                    colorboxFunction = handleVideo;
+                    colorboxFunction = handleMovie;
 
                 }
-
 
                 colorboxFunction($this, $target);
 
             }
 
 
-            function handleVideo($link, $target) {
+            function handleMovie($link, $container) {
 
-                var $video = $target.is('video') ? $target : $target.find('video');
+                var $video = $container.is('video') ? $container : $container.find('video');
                 var touchEvents = ('ontouchstart' in document.documentElement);
 
-                //
-                //
-                // Choose phone, tablet or default:
-                //
+                if ($video.length < 1) {
+
+                    return;
+                }
+
+
+                /**
+                 *
+                 * Choose phone, tablet or default:
+                 *
+                 *
+                 */
                 if (touchEvents && !!window.screenfull && !!window.screenfull.enabled) {
 
                     doScreenfullVideo($video);
@@ -75,8 +88,8 @@
                 else {
 
                     doModalVideo($link, $video);
-                }
 
+                }
 
             }
 
@@ -87,7 +100,6 @@
              *
              *
              */
-
             function doModalInline($link) {
 
                 $link.colorbox({
@@ -111,8 +123,7 @@
 
             function doModalVideo($link, $video) {
 
-                $link.colorbox(
-                    {
+                $link.colorbox({
                         inline: true,
                         width: 'auto',
                         height: 'auto',
@@ -128,10 +139,9 @@
                             $video[0].play();
                         },
                         onCleanup: function () {
-                            // $video[0].pause();
+                            $video[0].pause();
                         }
-                    }
-                );
+                    });
 
             }
 
@@ -139,12 +149,17 @@
             function doScreenfullVideo($video) {
 
                 // we can play full screen and this device has touch events, likely a mobile
-                window.screenfull.request($video[0]);
-                $video[0].play();
+                var $noHideVideo = $video.clone();
+                $('html').append($noHideVideo);
+
+                window.screenfull.request($noHideVideo[0]);
+                $noHideVideo[0].play();
 
                 window.screenfull.on('change', function () {
                     if (!window.screenfull.isFullscreen) {
-                        $video[0].pause();
+                        $noHideVideo[0].pause();
+                        $noHideVideo.remove();
+                        $.colorbox.close();
                     }
                 });
             }
@@ -159,6 +174,7 @@
 
                 $video.on('webkitendfullscreen', function () {
                     $video[0].pause();
+                    $.colorbox.close();
                 });
             }
 

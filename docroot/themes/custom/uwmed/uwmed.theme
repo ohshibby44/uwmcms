@@ -5,6 +5,7 @@
  * Custom PHP code for the UWMed theme.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\node\Entity\Node;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
@@ -74,14 +75,24 @@ function uwmed_preprocess_node(&$variables) {
  */
 function uwmed_preprocess_field(&$variables) {
 
-  // Get media object value for twig template:
   $obj = $variables['element']['#object'] ?? NULL;
+
+  // Get media object value for twig template:
   if ($obj && $obj->hasField('field_media_video_data_url')) {
 
     $variables['videoUrl'] = $obj->get('field_media_video_data_url')
       ->getValue();
     $variables['captionUrl'] = $obj->get('field_media_video_caption_url')
       ->getValue();
+
+  }
+
+  // Make unique html-id available for templates:
+  if ($obj && $obj->hasField('uuid')) {
+
+    $id = $obj->get('uuid')->getValue();
+    $id = $id[0]['value'] ?? rand();
+    $variables['uwmFieldId'] = Html::getUniqueId('uw-' . $id);
 
   }
 

@@ -7,8 +7,9 @@ dependencies:
     - field.field.media.image.field_site_categories
     - field.field.media.image.image
     - media_entity.bundle.image
+    - responsive_image.styles.default_responsive_image
   module:
-    - image
+    - responsive_image
 _core:
   default_config_hash: Zn9LsLt7n0fzyEwtBMqioYJzhnU9RvIcfVef1gs51-Y
 id: media.image.default
@@ -17,18 +18,25 @@ bundle: image
 mode: default
 content:
   image:
-    type: image
-    weight: 0
+    type: responsive_image
+    weight: 1
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: default_responsive_image
       image_link: ''
     third_party_settings: {  }
     region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   created: true
   field_media_in_library: true
   field_site_categories: true
-  name: true
   thumbnail: true
   uid: true

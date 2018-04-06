@@ -8,9 +8,10 @@ dependencies:
     - field.field.paragraph.content_snippet.field_link
     - field.field.paragraph.content_snippet.field_text_snippet
     - paragraphs.paragraphs_type.content_snippet
+    - responsive_image.styles.default_responsive_image
   module:
-    - image
     - link
+    - responsive_image
     - text
 id: paragraph.content_snippet.default
 targetEntityType: paragraph
@@ -21,10 +22,10 @@ content:
     weight: 3
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: default_responsive_image
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     region: content
   field_heading:
     weight: 0

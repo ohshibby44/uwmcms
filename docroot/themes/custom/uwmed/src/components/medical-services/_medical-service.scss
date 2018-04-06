@@ -1143,10 +1143,22 @@
       .wrapper {
 
         @extend .well-lg, .col-xs-12, .col-md-6, .col-md-offset-5, .col-lg-5, .col-lg-offset-6;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 80px;
+        margin-bottom: 100px;
         background: $uwmed-white;
         opacity: .9;
+
+        h2, .h2 {
+          @extend .h2;
+          color: $uwmed-accent-blue;
+          margin-top: 0;
+        }
+
+        h3, .h3 {
+          @extend .h3;
+          color: $uwmed-accent-blue;
+          margin-top: 0;
+        }
 
         .field.field--name-field-heading {
           @include uw-bottom-accent-heading($uwmed-accent-blue);
