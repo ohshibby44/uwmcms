@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.field.node.content_spotlight.field_image
     - field.field.node.content_spotlight.field_link
-    - image.style.hero_1x_1140_width_
     - node.type.content_spotlight
+    - responsive_image.styles.landscape_responsive_image
   module:
     - image
     - link
-    - panelizer
+    - responsive_image
     - user
 third_party_settings:
   panelizer:
@@ -27,10 +27,10 @@ content:
     weight: 102
     label: hidden
     settings:
-      image_style: hero_1x_1140_width_
+      responsive_image_style: landscape_responsive_image
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     region: content
   field_link:
     weight: 103

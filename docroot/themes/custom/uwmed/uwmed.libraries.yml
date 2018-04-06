@@ -120,6 +120,15 @@ medical-service:
     - uwmed/slickquiz
     - uwmed/colorbox
 
+node--fact-page:
+  js: {}
+  css: {}
+  dependencies:
+    - uwmed/colorbox
+#  css:
+#    theme:
+#      dist/components/fact-pages/fact-page.css: {}
+
 
 scroll-magic:
   js:

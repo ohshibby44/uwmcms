@@ -1,26 +1,25 @@
-uuid: 8575132b-535b-4083-9eaa-081cb1f0144e
+uuid: 6a209609-6f1d-4a41-8bbe-9448a8ec9733
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_text_snippet
-    - paragraphs.paragraphs_type.reusable_content
+    - paragraphs.paragraphs_type.links_list
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    simple_formatted_text: simple_formatted_text
-    rich_text: rich_text
-    full_html: '0'
     plain_text: '0'
+    simple_formatted_text: '0'
     basic_html: '0'
-id: paragraph.reusable_content.field_text_snippet
+    full_html: '0'
+id: paragraph.links_list.field_text_snippet
 field_name: field_text_snippet
 entity_type: paragraph
-bundle: reusable_content
+bundle: links_list
 label: 'Text Snippet'
-description: 'Optional. Consider if this text should go in the referenced, reusable block. '
+description: ''
 required: false
 translatable: true
 default_value: {  }

@@ -1,0 +1,28 @@
+uuid: 5367702b-35fb-4b9d-90fc-3deac0ba8044
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body_body_second
+    - node.type.fact_page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    plain_text: '0'
+    simple_formatted_text: '0'
+    full_html: '0'
+id: node.fact_page.field_body_body_second
+field_name: field_body_body_second
+entity_type: node
+bundle: fact_page
+label: 'Blocks Subtext '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

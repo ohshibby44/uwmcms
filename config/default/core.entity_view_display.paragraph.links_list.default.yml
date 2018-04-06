@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.links_list.field_heading
     - field.field.paragraph.links_list.field_link
     - field.field.paragraph.links_list.field_links_paragraph
+    - field.field.paragraph.links_list.field_text_snippet
     - paragraphs.paragraphs_type.links_list
   module:
     - entity_reference_revisions
@@ -25,7 +26,7 @@ content:
     type: text_default
     region: content
   field_link:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -38,12 +39,19 @@ content:
     region: content
   field_links_paragraph:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 2
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_text_snippet:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
 hidden:
   field_content_link: true

@@ -8,15 +8,14 @@ dependencies:
     - paragraphs.paragraphs_type.link_with_icon
   module:
     - field_group
-    - link
+    - link_attributes
     - workbench_moderation
 third_party_settings:
   field_group:
     group_link_group:
       children:
-        - field_icon
         - field_link
-        - field_media_link
+        - field_icon
       parent_name: ''
       weight: 20
       format_type: tab
@@ -33,7 +32,7 @@ bundle: link_with_icon
 mode: default
 content:
   field_icon:
-    weight: 0
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -43,8 +42,15 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      enabled_attributes:
+        target: true
+        class: true
+        id: false
+        name: false
+        rel: false
+        accesskey: false
     third_party_settings: {  }
-    type: link_default
+    type: link_attributes
     region: content
 hidden:
   created: true

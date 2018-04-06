@@ -3,13 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.content_snippet.field_featured_image
     - field.field.paragraph.content_snippet.field_heading
     - field.field.paragraph.content_snippet.field_link
     - field.field.paragraph.content_snippet.field_text_snippet
     - paragraphs.paragraphs_type.content_snippet
   module:
-    - image
     - link
     - text
 id: paragraph.content_snippet.default
@@ -17,15 +15,6 @@ targetEntityType: paragraph
 bundle: content_snippet
 mode: default
 content:
-  field_featured_image:
-    weight: 3
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
   field_heading:
     weight: 0
     label: hidden

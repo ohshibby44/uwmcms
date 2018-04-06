@@ -14,10 +14,10 @@ dependencies:
     - field.field.node.uwm_medical_service.field_proof_points
     - field.field.node.uwm_medical_service.field_subheading
     - node.type.uwm_medical_service
+    - responsive_image.styles.landscape_responsive_image
   module:
     - entity_reference_revisions
-    - image
-    - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -79,10 +79,10 @@ content:
     weight: 102
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: landscape_responsive_image
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     region: content
   field_information_manager_url:
     weight: 110

@@ -81,11 +81,11 @@ display:
           view_modes:
             'entity:node':
               page: teaser
-              landing_page: teaser
               homepage: default
               uwm_medical_service: default
               condition_spotlight: default
               content_spotlight: default
+              fact_page: default
       fields:
         rendered:
           table: search_api_index_content

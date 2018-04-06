@@ -74,6 +74,10 @@ body {
         color: $link-hover-color;
       }
 
+      .field.field--name-field-heading {
+        font-size:   $font-size-h6;
+      }
+
     }
 
     footer {
@@ -216,7 +220,8 @@ h5, .h5, h5 a, .h5 a {
 
 }
 
-h6, .h6, h6 a, .h6 a {
+h6, .h6, h6 a, .h6 a,
+h3.small h3.small a {
   font-size: $font-size-h6;
   line-height: $line-height-h6;
   font-family: $font-family-base;

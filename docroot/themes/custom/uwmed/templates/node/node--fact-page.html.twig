@@ -1,0 +1,89 @@
+{{ attach_library('uwmed/node--fact-page') }}
+
+
+{% set classes = [node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
+
+{% set inner_sidebar = [content.field_bottom_content_blocks,
+drupal_region('content_innner_sidebar')
+? drupal_region('content_innner_sidebar') : []
+] %}
+
+{#{{  devel_breakpoint()  }}#}
+
+
+<article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
+
+    {% if content.field_content_blocks |render is not empty %}
+
+        {% set n = content.field_content_blocks['#items']|length %}
+        {% set classes = [n is divisible by (2) ? 'paragraph-2s',
+        n is divisible by (3) ? 'paragraph-3s',
+        n is divisible by (4) ? 'paragraph-4s'
+        ] %}
+
+        {#{{ devel_breakpoint() }}#}
+        <section class="row crocosmias">
+
+            <div class="col-xs-12 {{ classes|uwm_join_parts }}">
+
+                {{ content.field_content_blocks }}
+
+                {{ content.field_body_body_second }}
+
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+
+
+    {% if content.body |render is not empty %}
+
+        <section class="row beesbalm">
+
+            <div class="col-xs-12">
+
+                {% if inner_sidebar is not empty %}
+                    <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
+                           role="complementary">
+
+                        {{ inner_sidebar }}
+
+                    </aside>
+                {% endif %}
+
+                <div{{ content_attributes.addClass('content') }}>
+
+                    {{ content.body }}
+
+                    {{ content.field_link }}
+
+                </div>
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+
+    {% if inner_sidebar is not empty %}
+
+        <aside class="inner-sidebar col-sm-5 pull-right visible-xs"
+               role="complementary">
+
+            {{ inner_sidebar }}
+
+        </aside>
+
+    {% endif %}
+
+</article>

@@ -10,11 +10,11 @@ dependencies:
     - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_subheading
     - node.type.homepage
+    - responsive_image.styles.landscape_responsive_image
   module:
     - entity_reference_revisions
-    - image
     - metatag
-    - panelizer
+    - responsive_image
     - text
     - user
 third_party_settings:
@@ -48,10 +48,10 @@ content:
     weight: 99
     label: hidden
     settings:
-      image_style: ''
+      responsive_image_style: landscape_responsive_image
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     region: content
   field_links_with_icon:
     type: entity_reference_revisions_entity_view
