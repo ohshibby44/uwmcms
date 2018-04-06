@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.reusable_content.field_heading
     - field.field.paragraph.reusable_content.field_other_reference
-    - field.field.paragraph.reusable_content.field_text_snippet
     - field.field.paragraph.reusable_content.field_webform_reference
     - paragraphs.paragraphs_type.reusable_content
   module:
@@ -18,7 +17,7 @@ third_party_settings:
   field_group:
     group_default:
       children:
-        - group_content_extras
+        - field_heading
         - field_other_reference
         - field_webform_reference
       parent_name: ''
@@ -31,20 +30,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Reusable content'
-    group_content_extras:
-      children:
-        - field_heading
-        - field_text_snippet
-      parent_name: group_default
-      weight: 20
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'Content Extras'
 id: paragraph.reusable_content.default
 targetEntityType: paragraph
 bundle: reusable_content
@@ -62,24 +47,13 @@ content:
     type: text_textfield
     region: content
   field_other_reference:
-    weight: 23
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  field_text_snippet:
-    weight: 22
-    settings:
-      rows: 3
-      placeholder: ''
-    third_party_settings:
-      allowed_formats:
-        hide_help: '1'
-        hide_guidelines: '1'
-    type: text_textarea
-    region: content
   field_webform_reference:
-    weight: 24
+    weight: 23
     settings:
       default_data: false
     third_party_settings: {  }
