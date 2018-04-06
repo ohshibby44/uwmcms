@@ -24,12 +24,6 @@ dependencies:
     - responsive_image
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.uwm_clinic.default
 targetEntityType: node
 bundle: uwm_clinic

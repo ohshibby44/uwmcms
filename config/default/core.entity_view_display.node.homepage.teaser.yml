@@ -10,12 +10,6 @@ dependencies:
     - node.type.homepage
   module:
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.homepage.teaser
 targetEntityType: node
 bundle: homepage

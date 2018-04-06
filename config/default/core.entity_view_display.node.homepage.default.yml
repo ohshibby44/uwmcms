@@ -17,12 +17,6 @@ dependencies:
     - responsive_image
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.homepage.default
 targetEntityType: node
 bundle: homepage
