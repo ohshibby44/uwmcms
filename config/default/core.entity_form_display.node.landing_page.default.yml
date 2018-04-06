@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_meta_tags
+    - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - metatag
+    - panelizer
     - path
     - text
     - workbench_moderation
@@ -38,6 +40,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  panelizer:
+    type: panelizer
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
     region: content
   path:
     type: path
