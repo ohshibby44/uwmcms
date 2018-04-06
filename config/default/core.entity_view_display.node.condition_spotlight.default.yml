@@ -8,6 +8,12 @@ dependencies:
   module:
     - entity_reference_revisions
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.condition_spotlight.default
 targetEntityType: node
 bundle: condition_spotlight

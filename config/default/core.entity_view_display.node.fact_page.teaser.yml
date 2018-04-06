@@ -25,4 +25,9 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_body_body_second: true
+  field_bottom_content_blocks: true
+  field_content_blocks: true
+  field_link: true
+  field_subheading: true
