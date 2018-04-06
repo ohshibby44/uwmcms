@@ -17,9 +17,11 @@ body.page-node-type-fact-page {
       color: $uwmed-purple;
 
       .subheading {
-        color: $uwmed-pop-blue;
-        font-size: 20px;
         margin-left: 30px;
+        &, a {
+          color: $uwmed-pop-blue;
+          font-size: 20px;
+        }
       }
     }
 

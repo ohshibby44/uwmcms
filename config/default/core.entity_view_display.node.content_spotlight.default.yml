@@ -12,6 +12,12 @@ dependencies:
     - link
     - responsive_image
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.content_spotlight.default
 targetEntityType: node
 bundle: content_spotlight

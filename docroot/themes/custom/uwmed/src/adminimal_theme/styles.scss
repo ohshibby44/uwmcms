@@ -34,8 +34,11 @@ body.adminimal {
   // Block on admin pages demonstrating icons:
   .view.view-uwm-terms.view-display-id-block_1 {
 
+    float: left;
+    margin: 30px;
     border: 1px solid #dcdcdc;
     border-radius: 15px;
+    padding: 15px;
 
     .item-list li {
       padding: 0 1em 1em 0;
@@ -70,10 +73,6 @@ body.adminimal {
           background: aliceblue;
         }
       }
-    }
-
-    input.form-text {
-      width: 100%;
     }
 
   }
