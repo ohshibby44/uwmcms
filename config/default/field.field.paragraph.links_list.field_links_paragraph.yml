@@ -12,7 +12,7 @@ id: paragraph.links_list.field_links_paragraph
 field_name: field_links_paragraph
 entity_type: paragraph
 bundle: links_list
-label: 'List Link Items'
+label: 'Link-items List'
 description: 'Add multiple items to create a stylized list of links with icons. '
 required: false
 translatable: false

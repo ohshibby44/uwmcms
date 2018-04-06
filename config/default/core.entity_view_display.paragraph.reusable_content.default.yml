@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.reusable_content.field_heading
     - field.field.paragraph.reusable_content.field_other_reference
-    - field.field.paragraph.reusable_content.field_text_snippet
     - field.field.paragraph.reusable_content.field_webform_reference
     - paragraphs.paragraphs_type.reusable_content
   module:
@@ -31,13 +30,6 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
-    region: content
-  field_text_snippet:
-    weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_webform_reference:
     weight: 2
