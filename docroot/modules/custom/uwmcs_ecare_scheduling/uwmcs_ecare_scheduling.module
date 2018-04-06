@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Custom module for Epic eCare MyChart OpenScheduling.
+ */
+
+use Drupal\uwmcs_ecare_scheduling\Controller\ECareController;
+
+/**
+ * Implements theme_preprocess_node().
+ */
+function uwmcs_ecare_scheduling_preprocess_node(&$variables) {
+
+  if (!empty($variables['node'])
+      && $variables['node']->getType() === 'uwm_provider'
+  ) {
+
+    $eCareCtrl = new ECareController();
+
+    if (!empty($variables['node']->uwmcs_reader_api_values->fullBio)) {
+
+      $bio = $variables['node']->uwmcs_reader_api_values->fullBio;
+      $providerId = $eCareCtrl->findProviderId($bio) ?? 899999999;
+
+      if ($providerId) {
+
+        $variables['#attached']['library'][] = 'uwmcs_ecare_scheduling/epic-mychart-scheduling';
+        $variables['ecare_link'] = $eCareCtrl->eCareLink($providerId);
+        $variables['ecare_content'] = $eCareCtrl->eCareWidget($providerId);
+
+      }
+
+    }
+
+  }
+
+}
