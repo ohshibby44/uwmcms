@@ -20,47 +20,60 @@ dependencies:
     - workbench_moderation
 third_party_settings:
   field_group:
-    group_page_content:
+    group_content_top:
       children:
-        - body
-        - field_link
-        - group_content_side
+        - group_content_blocks
+        - group_page_body
+        - group_sidebar_content
       parent_name: ''
-      weight: 3
-      format_type: tab
+      weight: 2
+      format_type: accordion
       format_settings:
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'Page Content'
-    group_page_top:
+        effect: none
+      label: 'Content Sections'
+    group_content_blocks:
       children:
         - field_content_blocks
         - field_body_body_second
-      parent_name: ''
-      weight: 2
-      format_type: tab
+      parent_name: group_content_top
+      weight: 20
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
         formatter: closed
-        description: ''
         required_fields: true
-      label: 'Page Top'
-    group_content_side:
+        description: ''
+      label: 'Content Blocks'
+    group_page_body:
       children:
-        - field_bottom_content_blocks
-      parent_name: group_page_content
-      weight: 10
-      format_type: fieldset
+        - body
+        - field_link
+      parent_name: group_content_top
+      weight: 21
+      format_type: accordion_item
       format_settings:
         id: ''
         classes: ''
-        description: ''
+        formatter: closed
         required_fields: true
-      label: 'Content Sidebar'
+        description: ''
+      label: 'Page Body'
+    group_sidebar_content:
+      children:
+        - field_bottom_content_blocks
+      parent_name: group_content_top
+      weight: 22
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Sidebar Content'
 id: node.fact_page.default
 targetEntityType: node
 bundle: fact_page
@@ -77,12 +90,12 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_body_body_second:
-    weight: 11
+    weight: 10
     settings:
       rows: 3
       placeholder: ''
@@ -93,7 +106,7 @@ content:
     type: text_textarea
     region: content
   field_bottom_content_blocks:
-    weight: 11
+    weight: 12
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -105,7 +118,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_content_blocks:
-    weight: 10
+    weight: 9
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -137,7 +150,7 @@ content:
     region: content
   path:
     type: path
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -145,14 +158,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 5
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -165,7 +178,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
