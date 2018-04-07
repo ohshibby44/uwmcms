@@ -178,8 +178,9 @@ var o = (function () {
                             $this.removeClass('hidden').addClass('uwm-os-matched');
                         }
 
-                    }
-                );
+                    });
+
+                $('body').addClass('open-scheduling-enabled');
 
             }
 
