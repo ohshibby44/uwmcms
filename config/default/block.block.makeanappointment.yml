@@ -1,0 +1,25 @@
+uuid: f545fb0a-9d81-491e-8ef0-b35776f66248
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bf898363-b2e9-47be-8898-bc1fa10da15f'
+  module:
+    - block_content
+  theme:
+    - uwmed
+id: makeanappointment
+theme: uwmed
+region: page_content_top
+weight: 0
+provider: null
+plugin: 'block_content:bf898363-b2e9-47be-8898-bc1fa10da15f'
+settings:
+  id: 'block_content:bf898363-b2e9-47be-8898-bc1fa10da15f'
+  label: 'Make an appointment'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
