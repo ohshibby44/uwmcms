@@ -104,20 +104,9 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
-  /**
-   * Equal heights:
-   */
-  .field.field--name-field-content-blocks > .item {
-    display: flex;
-    flex-direction: column;
-    > .paragraph {
-      height: 100%;
-    }
-  }
 
-  .field.field--name-field-content-blocks {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  @include uw-equal-height-row('.field.field--name-field-content-blocks',
+          '.item', '.paragraph');
+
 
 }

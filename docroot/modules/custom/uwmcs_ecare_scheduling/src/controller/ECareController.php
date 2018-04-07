@@ -3,8 +3,8 @@
 namespace Drupal\uwmcs_ecare_scheduling\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Url;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
 
 /**
  * Provides widget iframe for EPIC MyChart eCare.
@@ -41,17 +41,6 @@ class ECareController extends ControllerBase {
    */
   public function eCareWidget(int $providerId = 0) {
 
-    $iframe = [
-      '#type' => 'html_tag',
-      '#tag' => 'iframe',
-      '#attributes' => [
-        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;width:100%;min-height:400px',
-        'scrolling' => 'no',
-        'src' => 'https://devecare16.medical.washington.edu/mychartpoc/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain',
-        // 'src' => '/sites/default/files/MyChart%20-%20EmbeddedSchedule.html'.
-      ],
-    ];
-
     $button = [
       '#type' => 'html_tag',
       '#tag' => 'button',
@@ -61,6 +50,24 @@ class ECareController extends ControllerBase {
         'data-dismiss' => 'modal',
       ],
     ];
+
+    $iframe = [
+      '#type' => 'html_tag',
+      '#tag' => 'iframe',
+      '#attributes' => [
+        'id' => 'ecare-iframe-' . $providerId,
+        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;width:100%;min-height:400px',
+        'scrolling' => 'no',
+      ],
+    ];
+
+    if ($providerId) {
+
+      $iframe['#attributes']['src'] = '/sites/default/files/my-chart.html';
+      // 'src' => 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/' .
+      // 'SignupAndSchedule/EmbeddedSchedule?id=' .
+      // '$providerId . '&vt=9000&view=plain';.
+    }
 
     return [
       '#type' => 'html_tag',
@@ -99,7 +106,6 @@ class ECareController extends ControllerBase {
       '#type' => 'link',
       '#url' => $url,
       '#title' => Markup::create('Schedule an Appointment Online'),
-
       '#attributes' => [
         'class' => '',
         'data-toggle' => 'modal',

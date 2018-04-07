@@ -1,4 +1,4 @@
-container_id: GTM-0000
+container_id: GTM-MRG725G
 path_toggle: 'exclude listed'
 path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*\n/media/*/edit\n/media/add*"
 role_toggle: 'exclude listed'

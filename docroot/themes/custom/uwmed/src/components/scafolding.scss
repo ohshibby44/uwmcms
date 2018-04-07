@@ -89,3 +89,7 @@ h2.accent, h3.accent, h4.accent {
     @extend .hidden;
   }
 }
+
+
+@include uw-equal-height-row('.row.equal-height', '[class*=col]');
+

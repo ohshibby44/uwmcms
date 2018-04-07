@@ -11,11 +11,15 @@
 
 body.adminimal {
 
-  // More breathing room on node-edit forms: 
-  form {
+  // More breathing room on node forms:
+  form.node-form {
 
     tr.odd .form-wrapper, tr.even .form-wrapper {
       margin-bottom: 2em;
+
+      &.paragraph-type-top, &.paragraph-type-title {
+        margin-bottom: 0;
+      }
     }
 
     details#edit-group-c {
@@ -29,32 +33,10 @@ body.adminimal {
     thead th.field-label {
       border-top: 1px solid #dcdcdc;
     }
-  }
 
-  // Block on admin pages demonstrating icons:
-  .view.view-uwm-terms.view-display-id-block_1 {
-
-    float: left;
-    margin: 30px;
-    border: 1px solid #dcdcdc;
-    border-radius: 15px;
-    padding: 15px;
-
-    .item-list li {
-      padding: 0 1em 1em 0;
-      float: left;
-      list-style-type: none;
-      margin: 0;
-
-      &:hover {
-        background: aliceblue;
-
-      }
+    input.form-text {
+      width: 100%;
     }
-  }
-
-  // Node edit forms:
-  form.node-form {
 
     .form-checkboxes {
       float: left;
@@ -75,6 +57,28 @@ body.adminimal {
       }
     }
 
+  }
+
+  // Block on admin pages demonstrating icons:
+  .view.view-uwm-terms.view-display-id-block_1 {
+
+    float: left;
+    margin: 30px;
+    border: 1px solid #dcdcdc;
+    border-radius: 15px;
+    padding: 15px;
+
+    .item-list li {
+      padding: 10px;
+      float: left;
+      list-style-type: none;
+      margin: 0;
+
+      &:hover {
+        background: aliceblue;
+
+      }
+    }
   }
 
 }

@@ -121,7 +121,8 @@ medical-service:
     - uwmed/colorbox
 
 node--fact-page:
-  js: {}
+  js:
+    dist/js/epic-open-scheduling.js: { preprocess: false }
   css: {}
   dependencies:
     - uwmed/colorbox
