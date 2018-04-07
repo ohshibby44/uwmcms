@@ -35,6 +35,8 @@ body {
 
     }
 
+
+
   }
 
   footer {
@@ -51,6 +53,8 @@ body {
   }
 
 }
+
+
 
 .remove-padding {
   padding-left: 0 !important;
@@ -91,5 +95,6 @@ h2.accent, h3.accent, h4.accent {
 }
 
 
-@include uw-equal-height-row('.row.equal-height', '[class*=col]');
+@include uw-equal-height-row('.row.equal-heights', '[class*=col]');
+
 

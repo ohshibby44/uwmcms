@@ -63,10 +63,8 @@ class ECareController extends ControllerBase {
 
     if ($providerId) {
 
-      $iframe['#attributes']['src'] = '/sites/default/files/my-chart.html';
-      // 'src' => 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/' .
-      // 'SignupAndSchedule/EmbeddedSchedule?id=' .
-      // '$providerId . '&vt=9000&view=plain';.
+      $iframe['#attributes']['src'] = 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain';
+      $iframe['#attributes']['src'] = 'https://testecare16.medical.washington.edu/mycharttst/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain';
     }
 
     return [

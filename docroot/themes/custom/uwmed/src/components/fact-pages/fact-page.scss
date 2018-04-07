@@ -104,19 +104,20 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
-  .os-show {
-    display: none;
-  }
-  .open-scheduling-enabled {
+
+  &.open-scheduling-enabled {
     .os-show {
       display: block;
     }
-    span.os-show {
+    a.os-show, span.os-show {
       display: inline-block;
     }
     .os-hide {
       display: none;
     }
+  }
+  .os-show {
+    display: none;
   }
 
 
