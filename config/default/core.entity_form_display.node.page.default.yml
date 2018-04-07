@@ -92,3 +92,4 @@ content:
     region: content
 hidden:
   field_ttest_field: true
+  panelizer: true
