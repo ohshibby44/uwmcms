@@ -104,6 +104,21 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
+  .os-show {
+    display: none;
+  }
+  .open-scheduling-enabled {
+    .os-show {
+      display: block;
+    }
+    span.os-show {
+      display: inline-block;
+    }
+    .os-hide {
+      display: none;
+    }
+  }
+
 
   @include uw-equal-height-row('.field.field--name-field-content-blocks',
           '.item', '.paragraph');

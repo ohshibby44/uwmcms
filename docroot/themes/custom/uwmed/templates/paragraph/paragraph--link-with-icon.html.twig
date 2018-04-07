@@ -1,10 +1,15 @@
 {% extends 'paragraph.html.twig' %}
 {% set element = 'li' %}
 {% set classes = ['links-with-icon__item'] %}
+{% set link_classes = elements.field_link.0['#options'].attributes.class %}
+{% set link_target = elements.field_link.0['#options'].attributes.target %}
+{% set link_target = link_target == "_self" ? "" : link_target %}
 
 {% block content %}
+    {{ devel_breakpoint() }}
+
   {% spaceless %}
-    <a class="btn btn-default" href="{{ url|render }}">
+    <a class="btn btn-default {{ link_classes }}" href="{{ url|render }}" target="{{ link_target }}">
       {{ content }}
     </a>
   {% endspaceless %}

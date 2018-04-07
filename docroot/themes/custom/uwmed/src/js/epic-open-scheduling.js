@@ -4,7 +4,7 @@ var o = (function () {
 
     return {
 
-        drupal_unhide_selectors: ['div#some-dom-element-id', '.paragraph#1166', '#ecare-iframe-0'],
+        drupal_unhide_selectors: ['div#some-dom-element-id', '.if-open-scheduling', '.paragraph#ppg-1166', '#ecare-iframe-0'],
 
         os_provider_iframe: 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=2059652&vt=9000&view=plain',
 
@@ -178,8 +178,9 @@ var o = (function () {
                             $this.removeClass('hidden').addClass('uwm-os-matched');
                         }
 
-                    }
-                );
+                    });
+
+                $('body').addClass('open-scheduling-enabled');
 
             }
 
