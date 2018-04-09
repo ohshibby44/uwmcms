@@ -222,8 +222,8 @@ var o = (function () {
     }
 
     function formatProviderUrl(providerId, defaultUrl) {
-
-        return '' + defaultUrl.replace(/(id=)[^&]+/, providerId);
+        var idParam = 'id=' + providerId;
+        return '' + defaultUrl.replace(/(id=)[^&]+/, idParam);
 
     }
 
