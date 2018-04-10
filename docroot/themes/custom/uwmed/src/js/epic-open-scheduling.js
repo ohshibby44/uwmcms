@@ -187,7 +187,7 @@ var o = (function () {
             $('body').addClass('open-scheduling-enabled');
           }
         } else {
-          setTimeout(displayEpicOpenSchedule(), 300);
+          setTimeout(displayEpicOpenSchedule, 100);
         }
       }
 
@@ -204,22 +204,19 @@ var o = (function () {
     }
 
     function findObjectItem(arr, s) {
-
-        var i, key;
-
-        for (i = arr.length; i--;) {
-
+        if(s !== '') {
+          var i, key;
+          for (i = arr.length; i--;) {
             for (key in arr[i]) {
-
-                if (arr[i].hasOwnProperty(key)
-                    && typeof arr[i][key] === 'string'
-                    && arr[i][key].indexOf(s) > -1) {
-
-                    return arr[i];
-                }
+              if (arr[i].hasOwnProperty(key)
+                  && typeof arr[i][key] === 'string'
+                  && arr[i][key].indexOf(s) > -1) {
+                return arr[i];
+              }
 
             }
 
+          }
         }
 
     }
