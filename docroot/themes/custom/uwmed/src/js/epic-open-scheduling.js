@@ -187,7 +187,7 @@ var o = (function () {
             $('body').addClass('open-scheduling-enabled');
           }
         } else {
-          setTimeout(displayEpicOpenSchedule(), 100);
+          setTimeout(displayEpicOpenSchedule(), 300);
         }
       }
 
