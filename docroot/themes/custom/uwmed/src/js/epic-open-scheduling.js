@@ -150,43 +150,46 @@ var o = (function () {
 
         attach: function (context, settings) {
 
-            if (!testVariableAssignments()) {
-                return;
-            }
-
-            var opts = window.uwm_epic_open_scheduling_options;
-            var providerSlug = document.referrer.replace(document.location.origin, '');
-            var providerMatch = findObjectItem(opts.os_enabled_providers, providerSlug);
-            var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
-
-            if (!!providerMatch && !!providerHref) {
-
-                $.each(opts.drupal_unhide_selectors, function (a, b) {
-
-                        var $this = $(b);
-                        // Found element to unhide:
-                        if ($this.length) {
-
-                            var $iframe = $this.find('iframe');
-
-                            // Found iframe to reformat:
-                            if ($iframe.length) {
-
-                                $iframe.attr('src', providerHref);
-                            }
-
-                            $this.removeClass('hidden').addClass('uwm-os-matched');
-                        }
-
-                    });
-
-                $('body').addClass('open-scheduling-enabled');
-
-            }
+          displayEpicOpenSchedule();
 
         }
 
     };
+
+      function displayEpicOpenSchedule() {
+        if (testVariableAssignments()) {
+          var opts = window.uwm_epic_open_scheduling_options;
+          var providerSlug = document.referrer.replace(document.location.origin, '');
+          var providerMatch = findObjectItem(opts.os_enabled_providers, providerSlug);
+          var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
+
+          if (!!providerMatch && !!providerHref) {
+
+            $.each(opts.drupal_unhide_selectors, function (a, b) {
+
+              var $this = $(b);
+              // Found element to unhide:
+              if ($this.length) {
+
+                var $iframe = $this.find('iframe');
+
+                // Found iframe to reformat:
+                if ($iframe.length) {
+
+                  $iframe.attr('src', providerHref);
+                }
+
+                $this.removeClass('hidden').addClass('uwm-os-matched');
+              }
+
+            });
+
+            $('body').addClass('open-scheduling-enabled');
+          }
+        } else {
+          setTimeout(displayEpicOpenSchedule(), 300);
+        }
+      }
 
     function testVariableAssignments() {
 
