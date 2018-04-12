@@ -191,7 +191,6 @@ var o = (function () {
       setTimeout(transformProviderLinks, 100);
     }
 
-  }
   function transformProviderIFrameSources() {
     if (testVariableAssignments()) {
       var opts = window.uwm_epic_open_scheduling_options;
@@ -250,6 +249,7 @@ var o = (function () {
             return arr[i];
           }
 
+          }
         }
 
       }
