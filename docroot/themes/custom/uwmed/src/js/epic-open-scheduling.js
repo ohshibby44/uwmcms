@@ -1,142 +1,142 @@
 var o = (function () {
 
-    'use strict';
+  'use strict';
 
-    return {
+  return {
 
-        drupal_unhide_selectors: ['div#some-dom-element-id', '.if-open-scheduling', '.paragraph#ppg-1166', '#ecare-iframe-0'],
+    drupal_unhide_selectors: ['div#some-dom-element-id', '.if-open-scheduling', '.paragraph#ppg-1166', '#ecare-iframe-0'],
+    transform_provider_link_selectors: ['a[href="#provider-open-scheduling-link"]'],
+    os_provider_iframe: 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=2059652&vt=9000&view=plain',
 
-        os_provider_iframe: 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=2059652&vt=9000&view=plain',
-
-        os_enabled_providers: [
-            {
-                EOS_Id: 2089024,
-                NPI: 1639626880,
-                Name: 'Whittlesey, Linda',
-                Slug: '/bios/linda-whittlesey'
-            },
-            {
-                EOS_Id: 505181,
-                NPI: 1306267885,
-                Name: 'Montour, Laura',
-                Slug: '/bios/laura-montour'
-            },
-            {
-                EOS_Id: 505877,
-                NPI: 1144236753,
-                Name: 'Snyder, Tiffany',
-                Slug: '/bios/tiffany-snyder'
-            },
-            {
-                EOS_Id: 508611,
-                NPI: 1720180219,
-                Name: 'Cheema, Quratel',
-                Slug: false
-            },
-            {
-                EOS_Id: 2079273,
-                NPI: 1952606477,
-                Name: 'Damberg, Mark',
-                Slug: false
-            },
-            {
-                EOS_Id: 2089021,
-                NPI: 1689047714,
-                Name: 'Ryan, Emily',
-                Slug: false
-            },
-            {
-                EOS_Id: 504479,
-                NPI: 1225353063,
-                Name: 'Bhatti, Sonia',
-                Slug: false
-            },
-            {
-                EOS_Id: 253780,
-                NPI: 1659451631,
-                Name: 'Vierra, Michelle',
-                Slug: false
-            },
-            {
-                EOS_Id: 308520,
-                NPI: 1144359209,
-                Name: 'Diddee, Seema',
-                Slug: false
-            },
-            {
-                EOS_Id: 500600,
-                NPI: 1245659788,
-                Name: 'Wang, Jessie',
-                Slug: false
-            },
-            {
-                EOS_Id: 508925,
-                NPI: 1770954653,
-                Name: 'Ly, Amy',
-                Slug: false
-            },
-            {
-                EOS_Id: 2059652,
-                NPI: 1811132178,
-                Name: 'Meyer, Kerry',
-                Slug: false
-            },
-            {
-                EOS_Id: 373240,
-                NPI: 1417091802,
-                Name: 'Cao, Yunyu',
-                Slug: false
-            },
-            {
-                EOS_Id: 468498,
-                NPI: 1073504007,
-                Name: 'Pentin, Pamela',
-                Slug: false
-            },
-            {
-                EOS_Id: 503893,
-                NPI: 1174866354,
-                Name: 'Siebert, David',
-                Slug: false
-            },
-            {
-                EOS_Id: 505126,
-                NPI: 1063845006,
-                Name: 'Hilderman, Emily',
-                Slug: false
-            },
-            {
-                EOS_Id: 508325,
-                NPI: 1992740518,
-                Name: 'Bennett, Ian',
-                Slug: false
-            },
-            {
-                EOS_Id: 508496,
-                NPI: 1083935803,
-                Name: 'Sairenji, Tomoko',
-                Slug: false
-            },
-            {
-                EOS_Id: 511260,
-                NPI: 1851555866,
-                Name: 'Al Achkar, Morhaf',
-                Slug: false
-            },
-            {
-                EOS_Id: 511519,
-                NPI: 1366438947,
-                Name: 'James. Paul',
-                Slug: false
-            },
-            {
-                EOS_Id: 2081432,
-                NPI: 1124131784,
-                Name: 'Shih, Grace',
-                Slug: false
-            }
-        ]
-    };
+    os_enabled_providers: [
+      {
+        EOS_Id: 2089024,
+        NPI: 1639626880,
+        Name: 'Linda Whittlesey',
+        Slug: '/bios/linda-whittlesey'
+      },
+      {
+        EOS_Id: 505181,
+        NPI: 1306267885,
+        Name: 'Laura Montour',
+        Slug: '/bios/laura-montour'
+      },
+      {
+        EOS_Id: 505877,
+        NPI: 1144236753,
+        Name: 'Tiffany Snyder',
+        Slug: '/bios/tiffany-snyder'
+      },
+      {
+        EOS_Id: 508611,
+        NPI: 1720180219,
+        Name: 'Quratel Cheema',
+        Slug: '/bios/quratul-cheema'
+      },
+      {
+        EOS_Id: 2079273,
+        NPI: 1952606477,
+        Name: 'Mark Damberg',
+        Slug: '/bios/mark-damberg'
+      },
+      {
+        EOS_Id: 2089021,
+        NPI: 1689047714,
+        Name: 'Emily Ryan',
+        Slug: '/bios/emily-ryan'
+      },
+      {
+        EOS_Id: 504479,
+        NPI: 1225353063,
+        Name: 'Sonia Bhatti',
+        Slug: '/bios/sona-bhatti'
+      },
+      {
+        EOS_Id: 253780,
+        NPI: 1659451631,
+        Name: 'Michelle Vierra',
+        Slug: '/bios/michelle-vierra'
+      },
+      {
+        EOS_Id: 308520,
+        NPI: 1144359209,
+        Name: 'Seema Diddee',
+        Slug: '/bios/seema-diddee'
+      },
+      {
+        EOS_Id: 500600,
+        NPI: 1245659788,
+        Name: 'Jessie Wang',
+        Slug: '/bios/jessie-wang'
+      },
+      {
+        EOS_Id: 508925,
+        NPI: 1770954653,
+        Name: 'Amy Ly',
+        Slug: '/bios/amy-ly'
+      },
+      {
+        EOS_Id: 2059652,
+        NPI: 1811132178,
+        Name: 'Kerry Meyer',
+        Slug: '/bios/kerry-meyer'
+      },
+      {
+        EOS_Id: 373240,
+        NPI: 1417091802,
+        Name: 'Yunyu Cao',
+        Slug: '/bios/yunyu-cao'
+      },
+      {
+        EOS_Id: 468498,
+        NPI: 1073504007,
+        Name: 'Pamela Pentin',
+        Slug: '/bios/pamela-pentin'
+      },
+      {
+        EOS_Id: 503893,
+        NPI: 1174866354,
+        Name: 'David Siebert',
+        Slug: '/bios/david-siebert'
+      },
+      {
+        EOS_Id: 505126,
+        NPI: 1063845006,
+        Name: 'Emily Hilderman',
+        Slug: '/bios/emily-hilderman'
+      },
+      {
+        EOS_Id: 508325,
+        NPI: 1992740518,
+        Name: 'Ian Bennett',
+        Slug: '/bios/ian-bennett'
+      },
+      {
+        EOS_Id: 508496,
+        NPI: 1083935803,
+        Name: 'Tomoko Sairenji',
+        Slug: '/bios/tomoko-sairenji'
+      },
+      {
+        EOS_Id: 511260,
+        NPI: 1851555866,
+        Name: 'Morhaf Al Achkar',
+        Slug: '/bios/morhaf-al-achkar'
+      },
+      {
+        EOS_Id: 511519,
+        NPI: 1366438947,
+        Name: 'James. Paul',
+        Slug: '/bios/paul-james'
+      },
+      {
+        EOS_Id: 2081432,
+        NPI: 1124131784,
+        Name: 'Grace Shih',
+        Slug: '/bios/grace-shih'
+      }
+    ]
+  };
 
 
 })();
