@@ -144,88 +144,124 @@ var o = (function () {
 
 (function ($, Drupal, drupalSettings) {
 
-    'use strict';
+  'use strict';
 
-    Drupal.behaviors.enableEpicOpenSchedule = {
+  Drupal.behaviors.enableEpicOpenSchedule = {
 
-        attach: function (context, settings) {
+    attach: function (context, settings) {
 
-          displayEpicOpenSchedule();
-
-        }
-
-    };
-
-      function displayEpicOpenSchedule() {
-        if (testVariableAssignments()) {
-          var opts = window.uwm_epic_open_scheduling_options;
-          var providerSlug = document.referrer.replace(document.location.origin, '');
-          var providerMatch = findObjectItem(opts.os_enabled_providers, providerSlug);
-          var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
-
-          if (!!providerMatch && !!providerHref) {
-
-            $.each(opts.drupal_unhide_selectors, function (a, b) {
-
-              var $this = $(b);
-              // Found element to unhide:
-              if ($this.length) {
-
-                var $iframe = $this.find('iframe');
-
-                // Found iframe to reformat:
-                if ($iframe.length) {
-
-                  $iframe.attr('src', providerHref);
-                }
-
-                $this.removeClass('hidden').addClass('uwm-os-matched');
-              }
-
-            });
-
-            $('body').addClass('open-scheduling-enabled');
-          }
-        } else {
-          setTimeout(displayEpicOpenSchedule, 100);
-        }
-      }
-
-    function testVariableAssignments() {
-
-        if (!!window.uwm_epic_open_scheduling_options
-            && !!window.uwm_epic_open_scheduling_options.os_enabled_providers
-            && !!window.uwm_epic_open_scheduling_options.os_enabled_providers[0]
-            && !!window.uwm_epic_open_scheduling_options.os_enabled_providers[0].Slug
-        ) {
-            return true;
-        }
+      transformProviderLinks();
 
     }
 
-    function findObjectItem(arr, s) {
-        if(s !== '') {
-          var i, key;
-          for (i = arr.length; i--;) {
-            for (key in arr[i]) {
-              if (arr[i].hasOwnProperty(key)
-                  && typeof arr[i][key] === 'string'
-                  && arr[i][key].indexOf(s) > -1) {
-                return arr[i];
-              }
+  };
 
+  function transformProviderLinks() {
+    if (testVariableAssignments()) {
+      var opts = window.uwm_epic_open_scheduling_options;
+      var providerSlug = document.referrer.replace(document.location.origin, '');
+      var providerMatch = findObjectItem(opts.os_enabled_providers, providerSlug);
+
+
+      if (!!providerMatch) {
+        var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
+        var providerName =  providerMatch.Name;
+
+        if(!!providerHref) {
+          $.each(opts.transform_provider_link_selectors, function (a, b) {
+
+            var $this = $(b);
+            // Found element to transform href:
+            if ($this.length) {
+              $this.attr('href', providerHref);
+              $this.removeClass('hidden').addClass('uwm-os-matched');
             }
 
-          }
+            if(!!providerName && $this.hasClass(opts.append_provider_name_class)) {
+              $this.append(" with " + providerName);
+            }
+          });
+
+          $('body').addClass('open-scheduling-enabled');
         }
 
+      }
+
+    } else {
+      setTimeout(transformProviderLinks, 100);
     }
 
-    function formatProviderUrl(providerId, defaultUrl) {
-        var idParam = 'id=' + providerId;
-        return '' + defaultUrl.replace(/(id=)[^&]+/, idParam);
+  }
+  function transformProviderIFrameSources() {
+    if (testVariableAssignments()) {
+      var opts = window.uwm_epic_open_scheduling_options;
+      var providerSlug = document.referrer.replace(document.location.origin, '');
+      var providerMatch = findObjectItem(opts.os_enabled_providers, providerSlug);
+      var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
 
+      if (!!providerMatch && !!providerHref) {
+
+        $.each(opts.drupal_unhide_selectors, function (a, b) {
+
+          var $this = $(b);
+          // Found element to unhide:
+          if ($this.length) {
+
+            var $iframe = $this.find('iframe');
+
+            // Found iframe to reformat:
+            if ($iframe.length) {
+
+              $iframe.attr('src', providerHref);
+            }
+
+            $this.removeClass('hidden').addClass('uwm-os-matched');
+          }
+
+        });
+
+        $('body').addClass('open-scheduling-enabled');
+      }
+    } else {
+      setTimeout(transformProviderIFrameSources, 100);
     }
+  }
+
+  function testVariableAssignments() {
+
+    if (!!window.uwm_epic_open_scheduling_options
+        && !!window.uwm_epic_open_scheduling_options.os_enabled_providers
+        && !!window.uwm_epic_open_scheduling_options.os_enabled_providers[0]
+        && !!window.uwm_epic_open_scheduling_options.os_enabled_providers[0].Slug
+    ) {
+      return true;
+    }
+
+  }
+
+  function findObjectItem(arr, s) {
+    if(s !== '') {
+      var i, key;
+      for (i = arr.length; i--;) {
+        for (key in arr[i]) {
+          if (arr[i].hasOwnProperty(key)
+              && typeof arr[i][key] === 'string'
+              && arr[i][key].indexOf(s) > -1) {
+            return arr[i];
+          }
+
+        }
+
+      }
+    }
+
+  }
+
+  function formatProviderUrl(providerId, defaultUrl) {
+    var idParam = 'id=' + providerId;
+    return '' + defaultUrl.replace(/(id=)[^&]+/, idParam);
+
+  }
 
 
 })(jQuery, Drupal, drupalSettings);
