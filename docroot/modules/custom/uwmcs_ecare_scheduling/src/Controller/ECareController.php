@@ -56,17 +56,14 @@ class ECareController extends ControllerBase {
       '#tag' => 'iframe',
       '#attributes' => [
         'id' => 'ecare-iframe-' . $providerId,
-        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;width:100%;min-height:400px',
-        'scrolling' => 'no',
+        'style' => 'width: 100%; min-height: 400px',
       ],
     ];
 
     if ($providerId) {
 
-      $iframe['#attributes']['src'] = '/sites/default/files/my-chart.html';
-      // 'src' => 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/' .
-      // 'SignupAndSchedule/EmbeddedSchedule?id=' .
-      // '$providerId . '&vt=9000&view=plain';.
+      $iframe['#attributes']['src'] = 'https://ecare.uwmedicine.org/mychartprod01/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain';
+      $iframe['#attributes']['src'] = 'https://testecare16.medical.washington.edu/mycharttst/OpenScheduling/SignupAndSchedule/EmbeddedSchedule?id=' . $providerId . '&vt=9000&view=plain';
     }
 
     return [
