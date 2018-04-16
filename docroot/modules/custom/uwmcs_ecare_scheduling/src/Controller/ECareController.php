@@ -56,8 +56,7 @@ class ECareController extends ControllerBase {
       '#tag' => 'iframe',
       '#attributes' => [
         'id' => 'ecare-iframe-' . $providerId,
-        'style' => 'overflow:hidden; overflow-x:hidden; overflow-y:hidden;width:100%;min-height:400px',
-        'scrolling' => 'no',
+        'style' => 'width: 100%; min-height: 400px',
       ],
     ];
 
