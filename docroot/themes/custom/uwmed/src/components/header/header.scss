@@ -115,15 +115,15 @@ body > header {
             color: $link-hover-color;
             background: transparent;
           }
-          // More forgiving hover zone
-          i.fa.fa-angle-down:after {
+          &:after {
+            // More forgiving hover zone
             position: absolute;
             top: 0;
             bottom: -10px;
             left: 0;
             right: 0;
             content: "";
-            z-index: 9999999;
+            z-index: 1;
           }
         }
 
@@ -294,7 +294,7 @@ body > header {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1;
   }
 
 }

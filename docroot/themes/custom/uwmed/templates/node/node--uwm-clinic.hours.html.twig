@@ -79,7 +79,7 @@
                 <em><strong>Open</strong> - Closes {{ "@end" | t({
                         '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}</em>
             {% elseif _opensSoon %}
-                <em><strong>Open</strong> {{ "@start - @end" | t({
+                <em><strong>Opens soon</strong> {{ "@start - @end" | t({
                         '@start': _opensSoon.startTime|date ('g:ia')|trim('m'),
                         '@end': _opensSoon.endTime|date ('g:ia')|trim('m') }) }}
                 </em>
