@@ -35,13 +35,13 @@ class UwmCreator extends ControllerBase {
     $this->requestUri = '/' . trim(strtolower(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)), '/');
     $args = explode('/', $this->requestUri);
 
-    if ($args[1] === 'bios') {
+    if ($args[1] === 'bios' && !empty($args[2])) {
       $this->apiAlias = $args[2];
       $this->pathAlias = '/bios/' . $args[2];
       $this->contentType = 'uwm_provider';
 
     }
-    elseif ($args[1] === 'locations') {
+    elseif ($args[1] === 'locations' && !empty($args[2])) {
       $this->apiAlias = '/locations/' . $args[2];
       $this->pathAlias = $this->apiAlias;
       $this->contentType = 'uwm_clinic';

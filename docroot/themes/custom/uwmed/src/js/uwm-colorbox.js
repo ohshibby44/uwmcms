@@ -104,7 +104,7 @@
 
                 $link.colorbox({
                     inline: true,
-                    width: '50%'
+                    width: '75%'
                 });
 
             }
@@ -114,7 +114,7 @@
 
                 $link.colorbox({
                     iframe: true,
-                    width: '80%',
+                    width: '90%',
                     height: '80%'
                 });
 

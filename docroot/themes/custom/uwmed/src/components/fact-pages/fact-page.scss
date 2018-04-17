@@ -121,8 +121,11 @@ body.page-node-type-fact-page {
   }
 
 
-  @include uw-equal-height-row('.field.field--name-field-content-blocks',
-          '.item', '.paragraph');
+  @media(min-width: $screen-lg-min) {
 
+    @include uw-equal-height-row('.field.field--name-field-content-blocks',
+            '.item', '.paragraph');
+
+  }
 
 }
