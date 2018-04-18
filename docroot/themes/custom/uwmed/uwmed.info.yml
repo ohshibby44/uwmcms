@@ -6,18 +6,16 @@ base theme: bootstrap
 screenshot: uwmed-screenshot.png
 
 regions:
-  branding: 'Branding'
+#  branding: 'Branding'
   navigation: 'Navigation'
-  page_content_top: 'Content Top'
+  page_top: 'Page top'
   help: 'Help'
-  content: 'Content'
-  content_header: 'Content Header'
-  content_innner_sidebar: 'Content Inner Sidebar'
-  page_content_foot: 'Page Content Foot'
   sidebar_first: 'Primary'
   sidebar_second: 'Secondary'
-  footer_first: 'Footer First'
-  footer_second: 'Footer Second'
+  content: 'Content'
+  content_innner_sidebar: 'Content Inner Sidebar'
+  page_bottom: 'Page bottom'
+  footer: 'Page Footer'
 
 libraries:
   - 'uwmed/styles'
