@@ -7,10 +7,10 @@
 {% include directory ~'/templates/system/page.header.html.twig' %}
 
 
-{# Sidebar First #}
+{# Page Top #}
 {% if page.page_content_top %}
     {% block page_content_top %}
-        <section class="page-top">
+        <section id="page-top">
             {{ page.page_content_top }}
         </section>
     {% endblock %}
@@ -20,16 +20,13 @@
 
 {# Main #}
 {% block main %}
-    <div id="main-container" role="main"
-         class="main-container container-fluid js-quickedit-main-content">
+    <div id="main-container" role="main" class="main-container container-fluid">
 
 
-        {# Header #}
+        {# Help #}
         {% if page.help %}
             {% block help %}
-                <div class="col-sm-12 page-help" role="banner">
                     {{ page.help }}
-                </div>
             {% endblock %}
         {% endif %}
 
@@ -46,6 +43,7 @@
                 {% endblock %}
             {% endif %}
 
+
             {# Content #}
             {% set content_classes = [
             page.sidebar_first and page.sidebar_second ? 'col-sm-6',
@@ -55,13 +53,6 @@
             ] %}
             <section{{ content_attributes.addClass(content_classes).addClass('page-center') }}>
 
-                {# Content Header #}
-                {% if page.content_header %}
-                    {% block content_header %}
-                        <a id="content-header"></a>
-                        {{ page.content_header }}
-                    {% endblock %}
-                {% endif %}
 
                 {# Content #}
                 {% block content %}
@@ -70,6 +61,7 @@
                 {% endblock %}
 
             </section>
+
 
             {# Sidebar Second #}
             {% if page.sidebar_second %}
@@ -80,19 +72,11 @@
                 {% endblock %}
             {% endif %}
 
+
         </div>
+
     </div>
 {% endblock %}
-
-
-{# Sidebar First #}
-{% if page.page_content_foot %}
-    {% block page_content_foot %}
-        <section class="page-bottom">
-            {{ page.page_content_foot }}
-        </section>
-    {% endblock %}
-{% endif %}
 
 
 

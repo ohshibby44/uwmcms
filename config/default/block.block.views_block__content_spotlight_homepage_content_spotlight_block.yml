@@ -1,4 +1,4 @@
-uuid: 404459c8-e5a5-4a9b-a3e5-cc8f8231f491
+uuid: 20cb8dd3-670c-4c74-b3d1-1653cfb8966f
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ dependencies:
     - views
   theme:
     - uwmed
-id: views_block__content_spotlight_homepage
+id: views_block__content_spotlight_homepage_content_spotlight_block
 theme: uwmed
 region: content
-weight: -2
+weight: 2
 provider: null
 plugin: 'views_block:content_spotlight-homepage_content_spotlight_block'
 settings:

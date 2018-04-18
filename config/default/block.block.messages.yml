@@ -1,4 +1,4 @@
-uuid: 98ce8312-4608-4540-a69f-e370e1330d69
+uuid: e143de00-2782-46d6-990a-bb1f6e37fdf8
 langcode: en
 status: true
 dependencies:
@@ -6,17 +6,15 @@ dependencies:
     - system
   theme:
     - uwmed
-_core:
-  default_config_hash: YqKTtloWJ8FjLtfVNfrHaK6kVgxT67lC1cJ3j6i6WLo
-id: uwmed_messages
+id: messages
 theme: uwmed
 region: content
-weight: -4
+weight: -5
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: 'Status messages'
+  label: Messages
   provider: system
   label_display: '0'
 visibility: {  }
