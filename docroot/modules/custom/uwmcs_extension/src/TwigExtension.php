@@ -2,6 +2,7 @@
 
 namespace Drupal\uwmcs_extension;
 
+use Drupal\image\Entity\ImageStyle;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
 /**
@@ -32,6 +33,8 @@ class TwigExtension extends \Twig_Extension {
         'uwm_get_api_nid', [$this, 'getApiPathNid']),
       new \Twig_SimpleFunction(
         'uwm_extract_parts', [$this, 'extractArrayValues']),
+      new \Twig_SimpleFunction(
+        'uwm_style_remote_image', [$this, 'styleRemoteImage']),
 
     ];
   }
@@ -61,7 +64,6 @@ class TwigExtension extends \Twig_Extension {
         'uwm_sort_parts', [$this, 'sortArrayByValues']),
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
-
     ];
   }
 
@@ -313,6 +315,65 @@ class TwigExtension extends \Twig_Extension {
     }
 
     return NULL;
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $imageUri
+   *   Description text.
+   * @param string $imageStyle
+   *   Description text.
+   *
+   * @return array
+   *   Description here.
+   */
+  public static function styleRemoteImage(string $imageUri, string $imageStyle = NULL) {
+
+    $managed = FALSE;
+    $parsed_url = parse_url($imageUri);
+    $path = file_build_uri(drupal_basename($parsed_url['path']));
+
+    try {
+
+      $data = (string) \Drupal::httpClient()->get($imageUri)->getBody();
+      $local = $managed ? file_save_data($data, $path, FILE_EXISTS_REPLACE) :
+        file_unmanaged_save_data($data, $path, FILE_EXISTS_REPLACE);
+
+    }
+    catch (RequestException $exception) {
+
+      \Drupal::logger(__CLASS__)
+        ->error(t('Failed to fetch file due to error "%error"', ['%error' => $exception->getMessage()]));
+
+      return [];
+
+    }
+
+    $image = \Drupal::service('image.factory')->get($local);
+
+    if (!$image->isValid()) {
+
+      \Drupal::logger(__CLASS__)
+        ->error(t('@remote is not valid at @path.', ['@remote' => $imageUri, '@path' => $path]), 'error');
+
+      return [];
+
+    }
+
+    $build = [
+      '#theme' => 'image_style',
+      '#width' => $image->getWidth(),
+      '#height' => $image->getHeight(),
+      '#uri' => $local,
+    ];
+
+    if ($imageStyle && $style = ImageStyle::load($imageStyle)) {
+      $build['#uri'] = file_url_transform_relative($style->buildUrl($local));
+    }
+
+    return $build;
+
   }
 
 }
