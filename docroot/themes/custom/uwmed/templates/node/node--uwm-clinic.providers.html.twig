@@ -27,18 +27,13 @@
         loop.last ? 'loop-last' : '',
         loop.index == loop.length-1 ? 'loop-last-1' : '' ] %}
 
-
-
         <div class="provider col-xs-12 col-sm-6 {{ loopClasses|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 
                 <div class="profile-image">
-                    {% set image = uwm_style_remote_image(profileImg, 'portrait_small') %}
-                    {#{{ image }}#}
-                    {#<img src="{{ image['#uri'] | image_style('portrait_small') }}" class="img-thumbnail">#}
+                    {% set image = uwm_render_remote_image(profileImg, 'portrait_small') %}
                     <img src="{{ image['#uri'] }}" class="img-thumbnail">
-
                     {# @TODO: Add responsive image cutdown. #}
                 </div>
 

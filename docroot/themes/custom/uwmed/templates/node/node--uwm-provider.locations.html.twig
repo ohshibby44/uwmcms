@@ -10,7 +10,10 @@
         <div class="col-xs-12 col-xl-6 provider-location">
 
             <div class="col-xs-12 col-sm-5 location-image">
-                <img src="{{ clinic.externalUrl|replace({'http://': 'https://'}) ~ '/PublishingImages/splash1.jpg' }}">
+                {% set src = clinic.externalUrl|replace({'http://': 'https://'}) ~ '/PublishingImages/splash1.jpg' %}
+                {% set image = uwm_render_remote_image(src, 'medium') %}
+                {#@TODO: Use clinic node's image#}
+                {{ image }}
             </div>
 
             <div class="col-xs-12 col-sm-7">
