@@ -1,4 +1,4 @@
-uuid: d7292336-9258-4a35-86f1-ff0611afe12c
+uuid: 02ccde61-24d7-4644-bffc-14a3ee1c2893
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   theme:
     - uwmed
 _core:
-  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
 id: uwmed_content
 theme: uwmed
 region: content
-weight: -3
+weight: 1
 provider: null
 plugin: system_main_block
 settings:

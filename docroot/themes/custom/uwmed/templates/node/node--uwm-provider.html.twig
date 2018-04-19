@@ -227,7 +227,7 @@
             </div>
 
             {% if content.field_content_blocks|render or (drupal_region('content_innner_sidebar')) is not empty %}
-                <aside class="inner-sidebar visible-xs-block"
+                <aside class="inner-sidebar visible-xs-block block-format-paragraph"
                        role="complementary">
                     {{ content.field_content_blocks }}
                     {{ drupal_region('content_innner_sidebar') }}

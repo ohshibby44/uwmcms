@@ -1,22 +1,22 @@
-uuid: 2856cca0-7a5c-41dd-8fa1-44139cd74ef5
+uuid: cc946036-844a-49a1-a604-9bd2201895c6
 langcode: en
 status: true
 dependencies:
   theme:
     - uwmed
 _core:
-  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
-id: uwmed_local_tasks
+  default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
+id: uwmed_primary_local_tasks
 theme: uwmed
-region: content_header
-weight: -5
+region: content
+weight: -1
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: Tabs
+  label: 'Primary tabs'
   provider: core
   label_display: '0'
   primary: true
-  secondary: true
+  secondary: false
 visibility: {  }

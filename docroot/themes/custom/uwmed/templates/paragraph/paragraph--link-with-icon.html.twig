@@ -6,7 +6,7 @@
 {% set link_target = link_target == "_self" ? "" : link_target %}
 
 {% block content %}
-    {{ devel_breakpoint() }}
+    {#{{ devel_breakpoint() }}#}
 
   {% spaceless %}
     <a class="btn btn-default {{ link_classes }}" href="{{ url|render }}" target="{{ link_target }}">

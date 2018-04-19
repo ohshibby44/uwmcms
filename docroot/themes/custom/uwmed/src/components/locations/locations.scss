@@ -61,6 +61,14 @@ body.page-node-type-uwm-clinic {
           color: $uwmed-light-purple;
         }
 
+        img.img-responsive {
+          @extend .img-thumbnail;
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+        }
+
         .left {
 
           div.l {
@@ -92,13 +100,7 @@ body.page-node-type-uwm-clinic {
 
           .clinic-image {
             min-height: 170px;
-            img.img-responsive {
-              @extend .img-thumbnail;
-              display: block;
-              width: 100%;
-              max-width: 100%;
-              height: auto;
-            }
+
           }
 
           .get-in-line {
@@ -390,7 +392,7 @@ body.page-node-type-uwm-clinic {
                   width: 100%;
 
                   a.btn {
-                    width: 180px;
+                    width: 200px;
                     padding: 4px;
                     &.disabled {
                       opacity: .4;
