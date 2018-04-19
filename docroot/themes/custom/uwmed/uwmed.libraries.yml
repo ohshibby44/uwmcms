@@ -25,21 +25,21 @@ bootstrap-scripts:
 
 clinic-nodes:
   js:
-    dist/js/node--uwm-clinic.js: { preprocess: false }
+    dist/js/node--uwm-clinic.js: {}
   dependencies:
       - core/jquery
       - core/drupalSettings
 
 uwm-toggle:
   js:
-    dist/js/toggle.js: { preprocess: false }
+    dist/js/toggle.js: {}
   dependencies:
       - core/jquery
       - core/drupalSettings
 
 bootstrap-tab-history:
   js:
-    dist/js/bootstrap-tab-history.js: { preprocess: false }
+    dist/js/bootstrap-tab-history.js: {}
   dependencies:
     - core/jquery
 
@@ -56,7 +56,7 @@ font-awesome:
 clinic-hours:
   js:
     //www.clockwisemd.com/hospitals/clockwise_api.js: {}
-    dist/js/refresh-from.js: { preprocess: false }
+    dist/js/refresh-from.js: {}
     dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}
   dependencies:
@@ -91,7 +91,7 @@ screenfull:
 colorbox:
   js:
     //cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js: { type: external, minified: true }
-    dist/js/uwm-colorbox.js: { preprocess: false }
+    dist/js/uwm-colorbox.js: {}
   css:
     theme:
       dist/styles/colorbox.css: {}
