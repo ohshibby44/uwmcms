@@ -44,7 +44,7 @@ body.page-node-type-fact-page {
         @extend .col-xs-12;
         > .item .paragraph {
           @extend .well;
-          margin-bottom: 0;
+          margin-bottom: 20px;
           background: $uwmed-white;
           box-shadow: 1px 1px 3px 0 #dcdcdc;
           background: #f8f8f8;
@@ -62,10 +62,10 @@ body.page-node-type-fact-page {
         @extend .col-sm-6;
       }
       .paragraph-3s .field.field--name-field-content-blocks > .item {
-        @extend .col-sm-4;
+        @extend .col-md-4;
       }
       .paragraph-4s .field.field--name-field-content-blocks > .item {
-        @extend .col-sm-3;
+        @extend .col-md-3;
       }
 
     }
