@@ -38,12 +38,14 @@
                 if (href.indexOf('http') === 0) {
 
                     colorboxFunction = doModalIframe;
+                    doMobileResize();
                 }
 
                 if (href.indexOf('#') === 0) {
 
                     colorboxFunction = doModalInline;
                     $target = $('#' + href.substr(1));
+                    doMobileResize();
 
                 }
 
@@ -176,6 +178,19 @@
                     $video[0].pause();
                     $.colorbox.close();
                 });
+            }
+
+
+            function doMobileResize() {
+
+                $(window).resize(function () {
+
+                    if (window.innerWidth < 900) {
+                        $.colorbox.resize({width: '100%'});
+                    }
+
+                });
+
             }
 
 
