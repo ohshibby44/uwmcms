@@ -21,31 +21,32 @@
             $('.field--name-field-link a[href^="#"]').on('click', handleColorbox);
 
 
+
+            /**
+             *
+             * Set Colorbox style and attach to links.
+             *
+             *
+             *
+             */
             function handleColorbox(e) {
 
                 var $this = $(this), $target = $(),
                     href = $this.attr('href');
 
-                /**
-                 *
-                 * Choose best Colorbox style:
-                 *
-                 *
-                 *
-                 */
                 var colorboxFunction = doModalIframe;
 
                 if (href.indexOf('http') === 0) {
 
                     colorboxFunction = doModalIframe;
-                    doMobileResize();
+                    setResize();
                 }
 
                 if (href.indexOf('#') === 0) {
 
                     colorboxFunction = doModalInline;
                     $target = $('#' + href.substr(1));
-                    doMobileResize();
+                    setResize();
 
                 }
 
@@ -56,10 +57,18 @@
                 }
 
                 colorboxFunction($this, $target);
+                setCleanup();
 
             }
 
 
+
+            /**
+             *
+             * Set video player for desktop, Android or iOS.
+             *
+             *
+             */
             function handleMovie($link, $container) {
 
                 var $video = $container.is('video') ? $container : $container.find('video');
@@ -70,13 +79,6 @@
                     return;
                 }
 
-
-                /**
-                 *
-                 * Choose phone, tablet or default:
-                 *
-                 *
-                 */
                 if (touchEvents && !!window.screenfull && !!window.screenfull.enabled) {
 
                     doScreenfullVideo($video);
@@ -181,18 +183,35 @@
             }
 
 
-            function doMobileResize() {
 
-                $(window).resize(function () {
 
+            /**
+             *
+             * Other Helpers.
+             *
+             *
+             */
+            function setResize() {
+
+                function fitWidth() {
                     if (window.innerWidth < 900) {
                         $.colorbox.resize({width: '100%'});
                     }
+                }
 
-                });
-
+                $(window).resize(fitWidth);
+                $(document).bind('cbox_complete', fitWidth);
             }
 
+
+            function setCleanup() {
+
+                function unsetFocus() {
+                    $(window).trigger('focus');
+                }
+
+                $(document).bind('cbox_closed', unsetFocus);
+            }
 
         }
     };
