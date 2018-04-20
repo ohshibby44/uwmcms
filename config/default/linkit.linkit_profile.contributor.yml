@@ -1,0 +1,49 @@
+uuid: a790a25e-a2b1-41af-985f-15754447bac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.linkit_result_thumbnail
+  module:
+    - file
+    - image
+    - node
+id: contributor
+label: Contributor
+description: ''
+attributes:
+  title:
+    id: title
+    weight: 0
+    settings:
+      automatic_title: true
+matchers:
+  984b3225-f442-422c-be16-518e3677565f:
+    uuid: 984b3225-f442-422c-be16-518e3677565f
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: false
+  7040ffae-7d8b-43f3-ba4a-3b99b71d91bc:
+    uuid: 7040ffae-7d8b-43f3-ba4a-3b99b71d91bc
+    id: 'entity:media'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: {  }
+      group_by_bundle: true
+  96040961-6179-423f-890b-f5953c46f025:
+    uuid: 96040961-6179-423f-890b-f5953c46f025
+    id: 'entity:file'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: null
+      group_by_bundle: null
+      images:
+        show_dimensions: true
+        show_thumbnail: true
+        thumbnail_image_style: linkit_result_thumbnail

@@ -32,6 +32,22 @@ body {
           padding-bottom: 0;
         }
 
+
+        .letterbox {
+          margin: 8px 0 8px 8px;
+          padding: 8px 0;
+          border-top: 1px solid #dcdcdc;
+          border-bottom: 1px solid #dcdcdc;
+          img {
+            @extend .img-thumbnail;
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+
+
+
+
       }
 
     }

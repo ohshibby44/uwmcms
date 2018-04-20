@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - entity_embed
+    - image
     - media_entity
 _core:
   default_config_hash: WL4ta6NxAdlxtbpkNqiftH4cpFhdh5ceYCO28Iy1IgU
@@ -14,8 +15,9 @@ type_settings:
   entity_type: media
   bundles: {  }
   display_plugins:
-    - 'view_mode:media.embedded'
+    - 'entity_reference:media_thumbnail'
+    - media_image
   entity_browser: media_browser
   entity_browser_settings:
-    display_review: false
+    display_review: true
 icon_uuid: null

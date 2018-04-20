@@ -6,10 +6,10 @@ dependencies:
     - field.field.media.image.field_media_in_library
     - field.field.media.image.field_site_categories
     - field.field.media.image.image
+    - image.style.portrait_medium
     - media_entity.bundle.image
-    - responsive_image.styles.default_responsive_image
   module:
-    - responsive_image
+    - image
 _core:
   default_config_hash: Zn9LsLt7n0fzyEwtBMqioYJzhnU9RvIcfVef1gs51-Y
 id: media.image.default
@@ -18,11 +18,11 @@ bundle: image
 mode: default
 content:
   image:
-    type: responsive_image
+    type: image
     weight: 1
     label: hidden
     settings:
-      responsive_image_style: default_responsive_image
+      image_style: portrait_medium
       image_link: ''
     third_party_settings: {  }
     region: content

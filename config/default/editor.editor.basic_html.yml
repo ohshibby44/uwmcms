@@ -17,11 +17,10 @@ settings:
           items:
             - Bold
             - Italic
-            - Styles
         -
           name: Links
           items:
-            - DrupalLink
+            - Linkit
             - DrupalUnlink
         -
           name: Lists
@@ -38,7 +37,7 @@ settings:
           items:
             - Blockquote
             - DrupalImage
-            - media_browser
+            - node
         -
           name: Tools
           items:
@@ -47,7 +46,9 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "h2|h2\r\nh3|h3\r\nh4|h4\r\nblockquote|blockquote\r\naddress|address\r\ndiv.row.equal-heights|Row Div\r\ndiv.col-xs-12.col-md-4|Row Column (1/3) \r\ndiv.col-xs-12.col-md-6|Row Column (1/2)\r\ndiv.col-xs-12|Row Column (1/1)  \r\ndiv.col-xs-12.col-md-3.pull-right.letterbox|Letterbox (1/3 Right)"
+    linkit:
+      linkit_profile: contributor
 image_upload:
   status: true
   scheme: public

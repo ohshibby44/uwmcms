@@ -8,7 +8,15 @@ effects:
   03f4f683-3b4e-478d-ad69-66159a0d65a2:
     uuid: 03f4f683-3b4e-478d-ad69-66159a0d65a2
     id: image_scale_and_crop
-    weight: 1
+    weight: -9
     data:
       width: 324
       height: 405
+  2ca41266-afbf-4ab3-94b6-8f201b01fb76:
+    uuid: 2ca41266-afbf-4ab3-94b6-8f201b01fb76
+    id: image_scale
+    weight: -10
+    data:
+      width: null
+      height: 405
+      upscale: true

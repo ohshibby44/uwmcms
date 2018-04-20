@@ -1,0 +1,20 @@
+uuid: 997278bd-3d30-4a73-a6d4-3ac56c8bcf14
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: testy
+label: testy
+effects:
+  0f23470b-40fd-4a23-8f79-ee1b23ffc3ab:
+    uuid: 0f23470b-40fd-4a23-8f79-ee1b23ffc3ab
+    id: image_effects_color_shift
+    weight: 1
+    data:
+      RGB: '#328CFF'
+  f21aa431-1187-4c2c-9b91-e1c29c545536:
+    uuid: f21aa431-1187-4c2c-9b91-e1c29c545536
+    id: image_effects_invert
+    weight: 2
+    data: {  }

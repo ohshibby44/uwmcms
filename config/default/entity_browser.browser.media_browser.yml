@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media_entity.bundle.document
     - views.view.media
   module:
+    - dropzonejs_eb_widget
     - lightning_media
+    - media_entity
     - views
 _core:
   default_config_hash: FDJK8UTP5DIbBgnqQ9Mqawyz0wE0ppQafMdZOWm8AKI
@@ -30,7 +33,7 @@ widgets:
       submit_text: Place
       auto_select: false
     uuid: 134808d9-d854-4a0b-8699-d5eba006b8b7
-    weight: -10
+    weight: -9
     label: Library
     id: view
   8b142f33-59d1-47b1-9e3a-4ae85d8376fa:
@@ -38,7 +41,7 @@ widgets:
       submit_text: Place
       form_mode: media_browser
     uuid: 8b142f33-59d1-47b1-9e3a-4ae85d8376fa
-    weight: -8
+    weight: -7
     label: 'Create embed'
     id: embed_code
   044d2af7-314b-4830-8b6d-64896bbb861e:
@@ -47,6 +50,19 @@ widgets:
       form_mode: media_browser
       return_file: false
     uuid: 044d2af7-314b-4830-8b6d-64896bbb861e
-    weight: -9
+    weight: -8
     label: Upload
     id: file_upload
+  567c832a-d5d4-4bf6-8e15-0abccd93853a:
+    settings:
+      form_mode: default
+      media_entity_bundle: document
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 32M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+      submit_text: 'Select entities'
+    uuid: 567c832a-d5d4-4bf6-8e15-0abccd93853a
+    weight: -10
+    label: dropzonejs_media_entity_inline_entity_form
+    id: dropzonejs_media_entity_inline_entity_form

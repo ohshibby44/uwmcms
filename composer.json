@@ -99,7 +99,9 @@
         "drupal/minifyhtml": "^1.1",
         "drupal/core": "8.3.9",
         "drupal/panels": "^4.2",
-        "drupal/page_manager": "^4.0@beta"
+        "drupal/page_manager": "^4.0@beta",
+        "drupal/image_effects": "^2.0",
+        "burdamagazinorg/image-derive-all": "dev-master"
     },
     "require-dev": {},
     "extra": {
