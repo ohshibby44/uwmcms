@@ -13,7 +13,11 @@ type_id: entity
 type_settings:
   entity_type: node
   bundles: {  }
-  display_plugins: {  }
+  display_plugins:
+    - 'view_mode:node.card_display'
+    - 'view_mode:node.full'
+    - 'view_mode:node.search_index'
+    - 'view_mode:node.teaser'
   entity_browser: ''
   entity_browser_settings:
     display_review: false

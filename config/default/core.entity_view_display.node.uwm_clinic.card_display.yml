@@ -1,8 +1,9 @@
-uuid: f073aa74-2e6d-454c-85d2-08c07869ac97
+uuid: 24c2934f-5a0f-4355-b3cc-46b9e3cea3ed
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.card_display
     - field.field.node.uwm_clinic.body
     - field.field.node.uwm_clinic.field_body_summary
     - field.field.node.uwm_clinic.field_bottom_content_blocks
@@ -31,10 +32,10 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.uwm_clinic.default
+id: node.uwm_clinic.card_display
 targetEntityType: node
 bundle: uwm_clinic
-mode: default
+mode: card_display
 content:
   body:
     weight: 4

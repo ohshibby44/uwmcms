@@ -14,8 +14,6 @@ module:
   contact_storage: 0
   contextual: 0
   contribute: 0
-  crop: 0
-  crop_media_entity: 0
   ctools: 0
   ctools_block: 0
   datetime: 0
@@ -47,8 +45,6 @@ module:
   help: 0
   history: 0
   image: 0
-  image_effects: 0
-  image_widget_crop: 0
   inline_entity_form: 0
   kint: 0
   layout_discovery: 0

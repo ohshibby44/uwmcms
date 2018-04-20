@@ -1,0 +1,81 @@
+uuid: 3ebf9ce2-570b-4f79-9b07-b3fc3c21a61c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.uwm_clinic.body
+    - field.field.node.uwm_clinic.field_body_summary
+    - field.field.node.uwm_clinic.field_bottom_content_blocks
+    - field.field.node.uwm_clinic.field_bottom_content_blocks_head
+    - field.field.node.uwm_clinic.field_clinic_image
+    - field.field.node.uwm_clinic.field_clinic_wait_time_snippet
+    - field.field.node.uwm_clinic.field_clockwise_id
+    - field.field.node.uwm_clinic.field_content_blocks
+    - field.field.node.uwm_clinic.field_content_blocks_heading
+    - field.field.node.uwm_clinic.field_information_manager_url
+    - field.field.node.uwm_clinic.field_meta_tags
+    - field.field.node.uwm_clinic.field_node_media
+    - field.field.node.uwm_clinic.field_sub_title
+    - image.style.medium
+    - node.type.uwm_clinic
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.uwm_clinic.teaser
+targetEntityType: node
+bundle: uwm_clinic
+mode: teaser
+content:
+  body:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    type: text_summary_or_trimmed
+    region: content
+  field_body_summary:
+    type: text_default
+    weight: 3
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_clinic_image:
+    weight: 0
+    label: above
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_sub_title:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_bottom_content_blocks: true
+  field_bottom_content_blocks_head: true
+  field_clinic_wait_time_snippet: true
+  field_clockwise_id: true
+  field_content_blocks: true
+  field_content_blocks_heading: true
+  field_information_manager_url: true
+  field_meta_tags: true
+  field_node_media: true
+  links: true
+  workbench_moderation_control: true
