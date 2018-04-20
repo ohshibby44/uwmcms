@@ -16,23 +16,24 @@
 
         {% set title = bio.fullName %}
         {% set href = '/bios/'~ bio.friendlyUrl %}
+        {% set profileImg = ('noimage.jpg' in bio.bioImageUrl) ?
+        '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : bio.bioImageUrl %}
+
 
         {% set loopClasses = [
-            loop.index is odd ? 'even' : 'odd',
-            'loop-'~ loop.index,
-            loop.first ? 'loop-first' : '',
-            loop.last ? 'loop-last' : '',
-            loop.index == loop.length-1 ? 'loop-last-1' : '' ] %}
+        loop.index is odd ? 'even' : 'odd',
+        'loop-'~ loop.index,
+        loop.first ? 'loop-first' : '',
+        loop.last ? 'loop-last' : '',
+        loop.index == loop.length-1 ? 'loop-last-1' : '' ] %}
 
         <div class="provider col-xs-12 col-sm-6 {{ loopClasses|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 
                 <div class="profile-image">
-                    {% set profileImage = ('noimage.jpg' in bio.bioImageUrl) ?
-                    '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : bio.bioImageUrl %}
-                    <img src="{{ profileImage }}" class="img-thumbnail">
-
+                    {% set image = uwm_render_remote_image(profileImg, 'portrait_small') %}
+                    <img src="{{ image['#uri'] }}" class="img-thumbnail">
                     {# @TODO: Add responsive image cutdown. #}
                 </div>
 
@@ -56,27 +57,27 @@
                         {% set specialities = uwm_extract_parts(bio, 'expertiseName') %}
                         {% if specialities %}
                             <p><strong>{{ "Specialities"| t }}: </strong><br>
-                            {% for i in specialities %}
+                                {% for i in specialities %}
 
-                                {% if loop.index > 3 %}
-                                    <i class="collapse">
+                                    {% if loop.index > 3 %}
+                                        <i class="collapse">
+                                            {% if not loop.first %}
+                                                |
+                                            {% endif %}
+                                            {{ i }}</i>
+                                    {% else %}
                                         {% if not loop.first %}
                                             |
                                         {% endif %}
-                                        {{ i }}</i>
-                                {% else %}
-                                    {% if not loop.first %}
-                                        |
+                                        {{ i }}
                                     {% endif %}
-                                    {{ i }}
+
+                                {% endfor %}
+
+                                {% if specialities|length > 3 %}
+                                    <i class="toggle" data-toggle="collapse"
+                                       data-target=".s-{{ bio.id }} .collapse">...</i>
                                 {% endif %}
-
-                            {% endfor %}
-
-                            {% if specialities|length > 3 %}
-                            <i class="toggle" data-toggle="collapse"
-                               data-target=".s-{{ bio.id }} .collapse">...</i>
-                            {% endif %}
                             </p>
                         {% endif %}
                     </div>
@@ -86,7 +87,8 @@
 
                 <div class="accepting-apts-cta">
                     {% if bio.acceptingAppointments %}
-                        <a class="btn btn-default" href="/patient-care/making-an-appointment">
+                        <a class="btn btn-default"
+                           href="/patient-care/making-an-appointment">
                             <i class="u-ips"></i> {{ "Request Appointment"|t }}
                         </a>
                     {% else %}

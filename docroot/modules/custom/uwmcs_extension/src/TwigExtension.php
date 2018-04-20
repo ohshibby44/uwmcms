@@ -2,6 +2,7 @@
 
 namespace Drupal\uwmcs_extension;
 
+use Drupal\image\Entity\ImageStyle;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
 /**
@@ -32,6 +33,8 @@ class TwigExtension extends \Twig_Extension {
         'uwm_get_api_nid', [$this, 'getApiPathNid']),
       new \Twig_SimpleFunction(
         'uwm_extract_parts', [$this, 'extractArrayValues']),
+      new \Twig_SimpleFunction(
+        'uwm_render_remote_image', [$this, 'styleRemoteImage']),
 
     ];
   }
@@ -61,7 +64,6 @@ class TwigExtension extends \Twig_Extension {
         'uwm_sort_parts', [$this, 'sortArrayByValues']),
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
-
     ];
   }
 
@@ -273,7 +275,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string $phone
+   * @param string|null $phone
    *   Description text.
    * @param string $separator
    *   Description text.
@@ -313,6 +315,82 @@ class TwigExtension extends \Twig_Extension {
     }
 
     return NULL;
+  }
+
+  /**
+   * Creates Drupal image from a remote file.
+   *
+   * @param string|null $imageUri
+   *   Description text.
+   * @param string $imageStyle
+   *   Description text.
+   *
+   * @return array
+   *   Description here.
+   *
+   * @code
+   * {% set image = uwm_render_remote_image('http://abc.com/image.jpg,
+   *   'medium') %}
+   * {{ image }}
+   *
+   * OR
+   * {% set image = uwm_render_remote_image('http://abc.com/image.jpg) %}
+   * <img src="{{ image['#uri'] | image_style('default_responsive_image') }}">
+   *
+   * @endcode
+   */
+  public static function styleRemoteImage(string $imageUri = NULL, string $imageStyle = NULL) {
+
+    $managed = FALSE;
+    $parsed_url = parse_url($imageUri);
+    $path = file_build_uri('uwm_r' . preg_replace('/[^a-zA-Z0-9.]/', '.', $parsed_url['path']));
+
+    try {
+
+      $data = (string) \Drupal::httpClient()->get($imageUri)->getBody();
+      $local = $managed ? file_save_data($data, $path, FILE_EXISTS_REPLACE) :
+        file_unmanaged_save_data($data, $path, FILE_EXISTS_REPLACE);
+
+      $image = \Drupal::service('image.factory')->get($local);
+      if (!$image->isValid()) {
+        throw new \Exception('UWM couldn\'t get local');
+      }
+
+    }
+    catch (\Exception $exception) {
+
+      \Drupal::logger(__CLASS__)
+        ->error(t('UWM couldn\'t fetch file from "@remote" due to error "@error".', [
+          '@remote' => $imageUri,
+          '@error' => $exception->getMessage(),
+        ]));
+
+      return [];
+
+    }
+
+    $renderArray = [
+      '#theme' => 'image',
+      '#width' => $image->getWidth(),
+      '#height' => $image->getHeight(),
+      '#uri' => $local,
+      '#attributes' => [],
+    ];
+
+    if ($imageStyle && $style = ImageStyle::load($imageStyle)) {
+      $build = [
+        'style_name' => $imageStyle,
+        'width' => $renderArray['#width'],
+        'height' => $renderArray['#height'],
+        'uri' => $local,
+        'attributes' => [],
+      ];
+
+      template_preprocess_image_style($build);
+    }
+
+    return $build['image'] ?? $renderArray;
+
   }
 
 }
