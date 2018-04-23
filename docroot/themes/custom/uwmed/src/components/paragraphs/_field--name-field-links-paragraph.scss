@@ -23,12 +23,12 @@ div.paragraph, section.block {
 
         @extend .col-xs-12;
         margin: 0;
-        padding: 8px 20px 8px 30px;
+        padding: 8px 20px;
         border: 0 none;
         text-align: left;
         text-decoration: none;
         background-color: transparent;
-        border-bottom: 1px solid #dcdc;
+        border-bottom: 1px solid #dcdcdc;
         box-shadow: none;
         white-space: normal;
         //word-break: break-all;
@@ -40,7 +40,7 @@ div.paragraph, section.block {
 
         span.uwmed-icon {
           float: left;
-          margin: -1px 0 0 -30px;
+          margin: 1px 0 0 -20px;
           b {
             @extend .hidden;
           }
@@ -48,13 +48,13 @@ div.paragraph, section.block {
 
         span.fa-angle-right {
           float: right;
-          margin: 2px -20px 0 0;
+          margin: 1px -20px 0 0;
         }
 
       }
 
       &.item-1 li a.btn.btn-default {
-        border-top: 1px solid #dcdc;
+        border-top: 1px solid #dcdcdc;
       }
 
 
