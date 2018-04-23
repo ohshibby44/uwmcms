@@ -22,6 +22,9 @@ div.field.field--name-field-bottom-content-blocks
     .wrapper > .field {
       margin-bottom: 30px;
     }
+    .wrapper > .field:last-child {
+      margin-bottom: 15px;
+    }
 
     input {
       width: 100%;
@@ -49,6 +52,7 @@ div.field.field--name-field-bottom-content-blocks
 
       .item {
         @extend .h3;
+        margin-top: 10px;
         @include uw-bottom-accent-heading();
         i {
           text-transform: none;

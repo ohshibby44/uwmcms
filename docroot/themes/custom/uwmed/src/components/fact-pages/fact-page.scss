@@ -49,9 +49,10 @@ body.page-node-type-fact-page {
           background: $uwmed-white;
           box-shadow: 1px 1px 3px 0 #dcdcdc;
           background: #f8f8f8;
-          > .wrapper {
-            margin-right: 3.5vw;
-          }
+        }
+
+        .field.field--name-field-text-snippet {
+          min-height: 100px;
         }
 
       }
