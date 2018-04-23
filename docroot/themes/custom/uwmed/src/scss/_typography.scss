@@ -244,9 +244,7 @@ h3.small h3.small a {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3 .h4, .h5, .h6 {
   a {
-    text-decoration: none;
     &:hover {
-      text-decoration: underline;
       color: $link-hover-color;
     }
   }
