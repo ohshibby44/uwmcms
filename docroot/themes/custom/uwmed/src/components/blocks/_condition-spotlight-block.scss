@@ -1,4 +1,8 @@
 // homepage-specific content-block styles
+.content-spotlight-block {
+  @extend .container-lg;
+}
+
 .block-views-blockcontent-spotlight-homepage-content-spotlight-block {
   @include make-row();
   background-color: #efefef;
@@ -80,24 +84,35 @@
 
     @include uw-ghost-button('a.btn', 'i.u-ips');
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
     width: 94%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
     position: relative;
     bottom: 62px;
-    min-height: 50px;
-
-    text-decoration: none;
-    font-weight: 600;
 
     a.btn {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 600;
+      min-height: 50px;
       background-color: rgba(255,255,255,.9);
       width: 100%;
+      border-color: $uwmed-light-gray;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+
+    a.btn span {
+      white-space: pre-wrap;
+      text-transform: initial;
+      font-size: 14px;
     }
     //
     //  transition-property: color;
@@ -108,10 +123,6 @@
     //  @include angled-edge('inside top', 'lower right', $uwmed-accent-yellow, 15, 15);
     //  &::before {
     //    background-position: left 0;
-    //  }
-    //
-    //  span {
-    //    white-space: pre-wrap;
     //  }
     //
     //  &.btn-default:hover {
@@ -143,6 +154,3 @@
   }
 }
 
-.content-spotlight-block {
-  @extend .container-lg;
-}
