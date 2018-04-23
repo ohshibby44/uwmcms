@@ -108,7 +108,8 @@
 
                 $link.colorbox({
                     inline: true,
-                    width: '75%'
+                    width: '75%',
+                    closeButton: true
                 });
 
             }
@@ -119,7 +120,8 @@
                 $link.colorbox({
                     iframe: true,
                     width: '90%',
-                    height: '80%'
+                    height: '80%',
+                    closeButton: true
                 });
 
             }
@@ -207,7 +209,7 @@
             function setCleanup() {
 
                 function unsetFocus() {
-                    $(window).trigger('focus');
+                    $(window).trigger('focus').trigger('blur');
                 }
 
                 $(document).bind('cbox_closed', unsetFocus);

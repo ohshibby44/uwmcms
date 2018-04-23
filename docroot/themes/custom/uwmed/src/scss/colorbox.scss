@@ -1,3 +1,4 @@
+
 #cboxOverlay {
   background-color: black;
   position: absolute;
@@ -9,9 +10,40 @@
 }
 
 #colorbox {
+
   z-index: 500;
 
   &:focus {
     outline-color: #37236a;
   }
+
+  #cboxContent {
+
+    > #cboxLoadedContent > .hidden {
+      display: block !important;
+    }
+
+    #cboxClose {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      display: block;
+      width: 45px;
+      height: 45px;
+      color: #aaa;
+      outline: 0;
+      visibility: hidden;
+      &:before {
+        visibility: visible;
+        font-family: FontAwesome;
+        font-size: 28px;
+        content: "\f00d";
+      }
+
+    }
+
+  }
+
 }
+
+
