@@ -24,22 +24,10 @@
     }
 
     #cboxClose {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      display: block;
-      width: 45px;
-      height: 45px;
-      color: #aaa;
-      outline: 0;
-      visibility: hidden;
-      &:before {
-        visibility: visible;
-        font-family: FontAwesome;
-        font-size: 28px;
-        content: "\f00d";
-      }
-
+      background-color: #f5f5f5;
+      border: 1px solid #e3e3e3;
+      min-width: 30px;
+      min-height: 30px;
     }
 
   }
