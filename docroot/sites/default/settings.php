@@ -86,7 +86,7 @@
  * );
  * @endcode
  */
- $databases = array();
+$databases = array();
 
 /**
  * Customizing database settings.
@@ -765,42 +765,62 @@ $settings['file_scan_ignore_directories'] = [
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 
-if (!file_exists('/var/www/site-php') && empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
-  // Include local development settings
+/***
+ * Include local development settings:
+ *
+ */
+if (!isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   if (file_exists($app_root . '/' . $site_path . '/development.settings.php')) {
-
-
     include $app_root . '/' . $site_path . '/development.settings.php';
     $settings['container_yamls'][] = $app_root . '/' . $site_path . '/development.services.yml';
-
   }
-
 }
 
 
+/***
+ * Include local Acquia host settings:
+ *
+ */
 if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/uwmed-settings.inc';
 }
 
 
 
+/***
+ * Include local development settings:
+ *
+ */
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-
   $secrets_file = sprintf(
-      '/mnt/gfs/%s.%s/nobackup/default.secrets.settings.php',
-      $_ENV['AH_SITE_GROUP'],
-      $_ENV['AH_SITE_ENVIRONMENT']);
-
+    '/mnt/gfs/%s.%s/nobackup/default.secrets.settings.php',
+    $_ENV['AH_SITE_GROUP'],
+    $_ENV['AH_SITE_ENVIRONMENT']);
   if (file_exists($secrets_file)) {
     require $secrets_file;
   }
-
 }
 
 
+/***
+ * Include local SimpleSAML Drupal module settings:
+ *
+ */
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $simplesaml_web_root = sprintf(
+    '/var/www/%s.%s/docroot/simplesaml',
+    $_ENV['AH_SITE_GROUP'],
+    $_ENV['AH_SITE_ENVIRONMENT']);
+
+    $settings['simplesamlphp_dir'] = $simplesaml_web_root;
+}
 
 
+/***
+ * Include Drupal Lightning profile settings:
+ *
+ */
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
 
