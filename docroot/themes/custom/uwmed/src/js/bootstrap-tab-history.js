@@ -271,6 +271,7 @@ const BootstrapTabHistory = {
             var scrollListener = function resetAnchorScroll () {
               window.removeEventListener('scroll', scrollListener);
               window.scrollTo(0, anchorYOffset);
+              scrollToQueryAnchor();
             };
 
             window.addEventListener('scroll', scrollListener);
@@ -328,6 +329,32 @@ const BootstrapTabHistory = {
       }
     } finally {
       showingTabsBasedOnState = false;
+    }
+  }
+
+  /**
+   * Check for scrollTo query parameter then scroll the element into view if it's on the active tab.
+   */
+  function scrollToQueryAnchor() {
+    var getUrlParameter = function(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
+    var scrollParam = getUrlParameter('scrollTo');
+    var selector = window.location && window.location.hash;
+
+    if(scrollParam) {
+      var $scrollElement = jQuery('#'+scrollParam);
+
+      if($scrollElement) {
+        var isScrollElementOnActiveTab = $scrollElement.closest(selector);
+        if(isScrollElementOnActiveTab.length > 0 ) {
+          $scrollElement[0].scrollIntoView();
+        }
+      }
     }
   }
 })();
