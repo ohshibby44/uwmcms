@@ -18,10 +18,12 @@
             "sh ./patches/drupal-htaccess/htaccess_patch.sh ./patches/drupal-htaccess/htaccess.patch"
         ],
         "post-install-cmd": [
-            "@uwmcms-update-saml"
+            "@uwmcms-update-saml",
+            "@uwmcms-patch-htccess"
         ],
         "post-update-cmd": [
-            "@uwmcms-update-saml"
+            "@uwmcms-update-saml",
+            "@uwmcms-patch-htccess"
         ],
         "post-drupal-scaffold-cmd": [
             "@uwmcms-patch-htccess"
