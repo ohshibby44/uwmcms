@@ -6,31 +6,32 @@
 
     div.main-container article.uwm-provider {
 
-      section.left {
+      .mobile-header {
 
-        div.l {
-          padding: 15px 0;
-        }
+        margin-bottom: 30px;
 
         .profile-image {
-          padding-right: 15px;
+          padding: 0 15px 6px 0;
         }
 
-        ul {
-          margin: 0;
-          padding: 0;
+        a.block {
+          color: $uwmed-pop-blue;
+          text-decoration: none;
+          display: block;
+          &:hover {
+            text-decoration: underline;
+          }
+          .fa {
+            float: right;
+            padding-top: 3px;
+          }
+        }
 
-          li {
-            list-style-type: none;
-            padding: 0 .3em 0 0;
-            display: inline-block;
-          }
-          li:after {
-            content: ", ";
-          }
-          li:last-child:after {
-            content: "";
-          }
+        a.block, p {
+          overflow: hidden;
+          padding-bottom: 15px;
+          margin-bottom: 15px;
+          border-bottom: 1px solid #dcdcdc;
         }
 
       }
