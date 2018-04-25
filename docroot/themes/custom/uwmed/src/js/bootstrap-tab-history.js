@@ -101,6 +101,13 @@ const BootstrapTabHistory = {
     }
   });
 
+  jQuery(window).load(function () {
+    if(getUrlParameter('scrollTo') && window.scrollY === 0) {
+      var scrollEvent = new UIEvent('scroll');
+      window.dispatchEvent(scrollEvent);
+    }
+  });
+
   /**
    * Used to prevent onShownTab from registering shown events that we triggered via showTabsBasedOnState.
    *
@@ -270,7 +277,13 @@ const BootstrapTabHistory = {
           if(anchorYOffset || anchorYOffset === 0) {
             var scrollListener = function resetAnchorScroll () {
               window.removeEventListener('scroll', scrollListener);
-              window.scrollTo(0, anchorYOffset);
+              var scrollParam = getUrlParameter('scrollTo');
+
+              if(scrollParam) {
+                scrollToQueryAnchor('scrollTo');
+              } else {
+                window.scrollTo(0, anchorYOffset);
+              }
             };
 
             window.addEventListener('scroll', scrollListener);
@@ -328,6 +341,36 @@ const BootstrapTabHistory = {
       }
     } finally {
       showingTabsBasedOnState = false;
+    }
+  }
+
+  /**
+   * Fetch the value of a URL parameter
+   */
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  /**
+   * Scroll an element into view if it's on the active tab.
+   */
+  function scrollToQueryAnchor(paramName) {
+
+    var parentTab = window.location && window.location.hash;
+    var scrollParam = getUrlParameter(paramName);
+
+    if(scrollParam) {
+      var $scrollElement = jQuery('#'+scrollParam);
+
+      if($scrollElement) {
+        var isScrollElementOnActiveTab = $scrollElement.closest(parentTab);
+        if(isScrollElementOnActiveTab.length > 0 ) {
+          $scrollElement[0].scrollIntoView();
+        }
+      }
     }
   }
 })();
