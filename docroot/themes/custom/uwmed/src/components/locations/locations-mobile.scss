@@ -1,6 +1,10 @@
 body.page-node-type-uwm-clinic {
 
-  article.uwm-clinic {
+  div.main-container article.uwm-clinic {
+
+    section.clinic-header {
+      padding-top: 0;
+    }
 
     .visible-xs-block.m-head {
 
@@ -13,7 +17,7 @@ body.page-node-type-uwm-clinic {
           bottom: 0;
           left: 10px;
           color: #fff;
-          text-shadow: 2px 2px 2px rgba(0,0,0,.47);
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, .47);
 
         }
 
@@ -35,6 +39,7 @@ body.page-node-type-uwm-clinic {
             text-transform: uppercase;
             a {
               display: block;
+              text-decoration: none;
               .fa {
                 float: right;
                 margin-right: -20px;
@@ -108,9 +113,7 @@ body.page-node-type-uwm-clinic {
           display: block;
         }
 
-
       }
-
 
     }
   }

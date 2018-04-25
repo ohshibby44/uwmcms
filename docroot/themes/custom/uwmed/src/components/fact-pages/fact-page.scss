@@ -10,6 +10,7 @@ body.page-node-type-fact-page {
   h1.page-header {
     @extend .col-xs-12;
     font-size: 28px;
+    line-height: 28px;;
     font-weight: 400;
     letter-spacing: .4px;
 
@@ -18,6 +19,7 @@ body.page-node-type-fact-page {
 
       .subheading {
         margin-left: 30px;
+        white-space: nowrap;
         &, a {
           color: $uwmed-pop-blue;
           font-size: 20px;
@@ -45,7 +47,7 @@ body.page-node-type-fact-page {
         @extend .col-xs-12;
         > .item .paragraph {
           @extend .well;
-          margin-bottom: 20px;
+          margin-bottom: 30px;
           background: $uwmed-white;
           box-shadow: 1px 1px 3px 0 #dcdcdc;
           background: #f8f8f8;
@@ -106,7 +108,6 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
-
   &.open-scheduling-enabled {
     .os-show {
       display: block;
@@ -122,9 +123,12 @@ body.page-node-type-fact-page {
     display: none;
   }
 
-
   @media(min-width: $screen-lg-min) {
-    
+
+    section.crocosmias > .wrapper {
+      padding: 0 15px;
+    }
+
     @include uw-equal-height-row('.field.field--name-field-content-blocks',
             '.item', '.paragraph');
 
