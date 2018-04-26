@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index 83cb71a0..64586b78 100755
+index 83cb71a..b89f306 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,661 @@
+@@ -1,3 +1,659 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -35,8 +35,6 @@ index 83cb71a0..64586b78 100755
 +
 +  # Allow simplesaml and UW NetId sign-ons to pass through
 +  RewriteCond %{REQUEST_URI} !^/simplesaml
-+
-+
 +
 +  # Redirect CHEW Dev URL to Live URL
 +  RewriteCond %{HTTP_HOST} chew.cms.uwmedicine.org
@@ -664,3 +662,14 @@ index 83cb71a0..64586b78 100755
  #
  # Apache/PHP/Drupal settings:
  #
+@@ -150,6 +806,10 @@ AddEncoding gzip svgz
+   # Copy and adapt this rule to directly execute PHP files in contributed or
+   # custom modules or to run another PHP application in the same directory.
+   RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
++
++  # UWM-CMS: Allow access to simplesaml paths
++  RewriteCond %{REQUEST_URI} !^/simplesaml
++
+   # Deny access to any other PHP files that do not match the rules above.
+   # Specifically, disallow autoload.php from being served directly.
+   RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
