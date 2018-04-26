@@ -17,11 +17,12 @@ id: submit_a_video
 title: 'Submit a Video'
 description: ''
 category: ''
-elements: "introduction:\n  '#type': webform_markup\n  '#markup': |\n    We want your photos! Is there something cool you or your co-workers do outside of work? Do you volunteer? Have you participated in a communtiy event or organization? What great things are happening at work? Send us your images and show us!\n    <h3>A few things to keep in mind</h3>\n    Please upload photos in .jpg, .png, or .tiff formats.<br />\n    <br />\n    If you&#39;re submitting a photo with a patient in it, please attach a consent form signed by the patient. Get one here. [link to release form]<br />\n    <br />\n    Sharin a&nbsp;photo with&nbsp;friends&nbsp;or co-workers? Be kind and let them know!<br />\n    &nbsp;\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#first__required': true\n  '#last__required': true\n  '#required': true\nconfirm_email_address:\n  '#type': webform_email_confirm\n  '#title': 'Email Address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': Department\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity'\n  '#required': true\nattach_a_video:\n  '#type': webform_video_file\n  '#title': 'Attach a video'\nvideo_detail:\n  '#type': textarea\n  '#title': 'Video detail'\n  '#description': '<p>Does your video include a patient? If so, please attach consent form here.&nbsp;</p>'\n  '#default_value': |\n    Provide a caption or description of your video (max. 30 words)\n    \n    Please identify all the people in your video.\_\ndisclaimer:\n  '#type': webform_markup\n  '#markup': '<p>Disclaimer language TBD &ndash; we will post selected photos (need better language, but want to work with compliance to make sure we&rsquo;re not saying the wrong thing.&nbsp;</p>'\nrecaptcha:\n  '#type': captcha"
+elements: "introduction:\n  '#type': webform_markup\n  '#markup': \"We want your photos! Is there something cool you or your co-workers do outside of work? Do you volunteer? Have you participated in a communtiy event or organization? What great things are happening at work? Send us your images and show us!\\n<h3>A few things to keep in mind</h3>\\nPlease upload photos in .jpg, .png, or .tiff formats.<br />\\n<br />\\nIf you&#39;re submitting a photo with a patient in it, please attach a consent form signed by the patient. Get one here. [link to release form]<br />\\n<br />\\nSharin a&nbsp;photo with&nbsp;friends&nbsp;or co-workers? Be kind and let them know!<br />\\n&nbsp;\\n\"\nyour_name:\n  '#type': webform_name\n  '#title': 'Your name'\n  '#first__required': true\n  '#last__required': true\n  '#required': true\nconfirm_email_address:\n  '#type': webform_email_confirm\n  '#title': 'Email Address'\n  '#required': true\ndepartment:\n  '#type': textfield\n  '#title': 'Department (please spell out)'\n  '#required': true\nlocation_entity:\n  '#type': textfield\n  '#title': 'Location / entity (please spell out)'\n  '#required': true\nattach_a_video:\n  '#type': webform_video_file\n  '#title': 'Attach a video'\nvideo_detail:\n  '#type': textarea\n  '#title': 'Video detail'\n  '#description': '<p>Does your video include a patient? If so, please attach consent form here.&nbsp;</p>'\n  '#default_value': \"Provide a caption or description of your video (max. 30 words)\\n\\nPlease identify all the people in your video.\\_\\n\"\ndisclaimer:\n  '#type': webform_markup\n  '#markup': '<p>Disclaimer language TBD &ndash; we will post selected photos (need better language, but want to work with compliance to make sure we&rsquo;re not saying the wrong thing.&nbsp;</p>'\nrecaptcha:\n  '#type': captcha\n"
 css: ''
 javascript: ''
 settings:
   ajax: false
+  ajax_scroll_top: form
   page: true
   page_submit_path: submit-video
   page_confirm_path: ''
@@ -40,19 +41,31 @@ settings:
   form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
+  form_required: false
   form_unsaved: false
   form_disable_back: false
+  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_login: false
+  form_login_message: ''
   submission_label: ''
   submission_log: false
   submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
   preview: 0
   preview_label: ''
   preview_title: ''
@@ -67,20 +80,24 @@ settings:
   draft_loaded_message: ''
   confirmation_type: page
   confirmation_title: 'Thank you for your submission!'
-  confirmation_message: "<p>Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We regret that we can&rsquo;t pursue every story idea or publish every piece of content we receive. But please keep them coming.</p>\r\n\r\n<p>While you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>.</p>"
+  confirmation_message: "<p>Thank you for joining the conversation! Our editors will review your submission and get back to you if we need any additional info. We can&rsquo;t pursue every story idea or publish every piece of content we receive, but please keep them coming.</p>\r\n\r\n<p>While you&rsquo;re here, feel free to check out our content and let us know what you think at <a href=\"mailto:uwmtalk@uw.edu\">uwmtalk@uw.edu</a>.</p>"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
   limit_total: null
+  limit_total_interval: null
   limit_total_message: ''
   limit_user: null
+  limit_user_interval: null
   limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
   purge: none
   purge_days: null
-  entity_limit_total: null
-  entity_limit_user: null
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
@@ -119,6 +136,10 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email:
     id: email
@@ -146,6 +167,9 @@ handlers:
       exclude_empty: true
       html: true
       attachments: false
+      twig: false
       debug: false
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''

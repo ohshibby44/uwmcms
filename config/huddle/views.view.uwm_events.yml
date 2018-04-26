@@ -392,18 +392,18 @@ display:
           relationship: none
           view_mode: featured
       sorts:
-        field_date_value:
-          id: field_date_value
-          table: node__field_date
-          field: field_date_value
+        field_date_time_value:
+          id: field_date_time_value
+          table: node__field_date_time
+          field: field_date_time_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
-          granularity: day
+          granularity: second
           plugin_id: datetime
       arguments: {  }
       filters:
@@ -459,44 +459,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        sticky:
-          id: sticky
-          table: node_field_data
-          field: sticky
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: sticky
-          plugin_id: boolean
         field_date_time_value:
           id: field_date_time_value
           table: node__field_date_time
@@ -537,6 +499,42 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
+        field_featured_content_value:
+          id: field_featured_content_value
+          table: node__field_featured_content
+          field: field_featured_content_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
       filter_groups:
         operator: AND
         groups:
@@ -922,7 +920,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<span class=\"month\">{{ field_date_time__value|date('M','America/Los_Angeles') }}</span>\n<span class=\"day\">{{ field_date_time__value|date('d','America/Los_Angeles') }}</span>"
+            text: "<span class=\"month\">{{ field_date_time|date('M') }}</span>\n<span class=\"day\">{{ field_date_time|date('d') }}</span>"
             make_link: false
             path: ''
             absolute: false
@@ -960,10 +958,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: datetime_plain
           settings:
             timezone_override: America/Los_Angeles
-            format_type: html_date
           group_column: value
           group_columns: {  }
           group_rows: true

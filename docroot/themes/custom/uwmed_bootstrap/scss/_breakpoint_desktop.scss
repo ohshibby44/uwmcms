@@ -1873,12 +1873,19 @@ article.webform {
 #block-views-block-uwm-galleries-block-galleries-photo {
   padding-top: 100px;
   padding-bottom: 80px;
+  h3 {
+    max-width: 700px;
+    width: 56.4516%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .view-uwm-galleries {
     min-height: 1px;
     @include clearfix();
     .views-content {
       margin-bottom: 0;
-      float: left;
+      margin-left: auto;
+      margin-right: auto;
       max-width: 700px;
       width: 56.4516%;
     }
