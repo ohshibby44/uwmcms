@@ -153,6 +153,11 @@
         "installer-types": [
             "bower-asset",
             "npm-asset"
-        ]
+        ],
+        "patches": {
+            "drupal/core": {
+                "Drupal core - Critical - Remote Code Execution - SA-CORE-2018-004": "https://cgit.drupalcode.org/drupal/rawdiff/?h=8.5.x&id=bb6d396609600d1169da29456ba3db59abae4b7e"
+            }
+        }
     }
 }
