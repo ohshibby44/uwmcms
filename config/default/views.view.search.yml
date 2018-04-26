@@ -80,12 +80,15 @@ display:
         options:
           view_modes:
             'entity:node':
+              condition_spotlight: teaser
+              content_spotlight: teaser
+              fact_page: teaser
+              homepage: teaser
+              landing_page: teaser
               page: teaser
-              homepage: default
-              uwm_medical_service: default
-              condition_spotlight: default
-              content_spotlight: default
-              fact_page: default
+              uwm_clinic: teaser
+              uwm_medical_service: teaser
+              uwm_provider: default
       fields:
         rendered:
           table: search_api_index_content
@@ -241,6 +244,127 @@ display:
       display_extenders: {  }
       path: search
       exposed_block: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Locations Search Page'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: search/locations
+      exposed_block: true
+      display_description: ''
+      title: 'Locations Search'
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_content
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Keywords
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: keywords
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              layout_manager: '0'
+              media_creator: '0'
+              media_manager: '0'
+              page_creator: '0'
+              page_reviewer: '0'
+              landing_page_creator: '0'
+              landing_page_reviewer: '0'
+              workspace_creator: '0'
+              workspace_reviewer: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: 2
+          fields: {  }
+          plugin_id: search_api_fulltext
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_content
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_datasource_op
+            label: Datasource
+            description: ''
+            use_operator: false
+            operator: search_api_datasource_op
+            identifier: search_api_datasource
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_ed: '0'
+              content_: '0'
+              staff_clinic_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: search_api_datasource
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

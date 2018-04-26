@@ -1,8 +1,9 @@
-uuid: f073aa74-2e6d-454c-85d2-08c07869ac97
+uuid: 9ab34cd2-c280-4841-965c-167012157799
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.field.node.uwm_clinic.body
     - field.field.node.uwm_clinic.field_body_summary
     - field.field.node.uwm_clinic.field_bottom_content_blocks
@@ -19,7 +20,6 @@ dependencies:
     - node.type.uwm_clinic
     - responsive_image.styles.default_responsive_image
   module:
-    - entity_reference_revisions
     - panelizer
     - responsive_image
     - text
@@ -30,37 +30,29 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.uwm_clinic.default
+id: node.uwm_clinic.teaser
 targetEntityType: node
 bundle: uwm_clinic
-mode: default
+mode: teaser
 content:
   body:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_bottom_content_blocks:
-    type: entity_reference_revisions_entity_view
-    weight: 7
+    type: text_trimmed
+    weight: 3
     region: content
     label: above
     settings:
-      view_mode: default
-      link: ''
+      trim_length: 220
     third_party_settings: {  }
-  field_bottom_content_blocks_head:
-    type: string
-    weight: 6
+  field_body_summary:
+    type: text_trimmed
+    weight: 2
     region: content
     label: above
     settings:
-      link_to_entity: false
+      trim_length: 600
     third_party_settings: {  }
   field_clinic_image:
-    weight: 2
+    weight: 1
     label: above
     settings:
       responsive_image_style: default_responsive_image
@@ -68,39 +60,6 @@ content:
     third_party_settings: {  }
     type: responsive_image
     region: content
-  field_clinic_wait_time_snippet:
-    type: string
-    weight: 1
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_content_blocks:
-    type: entity_reference_revisions_entity_view
-    weight: 4
-    region: content
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-  field_content_blocks_heading:
-    type: string
-    weight: 3
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_node_media:
-    type: entity_reference_label
-    weight: 8
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   field_sub_title:
     weight: 0
     label: above
@@ -110,13 +69,18 @@ content:
     type: string
     region: content
   links:
-    weight: 9
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_body_summary: true
+  field_bottom_content_blocks: true
+  field_bottom_content_blocks_head: true
+  field_clinic_wait_time_snippet: true
   field_clockwise_id: true
+  field_content_blocks: true
+  field_content_blocks_heading: true
   field_information_manager_url: true
   field_meta_tags: true
+  field_node_media: true
   workbench_moderation_control: true

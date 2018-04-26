@@ -1,0 +1,98 @@
+uuid: 39752cdc-1ca9-4dd0-a7e7-47120d96a1fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_content_blocks
+    - field.storage.node.field_bottom_content_blocks
+    - field.storage.node.field_heading
+    - search_api.server.database
+  module:
+    - search_api
+    - node
+id: uwm_locations_search_api_index
+name: 'UWM Locations Index'
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    boost: 0.8
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  field_bottom_content_blocks:
+    label: 'Sidebar Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_bottom_content_blocks
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_bottom_content_blocks
+  field_heading:
+    label: Heading
+    datasource_id: 'entity:node'
+    property_path: field_heading
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_heading
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - uwm_clinic
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  stopwords:
+    all_fields: false
+    fields:
+      - body
+      - field_content_blocks
+      - field_bottom_content_blocks
+    stopwords:
+      - clinic
+      - care
+    weights:
+      preprocess_index: -5
+      preprocess_query: -2
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: database

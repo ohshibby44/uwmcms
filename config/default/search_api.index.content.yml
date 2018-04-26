@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_body_summary
+    - field.storage.node.field_content_blocks
+    - field.storage.node.field_bottom_content_blocks
     - search_api.server.database
+    - core.entity_view_mode.node.full
   module:
     - search_api
     - node
@@ -38,20 +42,6 @@ field_settings:
       type: first
       fields:
         - 'entity:node/title'
-  status:
-    label: null
-    datasource_id: 'entity:node'
-    property_path: status
-    type: boolean
-    indexed_locked: true
-    type_locked: true
-  uid:
-    label: null
-    datasource_id: 'entity:node'
-    property_path: uid
-    type: integer
-    indexed_locked: true
-    type_locked: true
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -59,6 +49,47 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  field_body_summary:
+    label: 'Body Summary'
+    datasource_id: 'entity:node'
+    property_path: field_body_summary
+    type: text
+    boost: 0.3
+    dependencies:
+      config:
+        - field.storage.node.field_body_summary
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    boost: 0.1
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  field_bottom_content_blocks:
+    label: 'Sidebar Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_bottom_content_blocks
+    type: text
+    boost: 0.2
+    dependencies:
+      config:
+        - field.storage.node.field_bottom_content_blocks
 datasource_settings:
   'entity:node':
     bundles:
@@ -68,27 +99,8 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -10
-  html_filter:
-    fields:
-      - rendered
-      - label
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
-    weights:
-      preprocess_index: -10
-      preprocess_query: -9
-    all_fields: false
+  rendered_item: {  }
   ignorecase:
     fields:
       - rendered
@@ -97,7 +109,7 @@ processor_settings:
       preprocess_index: -9
       preprocess_query: -8
     all_fields: false
-  rendered_item: {  }
+  add_url: {  }
   stopwords:
     fields:
       - rendered
@@ -142,6 +154,25 @@ processor_settings:
       preprocess_index: -5
       preprocess_query: -4
     all_fields: false
+  html_filter:
+    fields:
+      - rendered
+      - label
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -10
+      preprocess_query: -9
+    all_fields: false
+  content_access:
+    weights:
+      preprocess_query: -10
   tokenizer:
     fields:
       - rendered
@@ -165,5 +196,5 @@ tracker_settings:
   default: {  }
 options:
   index_directly: true
-  cron_limit: 50
+  cron_limit: 300
 server: database
