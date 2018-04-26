@@ -25,6 +25,19 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ */
+function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  $product_type = $variables['elements']['#node']->getType();
+  if ( $variables['elements']['#view_mode'] == 'full' && in_array($product_type, ['a', 'b']) ) {
+    $suggestions[] = 'node__' . '_a_b';
+  }
+
+}
+
+
+/**
  * Implements theme_preprocess_region().
  */
 function uwmed_preprocess_region(&$variables) {
