@@ -29,13 +29,13 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
  */
 function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variables) {
 
-  $product_type = $variables['elements']['#node']->getType();
-  if ( $variables['elements']['#view_mode'] == 'full' && in_array($product_type, ['a', 'b']) ) {
-    $suggestions[] = 'node__' . '_a_b';
+  $type = $variables['elements']['#node']->getType();
+  if ($variables['elements']['#view_mode'] == 'full'
+      && in_array($type, ['a', 'b'])) {
+    $suggestions[] = 'node__' . $type . 'abtest';
   }
 
 }
-
 
 /**
  * Implements theme_preprocess_region().
