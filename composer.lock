@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d73ebf3137db9289365e52f9a32ccfe2",
+    "content-hash": "a0fb8664a3e270364d710119dea9676a",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4486,6 +4486,7 @@
             "type": "drupal-core",
             "extra": {
                 "patches_applied": {
+                    "Drupal core - Critical - Remote Code Execution - SA-CORE-2018-004": "https://cgit.drupalcode.org/drupal/rawdiff/?h=8.5.x&id=bb6d396609600d1169da29456ba3db59abae4b7e",
                     "Clear Twig caches on deploys": "https://www.drupal.org/files/issues/2752961-90.patch",
                     "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-41.patch",
                     "1356276 - Allow profiles to provide a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/1356276-360.patch",

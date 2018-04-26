@@ -11,15 +11,14 @@
 {{ attach_library('uwmed/bootstrap-tab-history') }}
 
 {% set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    'container-lg',
-    ]
-%}
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+'container-lg',
+] %}
 
 {% set _bio = node.uwmcs_reader_api_values %}
 
@@ -41,7 +40,7 @@
 
     <div class="row">
 
-        <section class="col-xs-12 col-sm-3 left">
+        <section class="col-xs-12 col-sm-3 hidden-xs left">
 
             <div class="col-xs-6 col-sm-12 profile-image">
                 <img src="{{ profileImage }}">
@@ -90,7 +89,53 @@
                             <li>{{ i }}</li>
                         {% endfor %}
                     </ul>
+
                 {% endif %}
+            </div>
+
+        </section>
+
+        <section class="col-xs-12 visible-xs mobile-header">
+
+            <div class="profile-image col-xs-6">
+                <img src="{{ profileImage }}" class="img-thumbnail">
+            </div>
+
+            <div class="profile-basics">
+
+
+                {% if _bio.acceptingAppointments %}
+                    <a class="block"><i class="fa fa-check-circle pull-left"
+                                        aria-hidden="true"></i>
+                        {{ "Accepting new patients"| t }}</a>
+                {% else %}
+                    <a class="block"><i class="fa fa-ban pull-left"
+                                        aria-hidden="true"></i>
+                        {{ "Not accepting new patients"| t }}</a>
+                {% endif %}
+
+                {% if _bio.acceptingAppointments %}
+                    <a href="/patient-care/making-an-appointment"
+                       class="block">
+                        {{ "Make an Appointment"|t }}
+                        <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                {% else %}
+                    <a href="/search/providers" class="block">
+                        {{ "Find a Provider"|t }}
+                        <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                {% endif %}
+
+                {% if uwm_extract_parts(_bio.expertise, 'expertiseName') %}
+                    <h5>{{ "Specialities"| t }}</h5>
+                    <p>{{ uwm_extract_parts(_bio.expertise, 'expertiseName')|uwm_join_parts(', ') }}</p>
+
+                {% endif %}
+
+                {% if _bio.languages %}
+                    <h5>{{ "Languages"| t }}</h5>
+                    <p>{{ uwm_extract_parts(_bio.languages, 'languageName')|uwm_join_parts(', ') }}</p>
+                {% endif %}
+
             </div>
 
         </section>
