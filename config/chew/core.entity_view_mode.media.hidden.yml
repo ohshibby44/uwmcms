@@ -1,0 +1,14 @@
+uuid: fab68f42-412f-46fa-8fc9-4bbe2b1a5673
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media_entity
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.hidden
+label: Hidden
+targetEntityType: media
+cache: true

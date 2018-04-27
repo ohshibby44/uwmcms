@@ -1,6 +1,6 @@
 uuid: ea8d33b2-0046-4500-8ac9-6473805778f4
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
@@ -12,7 +12,7 @@ dependencies:
 id: subscribe_form_article
 theme: chew
 region: sidebar_second
-weight: -12
+weight: -11
 provider: null
 plugin: 'block_content:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
 settings:

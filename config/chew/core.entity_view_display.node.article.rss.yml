@@ -1,8 +1,9 @@
-uuid: bd415801-cd10-433e-ab0c-07a7a96b782f
+uuid: 9e579edf-5076-44d4-9901-4a7bdd673e20
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.rss
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
@@ -13,7 +14,6 @@ dependencies:
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
-    - field.field.node.article.field_syndication
     - field.field.node.article.publish
     - node.type.article
   module:
@@ -28,10 +28,10 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.article.default
+id: node.article.rss
 targetEntityType: node
 bundle: article
-mode: default
+mode: rss
 content:
   field_long_summary:
     weight: 3
@@ -80,6 +80,5 @@ hidden:
   field_feature_category: true
   field_promotion: true
   field_short_summary: true
-  field_syndication: true
   links: true
   publish: true

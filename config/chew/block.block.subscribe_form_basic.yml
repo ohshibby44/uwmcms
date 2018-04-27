@@ -1,6 +1,6 @@
 uuid: 4b9a2bf5-7c56-4c87-89c8-7312270475f4
 langcode: en
-status: false
+status: true
 dependencies:
   content:
     - 'block_content:basic:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
@@ -12,12 +12,12 @@ dependencies:
 id: subscribe_form_basic
 theme: chew
 region: sidebar_second
-weight: -16
+weight: -15
 provider: null
 plugin: 'block_content:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
 settings:
   id: 'block_content:e16cbb23-63ad-4324-b4b3-2a6ab61d74f1'
-  label: 'A reason to feel right as rain'
+  label: 'Subscribe to our newsletter'
   provider: block_content
   label_display: visible
   status: true
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/life/parenthood"
     negate: false
     context_mapping: {  }

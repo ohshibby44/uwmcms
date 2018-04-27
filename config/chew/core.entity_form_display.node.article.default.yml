@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
+    - field.field.node.article.field_syndication
     - field.field.node.article.publish
     - node.type.article
   module:
@@ -54,6 +55,19 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Right Sidebar'
+    group_syndication:
+      children:
+        - field_syndication
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        label: 'Syndication Options'
+        description: 'Select the feeds where this article should be syndicated.'
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Syndication Options'
 id: node.article.default
 targetEntityType: node
 bundle: article
@@ -61,7 +75,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -107,7 +121,7 @@ content:
     type: text_textarea
     region: content
   field_meta_tags:
-    weight: 26
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -175,22 +189,28 @@ content:
         hide_guidelines: '1'
     type: text_textfield
     region: content
+  field_syndication:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   path:
     type: path
-    weight: 13
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 9
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   publish:
     type: inline_entity_form_complex
-    weight: 11
+    weight: 13
     settings:
       form_mode: default
       override_labels: true
@@ -205,7 +225,7 @@ content:
     region: content
   sticky:
     type: boolean_checkbox
-    weight: 10
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -220,11 +240,16 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 17
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }
