@@ -102,12 +102,13 @@ view_mode ? view_mode|clean_class,
                     ] %}
                     <div class="col-xs-12 get-in-line fade-out {{ classes|uwm_join_parts(' ') }}"
                          data-uwm-clockwise-wait-time="{{ content.field_clockwise_id[0]['#markup'] }}">
-                        <h4>{{ "Urgent Care"|t }}
-                            <a href="/patient-care/making-an-appointment"
-                               class="wait-link">Get in line<i
-                                        class="fa fa-angle-right"
-                                        aria-hidden="true"></i>
-                            </a></h4>
+                        {% set node_path =  path('entity.node.canonical', {'node': node.nid.value}) %}
+                        <h4><span class="uc-landing"><a href="{{ node_path|replace({'locations': "services", 'primary': "urgent", 'care-': "care/"}) }}">{{ "Urgent Care"|t }}</a></span>
+                            <span class="wait-link"><a href="/patient-care/making-an-appointment">
+                                Get in line<i
+                                class="fa fa-angle-right"
+                                aria-hidden="true"></i></a>
+                            </span></h4>
                             <p class="wait-text wait">
                                 <span class="m">{{ content.field_clinic_wait_time_snippet }}</span>
                             </p>

@@ -124,15 +124,26 @@ body.page-node-type-uwm-clinic {
               float: left;
               width: 100%;
 
-              a, a:hover {
-                @extend .pull-right, .text-uppercase;
-                margin: 0 8px 0 4px;
-                font-size: 14px;
-                text-decoration: none;
-                color: $uwmed-pop-blue;
+              .uc-landing {
+                a {
+                  text-decoration: none;
+                }
+                a:hover {
+                  text-decoration: underline;
+                }
+              }
 
-                .fa {
-                  margin: 0 0 0 5px;
+              .wait-link {
+                a, a:hover {
+                  @extend .pull-right, .text-uppercase;
+                  margin: 0 8px 0 4px;
+                  font-size: 14px;
+                  text-decoration: none;
+                  color: $uwmed-pop-blue;
+
+                  .fa {
+                    margin: 0 0 0 5px;
+                  }
                 }
               }
             }
