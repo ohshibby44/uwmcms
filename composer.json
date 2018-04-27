@@ -102,7 +102,8 @@
         "drupal/core": "8.3.9",
         "drupal/panels": "^4.2",
         "drupal/page_manager": "^4.0@beta",
-        "drupal/search_api_solr": "^1.2"
+        "drupal/search_api_solr": "^1.2",
+        "drupal/search_api_page": "^1.0@alpha"
     },
     "require-dev": {},
     "extra": {

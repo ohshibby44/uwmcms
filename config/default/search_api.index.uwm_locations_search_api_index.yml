@@ -29,7 +29,8 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: string
+    type: text
+    boost: 0.5
   field_content_blocks:
     label: 'Content Blocks'
     datasource_id: 'entity:node'
@@ -51,7 +52,7 @@ field_settings:
     label: Heading
     datasource_id: 'entity:node'
     property_path: field_heading
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_heading
@@ -60,6 +61,7 @@ datasource_settings:
     bundles:
       default: true
       selected:
+        - page
         - uwm_clinic
     languages:
       default: true
@@ -67,7 +69,6 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  rendered_item: {  }
   highlight:
     highlight: always
     highlight_partial: false
@@ -78,6 +79,7 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
+  rendered_item: {  }
   stopwords:
     all_fields: false
     fields:

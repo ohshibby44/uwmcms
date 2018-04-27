@@ -1,0 +1,142 @@
+uuid: a17ae5d7-db62-448d-b394-38082731ba88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_body_summary
+    - field.storage.node.field_bottom_content_blocks
+    - field.storage.node.field_sub_title
+    - field.storage.node.field_content_blocks
+    - field.storage.node.field_condition_spotlight
+    - field.storage.node.field_content_blocks_heading
+    - search_api.server.database
+  module:
+    - search_api
+    - node
+id: uwm_provider_search_api_index
+name: 'UWM Provider Index'
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  field_body_summary:
+    label: 'Body Summary'
+    datasource_id: 'entity:node'
+    property_path: field_body_summary
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_body_summary
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: text
+    boost: !!float 0
+  field_bottom_content_blocks:
+    label: 'Sidebar Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_bottom_content_blocks
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_bottom_content_blocks
+  field_sub_title:
+    label: Sub-Title
+    datasource_id: 'entity:node'
+    property_path: field_sub_title
+    type: text
+    boost: 0.2
+    dependencies:
+      config:
+        - field.storage.node.field_sub_title
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 0.1
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  field_condition_spotlight:
+    label: 'Condition Spotlight'
+    datasource_id: 'entity:node'
+    property_path: field_condition_spotlight
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_condition_spotlight
+  field_content_blocks_heading:
+    label: 'Content Blocks Heading'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks_heading
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks_heading
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - page
+        - uwm_provider
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+  entity_status: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  stopwords:
+    all_fields: false
+    fields:
+      - body
+      - field_body_summary
+      - type
+      - field_bottom_content_blocks
+      - field_sub_title
+      - title
+      - field_content_blocks
+      - field_condition_spotlight
+      - field_content_blocks_heading
+    stopwords:
+      - urgent
+      - care
+      - primary
+    weights:
+      preprocess_index: -5
+      preprocess_query: -2
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 500
+server: database
