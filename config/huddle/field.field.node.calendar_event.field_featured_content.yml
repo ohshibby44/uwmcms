@@ -1,0 +1,23 @@
+uuid: 54f423d9-60b7-4e76-b5a1-01189ce91da7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_content
+    - node.type.calendar_event
+id: node.calendar_event.field_featured_content
+field_name: field_featured_content
+entity_type: node
+bundle: calendar_event
+label: 'Featured content'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

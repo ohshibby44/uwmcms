@@ -33,7 +33,7 @@ bundle: article
 mode: default
 content:
   field_body:
-    weight: 11
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -57,12 +57,12 @@ content:
     type: datetime_default
     region: content
   field_disqus_comments:
-    weight: 12
+    type: disqus_comment
+    weight: 11
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: disqus_comment
-    region: content
   field_image:
     type: image
     weight: 1

@@ -7,4 +7,4 @@ _core:
 id: uwm_date_format
 label: 'UWM Date Format - Long'
 locked: false
-pattern: 'F j Y'
+pattern: 'F j, Y'

@@ -72,7 +72,7 @@ view_mode ? view_mode|clean_class,
 
             <div class="col-sm-12 specialities l">
                 {% if uwm_extract_parts(_bio.expertise, 'expertiseName') %}
-                    <h5>{{ "Specialities"| t }}</h5>
+                    <h5>{{ "Specialties"| t }}</h5>
                     <ul>
                         {% for i in uwm_extract_parts(_bio.expertise, 'expertiseName') %}
                             <li>{{ i }}</li>

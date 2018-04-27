@@ -6,10 +6,14 @@ node_types:
   article: article
   page: page
   award: null
+  bookshelf: null
+  calendar_event: null
   campaign: null
   event: null
+  event_location: null
   gallery: null
   landing_page: null
+  news_brief: null
   question: null
   webform: null
 option_extras:
@@ -18,7 +22,7 @@ option_extras:
 option_neworzero: 0
 option_onhover: 1
 option_shorten: 1
-service_option: '''Facebook:facebook'',''Twitter:twitter'''
+service_option: '''Facebook:facebook'',''Twitter:twitter'',''LinkedIn:linkedin'''
 twitter_handle: ''
 twitter_recommends: ''
 twitter_suffix: ''
@@ -110,6 +114,46 @@ sharethisnodes:
     teaser: '0'
     token: '0'
   webform:
+    diff: '0'
+    featured: '0'
+    featured_content_2: '0'
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  bookshelf:
+    diff: '0'
+    featured: '0'
+    featured_content_2: '0'
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  calendar_event:
+    diff: '0'
+    featured: '0'
+    featured_content_2: '0'
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  event_location:
+    diff: '0'
+    featured: '0'
+    featured_content_2: '0'
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  news_brief:
     diff: '0'
     featured: '0'
     featured_content_2: '0'

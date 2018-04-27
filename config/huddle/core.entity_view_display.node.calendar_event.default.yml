@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.calendar_event.field_event_categories
     - field.field.node.calendar_event.field_event_information
     - field.field.node.calendar_event.field_event_location
+    - field.field.node.calendar_event.field_featured_content
     - field.field.node.calendar_event.field_image
     - field.field.node.calendar_event.field_meta_tags
     - field.field.node.calendar_event.field_private_note
@@ -83,6 +84,16 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_featured_content:
+    weight: 9
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_image:
     weight: 0
