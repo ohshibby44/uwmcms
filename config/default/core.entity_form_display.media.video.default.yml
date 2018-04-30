@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.video.field_content_topics
+    - field.field.media.video.field_digital_properties
     - field.field.media.video.field_media_caption
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_caption_url
@@ -39,6 +41,21 @@ targetEntityType: media
 bundle: video
 mode: default
 content:
+  field_content_topics:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_digital_properties:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_media_caption:
     type: text_textarea
     weight: 5

@@ -1,0 +1,14 @@
+uuid: db38d3ac-9e43-44e9-8025-3d9cb032be28
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.newscred_rss
+label: 'NewsCred RSS'
+targetEntityType: paragraph
+cache: true

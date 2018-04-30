@@ -341,18 +341,6 @@ display:
         groups:
           1: AND
       sorts:
-        field_featured_content_value:
-          id: field_featured_content_value
-          table: node__field_featured_content
-          field: field_featured_content_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
         field_date_value:
           id: field_date_value
           table: node__field_date
@@ -360,7 +348,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''

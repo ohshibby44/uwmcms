@@ -42,12 +42,12 @@ content:
     type: datetime_default
     region: content
   field_disqus_comments:
+    type: disqus_comment
     weight: 5
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: disqus_comment
-    region: content
   field_image:
     weight: 0
     label: hidden

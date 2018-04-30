@@ -12,7 +12,6 @@ dependencies:
     - taxonomy.vocabulary.gallery_categories
   content:
     - 'block_content:basic:18e9f826-60e2-45fa-9c0a-37f3e9927634'
-    - 'block_content:poll_block_and_save:55785c12-1550-414e-905c-c1b132d514b3'
     - 'taxonomy_term:gallery_categories:8829f116-36e5-4567-b4de-ee50a089e985'
     - 'taxonomy_term:gallery_categories:be358251-66a2-4636-91a8-a2991513d0c8'
   module:
@@ -66,7 +65,7 @@ display:
       pager:
         type: infinite_scroll
         options:
-          items_per_page: 10
+          items_per_page: 9
           offset: 1
           id: 0
           total_pages: null
@@ -228,18 +227,6 @@ display:
             group_items: {  }
           plugin_id: boolean
       sorts:
-        field_featured_content_value:
-          id: field_featured_content_value
-          table: node__field_featured_content
-          field: field_featured_content_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
         field_date_value:
           id: field_date_value
           table: node__field_date
@@ -671,20 +658,7 @@ display:
         options:
           relationship: none
           view_mode: featured
-      footer:
-        entity_block_content:
-          id: entity_block_content
-          table: views
-          field: entity_block_content
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: true
-          target: 55785c12-1550-414e-905c-c1b132d514b3
-          view_mode: default
-          bypass_access: false
-          plugin_id: entity
+      footer: {  }
       relationships:
         field_category:
           id: field_category

@@ -16,7 +16,6 @@ dependencies:
     - node.type.gallery
   module:
     - datetime
-    - disqus
     - entity_reference_revisions
     - image
     - metatag
@@ -30,14 +29,14 @@ bundle: gallery
 mode: default
 content:
   field_body:
-    weight: 107
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_category:
-    weight: 106
+    weight: 5
     label: above
     settings:
       link: true
@@ -45,7 +44,7 @@ content:
     type: entity_reference_label
     region: content
   field_date:
-    weight: 102
+    weight: 1
     label: above
     settings:
       format_type: medium
@@ -53,15 +52,8 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_disqus_comments:
-    weight: 112
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: disqus_comment
-    region: content
   field_featured_content:
-    weight: 111
+    weight: 9
     label: above
     settings:
       format: default
@@ -71,7 +63,7 @@ content:
     type: boolean
     region: content
   field_image:
-    weight: 104
+    weight: 3
     label: above
     settings:
       image_style: ''
@@ -80,14 +72,14 @@ content:
     type: image
     region: content
   field_image_credit:
-    weight: 105
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_meta_tags:
-    weight: 103
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -95,7 +87,7 @@ content:
     region: content
   field_section:
     type: entity_reference_revisions_entity_view
-    weight: 109
+    weight: 7
     label: above
     settings:
       view_mode: default
@@ -103,7 +95,7 @@ content:
     third_party_settings: {  }
     region: content
   field_sections:
-    weight: 110
+    weight: 8
     label: above
     settings:
       view_mode: default
@@ -112,11 +104,12 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   sharethis:
     weight: 10
     region: content
-hidden: {  }
+hidden:
+  field_disqus_comments: true
