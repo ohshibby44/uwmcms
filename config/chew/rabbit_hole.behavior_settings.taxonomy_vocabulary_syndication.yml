@@ -1,0 +1,9 @@
+uuid: e44cbad4-daf5-4942-b6d6-11ba8d11ff91
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_syndication
+action: page_not_found
+allow_override: 1
+redirect: '<front>'
+redirect_code: 301

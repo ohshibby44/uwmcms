@@ -4,8 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.image.field_content_topics
+    - field.field.media.image.field_digital_properties
     - field.field.media.image.field_media_in_library
-    - field.field.media.image.field_site_categories
     - field.field.media.image.image
     - image.style.medium
     - media_entity.bundle.image
@@ -27,12 +28,6 @@ content:
       display_label: true
     third_party_settings: {  }
     region: content
-  field_site_categories:
-    type: options_select
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   image:
     type: image_image
     weight: 2
@@ -54,4 +49,6 @@ content:
     region: content
 hidden:
   created: true
+  field_content_topics: true
+  field_digital_properties: true
   uid: true

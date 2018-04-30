@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.content_spotlight.field_content_topics
     - field.field.node.content_spotlight.field_image
     - field.field.node.content_spotlight.field_link
     - node.type.content_spotlight
     - responsive_image.styles.landscape_responsive_image
   module:
-    - image
     - link
+    - panelizer
     - responsive_image
     - user
 third_party_settings:
@@ -23,6 +24,14 @@ targetEntityType: node
 bundle: content_spotlight
 mode: default
 content:
+  field_content_topics:
+    weight: 104
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_image:
     weight: 102
     label: hidden

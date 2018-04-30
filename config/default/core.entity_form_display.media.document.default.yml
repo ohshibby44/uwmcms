@@ -3,9 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.document.field_content_topics
+    - field.field.media.document.field_digital_properties
     - field.field.media.document.field_document
     - field.field.media.document.field_media_in_library
-    - field.field.media.document.field_site_categories
     - media_entity.bundle.document
   module:
     - file
@@ -17,6 +18,21 @@ targetEntityType: media
 bundle: document
 mode: default
 content:
+  field_content_topics:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_digital_properties:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_document:
     weight: 2
     settings:
@@ -30,12 +46,6 @@ content:
       display_label: true
     weight: 3
     third_party_settings: {  }
-    region: content
-  field_site_categories:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   name:
     type: string_textfield
