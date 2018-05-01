@@ -4,12 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_body_summary
-    - field.storage.node.field_bottom_content_blocks
-    - field.storage.node.field_sub_title
     - field.storage.node.field_content_blocks
-    - field.storage.node.field_condition_spotlight
-    - field.storage.node.field_content_blocks_heading
     - search_api.server.database
   module:
     - search_api
@@ -27,38 +22,12 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
-  field_body_summary:
-    label: 'Body Summary'
-    datasource_id: 'entity:node'
-    property_path: field_body_summary
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_body_summary
   type:
     label: 'Content type'
     datasource_id: 'entity:node'
     property_path: type
     type: text
     boost: !!float 0
-  field_bottom_content_blocks:
-    label: 'Sidebar Blocks'
-    datasource_id: 'entity:node'
-    property_path: field_bottom_content_blocks
-    type: text
-    boost: !!float 5
-    dependencies:
-      config:
-        - field.storage.node.field_bottom_content_blocks
-  field_sub_title:
-    label: Sub-Title
-    datasource_id: 'entity:node'
-    property_path: field_sub_title
-    type: text
-    boost: 0.2
-    dependencies:
-      config:
-        - field.storage.node.field_sub_title
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -74,26 +43,15 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_content_blocks
-  field_condition_spotlight:
-    label: 'Condition Spotlight'
+  title_1:
+    label: Title
     datasource_id: 'entity:node'
-    property_path: field_condition_spotlight
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_condition_spotlight
-  field_content_blocks_heading:
-    label: 'Content Blocks Heading'
-    datasource_id: 'entity:node'
-    property_path: field_content_blocks_heading
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_content_blocks_heading
+    property_path: title
+    type: string
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
+      default: false
       selected:
         - page
         - uwm_provider
@@ -103,7 +61,6 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  rendered_item: {  }
   entity_status: {  }
   highlight:
     highlight: always
@@ -115,25 +72,87 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
+  ignorecase:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    weights:
+      preprocess_index: -47
+      preprocess_query: -47
+  ignore_character:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
+    weights:
+      preprocess_index: -48
+      preprocess_query: -48
+  rendered_item: {  }
   stopwords:
     all_fields: false
     fields:
       - body
-      - field_body_summary
       - type
-      - field_bottom_content_blocks
-      - field_sub_title
       - title
       - field_content_blocks
-      - field_condition_spotlight
-      - field_content_blocks_heading
     stopwords:
       - urgent
       - care
       - primary
     weights:
-      preprocess_index: -5
-      preprocess_query: -2
+      preprocess_index: -44
+      preprocess_query: -44
+  tokenizer:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -45
+      preprocess_query: -45
+  transliteration:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    weights:
+      preprocess_index: -49
+      preprocess_query: -49
 tracker_settings:
   default: {  }
 options:

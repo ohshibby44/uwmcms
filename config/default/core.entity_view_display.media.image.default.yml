@@ -41,7 +41,7 @@ content:
     region: content
     label: above
     settings:
-      link_to_entity: false
+      link_to_entity: true
     third_party_settings: {  }
 hidden:
   created: true

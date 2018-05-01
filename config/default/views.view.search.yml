@@ -79,20 +79,82 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: search_api
+        type: fields
         options:
-          view_modes:
-            'entity:node':
-              condition_spotlight: teaser
-              content_spotlight: teaser
-              fact_page: teaser
-              homepage: teaser
-              landing_page: teaser
-              page: teaser
-              uwm_clinic: teaser
-              uwm_medical_service: teaser
-              uwm_provider: teaser
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
+        title:
+          id: title
+          table: search_api_datasource_content_entity_node
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
         rendered:
           table: search_api_index_content
           field: rendered
@@ -198,6 +260,51 @@ display:
           min_length: 2
           fields: {  }
           plugin_id: search_api_fulltext
+        search_api_fulltext_1:
+          id: search_api_fulltext_1
+          table: search_api_index_content
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_1_op
+            label: 'Topics search'
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_1_op
+            identifier: search_api_fulltext_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_ed: '0'
+              content_: '0'
+              staff_clinic_manager: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            field_content_topics: field_content_topics
+          plugin_id: search_api_fulltext
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -220,7 +327,7 @@ display:
           group_type: group
           admin_label: ''
           empty: true
-          content: "Displaying @start - @end of @total <pre>\n@start -- the initial record number in the set\n@end -- the last record number in the set\n@total -- the total records in the set\n@label -- the human-readable name of the view\n@per_page -- the number of items per page\n@current_page -- the current page number\n@current_record_count -- the current page record count\n@page_count -- the total page count</pre>"
+          content: 'Displaying @start - @end of @total '
           plugin_id: result
         entity_block:
           id: entity_block
@@ -254,9 +361,11 @@ display:
       arguments: {  }
       display_extenders: {  }
       title: Search
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -273,6 +382,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -292,6 +402,8 @@ display:
         title: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -343,58 +455,44 @@ display:
           min_length: 2
           fields: {  }
           plugin_id: search_api_fulltext
-        search_api_fulltext_1:
-          id: search_api_fulltext_1
-          table: search_api_index_content
-          field: search_api_fulltext
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: and
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: search_api_fulltext_1_op
-            label: 'Body Summary'
-            description: ''
-            use_operator: false
-            operator: search_api_fulltext_1_op
-            identifier: search_api_fulltext_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              content_ed: '0'
-              content_: '0'
-              staff_clinic_manager: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          parse_mode: terms
-          min_length: null
-          fields:
-            field_body_summary: field_body_summary
-          plugin_id: search_api_fulltext
       filter_groups:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              condition_spotlight: teaser
+              content_spotlight: teaser
+              fact_page: teaser
+              homepage: teaser
+              landing_page: teaser
+              page: teaser
+              uwm_clinic: teaser
+              uwm_medical_service: teaser
+              uwm_provider: teaser
+            'entity:media':
+              document: embedded
+              image: embedded
+              instagram: embedded
+              tweet: embedded
+              video: embedded
+            'entity:taxonomy_term':
+              content_topics: default
+              uwm_digital_property: ''
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
