@@ -1,0 +1,27 @@
+uuid: bdfef641-e4af-4917-be1c-a23797067ece
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.uwm_medical_specialty
+  module:
+    - user
+id: node.uwm_medical_specialty.teaser
+targetEntityType: node
+bundle: uwm_medical_specialty
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_condition_spotlight: true
+  field_feature_story: true
+  field_featured_specialties: true
+  field_image: true
+  field_information_manager_url: true
+  field_links_with_icon: true
+  field_medical_service: true
+  field_proof_points: true
+  field_subheading: true
