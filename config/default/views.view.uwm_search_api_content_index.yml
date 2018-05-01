@@ -1,17 +1,17 @@
-uuid: 9f349284-c021-4336-b511-731c2316cf1b
+uuid: 8c3bd698-114a-4dae-9883-cb7ff80e8773
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.uwm_provider_search_api_index
+    - search_api.index.content
   module:
     - search_api
-id: uwm_search_api_provider_index
-label: 'UWM Search - Provider Search Index'
+id: uwm_search_api_content_index
+label: 'UWM Search - General Search Index'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_uwm_provider_search_api_index
+base_table: search_api_index_content
 base_field: search_api_id
 core: 8.x
 display:
@@ -70,13 +70,32 @@ display:
         options:
           view_modes:
             'entity:node':
+              condition_spotlight: teaser
+              content_spotlight: teaser
+              fact_page: teaser
+              homepage: teaser
+              landing_page: teaser
               page: teaser
+              uwm_clinic: teaser
+              uwm_medical_service: teaser
               uwm_provider: teaser
+            'entity:media':
+              document: embedded
+              image: embedded
+              instagram: embedded
+              tweet: embedded
+              video: embedded
+            'entity:taxonomy_term':
+              content_topics: default
+              uwm_digital_property: ''
       fields:
-        title:
-          id: title
-          table: search_api_datasource_uwm_provider_search_api_index_entity_node
-          field: title
+        rendered:
+          table: search_api_index_content
+          field: rendered
+          id: rendered
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api
           relationship: none
           group_type: group
           admin_label: ''
@@ -113,7 +132,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -121,140 +140,13 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          field_rendering: true
-          fallback_handler: search_api
-          fallback_options:
-            link_to_item: false
-            multi_separator: ', '
-          entity_type: node
-          plugin_id: search_api_field
-        search_api_excerpt:
-          id: search_api_excerpt
-          table: search_api_index_uwm_provider_search_api_index
-          field: search_api_excerpt
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          link_to_item: true
+          link_to_item: false
           multi_type: separator
           multi_separator: ', '
-          plugin_id: search_api
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_uwm_provider_search_api_index
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ','
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: 'Relevance: '
-          suffix: ''
-          plugin_id: numeric
       filters:
         search_api_fulltext:
           id: search_api_fulltext
-          table: search_api_index_uwm_provider_search_api_index
+          table: search_api_index_content
           field: search_api_fulltext
           relationship: none
           group_type: group
@@ -297,8 +189,18 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: 'Search Providers'
-      header: {  }
+      title: 'Content Search'
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -307,7 +209,6 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -319,11 +220,14 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: search/index/providers
+      path: search/index/content
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

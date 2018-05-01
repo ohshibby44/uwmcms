@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
+    - field.field.media.image.field_content_topics
+    - field.field.media.image.field_digital_properties
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
+    - image.style.medium
     - media_entity.bundle.image
   module:
     - image
@@ -18,16 +21,25 @@ mode: embedded
 content:
   image:
     type: image
-    weight: 0
+    weight: 1
     label: hidden
     settings:
-      image_style: ''
+      image_style: medium
       image_link: ''
     third_party_settings: {  }
     region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: true
+    third_party_settings: {  }
 hidden:
   created: true
+  field_content_topics: true
+  field_digital_properties: true
   field_media_in_library: true
-  name: true
   thumbnail: true
   uid: true

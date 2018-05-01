@@ -1,0 +1,66 @@
+uuid: 591ebd1f-2133-4da8-95bf-b3c3669c5c83
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.uwm_locations_search_api_index
+    - views.view.uwm_search_api_location_index
+  module:
+    - search_api
+id: locations_content_blocks_facet
+name: 'Locations Content Blocks Facet'
+url_alias: locations_content_blocks_facet
+weight: 0
+min_count: 1
+show_only_one_result: false
+field_identifier: field_content_blocks
+facet_source_id: 'search_api:views_page__uwm_search_api_location_index__page_1'
+widget:
+  type: links
+  config:
+    show_numbers: true
+    soft_limit: 5
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: false
+hard_limit: 30
+exclude: false
+only_visible_when_facet_source_is_visible: false
+processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -9
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -8
+    settings:
+      sort: ASC
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: text
+  text_format: plain_text
+  text: 'Empty facet'

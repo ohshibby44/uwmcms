@@ -23,21 +23,14 @@ targetEntityType: node
 bundle: uwm_provider
 mode: teaser
 content:
-  field_information_manager_url:
-    type: string
-    weight: 0
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   links:
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_content_blocks: true
+  field_information_manager_url: true
   field_meta_tags: true
   field_node_media: true
   field_provider_npi: true
