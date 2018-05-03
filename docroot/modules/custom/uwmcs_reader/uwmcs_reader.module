@@ -5,130 +5,62 @@
  * Module for reading an API and providing API data to themes.
  */
 
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
- * Implements hook_node_view().
- *
- * @TODO: Change this to node_load().
+ * Implements hook_entity_load().
  */
-function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
-  $args = explode('/', trim(
-    \Drupal::request()->getRequestUri(), '/'));
+  foreach ($entities as $entity) {
 
-  if ($entity->getType() === "uwm_clinic") {
+    if ($entity_type_id === 'node') {
 
-    // Fetch Information Manager (IM) data from API endpoint.
-    $fetcher = new UwmFetcher();
-    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
+      $args = explode('/', trim(
+        \Drupal::request()->getRequestUri(), '/'));
+      $nodeType = $entity->getType();
+      $fetcher = new UwmFetcher();
 
-    // If missing, try to find data by current url.
-    if (empty((array) $data)) {
-      $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
-    }
+      if ($nodeType === 'uwm_clinic') {
 
-    // If clinic has location, fetch full location details.
-    if (!empty($data->location->url)) {
-      $location = $fetcher->getUrl($data->location->url);
-      if (!empty($location->id)) {
-        $data->location = $location;
+        // Fetch Information Manager (IM) data from API endpoint.
+        $itemUrl = $entity->field_information_manager_url->value ?? '';
+        $possibleSearch = ['clinicUrl' => '/locations/' . $args[1]];
+        $resultData = $fetcher->getClinic($itemUrl, $possibleSearch);
+
+        $entity->uwmcs_reader_api_values = $resultData;
+
       }
-    }
 
-    // If clinic has providers, populate full provider details.
-    // @TODO: Change this attach bio-node.
-    if (!empty($data->careNetworks)) {
+      if ($nodeType === 'uwm_provider') {
 
-      foreach ($data->careNetworks as &$network) {
+        // Fetch Information Manager (IM) data from API.
+        $fetcher = new UwmFetcher();
+        $itemUrl = $entity->field_information_manager_url->value ?? '';
+        $possibleSearch = ['friendlyUrl' => $args[1]];
+        $resultData = $fetcher->getProvider($itemUrl, $possibleSearch);
 
-        foreach ($network->bioInformations as &$bio) {
+        $entity->uwmcs_reader_api_values = $resultData;
 
-          if (!empty($bio->url)) {
+      }
 
-            $detail = $fetcher->getUrl($bio->url);
-            if (!empty($bio->id)) {
-              $bio = $detail;
-            }
+      if ($nodeType === 'uwm_medical_service') {
 
-          }
+        // Fetch Information Manager (IM) data from API.
+        $fetcher = new UwmFetcher();
 
+        $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
+        if (!empty($urgent_care_data->clinics)) {
+          $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
+        }
+
+        $primary_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/57');
+        if (!empty($primary_care_data->clinics)) {
+          $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
         }
 
       }
 
-    }
-
-    $entity->uwmcs_reader_api_values = $data;
-
-  }
-
-  if ($entity->getType() === "uwm_provider") {
-
-    // Fetch Information Manager (IM) data from API.
-    $fetcher = new UwmFetcher();
-    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
-
-    // If missing, try to find clinic using current URL.
-    if (empty((array) $data)) {
-      $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
-    }
-
-    // Fetch details for publications.
-    if (!empty($data->bioPublications[0]->pubMedId)) {
-
-      $pubIds = [];
-      foreach ($data->bioPublications as $k => $v) {
-        array_push($pubIds, $v->pubMedId);
-      }
-
-      $data->bioPublicationsDetails = $fetcher->getUrl(
-        'http://webservices.uwmedicine.org/api/publications?ids=' .
-        implode(',', $pubIds));
-
-    }
-
-    // If provider has clinics, populate full clinic details.
-    // @TODO: Change this to node-load locations.
-    if (!empty($data->careNetworks[0]->clinicBases)) {
-
-      foreach ($data->careNetworks as &$network) {
-
-        foreach ($network->clinicBases as &$clinic) {
-
-          if (!empty($clinic->url)) {
-
-            $detail = $fetcher->getUrl($clinic->url);
-            if (!empty($clinic->id)) {
-              $clinic = $detail;
-            }
-
-          }
-
-        }
-
-      }
-
-    }
-
-    $entity->uwmcs_reader_api_values = $data;
-  }
-
-  if ($entity->getType() === "uwm_medical_service") {
-
-    // Fetch Information Manager (IM) data from API.
-    $fetcher = new UwmFetcher();
-
-    $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
-    if (!empty($urgent_care_data->clinics)) {
-      $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
-    }
-
-    $primary_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/57');
-    if (!empty($primary_care_data->clinics)) {
-      $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
     }
 
   }

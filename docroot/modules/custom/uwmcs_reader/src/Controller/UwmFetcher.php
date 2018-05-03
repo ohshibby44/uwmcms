@@ -26,6 +26,8 @@ class UwmFetcher {
    * UwmFetcher constructor.
    */
   public function __construct() {
+
+    $this->builder = new UwmBuilder();
   }
 
   /**
@@ -47,16 +49,24 @@ class UwmFetcher {
   /**
    * Description here.
    *
+   * @param string $apiEndpoint
+   *   Description here.
    * @param array $searchFields
    *   Description here.
    *
    * @return \stdClass
    *   Description here.
    */
-  public function getProvider(array $searchFields = []) {
+  public function getProvider(string $apiEndpoint = NULL, array $searchFields = []) {
 
-    $uri = $uri = self::$apiUri . self::$providerEndpoint;
-    $provider = $this->findItem($searchFields, $uri);
+    $provider = $this->fetchItem($apiEndpoint);
+
+    if (empty($provider->id)) {
+      $uri = self::$apiUri . self::$providerEndpoint;
+      $provider = $this->findItem($searchFields, $uri);
+    }
+
+    UwmBuilder::prepareProviderValues($provider);
 
     return $provider;
 
@@ -65,16 +75,24 @@ class UwmFetcher {
   /**
    * Description here.
    *
+   * @param string $apiEndpoint
+   *   Description here.
    * @param array $searchFields
    *   Description here.
    *
    * @return \stdClass
    *   Description here.
    */
-  public function getClinic(array $searchFields = []) {
+  public function getClinic(string $apiEndpoint = NULL, array $searchFields = []) {
 
-    $uri = $uri = self::$apiUri . self::$clinicEndpoint;
-    $clinic = $this->findItem($searchFields, $uri);
+    $clinic = $this->fetchItem($apiEndpoint);
+
+    if (empty($clinic->id)) {
+      $uri = $uri = self::$apiUri . self::$clinicEndpoint;
+      $clinic = $this->findItem($searchFields, $uri);
+    }
+
+    UwmBuilder::prepareClinicValues($clinic);
 
     return $clinic;
 
