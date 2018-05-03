@@ -798,10 +798,15 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
 
 }
 
+/***
+ * Specify authentication array from no-backup-secrets:
+ */
+if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] === 'prod') {
 
+  $config['simplesamlphp_auth.settings']['auth_source'] = 'test-456';
 
+}
 
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
-
 
