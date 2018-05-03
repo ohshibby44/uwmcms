@@ -116,24 +116,11 @@ class TwigExtension extends \Twig_Extension {
    * @return string
    *   Description text.
    */
-  public static function getPathNid(string $string) {
+  public static function getPathNid(string $string = NULL) {
 
-    return UwmMapper::getNidByPathAlias($string);
-
-  }
-
-  /**
-   * Description text.
-   *
-   * @param string $string
-   *   Description text.
-   *
-   * @return string
-   *   Description text.
-   */
-  public static function getApiPathNid(string $string) {
-
-    return UwmMapper::getNidByInformationManagerUri($string);
+    if ($string) {
+      return UwmMapper::getNidByPathAlias($string);
+    }
 
   }
 
@@ -146,7 +133,24 @@ class TwigExtension extends \Twig_Extension {
    * @return string
    *   Description text.
    */
-  public static function convertInlineStyles(string $string) {
+  public static function getApiPathNid(string $string = NULL) {
+
+    if ($string) {
+      return UwmMapper::getNidByInformationManagerUri($string);
+    }
+
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $string
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function convertInlineStyles(string $string = '') {
 
     $patterns = [
       '/(style="[^"]?italic[^>]+>)([^<]+)/',
@@ -179,7 +183,7 @@ class TwigExtension extends \Twig_Extension {
 
     $cleanArr = [];
 
-    foreach ($parts as $part) {
+    foreach ((array) $parts as $part) {
       $cleanPart = trim(
         preg_replace('/\s+/', ' ', $part)
       );
@@ -213,12 +217,17 @@ class TwigExtension extends \Twig_Extension {
    * @return array
    *   Description here.
    */
-  public static function extractArrayValues($data, string $desiredKeyName = NULL, array &$resultArray = []) {
+  public static function extractArrayValues($data = [], string $desiredKeyName = NULL, array &$resultArray = []) {
 
     foreach ((array) $data as $key => $value) {
 
       if ($key === $desiredKeyName) {
-        $resultArray[] = $value;
+        if (is_array($value)) {
+          $resultArray = $resultArray + $value;
+        }
+        else {
+          $resultArray[] = $value;
+        }
       }
 
       elseif (is_array($value) || is_object($value)) {
@@ -244,7 +253,7 @@ class TwigExtension extends \Twig_Extension {
    * @return mixed
    *   Description here.
    */
-  public static function sortArrayByValues($data, string $sortKey = NULL) {
+  public static function sortArrayByValues($data = [], string $sortKey = NULL) {
 
     usort($data, function ($a, $b) use ($sortKey) {
 
@@ -281,7 +290,7 @@ class TwigExtension extends \Twig_Extension {
    * @return null|string
    *   Description text.
    */
-  public static function formatPhone(string $phone = NULL, string $separator = '-') {
+  public static function formatPhone(string $phone = '', string $separator = '-') {
 
     $digits = preg_replace('/[^0-9]/', '', $phone);
 
