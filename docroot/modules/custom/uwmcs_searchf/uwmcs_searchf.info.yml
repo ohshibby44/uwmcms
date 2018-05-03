@@ -1,0 +1,5 @@
+name: uwmcs_searchf
+description: 'Makes Information Manager API fields available to Drupal''s Search API'
+package: UWMed
+type: module
+core: 8.x
