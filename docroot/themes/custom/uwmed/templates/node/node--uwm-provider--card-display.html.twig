@@ -1,0 +1,92 @@
+{% set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+    ] %}
+
+
+{% set bio = node.uwmcs_reader_api_values %}
+{% set title = bio.fullName %}
+{% set href = '/bios/'~ bio.friendlyUrl %}
+
+{% set bioClinicUrls = uwm_extract_parts(bio, 'clinicUrl') %}
+{% set aptsLink = 'hall-health-center' in bioClinicUrls[0] ?
+    'http://depts.washington.edu/hhpccweb/' : '/patient-care/making-an-appointment' %}
+
+<article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
+
+    <div class="profile-image">
+        {% set profileImage = ('noimage.jpg' in bio.bioImageUrl) ?
+        '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : bio.bioImageUrl %}
+        <img src="{{ profileImage }}" class="img-thumbnail">
+
+        {# @TODO: Add responsive image cutdown. #}
+    </div>
+
+    <div class="profile-details">
+
+        <h4 class="page-title"><a href="{{ href }}">{{ title }}</a></h4>
+
+        <div class="accepting-apts">
+            {% if bio.acceptingAppointments %}
+                <i class="fa fa-check-circle"
+                   aria-hidden="true"></i>
+                {{ "Accepting new patients"| t }}
+            {% else %}
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                {{ "Not accepting patients"| t }}
+            {% endif %}
+        </div>
+
+        <div class="specialities s-{{ bio.id }}">
+
+            {% set specialities = uwm_extract_parts(bio.expertise, 'expertiseName') %}
+            {% if specialities %}
+                <p><strong>{{ "Specialities"| t }}: </strong><br>
+                    {% for i in specialities %}
+
+                        {% if loop.index > 3 %}
+                            <i class="collapse">
+                                {% if not loop.first %}
+                                    |
+                                {% endif %}
+                                {{ i }}</i>
+                        {% else %}
+                            {% if not loop.first %}
+                                |
+                            {% endif %}
+                            {{ i }}
+                        {% endif %}
+
+                    {% endfor %}
+
+                    {% if specialities|length > 3 %}
+                        <i class="toggle" data-toggle="collapse"
+                           data-target=".s-{{ bio.id }} .collapse">...</i>
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+    <div class="accepting-apts-cta">
+        {% if bio.acceptingAppointments %}
+
+            <a class="btn btn-default" href="{{ aptsLink }}">
+                <i class="u-ips"></i> {{ "Request Appointment"|t }}
+            </a>
+        {% else %}
+            <a class="btn btn-default disabled" href="#">
+                <i class="u-ips"></i> {{ "Request Appointment"|t }}
+            </a>
+
+        {% endif %}
+    </div>
+
+
+</article>

@@ -22,18 +22,12 @@
 %}
 
 {% set _bio = node.uwmcs_reader_api_values %}
-
+{% set locations = uwm_extract_parts(_bio, 'clinicBases') %}
 {% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
 '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
-
-{% set locations = [] %}
-{% set i = 0 %}
-{% for j,k in _bio.careNetworks %}
-    {% for l,m in k.clinicBases %}
-        {% set i = i+1 %}
-        {% set locations = locations|merge({ (i): m }) %}
-    {% endfor %}
-{% endfor %}
+{% set locationUrls = uwm_extract_parts(locations, 'clinicUrl') %}
+{% set aptsLink = 'hall-health-center' in locationUrls[0] ?
+'http://depts.washington.edu/hhpccweb/' : '/patient-care/making-an-appointment' %}
 
 
 <article{{ attributes.addClass(classes) }}>
@@ -59,7 +53,7 @@
 
             <div class="col-sm-12 make-an-appointment l">
                 {% if _bio.acceptingAppointments %}
-                    <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                    <a href="{{ aptsLink }}">{{ "Make an Appointment"|t }}
                         <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% else %}
                     <a href="/search/providers">{{ "Find a Provider"|t }}
@@ -116,8 +110,7 @@
                 {% endif %}
 
                 {% if _bio.acceptingAppointments %}
-                    <a href="/patient-care/making-an-appointment"
-                       class="block">
+                    <a href="{{ aptsLink }}" class="block">
                         {{ "Make an Appointment"|t }}
                         <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% else %}

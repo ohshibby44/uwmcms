@@ -334,7 +334,7 @@ body.page-node-type-uwm-clinic {
               }
             }
 
-            .provider {
+            .provider-wrapper {
               border-bottom: 1px solid #dcdcdc;
               border-right: 1px solid #dcdcdc;
               &.odd {
@@ -343,7 +343,7 @@ body.page-node-type-uwm-clinic {
               &.loop-last, &.even.loop-last-1 {
                 border-bottom-color: transparent;
               }
-              .wrapper {
+              article.card-display {
 
                 padding-top: 20px;
                 padding-bottom: 20px;
