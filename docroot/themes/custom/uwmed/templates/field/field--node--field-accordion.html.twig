@@ -1,0 +1,313 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_field()
+ */
+
+{% if label_hidden %}
+    {% if multiple %}
+        <div{{ attributes }}>
+            {% for item in items %}
+                <div{{ item.attributes }}>{{ item.content }}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% for item in items %}
+            <div{{ attributes }}>{{ item.content }}</div>
+        {% endfor %}
+    {% endif %}
+{% else %}
+    <div{{ attributes }}>
+        <div{{ title_attributes }}>{{ label }}</div>
+        {% if multiple %}
+        <div>
+            {% endif %}
+            {% for item in items %}
+                <div{{ item.attributes }}>{{ item.content }}</div>
+            {% endfor %}
+            {% if multiple %}
+        </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+#}
+{% set include_wrapper = include_wrapper ?: 'true' %}
+{% set wrapper_element = wrapper_element ?: 'div' %}
+{% set wrapper_classes = wrapper_classes ?: ['field', 'field--name-' ~ field_name|clean_class] %}
+{% set wrapper_id = wrapper_id ?: '' %}
+{% set item_element = item_element ?: 'div' %}
+{% set item_classes = item_classes ? item_classes %}
+{% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
+
+{% set n = 0 %}
+
+{% block content %}
+
+  {#{% if include_wrapper == 'true' %}#}
+    {#<{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}{% if wrapper_id %}{{ attributes.setAttribute('id', wrapper_id) }}{% endif %}>#}
+  {#{% endif %}#}
+
+  {#{% if not label_hidden %}#}
+    {#<div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>#}
+  {#{% endif %}#}
+
+  {#{% for item in items %}#}
+  {#{% set n = n+1 %}#}
+  {% block item %}
+
+
+
+    {# paragraph: accordion for mobile #}
+    <div class="panel-group visible-xs visible-sm" id="accordion-mobile" role="tablist"
+         aria-multiselectable="true">
+      {# for each item create a panel #}
+      {% for key, item in items %}
+        {% set panel = item.content['#paragraph'] %}
+        <div class="panel panel-default panel-top-level">
+          <div class="panel-heading panel-heading-top-level" role="tab"
+               id="mobile-panel-heading-{{ key }}">
+            <h4 class="h5 panel-title panel-title-top-level">
+              <a role="button" data-toggle="collapse"
+                 data-parent="#accordion-mobile"
+                 href="#mobile-collapse-{{ key }}"
+                 aria-expanded="true" aria-controls="mobile-collapse-{{ key }}"
+                 {% if key != 0 %}class="collapsed"{% endif %}>
+                {{ panel.field_heading.value }}
+              </a>
+            </h4>
+          </div>
+          <div id="mobile-collapse-{{ key }}"
+               class="panel-collapse collapse {% if key == 0 %} in {% endif %}"
+               role="tabpanel" aria-labelledby="mobile-panel-heading-{{ key }}">
+            <div class="panel-body panel-body-top-level">
+              {% set panel_body = {
+              '#type': 'processed_text',
+              '#text': panel.field_text_snippet.value,
+              '#format': 'full_html',
+              } %}
+              {{ panel_body }}
+              {# create a sub-accordion if there are sub-panels #}
+              {% if panel.field_sub[0].entity.field_heading.value %}
+                <div class="panel-group" id="mobile-sub-accordion-{{ key }}"
+                     role="tablist" aria-multiselectable="true">
+                  {# for each sub-item create a panel#}
+                  {% for sub_key, sub_item in panel.field_sub %}
+                    {% set sub_id = sub_item.entity.id.value %}
+                    <div class="panel panel-default panel-sub-level">
+                      <div class="panel-heading panel-heading-sub-level" role="tab"
+                           id="mobile-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">
+                        <h4 class="h5 panel-title panel-title-sub-level">
+                          <a role="button" data-toggle="collapse"
+                             data-parent="#mobile-sub-accordion-{{ key }}"
+                             href="#mobile-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                             aria-expanded="true"
+                             aria-controls="mobile-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                             {% if sub_key != 0 %}class="collapsed"{% endif %}>
+                            {{ sub_item.entity.field_heading.value }}
+                          </a>
+                        </h4>
+                      </div>
+                      <div
+                        id="mobile-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                        class="panel-collapse collapse {% if sub_key == 0 %} in {% endif %}"
+                        role="tabpanel"
+                        aria-labelledby="mobile-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">
+                        <div class="panel-body panel-body-sub-level">
+                          {% set sub_panel_body = {
+                          '#type': 'processed_text',
+                          '#text': sub_item.entity.field_text_snippet[0].value,
+                          '#format': 'full_html',
+                          } %}
+                          {{ sub_panel_body }}
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+    {# paragraph: accordion for desktop #}
+    <div class="container accordion-desktop-container">
+      <div class="panel hidden-xs hidden-sm col-xs-12 panel-list-group-top-level" id="accordion-desktop" role="tablist"
+           aria-multiselectable="true">
+        {# for each item create a list item control #}
+        <ul class="list-group row list-group-top-level">
+          {% for key, item in items %}
+            {% set panel = item.content['#paragraph'] %}
+            <li class="list-group-item col-md-3 list-group-item-top-level" role="tab" id="desktop-panel-heading-{{ key }}">
+              <a role="button"
+                 data-toggle="collapse"
+                 data-parent="#accordion-desktop"
+                 href="#desktop-collapse-{{ key }}"
+                 aria-expanded="true"
+                 aria-controls="desktop-collapse-{{ key }}"
+                 {% if key != 0 %}class="collapsed"{% endif %}>
+                {{ panel.field_heading.value }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+
+
+
+        {% for key, item in items %}
+          {% set panel = item.content['#paragraph'] %}
+          <div class="panel">
+            <div id="desktop-collapse-{{ key }}"
+                 class="collapse {% if key == 0 %} in {% endif %}" role="tabpanel"
+                 aria-labelledby="desktop-panel-heading-{{ key }}">
+              <h3 class="h4">{{ panel.field_heading.value }}</h3>
+              {% set panel_body = {
+              '#type': 'processed_text',
+              '#text': panel.field_text_snippet.value,
+              '#format': 'full_html',
+              } %}
+              {% if panel.field_sub[0].entity.field_heading.value %}
+                  <div class="panel" id="desktop-sub-accordion-{{ key }}"
+                       role="tablist" aria-multiselectable="true">
+                    <div class="col-md-6 top-level-panel">
+
+                    {{ panel_body }}
+                    <ul class="list list-unstyled list-inline sub-level-heading-list">
+                      {% for sub_key, sub_item in panel.field_sub %}
+                        {% set sub_id = sub_item.entity.id.value %}
+
+                        <li role="tab"
+                            id="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}"
+                            class="sub-level-heading-list-item">
+                          <a role="button" data-toggle="collapse"
+                             data-parent="#desktop-sub-accordion-{{ key }}"
+                             href="#desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                             aria-expanded="true"
+                             aria-controls="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                             {% if sub_key != 0 %}class="collapsed"{% endif %}>
+                            {{ sub_item.entity.field_heading.value }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    </div>
+
+
+                    {% for sub_key, sub_item in panel.field_sub %}
+                      {% set sub_id = sub_item.entity.id.value %}
+                      <div class="panel col-md-6 sub-level-panel">
+                        <div
+                          id="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"
+                          class="collapse {% if sub_key == 0 %} in {% endif %}"
+                          role="tabpanel"
+                          aria-labelledby="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">
+                          {% set sub_panel_body = {
+                          '#type': 'processed_text',
+                          '#text': sub_item.entity.field_text_snippet[0].value,
+                          '#format': 'full_html',
+                          } %}
+                          <h4 class="h5">{{ sub_item.entity.field_heading.value }}</h4>
+                          {{ sub_panel_body }}
+                        </div>
+                      </div>
+                    {% endfor %}
+
+                </div>
+              {% else %}
+                {{ panel_body }}
+              {% endif %}
+              {# create a sub-accordion if there are sub-panels #}
+              {#{% if panel.field_sub[0].entity.field_heading.value %}#}
+                {#<div class="panel" id="desktop-sub-accordion-{{ key }}"#}
+                     {#role="tablist" aria-multiselectable="true">#}
+                  {# for each sub-item create a panel#}
+                  {#<ul>#}
+                    {#{% for sub_key, sub_item in panel.field_sub %}#}
+                      {#{% set sub_id = sub_item.entity.id.value %}#}
+
+                      {#<li role="tab"#}
+                          {#id="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">#}
+                        {#<a role="button" data-toggle="collapse"#}
+                           {#data-parent="#desktop-sub-accordion-{{ key }}"#}
+                           {#href="#desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"#}
+                           {#aria-expanded="true"#}
+                           {#aria-controls="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}">#}
+                          {#{{ sub_item.entity.field_heading.value }}#}
+                        {#</a>#}
+                      {#</li>#}
+
+                    {#{% endfor %}#}
+                  {#</ul>#}
+                  {#{% for sub_key, sub_item in panel.field_sub %}#}
+                    {#{% set sub_id = sub_item.entity.id.value %}#}
+                    {#<div class="panel ">#}
+                      {#<div#}
+                        {#id="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"#}
+                        {#class="collapse {% if sub_key == 0 %} in {% endif %}"#}
+                        {#role="tabpanel"#}
+                        {#aria-labelledby="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">#}
+                        {#{% set sub_panel_body = {#}
+                        {#'#type': 'processed_text',#}
+                        {#'#text': sub_item.entity.field_text_snippet[0].value,#}
+                        {#'#format': 'full_html',#}
+                        {#} %}#}
+                        {#{{ sub_panel_body }}#}
+                      {#</div>#}
+                    {#</div>#}
+                  {#{% endfor %}#}
+                {#</div>#}
+              {#{% endif %}#}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  {% endblock item %}
+  {#{% endfor %}#}
+
+  {#{% if include_wrapper == 'true' %}#}
+    {#</{{ wrapper_element }}>#}
+  {#{% endif %}#}
+
+{% endblock content %}

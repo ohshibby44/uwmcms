@@ -1,16 +1,16 @@
-uuid: 8e6b1366-3c96-4e3b-97b0-7f7942dd90d3
+uuid: b5322bd7-2468-45b2-b3ab-80537107071b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_site_categories
+    - field.storage.media.field_digital_properties
     - media_entity.bundle.document
-    - taxonomy.vocabulary.site_categories
-id: media.document.field_site_categories
-field_name: field_site_categories
+    - taxonomy.vocabulary.uwm_digital_property
+id: media.document.field_digital_properties
+field_name: field_digital_properties
 entity_type: media
 bundle: document
-label: 'Site Categories'
+label: 'Digital Properties'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      site_categories: site_categories
+      uwm_digital_property: uwm_digital_property
     sort:
       field: _none
     auto_create: false

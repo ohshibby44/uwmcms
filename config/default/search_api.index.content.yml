@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - search_api.server.database
+    - core.entity_view_mode.node.full
   module:
     - search_api
     - node
@@ -30,6 +31,7 @@ field_settings:
           condition_spotlight: default
           content_spotlight: default
           fact_page: default
+          uwm_medical_specialty: default
   label:
     label: Label
     property_path: aggregated_field

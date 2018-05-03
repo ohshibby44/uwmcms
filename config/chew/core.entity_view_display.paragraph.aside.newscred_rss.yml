@@ -1,0 +1,31 @@
+uuid: 56d7acbb-6cbe-4b58-839b-ac2b74708d6f
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.newscred_rss
+    - field.field.paragraph.aside.field_body
+    - field.field.paragraph.aside.field_heading
+    - paragraphs.paragraphs_type.aside
+  module:
+    - text
+id: paragraph.aside.newscred_rss
+targetEntityType: paragraph
+bundle: aside
+mode: newscred_rss
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_heading:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

@@ -1,0 +1,198 @@
+
+.page-node-type-uwm-medical-specialty {
+  #accordion-mobile {
+
+    // Both top-level and sub-level panel styles
+    .panel-group {
+      margin-bottom: 0;
+    }
+
+    .panel {
+      box-shadow: none;
+    }
+
+    .panel-heading {
+      margin: 0;
+      padding: 0;
+    }
+
+    .panel-title {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        padding: 10px 15px;
+        font-size: $font-size-base;
+      }
+
+      a:focus {
+        text-decoration: none;
+      }
+    }
+
+    .panel-title a::after {
+      font-family: FontAwesome;
+      float: right;
+    }
+
+    // Top-level panel styles
+    .panel-top-level {
+      border: none;
+      margin-top: 0;
+    }
+
+    .panel-top-level:last-child {
+      border-bottom: 1px solid $uwmed-light-gray;
+    }
+
+    .panel-title-top-level {
+      a {
+        border: none;
+        background: $uwmed-accent-orange;
+        color: white;
+      }
+
+      a.collapsed {
+        border-top: 1px solid $uwmed-light-gray;
+        color: $uwmed-body-text-color;
+        background: #f5f5f5;
+      }
+    }
+
+    .panel-title-top-level a::after {
+      content: "\f077";
+    }
+
+    .panel-title-top-level a.collapsed::after {
+      content: "\f078";
+      color: $uwmed-accent-orange;
+    }
+
+    // Sub-level panel styles
+    .panel-sub-level {
+      margin-top: 15px;
+    }
+
+    .panel-heading-sub-level {
+      background: none;
+    }
+
+    .panel-title-sub-level a:hover, .panel-title-sub-level a:focus  {
+      color: $uwmed-body-text-color;
+    }
+
+    .panel-title-sub-level a::after {
+      content: "\f056";
+      color: $uwmed-accent-orange
+    }
+
+    .panel-title-sub-level a.collapsed::after {
+      content: "\f055";
+    }
+
+
+  }
+
+  .accordion-desktop-container {
+
+    .panel-list-group-top-level {
+      border: none;
+      box-shadow: none;
+    }
+
+    .list-group-top-level {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f5f5f5;
+      margin-bottom: 38px;
+    }
+
+    .list-group-item-top-level {
+      padding: 0;
+      border: none;
+      width: 30%;
+
+      a {
+        text-decoration: none;
+        background: $uwmed-accent-orange;
+        color: white;
+        display: block;
+        padding: 10px 15px;
+        font-size: $font-size-base;
+      }
+
+      a::after {
+        font-family: FontAwesome;
+        float: right;
+        content: "\f078";
+      }
+
+      a.collapsed {
+        border-top: 1px solid $uwmed-light-gray;
+        color: $uwmed-body-text-color;
+        background: #f5f5f5;
+      }
+
+      a.collapsed:nth-child(-n+3) {
+        border-bottom: 1px solid $uwmed-light-gray;
+      }
+
+      a.collapsed::after {
+        color: $uwmed-accent-orange;
+      }
+    }
+
+    .list-group-item-top-level:nth-of-type(3n+2) {
+      margin-left: 4.95%;
+      margin-right: 4.95%;
+    }
+
+    .panel-list-group-top-level {
+      .panel {
+        margin-bottom: 0;
+        border: none;
+        box-shadow: none;
+
+        .h4 {
+          margin-bottom: 19px;
+          color: $uwmed-accent-orange;
+        }
+      }
+    }
+
+    .top-level-panel {
+      border-right: 1px solid $uwmed-light-gray;
+    }
+
+    .sub-level-heading-list {
+      margin-top: 38px;
+    }
+
+    .sub-level-heading-list-item {
+      a {
+        font-weight: bold;
+        text-decoration: none;
+        border-bottom: 2px solid $uwmed-accent-orange;
+        margin-right: 19px;
+      }
+
+      a.collapsed {
+        text-decoration: none;
+        border-bottom: none;
+      }
+
+      a:focus {
+        text-decoration: none;
+        color: $uwmed-body-text-color;
+      }
+    }
+
+    .sub-level-panel {
+      .h5 {
+        margin-top: 0;
+      }
+    }
+
+  }
+}

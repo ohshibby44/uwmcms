@@ -34,7 +34,7 @@ content:
     region: content
     label: hidden
     settings:
-      timezone_override: ''
+      timezone_override: America/Los_Angeles
       format_type: uwm_date_format_short
     third_party_settings: {  }
   field_event_categories:

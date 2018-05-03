@@ -1,0 +1,9 @@
+uuid: 864ca29c-ae47-4a01-828d-a48b89e1a211
+langcode: en
+status: true
+dependencies: {  }
+name: Syndication
+vid: syndication
+description: ''
+hierarchy: 0
+weight: 0

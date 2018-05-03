@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d73ebf3137db9289365e52f9a32ccfe2",
+    "content-hash": "0c776cdf4cf6fae8db8560e30828e3d1",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2468,7 +2468,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07 10:47:07"
+            "time": "2013-11-07T10:47:07+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3485,7 +3485,7 @@
                 "source": "http://cgit.drupalcode.org/calendar",
                 "issues": "https://www.drupal.org/project/issues/calendar"
             },
-            "time": "2017-09-13 12:29:50"
+            "time": "2017-09-13T12:29:50+00:00"
         },
         {
             "name": "drupal/calendar_datetime",
@@ -4486,6 +4486,7 @@
             "type": "drupal-core",
             "extra": {
                 "patches_applied": {
+                    "Drupal core - Critical - Remote Code Execution - SA-CORE-2018-004": "https://cgit.drupalcode.org/drupal/rawdiff/?h=8.5.x&id=bb6d396609600d1169da29456ba3db59abae4b7e",
                     "Clear Twig caches on deploys": "https://www.drupal.org/files/issues/2752961-90.patch",
                     "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-41.patch",
                     "1356276 - Allow profiles to provide a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/1356276-360.patch",
@@ -4802,7 +4803,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/date"
             },
-            "time": "2012-10-28 09:20:01"
+            "time": "2012-10-28T09:20:01+00:00"
         },
         {
             "name": "drupal/devel",
@@ -5956,7 +5957,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/fb_instant_articles"
             },
-            "time": "2017-09-13 21:49:59"
+            "time": "2017-09-13T21:49:59+00:00"
         },
         {
             "name": "drupal/features",
@@ -6211,7 +6212,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/google_tag"
             },
-            "time": "2017-06-16 21:53:17"
+            "time": "2017-06-16T21:53:17+00:00"
         },
         {
             "name": "drupal/hierarchical_term_formatter",
@@ -9078,21 +9079,15 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20 15:43:48"
+            "time": "2016-10-20T15:43:48+00:00"
         },
         {
             "name": "drupal/sharethis",
-            "version": "2.0.0-beta3",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/sharethis",
-                "reference": "8.x-2.0-beta3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/sharethis-8.x-2.0-beta3.zip",
-                "reference": "8.x-2.0-beta3",
-                "shasum": "83379c9ee4e9c1dd8a8e31032edd8b267a84155b"
+                "reference": "6a7a20b99e3fb274f9f02db7fbb9dad2e8851ae3"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -9103,18 +9098,26 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta3",
-                    "datestamp": "1468313039"
+                    "version": "8.x-2.0-beta3+7-dev",
+                    "datestamp": "1510411084",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
                     "name": "Clark Zhang",
                     "homepage": "https://www.drupal.org/user/2911755"
+                },
+                {
+                    "name": "Gaofengzzz",
+                    "homepage": "https://www.drupal.org/user/1478184"
                 },
                 {
                     "name": "RobLoach",
@@ -9127,10 +9130,6 @@
                 {
                     "name": "bhavikshah9",
                     "homepage": "https://www.drupal.org/user/2784353"
-                },
-                {
-                    "name": "gaofengzzz",
-                    "homepage": "https://www.drupal.org/user/1478184"
                 },
                 {
                     "name": "himerus",
@@ -9169,11 +9168,12 @@
                     "homepage": "https://www.drupal.org/user/3133879"
                 }
             ],
-            "description": "Add the ShareThis widget to nodes on your site",
-            "homepage": "http://drupal.org/project/sharethis",
+            "description": "Add the <a href=\"http://www.sharethis.com/\">ShareThis</a> widget to nodes on your site.",
+            "homepage": "https://www.drupal.org/project/sharethis",
             "support": {
                 "source": "http://cgit.drupalcode.org/sharethis"
-            }
+            },
+            "time": "2017-11-11T14:33:23+00:00"
         },
         {
             "name": "drupal/shield",
@@ -12846,7 +12846,7 @@
                 "GPL-3.0+"
             ],
             "description": "Library used to find lowest common ancestor in graphs.",
-            "time": "2017-04-30 16:26:14"
+            "time": "2017-04-30T16:26:14+00:00"
         },
         {
             "name": "robrichards/xmlseclibs",
@@ -16131,7 +16131,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/sharethis": 10,
+        "drupal/sharethis": 20,
         "drupal/trash": 15,
         "drupal/auto_entitylabel": 10,
         "drupal/field_group": 5,

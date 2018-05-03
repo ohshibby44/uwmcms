@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.condition_spotlight.field_content_blocks
+    - field.field.node.condition_spotlight.field_content_topics
     - node.type.condition_spotlight
   module:
     - entity_reference_revisions
+    - panelizer
     - user
 third_party_settings:
   panelizer:
@@ -27,6 +29,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_content_topics:
+    weight: 102
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

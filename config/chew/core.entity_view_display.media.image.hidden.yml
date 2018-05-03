@@ -1,0 +1,27 @@
+uuid: d14dc25a-afb8-48cf-9232-57a25d8eac2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.hidden
+    - field.field.media.image.field_caption
+    - field.field.media.image.field_credit
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.image
+    - media_entity.bundle.image
+_core:
+  default_config_hash: Zn9LsLt7n0fzyEwtBMqioYJzhnU9RvIcfVef1gs51-Y
+id: media.image.hidden
+targetEntityType: media
+bundle: image
+mode: hidden
+content: {  }
+hidden:
+  created: true
+  field_caption: true
+  field_credit: true
+  field_media_in_library: true
+  image: true
+  name: true
+  thumbnail: true
+  uid: true

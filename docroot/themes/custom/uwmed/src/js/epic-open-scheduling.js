@@ -165,9 +165,9 @@ var o = (function () {
 
       if (!!providerMatch) {
         var providerHref = formatProviderUrl(providerMatch.EOS_Id, opts.os_provider_iframe);
-        var providerName =  providerMatch.Name;
+        var providerName = providerMatch.Name;
 
-        if(!!providerHref) {
+        if (!!providerHref) {
           $.each(opts.transform_provider_link_selectors, function (a, b) {
 
             var $this = $(b);
@@ -177,7 +177,7 @@ var o = (function () {
               $this.removeClass('hidden').addClass('uwm-os-matched');
             }
 
-            if(!!providerName && $this.hasClass(opts.append_provider_name_class)) {
+            if (!!providerName && $this.hasClass(opts.append_provider_name_class)) {
               $this.append(" with " + providerName);
             }
           });
@@ -190,6 +190,7 @@ var o = (function () {
     } else {
       setTimeout(transformProviderLinks, 100);
     }
+  }
 
   function transformProviderIFrameSources() {
     if (testVariableAssignments()) {
@@ -227,7 +228,6 @@ var o = (function () {
   }
 
   function testVariableAssignments() {
-
     if (!!window.uwm_epic_open_scheduling_options
         && !!window.uwm_epic_open_scheduling_options.os_enabled_providers
         && !!window.uwm_epic_open_scheduling_options.os_enabled_providers[0]
@@ -235,34 +235,25 @@ var o = (function () {
     ) {
       return true;
     }
-
   }
 
   function findObjectItem(arr, s) {
-    if(s !== '') {
-      var i, key;
-      for (i = arr.length; i--;) {
-        for (key in arr[i]) {
-          if (arr[i].hasOwnProperty(key)
-              && typeof arr[i][key] === 'string'
-              && arr[i][key].indexOf(s) > -1) {
-            return arr[i];
-          }
-
-          }
+    var i, key;
+    for (i = arr.length; i--;) {
+      for (key in arr[i]) {
+        if (arr[i].hasOwnProperty(key)
+            && typeof arr[i][key] === 'string'
+            && arr[i][key] === s) {
+          return arr[i];
         }
-
       }
     }
-
   }
 
   function formatProviderUrl(providerId, defaultUrl) {
     var idParam = 'id=' + providerId;
     return '' + defaultUrl.replace(/(id=)[^&]+/, idParam);
-
   }
-
 
 })(jQuery, Drupal, drupalSettings);
 
