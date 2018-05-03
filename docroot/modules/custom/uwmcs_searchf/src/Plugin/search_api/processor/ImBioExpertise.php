@@ -7,7 +7,7 @@ use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_extension\TwigExtension;
+use Drupal\uwmcs_searchf\Controller\UwmSearchUtils;
 
 /**
  * Adds the item's URL to the indexed data.
@@ -26,6 +26,8 @@ use Drupal\uwmcs_extension\TwigExtension;
 class ImBioExpertise extends ProcessorPluginBase {
 
   const FIELD_NAME = 'uwm_im_bio_exp';
+  const IM_FIELD_ROOT = 'expertise';
+  const IM_FIELD_NAME = 'expertiseName';
 
   /**
    * {@inheritdoc}
@@ -62,8 +64,10 @@ class ImBioExpertise extends ProcessorPluginBase {
     if ($entity->getType() === 'uwm_provider') {
 
       $node = Node::load($entity->nid->value);
-      $newValues = TwigExtension::extractArrayValues(
-        $node->uwmcs_reader_api_values->expertise, 'expertiseName');
+
+      $values = UwmSearchUtils::extractArrayValues(
+        $node->uwmcs_reader_api_values->{self::IM_FIELD_ROOT},
+          self::IM_FIELD_NAME);
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()
@@ -71,7 +75,7 @@ class ImBioExpertise extends ProcessorPluginBase {
 
       foreach ($fields as $field) {
 
-        foreach ($newValues as $value) {
+        foreach ($values as $value) {
 
           $field->addValue($value);
 

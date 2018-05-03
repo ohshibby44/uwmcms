@@ -11,6 +11,7 @@ dependencies:
     - core.entity_view_mode.node.full
   module:
     - search_api
+    - uwmcs_searchf
     - node
     - media_entity
     - taxonomy
@@ -53,6 +54,10 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  uwm_im_bio_exp:
+    label: uwm_im_bio_exp
+    property_path: uwm_im_bio_exp
+    type: string
   status:
     label: status
     datasource_id: 'entity:node'
@@ -157,6 +162,42 @@ processor_settings:
     weights:
       preprocess_index: -9
       preprocess_query: -8
+  ignore_character:
+    all_fields: false
+    fields:
+      - rendered
+      - label
+      - node_grants
+      - field_body_summary
+      - field_content_blocks
+      - field_bottom_content_blocks
+      - field_content_topics
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
   rendered_item: {  }
   stopwords:
     all_fields: false
@@ -221,42 +262,6 @@ processor_settings:
     weights:
       preprocess_index: -4
       preprocess_query: -3
-  ignore_character:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-      - node_grants
-      - field_body_summary
-      - field_content_blocks
-      - field_bottom_content_blocks
-      - field_content_topics
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
-        Sc: 0
-        Sk: 0
-        Sm: 0
-        So: 0
-        Zl: 0
-        Zp: 0
-        Zs: 0
-    weights:
-      preprocess_index: -10
-      preprocess_query: -10
   type_boost:
     boosts:
       'entity:node':
@@ -286,6 +291,7 @@ processor_settings:
           uwm_digital_property: !!float 0
     weights:
       preprocess_index: 0
+  ImBioExpertise: {  }
 tracker_settings:
   default: {  }
 options:

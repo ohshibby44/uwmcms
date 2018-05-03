@@ -8,12 +8,17 @@ dependencies:
     - search_api.server.database
   module:
     - search_api
+    - uwmcs_searchf
     - node
 id: uwm_provider_search_api_index
 name: 'UWM Provider Index'
 description: ''
 read_only: false
 field_settings:
+  uwm_im_bio_exp:
+    label: uwm_im_bio_exp
+    property_path: uwm_im_bio_exp
+    type: string
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -153,6 +158,7 @@ processor_settings:
     weights:
       preprocess_index: -49
       preprocess_query: -49
+  ImBioExpertise: {  }
 tracker_settings:
   default: {  }
 options:

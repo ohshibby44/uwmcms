@@ -1,0 +1,28 @@
+uuid: 0a980b5f-d208-489e-b2ed-530bbc1efcb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.uwm_im_bio_exp
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: providerexpertisefacet
+theme: uwmed
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:uwm_im_bio_exp'
+settings:
+  id: 'facet_block:uwm_im_bio_exp'
+  label: 'Provider Expertise Facet'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/index/providers*'
+    negate: false
+    context_mapping: {  }
