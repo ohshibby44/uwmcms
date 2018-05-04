@@ -222,11 +222,16 @@ view_mode ? view_mode|clean_class,
                         <div class="row">
                             <div class="col-xs-12">
                                 <h3 class="accent">Services</h3>
-                                {% if _cli.clinicTimeUseMasters[1].hoursOfOperation %}
-                                    <h2 class="leader">{{ "This clinic offers primary and urgent care, including:"|t }}</h2>
-                                {% else %}
-                                    <h2 class="leader">{{ "This clinic offers primary care, including:"|t }}</h2>
-                                {% endif %}
+
+                                <h2 class="leader">
+                                    {% if content.field_clinic_services_header|render is not empty %}
+                                        {{ content.field_clinic_services_header }}
+                                    {% elseif _cli.clinicTimeUseMasters[1].hoursOfOperation %}
+                                        {{ "This clinic offers primary and urgent care, including:"|t }}
+                                    {% else %}
+                                        {{ "This clinic offers primary care, including:"|t }}
+                                    {% endif %}
+                                </h2>
 
                                 <ul class="expt">
 
