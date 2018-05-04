@@ -75,7 +75,7 @@
                     if (snippet.length > 0) {
 
                         $elm.find('.wait-text').html(snippet);
-                        $elm.find('.wait-link').attr('href', getClockwiseWaitUri(id));
+                        $elm.find('a').attr('href', getClockwiseWaitUri(id));
                         $elm.attr('data-uwm-clockwise-refresh-end', new Date().toLocaleString())
                             .removeClass('fade-out invisible hidden');
 
