@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uwmcs_searchf\Controller;
+namespace Drupal\uwmcs_searchfields\Controller;
 
 /**
  * Controller connects API fields to Drupal fields.

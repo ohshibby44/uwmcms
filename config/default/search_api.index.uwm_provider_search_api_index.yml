@@ -8,7 +8,7 @@ dependencies:
     - search_api.server.database
   module:
     - search_api
-    - uwmcs_searchf
+    - uwmcs_searchfields
     - node
 id: uwm_provider_search_api_index
 name: 'UWM Provider Index'
@@ -18,7 +18,8 @@ field_settings:
   uwm_im_bio_exp:
     label: uwm_im_bio_exp
     property_path: uwm_im_bio_exp
-    type: string
+    type: text
+    boost: 0.3
   body:
     label: Body
     datasource_id: 'entity:node'

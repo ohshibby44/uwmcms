@@ -1,4 +1,4 @@
-name: uwmcs_searchf
+name: uwmcs_searchfields
 description: 'Makes Information Manager API fields available to Drupal''s Search API'
 package: UWMed
 type: module

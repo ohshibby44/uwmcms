@@ -11,7 +11,6 @@ dependencies:
     - core.entity_view_mode.node.full
   module:
     - search_api
-    - uwmcs_searchf
     - node
     - media_entity
     - taxonomy
@@ -54,10 +53,6 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
-  uwm_im_bio_exp:
-    label: uwm_im_bio_exp
-    property_path: uwm_im_bio_exp
-    type: string
   status:
     label: status
     datasource_id: 'entity:node'
@@ -291,7 +286,6 @@ processor_settings:
           uwm_digital_property: !!float 0
     weights:
       preprocess_index: 0
-  ImBioExpertise: {  }
 tracker_settings:
   default: {  }
 options:

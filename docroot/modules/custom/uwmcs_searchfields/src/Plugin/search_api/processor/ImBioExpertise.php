@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\uwmcs_searchf\Plugin\search_api\Processor;
+namespace Drupal\uwmcs_searchfields\Plugin\search_api\Processor;
 
 use Drupal\node\Entity\Node;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_searchf\Controller\UwmSearchUtils;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
 
 /**
  * Adds the item's URL to the indexed data.

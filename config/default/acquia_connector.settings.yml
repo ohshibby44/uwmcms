@@ -74,6 +74,7 @@ spi:
   cron_interval: 28800
   site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmeddev
   site_uuid: 2a73b91f-1cb1-4e80-8867-aebe8c3afcea
+  site_name: UWMedLocal
 mapping:
   acquia_spi_send_node_user:
     - acquia_connector.settings
