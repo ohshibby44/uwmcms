@@ -98,6 +98,7 @@ module:
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
+  search_api_page: 0
   search_api_solr: 0
   serialization: 0
   shield: 0
