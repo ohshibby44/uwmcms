@@ -15,11 +15,18 @@ name: 'UWM Provider Index'
 description: ''
 read_only: false
 field_settings:
-  uwm_im_bio_exp:
-    label: uwm_im_bio_exp
-    property_path: uwm_im_bio_exp
+  imbiogender:
+    label: ImBioGender
+    property_path: imbiogender
     type: text
-    boost: 0.3
+  imbiolanguage:
+    label: ImBioLanguage
+    property_path: imbiolanguage
+    type: text
+  imbioexpertise:
+    label: ImBioExpertise
+    property_path: imbioexpertise
+    type: text
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -160,9 +167,11 @@ processor_settings:
       preprocess_index: -49
       preprocess_query: -49
   ImBioExpertise: {  }
+  ImBioGender: {  }
+  ImBioLanguage: {  }
 tracker_settings:
   default: {  }
 options:
   index_directly: true
-  cron_limit: 500
+  cron_limit: 200
 server: database

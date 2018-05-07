@@ -13,7 +13,7 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  * Adds the item's URL to the indexed data.
  *
  * @SearchApiProcessor(
- *   id = "ImBioExpertise",
+ *   id = "ImBioLanguage",
  *   label = @Translation("Bio Expertise List"),
  *   description = @Translation("Adds the Information Manager to the indexed
  *   data."), stages = {
@@ -23,11 +23,11 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  *   hidden = false,
  * )
  */
-class ImBioExpertise extends ProcessorPluginBase {
+class ImBioLanguage extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'ImBioExpertise';
-  const IM_FIELD_ROOT = 'expertise';
-  const IM_FIELD_NAME = 'expertiseName';
+  const FIELD_NAME = 'ImBioLanguage';
+  const IM_FIELD_ROOT = 'languages';
+  const IM_FIELD_NAME = 'languageName';
 
   /**
    * {@inheritdoc}
@@ -64,10 +64,9 @@ class ImBioExpertise extends ProcessorPluginBase {
     if ($entity->getType() === 'uwm_provider') {
 
       $node = Node::load($entity->nid->value);
-      $nodeData = $node->uwmcs_reader_api_values;
+      $nodeData = $node->uwmcs_reader_api_values->{self::IM_FIELD_ROOT} ?? [];
 
-      $values = UwmSearchUtils::extractAllMatches(
-        $nodeData, self::IM_FIELD_NAME);
+      $values = UwmSearchUtils::extractAllMatches($nodeData, self::IM_FIELD_NAME);
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()

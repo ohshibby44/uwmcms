@@ -115,7 +115,7 @@ class UwmFetcher {
 
       foreach ($searchFields as $key => $val) {
 
-        if (isset($dataItem->{$key}) && $dataItem->{$key} === $val) {
+        if (!empty($val) && isset($dataItem->{$key}) && $dataItem->{$key} === $val) {
 
           // Matched an item in the collection.
           // If it has it's own endpoint, return that instead.

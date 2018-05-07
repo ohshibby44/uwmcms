@@ -18,6 +18,7 @@ function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
       $args = explode('/', trim(
         \Drupal::request()->getRequestUri(), '/'));
+      $slug = $args[1] ?? '';
       $nodeType = $entity->getType();
       $fetcher = new UwmFetcher();
 
@@ -25,7 +26,7 @@ function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
 
         // Fetch Information Manager (IM) data from API endpoint.
         $itemUrl = $entity->field_information_manager_url->value ?? '';
-        $possibleSearch = ['clinicUrl' => '/locations/' . $args[1]];
+        $possibleSearch = ['clinicUrl' => '/locations/' . $slug];
         $resultData = $fetcher->getClinic($itemUrl, $possibleSearch);
 
         $entity->uwmcs_reader_api_values = $resultData;
@@ -37,7 +38,7 @@ function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
         // Fetch Information Manager (IM) data from API.
         $fetcher = new UwmFetcher();
         $itemUrl = $entity->field_information_manager_url->value ?? '';
-        $possibleSearch = ['friendlyUrl' => $args[1]];
+        $possibleSearch = ['friendlyUrl' => $slug];
         $resultData = $fetcher->getProvider($itemUrl, $possibleSearch);
 
         $entity->uwmcs_reader_api_values = $resultData;

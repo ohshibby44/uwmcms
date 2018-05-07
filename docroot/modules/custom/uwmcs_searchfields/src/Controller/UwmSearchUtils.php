@@ -14,13 +14,46 @@ class UwmSearchUtils {
    *   Description here.
    * @param string|null $desiredKeyName
    *   Description here.
+   * @param array $currentIndex
+   *   Description here.
+   *
+   * @return array|mixed
+   *   Description here.
+   */
+  public static function extractFirstMatch($data, string $desiredKeyName = NULL, array &$currentIndex = []) {
+
+    foreach ((array) $data as $key => $value) {
+
+      if ($key === $desiredKeyName) {
+        return $value;
+      }
+
+      elseif (is_array($value) || is_object($value)) {
+
+        self::extractAllMatches($value, $desiredKeyName, $currentIndex);
+
+      }
+
+    }
+
+    return (array) $currentIndex;
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param mixed $data
+   *   Description here.
+   * @param string|null $desiredKeyName
+   *   Description here.
    * @param array $resultArray
    *   Description here.
    *
    * @return array
    *   Description here.
    */
-  public static function extractArrayValues($data, string $desiredKeyName = NULL, array &$resultArray = []) {
+  public static function extractAllMatches($data, string $desiredKeyName = NULL, array &$resultArray = []) {
 
     foreach ((array) $data as $key => $value) {
 
@@ -30,7 +63,7 @@ class UwmSearchUtils {
 
       elseif (is_array($value) || is_object($value)) {
 
-        self::extractArrayValues($value, $desiredKeyName, $resultArray);
+        self::extractAllMatches($value, $desiredKeyName, $resultArray);
 
       }
 

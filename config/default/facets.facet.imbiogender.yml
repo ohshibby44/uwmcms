@@ -1,4 +1,4 @@
-uuid: b4aa090f-353f-4bae-b36e-4a8e345ee0e1
+uuid: 611b2b3f-5b23-4a83-855a-90ec9760846e
 langcode: en
 status: true
 dependencies:
@@ -7,42 +7,27 @@ dependencies:
     - views.view.uwm_search_api_provider_index
   module:
     - search_api
-id: uwm_im_bio_exp
-name: 'Provider Expertise Facet'
-url_alias: uwm_im_bio_exp
+id: imbiogender
+name: ImBioGender
+url_alias: imbiogender
 weight: 0
 min_count: 1
-show_only_one_result: false
-field_identifier: uwm_im_bio_exp
+show_only_one_result: true
+field_identifier: imbiogender
 facet_source_id: 'search_api:views_page__uwm_search_api_provider_index__page_1'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: true
-    soft_limit: 5
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: 30
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -56,4 +41,6 @@ processor_configs:
       build: -10
     settings: {  }
 empty_behavior:
-  behavior: none
+  behavior: text
+  text_format: plain_text
+  text: 'Empty text'

@@ -12,7 +12,7 @@ dependencies:
 id: locationscontentblocksfacet
 theme: uwmed
 region: sidebar_second
-weight: 0
+weight: -4
 provider: null
 plugin: 'facet_block:locations_content_blocks_facet'
 settings:

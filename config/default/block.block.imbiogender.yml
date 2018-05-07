@@ -1,23 +1,23 @@
-uuid: 0a980b5f-d208-489e-b2ed-530bbc1efcb1
+uuid: 6c026cdb-47f1-4406-8734-b4bfdd8fe683
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.uwm_im_bio_exp
+    - facets.facet.imbiogender
   module:
     - facets
     - system
   theme:
     - uwmed
-id: providerexpertisefacet
+id: imbiogender
 theme: uwmed
 region: sidebar_second
 weight: 0
 provider: null
-plugin: 'facet_block:uwm_im_bio_exp'
+plugin: 'facet_block:imbiogender'
 settings:
-  id: 'facet_block:uwm_im_bio_exp'
-  label: 'Provider Expertise Facet'
+  id: 'facet_block:imbiogender'
+  label: ImBioGender
   provider: facets
   label_display: visible
 visibility:
