@@ -5,20 +5,28 @@ dependencies:
   config:
     - field.field.node.uwm_medical_specialty.field_accordion
     - field.field.node.uwm_medical_specialty.field_condition_spotlight
-    - field.field.node.uwm_medical_specialty.field_feature_story
-    - field.field.node.uwm_medical_specialty.field_featured_specialties
     - field.field.node.uwm_medical_specialty.field_image
     - field.field.node.uwm_medical_specialty.field_information_manager_url
     - field.field.node.uwm_medical_specialty.field_links_with_icon
     - field.field.node.uwm_medical_specialty.field_medical_service
+    - field.field.node.uwm_medical_specialty.field_meta_tags
     - field.field.node.uwm_medical_specialty.field_proof_points
+    - field.field.node.uwm_medical_specialty.field_sub_title
     - field.field.node.uwm_medical_specialty.field_subheading
     - node.type.uwm_medical_specialty
   module:
     - entity_reference_revisions
     - image
+    - metatag
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.uwm_medical_specialty.default
 targetEntityType: node
 bundle: uwm_medical_specialty
@@ -26,58 +34,34 @@ mode: default
 content:
   field_accordion:
     type: entity_reference_revisions_entity_view
-    weight: 111
-    label: above
+    weight: 7
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
-    weight: 102
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_feature_story:
-    weight: 104
-    label: above
-    settings:
       view_mode: default
-      link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
-  field_featured_specialties:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_image:
-    weight: 105
-    label: above
+    weight: 2
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
     region: content
-  field_information_manager_url:
-    weight: 107
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_links_with_icon:
-    weight: 106
-    label: above
+    weight: 3
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -85,30 +69,48 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_medical_service:
-    weight: 110
-    label: above
+    weight: 6
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_meta_tags:
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
   field_proof_points:
-    weight: 108
-    label: above
+    weight: 4
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
+  field_sub_title:
+    weight: 10
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_subheading:
-    weight: 109
-    label: above
+    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_information_manager_url: true

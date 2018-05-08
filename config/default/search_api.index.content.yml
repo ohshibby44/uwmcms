@@ -32,6 +32,7 @@ field_settings:
           content_spotlight: default
           fact_page: default
           uwm_medical_specialty: default
+          quiz: default
   label:
     label: Label
     property_path: aggregated_field

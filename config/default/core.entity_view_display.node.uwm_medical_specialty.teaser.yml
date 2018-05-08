@@ -16,6 +16,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_accordion: true
   field_condition_spotlight: true
   field_feature_story: true
   field_featured_specialties: true

@@ -15,14 +15,144 @@ node.isPromoted() ? 'is-promoted',
 node.isSticky() ? 'is-sticky',
 not node.isPublished() ? 'is-unpublished',
 view_mode ? view_mode|clean_class,
-'clearfix',
+'clearfix'
 ] %}
 
+{{ attach_library('uwmed/medical-service') }}
+
+
 <article{{ attributes.addClass(classes) }}>
+  <section>
+    <div class="medical-service-hero">
+      <div class="medical-service-hero__background full-width-image"
+           style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})"></div>
+      <div class="container container-lg">
+        <div class="row">
+          <div class="medical-service-hero__content col-lg-7">
+            <h1 class="medical-service-hero__heading">{{ label }}</h1>
+            <img class="hero__angle-divider hidden-lg"
+                 src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png') }}"
+                 alt=""/>
+            {{ content.field_subheading }}
+          </div>
+          <div
+            class="medical-service-hero__links-with-icon__desktop col-lg-3 visible-lg">
+            {{ content.field_links_with_icon }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3 medical-specialty__back-button">
+        <a href="{{ content.field_medical_service.0["#url"] }}"
+           class="btn btn-outline"><i class="fa fa-angle-left"></i> Back to {{ content.field_medical_service.0["#title"] }}
+          <i class="fa u-a" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="medical-service-hero__links-with-icon hidden-lg"> {# row #}
+      {{ content.field_links_with_icon }}
+    </div>
+
+
+  </section>
+
+  <div class="container-lg container-proof-points">
+    <h2>{{ content.field_sub_title }}</h2>
+    <div class="row">
+      {{ content.field_proof_points }}
+    </div>
+  </div>
 
   <div class="row">
     {{ content.field_accordion }}
   </div>
+
+  <div class="row">
+    <div class="patient-engagement col-xs-12">
+      <div class="patient-engagement__wrapper container">
+        <div class="row">
+          <div class="quiz col-md-6 col-lg-12">
+            <div class="col-lg-9">
+              <h2 class="h3">{{ 'Did you know?'|t }}</h2>
+              {% include '@uwmed/accents/uwmed-slant.twig' %}
+            </div>
+
+            <div class="all-quizzes col-lg-3 visible-lg">
+              <p><a
+                  href="http://healthlibrary.uwmedicine.org/InteractiveTools/Quizzes/">{{ 'See
+                        all quizzes'|t }} &nbsp;<span class="fa fa-angle-right"
+                                                      aria-hidden="true"></span> </a>
+              </p>
+            </div>
+            <div class="col-lg-6" id="slickQuiz">
+              <h3 class="h4 quizName"><!-- where the quiz name goes --></h3>
+
+              <div class="quizArea">
+                <div class="quizHeader">
+                  <!-- where the quiz main copy goes -->
+
+                  <a class="button startQuiz" href="#">
+                    <i class="hidden u-ips"></i>{{ 'Get Started'|t }}</a>
+                </div>
+                <!-- where the quiz gets built -->
+              </div>
+
+              <div class="quizResults">
+                <h4 class="quizScore">{{ 'You Scored:'|t }} <span><!-- where the quiz score goes --></span>
+                </h4>
+
+                <h4 class="quizLevel"><strong>{{ 'Ranking:'|t }}</strong> <span><!-- where the quiz ranking level goes --></span>
+                </h4>
+
+                <div class="quizResultsCopy">
+                  <!-- where the quiz result copy goes -->
+                </div>
+              </div>
+            </div>
+            <div class="all-quizzes col-md-12 hidden-lg">
+              <p><a
+                  href="http://healthlibrary.uwmedicine.org/InteractiveTools/Quizzes/">{{ 'See
+                        all quizzes'|t }} &nbsp;<span class="fa fa-angle-right"
+                                                      aria-hidden="true"></span> </a>
+              </p>
+            </div>
+
+            <div class="quizPhoto col-lg-5 col-lg-offset-1 visible-lg">
+              <img class="img img-responsive hidden-xs"
+                   src="/themes/custom/uwmed/dist/assets/back-pain-quiz-image.png"
+                   alt=""/>
+            </div>
+          </div>
+          {#<div#}
+          {#class="featured-provider col-lg-3 col-md-5 col-md-push-1 col-lg-push-0"#}
+          {#style="background-image: url('https://via.placeholder.com/300x150');">#}
+          {#<h2 class="h3">New Provider</h2>#}
+          {#{% include '@uwmed/accents/uwmed-slant.twig' %}#}
+
+          {#<div class="featured-provider__content">#}
+          {#<h3 class="h4">Welcome</h3>#}
+          {#<p>Lorem ipsum dolor sit amet, consectetur, adipiscing elit,#}
+          {#sed</p>#}
+          {#<p><a class="btn btn-outline">Read More</a></p>#}
+          {#</div>#}
+
+          {#</div>#}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="condition-spotlight" class="condition-spotlight">
+    {{ content.field_condition_spotlight }}
+  </div>
+
+  ADD CONTENT SPOTLIGHT
+
 
 </article>
 
