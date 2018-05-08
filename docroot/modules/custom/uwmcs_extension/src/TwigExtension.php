@@ -61,6 +61,10 @@ class TwigExtension extends \Twig_Extension {
         'uwm_sort_parts', [$this, 'sortArrayByValues']),
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
+      new \Twig_SimpleFilter(
+        'uwm_summary_text', [$this, 'summaryText']),
+      new \Twig_SimpleFilter(
+        'uwm_expand_abbreviations', [$this, 'expandAbbreviations']),
 
     ];
   }
@@ -322,6 +326,46 @@ class TwigExtension extends \Twig_Extension {
     }
 
     return NULL;
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $text
+   *   Description text.
+   * @param string|null $format
+   *   Description text.
+   * @param int|null $size
+   *   Description text.
+   *
+   * @return bool|string
+   *   Description text.
+   */
+  public static function summaryText(string $text = '', string $format = NULL, int $size = NULL) {
+
+    return text_summary($text, $format, $size);
+
+  }
+
+  /**
+   * Description text.
+   *
+   * @param string $text
+   *   Description text.
+   *
+   * @return string
+   *   Description text.
+   */
+  public static function expandAbbreviations(string $text = '') {
+
+    $abbreviations = [
+      'Dr.' => 'Doctor',
+      'dr.' => 'doctor',
+      'M.D.' => 'Medical Doctor',
+    ];
+
+    return strtr($text, $abbreviations);
+
   }
 
 }

@@ -1,1 +1,25 @@
-{% include directory ~'/templates/node/node--teaser.html.twig' %}
+{#{% include directory ~'/templates/node/node--teaser.html.twig' %}#}
+
+{% extends 'node--teaser.html.twig' %}
+
+{% set provider = node.uwmcs_reader_api_values %}
+
+{% block content %}
+
+    {% set profileImage = ('noimage.jpg' in provider.bioImageUrl) ? '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : provider.bioImageUrl %}
+    <img src="{{ profileImage }}" class="img-thumbnail">
+
+    {% if uwm_extract_parts(provider.expertise, 'expertiseName') %}
+        <p><strong>{{ "Specialities"| t }}:</strong>
+        {{ uwm_extract_parts(provider.expertise, 'expertiseName')|slice(0, 3)|uwm_join_parts(', ') }}</p>
+
+    {% endif %}
+
+    {% if provider.languages %}
+        <p><strong>{{ "Languages"| t }}:</strong>
+        {{ uwm_extract_parts(provider.languages, 'languageName')|slice(0, 3)|uwm_join_parts(', ') }}</p>
+    {% endif %}
+
+    {{ provider.fullBio|uwm_expand_abbreviations|uwm_replace_markup|striptags('<p><br><a>')|uwm_summary_text|raw }}
+
+{% endblock content %}
