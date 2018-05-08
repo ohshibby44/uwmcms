@@ -190,9 +190,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          link_to_item: true
+          link_to_item: false
           multi_type: separator
-          multi_separator: ', '
+          multi_separator: ' | '
           plugin_id: search_api
         search_api_relevance:
           id: search_api_relevance
@@ -298,7 +298,17 @@ display:
           plugin_id: search_api_fulltext
       sorts: {  }
       title: 'Search Providers'
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }

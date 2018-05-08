@@ -18,14 +18,23 @@ field_settings:
   imbiogender:
     label: ImBioGender
     property_path: imbiogender
-    type: text
+    type: string
   imbiolanguage:
     label: ImBioLanguage
     property_path: imbiolanguage
-    type: text
+    type: string
   imbioexpertise:
     label: ImBioExpertise
     property_path: imbioexpertise
+    type: string
+  imbioexpertise_1:
+    label: ImBioExpertise
+    property_path: imbioexpertise
+    type: text
+    boost: 0.5
+  imbiobodyfields:
+    label: ImBioBodyFields
+    property_path: imbiobodyfields
     type: text
   body:
     label: Body
@@ -52,7 +61,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_content_blocks
     type: text
-    boost: !!float 3
+    boost: !!float 5
     dependencies:
       config:
         - field.storage.node.field_content_blocks
@@ -79,12 +88,36 @@ processor_settings:
     highlight: always
     highlight_partial: false
     excerpt: true
-    excerpt_length: 256
+    excerpt_length: 400
     exclude_fields: {  }
-    prefix: '<strong>'
+    prefix: '<strong class="highlight">'
     suffix: '</strong>'
     weights:
       postprocess_query: 0
+  html_filter:
+    all_fields: false
+    fields:
+      - imbiogender
+      - imbiolanguage
+      - imbioexpertise
+      - imbioexpertise_1
+      - imbiobodyfields
+      - body
+      - type
+      - title
+      - field_content_blocks
+      - title_1
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -50
+      preprocess_query: -50
   ignorecase:
     all_fields: false
     fields:
@@ -142,7 +175,7 @@ processor_settings:
       - primary
     weights:
       preprocess_index: -44
-      preprocess_query: -44
+      preprocess_query: -45
   tokenizer:
     all_fields: false
     fields:
@@ -155,7 +188,7 @@ processor_settings:
     minimum_word_size: '3'
     weights:
       preprocess_index: -45
-      preprocess_query: -45
+      preprocess_query: -46
   transliteration:
     all_fields: false
     fields:
@@ -166,6 +199,7 @@ processor_settings:
     weights:
       preprocess_index: -49
       preprocess_query: -49
+  ImBioBodyFields: {  }
   ImBioExpertise: {  }
   ImBioGender: {  }
   ImBioLanguage: {  }
