@@ -1,4 +1,4 @@
-.page-node-type-uwm-medical-service {
+.page-node-type-uwm-medical-service, .page-node-type-uwm-medical-specialty {
 
   .main-container {
     padding-top: 0;
@@ -15,7 +15,7 @@
 
   .medical-service-hero {
     position: relative;
-    height: 360px;
+    height: 420px;
 
     @media(max-width: $screen-md-max) {
       display: flex;
@@ -23,10 +23,6 @@
       align-items: center;
       flex-wrap: wrap;
       flex-direction: column;
-    }
-
-    @media(min-width: $screen-lg-min) {
-      height: 570px;
     }
   }
 
@@ -219,7 +215,7 @@
     position: relative;
 
     @media(min-width: $screen-lg-min) {
-      margin-top: -200px;
+      margin-top: 9px;
     }
 
     ul.nav-tabs {
@@ -300,21 +296,59 @@
     }
   }
 
+  .container-proof-points {
+    padding: 0 15px;
+  }
+
   .field--name-field-proof-points {
-    display: inline-block;
-    width: 100%;
+    //display: inline-block;
+    //width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    >.item {
+      flex: none;
+      width: 100%;
+
+      @media(min-width: $screen-sm-min) {
+        flex: 1;
+        min-width: 49%;
+      }
+
+      @media(min-width: $screen-md-min) {
+        min-width: 24%;
+        border-right: 1px solid #bababa;
+        margin-bottom: 19px;
+      }
+
+      .paragraph {
+        padding: 0 15px;
+
+        @media(min-width: $screen-md-min) {
+          padding: 10px 15px;
+        }
+      }
+    }
+
+    >.item:last-child, >.item:nth-child(4) {
+      border-right: none;
+    }
+
+    .item-last-row-column-1 {
+      margin-right: 75%;
+    }
+
+    .item-last-row-column-2 {
+      margin-right: 50%;
+    }
+
+    .item-last-row-column-3 {
+      margin-right: 25%;
+    }
 
     .paragraph--type--content-snippet {
-      @include make-sm-column(6);
-      @include make-lg-column(3);
-
-      @media (min-width: $screen-sm-min) {
-        border-right: 1px solid #bababa;
-      }
-
-      @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-        border-bottom: 1px solid #bababa;
-      }
+      //@include make-sm-column(6);
+      //@include make-lg-column(3);
     }
     article.contextual-region:nth-child(3)
     .field--name-field-heading {
@@ -334,13 +368,13 @@
 
   .field--name-field-proof-points > div:nth-child(2) > div:nth-child(2) {
     @media(max-width: $screen-md-max) {
-      border-right: none;
+      //border-right: none;
     }
   }
   .field--name-field-proof-points > div:nth-child(3) > div:nth-child(2) {
     border-bottom: none;
     @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-      border-right: 1px solid #bababa;;
+      //border-right: 1px solid #bababa;;
     }
   }
   .field--name-field-proof-points > div:nth-child(4) > div:nth-child(2) {
