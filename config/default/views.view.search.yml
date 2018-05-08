@@ -87,6 +87,7 @@ display:
               content_spotlight: default
               fact_page: default
               uwm_medical_specialty: default
+              quiz: default
       fields:
         rendered:
           table: search_api_index_content

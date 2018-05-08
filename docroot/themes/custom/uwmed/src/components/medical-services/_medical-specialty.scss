@@ -1,0 +1,28 @@
+.page-node-type-uwm-medical-specialty {
+  .medical-specialty__back-button {
+    padding: 4px 0;
+    background-color: #e5e5e6;
+    margin-top: -39px;
+
+    i.fa.u-a {
+      @include uw-skew(18deg);
+      position: absolute;
+      width: 20px;
+      height: 40px;
+      top: 0;
+      right: -10px;
+      border-right: 5px solid #cfcfcf;
+      background: #e5e5e6;
+    }
+    &:hover {
+      background: lighten(#e5e5e6, 5%);
+      @include uwmed-bezier-transition-transition-timing();
+
+      i.fa.u-a {
+        border-right: 5px solid darken(#cfcfcf, 5%);
+        background: lighten(#e5e5e6, 5%);
+        @include uwmed-bezier-transition-transition-timing();
+      }
+    }
+  }
+}

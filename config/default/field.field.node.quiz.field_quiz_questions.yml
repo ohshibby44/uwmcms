@@ -1,18 +1,18 @@
-uuid: 29df2c43-082e-444a-b67d-6484ba5934f6
+uuid: ea6fa8e6-9b21-4fb1-a712-b9eff1eb83f8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_accordion
-    - node.type.uwm_medical_specialty
-    - paragraphs.paragraphs_type.accordion_panel
+    - field.storage.node.field_quiz_questions
+    - node.type.quiz
+    - paragraphs.paragraphs_type.quiz_question
   module:
     - entity_reference_revisions
-id: node.uwm_medical_specialty.field_accordion
-field_name: field_accordion
+id: node.quiz.field_quiz_questions
+field_name: field_quiz_questions
 entity_type: node
-bundle: uwm_medical_specialty
-label: 'Common Services'
+bundle: quiz
+label: 'Quiz Questions'
 description: ''
 required: false
 translatable: false
@@ -23,30 +23,33 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      accordion_panel: accordion_panel
+      quiz_question: quiz_question
     target_bundles_drag_drop:
-      accordion_panel:
+      quiz_question:
         enabled: true
-        weight: 9
-      content_snippet:
         weight: 10
-        enabled: false
-      feature_story:
+      accordion_panel:
         weight: 11
         enabled: false
-      homepage_section:
+      content_snippet:
         weight: 12
         enabled: false
-      link_with_icon:
+      feature_story:
         weight: 13
         enabled: false
-      links_list:
+      homepage_section:
         weight: 14
         enabled: false
-      media_feature:
+      link_with_icon:
         weight: 15
         enabled: false
-      reusable_content:
+      links_list:
         weight: 16
+        enabled: false
+      media_feature:
+        weight: 17
+        enabled: false
+      reusable_content:
+        weight: 18
         enabled: false
 field_type: entity_reference_revisions

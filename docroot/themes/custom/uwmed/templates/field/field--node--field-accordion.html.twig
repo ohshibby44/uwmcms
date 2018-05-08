@@ -169,14 +169,14 @@
 
 
     {# paragraph: accordion for desktop #}
-    <div class="container accordion-desktop-container">
+    <div class="accordion-desktop-container">
       <div class="panel hidden-xs hidden-sm col-xs-12 panel-list-group-top-level" id="accordion-desktop" role="tablist"
            aria-multiselectable="true">
         {# for each item create a list item control #}
-        <ul class="list-group row list-group-top-level">
+        <ul class="list-group container-lg list-group-top-level">
           {% for key, item in items %}
             {% set panel = item.content['#paragraph'] %}
-            <li class="list-group-item col-md-3 list-group-item-top-level" role="tab" id="desktop-panel-heading-{{ key }}">
+            <li class="list-group-item col-md-3 list-group-item-top-level {% if items|length % 3 == 2 and key == items|length-1 %}list-group-item-top-level-add-margin{% endif %}" role="tab" id="desktop-panel-heading-{{ key }}">
               <a role="button"
                  data-toggle="collapse"
                  data-parent="#accordion-desktop"
@@ -197,9 +197,9 @@
           {% set panel = item.content['#paragraph'] %}
           <div class="panel">
             <div id="desktop-collapse-{{ key }}"
-                 class="collapse {% if key == 0 %} in {% endif %}" role="tabpanel"
+                 class="collapse {% if key == 0 %} in {% endif %} container-lg" role="tabpanel"
                  aria-labelledby="desktop-panel-heading-{{ key }}">
-              <h3 class="h4">{{ panel.field_heading.value }}</h3>
+              <div class="col-md-12"><h3 class="h4">{{ panel.field_heading.value }}</h3></div>
               {% set panel_body = {
               '#type': 'processed_text',
               '#text': panel.field_text_snippet.value,
@@ -253,49 +253,8 @@
 
                 </div>
               {% else %}
-                {{ panel_body }}
+                <div class="col-md-12">{{ panel_body }}</div>
               {% endif %}
-              {# create a sub-accordion if there are sub-panels #}
-              {#{% if panel.field_sub[0].entity.field_heading.value %}#}
-                {#<div class="panel" id="desktop-sub-accordion-{{ key }}"#}
-                     {#role="tablist" aria-multiselectable="true">#}
-                  {# for each sub-item create a panel#}
-                  {#<ul>#}
-                    {#{% for sub_key, sub_item in panel.field_sub %}#}
-                      {#{% set sub_id = sub_item.entity.id.value %}#}
-
-                      {#<li role="tab"#}
-                          {#id="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">#}
-                        {#<a role="button" data-toggle="collapse"#}
-                           {#data-parent="#desktop-sub-accordion-{{ key }}"#}
-                           {#href="#desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"#}
-                           {#aria-expanded="true"#}
-                           {#aria-controls="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}">#}
-                          {#{{ sub_item.entity.field_heading.value }}#}
-                        {#</a>#}
-                      {#</li>#}
-
-                    {#{% endfor %}#}
-                  {#</ul>#}
-                  {#{% for sub_key, sub_item in panel.field_sub %}#}
-                    {#{% set sub_id = sub_item.entity.id.value %}#}
-                    {#<div class="panel ">#}
-                      {#<div#}
-                        {#id="desktop-sub-panel-{{ sub_id }}-collapse-{{ sub_key }}"#}
-                        {#class="collapse {% if sub_key == 0 %} in {% endif %}"#}
-                        {#role="tabpanel"#}
-                        {#aria-labelledby="desktop-sub-panel-{{ sub_id }}-heading-{{ sub_key }}">#}
-                        {#{% set sub_panel_body = {#}
-                        {#'#type': 'processed_text',#}
-                        {#'#text': sub_item.entity.field_text_snippet[0].value,#}
-                        {#'#format': 'full_html',#}
-                        {#} %}#}
-                        {#{{ sub_panel_body }}#}
-                      {#</div>#}
-                    {#</div>#}
-                  {#{% endfor %}#}
-                {#</div>#}
-              {#{% endif %}#}
             </div>
           </div>
         {% endfor %}

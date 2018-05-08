@@ -6,22 +6,80 @@ dependencies:
     - entity_browser.browser.image_browser
     - field.field.node.uwm_medical_specialty.field_accordion
     - field.field.node.uwm_medical_specialty.field_condition_spotlight
-    - field.field.node.uwm_medical_specialty.field_feature_story
-    - field.field.node.uwm_medical_specialty.field_featured_specialties
     - field.field.node.uwm_medical_specialty.field_image
     - field.field.node.uwm_medical_specialty.field_information_manager_url
     - field.field.node.uwm_medical_specialty.field_links_with_icon
     - field.field.node.uwm_medical_specialty.field_medical_service
+    - field.field.node.uwm_medical_specialty.field_meta_tags
     - field.field.node.uwm_medical_specialty.field_proof_points
+    - field.field.node.uwm_medical_specialty.field_sub_title
     - field.field.node.uwm_medical_specialty.field_subheading
     - node.type.uwm_medical_specialty
   module:
     - entity_browser
-    - entity_reference_revisions
+    - field_group
+    - metatag
     - paragraphs
     - path
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_hero_area:
+      children:
+        - title
+        - field_image
+        - field_links_with_icon
+        - field_subheading
+      parent_name: group_page_top
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Hero Area'
+    group_proof_points:
+      children:
+        - field_sub_title
+        - field_proof_points
+      parent_name: ''
+      weight: 1
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Proof Points'
+    group_page_top:
+      children:
+        - group_hero_area
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Page Top'
+    group_common_services_accordion:
+      children:
+        - field_accordion
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Common Services Accordion'
 id: node.uwm_medical_specialty.default
 targetEntityType: node
 bundle: uwm_medical_specialty
@@ -29,13 +87,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_accordion:
     type: entity_reference_paragraphs
-    weight: 41
+    weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -46,25 +104,7 @@ content:
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
-    weight: 32
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_feature_story:
-    weight: 34
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
-    region: content
-  field_featured_specialties:
-    weight: 33
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -86,7 +126,7 @@ content:
     region: content
     third_party_settings: {  }
   field_information_manager_url:
-    weight: 37
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -96,14 +136,17 @@ content:
   field_links_with_icon:
     weight: 36
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
     region: content
   field_medical_service:
-    weight: 40
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -111,14 +154,33 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_meta_tags:
+    weight: 42
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   field_proof_points:
-    weight: 38
+    weight: 44
     settings:
-      match_operator: CONTAINS
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      closed_mode: summary
+      autocollapse: none
+    third_party_settings: {  }
+    type: paragraphs
+    region: content
+  field_sub_title:
+    weight: 43
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
+    type: string_textfield
     region: content
   field_subheading:
     weight: 39
@@ -130,7 +192,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -138,14 +200,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -158,7 +220,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
