@@ -45,14 +45,12 @@ view_mode ? view_mode|clean_class,
 
 
     <div class="row">
-      <div class="col-md-3 medical-specialty__back-button">
-        <a href="{{ content.field_medical_service.0["#url"] }}"
-           class="btn btn-outline"><i class="fa fa-angle-left"></i> Back to {{ content.field_medical_service.0["#title"] }}
-          <i class="fa u-a" aria-hidden="true"></i>
+      <div class="medical-specialty__back-button col-md-12">
+        <a href="{{ content.field_medical_service.0["#url"] }}"><i class="fa fa-angle-left"></i> {{ content.field_medical_service.0["#title"] }}
+          <i class="right-border-angle hidden-xs" aria-hidden="true"></i>
         </a>
       </div>
     </div>
-
 
     <div class="medical-service-hero__links-with-icon hidden-lg"> {# row #}
       {{ content.field_links_with_icon }}
@@ -150,9 +148,6 @@ view_mode ? view_mode|clean_class,
   <div id="condition-spotlight" class="condition-spotlight">
     {{ content.field_condition_spotlight }}
   </div>
-
-  ADD CONTENT SPOTLIGHT
-
 
 </article>
 
