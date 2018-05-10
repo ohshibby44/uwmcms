@@ -24,5 +24,7 @@ hidden:
   field_information_manager_url: true
   field_links_with_icon: true
   field_medical_service: true
+  field_meta_tags: true
   field_proof_points: true
+  field_sub_title: true
   field_subheading: true

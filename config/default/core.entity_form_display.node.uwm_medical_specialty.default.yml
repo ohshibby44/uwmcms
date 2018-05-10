@@ -227,4 +227,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_feature_story: true
+  field_featured_specialties: true
