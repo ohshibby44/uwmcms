@@ -43,4 +43,5 @@ content:
 hidden:
   created: true
   field_content_topics: true
+  field_digital_properties: true
   uid: true

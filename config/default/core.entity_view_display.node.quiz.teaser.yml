@@ -25,4 +25,7 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_body_body_second: true
+  field_image: true
+  field_quiz_questions: true

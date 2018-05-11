@@ -1,28 +1,65 @@
 .page-node-type-uwm-medical-specialty {
   .medical-specialty__back-button {
-    padding: 4px 0;
-    background-color: #e5e5e6;
-    margin-top: -39px;
 
-    i.fa.u-a {
-      @include uw-skew(18deg);
+    background-color: #e5e5e6;
+
+    @media(min-width: $screen-sm-min) {
+      background: none;
+      padding: 0;
+      margin-top: -41px;
+      position: relative;
+      float: left;
+    }
+
+    a {
+      background-color: #e5e5e6;
+      padding: 12px;
+      text-transform: uppercase;
+      color: $uwmed-pop-blue;
+      text-decoration: none;
+      display: inline-block;
+
+      @media(min-width: $screen-sm-min) {
+        position: relative;
+        padding: 12px 19px 12px 30px;
+      }
+
+      @media(min-width: $screen-lg-min) {
+        padding: 12px 19px 12px 55px;
+      }
+    }
+
+    i.right-border-angle {
+      transform: skew(18deg);
       position: absolute;
       width: 20px;
-      height: 40px;
+      height: 42px;
       top: 0;
-      right: -10px;
+      right: -13px;
       border-right: 5px solid #cfcfcf;
       background: #e5e5e6;
     }
-    &:hover {
-      background: lighten(#e5e5e6, 5%);
-      @include uwmed-bezier-transition-transition-timing();
+    a:hover {
+      color: $uwmed-body-text-color;
 
-      i.fa.u-a {
-        border-right: 5px solid darken(#cfcfcf, 5%);
+      @media(min-width: $screen-sm-min) {
         background: lighten(#e5e5e6, 5%);
+        transition-timing-function: ease-in;
+        transition: 0.2s;
+        // Chrome jagged line fix
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-style: preserve-3d;
         @include uwmed-bezier-transition-transition-timing();
+
+        i.right-border-angle {
+          border-right: 5px solid darken(#cfcfcf, 5%);
+          background: lighten(#e5e5e6, 5%);
+          transition: 0.2s;
+          @include uwmed-bezier-transition-transition-timing();
+        }
       }
     }
+
+
   }
 }
