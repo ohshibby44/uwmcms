@@ -6,12 +6,15 @@ dependencies:
     - entity_browser.browser.image_browser
     - field.field.node.uwm_medical_specialty.field_accordion
     - field.field.node.uwm_medical_specialty.field_condition_spotlight
+    - field.field.node.uwm_medical_specialty.field_feature_story
+    - field.field.node.uwm_medical_specialty.field_featured_specialties
     - field.field.node.uwm_medical_specialty.field_image
     - field.field.node.uwm_medical_specialty.field_information_manager_url
     - field.field.node.uwm_medical_specialty.field_links_with_icon
     - field.field.node.uwm_medical_specialty.field_medical_service
     - field.field.node.uwm_medical_specialty.field_meta_tags
     - field.field.node.uwm_medical_specialty.field_proof_points
+    - field.field.node.uwm_medical_specialty.field_quiz
     - field.field.node.uwm_medical_specialty.field_sub_title
     - field.field.node.uwm_medical_specialty.field_subheading
     - node.type.uwm_medical_specialty
@@ -87,24 +90,26 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_accordion:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: accordion_panel
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
-    weight: 10
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -126,7 +131,7 @@ content:
     region: content
     third_party_settings: {  }
   field_information_manager_url:
-    weight: 12
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -146,7 +151,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_medical_service:
-    weight: 13
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
@@ -155,7 +160,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_meta_tags:
-    weight: 42
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -173,6 +178,15 @@ content:
       autocollapse: none
     third_party_settings: {  }
     type: paragraphs
+    region: content
+  field_quiz:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_sub_title:
     weight: 43
@@ -192,7 +206,7 @@ content:
     region: content
   path:
     type: path
-    weight: 9
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -200,14 +214,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 5
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -220,7 +234,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
