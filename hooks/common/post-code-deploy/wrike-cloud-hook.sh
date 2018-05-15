@@ -17,7 +17,7 @@
 #
 #
 
-set -ev
+set +ev
 
 site="$1"
 target_env="$2"
@@ -26,7 +26,7 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
-github_token=5b07de54cee80e913411387a61e7c1a0c049846f
+github_token="fca59baef56daa4dc9e6069ffe1c2558b051ff24"
 wrike_client_id="saDHmzPz"
 wrike_account_api_token="2URYEzRHqgFtEnYeJvk9faKInRLktJs3yFuHobjGkWqoMgUJc8F46tqTUUpcFNqc-N-WFIUKC"
 wrike_account_task_folder_id="IEABOA5QI4HA3PRF"
@@ -36,14 +36,18 @@ wrike_account_task_folder_id="IEABOA5QI4HA3PRF"
 if [ "$source_branch" != "$deployed_tag" ]; then
 
 
-      github_branch=$(sed "s|-build||g" <<< $deployed_tag)
+      github_branch=$(echo $deployed_tag | sed "s|-build||g")
 
       summary_text="UWM-CMS: A deployment has been made to *$site.$target_env* using tag *$deployed_tag* and source *$source_branch*"
+
+      echo $summary_text
       
       body_text="<p>More can be found at: <br>"
-      body_text+="<a href=\"https://github.com/uwmweb/uwmcms\">Github repo</a> or<br>"
-      body_text+="<a href=\"https://github.com/uwmweb/uwmcms/commits/$github_branch\">https://github.com/uwmweb/uwmcms/commits/$github_branch</a></p>"
-      body_text+="<p>Additional log notes:</p>"
+      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms\">Github repo</a> or<br>"
+      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms/commits/$github_branch\">https://github.com/uwmweb/uwmcms/commits/$github_branch</a></p>"
+      body_text="$body_text <p>Additional log notes:</p>"
+
+      echo $body_text
 
 
       github_query=$(cat <<EOF
@@ -65,6 +69,8 @@ if [ "$source_branch" != "$deployed_tag" ]; then
 EOF
 )
 
+      echo $github_query
+
       github_response=$(curl -H "Authorization: bearer $github_token" -d @- https://api.github.com/graphql <<EOF
       {
           "query": "query { $github_query }"
@@ -72,6 +78,7 @@ EOF
 EOF
 )
 
+      echo $github_response
 
       github_log=$(echo $github_response | tr -d '\n' | tr -d '\r' | ruby -e " \
       require 'rubygems'; require 'json'; require 'date'; s =''; d = JSON[STDIN.read]; \
@@ -81,6 +88,8 @@ EOF
           cmt['node']['message'] + '<br></p>'; \
         end; puts s;")
 
+
+      echo $github_log
 
 
       curl -g -X POST -H "Authorization: bearer $wrike_account_api_token" \
