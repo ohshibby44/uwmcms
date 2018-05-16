@@ -78,11 +78,13 @@ swipejs:
 slickquiz:
   js:
     dist/js/slickQuiz.js: {}
+    dist/js/loadSlickQuiz.js: {}
   css:
     theme:
       dist/styles/slickQuiz.css: {}
   dependencies:
     - core/jquery
+    - core/drupalSettings
 
 screenfull:
   js:
@@ -106,9 +108,15 @@ patient-care-video:
     - uwmed/screenfull
     - uwmed/colorbox
 
+condition-spotlight-swipe:
+  js:
+    dist/js/condition-spotlight-swipe.js: {}
+  dependencies:
+    - core/drupal
+    - uwmed/swipejs
+    
 medical-service:
   js:
-    dist/js/back-pain-quiz.js: {}
     dist/js/medical-service.js: {}
     dist/js/google-map-display-locations.js: {}
   dependencies:
@@ -119,6 +127,7 @@ medical-service:
     - uwmed/swipejs
     - uwmed/slickquiz
     - uwmed/colorbox
+    - uwmed/condition-spotlight-swipe
 
 node--fact-page:
   js:
