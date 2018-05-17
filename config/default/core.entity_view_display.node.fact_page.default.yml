@@ -4,12 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.fact_page.body
-    - field.field.node.fact_page.field_body_body_second
     - field.field.node.fact_page.field_bottom_content_blocks
+    - field.field.node.fact_page.field_bottom_content_blocks_head
     - field.field.node.fact_page.field_content_blocks
+    - field.field.node.fact_page.field_content_blocks_footer
+    - field.field.node.fact_page.field_content_blocks_heading
     - field.field.node.fact_page.field_link
     - field.field.node.fact_page.field_meta_tags
+    - field.field.node.fact_page.field_sidebar_content_blocks
     - field.field.node.fact_page.field_subheading
+    - field.field.node.fact_page.field_top_content_blocks
+    - field.field.node.fact_page.field_top_content_blocks_heading
     - node.type.fact_page
   module:
     - entity_reference_revisions
@@ -36,13 +41,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_body_body_second:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_bottom_content_blocks:
     weight: 5
     label: above
@@ -52,6 +50,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
+  field_bottom_content_blocks_head:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_content_blocks:
     weight: 1
     label: above
@@ -60,6 +66,21 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_content_blocks_footer:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_content_blocks_heading:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_link:
     weight: 4
@@ -80,12 +101,38 @@ content:
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
+  field_sidebar_content_blocks:
+    type: entity_reference_revisions_entity_view
+    weight: 10
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
   field_subheading:
     weight: 0
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_top_content_blocks:
+    type: entity_reference_revisions_entity_view
+    weight: 11
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_top_content_blocks_heading:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   links:
     weight: 6

@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.content_snippet.field_heading
     - field.field.paragraph.content_snippet.field_link
     - field.field.paragraph.content_snippet.field_text_snippet
+    - image.style.medium
     - paragraphs.paragraphs_type.content_snippet
   module:
     - image
@@ -21,7 +22,7 @@ content:
     weight: 3
     label: hidden
     settings:
-      image_style: ''
+      image_style: medium
       image_link: ''
     third_party_settings: {  }
     type: image

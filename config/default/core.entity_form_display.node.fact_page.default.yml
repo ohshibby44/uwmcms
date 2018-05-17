@@ -4,12 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.fact_page.body
-    - field.field.node.fact_page.field_body_body_second
     - field.field.node.fact_page.field_bottom_content_blocks
+    - field.field.node.fact_page.field_bottom_content_blocks_head
     - field.field.node.fact_page.field_content_blocks
+    - field.field.node.fact_page.field_content_blocks_footer
+    - field.field.node.fact_page.field_content_blocks_heading
     - field.field.node.fact_page.field_link
     - field.field.node.fact_page.field_meta_tags
+    - field.field.node.fact_page.field_sidebar_content_blocks
     - field.field.node.fact_page.field_subheading
+    - field.field.node.fact_page.field_top_content_blocks
+    - field.field.node.fact_page.field_top_content_blocks_heading
     - node.type.fact_page
   module:
     - allowed_formats
@@ -24,10 +29,11 @@ third_party_settings:
   field_group:
     group_content_blocks:
       children:
+        - field_content_blocks_heading
         - field_content_blocks
-        - field_body_body_second
+        - field_content_blocks_footer
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: tab
       format_settings:
         id: ''
@@ -41,7 +47,7 @@ third_party_settings:
         - body
         - field_link
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: tab
       format_settings:
         id: ''
@@ -52,9 +58,9 @@ third_party_settings:
       label: 'Page Body'
     group_inner_sidebar:
       children:
-        - field_bottom_content_blocks
+        - field_sidebar_content_blocks
       parent_name: ''
-      weight: 4
+      weight: 6
       format_type: tab
       format_settings:
         id: ''
@@ -63,6 +69,36 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Inner Sidebar'
+    group_blocks_second_row:
+      children:
+        - field_top_content_blocks_heading
+        - field_top_content_blocks
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        label: 'Top Row'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Top Row'
+    group_bottom_content_blocks:
+      children:
+        - field_bottom_content_blocks_head
+        - field_bottom_content_blocks
+      parent_name: ''
+      weight: 12
+      format_type: tab
+      format_settings:
+        label: 'Bottom Row'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Bottom Row'
 id: node.fact_page.default
 targetEntityType: node
 bundle: fact_page
@@ -79,12 +115,44 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_body_body_second:
-    weight: 10
+  field_bottom_content_blocks:
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_bottom_content_blocks_head:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_content_blocks:
+    weight: 15
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_content_blocks_footer:
+    weight: 17
     settings:
       rows: 3
       placeholder: ''
@@ -94,29 +162,13 @@ content:
         hide_guidelines: '1'
     type: text_textarea
     region: content
-  field_bottom_content_blocks:
-    weight: 10
+  field_content_blocks_heading:
+    weight: 14
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
-  field_content_blocks:
-    weight: 9
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+    type: string_textfield
     region: content
   field_link:
     weight: 10
@@ -127,10 +179,22 @@ content:
     type: link_default
     region: content
   field_meta_tags:
-    weight: 26
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  field_sidebar_content_blocks:
+    type: entity_reference_paragraphs
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
     region: content
   field_subheading:
     weight: 1
@@ -143,9 +207,29 @@ content:
         hide_guidelines: '1'
     type: text_textfield
     region: content
+  field_top_content_blocks:
+    type: entity_reference_paragraphs
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_top_content_blocks_heading:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -153,14 +237,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 9
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 10
     region: content
     third_party_settings: {  }
   title:
@@ -173,7 +257,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60

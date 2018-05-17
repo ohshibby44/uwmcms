@@ -61,6 +61,8 @@ class TwigExtension extends \Twig_Extension {
         'uwm_sort_parts', [$this, 'sortArrayByValues']),
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
+      new \Twig_SimpleFilter(
+        'uwm_collection_classes', [$this, 'collectionCssClasses']),
 
     ];
   }
@@ -322,6 +324,35 @@ class TwigExtension extends \Twig_Extension {
     }
 
     return NULL;
+  }
+
+  /**
+   * Description text.
+   *
+   * @param mixed|null $collectionItems
+   *   Description text.
+   *
+   * @return array
+   *   Description text.
+   */
+  public static function collectionCssClasses($collectionItems = NULL) {
+
+    $cssClasses = [];
+
+    if (method_exists($collectionItems, 'getValue')) {
+      $collectionItems = $collectionItems->getValue();
+    }
+
+    $collection = (array) $collectionItems;
+    $cssClasses[] = 'group-with-' . count($collection);
+    for ($i = 2; $i <= 10; $i++) {
+      if (count($collection) % $i === 0) {
+        $cssClasses[] = 'group-of-' . $i . 's';
+      }
+    }
+
+    return $cssClasses;
+
   }
 
 }

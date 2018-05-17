@@ -9,7 +9,7 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: 'UWM Medical Service'
+name: 'Medical Service'
 type: uwm_medical_service
 description: ''
 help: ''

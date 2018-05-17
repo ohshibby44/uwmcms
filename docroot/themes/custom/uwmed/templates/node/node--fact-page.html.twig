@@ -1,52 +1,62 @@
 {{ attach_library('uwmed/node--fact-page') }}
 
 
-{% set classes = [node.bundle|clean_class,
-node.isPromoted() ? 'is-promoted',
-node.isSticky() ? 'is-sticky',
-not node.isPublished() ? 'is-unpublished',
-view_mode ? view_mode|clean_class,
-'clearfix',
-] %}
+{% set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+    ]
+%}
 
-{% set inner_sidebar = [content.field_bottom_content_blocks,
-drupal_region('content_innner_sidebar')
-? drupal_region('content_innner_sidebar') : []
-] %}
+{% set inner_sidebar = [
+    content.field_sidebar_content_blocks,
+    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+    ]
+%}
 
 {#{{  devel_breakpoint()  }}#}
 
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
-    {% if content.field_content_blocks |render is not empty %}
-
-        {% set n = content.field_content_blocks['#items']|length %}
-        {% set classes = [n is divisible by (2) ? 'paragraph-2s',
-        n is divisible by (3) ? 'paragraph-3s',
-        n is divisible by (4) ? 'paragraph-4s'
-        ] %}
-
+    {% if content.field_top_content_blocks|render is not empty %}
+        {% set t = content.field_top_content_blocks['#items'] %}
         {#{{ devel_breakpoint() }}#}
-        <section class="row crocosmias">
+        <section class="row palmatum {{ t|uwm_collection_classes|uwm_join_parts }}">
 
-            <div class="wrapper {{ classes|uwm_join_parts }}">
+            <div class="wrapper">
 
+                {{ content.field_top_content_blocks_heading }}
+                {{ content.field_top_content_blocks }}
+
+            </div>
+
+        </section>
+    {% endif %}
+
+
+    {% if content.field_content_blocks|render is not empty %}
+        {% set t = content.field_content_blocks['#items'] %}
+        <section class="row crocosmias {{ t|uwm_collection_classes|uwm_join_parts }}">
+
+            <div class="wrapper">
+
+                {{ content.field_content_blocks_heading }}
                 {{ content.field_content_blocks }}
-
-                {{ content.field_body_body_second }}
+                {{ content.field_content_blocks_footer }}
 
 
             </div>
 
         </section>
-
     {% endif %}
 
 
 
-    {% if content.body |render is not empty %}
-
+    {% if content.body|render is not empty %}
         <section class="row beesbalm">
 
             <div class="col-xs-12">
@@ -63,7 +73,6 @@ drupal_region('content_innner_sidebar')
                 <div{{ content_attributes.addClass('content') }}>
 
                     {{ content.body }}
-
                     {{ content.field_link }}
 
                 </div>
@@ -74,21 +83,33 @@ drupal_region('content_innner_sidebar')
 
     {% endif %}
 
-
+    {#
+    Repeat sidebar for mobile:
+    #}
     {% if inner_sidebar is not empty %}
-
         <aside class="inner-sidebar col-xs-12 visible-xs block-format-paragraph"
                role="complementary">
 
             {{ inner_sidebar }}
 
         </aside>
-
     {% endif %}
 
-    {% if ecare_modal %}
-        {#{{ ecare_link }}#}
-        {{ ecare_modal }}
+
+    {% if content.field_bottom_content_blocks|render is not empty %}
+    {% set t = content.field_bottom_content_blocks['#items'] %}
+
+        <section class="row helleborus {{ t|uwm_collection_classes|uwm_join_parts }}">
+
+            <div class="wrapper">
+
+                {{ content.field_bottom_content_blocks_head }}
+                {{ content.field_bottom_content_blocks }}
+
+            </div>
+
+        </section>
     {% endif %}
+
 
 </article>

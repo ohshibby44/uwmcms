@@ -1,9 +1,9 @@
-uuid: 65c9e85d-2f78-4820-a96b-e371aeb3f62e
+uuid: 52f4f799-d1a8-4889-94f7-750541fdfbd6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_bottom_content_blocks
+    - field.storage.node.field_sidebar_content_blocks
     - node.type.fact_page
     - paragraphs.paragraphs_type.content_snippet
     - paragraphs.paragraphs_type.links_list
@@ -11,14 +11,14 @@ dependencies:
     - paragraphs.paragraphs_type.reusable_content
   module:
     - entity_reference_revisions
-id: node.fact_page.field_bottom_content_blocks
-field_name: field_bottom_content_blocks
+id: node.fact_page.field_sidebar_content_blocks
+field_name: field_sidebar_content_blocks
 entity_type: node
 bundle: fact_page
-label: 'Bottom Content Blocks'
+label: 'Sidebar Content Blocks'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -33,29 +33,29 @@ settings:
     target_bundles_drag_drop:
       content_snippet:
         enabled: true
-        weight: 8
-      feature_story:
-        weight: 9
-        enabled: false
-      accordion_panel:
-        weight: 10
-        enabled: false
-      homepage_section:
-        weight: 10
-        enabled: false
-      link_with_icon:
-        weight: 11
-        enabled: false
+        weight: -19
       links_list:
         enabled: true
-        weight: 12
+        weight: -18
       media_feature:
         enabled: true
-        weight: 13
+        weight: -17
       reusable_content:
         enabled: true
-        weight: 14
+        weight: -16
+      accordion_panel:
+        weight: -15
+        enabled: false
+      feature_story:
+        weight: -14
+        enabled: false
+      homepage_section:
+        weight: -13
+        enabled: false
+      link_with_icon:
+        weight: -12
+        enabled: false
       quiz_question:
-        weight: 17
+        weight: -11
         enabled: false
 field_type: entity_reference_revisions

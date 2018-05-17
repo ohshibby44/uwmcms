@@ -22,6 +22,15 @@
   -webkit-transform-style: preserve-3d;
 }
 
+@mixin uw-well() {
+  @extend .well;
+  border: 0 none;
+  margin: 30px 0;
+  background: transparent;
+  box-shadow: none;
+  @content;
+}
+
 @mixin uw-separator($angle: false) {
 
   @if $angle {
@@ -124,7 +133,7 @@
     }
 
     &:hover {
-      
+
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
         color: $uwmed-white;
@@ -160,14 +169,16 @@
 
 @mixin uw-equal-height-row($row-container, $cell-container, $cell-cell: false) {
 
-  #{$row-container} > #{$cell-container} {
-    display: flex;
-    flex-direction: column;
+  #{$row-container} #{$cell-container} {
+    flex: 1;
     margin-bottom: 15px;
 
     @if #{$cell-cell} {
-      > #{$cell-cell} {
-        height: 100%;
+      display: flex;
+
+      #{$cell-cell} {
+        display: flex;
+        flex: 1;
       }
     }
 
@@ -175,7 +186,10 @@
 
   #{$row-container} {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    float: left;
+    width: 100%;
   }
 
   @content;

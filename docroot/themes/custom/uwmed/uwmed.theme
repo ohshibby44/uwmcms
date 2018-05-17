@@ -31,7 +31,8 @@ function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variable
 
   $type = $variables['elements']['#node']->getType();
   if ($variables['elements']['#view_mode'] == 'full'
-      && in_array($type, ['a', 'b'])) {
+      && in_array($type, ['a', 'b'])
+  ) {
     $suggestions[] = 'node__' . $type . 'abtest';
   }
 
@@ -107,6 +108,19 @@ function uwmed_preprocess_field(&$variables) {
     $id = $id[0]['value'] ?? rand();
     $variables['uwmFieldId'] = Html::getUniqueId('uw-' . $id);
 
+  }
+
+  if (isset($variables['element']['#field_name'])) {
+
+    $headerFields = [
+      'field_bottom_content_blocks_head',
+      'field_content_blocks_heading',
+      'field_top_content_blocks_heading',
+
+    ];
+    if (in_array($variables['element']['#field_name'], $headerFields)) {
+      $variables['item_element'] = 'h2';
+    }
   }
 
 }

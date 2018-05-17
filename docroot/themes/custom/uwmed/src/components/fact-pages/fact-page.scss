@@ -1,10 +1,13 @@
 body.page-node-type-fact-page {
 
+  /**
+   *
+   * PAGE STYLING:
+   *
+   */
   div.main-container {
-
     @extend %uwmed-gradient-angled-dark-background;
     padding-top: 0;
-
   }
 
   h1.page-header {
@@ -26,68 +29,57 @@ body.page-node-type-fact-page {
         }
       }
     }
-
   }
 
+  /**
+   *
+   * NODE STYLING:
+   *
+   */
   article.fact-page {
 
-    section.crocosmias {
-
-      .field.field--name-field-body-body-second {
-        @extend .col-xs-12, .text-center, .h5;
-        font-weight: normal;
-        margin: 30px 0;
-        a {
-          font-weight: normal;
-
-        }
+    .paragraph {
+      @extend .col-xs-12;
+      > .wrapper {
+        @extend .well;
+        width: 100%;
+        margin-bottom: 30px;
+        background: $uwmed-white;
+        box-shadow: 1px 1px 3px 0 #dcdcdc;
+        background: #f8f8f8;
       }
-
-      .field.field--name-field-content-blocks {
-        @extend .col-xs-12;
-        > .item .paragraph {
-          @extend .well;
-          margin-bottom: 30px;
-          background: $uwmed-white;
-          box-shadow: 1px 1px 3px 0 #dcdcdc;
-          background: #f8f8f8;
-        }
-
-        .field.field--name-field-text-snippet {
-          min-height: 100px;
-        }
-
-      }
-
-      .field.field--name-field-content-blocks > .item {
-        @extend .col-xs-12;
-      }
-      .paragraph-2s .field.field--name-field-content-blocks > .item {
-        @extend .col-sm-6;
-      }
-      .paragraph-3s .field.field--name-field-content-blocks > .item {
-        @extend .col-md-4;
-      }
-      .paragraph-4s .field.field--name-field-content-blocks > .item {
-        @extend .col-md-3;
-      }
-
     }
 
-    section.beesbalm {
+    .group-of-2s .paragraph {
+      @extend .col-sm-6;
+    }
+    .group-of-3s .paragraph {
+      @extend .col-md-4;
+    }
+    .group-of-4s .paragraph {
+      @extend .col-md-3;
+    }
 
-      background: $uwmed-white;
-      padding: 30px;
+    h2.item {
+      @extend .col-xs-12;
+    }
 
-      .content {
+    /**
+     *
+     * NODE CONTENT SECTIONS:
+     *
+     */
+    section.body-content {
 
-        div.field.field--name-field-link {
-          @include uw-ghost-button('.item', 'i.u-ips');
-          > .item {
-            margin-right: 15px;
-          }
+      .field.field--name-field-link {
+        margin-top: 15px;
+      }
+
+      div.field.field--name-field-link {
+        @include uw-ghost-button('.item', 'i.u-ips');
+        > .item {
+          margin-right: 15px;
         }
-
       }
 
       aside.inner-sidebar {
@@ -97,40 +89,72 @@ body.page-node-type-fact-page {
           margin-left: 25px;
           padding: 0 0 25px 25px;
         }
-
       }
 
     }
 
-  }
+    section.crocosmias {
 
-  .field--label {
-    @extend .hidden;
-  }
+      background: $uwmed-white;
+      padding: 30px;
 
-  &.open-scheduling-enabled {
+      .field.field--name-field-content-blocks-footer {
+        @extend .col-xs-12, .text-center, .h5;
+        @include uw-well();
+        font-weight: normal;
+        a {
+          font-weight: normal;
+
+        }
+      }
+    }
+
+    section.beesbalm {
+
+      background: $uwmed-off-white;
+      padding: 30px;
+
+    }
+
+    /**
+     *
+     * OTHER SPECIAL RULES:
+     *
+     */
+    .field--label {
+      @extend .hidden;
+    }
+
+    &.open-scheduling-enabled {
+      .os-show {
+        display: block;
+      }
+      a.os-show, span.os-show {
+        display: inline-block;
+      }
+      .os-hide {
+        display: none;
+      }
+    }
     .os-show {
-      display: block;
-    }
-    a.os-show, span.os-show {
-      display: inline-block;
-    }
-    .os-hide {
       display: none;
     }
-  }
-  .os-show {
-    display: none;
-  }
 
-  @media(min-width: $screen-lg-min) {
+    @media(min-width: $screen-lg-min) {
 
-    section.crocosmias > .wrapper {
-      padding: 0 15px;
+      section.crocosmias > .wrapper {
+        padding: 0 15px;
+      }
+
+      @include uw-equal-height-row(
+                      '.field--name-field-top-content-blocks',
+                      '> .item', '> .paragraph');
+
+      @include uw-equal-height-row(
+                      '.field--name-field-content-blocks',
+                      '> .item', '> .paragraph');
+
     }
-
-    @include uw-equal-height-row('.field.field--name-field-content-blocks',
-            '.item', '.paragraph');
 
   }
 
