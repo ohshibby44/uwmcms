@@ -82,6 +82,69 @@ function uwmed_preprocess_node(&$variables) {
 
   }
 
+  if ($node->getType() === 'uwm_medical_service' || 'uwm_medical_specialty') {
+    $has_quiz = !is_null($node->field_quiz);
+    if ($has_quiz) {
+      if (isset($node->field_quiz->getValue()[0])) {
+        $quiz_id = $node->field_quiz->getValue()[0]['target_id'];
+        if (isset($quiz_id)) {
+          $quiz_entity = Drupal::entityTypeManager()->getStorage("node")->load($quiz_id);
+        }
+
+        if (isset($quiz_entity)) {
+          $quiz_title = $quiz_entity->title->value;
+          $quiz_intro = strip_tags($quiz_entity->body->value);
+          $quiz_exit = strip_tags($quiz_entity->field_body_body_second->value);
+          $quiz_questions = $quiz_entity->field_quiz_questions;
+
+          $formatted_info = [
+            'name' => $quiz_title,
+            'main' => $quiz_intro,
+            'results' => $quiz_exit,
+          ];
+
+          $formatted_quiz = [
+            'info' => $formatted_info,
+            'questions' => [],
+          ];
+
+          foreach ($quiz_questions as $q) {
+            $q_id = $q->getValue()['target_id'];
+
+            if ($q_id) {
+              $q_entity = Drupal::entityTypeManager()
+                ->getStorage("paragraph")
+                ->load($q_id);
+              $question_text = strip_tags($q_entity->field_text_snippet->value);
+              $correct_answer = $q_entity->field_integer->value;
+              $correct_prompt = strip_tags($q_entity->field_correct_answer_prompt->value);
+              $incorrect_prompt = strip_tags($q_entity->field_incorrect_answer_prompt->value);
+              $answer_list = $q_entity->field_answer_list;
+
+              $formatted_answers = [];
+              foreach ($answer_list as $key => $answer) {
+                $is_correct = ($key + 1 === (int) $correct_answer);
+                $formatted_answers[] = [
+                  'option' => strip_tags($answer->value),
+                  'correct' => $is_correct,
+                ];
+              }
+
+              $formatted_question = [
+                'q' => $question_text,
+                'a' => $formatted_answers,
+                'correct' => $correct_prompt,
+                'incorrect' => $incorrect_prompt,
+              ];
+              $formatted_quiz['questions'][] = $formatted_question;
+            }
+          }
+
+          $variables["#attached"]['drupalSettings']['formattedQuizJSON'] = $formatted_quiz;
+        }
+      }
+    }
+  }
 }
 
 /**

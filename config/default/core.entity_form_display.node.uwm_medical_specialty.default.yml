@@ -90,22 +90,20 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_accordion:
-    type: paragraphs
+    type: entity_reference_paragraphs
     weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: closed
-      closed_mode: summary
-      autocollapse: none
+      edit_mode: open
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: accordion_panel
+      default_paragraph_type: ''
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
@@ -180,14 +178,14 @@ content:
     type: paragraphs
     region: content
   field_quiz:
-    weight: 8
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_sub_title:
     weight: 43
     settings:
@@ -206,7 +204,7 @@ content:
     region: content
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -214,14 +212,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 6
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -234,7 +232,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
