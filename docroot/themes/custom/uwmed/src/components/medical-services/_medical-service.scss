@@ -867,15 +867,27 @@
       display: flex;
 
       div:nth-child(1) {
-        z-index: 40;
+        z-index: 80;
       }
       div:nth-child(2) {
-        z-index: 30;
+        z-index: 70;
       }
       div:nth-child(3) {
-        z-index: 20;
+        z-index: 60;
       }
       div:nth-child(4) {
+        z-index: 50;
+      }
+      div:nth-child(5) {
+        z-index: 40;
+      }
+      div:nth-child(6) {
+        z-index: 30;
+      }
+      div:nth-child(7) {
+        z-index: 20;
+      }
+      div:nth-child(8) {
         z-index: 10;
       }
     }
