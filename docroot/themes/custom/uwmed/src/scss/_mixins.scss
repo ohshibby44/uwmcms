@@ -194,3 +194,21 @@
 
   @content;
 }
+
+
+@mixin uw-open-scheduling-rules() {
+  .open-scheduling-enabled {
+    .os-show {
+      display: block;
+    }
+    a.os-show, span.os-show {
+      display: inline-block;
+    }
+    .os-hide {
+      display: none;
+    }
+  }
+  .os-show {
+    display: none;
+  }
+}

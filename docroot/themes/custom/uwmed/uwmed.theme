@@ -7,6 +7,7 @@
 
 use Drupal\Component\Utility\Html;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
 /**
@@ -88,7 +89,9 @@ function uwmed_preprocess_node(&$variables) {
       if (isset($node->field_quiz->getValue()[0])) {
         $quiz_id = $node->field_quiz->getValue()[0]['target_id'];
         if (isset($quiz_id)) {
-          $quiz_entity = Drupal::entityTypeManager()->getStorage("node")->load($quiz_id);
+          $quiz_entity = Drupal::entityTypeManager()
+            ->getStorage("node")
+            ->load($quiz_id);
         }
 
         if (isset($quiz_entity)) {
@@ -152,9 +155,13 @@ function uwmed_preprocess_node(&$variables) {
  */
 function uwmed_preprocess_field(&$variables) {
 
-  $obj = $variables['element']['#object'] ?? NULL;
+  $element = $variables['element'] ?? NULL;
+  $obj = $element['#object'] ?? NULL;
+  $field_name = $element['#field_name'] ?? NULL;
 
-  // Get media object value for twig template:
+  /***
+   * Add video URL's for theming:
+   */
   if ($obj && $obj->hasField('field_media_video_data_url')) {
 
     $variables['videoUrl'] = $obj->get('field_media_video_data_url')
@@ -164,28 +171,62 @@ function uwmed_preprocess_field(&$variables) {
 
   }
 
-  // Make unique html-id available for templates:
+  /***
+   * Add unique Id for lightbox links:
+   */
   if ($obj && $obj->hasField('uuid')) {
 
     $id = $obj->get('uuid')->getValue();
     $id = $id[0]['value'] ?? rand();
-    $variables['uwmFieldId'] = Html::getUniqueId('uw-' . $id);
+    $variables['uwm_field_uuid'] = Html::getUniqueId('uw-' . $id);
 
   }
 
-  if (isset($variables['element']['#field_name'])) {
+  /***
+   * Set normal heading element for header fields:
+   */
+  $headerFields = [
+    'field_bottom_content_blocks_head',
+    'field_content_blocks_heading',
+    'field_top_content_blocks_heading',
 
-    $headerFields = [
-      'field_bottom_content_blocks_head',
-      'field_content_blocks_heading',
-      'field_top_content_blocks_heading',
+  ];
+  if (in_array($field_name, $headerFields)) {
 
-    ];
-    if (in_array($variables['element']['#field_name'], $headerFields)) {
-      $variables['item_element'] = 'h2';
+    $variables['item_element'] = 'h2';
+
+  }
+
+  /***
+   * Add term names safe for templates:
+   */
+  $stylingFields = [
+    'field_content_blocks_style',
+    'field_body_style_terms',
+  ];
+  if ($obj && in_array($field_name, $stylingFields)) {
+
+    $classes = [Html::getClass('uwterm-styles')];
+    $fieldTerms = $obj->get($field_name)->getValue();
+
+    foreach ($fieldTerms as $fieldTerm) {
+
+      $term = $terms = Term::load($fieldTerm['target_id']);
+      $classes[] = Html::getClass('uwterm__' . $term->name->value);
+      $classes[] = Html::getClass('uwterm__' . $term->field_code_label->value);
+
     }
+
+    $variables['wrapper_classes'] = $classes;
+
   }
 
+}
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function uwmed_preprocess_taxonomy_term(&$variables) {
 }
 
 /**

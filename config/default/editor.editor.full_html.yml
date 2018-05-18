@@ -17,6 +17,7 @@ settings:
           items:
             - Bold
             - Italic
+            - Styles
         -
           name: Links
           items:
@@ -44,7 +45,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "h2|H2\r\nh3|H3\r\naddress|Address\r\nblockquote|Blockquote\r\ndiv.col-xs-12.col-sm-3.uw-wellpull-right.right-letterbox|Right Letterbox"
 image_upload:
   status: false
   scheme: public

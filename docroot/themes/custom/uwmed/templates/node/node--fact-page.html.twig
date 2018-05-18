@@ -2,20 +2,18 @@
 
 
 {% set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    ]
-%}
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
 
 {% set inner_sidebar = [
-    content.field_sidebar_content_blocks,
-    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
-    ]
-%}
+content.field_sidebar_content_blocks,
+drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+] %}
 
 {#{{  devel_breakpoint()  }}#}
 
@@ -24,8 +22,8 @@
 
     {% if content.field_top_content_blocks|render is not empty %}
         {% set t = content.field_top_content_blocks['#items'] %}
-        {#{{ devel_breakpoint() }}#}
-        <section class="row palmatum {{ t|uwm_collection_classes|uwm_join_parts }}">
+        <section
+                class="row palmatum inverse {{ t|uwm_collection_classes|uwm_join_parts }}">
 
             <div class="wrapper">
 
@@ -40,7 +38,28 @@
 
     {% if content.field_content_blocks|render is not empty %}
         {% set t = content.field_content_blocks['#items'] %}
-        <section class="row crocosmias {{ t|uwm_collection_classes|uwm_join_parts }}">
+        {% set style = 'block-style__' ~ content.field_content_blocks_style[0]['#title']|clean_class %}
+
+        111
+        {% set f = drupal_field('field_body_style_terms', 'node', node.id) %}
+        <code>{{ f }}</code>
+        <pre>{{ dump(f|keys) }}</pre>
+        <pre>{{ dump(f.wrapper_classes) }}</pre>
+
+        2222
+        <code>{{ content.field_body_style_terms }}</code>
+        <pre>{{ dump(content.field_body_style_terms|keys) }}</pre>
+        <pre>{{ dump(content.field_body_style_terms.wrapper_classes) }}</pre>
+
+        3333
+        <code>{{ content.field_content_blocks_style }}</code>
+        <pre>{{ dump(content.field_content_blocks_style|keys) }}</pre>
+        <pre>{{ dump(content.field_content_blocks_style.wrapper_classes) }}</pre>
+
+        {#{{ devel_breakpoint() }}#}
+
+        <section
+                class="row crocosmias {{ t|uwm_collection_classes|uwm_join_parts }} {{ style }}">
 
             <div class="wrapper">
 
@@ -57,7 +76,7 @@
 
 
     {% if content.body|render is not empty %}
-        <section class="row beesbalm">
+        <section{{ content_attributes.addClass('row beesbalm body-content') }}>
 
             <div class="col-xs-12">
 
@@ -70,12 +89,9 @@
                     </aside>
                 {% endif %}
 
-                <div{{ content_attributes.addClass('content') }}>
 
-                    {{ content.body }}
-                    {{ content.field_link }}
-
-                </div>
+                {{ content.body }}
+                {{ content.field_link }}
 
             </div>
 
@@ -97,9 +113,10 @@
 
 
     {% if content.field_bottom_content_blocks|render is not empty %}
-    {% set t = content.field_bottom_content_blocks['#items'] %}
+        {% set t = content.field_bottom_content_blocks['#items'] %}
 
-        <section class="row helleborus {{ t|uwm_collection_classes|uwm_join_parts }}">
+        <section
+                class="row helleborus inverse {{ t|uwm_collection_classes|uwm_join_parts }}">
 
             <div class="wrapper">
 

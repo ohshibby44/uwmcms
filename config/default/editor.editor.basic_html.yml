@@ -39,6 +39,7 @@ settings:
             - Blockquote
             - DrupalImage
             - media_browser
+            - node
         -
           name: Tools
           items:

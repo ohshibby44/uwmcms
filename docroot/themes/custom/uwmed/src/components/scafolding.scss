@@ -95,7 +95,9 @@ h2.accent, h3.accent, h4.accent {
 }
 
 
-
+.well, .uw-well {
+  @include uw-well();
+}
 
 @include uw-equal-height-row('.row.equal-heights', '[class*=col]');
 

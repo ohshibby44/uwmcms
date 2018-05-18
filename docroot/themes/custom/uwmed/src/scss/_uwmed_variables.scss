@@ -30,7 +30,7 @@ $uw-images-folder: '/themes/custom/uwmed/dist/assets';
 $uwmed-purple: #32006e;
 $uwmed-light-purple: #4B2E83;
 $uwmed-white: #fff;
-$uwmed-off-white: darken($uwmed-white, 3%);
+$uwmed-off-white: darken($uwmed-white, 1.5%);
 $uwmed-gray: #b5b5b5;
 $uwmed-black: #333d47;
 $uwmed-gray-dark: #5F6267;
@@ -343,3 +343,4 @@ $uwmed-solid-dark-purple: #3f3952;
   background-repeat: no-repeat;
   background-position: center center;
 }
+

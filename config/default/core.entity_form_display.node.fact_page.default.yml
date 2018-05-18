@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.fact_page.body
+    - field.field.node.fact_page.field_body_style_terms
     - field.field.node.fact_page.field_bottom_content_blocks
     - field.field.node.fact_page.field_bottom_content_blocks_head
     - field.field.node.fact_page.field_content_blocks
     - field.field.node.fact_page.field_content_blocks_footer
     - field.field.node.fact_page.field_content_blocks_heading
+    - field.field.node.fact_page.field_content_blocks_style
     - field.field.node.fact_page.field_link
     - field.field.node.fact_page.field_meta_tags
     - field.field.node.fact_page.field_sidebar_content_blocks
@@ -29,6 +31,7 @@ third_party_settings:
   field_group:
     group_content_blocks:
       children:
+        - field_content_blocks_style
         - field_content_blocks_heading
         - field_content_blocks
         - field_content_blocks_footer
@@ -44,6 +47,8 @@ third_party_settings:
       label: 'Content Blocks'
     group_page_body:
       children:
+        - field_body_style_terms
+        - field_icon_terms
         - body
         - field_link
       parent_name: ''
@@ -60,7 +65,7 @@ third_party_settings:
       children:
         - field_sidebar_content_blocks
       parent_name: ''
-      weight: 6
+      weight: 5
       format_type: tab
       format_settings:
         id: ''
@@ -106,7 +111,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 28
     settings:
       rows: 9
       summary_rows: 3
@@ -119,6 +124,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_body_style_terms:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_bottom_content_blocks:
     weight: 14
     settings:
@@ -140,7 +151,7 @@ content:
     type: string_textfield
     region: content
   field_content_blocks:
-    weight: 15
+    weight: 19
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -152,7 +163,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_content_blocks_footer:
-    weight: 17
+    weight: 20
     settings:
       rows: 3
       placeholder: ''
@@ -163,15 +174,21 @@ content:
     type: text_textarea
     region: content
   field_content_blocks_heading:
-    weight: 14
+    weight: 18
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_content_blocks_style:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_link:
-    weight: 10
+    weight: 29
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -186,7 +203,7 @@ content:
     region: content
   field_sidebar_content_blocks:
     type: entity_reference_paragraphs
-    weight: 14
+    weight: 27
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -213,10 +230,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
     third_party_settings: {  }
     region: content
   field_top_content_blocks_heading:
@@ -257,7 +274,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60

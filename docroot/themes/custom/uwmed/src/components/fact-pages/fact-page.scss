@@ -41,13 +41,17 @@ body.page-node-type-fact-page {
     .paragraph {
       @extend .col-xs-12;
       > .wrapper {
-        @extend .well;
+        @include uw-well();
         width: 100%;
         margin-bottom: 30px;
-        background: $uwmed-white;
-        box-shadow: 1px 1px 3px 0 #dcdcdc;
-        background: #f8f8f8;
+        background: $uwmed-off-white;
+        border: 1px solid $uwmed-light-gray;
       }
+    }
+
+    .inverse .paragraph > .wrapper {
+      background: $uwmed-white;
+      box-shadow: 1px 1px 3px 0 $uwmed-light-gray;
     }
 
     .group-of-2s .paragraph {
@@ -99,14 +103,13 @@ body.page-node-type-fact-page {
       padding: 30px;
 
       .field.field--name-field-content-blocks-footer {
-        @extend .col-xs-12, .text-center, .h5;
-        @include uw-well();
+        @extend .col-xs-12, .well, .uw-well, .text-center, .h5;
         font-weight: normal;
         a {
           font-weight: normal;
-
         }
       }
+
     }
 
     section.beesbalm {
@@ -125,20 +128,7 @@ body.page-node-type-fact-page {
       @extend .hidden;
     }
 
-    &.open-scheduling-enabled {
-      .os-show {
-        display: block;
-      }
-      a.os-show, span.os-show {
-        display: inline-block;
-      }
-      .os-hide {
-        display: none;
-      }
-    }
-    .os-show {
-      display: none;
-    }
+    @include uw-open-scheduling-rules();
 
     @media(min-width: $screen-lg-min) {
 
