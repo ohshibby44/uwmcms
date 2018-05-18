@@ -24,6 +24,7 @@
         display: block;
         padding: 10px 15px;
         font-size: $font-size-base;
+        text-decoration: none;
       }
 
       a:focus {
@@ -107,6 +108,7 @@
     .panel-list-group-top-level {
       border: none;
       box-shadow: none;
+      margin-bottom: 38px;
     }
 
     .list-group-top-level {
@@ -130,7 +132,7 @@
       display: flex;
 
       a {
-        flex-grow: 1;
+        flex: 1;
         text-decoration: none;
         background: $uwmed-accent-orange;
         color: white;

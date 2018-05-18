@@ -1,0 +1,39 @@
+.ghost-button-orange {
+  .btn:after {
+    content: "";
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  @include uw-ghost-button('.btn', '.btn:after', $uwmed-accent-orange);
+}
+
+.ghost-button-blue {
+  .btn:after {
+    content: "";
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  @include uw-ghost-button('.btn', '.btn:after', $uwmed-accent-blue);
+}
+
+.ghost-button-teal {
+  .btn:after {
+    content: "";
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  @include uw-ghost-button('.btn', '.btn:after', $uwmed-accent-teal);
+}
+
+.ghost-button-yellow {
+  .btn:after {
+    content: "";
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  @include uw-ghost-button('.btn', '.btn:after', $uwmed-accent-yellow);
+}

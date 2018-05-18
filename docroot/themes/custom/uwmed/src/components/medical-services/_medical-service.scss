@@ -382,32 +382,152 @@
     border-bottom: none;
   }
 
+  // Specialties for Medical Service View
+  .view-uwm-medical-specialties-for-service .view-content{
+    //display: inline-block;
+    //width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    >.views-row {
+      flex: none;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      padding: 0 15px;
+      position: relative;
+
+      margin-bottom: 19px;
+
+
+      @media(min-width: $screen-sm-min) {
+        flex: 1;
+        min-width: 49%;
+      }
+
+      @media(min-width: $screen-md-min) {
+        min-width: 24%;
+        border-right: 1px solid #bababa;
+        padding: 10px 15px;
+      }
+
+      //.paragraph {
+      //  padding: 0 15px;
+      //
+      //  @media(min-width: $screen-md-min) {
+      //    padding: 10px 15px;
+      //  }
+      //}
+    }
+
+    >.views-row:last-child, >.views-row:nth-child(4) {
+      border-right: none;
+    }
+
+    .views-row-last-row-column-1 {
+      margin-right: 75%;
+    }
+
+    .views-row-last-row-column-2 {
+      margin-right: 50%;
+    }
+
+    .views-row-last-row-column-3 {
+      margin-right: 25%;
+    }
+
+    .views-field-title {
+      @extend .h5;
+    }
+
+    .views-field-path {
+      @include uw-ghost-button('.btn', '.btn:after', $uwmed-accent-orange);
+
+      padding-top: 12px;
+      margin-top: auto;
+
+      .btn:after {
+        content: "";
+      }
+    }
+  }
+
+  //.field--name-field-proof-points > div:nth-child(2) > div:nth-child(2) {
+  //  @media(max-width: $screen-md-max) {
+  //    //border-right: none;
+  //  }
+  //}
+  //.field--name-field-proof-points > div:nth-child(3) > div:nth-child(2) {
+  //  border-bottom: none;
+  //  @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+  //    //border-right: 1px solid #bababa;;
+  //  }
+  //}
+  //.field--name-field-proof-points > div:nth-child(4) > div:nth-child(2) {
+  //  border-right: none;
+  //  border-bottom: none;
+  //}
+
   .medical-service__common-services {
-    margin-top: 30px;
+    padding-top: 30px;
     position: relative;
     background-color: #f5f5f5;
     @extend .clearfix;
     padding-bottom: 30px;
+    margin-top: -1px;
+    z-index: 2;
 
-    .field--name-field-common-services {
-    }
-    .common-services__item {
-      .paragraph--type--content-snippet {
-        @include make-md-column(5);
-      }
+    .common_services {
+      display: flex;
+      flex-wrap: wrap;
 
-      &:nth-of-type(even) {
-        @media(max-width: $screen-sm-max) {
-          margin-top: $padding-base-vertical * 5;
+      >.item {
+        flex: none;
+        width: 100%;
+        padding: 0 15px;
+
+        @media(min-width: $screen-sm-min) {
+          flex: 1;
+          min-width: 49%;
+        }
+
+        @media(min-width: $screen-md-min) {
+          min-width: 32%;
+          margin-bottom: 19px;
         }
       }
-    }
 
-    .common-services__item:nth-of-type(even) {
-      .paragraph--type--content-snippet {
-        @include make-md-column-offset(2);
+      .item-last-row-column-1 {
+        margin-right: 66%;
+      }
+
+      .item-last-row-column-2 {
+        margin-right: 33%;
       }
     }
+
+    //.field--name-field-common-services {
+    //}
+    //.common-services__item {
+    //  .paragraph--type--content-snippet {
+    //    @include make-md-column(5);
+    //  }
+    //
+    //  &:nth-of-type(even) {
+    //    @media(max-width: $screen-sm-max) {
+    //      margin-top: $padding-base-vertical * 5;
+    //    }
+    //  }
+    //}
+    //
+    //.common-services__item:nth-of-type(even) {
+    //  .paragraph--type--content-snippet {
+    //    @include make-md-column-offset(2);
+    //  }
+    //}
 
     .field--name-field-heading {
       @extend h5;
@@ -437,6 +557,25 @@
           float: left;
           color: $uwmed-purple-icon;
         }
+
+        li:nth-child(3) {
+          position: relative;
+        }
+
+        li:nth-child(3):after {
+          content: "";
+          display: block;
+          background: linear-gradient( rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 100%);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 50px;
+        }
+
+        li:last-child:after {
+          display: none;
+        }
       }
     }
 
@@ -449,6 +588,9 @@
       &.on li:nth-child(n+4),
       li.on:nth-child(n+4) {
         display: block;
+      }
+      li.on:nth-child(3):after {
+        display: none;
       }
       .uw-more {
         @extend .col-xs-12;
@@ -481,6 +623,18 @@
       min-height: 700px;
     }
   }
+
+  .gray-background .field--name-field-feature-story {
+    background-color: #f5f5f5;
+    @media(min-width: $screen-lg-min) {
+      @include angled-edge('inside bottom', 'upper right', #f5f5f5, 50);
+    }
+  }
+
+  .gray-background .feature-story__background {
+    @include angled-edge('inside bottom', 'upper right', #f5f5f5, 50);
+  }
+;
 
   .feature-story__title {
     position: absolute;
@@ -574,6 +728,7 @@
   }
 
   .find-a-location {
+    margin-top: 30px;
 
     @media(max-width: $screen-md-max) {
       background-color: #f5f5f5;

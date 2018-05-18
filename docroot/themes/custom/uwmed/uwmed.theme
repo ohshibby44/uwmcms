@@ -140,6 +140,19 @@ function uwmed_preprocess_node(&$variables) {
           }
 
           $variables["#attached"]['drupalSettings']['formattedQuizJSON'] = $formatted_quiz;
+          $quiz_image_field = $quiz_entity->field_image->getValue();
+
+          if (!empty($quiz_image_field[0]['target_id'])) {
+            $quiz_image_id = $quiz_image_field[0]['target_id'];
+            $quiz_image_entity = Drupal::entityTypeManager()
+              ->getStorage("file")
+              ->load($quiz_image_id);
+          }
+
+          if (!empty($quiz_image_entity)) {
+            $quiz_image_url = $quiz_image_entity->uri->value;
+            $variables['content']['quiz_image_url'] = $quiz_image_url;
+          }
         }
       }
     }
@@ -305,6 +318,7 @@ function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
  */
 function uwmed_preprocess_node__uwm_medical_service(&$variables) {
   $variables["#attached"]['drupalSettings']['uwmcms_reader_primary_care_clinics'] = $variables["node"]->uwmcms_reader_primary_care_clinics;
+  $variables["#attached"]['drupalSettings']['uwmcms_reader_medical_service_clinics'] = $variables["node"]->uwmcms_reader_medical_service_clinics;
 
   $webform = \Drupal::entityTypeManager()
     ->getStorage('webform')

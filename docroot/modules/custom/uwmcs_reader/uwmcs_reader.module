@@ -131,6 +131,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
     }
 
+    if (isset($entity->field_information_manager_url->value)) {
+      $medical_service_data = $fetcher->getUrl($entity->field_information_manager_url->value);
+      if (!empty($medical_service_data)) {
+        $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
+      }
+    }
   }
 
 }

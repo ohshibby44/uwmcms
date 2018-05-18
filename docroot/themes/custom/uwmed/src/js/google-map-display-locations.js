@@ -5,7 +5,7 @@ window.initMap = function() {}; // initialize function in time for google maps t
     attach: function () {
 
       window.initMap = function () {
-        var clinics = drupalSettings['uwmcms_reader_primary_care_clinics'];
+        var clinics = drupalSettings['uwmcms_reader_medical_service_clinics'];
 
         var initialIcon = {
           url: "/themes/custom/uwmed/dist/assets/map-marker-purple.svg",
@@ -26,7 +26,8 @@ window.initMap = function() {}; // initialize function in time for google maps t
             map: map,
             title: clinics[i].name,
             index: i,
-            icon: initialIcon
+            icon: initialIcon,
+            locationId: clinics[i].locationId
           });
           markers.push(marker);
           // attach event listeners to marker
@@ -87,7 +88,7 @@ window.initMap = function() {}; // initialize function in time for google maps t
         marker.addListener('click', function () {
           var clinicList = $('.find-a-location__clinic-list');
           var clinicInfo = $('.find-a-location__clinic-info');
-          var clinic = clinicList.find("[data-index='" + marker.index + "']");
+          var clinic = clinicList.find("[data-location-id='" + marker.locationId + "']");
 
           if (clinicInfo.children().length > 0) {
             $(clinicInfo).fadeOut("fast", function () {
