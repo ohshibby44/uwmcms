@@ -10,6 +10,8 @@ view_mode ? view_mode|clean_class,
 'clearfix',
 ] %}
 
+{% set classes = classes|merge(content.field_body_style_terms['#uwm_678891']['term_styles']) %}
+
 {% set inner_sidebar = [
 content.field_sidebar_content_blocks,
 drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
@@ -21,9 +23,9 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
     {% if content.field_top_content_blocks|render is not empty %}
-        {% set t = content.field_top_content_blocks['#items'] %}
+        {% set t = content.field_top_content_blocks['#items']|uwm_arraycount_styles %}
         <section
-                class="row palmatum inverse {{ t|uwm_collection_classes|uwm_join_parts }}">
+                class="row palmatums {{ t|uwm_join_parts }}">
 
             <div class="wrapper">
 
@@ -37,36 +39,20 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
 
     {% if content.field_content_blocks|render is not empty %}
-        {% set t = content.field_content_blocks['#items'] %}
-        {% set style = 'block-style__' ~ content.field_content_blocks_style[0]['#title']|clean_class %}
 
-        111
-        {% set f = drupal_field('field_body_style_terms', 'node', node.id) %}
-        <code>{{ f }}</code>
-        <pre>{{ dump(f|keys) }}</pre>
-        <pre>{{ dump(f.wrapper_classes) }}</pre>
-
-        2222
-        <code>{{ content.field_body_style_terms }}</code>
-        <pre>{{ dump(content.field_body_style_terms|keys) }}</pre>
-        <pre>{{ dump(content.field_body_style_terms.wrapper_classes) }}</pre>
-
-        3333
-        <code>{{ content.field_content_blocks_style }}</code>
-        <pre>{{ dump(content.field_content_blocks_style|keys) }}</pre>
-        <pre>{{ dump(content.field_content_blocks_style.wrapper_classes) }}</pre>
+        {% set t = [] %}
+        {% set t = t|merge(content.field_content_blocks['#items']|uwm_arraycount_styles) %}
+        {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']['term_styles']) %}
 
         {#{{ devel_breakpoint() }}#}
 
-        <section
-                class="row crocosmias {{ t|uwm_collection_classes|uwm_join_parts }} {{ style }}">
+        <section class="row crocosmias {{ t|uwm_join_parts }}">
 
             <div class="wrapper">
 
                 {{ content.field_content_blocks_heading }}
                 {{ content.field_content_blocks }}
                 {{ content.field_content_blocks_footer }}
-
 
             </div>
 
@@ -76,7 +62,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
 
     {% if content.body|render is not empty %}
-        <section{{ content_attributes.addClass('row beesbalm body-content') }}>
+        <section{{ content_attributes.addClass('beesbalms body-content') }}>
 
             <div class="col-xs-12">
 
@@ -113,10 +99,9 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
 
     {% if content.field_bottom_content_blocks|render is not empty %}
-        {% set t = content.field_bottom_content_blocks['#items'] %}
+        {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
 
-        <section
-                class="row helleborus inverse {{ t|uwm_collection_classes|uwm_join_parts }}">
+        <section class="row helleborus inverse {{ t|uwm_join_parts }}">
 
             <div class="wrapper">
 

@@ -62,7 +62,7 @@ class TwigExtension extends \Twig_Extension {
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
       new \Twig_SimpleFilter(
-        'uwm_collection_classes', [$this, 'collectionCssClasses']),
+        'uwm_arraycount_styles', [$this, 'collectionCssClasses']),
 
     ];
   }
@@ -344,10 +344,10 @@ class TwigExtension extends \Twig_Extension {
     }
 
     $collection = (array) $collectionItems;
-    $cssClasses[] = 'group-with-' . count($collection);
+    $cssClasses[] = 'count-' . count($collection);
     for ($i = 2; $i <= 10; $i++) {
       if (count($collection) % $i === 0) {
-        $cssClasses[] = 'group-of-' . $i . 's';
+        $cssClasses[] = 'count-has-' . $i . 's';
       }
     }
 

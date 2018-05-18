@@ -7,7 +7,6 @@
 
 use Drupal\Component\Utility\Html;
 use Drupal\node\Entity\Node;
-use Drupal\taxonomy\Entity\Term;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
 /**
@@ -206,18 +205,7 @@ function uwmed_preprocess_field(&$variables) {
   ];
   if ($obj && in_array($field_name, $stylingFields)) {
 
-    $classes = [Html::getClass('uwterm-styles')];
-    $fieldTerms = $obj->get($field_name)->getValue();
-
-    foreach ($fieldTerms as $fieldTerm) {
-
-      $term = $terms = Term::load($fieldTerm['target_id']);
-      $classes[] = Html::getClass('uwterm__' . $term->name->value);
-      $classes[] = Html::getClass('uwterm__' . $term->field_code_label->value);
-
-    }
-
-    $variables['wrapper_classes'] = $classes;
+    $variables['wrapper_classes'] = $element['#uwm_678891']['term_styles'];
 
   }
 
