@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.uwm_medical_service.field_blocks
     - field.field.node.uwm_medical_service.field_bottom_content_blocks
     - field.field.node.uwm_medical_service.field_common_services
     - field.field.node.uwm_medical_service.field_condition_spotlight
@@ -12,11 +13,13 @@ dependencies:
     - field.field.node.uwm_medical_service.field_information_manager_url
     - field.field.node.uwm_medical_service.field_links_with_icon
     - field.field.node.uwm_medical_service.field_proof_points
+    - field.field.node.uwm_medical_service.field_sub_title
     - field.field.node.uwm_medical_service.field_subheading
     - node.type.uwm_medical_service
     - responsive_image.styles.landscape_responsive_image
   module:
     - entity_reference_revisions
+    - panelizer
     - responsive_image
     - text
     - user
@@ -31,6 +34,15 @@ targetEntityType: node
 bundle: uwm_medical_service
 mode: default
 content:
+  field_blocks:
+    weight: 113
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   field_bottom_content_blocks:
     weight: 111
     label: above
@@ -109,6 +121,14 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_sub_title:
+    weight: 112
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_subheading:
     weight: 103

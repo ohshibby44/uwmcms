@@ -22,7 +22,7 @@ module.exports = function (gulp, plugins, options) {
       .pipe(plugins.sourcemaps.write({includeContent: false}))
       .pipe(plugins.sourcemaps.init({loadMaps: true}))
       .pipe(plugins.autoprefixer({
-        browsers: ['last 2 versions'],
+        browsers: ['last 2 versions', 'ios >= 8'],
         cascade: false
       }))
       .pipe(plugins.sourcemaps.write())

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.uwm_medical_specialty.field_accordion
+    - field.field.node.uwm_medical_specialty.field_body_summary
     - field.field.node.uwm_medical_specialty.field_condition_spotlight
     - field.field.node.uwm_medical_specialty.field_feature_story
     - field.field.node.uwm_medical_specialty.field_featured_specialties
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.uwm_medical_specialty.field_quiz
     - field.field.node.uwm_medical_specialty.field_sub_title
     - field.field.node.uwm_medical_specialty.field_subheading
+    - field.field.node.uwm_medical_specialty.field_weight
     - node.type.uwm_medical_specialty
   module:
     - entity_reference_revisions
@@ -43,6 +45,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_body_summary:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_condition_spotlight:
     weight: 1
@@ -117,6 +126,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_weight:
+    weight: 12
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   links:
     weight: 0
