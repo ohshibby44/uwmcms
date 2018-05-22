@@ -101,4 +101,10 @@ h2.accent, h3.accent, h4.accent {
 
 @include uw-equal-height-row('.row.equal-heights', '[class*=col]');
 
-
+div.uwm-right-letterbox {
+  @extend .well, .uw-well, .col-xs-12, .col-sm-2;
+  margin: 15px;
+  padding: 15px;
+  border-top: 1px solid $uwmed-light-gray;
+  border-bottom: 1px solid $uwmed-light-gray;
+}

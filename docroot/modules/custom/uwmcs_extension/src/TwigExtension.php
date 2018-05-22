@@ -344,10 +344,10 @@ class TwigExtension extends \Twig_Extension {
     }
 
     $collection = (array) $collectionItems;
-    $cssClasses[] = 'count-' . count($collection);
+    $cssClasses[] = 'group-of-' . count($collection) . '-total';
     for ($i = 2; $i <= 10; $i++) {
       if (count($collection) % $i === 0) {
-        $cssClasses[] = 'count-has-' . $i . 's';
+        $cssClasses[] = 'group-of-' . $i . 's';
       }
     }
 

@@ -19,7 +19,7 @@ third_party_settings:
     default_moderation_state: published
 _core:
   default_config_hash: 5YJZbVUYycSo7ymVZnMwmvytiKmX03hJ0dloGv_lv-M
-name: Clinic
+name: 'UW Clinic'
 type: uwm_clinic
 description: ''
 help: ''

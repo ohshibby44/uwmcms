@@ -25,7 +25,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
     {% if content.field_top_content_blocks|render is not empty %}
         {% set t = content.field_top_content_blocks['#items']|uwm_arraycount_styles %}
         <section
-                class="row palmatums {{ t|uwm_join_parts }}">
+                class="row palmatums {{ t|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 
@@ -46,7 +46,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
         {#{{ devel_breakpoint() }}#}
 
-        <section class="row crocosmias {{ t|uwm_join_parts }}">
+        <section class="row crocosmias {{ t|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 
@@ -101,7 +101,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
     {% if content.field_bottom_content_blocks|render is not empty %}
         {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
 
-        <section class="row helleborus inverse {{ t|uwm_join_parts }}">
+        <section class="row helleborus inverse {{ t|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
 
