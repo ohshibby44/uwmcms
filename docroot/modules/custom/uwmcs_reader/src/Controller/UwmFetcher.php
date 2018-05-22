@@ -8,6 +8,7 @@ namespace Drupal\uwmcs_reader\Controller;
  *
  */
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Url;
 use Httpful\Request;
 use Httpful\Response;
 
@@ -29,6 +30,21 @@ class UwmFetcher {
   }
 
   /**
+   * Returns a simple page.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function adminPage() {
+
+    $element = [
+      '#markup' => 'This page intentionally left blank.',
+    ];
+    return $element;
+
+  }
+
+  /**
    * Description here.
    *
    * @param string $apiEndpoint
@@ -40,6 +56,7 @@ class UwmFetcher {
   public function getUrl(string $apiEndpoint = NULL) {
 
     $data = $this->fetchItem($apiEndpoint);
+
     return $data;
 
   }
@@ -108,9 +125,11 @@ class UwmFetcher {
           }
 
           return empty($detailView) ? $dataItem : $detailView;
+
         }
 
       }
+
     }
 
     return new \stdClass();
@@ -126,54 +145,71 @@ class UwmFetcher {
   private function fetchItem(string $apiUri = NULL) {
 
     if (empty($apiUri)) {
-
       return new \stdClass();
-
     }
-    elseif ($cache = $this->cacheGet($apiUri)) {
+
+    $response = $this->getResponse($apiUri);
+    if (!$this->isResponseValid($response)) {
+      return new \stdClass();
+    }
+
+    return $response->body;
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param string|null $apiUri
+   *   Description here.
+   *
+   * @return \Httpful\Response|\stdClass
+   *   Description here.
+   */
+  private function getResponse(string $apiUri = NULL) {
+
+    if ($cache = $this->cacheGet($apiUri)) {
 
       return $cache->data;
 
     }
-    else {
 
-      try {
+    try {
 
-        // @TODO: Move special cases to request builder.
-        if (stripos($apiUri, 'api/publications')) {
+      // @TODO: Move unique cases to a request builder.
+      if (stripos($apiUri, 'api/publications')) {
 
-          // Extract JSONP and prepare JSON.
-          $response = Request::get($apiUri)->parseWith(function ($body) {
+        // Extract JSONP and prepare JSON.
+        $data = Request::get($apiUri)
+          ->parseWith(function ($body) {
 
             if ($body[0] !== '[' && $body[0] !== '{') {
               $body = substr($body, strpos($body, '('));
             }
             return json_decode(trim($body, '();'));
 
-          })->send();
-
-        }
-        else {
-
-          $response = Request::get($apiUri)
-            ->expectsJson()
-            ->send();
-
-        }
-
-        $this->validateResponse($response);
-        $this->cacheSet($apiUri, $response->body);
-
-        return $response->body;
+          })
+          ->send();
 
       }
-      catch (\Exception $e) {
+      else {
 
-        \Drupal::logger(__CLASS__)
-          ->error('Unable to parse ' . $apiUri . $e->getMessage());
-        return new \stdClass();
+        $data = Request::get($apiUri)
+          ->expectsJson()
+          ->send();
 
       }
+
+      $this->cacheSet($apiUri, $data);
+      return $data;
+
+    }
+    catch (\Exception $e) {
+
+      \Drupal::logger(__CLASS__)
+        ->error('Unable to parse ' . $apiUri . $e->getMessage());
+
+      return new \stdClass();
 
     }
 
@@ -188,11 +224,11 @@ class UwmFetcher {
    * @return false|object
    *   Description here.
    */
-  private function cacheGet(string $key) {
+  private function cacheGet(string $key = NULL) {
 
     $key = $this->cacheName($key);
 
-    return \Drupal::cache()->get($key);
+    return \Drupal::cache()->get($key, FALSE);
 
   }
 
@@ -201,16 +237,16 @@ class UwmFetcher {
    *
    * @param string $key
    *   Description here.
-   * @param mixed $data
+   * @param \Httpful\Response $data
    *   Description here.
    */
-  private function cacheSet(string $key, $data) {
+  private function cacheSet(string $key, Response $data) {
 
-    $key = $this->cacheName($key);
+    $cid = $this->cacheName($key);
+    $tags = $this->cacheTags($key);
 
-    \Drupal::cache()->set($key, $data,
-      CacheBackendInterface::CACHE_PERMANENT
-    );
+    \Drupal::cache()
+      ->set($cid, $data, CacheBackendInterface::CACHE_PERMANENT, $tags);
 
   }
 
@@ -227,38 +263,73 @@ class UwmFetcher {
 
     $key = $dataUniqueUri;
 
-    return preg_replace("/[^A-Za-z0-9 ]/", '_', $key);
+    return preg_replace("/[^A-Za-z0-9]/", '_', $key);
 
   }
 
   /**
    * Description here.
    *
-   * @param \Httpful\Response $response
+   * @param string|null $key
    *   Description here.
    *
-   * @throws \Exception
+   * @return array
    *   Description here.
    */
-  private function validateResponse(Response $response) {
+  private function cacheTags(string $key = NULL) {
+
+    $tags = ['uwm_fetcher'];
+
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node && method_exists($node, 'getCacheTags')) {
+      $tags = array_merge($tags, $node->getCacheTags());
+      $tag[] = 'uwm_fetcher_node:' . $node->id();
+    }
+
+    $current_url = Url::fromRoute('<current>');
+    if ($current_url && method_exists($current_url, 'toString')) {
+      $tags[] = 'uwm_fetcher_route:' . $current_url->toString();
+    }
+
+    $parsed_key = parse_url($key);
+    if ($parsed_key && !empty($parsed_key['path'])) {
+      $tags[] = 'uwm_fetcher_api_route:' . $parsed_key['path'];
+    }
+
+    return $tags;
+
+  }
+
+  /**
+   * Description here.
+   *
+   * @param \Httpful\Response|null $response
+   *   Description here.
+   *
+   * @return bool
+   *   Description here.
+   */
+  private function isResponseValid(Response $response = NULL) {
 
     if (empty($response)) {
-      throw new \Exception();
-    }
-    if ($response->code != 200) {
-      throw new \Exception();
+      return FALSE;
     }
     if (empty($response->body)) {
-      throw new \Exception();
+      return FALSE;
     }
     if (!is_object($response->body) && !is_array($response->body)) {
-      throw new \Exception();
+      return FALSE;
     }
-    if (isset($response->body->message)) {
+    if (!empty($response->body->message)) {
       if (stripos($response->body->message, 'request is invalid.')) {
-        throw new \Exception();
+        return FALSE;
       }
     }
+    if (!empty($response->code) && $response->code != 200) {
+      return FALSE;
+    }
+
+    return TRUE;
 
   }
 
