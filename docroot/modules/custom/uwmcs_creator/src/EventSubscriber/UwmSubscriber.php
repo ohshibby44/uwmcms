@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uwmcs_reader\EventSubscriber;
+namespace Drupal\uwmcs_creator\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\KernelEvents;

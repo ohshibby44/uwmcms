@@ -12,7 +12,7 @@ field_name: field_link
 entity_type: paragraph
 bundle: feature_story
 label: 'Call to Action Link'
-description: ''
+description: 'Note: As a workaround, please enter the link to the Captions file (.vtt) in the Attributes->Rel field in order for captions to display with the video.'
 required: false
 translatable: true
 default_value: {  }

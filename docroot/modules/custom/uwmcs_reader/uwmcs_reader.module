@@ -5,9 +5,35 @@
  * Module for reading an API and providing API data to themes.
  */
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function uwmcs_reader_form_node_form_alter(&$form, FormStateInterface $form_state) {
+
+  $node = $form_state->getFormObject()->getEntity();
+
+  $tags = [
+    'uwm_fetcher_node:' . $node->id(),
+  ];
+
+  if ($node->hasField('field_information_manager_url')) {
+
+    $parsed_url = parse_url($node->get('field_information_manager_url')->value);
+
+    if ($parsed_url && !empty($parsed_url['path'])) {
+      $tags[] = 'uwm_fetcher_api_route:' . $parsed_url['path'];
+    }
+
+  }
+  Cache::invalidateTags($tags);
+
+}
 
 /**
  * Implements hook_node_view().
@@ -131,6 +157,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
     }
 
+    if (isset($entity->field_information_manager_url->value)) {
+      $medical_service_data = $fetcher->getUrl($entity->field_information_manager_url->value);
+      if (!empty($medical_service_data)) {
+        $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
+      }
+    }
   }
 
 }
