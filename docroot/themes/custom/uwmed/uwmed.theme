@@ -160,6 +160,18 @@ function uwmed_preprocess_node(&$variables) {
       }
     }
   }
+
+  if ($node->getType() === 'fact_page') {
+
+    $body = $node->body->getValue();
+
+    if (!empty($body[0]['summary'])) {
+      $variables['body_summary'] = $body[0]['summary'];
+      $variables['body_sans_summary'] = str_replace($body[0]['summary'], '',
+        $body[0]['value']);
+    }
+
+  }
 }
 
 /**

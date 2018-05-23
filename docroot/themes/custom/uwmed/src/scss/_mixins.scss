@@ -169,30 +169,35 @@
 
 @mixin uw-equal-height-row($row-container, $cell-container, $cell-cell: false) {
 
-  #{$row-container} #{$cell-container} {
-    flex: 1;
-    margin-bottom: 15px;
+  #{$row-container} {
 
-    @if #{$cell-cell} {
-      display: flex;
+    display: flex;
+    //flex-direction: row;
+    //flex-wrap: wrap;
+    //float: left;
+    //width: 100%;
+    border: 1px solid green !important;
 
-      #{$cell-cell} {
+    #{$cell-container} {
+      flex: 1;
+      margin-bottom: 15px;
+      border: 1px solid red !important;
+
+      @if #{$cell-cell} {
         display: flex;
-        flex: 1;
+
+        #{$cell-cell} {
+          flex: 1;
+          border: 1px solid yellow !important;
+        }
+
       }
+
     }
 
   }
-
-  #{$row-container} {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    float: left;
-    width: 100%;
-  }
-
   @content;
+
 }
 
 

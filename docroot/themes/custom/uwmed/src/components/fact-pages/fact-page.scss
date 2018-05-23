@@ -126,23 +126,34 @@ body.page-node-type-fact-page {
 
   @include uw-open-scheduling-rules();
 
-  @media(min-width: $screen-lg-min) {
+  @media(min-width: $screen-md-min) {
 
     section.crocosmias > .wrapper {
       padding: 0 15px;
     }
 
     @include uw-equal-height-row(
-                    '.field--name-field-top-content-blocks',
-                    '> .item', '> .paragraph');
-
-    @include uw-equal-height-row(
                     '.field--name-field-content-blocks',
-                    '> .item', '> .paragraph');
+                    '.paragraph');
+    //@include uw-equal-height-row(
+    //                '.field--name-field-top-content-blocks',
+    //                '.paragraph');
+    //
+    .field.field--name-field-top-content-blocks,
+    .field.field--name-field-top-content-blocks > .item,
+    .field.field--name-field-top-content-blocks > .item > .paragraph
+    {
+      display: flex;
+      flex: 1;
+    }
+    .field.field--name-field-top-content-blocks > .item > .paragraph > .wrapper
+    {
+      flex: 1;
+    }
 
   }
 
-  .uws__darken-background {
+  .uws-term__darken-body {
 
     section.beesbalms.body-content {
       background: $uwmed-off-white;

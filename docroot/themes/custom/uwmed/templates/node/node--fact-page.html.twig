@@ -1,4 +1,5 @@
 {{ attach_library('uwmed/node--fact-page') }}
+{{ attach_library('uwmed/uwm-toggle') }}
 
 
 {% set classes = [
@@ -44,8 +45,6 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
         {% set t = t|merge(content.field_content_blocks['#items']|uwm_arraycount_styles) %}
         {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']['term_styles']) %}
 
-        {#{{ devel_breakpoint() }}#}
-
         <section class="row crocosmias {{ t|uwm_join_parts(' ') }}">
 
             <div class="wrapper">
@@ -75,8 +74,29 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
                     </aside>
                 {% endif %}
 
+                {#{{ devel_breakpoint() }}#}
 
-                {{ content.body }}
+                {% if body_summary is not empty %}
+
+                    <div class="body-summary">{{ body_summary|raw }}</div>
+                    <div class="uw-more">
+                        <a href="#" data-uwm-toggle
+                           data-on-text="{{ 'View less'|t }}"
+                           data-off-text="{{ 'View more'|t }}"
+                           data-toggle-selector=".body.has-summary"
+                           data-toggle-style="on"
+                           data-parent-style="on">{{ 'View more'|t }}
+                            <i
+                                    class="fa fa-angle-down"
+                                    aria-hidden="true"></i></a>
+                    </div>
+                    <div class="body has-summary hidden">{{ body_sans_summary|raw }}</div>
+
+                {% else %}
+
+                    {{ content.body }}
+
+                {% endif %}
                 {{ content.field_link }}
 
             </div>
