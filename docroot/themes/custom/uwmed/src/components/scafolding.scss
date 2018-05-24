@@ -85,12 +85,7 @@ body {
 .fade-in, .fade-in p {
   opacity: 1;
 }
-.hidden {
-  display: none !important;
-}
-.show, .hidden.on {
-  display: block !important;
-}
+
 h2.accent, h3.accent, h4.accent {
   @include uw-bottom-accent-heading($uwmed-accent-blue);
 }

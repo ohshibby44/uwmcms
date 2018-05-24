@@ -11,29 +11,12 @@ body.page-node-type-fact-page {
   }
 
   h1.page-header {
-    @extend .col-xs-12;
-    font-size: 28px;
-    line-height: 28px;;
-    font-weight: 400;
-    letter-spacing: .4px;
-
-    .title-wrapper {
-      color: $uwmed-purple;
-
-      .subheading {
-        margin-left: 30px;
-        white-space: nowrap;
-        &, a {
-          color: $uwmed-pop-blue;
-          font-size: 20px;
-        }
-      }
-    }
+    @extend .small-page-header;
   }
 
   /**
    *
-   * NODE STYLING:
+   * GENERIC FIELD STYLING:
    *
    */
 
@@ -46,12 +29,26 @@ body.page-node-type-fact-page {
 
   .paragraph {
     @extend .col-xs-12;
+
     > .wrapper {
+
       @extend .uw-well;
       width: 100%;
       margin-bottom: 30px;
-      background: $uwmed-off-white;
+      background: $uwmed-white;
       border: 1px solid $uwmed-light-gray;
+      box-shadow: 1px 1px 3px 0 $uwmed-light-gray;
+
+      &.darken {
+        background: $uwmed-off-white;
+        box-shadow: none;
+      }
+
+      &.transparent {
+        border: 0 none;
+        box-shadow: none;
+      }
+
     }
   }
 
@@ -69,50 +66,56 @@ body.page-node-type-fact-page {
     @extend .col-xs-12;
   }
 
+  .field.blocks-section-footer {
+    @extend .col-xs-12, .uw-well, .text-center, .h5;
+    &, a {
+      font-weight: normal;
+    }
+  }
+
   /**
    *
-   * NODE CONTENT SECTIONS:
+   * NODE SECTIONS:
    *
    */
 
-  section.palmatums {
+  article.fact-page {
 
-    .paragraph > .wrapper {
-      background: $uwmed-white;
-      box-shadow: 1px 1px 3px 0 $uwmed-light-gray;
+    section.top-blocks {
+
     }
 
-  }
+    section.body-content {
 
-  section.body-content.beesbalms {
+      background: $uwmed-white;
+      padding: 30px;
 
-    background: $uwmed-white;
-    padding: 30px;
+      aside.inner-sidebar {
 
-
-    aside.inner-sidebar {
-      &.hidden-xs {
         border-left: 1px solid #f8f8f8;
         margin-left: 25px;
         padding: 0 0 25px 25px;
+
+        .paragraph > .wrapper {
+          @extend .transparent;
+        }
+
       }
+
     }
 
-  }
+    section.middle-blocks {
 
-  section.crocosmias {
-
-    background: $uwmed-white;
-    padding: 30px;
-
-    .field.field--name-field-content-blocks-footer {
-      @extend .col-xs-12, .uw-well, .text-center, .h5;
-
-      &, a {
-        font-weight: normal;
+      background: $uwmed-white;
+      .paragraph > .wrapper {
+        @extend .darken;
       }
+
     }
 
+    section.bottom-blocks {
+
+    }
   }
 
   /**
@@ -124,30 +127,57 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
+  .body-content.with-summary {
+
+    .body-summary, .uw-more {
+      @extend .show;
+    }
+    .field.field--name-body {
+      @extend .hidden;
+    }
+
+    &.open {
+      .body-summary {
+        @extend .hidden;
+      }
+      .field.field--name-body {
+        @extend .show;
+      }
+    }
+
+  }
+
   @include uw-open-scheduling-rules();
 
   @media(min-width: $screen-md-min) {
 
-    section.crocosmias > .wrapper {
+    section.middle-blocks > .wrapper {
       padding: 0 15px;
     }
 
-    @include uw-equal-height-row(
-                    '.field--name-field-content-blocks',
-                    '.paragraph');
-    //@include uw-equal-height-row(
-    //                '.field--name-field-top-content-blocks',
-    //                '.paragraph');
-    //
+    .field.field--name-field-top-content-blocks {
+      float: left; width: 100%;
+    }
     .field.field--name-field-top-content-blocks,
     .field.field--name-field-top-content-blocks > .item,
-    .field.field--name-field-top-content-blocks > .item > .paragraph
-    {
+    .field.field--name-field-top-content-blocks > .item > .paragraph {
       display: flex;
       flex: 1;
     }
-    .field.field--name-field-top-content-blocks > .item > .paragraph > .wrapper
-    {
+    .field.field--name-field-top-content-blocks > .item > .paragraph > .wrapper {
+      flex: 1;
+    }
+
+    .field.field--name-field-content-blocks {
+      float: left; width: 100%;
+    }
+    .field.field--name-field-content-blocks,
+    .field.field--name-field-content-blocks > .item,
+    .field.field--name-field-content-blocks > .item > .paragraph {
+      display: flex;
+      flex: 1;
+    }
+    .field.field--name-field-content-blocks > .item > .paragraph > .wrapper {
       flex: 1;
     }
 
@@ -155,8 +185,14 @@ body.page-node-type-fact-page {
 
   .uws-term__darken-body {
 
-    section.beesbalms.body-content {
+    section.body-content {
+
       background: $uwmed-off-white;
+
+      .paragraph > .wrapper {
+        @extend .darken;
+      }
+      
     }
 
   }

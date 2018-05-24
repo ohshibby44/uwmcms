@@ -167,6 +167,7 @@ function uwmed_preprocess_node(&$variables) {
 
     if (!empty($body[0]['summary'])) {
       $variables['body_summary'] = $body[0]['summary'];
+      $variables['body_summary2'] = $node->body->view('summary');
       $variables['body_sans_summary'] = str_replace($body[0]['summary'], '',
         $body[0]['value']);
     }
@@ -231,6 +232,19 @@ function uwmed_preprocess_field(&$variables) {
   if ($obj && in_array($field_name, $stylingFields)) {
 
     $variables['wrapper_classes'] = $element['#uwm_678891']['term_styles'];
+
+  }
+
+  /***
+   * Add generic, common class to footer field:
+   */
+  $footerFields = [
+    'field_content_blocks_footer',
+    'field_top_content_blocks_footer',
+  ];
+  if ($obj && in_array($field_name, $footerFields)) {
+
+    $variables['attributes']['class'][] = 'blocks-section-footer';
 
   }
 

@@ -149,11 +149,15 @@ class UwmFetcher {
     }
 
     $response = $this->getResponse($apiUri);
-    if (!$this->isResponseValid($response)) {
-      return new \stdClass();
+    if ($response instanceof Response) {
+
+      if ($this->isResponseValid($response)) {
+        return $response->body;
+      }
+
     }
 
-    return $response->body;
+    return new \stdClass();
 
   }
 
@@ -198,9 +202,10 @@ class UwmFetcher {
           ->expectsJson()
           ->send();
 
+        $this->cacheSet($apiUri, $data);
+
       }
 
-      $this->cacheSet($apiUri, $data);
       return $data;
 
     }

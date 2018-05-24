@@ -3,19 +3,18 @@
 
 
 {% set classes = [
-node.bundle|clean_class,
-node.isPromoted() ? 'is-promoted',
-node.isSticky() ? 'is-sticky',
-not node.isPublished() ? 'is-unpublished',
-view_mode ? view_mode|clean_class,
-'clearfix',
-] %}
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+]|merge(content.field_body_style_terms['#uwm_678891']['term_styles']) %}
 
-{% set classes = classes|merge(content.field_body_style_terms['#uwm_678891']['term_styles']) %}
 
 {% set inner_sidebar = [
-content.field_sidebar_content_blocks,
-drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+    content.field_sidebar_content_blocks,
+    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
 ] %}
 
 {#{{  devel_breakpoint()  }}#}
@@ -24,36 +23,41 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
     {% if content.field_top_content_blocks|render is not empty %}
+
         {% set t = content.field_top_content_blocks['#items']|uwm_arraycount_styles %}
-        <section
-                class="row palmatums {{ t|uwm_join_parts(' ') }}">
+        {% set t = t|uwm_join_parts(' ') %}
 
-            <div class="wrapper">
+    <section class="row top-blocks {{ t }}">
 
-                {{ content.field_top_content_blocks_heading }}
-                {{ content.field_top_content_blocks }}
+        <div class="wrapper">
 
-            </div>
+        {{ content.field_top_content_blocks_heading }}
+        {{ content.field_top_content_blocks }}
+        {{ content.field_top_content_blocks_footer‎ }}
+
+        </div>
 
         </section>
-    {% endif %}
+
+        {% endif %}
 
 
-    {% if content.field_content_blocks|render is not empty %}
+        {% if content.field_content_blocks|render is not empty %}
 
         {% set t = [] %}
         {% set t = t|merge(content.field_content_blocks['#items']|uwm_arraycount_styles) %}
         {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']['term_styles']) %}
+        {% set t = t|uwm_join_parts(' ') %}
 
-        <section class="row crocosmias {{ t|uwm_join_parts(' ') }}">
+        <section class="row middle-blocks {{ t }}">
 
-            <div class="wrapper">
+        <div class="wrapper">
 
-                {{ content.field_content_blocks_heading }}
-                {{ content.field_content_blocks }}
-                {{ content.field_content_blocks_footer }}
+            {{ content.field_content_blocks_heading }}
+            {{ content.field_content_blocks }}
+            {{ content.field_content_blocks_footer }}
 
-            </div>
+        </div>
 
         </section>
     {% endif %}
@@ -61,42 +65,42 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
 
     {% if content.body|render is not empty %}
-        <section{{ content_attributes.addClass('beesbalms body-content') }}>
+
+        {% set t = [] %}
+        {% set t = t|merge(['body-content','uwm-toggle']) %}
+        {% set t = t|merge([body_summary is not empty ? 'with-summary']) %}
+        {% set t = t|uwm_join_parts(' ') %}
+
+        <section class="{{ t }}">
 
             <div class="col-xs-12">
 
                 {% if inner_sidebar is not empty %}
+
                     <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
                            role="complementary">
 
                         {{ inner_sidebar }}
 
                     </aside>
+
                 {% endif %}
 
                 {#{{ devel_breakpoint() }}#}
 
-                {% if body_summary is not empty %}
+                <div class="body-summary hidden">{{ body_summary|raw }}</div>
 
-                    <div class="body-summary">{{ body_summary|raw }}</div>
-                    <div class="uw-more">
-                        <a href="#" data-uwm-toggle
-                           data-on-text="{{ 'View less'|t }}"
-                           data-off-text="{{ 'View more'|t }}"
-                           data-toggle-selector=".body.has-summary"
-                           data-toggle-style="on"
-                           data-parent-style="on">{{ 'View more'|t }}
-                            <i
-                                    class="fa fa-angle-down"
-                                    aria-hidden="true"></i></a>
-                    </div>
-                    <div class="body has-summary hidden">{{ body_sans_summary|raw }}</div>
+                {{ content.body }}
 
-                {% else %}
+                <div class="uw-more hidden">
+                    <a href="#" data-uwm-toggle
+                       data-on-text="{{ 'View less'|t }}"
+                       data-off-text="{{ 'View more'|t }}"
+                       data-toggle-target=".body-content.uwm-toggle"
+                       data-toggle-class="open">{{ 'View more'|t }}
+                        <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                </div>
 
-                    {{ content.body }}
-
-                {% endif %}
                 {{ content.field_link }}
 
             </div>
@@ -109,19 +113,26 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
     Repeat sidebar for mobile:
     #}
     {% if inner_sidebar is not empty %}
-        <aside class="inner-sidebar col-xs-12 visible-xs block-format-paragraph"
-               role="complementary">
 
-            {{ inner_sidebar }}
+        <section class="row inner-sidebar visible-xs" role="complementary">
 
-        </aside>
+            <div class="wrapper">
+
+                {{ inner_sidebar }}
+
+            </div>
+
+        </section>
+
     {% endif %}
 
 
     {% if content.field_bottom_content_blocks|render is not empty %}
-        {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
 
-        <section class="row helleborus inverse {{ t|uwm_join_parts(' ') }}">
+        {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
+        {% set t = t|uwm_join_parts(' ') %}
+
+        <section class="row bottom-blocks {{ t }}">
 
             <div class="wrapper">
 
@@ -131,6 +142,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
             </div>
 
         </section>
+
     {% endif %}
 
 

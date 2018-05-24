@@ -32,27 +32,28 @@
 
             $toggleControl.on('click', function (e) {
 
-                var $this = $(this);
-
-                var toggleSelector = $this.attr('data-toggle-selector');
-                var toggleStyle = $this.attr('data-toggle-style');
-                var parentSelector = $this.attr('data-parent-selector');
-                var parentStyle = $this.attr('data-parent-style');
-                var onText = $this.attr('data-on-text');
-                var offText = $this.attr('data-off-text');
+                var $this = $(this),
+                    toggleTarget = $this.attr('data-toggle-target'),
+                    toggleClass = $this.attr('data-toggle-class'),
+                    onText = $this.attr('data-on-text'),
+                    offText = $this.attr('data-off-text');
 
 
-                if ($this.hasClass(parentStyle)) {
-                    $this.removeClass(parentStyle);
-                    $(toggleSelector).removeClass(toggleStyle);
-                    $(parentSelector).removeClass(parentStyle);
-                    $(this).html($(this).html().replace(onText, offText));
+                $(toggleTarget).toggleClass(toggleClass);
+
+                if (onText && $(toggleTarget).hasClass(toggleClass)) {
+
+                    var h = $this.html(),
+                        t = $this.text();
+                    $(this).html(h.replace(t, onText));
+
                 }
-                else {
-                    $this.addClass(parentStyle);
-                    // We remove the style on first run
-                    $(toggleSelector).addClass(toggleStyle);
-                    $(this).html($(this).html().replace(offText, onText));
+                if (offText && !$(toggleTarget).hasClass(toggleClass)) {
+
+                    var h = $this.html(),
+                        t = $this.text();
+                    $(this).html(h.replace(t, offText));
+
                 }
 
                 e.preventDefault();

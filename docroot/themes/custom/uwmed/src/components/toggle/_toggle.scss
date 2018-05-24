@@ -13,20 +13,25 @@
     @extend .col-xs-12;
     margin: 30px 0 20px 0;
     padding-top: 10px;
-    border-top: 1px solid #f8f8f8;
+    border-top: 1px solid $uwmed-light-gray;
     text-align: center;
     opacity: .8;
 
     a {
       color: $uwmed-pop-blue;
       text-decoration: none;
-      &.on i.fa-angle-down:before {
-        // angle-up content:
-        content: "\f106";
-
+      font-variant: all-small-caps;
+      i {
+        margin-left: 1em;
       }
     }
 
+  }
+
+  &.open .uw-more a i.fa-angle-down:before,
+  .uw-more a.on i.fa-angle-down:before
+  {
+    content: "\f106";
   }
 
 }

@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.fact_page.field_sidebar_content_blocks
     - field.field.node.fact_page.field_subheading
     - field.field.node.fact_page.field_top_content_blocks
+    - field.field.node.fact_page.field_top_content_blocks_footer
     - field.field.node.fact_page.field_top_content_blocks_heading
     - node.type.fact_page
   module:
@@ -37,7 +38,7 @@ bundle: fact_page
 mode: default
 content:
   body:
-    label: hidden
+    label: above
     type: text_default
     weight: 3
     settings: {  }
@@ -143,6 +144,13 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_top_content_blocks_footer:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_top_content_blocks_heading:
     weight: 12

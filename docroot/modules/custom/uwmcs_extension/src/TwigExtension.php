@@ -257,6 +257,10 @@ class TwigExtension extends \Twig_Extension {
    */
   public static function sortArrayByValues($data = NULL, string $sortKey = NULL) {
 
+    if (!is_array($data)) {
+      return $data;
+    }
+
     usort($data, function ($a, $b) use ($sortKey) {
 
       if (isset($sortKey)) {
