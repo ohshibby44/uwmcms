@@ -35,7 +35,7 @@
            style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})"></div>
       <div class="container container-lg">
         <div class="row">
-          <div class="medical-service-hero__content col-lg-7">
+          <div class="medical-service-hero__content col-lg-8">
             <h1 class="medical-service-hero__heading">{{ label }}</h1>
             <img class="hero__angle-divider hidden-lg"
                  src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png') }}"
@@ -254,6 +254,7 @@
             </div>
           </div>
 
+        {% if content.field_featured_specialties|render|striptags|trim is not empty %}
         <div class="featured-specialties uwm-toggle col-xs-12">
           <div class="container container-lg">
             <h2>{{ 'Coordinating your care with world-class specialists.'|t }}</h2>
@@ -273,6 +274,7 @@
 
           </div>
         </div>
+        {% endif %}
 
         {% if content.field_quiz.value is not empty %}
         <div class="patient-engagement col-xs-12">

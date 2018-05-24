@@ -26,8 +26,8 @@
 {% for row in rows %}
 
   {% set n = n+1 %}
-  {% if rows|length > 4 and n == rows|length %}
-    {% set column_number = "views-row-last-row-column-" ~ n%4 %}
+  {% if rows|length > 3 and n == rows|length %}
+    {% set column_number = "views-row-last-row-column-" ~ n%3 %}
   {% endif %}
 
   {%
