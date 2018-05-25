@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.uwm_medical_service.field_information_manager_url
     - field.field.node.uwm_medical_service.field_links_with_icon
     - field.field.node.uwm_medical_service.field_proof_points
+    - field.field.node.uwm_medical_service.field_quiz
     - field.field.node.uwm_medical_service.field_sub_title
     - field.field.node.uwm_medical_service.field_subheading
     - node.type.uwm_medical_service
@@ -243,6 +244,15 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_quiz:
+    weight: 51
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_sub_title:
     weight: 28
     settings:
@@ -280,6 +290,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
 hidden:
   created: true
   sticky: true
