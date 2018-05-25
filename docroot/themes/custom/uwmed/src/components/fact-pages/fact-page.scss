@@ -19,7 +19,6 @@ body.page-node-type-fact-page {
    * GENERIC FIELD STYLING:
    *
    */
-
   section {
     @extend .row;
     > .wrapper {
@@ -78,11 +77,9 @@ body.page-node-type-fact-page {
    * NODE SECTIONS:
    *
    */
-
   article.fact-page {
 
     section.top-blocks {
-
     }
 
     section.body-content {
@@ -114,8 +111,8 @@ body.page-node-type-fact-page {
     }
 
     section.bottom-blocks {
-
     }
+
   }
 
   /**
@@ -127,27 +124,37 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
-  .body-content.with-summary {
+  // PAGE-STYLE TAXONOMY SELECTED:
+  .uws-term__darken-body {
 
-    .body-summary, .uw-more {
-      @extend .show;
-    }
-    .field.field--name-body {
-      @extend .hidden;
-    }
+    section.body-content {
 
-    &.open {
-      .body-summary {
-        @extend .hidden;
+      background: $uwmed-off-white;
+
+      .paragraph > .wrapper {
+        @extend .darken;
       }
-      .field.field--name-body {
-        @extend .show;
-      }
+
     }
 
   }
 
+  // TOGGLE OPEN SCHEDULING ENABLED CONTENT:
   @include uw-open-scheduling-rules();
+
+  // FLEXBOX ON WIDE-SCREEN:
+  @extend %paragraphs-flex-height;
+
+  // TOGGLE BODY SUMMARY:
+  @extend %toggle-body-summary;
+
+  section.page-center {
+    overflow: hidden;
+  }
+
+}
+
+%paragraphs-flex-height {
 
   @media(min-width: $screen-md-min) {
 
@@ -156,7 +163,8 @@ body.page-node-type-fact-page {
     }
 
     .field.field--name-field-top-content-blocks {
-      float: left; width: 100%;
+      float: left;
+      width: 100%;
     }
     .field.field--name-field-top-content-blocks,
     .field.field--name-field-top-content-blocks > .item,
@@ -169,7 +177,8 @@ body.page-node-type-fact-page {
     }
 
     .field.field--name-field-content-blocks {
-      float: left; width: 100%;
+      float: left;
+      width: 100%;
     }
     .field.field--name-field-content-blocks,
     .field.field--name-field-content-blocks > .item,
@@ -182,17 +191,33 @@ body.page-node-type-fact-page {
     }
 
   }
+}
 
-  .uws-term__darken-body {
+%toggle-body-summary {
 
-    section.body-content {
+  .body-content {
 
-      background: $uwmed-off-white;
+    @include uwmed-box-show-hide-transition('.uwshow', '.uwhide');
+    .uwm-more, .body-summary {
+      @extend .uwhide;
+    }
 
-      .paragraph > .wrapper {
-        @extend .darken;
+    &.with-summary {
+      .uwm-more, .body-summary {
+        @extend .uwshow;
       }
-      
+      .body-full {
+        @extend .uwhide;
+      }
+    }
+
+    &.with-summary.on {
+      .body-full {
+        @extend .uwshow;
+      }
+      .body-summary {
+        @extend .uwhide;
+      }
     }
 
   }

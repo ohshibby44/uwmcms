@@ -53,7 +53,7 @@ body {
   }
 
   a:hover, a:focus {
-    transition-duration: 400ms;
+    @include uwmed-link-color-transition-timing();
   }
 
   pre {

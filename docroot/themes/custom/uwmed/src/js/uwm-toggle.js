@@ -20,9 +20,30 @@
  *
  */
 
- (function ($, Drupal, drupalSettings) {
+(function ($, Drupal, drupalSettings) {
 
     'use strict';
+
+    Drupal.behaviors.uwmToggleStyleLight = {
+
+        attach: function (context, settings) {
+
+            var $toggleControl = $('[data-uwm-toggle-class]', context);
+
+            $toggleControl.on('click', function (e) {
+
+                var $this = $(this),
+                    toggleTarget = $this.attr('data-toggle-target'),
+                    toggleClass = $this.attr('data-toggle-class');
+
+                $(toggleTarget).toggleClass(toggleClass);
+
+                e.preventDefault();
+
+            });
+
+        }
+    };
 
     Drupal.behaviors.uwmToggleCssClass = {
 
@@ -32,28 +53,27 @@
 
             $toggleControl.on('click', function (e) {
 
-                var $this = $(this),
-                    toggleTarget = $this.attr('data-toggle-target'),
-                    toggleClass = $this.attr('data-toggle-class'),
-                    onText = $this.attr('data-on-text'),
-                    offText = $this.attr('data-off-text');
+                var $this = $(this);
+
+                var toggleSelector = $this.attr('data-toggle-selector');
+                var toggleStyle = $this.attr('data-toggle-style');
+                var parentSelector = $this.attr('data-parent-selector');
+                var parentStyle = $this.attr('data-parent-style');
+                var onText = $this.attr('data-on-text');
+                var offText = $this.attr('data-off-text');
 
 
-                $(toggleTarget).toggleClass(toggleClass);
-
-                if (onText && $(toggleTarget).hasClass(toggleClass)) {
-
-                    var h = $this.html(),
-                        t = $this.text();
-                    $(this).html(h.replace(t, onText));
-
+                if ($this.hasClass(parentStyle)) {
+                    $this.removeClass(parentStyle);
+                    $(toggleSelector).removeClass(toggleStyle);
+                    $(parentSelector).removeClass(parentStyle);
+                    $(this).html($(this).html().replace(onText, offText));
                 }
-                if (offText && !$(toggleTarget).hasClass(toggleClass)) {
-
-                    var h = $this.html(),
-                        t = $this.text();
-                    $(this).html(h.replace(t, offText));
-
+                else {
+                    $this.addClass(parentStyle);
+                    // We remove the style on first run
+                    $(toggleSelector).addClass(toggleStyle);
+                    $(this).html($(this).html().replace(offText, onText));
                 }
 
                 e.preventDefault();

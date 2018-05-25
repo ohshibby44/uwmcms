@@ -3,18 +3,18 @@
 
 
 {% set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
 ]|merge(content.field_body_style_terms['#uwm_678891']['term_styles']) %}
 
 
 {% set inner_sidebar = [
-    content.field_sidebar_content_blocks,
-    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+content.field_sidebar_content_blocks,
+drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
 ] %}
 
 {#{{  devel_breakpoint()  }}#}
@@ -68,38 +68,38 @@
 
         {% set t = [] %}
         {% set t = t|merge(['body-content','uwm-toggle']) %}
-        {% set t = t|merge([body_summary is not empty ? 'with-summary']) %}
+        {% set t = t|merge([body_summary is not empty ? 'with-summary' : 'without-summary']) %}
         {% set t = t|uwm_join_parts(' ') %}
 
         <section class="{{ t }}">
 
             <div class="col-xs-12">
 
-                {% if inner_sidebar is not empty %}
-
-                    <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
-                           role="complementary">
-
-                        {{ inner_sidebar }}
-
-                    </aside>
-
-                {% endif %}
-
                 {#{{ devel_breakpoint() }}#}
-
-                <div class="body-summary hidden">{{ body_summary|raw }}</div>
-
-                {{ content.body }}
-
-                <div class="uw-more hidden">
-                    <a href="#" data-uwm-toggle
-                       data-on-text="{{ 'View less'|t }}"
-                       data-off-text="{{ 'View more'|t }}"
-                       data-toggle-target=".body-content.uwm-toggle"
-                       data-toggle-class="open">{{ 'View more'|t }}
-                        <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <div class="body-summary">
+                    {{ body_summary|raw }}
                 </div>
+
+                <div class="body-full">
+
+                    {% if inner_sidebar is not empty %}
+
+                        <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
+                               role="complementary">
+
+                            {{ inner_sidebar }}
+
+                        </aside>
+
+                    {% endif %}
+
+                    {{ content.body }}
+
+                </div>
+
+                <a class="uw-more toggle-text" role="button" data-uwm-toggle-class
+                   data-toggle-class="on" data-toggle-target=".body-content"><i class="fa"></i>
+                </a>
 
                 {{ content.field_link }}
 

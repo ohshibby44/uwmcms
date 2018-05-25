@@ -7,6 +7,39 @@
   transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
+@mixin uwmed-link-color-transition-timing() {
+  transition: color 400ms, text-decoration 500ms;
+}
+
+@mixin uwmed-box-show-hide-transition($show-selector, $hide-selector) {
+
+  #{$show-selector} {
+    opacity: 1;
+    display: block;
+    animation: showAnimation 350ms ease-in;
+  }
+  #{$hide-selector} {
+    opacity: 0;
+    display: none;
+    animation: showAnimation 120ms ease-in-out;
+  }
+
+  @keyframes showAnimation {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+}
+
 @mixin uwmed-no-transition() {
   transition-timing-function: unset;
   transition: none !important;
