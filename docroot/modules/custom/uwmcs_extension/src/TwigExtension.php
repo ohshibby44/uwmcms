@@ -112,7 +112,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string|null $string
+   * @param string $string
    *   Description text.
    *
    * @return string
@@ -129,7 +129,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string|null $string
+   * @param string $string
    *   Description text.
    *
    * @return string
@@ -146,13 +146,13 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string|null $string
+   * @param string $string
    *   Description text.
    *
    * @return string
    *   Description text.
    */
-  public static function convertInlineStyles(string $string = NULL) {
+  public static function convertInlineStyles(string $string = '') {
 
     $patterns = [
       '/(style="[^"]?italic[^>]+>)([^<]+)/',
@@ -173,7 +173,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param array|null $parts
+   * @param array $parts
    *   Description text.
    * @param string $separator
    *   Description text.
@@ -201,7 +201,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description here.
    *
-   * @param mixed|null $data
+   * @param mixed $data
    *   Description here.
    * @param string|null $desiredKeyName
    *   Description here.
@@ -219,7 +219,7 @@ class TwigExtension extends \Twig_Extension {
    * @return array
    *   Description here.
    */
-  public static function extractArrayValues($data = NULL, string $desiredKeyName = NULL, array &$resultArray = []) {
+  public static function extractArrayValues($data = [], string $desiredKeyName = NULL, array &$resultArray = []) {
 
     foreach ((array) $data as $key => $value) {
 
@@ -247,7 +247,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description here.
    *
-   * @param mixed|null $data
+   * @param mixed $data
    *   Description here.
    * @param string|null $sortKey
    *   Description here.
@@ -255,7 +255,7 @@ class TwigExtension extends \Twig_Extension {
    * @return mixed
    *   Description here.
    */
-  public static function sortArrayByValues($data = NULL, string $sortKey = NULL) {
+  public static function sortArrayByValues($data = [], string $sortKey = NULL) {
 
     if (!is_array($data)) {
       return $data;
@@ -288,7 +288,7 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string|null $phone
+   * @param string $phone
    *   Description text.
    * @param string $separator
    *   Description text.
@@ -296,7 +296,7 @@ class TwigExtension extends \Twig_Extension {
    * @return null|string
    *   Description text.
    */
-  public static function formatPhone(string $phone = NULL, string $separator = '-') {
+  public static function formatPhone(string $phone = '', string $separator = '-') {
 
     $digits = preg_replace('/[^0-9]/', '', $phone);
 

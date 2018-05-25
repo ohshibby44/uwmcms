@@ -90,6 +90,13 @@
   {#{% set n = n+1 %}#}
   {% block item %}
 
+    <div class="container accordion-mobile-header">
+      <div class="visible-xs visible-sm">
+        <div class="col-xs-12">
+          <h2>Some of our common services:</h2>
+        </div>
+      </div>
+    </div>
 
 
     {# paragraph: accordion for mobile #}
@@ -172,6 +179,12 @@
     <div class="accordion-desktop-container">
       <div class="panel hidden-xs hidden-sm col-xs-12 panel-list-group-top-level" id="accordion-desktop" role="tablist"
            aria-multiselectable="true">
+        <div class="container-lg accordion-desktop-header">
+          <div class="col-xs-12">
+            <h2>Some of our common services:</h2>
+          </div>
+        </div>
+
         {# for each item create a list item control #}
         <ul class="list-group container-lg list-group-top-level">
           {% for key, item in items %}

@@ -1,5 +1,9 @@
 
 .page-node-type-uwm-medical-specialty {
+  .accordion-mobile-header {
+    background-color: #f5f5f5;
+  }
+
   #accordion-mobile {
 
     // Both top-level and sub-level panel styles
@@ -100,6 +104,11 @@
   }
 
   .accordion-desktop-container {
+    .accordion-desktop-header::after {
+      clear: both;
+      content: " ";
+      display: table;
+    }
 
     & >.panel {
       background: #f5f5f5;

@@ -1,9 +1,0 @@
-name: UWMCS IMAPI Node Creator
-type: module
-description: 'UWMCS module for creating nodes based on Information Manager (IM) content'
-package: UWMed
-type: module
-core: 8.x
-dependencies:
-  - path
-  - uwmcms_reader

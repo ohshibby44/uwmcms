@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\uwmcs_creator\Controller;
+namespace Drupal\uwmcs_reader\Controller;
 
 /***
  * See https://www.drupal.org/docs/8/api/
@@ -11,7 +11,6 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
  * Controller routines for UWMCS JSON Reader pages.
@@ -49,6 +48,19 @@ class UwmCreator extends ControllerBase {
 
     }
 
+  }
+
+  /**
+   * Returns a simple page.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function adminPage() {
+    $element = [
+      '#markup' => 'This page intentionally left blank.',
+    ];
+    return $element;
   }
 
   /**
