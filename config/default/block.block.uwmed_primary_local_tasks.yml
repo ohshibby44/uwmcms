@@ -8,8 +8,8 @@ _core:
   default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
 id: uwmed_primary_local_tasks
 theme: uwmed
-region: content
-weight: -1
+region: content_header
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:

@@ -10,8 +10,8 @@ _core:
   default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
 id: uwmed_page_title
 theme: uwmed
-region: content
-weight: -2
+region: content_header
+weight: -6
 provider: null
 plugin: page_title_block
 settings:

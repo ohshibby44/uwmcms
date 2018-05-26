@@ -186,6 +186,9 @@ class TwigExtension extends \Twig_Extension {
     $cleanArr = [];
 
     foreach ((array) $parts as $part) {
+      if (is_array($part)) {
+        $part = self::joinArray($part, $separator);
+      }
       $cleanPart = trim(
         preg_replace('/\s+/', ' ', $part)
       );

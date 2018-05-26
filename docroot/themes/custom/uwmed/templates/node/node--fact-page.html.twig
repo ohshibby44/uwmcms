@@ -3,19 +3,20 @@
 
 
 {% set classes = [
-node.bundle|clean_class,
-node.isPromoted() ? 'is-promoted',
-node.isSticky() ? 'is-sticky',
-not node.isPublished() ? 'is-unpublished',
-view_mode ? view_mode|clean_class,
-'clearfix',
-]|merge(content.field_body_style_terms['#uwm_678891']['term_styles']) %}
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+    ] %}
 
+{% set classes = classes|merge(content.field_body_style_terms['#uwm_678891']) %}
 
 {% set inner_sidebar = [
-content.field_sidebar_content_blocks,
-drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
-] %}
+    content.field_sidebar_content_blocks,
+    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+    ] %}
 
 {#{{  devel_breakpoint()  }}#}
 
@@ -46,7 +47,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
         {% set t = [] %}
         {% set t = t|merge(content.field_content_blocks['#items']|uwm_arraycount_styles) %}
-        {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']['term_styles']) %}
+        {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']) %}
         {% set t = t|uwm_join_parts(' ') %}
 
         <section class="row middle-blocks {{ t }}">
@@ -68,7 +69,7 @@ drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar'
 
         {% set t = [] %}
         {% set t = t|merge(['body-content','uwm-toggle']) %}
-        {% set t = t|merge([body_summary is not empty ? 'with-summary' : 'without-summary']) %}
+        {% set t = t|merge([body_summary is not empty ? 'with-summary']) %}
         {% set t = t|uwm_join_parts(' ') %}
 
         <section class="{{ t }}">

@@ -81,9 +81,7 @@ function uwmcs_utils_views_pre_view(ViewExecutable $view, $display_id, array &$a
  * Implements hook_entity_view_alter().
  */
 function uwmcs_utils_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-
-  $uwm_render_placeholder = '#uwm_678891';
-
+  
   /***
    * Add term names safe for templates:
    */
@@ -95,22 +93,30 @@ function uwmcs_utils_entity_view_alter(array &$build, EntityInterface $entity, E
 
     if (isset($build[$fieldName])) {
 
-      $classes = [Html::getClass('uws-term-styles')];
-      $classes = [Html::getClass('uws-term-' . $fieldName)];
+      $classes = [];
       $fieldTerms = $entity->get($fieldName)->getValue();
 
       foreach ($fieldTerms as $fieldTerm) {
 
         $term = $terms = Term::load($fieldTerm['target_id']);
+
         if (!empty($term->name->value)) {
-          $classes[] = Html::getClass('uws-term__' . $term->name->value);
+          $classes[] = Html::getClass('uwmterms__' . $term->name->value);
         }
+
         if (!empty($term->field_code_label->value)) {
-          $classes[] = Html::getClass('uws-term__' . $term->field_code_label->value);
+          $classes[] = Html::getClass('uwmterms__' . $term->field_code_label->value);
         }
+
       }
 
-      $build[$fieldName][$uwm_render_placeholder]['term_styles'] = $classes;
+      if (!empty($classes)) {
+
+        $classes[] = Html::getClass('uwmterms');
+        $classes[] = Html::getClass('uwmterms__' . $fieldName);
+      }
+
+      $build[$fieldName]['#uwm_678891'] = $classes;
 
     }
 

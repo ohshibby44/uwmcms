@@ -231,7 +231,7 @@ function uwmed_preprocess_field(&$variables) {
   ];
   if ($obj && in_array($field_name, $stylingFields)) {
 
-    $variables['wrapper_classes'] = $element['#uwm_678891']['term_styles'];
+    $variables['wrapper_classes'] = $element['#uwm_678891'];
 
   }
 

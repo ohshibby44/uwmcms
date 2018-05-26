@@ -30,25 +30,27 @@ body.page-node-type-fact-page {
     @extend .col-xs-12;
 
     > .wrapper {
-
       @extend .uw-well;
       width: 100%;
       margin-bottom: 30px;
-      background: $uwmed-white;
       border: 1px solid $uwmed-light-gray;
       box-shadow: 1px 1px 3px 0 $uwmed-light-gray;
-
-      &.darken {
-        background: $uwmed-off-white;
-        box-shadow: none;
-      }
-
-      &.transparent {
-        border: 0 none;
-        box-shadow: none;
-      }
-
     }
+    &.darken > .wrapper {
+      background: $uwmed-off-white;
+      box-shadow: none;
+    }
+    &.lighten > .wrapper {
+      background: $uwmed-white;
+      box-shadow: none;
+    }
+    &.transparent > .wrapper {
+      border: 0 none;
+      box-shadow: none;
+    }
+
+    @extend .lighten;
+
   }
 
   .group-of-2s .paragraph {
@@ -93,7 +95,7 @@ body.page-node-type-fact-page {
         margin-left: 25px;
         padding: 0 0 25px 25px;
 
-        .paragraph > .wrapper {
+        .paragraph {
           @extend .transparent;
         }
 
@@ -104,7 +106,7 @@ body.page-node-type-fact-page {
     section.middle-blocks {
 
       background: $uwmed-white;
-      .paragraph > .wrapper {
+      .paragraph {
         @extend .darken;
       }
 
@@ -125,16 +127,28 @@ body.page-node-type-fact-page {
   }
 
   // PAGE-STYLE TAXONOMY SELECTED:
-  .uws-term__darken-body {
+  .uwmterms {
 
-    section.body-content {
-
-      background: $uwmed-off-white;
-
-      .paragraph > .wrapper {
-        @extend .darken;
+    &.uwmterms__darken-body {
+      section.body-content {
+        background: $uwmed-off-white;
+        .paragraph {
+          @extend .darken;
+        }
       }
+    }
 
+    &.uwmterms__proof-points {
+      .field.field--name-field-content-blocks {
+        .paragraph {
+          @extend .lighten;
+          > .wrapper {
+            border: 0 none !important;
+            border-left: 1px solid #dcdcdc !important;
+            padding-left: 50px;
+          }
+        }
+      }
     }
 
   }
@@ -198,12 +212,13 @@ body.page-node-type-fact-page {
   .body-content {
 
     @include uwmed-box-show-hide-transition('.uwshow', '.uwhide');
-    .uwm-more, .body-summary {
+
+    .uw-more, .body-summary {
       @extend .uwhide;
     }
 
     &.with-summary {
-      .uwm-more, .body-summary {
+      .uw-more, .body-summary {
         @extend .uwshow;
       }
       .body-full {
