@@ -13,20 +13,42 @@
     @extend .col-xs-12;
     margin: 30px 0 20px 0;
     padding-top: 10px;
-    border-top: 1px solid #f8f8f8;
+    border-top: 1px solid $uwmed-light-gray;
     text-align: center;
     opacity: .8;
+    color: $uwmed-pop-blue;
+    text-decoration: none !important;
 
-    a {
-      color: $uwmed-pop-blue;
-      text-decoration: none;
-      &.on i.fa-angle-down:before {
-        // angle-up content:
-        content: "\f106";
+    i {
+      margin-left: .4em;
+    }
 
+    &.on i.fa-angle-down:before {
+      content: "\f106";
+    }
+
+    &.toggle-text {
+      &:before {
+        content: "View more";
       }
+      i:before {
+        content: "\f107";
+      }
+
+    }
+
+  }
+
+  &.on .toggle-text {
+    &:before {
+      content: "View less";
+    }
+    i:before {
+      content: "\f106";
     }
 
   }
 
 }
+
+

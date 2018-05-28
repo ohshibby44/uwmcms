@@ -1,72 +1,125 @@
 {{ attach_library('uwmed/node--fact-page') }}
+{{ attach_library('uwmed/uwm-toggle') }}
 
 
-{% set classes = [node.bundle|clean_class,
-node.isPromoted() ? 'is-promoted',
-node.isSticky() ? 'is-sticky',
-not node.isPublished() ? 'is-unpublished',
-view_mode ? view_mode|clean_class,
-'clearfix',
-] %}
+{% set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+    ] %}
 
-{% set inner_sidebar = [content.field_bottom_content_blocks,
-drupal_region('content_innner_sidebar')
-? drupal_region('content_innner_sidebar') : []
-] %}
+{% set classes = classes|merge(content.field_body_style_terms['#uwm_678891']) %}
+
+{% set inner_sidebar = [
+    content.field_sidebar_content_blocks,
+    drupal_region('content_innner_sidebar') ? drupal_region('content_innner_sidebar') : []
+    ] %}
 
 {#{{  devel_breakpoint()  }}#}
 
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
-    {% if content.field_content_blocks |render is not empty %}
+    {% if content.field_top_content_blocks|render is not empty %}
 
-        {% set n = content.field_content_blocks['#items']|length %}
-        {% set classes = [n is divisible by (2) ? 'paragraph-2s',
-        n is divisible by (3) ? 'paragraph-3s',
-        n is divisible by (4) ? 'paragraph-4s'
-        ] %}
+        {% set t = content.field_top_content_blocks['#items']|uwm_arraycount_styles %}
+        {% set t = t|uwm_join_parts(' ') %}
 
-        {#{{ devel_breakpoint() }}#}
-        <section class="row crocosmias">
+    <section class="row top-blocks {{ t }}">
 
-            <div class="wrapper {{ classes|uwm_join_parts }}">
+        <div class="wrapper">
 
-                {{ content.field_content_blocks }}
+        {{ content.field_top_content_blocks_heading }}
+        {{ content.field_top_content_blocks }}
+        {{ content.field_top_content_blocks_footer‎ }}
 
-                {{ content.field_body_body_second }}
-
-
-            </div>
+        </div>
 
         </section>
 
+        {% endif %}
+
+
+        {% if content.field_content_blocks|render is not empty %}
+
+        {% set t = [] %}
+        {% set t = t|merge(content.field_content_blocks['#items']|uwm_arraycount_styles) %}
+        {% set t = t|merge(content.field_content_blocks_style['#uwm_678891']) %}
+        {% set t = t|uwm_join_parts(' ') %}
+
+        <section class="row middle-blocks {{ t }}">
+
+        <div class="wrapper">
+
+            {{ content.field_content_blocks_heading }}
+            {{ content.field_content_blocks }}
+            {{ content.field_content_blocks_footer }}
+
+        </div>
+
+        </section>
     {% endif %}
 
 
 
-    {% if content.body |render is not empty %}
+    {% if content.body|render is not empty %}
 
-        <section class="row beesbalm">
+        {% set t = [] %}
+        {% set t = t|merge(['body-content','uwm-toggle']) %}
+        {% set t = t|merge([body_summary is not empty ? 'with-summary']) %}
+        {% set t = t|uwm_join_parts(' ') %}
+
+        <section class="{{ t }}">
 
             <div class="col-xs-12">
 
-                {% if inner_sidebar is not empty %}
-                    <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
-                           role="complementary">
+                {#{{ devel_breakpoint() }}#}
+                <div class="body-summary">
+                    {{ body_summary|raw }}
+                </div>
 
-                        {{ inner_sidebar }}
+                <div class="body-full">
 
-                    </aside>
-                {% endif %}
+                    {% if inner_sidebar is not empty %}
 
-                <div{{ content_attributes.addClass('content') }}>
+                        <aside class="inner-sidebar col-sm-5 pull-right hidden-xs"
+                               role="complementary">
+
+                            {{ inner_sidebar }}
+
+                        </aside>
+
+                    {% endif %}
 
                     {{ content.body }}
 
-                    {{ content.field_link }}
-
                 </div>
+
+                <a class="uw-more toggle-text" role="button" data-uwm-toggle-class
+                   data-toggle-class="on" data-toggle-target=".body-content"><i class="fa"></i>
+                </a>
+
+                {{ content.field_link }}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+    {#
+    Repeat sidebar for mobile:
+    #}
+    {% if inner_sidebar is not empty %}
+
+        <section class="row inner-sidebar visible-xs" role="complementary">
+
+            <div class="wrapper">
+
+                {{ inner_sidebar }}
 
             </div>
 
@@ -75,20 +128,23 @@ drupal_region('content_innner_sidebar')
     {% endif %}
 
 
-    {% if inner_sidebar is not empty %}
+    {% if content.field_bottom_content_blocks|render is not empty %}
 
-        <aside class="inner-sidebar col-xs-12 visible-xs block-format-paragraph"
-               role="complementary">
+        {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
+        {% set t = t|uwm_join_parts(' ') %}
 
-            {{ inner_sidebar }}
+        <section class="row bottom-blocks {{ t }}">
 
-        </aside>
+            <div class="wrapper">
+
+                {{ content.field_bottom_content_blocks_head }}
+                {{ content.field_bottom_content_blocks }}
+
+            </div>
+
+        </section>
 
     {% endif %}
 
-    {% if ecare_modal %}
-        {#{{ ecare_link }}#}
-        {{ ecare_modal }}
-    {% endif %}
 
 </article>

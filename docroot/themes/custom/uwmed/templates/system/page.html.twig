@@ -7,21 +7,9 @@
 {% include directory ~'/templates/system/page.header.html.twig' %}
 
 
-{# Page Top #}
-{% if page.page_content_top %}
-    {% block page_content_top %}
-        <section id="page-top">
-            {{ page.page_content_top }}
-        </section>
-    {% endblock %}
-{% endif %}
-
-
-
 {# Main #}
 {% block main %}
     <div id="main-container" role="main" class="main-container container-fluid">
-
 
         {# Help #}
         {% if page.help %}
@@ -31,8 +19,17 @@
         {% endif %}
 
 
-        <div class="wrapper">
+        {# Page Top #}
+        {% if page.content_header %}
+            {% block content_header %}
+                <section id="content-header">
+                    {{ page.content_header }}
+                </section>
+            {% endblock %}
+        {% endif %}
 
+
+        <div class="wrapper">
 
             {# Sidebar First #}
             {% if page.sidebar_first %}
@@ -52,7 +49,6 @@
             page.sidebar_first is empty and page.sidebar_second is empty ? ''
             ] %}
             <section{{ content_attributes.addClass(content_classes).addClass('page-center') }}>
-
 
                 {# Content #}
                 {% block content %}

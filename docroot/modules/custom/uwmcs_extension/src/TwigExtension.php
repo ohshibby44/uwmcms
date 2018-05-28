@@ -61,6 +61,8 @@ class TwigExtension extends \Twig_Extension {
         'uwm_sort_parts', [$this, 'sortArrayByValues']),
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
+      new \Twig_SimpleFilter(
+        'uwm_arraycount_styles', [$this, 'collectionCssClasses']),
 
     ];
   }
@@ -184,6 +186,9 @@ class TwigExtension extends \Twig_Extension {
     $cleanArr = [];
 
     foreach ((array) $parts as $part) {
+      if (is_array($part)) {
+        $part = self::joinArray($part, $separator);
+      }
       $cleanPart = trim(
         preg_replace('/\s+/', ' ', $part)
       );
@@ -255,6 +260,10 @@ class TwigExtension extends \Twig_Extension {
    */
   public static function sortArrayByValues($data = [], string $sortKey = NULL) {
 
+    if (!is_array($data)) {
+      return $data;
+    }
+
     usort($data, function ($a, $b) use ($sortKey) {
 
       if (isset($sortKey)) {
@@ -322,6 +331,35 @@ class TwigExtension extends \Twig_Extension {
     }
 
     return NULL;
+  }
+
+  /**
+   * Description text.
+   *
+   * @param mixed|null $collectionItems
+   *   Description text.
+   *
+   * @return array
+   *   Description text.
+   */
+  public static function collectionCssClasses($collectionItems = NULL) {
+
+    $cssClasses = [];
+
+    if (method_exists($collectionItems, 'getValue')) {
+      $collectionItems = $collectionItems->getValue();
+    }
+
+    $collection = (array) $collectionItems;
+    $cssClasses[] = 'group-of-' . count($collection) . '-total';
+    for ($i = 2; $i <= 10; $i++) {
+      if (count($collection) % $i === 0) {
+        $cssClasses[] = 'group-of-' . $i . 's';
+      }
+    }
+
+    return $cssClasses;
+
   }
 
 }

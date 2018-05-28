@@ -4,12 +4,10 @@
 // within these fields or the content aside.
 //
 
-
 aside,
+div.field--name-field-top-content-blocks,
 div.field.field--name-field-content-blocks,
-div.field.field--name-field-bottom-content-blocks
-{
-
+div.field.field--name-field-bottom-content-blocks {
 
   .paragraph {
 
@@ -71,16 +69,22 @@ div.field.field--name-field-bottom-content-blocks
       @include uw-ghost-button('button', 'i.u-ips');
     }
 
-
     div.field.field--name-field-link {
       @include uw-ghost-button('.item', 'i.u-ips');
     }
-
 
   }
 
 }
 
+div.field.field--name-field-link {
+  @include uw-ghost-button('.item', 'i.u-ips');
+
+  margin-top: 15px;
+  > .item {
+    margin-right: 15px;
+  }
+}
 
 
 

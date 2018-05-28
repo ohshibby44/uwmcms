@@ -4,9 +4,15 @@
 # For more on Wrike projects, see
 # https://developers.wrike.com/documentation/api/methods/create-task
 #
-# Docs at:
+#
+# Github GraphQL docs:
+# https://developer.github.com/v4/guides/forming-calls/
+#
+#
+# Acquia Cloud hooks documentation:
 #   https://github.com/acquia/cloud-hooks
-# Sample:
+#
+# Acquia sample hook call:
 #   Started
 #   Updating s1.dev to deploy master
 #   Deploying master on s1.dev
@@ -27,6 +33,7 @@ repo_url="$5"
 repo_type="$6"
 
 github_token="fca59baef56daa4dc9e6069ffe1c2558b051ff24"
+
 wrike_client_id="saDHmzPz"
 wrike_account_api_token="2URYEzRHqgFtEnYeJvk9faKInRLktJs3yFuHobjGkWqoMgUJc8F46tqTUUpcFNqc-N-WFIUKC"
 wrike_account_task_folder_id="IEABOA5QI4HA3PRF"
@@ -42,13 +49,11 @@ if [ "$source_branch" != "$deployed_tag" ]; then
 
       echo $summary_text
       
-      body_text="<p>More can be found at: <br>"
-      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms\">Github repo</a> or<br>"
-      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms/commits/$github_branch\">https://github.com/uwmweb/uwmcms/commits/$github_branch</a></p>"
-      body_text="$body_text <p>Additional log notes:</p>"
+      body_text="<p><b><em>$summary_text</em></b></p><p>More can be found viewing our"
+      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms\">Github repo</a> or by browsing "
+      body_text="$body_text <a href=\"https://github.com/uwmweb/uwmcms/commits/$github_branch\">this tag</a>.</p><br><br>"
 
       echo $body_text
-
 
       github_query=$(cat <<EOF
       repository(owner: \"uwmweb\", name: \"uwmcms\") {
@@ -81,21 +86,23 @@ EOF
       echo $github_response
 
       github_log=$(echo $github_response | tr -d '\n' | tr -d '\r' | ruby -e " \
-      require 'rubygems'; require 'json'; require 'date'; s =''; d = JSON[STDIN.read]; \
+      require 'rubygems'; require 'json'; require 'date'; d = JSON[STDIN.read]; \
       d['data']['repository']['object']['history']['edges'].each do |cmt| \
-        puts '<p><b>' + cmt['node']['abbreviatedOid'] + '...</b>' + \
-          Date.parse(cmt['node']['committedDate']).strftime('%a, %d %b %Y') + '...' + \
+        puts '<p><b>—— ' + cmt['node']['abbreviatedOid'] + ' ' + \
+          Date.parse(cmt['node']['committedDate']).strftime('%a, %d %b %Y') + '...</b> ' + \
           cmt['node']['message'] + '<br></p>'; \
-        end; puts s;")
+        end;")
 
+      $github_log="<code><b>COMMIT NOTES:</b><br><br>$github_log</code>"
 
       echo $github_log
 
 
       curl -g -X POST -H "Authorization: bearer $wrike_account_api_token" \
             --data "title=$summary_text" \
-            --data-binary "description=$body_text<br><br><br><code>$github_log</code>" \
+            --data-binary "description=$body_text<br>$github_log" \
             "https://www.wrike.com/api/v3/folders/$wrike_account_task_folder_id/tasks"
 
 
 fi
+

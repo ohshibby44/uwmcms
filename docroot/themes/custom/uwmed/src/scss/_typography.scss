@@ -541,3 +541,25 @@ address {
   font-style: normal;
   line-height: $line-height-base;
 }
+
+h1.small-page-header {
+
+  @extend .col-xs-12;
+  font-size: 28px;
+  line-height: 28px;;
+  font-weight: 400;
+  letter-spacing: .4px;
+
+  .title-wrapper {
+    color: $uwmed-purple;
+
+    .subheading {
+      margin-left: 30px;
+      white-space: nowrap;
+      &, a {
+        color: $uwmed-pop-blue;
+        font-size: 20px;
+      }
+    }
+  }
+}

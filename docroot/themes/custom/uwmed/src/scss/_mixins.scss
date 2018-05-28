@@ -7,6 +7,39 @@
   transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
+@mixin uwmed-link-color-transition-timing() {
+  transition: color 400ms, text-decoration 500ms;
+}
+
+@mixin uwmed-box-show-hide-transition($show-selector, $hide-selector) {
+
+  #{$show-selector} {
+    opacity: 1;
+    display: block;
+    animation: showAnimation 350ms ease-in;
+  }
+  #{$hide-selector} {
+    opacity: 0;
+    display: none;
+    animation: showAnimation 120ms ease-in-out;
+  }
+
+  @keyframes showAnimation {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+}
+
 @mixin uwmed-no-transition() {
   transition-timing-function: unset;
   transition: none !important;
@@ -20,6 +53,15 @@
   // Chrome jagged line fix
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
+}
+
+@mixin uw-well() {
+  @extend .well;
+  border: 0 none;
+  margin: 30px 0;
+  background: transparent;
+  box-shadow: none;
+  @content;
 }
 
 @mixin uw-separator($angle: false) {
@@ -124,7 +166,7 @@
     }
 
     &:hover {
-      
+
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
         color: $uwmed-white;
@@ -160,23 +202,51 @@
 
 @mixin uw-equal-height-row($row-container, $cell-container, $cell-cell: false) {
 
-  #{$row-container} > #{$cell-container} {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+  #{$row-container} {
 
-    @if #{$cell-cell} {
-      > #{$cell-cell} {
-        height: 100%;
+    display: flex;
+    //flex-direction: row;
+    //flex-wrap: wrap;
+    //float: left;
+    //width: 100%;
+    border: 1px solid green !important;
+
+    #{$cell-container} {
+      flex: 1;
+      margin-bottom: 15px;
+      border: 1px solid red !important;
+
+      @if #{$cell-cell} {
+        display: flex;
+
+        #{$cell-cell} {
+          flex: 1;
+          border: 1px solid yellow !important;
+        }
+
       }
+
     }
 
   }
-
-  #{$row-container} {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   @content;
+
+}
+
+
+@mixin uw-open-scheduling-rules() {
+  .open-scheduling-enabled {
+    .os-show {
+      display: block;
+    }
+    a.os-show, span.os-show {
+      display: inline-block;
+    }
+    .os-hide {
+      display: none;
+    }
+  }
+  .os-show {
+    display: none;
+  }
 }

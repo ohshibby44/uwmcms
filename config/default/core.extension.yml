@@ -1,6 +1,8 @@
 module:
   acquia_connector: 0
   acquia_purge: 0
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   allowed_formats: 0
   ape: 0
   block: 0
@@ -103,7 +105,6 @@ module:
   shortcut: 0
   simple_oauth: 0
   simple_sitemap: 0
-  simplesamlphp_auth: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -119,7 +120,6 @@ module:
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
-  views_ui: 0
   webform: 0
   webform_ui: 0
   workbench_moderation: 0

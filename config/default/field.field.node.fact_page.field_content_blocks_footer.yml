@@ -1,24 +1,24 @@
-uuid: 5367702b-35fb-4b9d-90fc-3deac0ba8044
+uuid: 5084b174-2b53-40a7-8e4b-a5e63a1f6164
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_body_body_second
+    - field.storage.node.field_content_blocks_footer
     - node.type.fact_page
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    basic_html: basic_html
     plain_text: '0'
     simple_formatted_text: '0'
+    basic_html: '0'
     full_html: '0'
-id: node.fact_page.field_body_body_second
-field_name: field_body_body_second
+id: node.fact_page.field_content_blocks_footer
+field_name: field_content_blocks_footer
 entity_type: node
 bundle: fact_page
-label: 'Blocks Subtext '
+label: Afterwards
 description: ''
 required: false
 translatable: false
