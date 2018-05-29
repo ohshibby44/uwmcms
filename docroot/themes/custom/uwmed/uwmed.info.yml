@@ -8,10 +8,10 @@ screenshot: uwmed-screenshot.png
 regions:
 #  branding: 'Branding'
   navigation: 'Navigation'
-  page_top: 'Page top'
   help: 'Help'
-  sidebar_first: 'Primary'
-  sidebar_second: 'Secondary'
+  content_header: 'Content Header'
+  sidebar_first: 'Primary Sidebar'
+  sidebar_second: 'Secondary Sidebar'
   content: 'Content'
   content_innner_sidebar: 'Content Inner Sidebar'
   page_bottom: 'Page bottom'

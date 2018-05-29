@@ -4,19 +4,23 @@
 // Called on all pages, regardless of role.
 // Styling of admin elements.
 
-ul.tabs--primary.nav.nav-tabs {
+nav.tabs {
 
-  @extend .nav-pills;
-  margin: 25px 0;
-  border-bottom-color: transparent;
+  @extend .col-xs-12;
 
-  > li {
-    a, a:hover {
-      @extend .btn;
-      border: 1px solid #dcdcdc;
-      border-radius: 8px;
-      text-decoration: none;
+  ul.tabs--primary.nav.nav-tabs {
+
+    @extend .nav-pills;
+    border-bottom-color: transparent;
+    > li {
+      a, a:hover {
+        @extend .btn;
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+        text-decoration: none;
+      }
     }
+
   }
 
 }

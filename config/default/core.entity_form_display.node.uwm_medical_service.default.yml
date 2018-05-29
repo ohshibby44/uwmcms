@@ -154,10 +154,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: content_snippet
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
@@ -167,10 +167,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: content_snippet
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
@@ -223,12 +223,12 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
+      edit_mode: closed
+      closed_mode: preview
       autocollapse: none
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: link_with_icon
     third_party_settings: {  }
     type: paragraphs
     region: content
@@ -238,10 +238,10 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: content_snippet
     third_party_settings: {  }
     region: content
   field_quiz:

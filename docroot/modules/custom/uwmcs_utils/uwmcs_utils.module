@@ -5,11 +5,14 @@
  * Custom module for small, utility-type routines.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -48,7 +51,8 @@ function uwmcs_utils_entity_field_access($operation, FieldDefinitionInterface $f
 
   $account = \Drupal::currentUser();
   if ($operation === 'edit' &&
-      in_array('staff_clinic_manager', $account->getRoles())) {
+      in_array('staff_clinic_manager', $account->getRoles())
+  ) {
 
     if (in_array($field_definition->getName(), $allowedFields)) {
 
@@ -69,6 +73,53 @@ function uwmcs_utils_views_pre_view(ViewExecutable $view, $display_id, array &$a
 
   if ($view->id() == 'clinic_hours') {
     // $args[0] = '4566';.
+  }
+
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function uwmcs_utils_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+
+  /***
+   * Add term names safe for templates:
+   */
+  $stylingFields = [
+    'field_content_blocks_style',
+    'field_body_style_terms',
+  ];
+  foreach ($stylingFields as $fieldName) {
+
+    if (isset($build[$fieldName])) {
+
+      $classes = [];
+      $fieldTerms = $entity->get($fieldName)->getValue();
+
+      foreach ($fieldTerms as $fieldTerm) {
+
+        $term = $terms = Term::load($fieldTerm['target_id']);
+
+        if (!empty($term->name->value)) {
+          $classes[] = Html::getClass('uwmterms__' . $term->name->value);
+        }
+
+        if (!empty($term->field_code_label->value)) {
+          $classes[] = Html::getClass('uwmterms__' . $term->field_code_label->value);
+        }
+
+      }
+
+      if (!empty($classes)) {
+
+        $classes[] = Html::getClass('uwmterms');
+        $classes[] = Html::getClass('uwmterms__' . $fieldName);
+      }
+
+      $build[$fieldName]['#uwm_678891'] = $classes;
+
+    }
+
   }
 
 }

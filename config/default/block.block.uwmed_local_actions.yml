@@ -8,7 +8,7 @@ _core:
   default_config_hash: ik4PTMlBD0MWansnSMpSXq5SUlWRJ1IVVt6C7AIbQmc
 id: uwmed_local_actions
 theme: uwmed
-region: content
+region: content_header
 weight: -3
 provider: null
 plugin: local_actions_block

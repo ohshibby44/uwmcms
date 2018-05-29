@@ -68,7 +68,8 @@
 #}
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
-{% set wrapper_classes = wrapper_classes ?: ['field', 'field--name-' ~ field_name|clean_class] %}
+{% set wrapper_classes = wrapper_classes ?: [] %}
+{% set wrapper_classes = wrapper_classes|merge( ['field', 'field--name-' ~ field_name|clean_class] )%}
 {% set wrapper_id = wrapper_id ?: '' %}
 {% set item_element = item_element ?: 'div' %}
 {% set item_classes = item_classes ? item_classes %}

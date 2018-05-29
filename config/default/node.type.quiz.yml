@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Quiz
+name: 'UW Quiz'
 type: quiz
 description: ''
 help: ''

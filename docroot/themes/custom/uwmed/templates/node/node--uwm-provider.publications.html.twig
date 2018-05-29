@@ -1,6 +1,6 @@
 
 
-{% if _bio.bioPublicationsDetails %}
+{% if _bio.bioPublicationsDetails is not empty %}
 
     <ul>
         {% for a in _bio.bioPublicationsDetails|uwm_sort_parts('JournalYear')|reverse %}

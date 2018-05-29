@@ -31,7 +31,8 @@ function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variable
 
   $type = $variables['elements']['#node']->getType();
   if ($variables['elements']['#view_mode'] == 'full'
-      && in_array($type, ['a', 'b'])) {
+      && in_array($type, ['a', 'b'])
+  ) {
     $suggestions[] = 'node__' . $type . 'abtest';
   }
 
@@ -87,7 +88,9 @@ function uwmed_preprocess_node(&$variables) {
       if (isset($node->field_quiz->getValue()[0])) {
         $quiz_id = $node->field_quiz->getValue()[0]['target_id'];
         if (isset($quiz_id)) {
-          $quiz_entity = Drupal::entityTypeManager()->getStorage("node")->load($quiz_id);
+          $quiz_entity = Drupal::entityTypeManager()
+            ->getStorage("node")
+            ->load($quiz_id);
         }
 
         if (isset($quiz_entity)) {
@@ -157,6 +160,19 @@ function uwmed_preprocess_node(&$variables) {
       }
     }
   }
+
+  if ($node->getType() === 'fact_page') {
+
+    $body = $node->body->getValue();
+
+    if (!empty($body[0]['summary'])) {
+      $variables['body_summary'] = $body[0]['summary'];
+      $variables['body_summary2'] = $node->body->view('summary');
+      $variables['body_sans_summary'] = str_replace($body[0]['summary'], '',
+        $body[0]['value']);
+    }
+
+  }
 }
 
 /**
@@ -164,9 +180,13 @@ function uwmed_preprocess_node(&$variables) {
  */
 function uwmed_preprocess_field(&$variables) {
 
-  $obj = $variables['element']['#object'] ?? NULL;
+  $element = $variables['element'] ?? NULL;
+  $obj = $element['#object'] ?? NULL;
+  $field_name = $element['#field_name'] ?? NULL;
 
-  // Get media object value for twig template:
+  /***
+   * Add video URL's for theming:
+   */
   if ($obj && $obj->hasField('field_media_video_data_url')) {
 
     $variables['videoUrl'] = $obj->get('field_media_video_data_url')
@@ -176,15 +196,64 @@ function uwmed_preprocess_field(&$variables) {
 
   }
 
-  // Make unique html-id available for templates:
+  /***
+   * Add unique Id for lightbox links:
+   */
   if ($obj && $obj->hasField('uuid')) {
 
     $id = $obj->get('uuid')->getValue();
     $id = $id[0]['value'] ?? rand();
-    $variables['uwmFieldId'] = Html::getUniqueId('uw-' . $id);
+    $variables['uwm_field_uuid'] = Html::getUniqueId('uw-' . $id);
 
   }
 
+  /***
+   * Set normal heading element for header fields:
+   */
+  $headerFields = [
+    'field_bottom_content_blocks_head',
+    'field_content_blocks_heading',
+    'field_top_content_blocks_heading',
+
+  ];
+  if (in_array($field_name, $headerFields)) {
+
+    $variables['item_element'] = 'h2';
+
+  }
+
+  /***
+   * Add term names safe for templates:
+   */
+  $stylingFields = [
+    'field_content_blocks_style',
+    'field_body_style_terms',
+  ];
+  if ($obj && in_array($field_name, $stylingFields)) {
+
+    $variables['wrapper_classes'] = $element['#uwm_678891'];
+
+  }
+
+  /***
+   * Add generic, common class to footer field:
+   */
+  $footerFields = [
+    'field_content_blocks_footer',
+    'field_top_content_blocks_footer',
+  ];
+  if ($obj && in_array($field_name, $footerFields)) {
+
+    $variables['attributes']['class'][] = 'blocks-section-footer';
+
+  }
+
+}
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function uwmed_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
