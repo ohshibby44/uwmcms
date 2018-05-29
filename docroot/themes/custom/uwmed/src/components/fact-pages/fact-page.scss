@@ -45,6 +45,7 @@ body.page-node-type-fact-page {
       box-shadow: none;
     }
     &.transparent > .wrapper {
+      background: transparent;
       border: 0 none;
       box-shadow: none;
     }
@@ -81,7 +82,28 @@ body.page-node-type-fact-page {
    */
   article.fact-page {
 
+    @extend .container-fluid;
+
     section.top-blocks {
+
+      .paragraph {
+        > .wrapper {
+          @extend .col-xs-12;
+        }
+      }
+
+    }
+
+    section.middle-blocks {
+
+      background: $uwmed-white;
+      .paragraph {
+        @extend .darken;
+        > .wrapper {
+          @extend .col-xs-12;
+        }
+      }
+
     }
 
     section.body-content {
@@ -101,18 +123,29 @@ body.page-node-type-fact-page {
 
       }
 
-    }
-
-    section.middle-blocks {
-
-      background: $uwmed-white;
-      .paragraph {
-        @extend .darken;
+      .field.field--name-field-link {
+        @extend .pull-left;
       }
 
     }
 
     section.bottom-blocks {
+    }
+
+    // PAGE-STYLE TAXONOMY SELECTED:
+    @extend %page-special-taxonomy-set-styles;
+
+    // TOGGLE OPEN SCHEDULING ENABLED CONTENT:
+    @include uw-open-scheduling-rules();
+
+    // FLEXBOX ON WIDE-SCREEN:
+    @extend %paragraphs-flex-height;
+
+    // TOGGLE BODY SUMMARY:
+    @extend %toggle-body-summary;
+
+    section.page-center {
+      overflow: hidden;
     }
 
   }
@@ -126,55 +159,11 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
-  // PAGE-STYLE TAXONOMY SELECTED:
-  .uwmterms {
-
-    &.uwmterms__darken-body {
-      section.body-content {
-        background: $uwmed-off-white;
-        .paragraph {
-          @extend .darken;
-        }
-      }
-    }
-
-    &.uwmterms__proof-points {
-      .field.field--name-field-content-blocks {
-        .paragraph {
-          @extend .lighten;
-          > .wrapper {
-            border: 0 none !important;
-            border-left: 1px solid #dcdcdc !important;
-            padding-left: 50px;
-          }
-        }
-      }
-    }
-
-  }
-
-  // TOGGLE OPEN SCHEDULING ENABLED CONTENT:
-  @include uw-open-scheduling-rules();
-
-  // FLEXBOX ON WIDE-SCREEN:
-  @extend %paragraphs-flex-height;
-
-  // TOGGLE BODY SUMMARY:
-  @extend %toggle-body-summary;
-
-  section.page-center {
-    overflow: hidden;
-  }
-
 }
 
 %paragraphs-flex-height {
 
   @media(min-width: $screen-md-min) {
-
-    section.middle-blocks > .wrapper {
-      padding: 0 15px;
-    }
 
     .field.field--name-field-top-content-blocks {
       float: left;
@@ -233,6 +222,52 @@ body.page-node-type-fact-page {
       .body-summary {
         @extend .uwhide;
       }
+    }
+
+  }
+
+}
+
+
+%page-special-taxonomy-set-styles {
+
+  &.uwmterms.uwmterms__darken-page-body, .uwmterms__darken-page-body {
+
+    section.body-content {
+      background: $uwmed-off-white;
+      .paragraph {
+        @extend .darken;
+      }
+    }
+
+  }
+
+  section.middle-blocks.uwmterms.uwmterms__proof-points-blocks .field.field--name-field-content-blocks {
+
+    .paragraph {
+      @extend .transparent;
+      > .wrapper {
+        border-left: 1px solid #dcdcdc;
+        margin: 40px 25px 0 25px;
+        padding: 0 30px
+      }
+      div.field.field--name-field-heading {
+        @extend .h3;
+        margin: 0;
+        font-size: 15px;
+        text-transform: none;
+        &:before {
+          @extend .uw-ico, .heart;
+          float: left;
+          margin-right: 6px;
+        }
+        .item:after {
+          @extend .hidden;
+        }
+      }
+    }
+    > .item-1 > .paragraph > .wrapper {
+      border-left: 0 none;
     }
 
   }

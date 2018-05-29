@@ -130,7 +130,7 @@
 
     {% if content.field_bottom_content_blocks|render is not empty %}
 
-        {% set t = content.field_content_blocks['#items']|uwm_arraycount_styles %}
+        {% set t = content.field_bottom_content_blocks['#items']|uwm_arraycount_styles %}
         {% set t = t|uwm_join_parts(' ') %}
 
         <section class="row bottom-blocks {{ t }}">

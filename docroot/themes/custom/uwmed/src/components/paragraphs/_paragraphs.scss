@@ -48,9 +48,9 @@ div.field.field--name-field-bottom-content-blocks {
 
     div.field.field--name-field-heading {
 
+      @extend .h3;
+      margin-top: 10px;
       .item {
-        @extend .h3;
-        margin-top: 10px;
         @include uw-bottom-accent-heading();
         i {
           text-transform: none;
