@@ -14,17 +14,21 @@ body {
     padding-top: 100px;
     min-height: 400px;
 
-    .title-wrapper {
+    section.content-header {
+      @extend .container-lg, .clearfix;
+      .region-help {
+        margin: 20px 0;
+      }
 
     }
 
-    .page-left {
+    aside.page-left {
     }
 
-    .page-right {
-
+    aside.page-right {
     }
-    .page-center {
+
+    div.page-center {
 
       article {
 
@@ -42,10 +46,6 @@ body {
 
 
 
-  }
-
-  .region-help {
-    margin: 20px 0;
   }
 
   footer {
