@@ -22,7 +22,7 @@ body.page-node-type-fact-page {
   section {
     @extend .row;
     > .wrapper {
-      @extend .col-xs-12;
+      @extend .container-lg;
     }
   }
 
@@ -144,8 +144,8 @@ body.page-node-type-fact-page {
     // TOGGLE BODY SUMMARY:
     @extend %toggle-body-summary;
 
-    section.page-center {
-      overflow: hidden;
+    .field.field--name-field-title-subheading {
+      @extend .col-xs-12;
     }
 
   }

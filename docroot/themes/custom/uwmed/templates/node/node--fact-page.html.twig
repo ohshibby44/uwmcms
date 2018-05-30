@@ -32,6 +32,9 @@
 
         <div class="wrapper">
 
+        {#@TODO: Move field_title_subheading to title twig#}
+        {{ content.field_title_subheading }}
+
         {{ content.field_top_content_blocks_heading }}
         {{ content.field_top_content_blocks }}
         {{ content.field_top_content_blocks_footer‎ }}
@@ -74,7 +77,7 @@
 
         <section class="{{ t }}">
 
-            <div class="col-xs-12">
+            <div class="wrapper">
 
                 {#{{ devel_breakpoint() }}#}
                 <div class="body-summary">

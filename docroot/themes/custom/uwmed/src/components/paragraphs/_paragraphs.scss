@@ -75,6 +75,10 @@ div.field.field--name-field-bottom-content-blocks {
 
   }
 
+  .field.field--name-field-featured-image {
+    @extend .img-thumbnail;
+  }
+
 }
 
 div.field.field--name-field-link {

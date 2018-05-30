@@ -1,9 +1,9 @@
-uuid: 35d5e775-eb03-4045-b43a-b62d87ec2d67
+uuid: 0be8d8dd-2316-4222-9adc-5a6cdf8589e7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_subheading
+    - field.storage.node.field_title_subheading
     - node.type.fact_page
   module:
     - allowed_formats
@@ -14,15 +14,15 @@ third_party_settings:
     simple_formatted_text: '0'
     basic_html: '0'
     full_html: '0'
-id: node.fact_page.field_subheading
-field_name: field_subheading
+id: node.fact_page.field_title_subheading
+field_name: field_title_subheading
 entity_type: node
 bundle: fact_page
-label: 'Title Suffix'
+label: 'Title Subheading'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text
+field_type: text_long

@@ -21,7 +21,8 @@
  * @ingroup themeable
  */
 #}
-{% set subheading = drupal_field('field_subheading', 'node') %}
+{% set titleSuffix = drupal_field('field_title_suffix', 'node') %}
+{% set titleSubheading = drupal_field('field_title_subheading', 'node') %}
 
 
 {#{{ devel_breakpoint() }}#}
@@ -33,8 +34,10 @@
       {%- endfor -%}
     </span>
 
-    {% if subheading|render %}
-        <span class="subheading">{{ subheading.0['#text']|raw }}</span>
+    {% if titleSuffix|render %}
+        <span class="subheading">{{ titleSuffix.0['#text']|raw }}</span>
     {% endif %}
 
 </div>
+
+{#{{ titleSubheading }}#}
