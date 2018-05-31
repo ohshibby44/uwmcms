@@ -1,8 +1,9 @@
-uuid: e17b22e8-312a-42ff-bcc1-7f261459510f
+uuid: 6ec6898e-719d-4882-9a35-0a6a1b90a637
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.image_header_paragraph
     - field.field.paragraph.content_snippet.field_featured_image
     - field.field.paragraph.content_snippet.field_heading
     - field.field.paragraph.content_snippet.field_link
@@ -13,14 +14,14 @@ dependencies:
     - image
     - link
     - text
-id: paragraph.content_snippet.default
+id: paragraph.content_snippet.image_header_paragraph
 targetEntityType: paragraph
 bundle: content_snippet
-mode: default
+mode: image_header_paragraph
 content:
   field_featured_image:
     type: image
-    weight: 2
+    weight: 0
     region: content
     label: hidden
     settings:
@@ -28,7 +29,7 @@ content:
       image_link: ''
     third_party_settings: {  }
   field_heading:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -48,7 +49,7 @@ content:
     third_party_settings: {  }
   field_text_snippet:
     type: text_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }
