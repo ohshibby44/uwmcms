@@ -75,20 +75,40 @@ div.field.field--name-field-bottom-content-blocks {
 
   }
 
-  .field.field--name-field-featured-image {
-    @extend .img-thumbnail;
+  .paragraph.paragraph--view-mode--image-header-paragraph {
+
+    .bg-featured-image {
+      display: block !important;
+      position: absolute;
+      top: 30px;
+      left: 15px;
+      right: 15px;
+      z-index: 2;
+      background-size: cover;
+      height: 200px;
+    }
+
+    .field.field--name-field-featured-image {
+      // Keep in DOB flow so content wraps below it:
+      visibility: hidden;
+      margin: 0 !important;
+      height: 200px;
+    }
+
   }
+
 
 }
 
 div.field.field--name-field-link {
   @include uw-ghost-button('.item', 'i.u-ips');
-
   margin-top: 15px;
   > .item {
     margin-right: 15px;
   }
 }
 
-
+.field.field--name-field-featured-image {
+  @extend .img-thumbnail;
+}
 
