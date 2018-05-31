@@ -90,6 +90,11 @@ body.page-node-type-fact-page {
         > .wrapper {
           @extend .col-xs-12;
         }
+
+        .field.field.field--name-field-link {
+          @include uw-ghost-button('.item', 'i.u-ips', $uwmed-accent-blue);
+        }
+
       }
 
     }
@@ -231,7 +236,8 @@ body.page-node-type-fact-page {
 
 %page-special-taxonomy-set-styles {
 
-  &.uwmterms.uwmterms__darken-page-body, .uwmterms__darken-page-body {
+  &.uwmterms.uwmterms__darken-page-body,
+  .uwmterms__darken-page-body {
 
     section.body-content {
       background: $uwmed-off-white;
@@ -242,33 +248,56 @@ body.page-node-type-fact-page {
 
   }
 
-  section.middle-blocks.uwmterms.uwmterms__proof-points-blocks .field.field--name-field-content-blocks {
+  .uwmterms.uwmterms__proof-points-blocks,
+  section.middle-blocks.uwmterms.uwmterms__proof-points-blocks {
 
-    .paragraph {
-      @extend .transparent;
-      > .wrapper {
-        border-left: 1px solid #dcdcdc;
-        margin: 40px 25px 0 25px;
-        padding: 0 30px
+    .field.field--name-field-content-blocks {
+      .paragraph {
+        @extend .transparent;
+        > .wrapper {
+          border-left: 1px solid #dcdcdc;
+          margin: 40px 25px 0 25px;
+          padding: 0 30px
+        }
+        div.field.field--name-field-heading {
+          @extend .h3;
+          margin: 0;
+          font-size: 15px;
+          text-transform: none;
+          &:before {
+            @extend .uw-ico, .heart;
+            float: left;
+            margin-right: 6px;
+          }
+          .item:after {
+            @extend .hidden;
+          }
+        }
       }
-      div.field.field--name-field-heading {
-        @extend .h3;
-        margin: 0;
-        font-size: 15px;
-        text-transform: none;
-        &:before {
-          @extend .uw-ico, .heart;
-          float: left;
-          margin-right: 6px;
-        }
-        .item:after {
-          @extend .hidden;
-        }
+      > .item-1 > .paragraph > .wrapper {
+        border-left: 0 none;
+      }
+
+    }
+
+
+
+  }
+
+  .uwmterms.uwmterms__transparent-blocks-container,
+  section.middle-blocks.uwmterms.uwmterms__transparent-blocks-container {
+    background: transparent;
+  }
+
+  .uwmterms.uwmterms__heart-icon-top-blocks {
+    
+    section.top-blocks {
+      .field.field--name-field-text-snippet li {
+
+
       }
     }
-    > .item-1 > .paragraph > .wrapper {
-      border-left: 0 none;
-    }
+
 
   }
 
