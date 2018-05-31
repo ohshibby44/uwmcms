@@ -103,6 +103,12 @@ h2.accent, h3.accent, h4.accent {
   @include uw-well();
 }
 
+.full-float {
+  float: left;
+  width: 100%;
+
+}
+
 @include uw-equal-height-row('.row.equal-heights', '[class*=col]');
 
 div.uwm-right-letterbox {

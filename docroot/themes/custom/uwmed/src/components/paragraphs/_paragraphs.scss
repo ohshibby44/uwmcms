@@ -49,7 +49,7 @@ div.field.field--name-field-bottom-content-blocks {
     div.field.field--name-field-heading {
 
       @extend .h3;
-      margin-top: 10px;
+      margin: 0 0 25px 0;
       .item {
         @include uw-bottom-accent-heading();
         i {
@@ -85,14 +85,14 @@ div.field.field--name-field-bottom-content-blocks {
       right: 15px;
       z-index: 2;
       background-size: cover;
-      height: 200px;
+      height: 150px;
     }
 
-    .field.field--name-field-featured-image {
-      // Keep in DOB flow so content wraps below it:
-      visibility: hidden;
-      margin: 0 !important;
-      height: 200px;
+    > .wrapper {
+      padding-top: 150px;
+      .field.field--name-field-featured-image {
+        @extend .hidden;
+      }
     }
 
   }
