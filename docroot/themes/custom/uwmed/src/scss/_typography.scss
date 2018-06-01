@@ -151,8 +151,10 @@ h1, .h1, h1 a, .h1 a {
   }
 }
 
-h1.page-header, h2.page-title, .page-title {
+h1.page-header, h2.page-title, .page-title, .title-wrapper {
+  color: $uwmed-light-purple;
   a {
+    color: $uwmed-light-purple;
     text-decoration: none;
     &:hover {
       text-decoration: none;

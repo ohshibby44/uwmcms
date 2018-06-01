@@ -139,6 +139,16 @@ node--fact-page:
 #    theme:
 #      dist/components/fact-pages/fact-page.css: {}
 
+node--uwm-provider:
+  js: {}
+  css: {}
+  dependencies:
+    - uwmed/colorbox
+    - uwmed/modal-play-video
+#  css:
+#    theme:
+#      dist/components/fact-pages/fact-page.css: {}
+
 
 scroll-magic:
   js:
@@ -149,3 +159,12 @@ homepage-animation:
     dist/js/homepage-animation.js: {}
   dependencies:
     - uwmed/scroll-magic
+
+
+modal-play-video:
+  js:
+    dist/js/uwm-modal-play-video.js: {}
+  dependencies:
+    - uwmed/colorbox
+      - core/jquery
+      - core/drupalSettings

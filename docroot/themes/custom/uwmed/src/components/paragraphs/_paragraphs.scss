@@ -97,6 +97,15 @@ div.field.field--name-field-bottom-content-blocks {
 
   }
 
+  .paragraph.paragraph--view-mode--media-paragraph-minimal-display {
+
+    box-shadow: none !important;
+    background: transparent !important;
+    .field.field--name-field-text-snippet {
+      @extend .hidden;
+    }
+
+  }
 
 }
 
