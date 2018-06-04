@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "0c776cdf4cf6fae8db8560e30828e3d1",
@@ -2468,7 +2468,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07T10:47:07+00:00"
+            "time": "2013-11-07 10:47:07"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3485,7 +3485,7 @@
                 "source": "http://cgit.drupalcode.org/calendar",
                 "issues": "https://www.drupal.org/project/issues/calendar"
             },
-            "time": "2017-09-13T12:29:50+00:00"
+            "time": "2017-09-13 12:29:50"
         },
         {
             "name": "drupal/calendar_datetime",
@@ -4803,7 +4803,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/date"
             },
-            "time": "2012-10-28T09:20:01+00:00"
+            "time": "2012-10-28 09:20:01"
         },
         {
             "name": "drupal/devel",
@@ -5957,7 +5957,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/fb_instant_articles"
             },
-            "time": "2017-09-13T21:49:59+00:00"
+            "time": "2017-09-13 21:49:59"
         },
         {
             "name": "drupal/features",
@@ -6212,7 +6212,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/google_tag"
             },
-            "time": "2017-06-16T21:53:17+00:00"
+            "time": "2017-06-16 21:53:17"
         },
         {
             "name": "drupal/hierarchical_term_formatter",
@@ -9079,7 +9079,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20T15:43:48+00:00"
+            "time": "2016-10-20 15:43:48"
         },
         {
             "name": "drupal/sharethis",
@@ -9173,7 +9173,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/sharethis"
             },
-            "time": "2017-11-11T14:33:23+00:00"
+            "time": "2017-11-11 14:33:23"
         },
         {
             "name": "drupal/shield",
@@ -12846,7 +12846,7 @@
                 "GPL-3.0+"
             ],
             "description": "Library used to find lowest common ancestor in graphs.",
-            "time": "2017-04-30T16:26:14+00:00"
+            "time": "2017-04-30 16:26:14"
         },
         {
             "name": "robrichards/xmlseclibs",

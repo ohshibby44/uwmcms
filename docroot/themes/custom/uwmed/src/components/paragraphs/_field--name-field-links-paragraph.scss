@@ -15,7 +15,7 @@ div.paragraph, section.block {
 
           list-style-type: none;
           margin: 0;
-          padding: 0 0 1em 1em;
+          padding: 0 0 1em 0;
         }
       }
 
@@ -53,17 +53,17 @@ div.paragraph, section.block {
 
       }
 
-      &.item-1 li a.btn.btn-default {
-        border-top: 1px solid #dcdcdc;
-      }
+      //&:last-of-type li a.btn.btn-default {
+      //  border-bottom: 0 none;
+      //}
 
 
     }
 
     div.field.field--name-field-link {
       @include uw-ghost-button('.item', 'i.u-ips');
-      @extend .col-xs-12;
-      margin: 1em 0 0 0;
+      @extend .full-float;
+      margin: 20px 0 0 0;
     }
 
   }

@@ -8,7 +8,9 @@
 
 #}
 
+{{ attach_library('uwmed/node--uwm-provider') }}
 {{ attach_library('uwmed/bootstrap-tab-history') }}
+{{ attach_library('uwmed/modal-play-video') }}
 
 {% set classes = [
     node.bundle|clean_class,

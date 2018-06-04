@@ -32,7 +32,7 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
-github_token="fca59baef56daa4dc9e6069ffe1c2558b051ff24"
+github_token="592a04c2a6085c178ba279ab4322d9ccae622a7e"
 
 wrike_client_id="saDHmzPz"
 wrike_account_api_token="2URYEzRHqgFtEnYeJvk9faKInRLktJs3yFuHobjGkWqoMgUJc8F46tqTUUpcFNqc-N-WFIUKC"
