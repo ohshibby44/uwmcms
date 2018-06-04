@@ -32,7 +32,7 @@ body {
     aside.page-right {
     }
 
-    div.page-center {
+    section.page-center {
 
       article {
 
@@ -101,6 +101,12 @@ h2.accent, h3.accent, h4.accent {
 
 .well, .uw-well {
   @include uw-well();
+}
+
+.full-float {
+  float: left;
+  width: 100%;
+
 }
 
 @include uw-equal-height-row('.row.equal-heights', '[class*=col]');

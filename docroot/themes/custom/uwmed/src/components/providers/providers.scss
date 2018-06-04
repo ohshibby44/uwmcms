@@ -150,7 +150,6 @@ body.page-node-type-uwm-provider {
 
         div.paragraph {
           margin-bottom: 25px;
-          padding: 10px;
           box-shadow: 1px 1px 10px 1px #dcdcdc;
           background: #f8f8f8;
 
@@ -163,6 +162,11 @@ body.page-node-type-uwm-provider {
           }
 
         }
+        div.paragraph.paragraph--view-mode--media-paragraph-minimal-display {
+          padding: 0;
+        }
+
+
 
       }
 

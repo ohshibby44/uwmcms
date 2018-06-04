@@ -16,8 +16,8 @@ aside section.block,
   background: #f8f8f8;
 
   h2.block-title {
-    margin-left: 15px;
     @extend .h3;
+    margin-top: 0;
     @include uw-bottom-accent-heading();
     i {
       text-transform: none;
@@ -36,3 +36,38 @@ aside .block .wrapper.card-block-pt-resources .field.field--name-field-heading {
     display: none;
   }
 }
+
+section.block.block-views-blockcontent-spotlights-block-1 {
+
+  .views-field.views-field-title {
+    @extend .full-float;
+    margin: 0;
+    padding: 8px 20px 8px 0;
+    border: 0 none;
+    border-bottom: 1px solid #dcdcdc;
+    a {
+      @extend .full-float;
+      text-decoration: none;
+      padding-right: 17%;
+      position: relative;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:before {
+        @extend .fa, %uw-awesome-ico;
+        content: "\f054";
+        right: -20px;
+        position: absolute;
+        top: 30%;
+        opacity: .7;
+      }
+
+    }
+  }
+  .view-content .views-row:last-child .views-field.views-field-title {
+    border-bottom: 0 none;
+  }
+
+
+}
+
