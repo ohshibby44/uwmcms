@@ -49,7 +49,7 @@ div.field.field--name-field-bottom-content-blocks {
     div.field.field--name-field-heading {
 
       @extend .h3;
-      margin-top: 10px;
+      margin: 0 0 25px 0;
       .item {
         @include uw-bottom-accent-heading();
         i {
@@ -85,18 +85,48 @@ div.field.field--name-field-bottom-content-blocks {
       right: 15px;
       z-index: 2;
       background-size: cover;
-      height: 200px;
+      height: 150px;
     }
 
-    .field.field--name-field-featured-image {
-      // Keep in DOB flow so content wraps below it:
-      visibility: hidden;
-      margin: 0 !important;
-      height: 200px;
+    > .wrapper {
+      padding-top: 150px;
+      .field.field--name-field-featured-image {
+        @extend .hidden;
+      }
     }
 
   }
 
+  .paragraph.paragraph--view-mode--media-paragraph-minimal-display {
+
+    box-shadow: none !important;
+    background: transparent !important;
+    .field.field--name-field-text-snippet {
+      @extend .hidden;
+    }
+
+    .field.field--name-field-media {
+      .video-thumbnail a {
+        .vplay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -40px;
+          margin-top: -40px;
+          color: #fff;
+          font-size: 80px;
+          opacity: .5;
+        }
+        &:hover .fa {
+          opacity: 1;
+        }
+        img {
+          @extend .img-thumbnail;
+        }
+      }
+    }
+
+  }
 
 }
 
