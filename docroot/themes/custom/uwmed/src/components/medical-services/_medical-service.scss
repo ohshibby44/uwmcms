@@ -1059,8 +1059,15 @@
 
     }
 
-    .field--name-field-heading p {
+    .field--name-field-heading {
       @extend h5;
+      .item {
+        text-transform: none;
+        &:after {
+          @extend .hidden;
+        }
+      }
+
     }
 
     .field--name-field-text-snippet {
@@ -1323,10 +1330,8 @@
 
       .clinic__info {
         @extend .well;
-        margin-top: 0;
+        margin: 0;
         border: 0 none;
-        background-color: #F5F5F5;
-
         .h2, .h3, .h4 {
           margin-top: 0;
         }
@@ -1338,6 +1343,8 @@
 
       .clinic__directions {
         @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
+        position: absolute;
+        bottom: 15px;
       }
 
     }
@@ -1390,6 +1397,16 @@
 
 
     }
+
+    @include uw-equal-height-row('.row.flex-row');
+    @include uw-equal-height-row('.row.flex-row > article', '.row.flex-row > article > .wrapper');
+    .row.flex-row > article > .wrapper {
+      background-color: #F5F5F5;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+
 
   }
 

@@ -75,7 +75,7 @@
         {% set t = t|merge([body_summary is not empty ? 'with-summary']) %}
         {% set t = t|uwm_join_parts(' ') %}
 
-        <section class="{{ t }}">
+        <section id="more" class="{{ t }}">
 
             <div class="wrapper">
 
@@ -101,7 +101,7 @@
 
                 </div>
 
-                <a class="uw-more toggle-text" role="button" data-uwm-toggle-class
+                <a href="#more" class="uw-more toggle-text" role="button" data-uwm-toggle-class
                    data-toggle-class="on" data-toggle-target=".body-content"><i class="fa"></i>
                 </a>
 

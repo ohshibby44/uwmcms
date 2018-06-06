@@ -24,11 +24,11 @@ use field defaults.
         {% endset %}
 
 
-        <div class="video hidden">
+        <div class="video-wrapper hidden">
             {{ videoHTML }}
         </div>
 
-        <div class="video-thumbnail">
+        <div class="video-thumbnail-wrapper">
             <a href="#{{ uwm_field_uuid }}" class="colorbox launch-video">
                 {% if element.0['children']['#attributes']['data-thumbnail'] %}
                     <img src="{{ element.0['children']['#attributes']['data-thumbnail'] }}">

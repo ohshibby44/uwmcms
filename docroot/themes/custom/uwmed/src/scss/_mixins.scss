@@ -58,7 +58,8 @@
 @mixin uw-well() {
   @extend .well;
   border: 0 none;
-  margin: 30px 0;
+  margin: 15px 0 30px 0;
+  padding: 15px;
   background: transparent;
   box-shadow: none;
   @content;
@@ -200,37 +201,19 @@
   @content;
 }
 
-@mixin uw-equal-height-row($row-container, $cell-container, $cell-cell: false) {
+@mixin uw-equal-height-row($flex-row, $flex-item: null) {
 
-  #{$row-container} {
-
+  #{$flex-row} {
     display: flex;
-    //flex-direction: row;
-    //flex-wrap: wrap;
-    //float: left;
-    //width: 100%;
-    border: 1px solid green !important;
-
-    #{$cell-container} {
-      flex: 1;
-      margin-bottom: 15px;
-      border: 1px solid red !important;
-
-      @if #{$cell-cell} {
-        display: flex;
-
-        #{$cell-cell} {
-          flex: 1;
-          border: 1px solid yellow !important;
-        }
-
-      }
-
-    }
-
+    flex-wrap: wrap;
   }
-  @content;
+  @if $flex-item {
+    #{$flex-item} {
+      flex: 1;
+    }
+  }
 
+  @content;
 }
 
 

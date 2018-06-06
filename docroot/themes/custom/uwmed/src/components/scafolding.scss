@@ -109,7 +109,7 @@ h2.accent, h3.accent, h4.accent {
 
 }
 
-@include uw-equal-height-row('.row.equal-heights', '[class*=col]');
+@include uw-equal-height-row('.flex-row', '.flex-item');
 
 div.uwm-right-letterbox {
   @extend .well, .uw-well, .col-xs-12, .col-sm-2;
