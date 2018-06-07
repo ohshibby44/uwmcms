@@ -1,10 +1,10 @@
 {% set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
 ] %}
 
 {{ attach_library('uwmed/clinic-hours') }}
@@ -16,76 +16,81 @@
 
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
 
-    {{ content.field_clinic_image }}
-    {#<img class="clinic__image img img-responsive"#}
-         {#src="{{ clinic.image_url | image_style('large') }}" alt=""/>#}
+    <div class="wrapper">
 
-    <div class="clinic__info">
+        {{ content.field_clinic_image }}
+        {#<img class="clinic__image img img-responsive"#}
+        {#src="{{ clinic.image_url | image_style('large') }}" alt=""/>#}
 
-        <h3 class="clinic__name h4 page-title"><a
-                    href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
-        </h3>
+        <div class="clinic__info">
 
-        {% if clinic.city %}
-            <address class="f-li"><i
-                        class="uw-ico clinic_locations"></i>
-                {{ address }}</address>
-        {% endif %}
+            <h3 class="clinic__name h4 page-title"><a
+                        href="{{ clinic.clinicUrl }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
+            </h3>
 
-        {% if clinic.seoPhone %}
-            <p class="clinic__clinic-phone f-li">
-                <i class="uw-ico call_solid"></i>
-                <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
-                    {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
-            </p>
-        {% endif %}
-
-        {% if content.field_sub_title|render is not empty %}
-            <div class="clinic__clinic-snippet f-li">
-                <i class="uw-ico uwmed-icon__clinic-locations"></i>
-                {{ content.field_sub_title.0 }}
-            </div>
-        {% endif %}
-
-        {% if content.field_body_summary|render is not empty %}
-            <div class="clinic__clinic-snippet f-li">
-                <i class="uw-ico uwmed-icon__heart-waveform"></i>
-                {{ content.field_body_summary.0 }}
-            </div>
-        {% endif %}
-
-        {% set p_nid = uwm_get_path_nid(clinic.clinicUrl|replace({'urgent': 'primary'})) %}
-        {% if p_nid %}
-            {% set cw = drupal_field('field_clockwise_id', 'node', p_nid) %}
-            {% set wt = drupal_field('field_clinic_wait_time_snippet', 'node', p_nid) %}
-            {% set class = wt[0]['#context']['value'] ? 'fade-in' : '' %}
-            {#{{ devel_breakpoint() }}#}
-
-            <p class="clinic__wait-time fade-out f-li {{ class }}"
-               {# @TODO: Removed when clockwise id moved to field, instead of javascript
-               data-uwm-clockwise-snippet="{{ clinic.clinicName }}"#}
-               data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
-                <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
-                <span class="wait-text">{{ wt[0]['#context']['value'] }}</span>.
-                <a href="/patient-care/making-an-appointment" class="wait-link">Get
-                    in line</a>.
-            </p>
-        {% endif %}
-
-        <p class="clinic__directions">
-            {% if 'Virtual' in clinic.clinicName %}
-                <a class="btn btn-default" href="{{ clinic.clinicUrl }}">
-                    <i class="hidden u-ips"></i> {{ 'Get Care Now'|t }}</a>
-            {% else %}
-                <a class="btn btn-default"
-                   href="https://www.google.com/maps/place/{{ clinic.clinicName|replace(" ", "+") }}">
-                    <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
-
+            {% if clinic.city %}
+                <address class="f-li"><i
+                            class="uw-ico clinic_locations"></i>
+                    {{ address }}</address>
             {% endif %}
-        </p>
+
+            {% if clinic.seoPhone %}
+                <p class="clinic__clinic-phone f-li">
+                    <i class="uw-ico call_solid"></i>
+                    <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
+                        {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
+                </p>
+            {% endif %}
+
+            {% if content.field_sub_title|render is not empty %}
+                <div class="clinic__clinic-snippet f-li">
+                    <i class="uw-ico uwmed-icon__clinic-locations"></i>
+                    {{ content.field_sub_title.0 }}
+                </div>
+            {% endif %}
+
+            {% if content.field_body_summary|render is not empty %}
+                <div class="clinic__clinic-snippet f-li">
+                    <i class="uw-ico uwmed-icon__heart-waveform"></i>
+                    {{ content.field_body_summary.0 }}
+                </div>
+            {% endif %}
+
+            {% set p_nid = uwm_get_path_nid(clinic.clinicUrl|replace({'urgent': 'primary'})) %}
+            {% if p_nid %}
+                {% set cw = drupal_field('field_clockwise_id', 'node', p_nid) %}
+                {% set wt = drupal_field('field_clinic_wait_time_snippet', 'node', p_nid) %}
+                {% set class = wt[0]['#context']['value'] ? 'fade-in' : '' %}
+                {#{{ devel_breakpoint() }}#}
+
+                <p class="clinic__wait-time fade-out f-li {{ class }}"
+                        {# @TODO: Removed when clockwise id moved to field, instead of javascript
+                        data-uwm-clockwise-snippet="{{ clinic.clinicName }}"#}
+                   data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
+                    <i class="uw-ico uwmed-icon__appointment"
+                       aria-hidden="true"></i>
+                    <span class="wait-text">{{ wt[0]['#context']['value'] }}</span>.
+                    <a href="/patient-care/making-an-appointment"
+                       class="wait-link">Get
+                        in line</a>.
+                </p>
+            {% endif %}
+
+            <p class="clinic__directions">
+                {% if 'Virtual' in clinic.clinicName %}
+                    <a class="btn btn-default" href="{{ clinic.clinicUrl }}">
+                        <i class="hidden u-ips"></i> {{ 'Get Care Now'|t }}</a>
+                {% else %}
+                    <a class="btn btn-default"
+                       href="https://www.google.com/maps/place/{{ clinic.clinicName|replace(" ", "+") }}">
+                        <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
+
+                {% endif %}
+            </p>
+
+        </div>
 
     </div>
-
 
 </article>
 
@@ -94,7 +99,7 @@
     {#<div class="container-lg">#}
         {#<div class="row">#}
             {#<div class="virtual-clinic__title col-md-offset-6 col-md-6">#}
-                {#<h2 class="h3">Virtual Clinic</h2>#}
+                {#<h2 class="block-title">Virtual Clinic</h2>#}
                 {#<span class="uwmed-slant"><span></span></span>#}
             {#</div>#}
             {#<div class="virtual-clinic__content col-md-offset-6 col-md-6">#}

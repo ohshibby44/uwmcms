@@ -1,29 +1,68 @@
 //
-// -- PARAGRAPHS STYLING
-// Special formatting for paragraphs, when used
-// within these fields or the content aside.
-//
+// PARAGRAPH STYLING
+// ------------------
 
-aside,
-div.field--name-field-top-content-blocks,
-div.field.field--name-field-content-blocks,
-div.field.field--name-field-bottom-content-blocks {
+//aside,
+//div.field--name-field-top-content-blocks,
+//div.field.field--name-field-content-blocks,
+//div.field.field--name-field-bottom-content-blocks {
 
-  .paragraph {
+.paragraph {
 
-    @extend .col-xs-12;
+  @extend .col-xs-12;
 
-    .field--label {
-      @extend .hidden;
+  .field--label {
+    @extend .hidden;
+  }
+
+  .wrapper > .field {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    .wrapper > .field {
-      margin-bottom: 30px;
-    }
-    .wrapper > .field:last-child {
-      margin-bottom: 15px;
-    }
+  a.btn, a.btn-default {
+    background-color: transparent;
+  }
 
+  .field.field--name-field-heading {
+    @extend .h3, .block-title;
+    margin-top: 0;
+    .item {
+      @include uw-bottom-accent-heading();
+    }
+    &.no-accent {
+      @extend .h5;
+      font-weight: 600;
+      .item {
+        text-transform: none;
+        &:after {
+          @extend .hidden;
+        }
+      }
+    }
+  }
+
+  .field.field--name-field-links-paragraph {
+    li.links-with-icon__item {
+      list-style-type: none;
+    }
+  }
+
+  .field.field--name-field-link {
+    @include uw-ghost-button('.item', 'i.u-ips');
+    margin-top: 15px;
+    > .item {
+      margin-right: 15px;
+    }
+  }
+
+  .field.field--name-field-featured-image img {
+    @extend .img-thumbnail;
+  }
+
+  form {
     input {
       width: 100%;
       background: #dcdcdc;
@@ -32,72 +71,52 @@ div.field.field--name-field-bottom-content-blocks {
       border: 1px solid darken(#dcdcdc, 15%);
       margin: 0 0 5px 0;
       padding: 4px;
-
       &::placeholder {
         text-transform: uppercase;
       }
     }
-
-    p {
-      margin-bottom: 12px;
+    .form-actions {
+      @include uw-ghost-button('button', 'i.u-ips');
     }
+  }
 
-    a.btn, a.btn-default {
-      background-color: transparent;
-    }
+  @extend %paragraph--view-mode--image-header-paragraph;
 
-    div.field.field--name-field-heading {
+  @extend %paragraph--view-mode--media-paragraph-minimal-display;
 
-      @extend .h3;
-      margin: 0 0 25px 0;
-      .item {
-        @include uw-bottom-accent-heading();
-        i {
-          text-transform: none;
+  @extend %paragraph--with-sticky-cta;
+
+}
+
+//}
+//
+
+/***
+ *
+ * PARAGRAPH DISPLAY MODES:
+ */
+%paragraph--view-mode--image-header-paragraph {
+
+  &.paragraph.paragraph--view-mode--image-header-paragraph {
+    > .wrapper {
+      .field.field--name-field-featured-image {
+        @extend .row;
+        margin-top: -15px;
+        img {
+          width: 100%;
+          padding: 0;
+          border: 0 none;
         }
       }
     }
 
-    div.field.field--name-field-links-paragraph {
-
-      li.links-with-icon__item {
-        list-style-type: none;
-      }
-    }
-
-    form div.form-actions {
-      @include uw-ghost-button('button', 'i.u-ips');
-    }
-
-    div.field.field--name-field-link {
-      @include uw-ghost-button('.item', 'i.u-ips');
-    }
-
   }
 
-  .paragraph.paragraph--view-mode--image-header-paragraph {
+}
 
-    .bg-featured-image {
-      display: block !important;
-      position: absolute;
-      top: 30px;
-      left: 15px;
-      right: 15px;
-      z-index: 2;
-      background-size: cover;
-      height: 150px;
-    }
+%paragraph--view-mode--media-paragraph-minimal-display {
 
-    > .wrapper {
-      padding-top: 150px;
-      .field.field--name-field-featured-image {
-        @extend .hidden;
-      }
-    }
-
-  }
-
-  .paragraph.paragraph--view-mode--media-paragraph-minimal-display {
+  &.paragraph.paragraph--view-mode--media-paragraph-minimal-display {
 
     box-shadow: none !important;
     background: transparent !important;
@@ -106,7 +125,7 @@ div.field.field--name-field-bottom-content-blocks {
     }
 
     .field.field--name-field-media {
-      .video-thumbnail a {
+      .video-thumbnail-wrapper a {
         .vplay {
           position: absolute;
           top: 50%;
@@ -125,20 +144,20 @@ div.field.field--name-field-bottom-content-blocks {
         }
       }
     }
-
   }
 
 }
 
-div.field.field--name-field-link {
-  @include uw-ghost-button('.item', 'i.u-ips');
-  margin-top: 15px;
-  > .item {
-    margin-right: 15px;
+%paragraph--with-sticky-cta {
+
+  &.paragraph.paragraph-with-cta.sticky-cta > .wrapper {
+    position: relative;
+    padding-bottom: 60px;
+    .field.field--name-field-link {
+      position: absolute;
+      bottom: 15px;
+      margin-bottom: 0;
+    }
   }
-}
 
-.field.field--name-field-featured-image {
-  @extend .img-thumbnail;
 }
-
