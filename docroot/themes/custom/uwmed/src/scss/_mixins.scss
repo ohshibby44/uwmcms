@@ -104,8 +104,8 @@
     border-style: solid;
     border-width: 3px 2px 0 0;
     border-color: $border-color transparent transparent transparent;
-    @content;
   }
+
   &.teal:after {
     border-color: $uwmed-accent-teal transparent transparent transparent;
   }
@@ -119,14 +119,10 @@
     border-color: $uwmed-accent-tan transparent transparent transparent;
   }
 
+  @content;
 }
 
 @mixin uw-ghost-button($button-el, $accent-el, $accent-color: $uwmed-menu-yellow) {
-
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 6px;
-  margin-top: 6px;
 
   #{$button-el}, #{$button-el} a {
     color: $uwmed-body-text-color;

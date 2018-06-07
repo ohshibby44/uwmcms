@@ -91,6 +91,7 @@ body {
 }
 
 h2.accent, h3.accent, h4.accent {
+  @extend .block-title;
   @include uw-bottom-accent-heading($uwmed-accent-blue);
 }
 

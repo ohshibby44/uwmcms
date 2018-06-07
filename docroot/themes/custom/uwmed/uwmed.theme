@@ -347,6 +347,16 @@ function uwmed_preprocess_input__button(&$variables) {
 /**
  * Implements hook_preprocess_HOOK() for homepage_section paragraphs.
  */
+function uwmed_preprocess_paragraph(&$variables) {
+
+  if (!empty($variables['elements']['field_link'][0]['#title'])) {
+    $variables['attributes']['class'][] = 'paragraph-with-cta';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for homepage_section paragraphs.
+ */
 function uwmed_preprocess_paragraph__homepage_section(&$variables) {
 
   $paragraph = $variables['paragraph'];

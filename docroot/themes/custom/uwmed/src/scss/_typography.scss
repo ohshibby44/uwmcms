@@ -52,29 +52,12 @@ body {
 
   }
 
-  div.main-container {
+  .main-container {
 
     .sml-italic {
       font-family: $font-family-sans-serif;
       font-weight: 300;
       font-style: italic;
-    }
-
-    a {
-      color: $uwmed-light-purple;
-      text-decoration: none;
-      &:hover, &:active, &:focus {
-        color: $uwmed-pop-blue;
-        text-decoration: underline;
-      }
-      &:visited {
-        color: $uwmed-purple;
-      }
-    }
-
-    a.btn-default:hover,
-    a.btn-default:focus {
-      color: $link-hover-color;
     }
 
     h1.small-page-header {
@@ -95,6 +78,44 @@ body {
             color: $uwmed-pop-blue;
             font-size: 20px;
           }
+        }
+      }
+    }
+
+    .page-header, h1.page-header, .title-wrapper {
+      color: $uwmed-light-purple;
+      a {
+        color: $uwmed-light-purple;
+        text-decoration: none;
+        &:link, &:hover, &:active, &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+
+    h2.block-title, .block-title{
+      @extend .h6;
+      color: $headings-color;
+      font-family: $headings-font-family;
+      a {
+        &:link, &:active, &:focus {
+          text-decoration: none;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    h2.page-title, .page-title {
+      color: $headings-color;
+      text-decoration: none;
+      a {
+        &:link, &:active, &:focus {
+          text-decoration: none;
+        }
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
@@ -175,17 +196,6 @@ h1, .h1, h1 a, .h1 a {
   }
 }
 
-h1.page-header, h2.page-title, .page-title, .title-wrapper {
-  color: $uwmed-light-purple;
-  a {
-    color: $uwmed-light-purple;
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 h2, .h2, h2 a, .h2 a {
   font-size: $font-size-h2-mobile;
   line-height: $line-height-h2-mobile;
@@ -212,7 +222,7 @@ h3, .h3, h3 a, .h3 a {
   font-size: $font-size-h3;
   line-height: $line-height-h3;
   font-family: $headings-font-family;
-  font-weight: $headings-font-weight-h3;
+  font-weight: $headings-font-weight-medium;
   color: $headings-color;
 
 }
@@ -243,7 +253,7 @@ h5, .h5, h5 a, .h5 a {
   font-size: $font-size-h5;
   line-height: $line-height-h5;
   font-family: $font-family-base;
-  font-weight: $headings-font-weight-h5;
+  font-weight: $headings-font-weight-heavy;
   color: $heading-color-h5;
 
   small, small a {
@@ -252,12 +262,11 @@ h5, .h5, h5 a, .h5 a {
 
 }
 
-h6, .h6, h6 a, .h6 a,
-h3.small h3.small a {
+h6, .h6, h6 a, .h6 a {
   font-size: $font-size-h6;
   line-height: $line-height-h6;
   font-family: $font-family-base;
-  font-weight: $headings-font-weight;
+  font-weight: $headings-font-weight-medium;
   color: $heading-color-h6;
 
   small, small a {
@@ -280,7 +289,6 @@ h2, .h2,
 h3, .h3 {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
-
 }
 
 h4, .h4,
@@ -288,7 +296,30 @@ h5, .h5,
 h6, .h6 {
   margin-top: ($line-height-computed / 2);
   margin-bottom: ($line-height-computed / 2);
+}
 
+// Hyperlinks
+// -------------------------
+a {
+  color: darken($uwmed-pop-blue, 4%);
+  text-decoration: none;
+  &:hover, &:active, &:focus {
+    color: $uwmed-pop-blue;
+    text-decoration: underline;
+  }
+  &:visited {
+    //color: $uwmed-purple;
+    color: darken($uwmed-pop-blue, 4%);
+  }
+  &[href^=tel] {
+    color: inherit;
+  }
+}
+
+a.btn, a.btn-default {
+  &:hover, &:active, &:focus, &:visited {
+    text-decoration: none;
+  }
 }
 
 // Body text

@@ -510,7 +510,7 @@ body.page-node-type-uwm-clinic {
         div.field.field--name-field-bottom-content-blocks-head {
           .item {
             @include uw-bottom-accent-heading();
-            @extend .h3;
+            @extend .h3, .block-title;
             margin-bottom: 40px
           }
         }
