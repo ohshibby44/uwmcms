@@ -93,16 +93,13 @@ body {
       }
     }
 
-    h2.block-title, .block-title{
+    h2.block-title, .block-title {
       @extend .h6;
       color: $headings-color;
       font-family: $headings-font-family;
       a {
-        &:link, &:active, &:focus {
+        &:link, &:active, &:focus, &:hover {
           text-decoration: none;
-        }
-        &:hover {
-          text-decoration: underline;
         }
       }
     }
@@ -111,17 +108,10 @@ body {
       color: $headings-color;
       text-decoration: none;
       a {
-        &:link, &:active, &:focus {
+        &:link, &:active, &:focus, &:hover {
           text-decoration: none;
         }
-        &:hover {
-          text-decoration: underline;
-        }
       }
-    }
-
-    .field.field--name-field-heading {
-      font-size: $font-size-h6;
     }
 
   }

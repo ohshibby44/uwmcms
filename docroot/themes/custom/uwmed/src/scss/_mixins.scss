@@ -93,7 +93,7 @@
   position: relative;
   margin-bottom: 20px;
   text-transform: uppercase;
-
+  font-family: $headings-font-family;
   &:after {
     position: absolute;
     content: " ";

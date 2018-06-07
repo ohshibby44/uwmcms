@@ -34,6 +34,7 @@
     }
     &.no-accent {
       @extend .h5;
+      font-weight: 600;
       .item {
         text-transform: none;
         &:after {
