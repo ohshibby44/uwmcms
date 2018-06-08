@@ -37,34 +37,6 @@
  *
  * @see template_preprocess_field()
  */
-
-{% if label_hidden %}
-    {% if multiple %}
-        <div{{ attributes }}>
-            {% for item in items %}
-                <div{{ item.attributes }}>{{ item.content }}</div>
-            {% endfor %}
-        </div>
-    {% else %}
-        {% for item in items %}
-            <div{{ attributes }}>{{ item.content }}</div>
-        {% endfor %}
-    {% endif %}
-{% else %}
-    <div{{ attributes }}>
-        <div{{ title_attributes }}>{{ label }}</div>
-        {% if multiple %}
-        <div>
-            {% endif %}
-            {% for item in items %}
-                <div{{ item.attributes }}>{{ item.content }}</div>
-            {% endfor %}
-            {% if multiple %}
-        </div>
-        {% endif %}
-    </div>
-{% endif %}
-
 #}
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
@@ -78,16 +50,6 @@
 
 {% block content %}
 
-  {#{% if include_wrapper == 'true' %}#}
-    {#<{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}{% if wrapper_id %}{{ attributes.setAttribute('id', wrapper_id) }}{% endif %}>#}
-  {#{% endif %}#}
-
-  {#{% if not label_hidden %}#}
-    {#<div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>#}
-  {#{% endif %}#}
-
-  {#{% for item in items %}#}
-  {#{% set n = n+1 %}#}
   {% block item %}
 
     <div class="container accordion-mobile-header">
@@ -276,10 +238,5 @@
 
 
   {% endblock item %}
-  {#{% endfor %}#}
-
-  {#{% if include_wrapper == 'true' %}#}
-    {#</{{ wrapper_element }}>#}
-  {#{% endif %}#}
 
 {% endblock content %}
