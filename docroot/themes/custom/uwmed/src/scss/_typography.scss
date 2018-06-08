@@ -282,15 +282,13 @@ h2.boxy-uppercase-title, .boxy-uppercase-title {
 // Hyperlinks
 // -------------------------
 a {
-  color: darken($uwmed-pop-blue, 4%);
-  text-decoration: none;
+  &, &:link, &:visited {
+    color: darken($uwmed-pop-blue, 4%);
+    text-decoration: none;
+  }
   &:hover, &:active, &:focus {
     color: $uwmed-pop-blue;
     text-decoration: underline;
-  }
-  &:visited {
-    //color: $uwmed-purple;
-    color: darken($uwmed-pop-blue, 4%);
   }
   &[href^=tel] {
     color: inherit;
