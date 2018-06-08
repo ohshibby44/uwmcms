@@ -329,6 +329,10 @@
         @media(min-width: $screen-md-min) {
           padding: 10px 15px;
         }
+        .field.field--name-field-heading .item {
+          @extend .h5;
+        }
+
       }
     }
 
@@ -751,7 +755,7 @@
   }
 
   .find-a-location__heading {
-    text-transform: uppercase;
+    @extend .boxy-uppercase-title;
 
     .uwmed-slant span {
       background-color: $uwmed-accent-yellow;
@@ -949,8 +953,10 @@
   }
 
   .condition-spotlight__heading {
-    text-transform: uppercase;
-
+    @extend .boxy-uppercase-title;
+    h3 {
+      @extend .boxy-uppercase-title;
+    }
     .uwmed-slant span {
       background-color: $uwmed-accent-orange;
     }
@@ -1004,7 +1010,7 @@
     }
 
     @media (min-width: $screen-lg-min) {
-      height: 375px;
+      height: 400px;
     }
 
     .field--name-field-link {
@@ -1689,7 +1695,7 @@
 
     .block-title {
       text-align: center;
-      @extend .h3, .block-title;
+      @extend .boxy-uppercase-title, .h3;
       @include uw-bottom-accent-heading();
       margin-bottom: 30px;
 
