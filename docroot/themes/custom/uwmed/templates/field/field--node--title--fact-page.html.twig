@@ -26,7 +26,6 @@
 
 
 {#{{ devel_breakpoint() }}#}
-<div class="title-wrapper">
 
     <span{{ attributes }}>
       {%- for item in items -%}
@@ -35,9 +34,8 @@
     </span>
 
     {% if titleSuffix|render %}
-        <span class="subheading">{{ titleSuffix.0['#text']|raw }}</span>
+        <span class="small">{{ titleSuffix.0['#text']|raw }}</span>
     {% endif %}
 
-</div>
 
 {#{{ titleSubheading }}#}

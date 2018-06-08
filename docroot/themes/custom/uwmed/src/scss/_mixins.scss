@@ -92,8 +92,6 @@
 
   position: relative;
   margin-bottom: 20px;
-  text-transform: uppercase;
-  font-family: $headings-font-family;
   &:after {
     position: absolute;
     content: " ";
@@ -199,17 +197,21 @@
 
 @mixin uw-equal-height-row($flex-row, $flex-item: null) {
 
-  #{$flex-row} {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  @if $flex-item {
-    #{$flex-item} {
-      flex: 1;
+  @media(min-width: $screen-sm-min) {
+
+    #{$flex-row} {
+      display: flex;
+      flex-wrap: wrap;
     }
+    @if $flex-item {
+      #{$flex-item} {
+        flex: 1;
+      }
+    }
+
+    @content;
   }
 
-  @content;
 }
 
 
