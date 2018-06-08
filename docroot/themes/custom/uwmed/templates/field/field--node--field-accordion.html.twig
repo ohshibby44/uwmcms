@@ -51,6 +51,8 @@
 {% block content %}
 
   {% block item %}
+    {# check if first paragraph has any content #}
+    {% if items[0].content["#paragraph"].field_heading.value|render|trim is not empty %}
 
     <div class="container accordion-mobile-header">
       <div class="visible-xs visible-sm">
@@ -59,7 +61,6 @@
         </div>
       </div>
     </div>
-
 
     {# paragraph: accordion for mobile #}
     <div class="panel-group visible-xs visible-sm" id="accordion-mobile" role="tablist"
@@ -236,7 +237,7 @@
       </div>
     </div>
 
-
+  {% endif %}
   {% endblock item %}
 
 {% endblock content %}
