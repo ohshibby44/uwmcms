@@ -155,6 +155,26 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
       tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: 'Interior Page Bottom'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      defaults:
+        css_class: true
+        header: false
+        title: false
+      header: {  }
+      title: 'Related Content'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+      tags: {  }
   homepage_content_spotlight_block:
     display_plugin: block
     id: homepage_content_spotlight_block
