@@ -49,6 +49,18 @@ body {
       }
 
     }
+    a {
+      &, &:link, &:visited, &:active, &:focus {
+        text-decoration: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .make-a-gift-navigation a:hover {
+      text-decoration: none;
+    }
+
 
   }
 

@@ -161,7 +161,6 @@
     }
 
     &:hover {
-
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
         color: $uwmed-white;
@@ -178,6 +177,11 @@
         }
       }
 
+    }
+
+    &active, &:hover, &:focus {
+      outline: none;
+      box-shadow: none;
     }
   }
 
