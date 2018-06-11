@@ -28,7 +28,6 @@ div.paragraph, section.block {
         text-align: left;
         text-decoration: none;
         background-color: transparent;
-        border-bottom: 1px solid #dcdcdc;
         box-shadow: none;
         white-space: normal;
         //word-break: break-all;
@@ -53,11 +52,13 @@ div.paragraph, section.block {
 
       }
 
-      //&:last-of-type li a.btn.btn-default {
-      //  border-bottom: 0 none;
-      //}
+    }
 
-
+    > .item a.btn.btn-default {
+      border-bottom: 1px solid #dcdcdc;
+      &:last-of-type a.btn.btn-default {
+        border-bottom: 0 none;
+      }
     }
 
     div.field.field--name-field-link {

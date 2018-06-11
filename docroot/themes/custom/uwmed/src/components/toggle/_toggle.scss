@@ -9,22 +9,21 @@
   }
 
   .uw-more {
-
     @extend .col-xs-12;
     margin: 30px 0 20px 0;
     padding-top: 10px;
     border-top: 1px solid $uwmed-light-gray;
     text-align: center;
     opacity: .8;
-    color: $uwmed-pop-blue;
-    text-decoration: none !important;
 
     i {
-      margin-left: .4em;
+      margin-left: 8px;
     }
 
-    &.on i.fa-angle-down:before {
-      content: "\f106";
+    &.on, .on {
+      i.fa-angle-down:before {
+        content: "\f106";
+      }
     }
 
     &.toggle-text {
@@ -39,14 +38,22 @@
 
   }
 
-  &.on .toggle-text {
-    &:before {
-      content: "View less";
+  a.uw-more, .uw-more a {
+    &:link, &:hover, &:active, &:focus, &:visited {
+      color: $uwmed-pop-blue;
+      text-decoration: none;
     }
-    i:before {
-      content: "\f106";
-    }
+  }
 
+  &.on, .on {
+    .toggle-text {
+      &:before {
+        content: "View less";
+      }
+      i:before {
+        content: "\f106";
+      }
+    }
   }
 
 }

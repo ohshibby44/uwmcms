@@ -71,9 +71,8 @@
 {% set wrapper_classes = wrapper_classes ?: [] %}
 {% set wrapper_classes = wrapper_classes|merge( ['field', 'field--name-' ~ field_name|clean_class] )%}
 {% set wrapper_id = wrapper_id ?: '' %}
-{% set item_element = item_element ?: 'div' %}
-{% set item_classes = item_classes ? item_classes %}
 {% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
+{% set item_element = item_element ?: 'div' %}
 
 {% set n = 0 %}
 
@@ -89,8 +88,9 @@
 
     {% for item in items %}
         {% set n = n+1 %}
+        {% set t = ['item', 'item-' ~ loop.index] %}{#, loop.first ? 'first', loop.last ? 'last'#}
         {% block item %}
-            <{{ item_element }}{{ item.attributes.addClass(item_classes).addClass('item item-' ~ n) }}>
+            <{{ item_element }}{{ item.attributes.addClass(item_classes).addClass(t) }}>
             <i class="hidden u-ips"></i>
             {{ item.content }}
             </{{ item_element }}>

@@ -24,16 +24,13 @@
 
 {% set _bio = element['#object'].uwmcs_reader_api_values %}
 
-
-<div class="title-wrapper container-lg">
-
     <span{{ attributes }}>
       {%- for item in items -%}
           {{ item.content }}
       {%- endfor -%}
     </span>
 
-    <span class="accepting-apts">
+    <span class="accepting-apts small">
         {% if _bio.acceptingAppointments %}
             <i class="fa fa-check-circle" aria-hidden="true"></i>
             {{ "Accepting new patients"| t }}
@@ -44,4 +41,3 @@
 
   </span>
 
-</div>

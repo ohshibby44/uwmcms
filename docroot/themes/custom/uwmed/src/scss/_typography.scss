@@ -2,130 +2,129 @@
 // Typography
 // --------------------------------------------------
 
-
-
 // Structural containers
 // -------------------------
 body {
 
-    header {
+  header {
 
-      font-size: 14px;
+    font-size: 14px;
 
-        .header-main-navigation {
-          li {
-            font-size: 15px;
-            li {
-              font-size: 14px
-            }
-          }
+    .header-main-navigation {
+      li {
+        font-size: 15px;
+        li {
+          font-size: 14px
         }
+      }
+    }
 
+    header.mobile {
 
-        header.mobile {
+      font-size: 16px;
+      font-family: $font-family-sans-serif-condensed;
+      font-weight: 200;
 
+      .nav {
 
+        ul.dropdown-menu > li > a {
           font-size: 16px;
-          font-family: $font-family-sans-serif-condensed;
           font-weight: 200;
-
-          .nav {
-
-            ul.dropdown-menu > li > a {
-              font-size: 16px;
-              font-weight: 200;
-            }
-
-          }
-
-          .main-links {
-            ul.nav > li {
-              font-size: 19px;
-            }
-
-          }
-
-          .search-collapse {
-            form, .fa {
-              color: #716F77;
-            }
-
-          }
-
-
-
         }
 
+      }
 
+      .main-links {
+        ul.nav > li {
+          font-size: 19px;
+        }
 
+      }
+
+      .search-collapse {
+        form, .fa {
+          color: #716F77;
+        }
+
+      }
 
     }
+    a {
+      &, &:link, &:visited, &:active, &:focus {
+        text-decoration: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .make-a-gift-navigation a:hover {
+      text-decoration: none;
+    }
 
-    div.main-container {
 
-      .sml-italic {
+  }
+
+  .main-container {
+
+    .sml-italic {
+      font-family: $font-family-sans-serif;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    //a[href^=tel] {
+    //  color: inherit;
+    //}
+
+
+
+  }
+
+  footer {
+
+    font-family: $font-family-sans-serif;
+    color: $uwmed-medium-gray;
+
+    .navigation-row {
+
+      h2 {
+
+        margin-top: 0;
+        font-size: 18px;
+        font-weight: 600;
         font-family: $font-family-sans-serif;
-        font-weight: 300;
-        font-style: italic;
+
+        @media(max-width: $screen-xs-max) {
+          font-size: 16px;
+        }
+
       }
 
-      a.btn-default:hover,
-      a.btn-default:focus {
-        color: $link-hover-color;
-      }
+      .nav > li {
+        font-size: 14px;
+        @media(max-width: $screen-xs-max) {
+          font-size: 14px;
+        }
 
-      .field.field--name-field-heading {
-        font-size:   $font-size-h6;
+      }
+      .service-icons {
+        font-size: 19px;
+        @media(max-width: $screen-xs-max) {
+          font-size: 20px;
+        }
       }
 
     }
 
-    footer {
-
-        font-family: $font-family-sans-serif;
-        color: $uwmed-medium-gray;
-
-        .navigation-row {
-
-          h2 {
-
-            margin-top: 0;
-            font-size: 18px;
-            font-weight: 600;
-            font-family: $font-family-sans-serif;
-
-            @media(max-width: $screen-xs-max) {
-              font-size: 16px;
-            }
-
-          }
-
-          .nav > li {
-            font-size: 14px;
-            @media(max-width: $screen-xs-max) {
-              font-size: 14px;
-            }
-
-          }
-          .service-icons {
-            font-size: 19px;
-            @media(max-width: $screen-xs-max) {
-              font-size: 20px;
-            }
-          }
-
-        }
-
-        .enterprise-row {
-          font-size: 10px;
-          font-weight: 300;
-          line-height: 14px;
-        }
-
+    .enterprise-row {
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 14px;
     }
+
+  }
 
 }
-
 
 // Headings
 // -------------------------
@@ -137,27 +136,18 @@ h1, .h1, h1 a, .h1 a {
   font-weight: $headings-font-weight;
   color: $heading-color-h1;
 
-  small, small a {
-    font-size: ($font-size-h1-mobile * .8);
+  small, small a, .small, .small a {
+    //font-size: ($font-size-h1-mobile * .8);
+    font-size: ($font-size-base * 1.01);
   }
 
   @media (min-width: $screen-sm-min) {
     font-size: $font-size-h1;
     line-height: $line-height-h1;
 
-    small, small a {
-      font-size: ($font-size-h1 * .8);
-    }
-  }
-}
-
-h1.page-header, h2.page-title, .page-title, .title-wrapper {
-  color: $uwmed-light-purple;
-  a {
-    color: $uwmed-light-purple;
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
+    small, small a, .small, .small a {
+      //font-size: ($font-size-h1-mobile * .8);
+      font-size: $font-size-base;
     }
   }
 }
@@ -182,14 +172,13 @@ h2, .h2, h2 a, .h2 a {
     }
   }
 
-
 }
 
 h3, .h3, h3 a, .h3 a {
   font-size: $font-size-h3;
   line-height: $line-height-h3;
   font-family: $headings-font-family;
-  font-weight: $headings-font-weight-h3;
+  font-weight: $headings-font-weight-medium;
   color: $headings-color;
 
 }
@@ -220,8 +209,9 @@ h5, .h5, h5 a, .h5 a {
   font-size: $font-size-h5;
   line-height: $line-height-h5;
   font-family: $font-family-base;
-  font-weight: $headings-font-weight-h5;
+  font-weight: $headings-font-weight-heavy;
   color: $heading-color-h5;
+  text-transform: none;
 
   small, small a {
     font-size: ($font-size-h5 * .8);
@@ -229,13 +219,13 @@ h5, .h5, h5 a, .h5 a {
 
 }
 
-h6, .h6, h6 a, .h6 a,
-h3.small h3.small a {
+h6, .h6, h6 a, .h6 a {
   font-size: $font-size-h6;
   line-height: $line-height-h6;
   font-family: $font-family-base;
-  font-weight: $headings-font-weight;
+  font-weight: $headings-font-weight-medium;
   color: $heading-color-h6;
+  text-transform: none;
 
   small, small a {
     font-size: ($font-size-h6 * .8);
@@ -257,7 +247,6 @@ h2, .h2,
 h3, .h3 {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
-
 }
 
 h4, .h4,
@@ -265,14 +254,85 @@ h5, .h5,
 h6, .h6 {
   margin-top: ($line-height-computed / 2);
   margin-bottom: ($line-height-computed / 2);
-  
+}
+
+h1.page-header {
+  color: $uwmed-light-purple;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      color: $uwmed-body-text-color;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $uwmed-pop-blue;
+      text-decoration: underline;
+    }
+  }
+}
+
+h2.page-title, .page-title {
+  color: $headings-color;
+  text-decoration: none;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      color: $headings-color;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $uwmed-pop-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+h2.block-title, .block-title {
+  @extend .h6;
+  font-family: $headings-font-family;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+h2.boxy-uppercase-title, .boxy-uppercase-title {
+  @extend .h6;
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+}
+
+// Hyperlinks
+// -------------------------
+a {
+  &, &:link, &:visited {
+    color: darken($uwmed-pop-blue, 8%);
+    color: $uwmed-body-text-color;
+    text-decoration: underline;
+  }
+  &:hover, &:active, &:focus {
+    color: $uwmed-pop-blue;
+    text-decoration: underline;
+  }
+  .fa , .uw-ico, .uwmed-icon {
+    display: inline-block;
+    text-decoration: none !important;
+  }
+}
+
+a.btn, a.btn-default {
+  &:hover, &:active, &:focus, &:visited {
+    text-decoration: none;
+  }
 }
 
 // Body text
 // -------------------------
 
 p {
-//  margin: 0 0 (($line-height-computed/2) + $font-size-base);
+  //  margin: 0 0 (($line-height-computed/2) + $font-size-base);
   margin: 0 0 $font-size-base 0;
 }
 
@@ -286,7 +346,6 @@ p {
     font-size: ($font-size-base * 1.5);
   }
 }
-
 
 // Emphasis & misc
 // -------------------------
@@ -544,24 +603,3 @@ address {
   line-height: $line-height-base;
 }
 
-h1.small-page-header {
-
-  @extend .col-xs-12;
-  font-size: 28px;
-  line-height: 28px;;
-  font-weight: 400;
-  letter-spacing: .4px;
-
-  .title-wrapper {
-    color: $uwmed-purple;
-
-    .subheading {
-      margin-left: 30px;
-      white-space: nowrap;
-      &, a {
-        color: $uwmed-pop-blue;
-        font-size: 20px;
-      }
-    }
-  }
-}

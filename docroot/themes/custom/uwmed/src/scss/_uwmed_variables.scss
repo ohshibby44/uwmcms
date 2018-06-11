@@ -241,32 +241,34 @@ $uwmed-solid-dark-purple: #3f3952;
   // Style guide: 1.1
 
   /* Heading Font Sizes */
-  $font-size-h1-mobile:     ceil(($font-size-base * 2.28)); // 32px
   $font-size-h1:            ceil(($font-size-base * 4.07)); // 57px
-  $font-size-h2-mobile:     ceil(($font-size-base * 1.64)); // 23px
   $font-size-h2:            ceil(($font-size-base * 2.5)); // 35px
-  $font-size-h3:            ceil(($font-size-base * 0.92)); // 13px
-  $font-size-h4-mobile:     ceil(($font-size-base * 1.14)); // 16px
+  $font-size-h3:            ceil(($font-size-base * 2));
   $font-size-h4:            ceil(($font-size-base * 1.78)); // 25px
   $font-size-h5:            ceil(($font-size-base * 1.21)); // 17px
   $font-size-h6:            ceil(($font-size-base * 0.92)); // 13px
 
+  $font-size-h1-mobile:     ceil(($font-size-base * 2.28)); // 32px
+  $font-size-h2-mobile:     ceil(($font-size-base * 1.64)); // 23px
+  $font-size-h4-mobile:     ceil(($font-size-base * 1.14)); // 16px
+
   /* Heading Font Weights */
   $headings-font-weight:    400;
-  $headings-font-weight-h3: 500;
-  $headings-font-weight-h5: 600;
+  $headings-font-weight-medium: 500;
+  $headings-font-weight-heavy: 600;
 
   /* Heading Line Heights */
   $headings-line-height:    1.1;
-  $line-height-h1-mobile:     ceil(($font-size-h1-mobile * 1.25)); // 40px
   $line-height-h1:            ceil(($font-size-h1 * 1.15)); // 72px
-  $line-height-h2-mobile:     ceil(($font-size-h2-mobile * 1.2)); // 32px
   $line-height-h2:            ceil(($font-size-h2 * 1.2)); // 46px
   $line-height-h3:            ceil(($font-size-h3 * 1.2)); // 16px
-  $line-height-h4-mobile:     ceil(($font-size-h4-mobile * 1.2)); // 22px
   $line-height-h4:            ceil(($font-size-h4 * 1.2)); // 30px
   $line-height-h5:            ceil(($font-size-h5 * 1.2)); // 12px
   $line-height-h6:            ceil(($font-size-h6 * 1.2)); // 12px
+
+  $line-height-h1-mobile:     ceil(($font-size-h1-mobile * 1.25)); // 40px
+  $line-height-h2-mobile:     ceil(($font-size-h2-mobile * 1.2)); // 32px
+  $line-height-h4-mobile:     ceil(($font-size-h4-mobile * 1.2)); // 22px
 
   /* Heading Font Colors */
   $headings-color: $uwmed-body-text-color;

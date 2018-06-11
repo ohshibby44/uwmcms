@@ -50,9 +50,8 @@ body > footer {
 
     .foot-third {
 
-      @media (min-width: $screen-md-min) {
+      @media (min-width: $screen-md-max) {
         margin-bottom: -30px;
-        z-index: 2;
       }
 
       .service-icons {

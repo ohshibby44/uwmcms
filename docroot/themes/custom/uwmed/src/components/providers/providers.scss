@@ -1,9 +1,6 @@
 
 body.page-node-type-uwm-provider {
 
-  h1.page-header .title-wrapper {
-    @extend small;
-  }
 
   div.main-container {
 
@@ -149,7 +146,7 @@ body.page-node-type-uwm-provider {
         }
 
         div.paragraph {
-          margin-bottom: 25px;
+          margin: 20px 0;
           box-shadow: 1px 1px 10px 1px #dcdcdc;
           background: #f8f8f8;
 
@@ -183,6 +180,7 @@ body.page-node-type-uwm-provider {
 
   h1.page-header span.accepting-apts {
     font-size: 14px;
+    color: $uwmed-body-text-color;
   }
 
   @media(max-width: $screen-md-max) {
