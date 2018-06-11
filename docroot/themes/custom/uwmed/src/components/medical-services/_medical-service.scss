@@ -624,7 +624,7 @@
     background-size: cover;
     background-position: center;
 
-    min-height: 400px;
+    min-height: 430px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
     &::after {
       width: 100%;
@@ -1067,7 +1067,8 @@
 
     .field--name-field-link {
 
-      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
+      //@include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
+      @include uw-ghost-button('.item', 'i.u-ips', $uwmed-accent-orange);
 
       a {
         @extend .btn;
@@ -1391,6 +1392,7 @@
 
     @include uw-equal-height-row('.row.flex-row');
     @include uw-equal-height-row('.row.flex-row > article', '.row.flex-row > article > .wrapper');
+
     .row.flex-row > article > .wrapper {
       background-color: #F5F5F5;
       margin-bottom: 30px;
