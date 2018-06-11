@@ -60,6 +60,10 @@ body {
       font-style: italic;
     }
 
+    //a[href^=tel] {
+    //  color: inherit;
+    //}
+
 
 
   }
@@ -243,21 +247,27 @@ h6, .h6 {
 h1.page-header {
   color: $uwmed-light-purple;
   a {
-    &, &:link, &:link, &:visited, &:active, &:focus {
+    &, &:link, &:visited, &:active, &:focus {
       color: $uwmed-body-text-color;
+      text-decoration: none;
     }
     &:hover {
       color: $uwmed-pop-blue;
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }
 
-h2.page-title {
+h2.page-title, .page-title {
   color: $headings-color;
   text-decoration: none;
   a {
-    &:link, &:active, &:focus, &:hover {
+    &, &:link, &:visited, &:active, &:focus {
+      color: $headings-color;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $uwmed-pop-blue;
       text-decoration: none;
     }
   }
@@ -267,7 +277,10 @@ h2.block-title, .block-title {
   @extend .h6;
   font-family: $headings-font-family;
   a {
-    &:link, &:active, &:focus, &:hover {
+    &, &:link, &:visited, &:active, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
       text-decoration: none;
     }
   }
@@ -282,18 +295,18 @@ h2.boxy-uppercase-title, .boxy-uppercase-title {
 // Hyperlinks
 // -------------------------
 a {
-  color: darken($uwmed-pop-blue, 4%);
-  text-decoration: none;
+  &, &:link, &:visited {
+    color: darken($uwmed-pop-blue, 8%);
+    color: $uwmed-body-text-color;
+    text-decoration: underline;
+  }
   &:hover, &:active, &:focus {
     color: $uwmed-pop-blue;
     text-decoration: underline;
   }
-  &:visited {
-    //color: $uwmed-purple;
-    color: darken($uwmed-pop-blue, 4%);
-  }
-  &[href^=tel] {
-    color: inherit;
+  .fa , .uw-ico, .uwmed-icon {
+    display: inline-block;
+    text-decoration: none !important;
   }
 }
 

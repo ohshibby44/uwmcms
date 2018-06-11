@@ -11,8 +11,10 @@ nav.tabs {
   ul.tabs--primary.nav.nav-tabs {
 
     @extend .nav-pills;
+    margin: 15px 0;
     border-bottom-color: transparent;
     > li {
+      padding-bottom: 0;
       a, a:hover {
         @extend .btn;
         border: 1px solid #dcdcdc;
