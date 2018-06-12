@@ -53,12 +53,6 @@ body.page-node-type-fact-page {
       box-shadow: none;
     }
 
-    @media(min-width: $screen-sm-min) {
-      > .wrapper {
-        margin-bottom: 30px;
-      }
-    }
-
     @extend .lighten;
 
   }
@@ -123,6 +117,7 @@ body.page-node-type-fact-page {
     section.body-content {
 
       background: $uwmed-white;
+      margin-bottom: 15px;
       padding: 30px;
 
       aside.inner-sidebar {
