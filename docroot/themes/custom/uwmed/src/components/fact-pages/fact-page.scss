@@ -1,3 +1,5 @@
+@import "core-includes";
+
 body.page-node-type-fact-page {
 
   /**
@@ -9,7 +11,7 @@ body.page-node-type-fact-page {
     @extend %uwmed-gradient-angled-dark-background;
     padding-top: 0;
     h1.page-header {
-      @extend .col-xs-12;
+      @include make-xs-column(12)
     }
   }
 
@@ -25,12 +27,12 @@ body.page-node-type-fact-page {
   section {
     @extend .row;
     > .wrapper {
-      @extend .container-lg;
+      @extend .container-lg !optional;
     }
   }
 
   .paragraph {
-    @extend .col-xs-12;
+    @include make-xs-column(12);
 
     > .wrapper {
       @extend .uw-well;
@@ -58,21 +60,23 @@ body.page-node-type-fact-page {
   }
 
   .group-of-2s .paragraph {
-    @extend .col-sm-6;
+    @include make-sm-column(6);
   }
   .group-of-3s .paragraph {
-    @extend .col-sm-4;
+    @include make-sm-column(4);
   }
   .group-of-4s .paragraph {
-    @extend .col-sm-3;
+    @include make-sm-column(3);
   }
 
   h2.item {
-    @extend .col-xs-12;
+    @include make-xs-column(12);
   }
 
   .field.blocks-section-footer {
-    @extend .col-xs-12, .uw-well, .text-center, .h5;
+    @include make-xs-column(12);
+    @extend .uw-well, .h5;
+    text-align: center;
     &, a {
       font-weight: normal;
     }
@@ -91,7 +95,7 @@ body.page-node-type-fact-page {
 
       .paragraph {
         > .wrapper {
-          @extend .col-xs-12;
+          @include make-xs-column(12)
         }
 
         .field.field.field--name-field-link {
@@ -108,7 +112,7 @@ body.page-node-type-fact-page {
       .paragraph {
         @extend .darken;
         > .wrapper {
-          @extend .col-xs-12;
+          @include make-xs-column(12)
         }
       }
 
@@ -133,7 +137,7 @@ body.page-node-type-fact-page {
       }
 
       .field.field--name-field-link {
-        @extend .pull-left;
+        float: left;
       }
 
     }
@@ -154,7 +158,8 @@ body.page-node-type-fact-page {
     @extend %toggle-body-summary;
 
     .field.field--name-field-title-subheading {
-      @extend .col-xs-12, .col-md-8;
+      @include make-xs-column(12);
+      @include make-md-column(8);
     }
 
   }
