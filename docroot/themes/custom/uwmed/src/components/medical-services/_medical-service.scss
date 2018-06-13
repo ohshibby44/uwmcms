@@ -755,8 +755,9 @@
   }
 
   .find-a-location__heading {
-    @extend .boxy-uppercase-title;
-
+    h2 {
+      @extend .boxy-uppercase-title;
+    }
     .uwmed-slant span {
       background-color: $uwmed-accent-yellow;
     }
@@ -1604,6 +1605,12 @@
     }
 
     .patient-resources {
+
+      h3 {
+        @extend .block-title, .boxy-uppercase-title;
+        margin-top: 0;
+      }
+
       ul {
         margin: 0;
         padding: 0;
@@ -1702,7 +1709,7 @@
       text-align: center;
       @extend .boxy-uppercase-title, .h3;
       @include uw-bottom-accent-heading();
-      margin-bottom: 30px;
+      padding: 20px 0;
 
       &:after {
         position: relative;
