@@ -1,0 +1,53 @@
+{% extends 'node--uwm-medical-service.location-map.html.twig' %}
+
+{% block controls %}
+{% endblock controls %}
+
+{% block clinic_list %}
+  <div class="find-a-location__clinic-list" style="display: none;">
+    {% for clinic in map_clinics %}
+
+      <div class="find-a-location__clinic col-lg-6" data-location-id='{{ clinic.locationId }}'>
+        {% set p_nid = uwm_get_path_nid(clinic.clinicUrl|replace({'urgent': 'primary'})) %}
+        {% if p_nid %}
+          {% set p_name = drupal_field('title', 'node', p_nid) %}
+
+          <address>
+          <h4 class="h5">{{ p_name }}</h4>
+          <p>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}</p>
+        </address>
+
+          {% set cw = drupal_field('field_clockwise_id', 'node', p_nid) %}
+          {% set wt = drupal_field('field_clinic_wait_time_snippet', 'node', p_nid) %}
+          {% set class = wt[0]['#context']['value'] ? 'fade-in' : '' %}
+          {#{{ devel_breakpoint() }}#}
+
+          <p class="clinic__wait-time fade-out f-li {{ class }}"
+            {# @TODO: Removed when clockwise id moved to field, instead of javascript
+            data-uwm-clockwise-snippet="{{ clinic.clinicName }}"#}
+             data-uwm-clockwise-wait-time="{{ cw[0]['#markup'] }}">
+            <i class="uw-ico uwmed-icon__appointment"
+               aria-hidden="true"></i>
+            <strong><span class="wait-text">{{ wt[0]['#context']['value'] }}</span></strong><br />
+            <a href="/patient-care/making-an-appointment"
+               class="wait-link">Get
+              in line</a>
+          </p>
+
+          <p class="clinic__directions">
+            <a class="btn btn-default"
+               href="https://www.google.com/maps/place/{{ p_name|render|striptags|trim|replace(" ", "+") }}">
+              <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
+
+          </p>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+
+  </div>
+{% endblock clinic_list %}
+
+ {% block content_immediate_prompt %}
+   <p class="find-a-location__immediate-prompt"><strong>Want care without travelling?</strong> <a href="/locations/virtual-clinic">Virtual clinic</a> is available online 24/7. Some insurance plans are accepted. </p>
+ {% endblock content_immediate_prompt %}

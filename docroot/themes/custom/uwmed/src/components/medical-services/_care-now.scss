@@ -1,0 +1,106 @@
+.care-now-container {
+
+  .care-now__intro {
+    margin-bottom: 38px;
+  }
+
+  article.uwm-clinic {
+
+    @extend .col-lg-3, .col-md-4, .col-sm-6;
+
+    .f-li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 15px;
+      .fa, .uw-ico {
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+    }
+
+    .clinic__info {
+      @extend .well;
+      margin: 0;
+      border: 0 none;
+      .h2, .h3, .h4 {
+        margin-top: 0;
+      }
+      .clinic__clinic-snippet p {
+        display: inline;
+      }
+
+      .clinic__wait-time {
+        min-height: 60px !important;
+      }
+
+      address {
+        min-height: 40px;
+      }
+
+    }
+
+    .clinic__directions {
+      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-teal);
+      position: absolute;
+      bottom: 15px;
+    }
+
+  }
+
+  .paragraph {
+
+    .bg-featured-image {
+      @extend %uwmed-absolute-bg-box;
+      display: block !important;
+    }
+
+    .wrapper {
+
+      @extend .well-lg, .col-xs-12, .col-md-6, .col-md-offset-5, .col-lg-5, .col-lg-offset-6;
+      margin-top: 80px;
+      margin-bottom: 100px;
+      background: $uwmed-white;
+      opacity: .9;
+
+      h2, .h2 {
+        @extend .h2;
+        color: $uwmed-accent-blue;
+        margin-top: 0;
+      }
+
+      h3, .h3 {
+        @extend .h3, .block-title;
+        color: $uwmed-accent-blue;
+        margin-top: 0;
+      }
+
+      .field.field--name-field-heading {
+        @include uw-bottom-accent-heading($uwmed-accent-blue);
+        margin-bottom: 30px;
+      }
+      .field.field.field--name-field-link {
+        @include uw-ghost-button('.item', 'i.u-ips', $uwmed-accent-blue);
+      }
+      .field.field--name-field-featured-image {
+        @extend .hidden;
+      }
+      .field.field--name-field-clinic-wait-time-snippet, .field.field--name-field-clinic-wait-time-snippet * {
+        display: inline;
+      }
+      .field.field--name-field-clinic-wait-time-snippet .field--label {
+        display: none !important;
+      }
+    }
+
+  }
+
+  @include uw-equal-height-row('.row.flex-row');
+  @include uw-equal-height-row('.row.flex-row > article', '.row.flex-row > article > .wrapper');
+  .row.flex-row > article > .wrapper {
+    background-color: #F5F5F5;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    position: relative;
+  }
+}

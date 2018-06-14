@@ -38,19 +38,22 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       }
     }
 
-    // If clinic has providers, populate full provider details.
-    // @TODO: Change this attach bio-node.
-    if (!empty($data->careNetworks)) {
+    if ($view_mode === "full") {
+      // If clinic has providers, populate full provider details.
+      // @TODO: Change this attach bio-node.
+      if (!empty($data->careNetworks)) {
 
-      foreach ($data->careNetworks as &$network) {
+        foreach ($data->careNetworks as &$network) {
 
-        foreach ($network->bioInformations as &$bio) {
+          foreach ($network->bioInformations as &$bio) {
 
-          if (!empty($bio->url)) {
+            if (!empty($bio->url)) {
 
-            $detail = $fetcher->getUrl($bio->url);
-            if (!empty($bio->id)) {
-              $bio = $detail;
+              $detail = $fetcher->getUrl($bio->url);
+              if (!empty($bio->id)) {
+                $bio = $detail;
+              }
+
             }
 
           }
@@ -58,7 +61,6 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         }
 
       }
-
     }
 
     $entity->uwmcs_reader_api_values = $data;
@@ -134,9 +136,35 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     if (isset($entity->field_information_manager_url->value)) {
       $medical_service_data = $fetcher->getUrl($entity->field_information_manager_url->value);
       if (!empty($medical_service_data)) {
-        $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
+        $entity->uwmcms_reader_map_clinics = $medical_service_data->clinics;
       }
     }
+  }
+
+  if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and $args[1] === "urgent-care") {
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
+
+    $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
+    if (!empty($urgent_care_data->clinics)) {
+      $clinics = $urgent_care_data->clinics;
+      $entity->uwmcms_reader_urgent_care_clinics = $clinics;
+
+      foreach ($clinics as $key => $clinic) {
+        // Remove virtual clinic from list.
+        if ($clinic->id === 7613) {
+          unset($clinics[$key]);
+        }
+      }
+      $entity->uwmcms_reader_map_clinics = $clinics;
+
+      // Get first urgent care clinic so we can display hours (same for all) on
+      // the page. @TODO: Get better data from new API.
+      $uc_clinic = $urgent_care_data->clinics[0]->id;
+      $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
+      $entity->uwmcms_reader_uc_clinic = $uc_clinic;
+    }
+
   }
 
 }

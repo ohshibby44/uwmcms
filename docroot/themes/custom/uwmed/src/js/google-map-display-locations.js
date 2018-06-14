@@ -5,7 +5,7 @@ window.initMap = function() {}; // initialize function in time for google maps t
     attach: function () {
 
       window.initMap = function () {
-        var clinics = drupalSettings['uwmcms_reader_medical_service_clinics'];
+        var clinics = drupalSettings['uwmcms_reader_map_clinics'];
 
         var initialIcon = {
           url: "/themes/custom/uwmed/dist/assets/map-marker-purple.svg",
@@ -27,7 +27,8 @@ window.initMap = function() {}; // initialize function in time for google maps t
             title: clinics[i].name,
             index: i,
             icon: initialIcon,
-            locationId: clinics[i].locationId
+            locationId: clinics[i].locationId,
+            clinicId: clinics[i].clinicId
           });
           markers.push(marker);
           // attach event listeners to marker
@@ -63,6 +64,15 @@ window.initMap = function() {}; // initialize function in time for google maps t
             window.lastSelectedMarker.setIcon(initialIcon);
           }
 
+          if(!marker.isClosestLocation) {
+            $('.find-a-location__closest-indicator').hide();
+            $('.find-a-location__selected-indicator').show();
+
+          } else {
+            $('.find-a-location__selected-indicator').hide();
+            $('.find-a-location__closest-indicator').show();
+          }
+
           marker.setIcon(selectedIcon);
           window.lastSelectedMarker = marker;
         });
@@ -76,9 +86,9 @@ window.initMap = function() {}; // initialize function in time for google maps t
 
           var clinicInfo = $('.find-a-location__clinic-info');
           if (clinicInfo.children().length > 0) {
-            $(clinicInfo).slideUp(function () {
-              $(clinicInfo).empty();
-            });
+
+            $(clinicInfo).fadeOut();
+            $('.find-a-location__heading').fadeOut();
           }
 
         });
@@ -91,15 +101,18 @@ window.initMap = function() {}; // initialize function in time for google maps t
           var clinic = clinicList.find("[data-location-id='" + marker.locationId + "']");
 
           if (clinicInfo.children().length > 0) {
+            $('.find-a-location__heading').fadeOut("fast");
             $(clinicInfo).fadeOut("fast", function () {
               $(clinicInfo).empty();
               $(clinic).children().clone().appendTo(clinicInfo);
               $(clinicInfo).fadeIn("fast");
+              $('.find-a-location__heading').fadeIn("fast");
             });
           }
           else {
             $(clinic).children().clone().appendTo(clinicInfo);
-            $(clinicInfo).slideDown();
+            $('.find-a-location__heading').fadeIn();
+            $(clinicInfo).fadeIn();
           }
         });
       };
@@ -114,13 +127,13 @@ window.initMap = function() {}; // initialize function in time for google maps t
         switch (btnTextEl.text()) {
           case 'List All Locations':
             clinicList.fadeIn({queue: false});
-            clinics.slideDown();
+            clinics.fadeIn();
             btnTextEl.text("Hide All Locations");
             btnArrowEl.removeClass("fa-angle-down").addClass("fa-angle-up");
             break;
           case 'Hide All Locations':
             clinicList.fadeOut({queue: false});
-            clinics.slideUp();
+            clinics.fadeOut();
             btnTextEl.text("List All Locations");
             btnArrowEl.removeClass("fa-angle-up").addClass("fa-angle-down");
             break;
@@ -141,6 +154,9 @@ window.initMap = function() {}; // initialize function in time for google maps t
                 closestLocation = markers[i];
               }
             }
+
+            closestLocation.isClosestLocation = true;
+
 
             var browserLocMarker = new google.maps.Marker({
               position: browserLoc,
@@ -165,6 +181,10 @@ window.initMap = function() {}; // initialize function in time for google maps t
 
             // click on closest location so it's highlighted and info is displayed
             google.maps.event.trigger(closestLocation, 'click');
+
+            $('.find-a-location__no-geolocation').hide();
+            // $('.find-a-location__closest-indicator').removeClass('hidden');
+            // $('.find-a-location__selected-indicator').addClass('hidden');
 
           })
         }

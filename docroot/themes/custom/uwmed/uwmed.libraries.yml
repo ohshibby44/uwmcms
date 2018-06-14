@@ -65,9 +65,11 @@ clinic-hours:
 
 googlemaps:
   js:
+    dist/js/google-map-display-locations.js: {}
     //maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}
   dependencies:
-    - uwmed/medical-service
+    - core/drupalSettings
+
 
 swipejs:
   js:
@@ -118,7 +120,6 @@ condition-spotlight-swipe:
 medical-service:
   js:
     dist/js/medical-service.js: {}
-    dist/js/google-map-display-locations.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
