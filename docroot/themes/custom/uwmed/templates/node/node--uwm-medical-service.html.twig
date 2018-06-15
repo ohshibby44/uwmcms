@@ -113,22 +113,20 @@
         <div class="container-lg container-proof-points">
           {{ content.field_sub_title }}
           <div class="row">
-            {% set specialties =  drupal_view('uwm_medical_specialties_for_service', 'block_1') %}
-            {% if specialties|render|striptags|trim %}
-              {{ specialties }}
-            {% else %}
               {{ content.field_proof_points }}
-            {% endif %}
+
+            {% set specialties =  drupal_view('uwm_medical_specialties_for_service', 'block_1') %}
+              {{ specialties }}
           </div>
         </div>
 
-        {% if specialties|render|striptags|trim %} {# When displaying specialty sub-pages, place featured story next #}
           <div class="col-xs-12">
-            <div class="row gray-background">
-              {{ content.field_feature_story }}
-            </div>
+          <div class="row gray-background">
+            {{ content.field_feature_story }}
           </div>
+        </div>
 
+        {% if content.field_common_services|render|trim is not empty %}
           <div class="medical-service__common-services uwm-toggle col-xs-12">
             <div class="container container-lg">
               <h2>{{ 'Some of our common services:'|t }}</h2>
@@ -148,32 +146,10 @@
               </div>
             </div>
           </div>
-        {% else %} {# otherwise, display common services next#}
-          <div class="medical-service__common-services uwm-toggle col-xs-12">
-            <div class="container container-lg">
-              <h2>{{ 'Some of our common services:'|t }}</h2>
-              <div class="row common_services">
-                {{ content.field_common_services }}
-
-                <div class="uw-more">
-                  <a href="#"
-                     data-uwm-toggle
-                     data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
-                     data-toggle-selector=".medical-service__common-services ul li"
-                     data-toggle-style="on"
-                     data-parent-selector=".medical-service__common-services.uwm-toggle"
-                     data-parent-style="on">{{ 'View more'|t }}
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </a></div>
-              </div>
-            </div>
-          </div>
-            <div class="col-xs-12">
-              <div class="row">
-                {{ content.field_feature_story }}
-              </div>
-            </div>
         {% endif %}
+        <div class="row">
+          {{ content.field_accordion }}
+        </div>
 
         <div class="col-xs-12">
           <div class="find-a-location container">
