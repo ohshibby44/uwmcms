@@ -159,14 +159,19 @@ body.page-node-type-uwm-clinic {
 
         .clinic-hours-container {
 
-          min-height: 300px;
+          //min-height: 300px;
           padding-top: 15px;
           h4 {
             margin-bottom: 0;
           }
 
+          .clinic-hours-table.always-open {
+            min-height: initial;
+          }
+
           .clinic-hours-table {
             margin-bottom: 40px;
+            min-height: 260px;
 
             p.opens-at {
               border: 0 none;
