@@ -272,6 +272,8 @@ body.page-node-type-fact-page {
         @extend .transparent;
         > .wrapper {
           border-left: 1px solid #dcdcdc;
+          margin: 0;
+          padding-bottom: 0;
         }
         div.field.field--name-field-heading {
           @extend .h3, .block-title;
