@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.uwm_medical_service.field_accordion
     - field.field.node.uwm_medical_service.field_blocks
     - field.field.node.uwm_medical_service.field_bottom_content_blocks
     - field.field.node.uwm_medical_service.field_common_services
@@ -35,6 +36,15 @@ targetEntityType: node
 bundle: uwm_medical_service
 mode: default
 content:
+  field_accordion:
+    weight: 115
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
   field_blocks:
     weight: 113
     label: above
