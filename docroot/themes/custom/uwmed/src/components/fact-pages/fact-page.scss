@@ -280,10 +280,11 @@ body.page-node-type-fact-page {
           margin: 0;
           font-size: 15px;
           text-transform: none;
+          padding-left: 20px;
           &:before {
             @extend .uw-ico, .heart;
             float: left;
-            margin-right: 6px;
+            margin-left: -20px;
           }
           .item:after {
             @extend .hidden;
