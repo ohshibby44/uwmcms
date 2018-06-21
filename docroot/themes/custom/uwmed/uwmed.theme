@@ -198,7 +198,7 @@ function uwmed_preprocess_node(&$variables) {
       }
     }
 
-    if ($node->nid->value === "20456") {
+    if ($node->nid->value === "21036") {
       $variables["#attached"]['drupalSettings']['uwmcms_reader_map_clinics'] = $variables["node"]->uwmcms_reader_map_clinics;
     }
 
