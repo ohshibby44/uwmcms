@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.image_browser
+    - field.field.node.uwm_medical_service.field_accordion
     - field.field.node.uwm_medical_service.field_blocks
     - field.field.node.uwm_medical_service.field_bottom_content_blocks
     - field.field.node.uwm_medical_service.field_common_services
@@ -72,7 +73,7 @@ third_party_settings:
     group_common_serives:
       children:
         - field_common_services
-        - field_condition_spotlight
+        - field_accordion
       parent_name: ''
       weight: 3
       format_type: tab
@@ -140,6 +141,20 @@ targetEntityType: node
 bundle: uwm_medical_service
 mode: default
 content:
+  field_accordion:
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: paragraphs
+    region: content
   field_blocks:
     weight: 10
     settings:
@@ -174,7 +189,7 @@ content:
     third_party_settings: {  }
     region: content
   field_condition_spotlight:
-    weight: 4
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -245,7 +260,7 @@ content:
     third_party_settings: {  }
     region: content
   field_quiz:
-    weight: 51
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -291,8 +306,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   sticky: true

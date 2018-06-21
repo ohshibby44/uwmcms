@@ -62,4 +62,58 @@
 
 
   }
+
+  section.clinic-paragraphs {
+
+    position: relative;
+    //padding: 0 25px;
+    background-color: #f8f8f8;
+    min-height: 450px;
+
+    .bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background-image: url(/themes/custom/uwmed/dist/assets/angled-bg-light.png);
+      background-color: #F8F8F8;
+    }
+
+    div.paragraph > .wrapper {
+      @extend .col-xs-12;
+      margin: 30px 0;
+      padding: 20px 28px;
+      background: $uwmed-white;
+      opacity: .8;
+      box-shadow: 0 0 4px 0 #dcdcdc;
+      min-height: 340px;
+    }
+  }
+
+  div.field.field--name-field-content-blocks,
+  div.field.field--name-field-bottom-content-blocks {
+
+    @extend .row;
+
+    div.paragraph {
+      @extend .col-sm-6;
+      @extend .col-md-4;
+
+      p.h1.hero__heading {
+        display: none;
+      }
+
+      .field--name-field-link {
+        padding: 0;
+      }
+      div.field.field--name-field-links-paragraph > .item ul li {
+        padding: 0 0 1em 0;
+      }
+    }
+  }
+
+
+
 }
