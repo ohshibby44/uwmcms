@@ -1,0 +1,31 @@
+uuid: 8d610171-bebd-45ab-a588-6527d61d92b6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:03661349-0f1c-4411-bfe7-06b026a90101'
+  module:
+    - block_content
+    - system
+  theme:
+    - uwmed
+id: woodinvillehoursalert
+theme: uwmed
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:03661349-0f1c-4411-bfe7-06b026a90101'
+settings:
+  id: 'block_content:03661349-0f1c-4411-bfe7-06b026a90101'
+  label: 'Woodinville Hours Alert'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /locations/primary-care-woodinville
+    negate: false
+    context_mapping: {  }

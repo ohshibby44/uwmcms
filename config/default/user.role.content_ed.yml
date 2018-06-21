@@ -13,10 +13,15 @@ weight: 7
 is_admin: null
 permissions:
   - 'access content'
+  - 'access content overview'
+  - 'access files overview'
   - 'access image_browser entity browser pages'
   - 'access media overview'
   - 'access media_browser entity browser pages'
+  - 'access toolbar'
+  - 'access webform overview'
   - 'administer nodes'
+  - 'bypass node access'
   - 'create condition_spotlight content'
   - 'create content_spotlight content'
   - 'create fact_page content'
@@ -88,3 +93,5 @@ permissions:
   - 'view paragraph content accordion_panel'
   - 'view paragraph content feature_story'
   - 'view paragraph content quiz_question'
+  - 'view scheduled update entities'
+  - 'view the administration theme'
