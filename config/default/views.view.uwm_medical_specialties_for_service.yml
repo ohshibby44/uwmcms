@@ -197,7 +197,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'View page <span class="sr-only">{{ title }}</span>'
+            text: 'Learn more <span class="sr-only">about {{ title }}</span>'
             make_link: true
             path: '{{ path }}'
             absolute: false

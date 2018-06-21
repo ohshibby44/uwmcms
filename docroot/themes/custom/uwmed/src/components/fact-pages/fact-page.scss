@@ -8,6 +8,9 @@ body.page-node-type-fact-page {
   div.main-container {
     @extend %uwmed-gradient-angled-dark-background;
     padding-top: 0;
+    h1.page-header {
+      @extend .col-xs-12;
+    }
   }
 
   //h1.page-header {
@@ -58,10 +61,10 @@ body.page-node-type-fact-page {
     @extend .col-sm-6;
   }
   .group-of-3s .paragraph {
-    @extend .col-md-4;
+    @extend .col-sm-4;
   }
   .group-of-4s .paragraph {
-    @extend .col-md-3;
+    @extend .col-sm-3;
   }
 
   h2.item {
@@ -114,6 +117,7 @@ body.page-node-type-fact-page {
     section.body-content {
 
       background: $uwmed-white;
+      margin-bottom: 15px;
       padding: 30px;
 
       aside.inner-sidebar {
@@ -164,6 +168,14 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
+  /**Extreme hack for boxes on eCare page until component library launches**/
+  #ppg-3406 > div > div {//left column
+    min-height: 286px;
+  }
+  #ppg-3341 > div { // middle column
+    min-height: 319px;
+  }
+
 }
 
 
@@ -201,6 +213,7 @@ body.page-node-type-fact-page {
   .field.field--name-field-content-blocks .paragraph {
     @extend .sticky-cta;
   }
+
 }
 
 
@@ -259,16 +272,19 @@ body.page-node-type-fact-page {
         @extend .transparent;
         > .wrapper {
           border-left: 1px solid #dcdcdc;
+          margin: 0;
+          padding-bottom: 0;
         }
         div.field.field--name-field-heading {
           @extend .h3, .block-title;
           margin: 0;
           font-size: 15px;
           text-transform: none;
+          padding-left: 20px;
           &:before {
             @extend .uw-ico, .heart;
             float: left;
-            margin: 8px 6px 0 0;
+            margin-left: -20px;
           }
           .item:after {
             @extend .hidden;
@@ -277,12 +293,12 @@ body.page-node-type-fact-page {
       }
 
       @media(min-width: $screen-md-min) {
-        > .item-1 > .paragraph > .wrapper {
-          border-left: 0 none;
+        .paragraph > .wrapper {
+          border-left: 0 none !important;
         }
       }
       @media(max-width: $screen-md-min) {
-        > .item > .paragraph > .wrapper {
+        .paragraph > .wrapper {
           border-left: 0 none !important;
         }
       }

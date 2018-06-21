@@ -49,6 +49,18 @@ body {
       }
 
     }
+    a {
+      &, &:link, &:visited, &:active, &:focus {
+        text-decoration: none;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .make-a-gift-navigation a:hover {
+      text-decoration: none;
+    }
+
 
   }
 
@@ -60,59 +72,11 @@ body {
       font-style: italic;
     }
 
-    h1.small-page-header {
+    //a[href^=tel] {
+    //  color: inherit;
+    //}
 
-      @extend .col-xs-12;
-      font-size: 28px;
-      line-height: 28px;;
-      font-weight: 400;
-      letter-spacing: .4px;
 
-      .title-wrapper {
-        color: $uwmed-purple;
-
-        .subheading {
-          margin-left: 30px;
-          white-space: nowrap;
-          &, a {
-            color: $uwmed-pop-blue;
-            font-size: 20px;
-          }
-        }
-      }
-    }
-
-    .page-header, h1.page-header, .title-wrapper {
-      color: $uwmed-light-purple;
-      a {
-        color: $uwmed-light-purple;
-        text-decoration: none;
-        &:link, &:hover, &:active, &:focus {
-          text-decoration: none;
-        }
-      }
-    }
-
-    h2.block-title, .block-title {
-      @extend .h6;
-      color: $headings-color;
-      font-family: $headings-font-family;
-      a {
-        &:link, &:active, &:focus, &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-
-    h2.page-title, .page-title {
-      color: $headings-color;
-      text-decoration: none;
-      a {
-        &:link, &:active, &:focus, &:hover {
-          text-decoration: none;
-        }
-      }
-    }
 
   }
 
@@ -172,16 +136,18 @@ h1, .h1, h1 a, .h1 a {
   font-weight: $headings-font-weight;
   color: $heading-color-h1;
 
-  small, small a {
-    font-size: ($font-size-h1-mobile * .8);
+  small, small a, .small, .small a {
+    //font-size: ($font-size-h1-mobile * .8);
+    font-size: ($font-size-base * 1.01);
   }
 
   @media (min-width: $screen-sm-min) {
     font-size: $font-size-h1;
     line-height: $line-height-h1;
 
-    small, small a {
-      font-size: ($font-size-h1 * .8);
+    small, small a, .small, .small a {
+      //font-size: ($font-size-h1-mobile * .8);
+      font-size: $font-size-base;
     }
   }
 }
@@ -245,6 +211,7 @@ h5, .h5, h5 a, .h5 a {
   font-family: $font-family-base;
   font-weight: $headings-font-weight-heavy;
   color: $heading-color-h5;
+  text-transform: none;
 
   small, small a {
     font-size: ($font-size-h5 * .8);
@@ -258,6 +225,7 @@ h6, .h6, h6 a, .h6 a {
   font-family: $font-family-base;
   font-weight: $headings-font-weight-medium;
   color: $heading-color-h6;
+  text-transform: none;
 
   small, small a {
     font-size: ($font-size-h6 * .8);
@@ -288,21 +256,69 @@ h6, .h6 {
   margin-bottom: ($line-height-computed / 2);
 }
 
+h1.page-header {
+  color: $uwmed-light-purple;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      color: $uwmed-body-text-color;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $uwmed-pop-blue;
+      text-decoration: underline;
+    }
+  }
+}
+
+h2.page-title, .page-title {
+  color: $headings-color;
+  text-decoration: none;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      color: $headings-color;
+      text-decoration: none;
+    }
+    &:hover {
+      color: $uwmed-pop-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+h2.block-title, .block-title {
+  @extend .h6;
+  font-family: $headings-font-family;
+  a {
+    &, &:link, &:visited, &:active, &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+h2.boxy-uppercase-title, .boxy-uppercase-title {
+  @extend .h6;
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+}
+
 // Hyperlinks
 // -------------------------
 a {
-  color: darken($uwmed-pop-blue, 4%);
-  text-decoration: none;
+  &, &:link, &:visited {
+    color: darken($uwmed-pop-blue, 8%);
+    color: $uwmed-body-text-color;
+    text-decoration: underline;
+  }
   &:hover, &:active, &:focus {
     color: $uwmed-pop-blue;
     text-decoration: underline;
   }
-  &:visited {
-    //color: $uwmed-purple;
-    color: darken($uwmed-pop-blue, 4%);
-  }
-  &[href^=tel] {
-    color: inherit;
+  .fa , .uw-ico, .uwmed-icon {
+    display: inline-block;
+    text-decoration: none !important;
   }
 }
 

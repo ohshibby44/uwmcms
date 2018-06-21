@@ -16,7 +16,7 @@ aside section.block,
   background: #f8f8f8;
 
   h2.block-title {
-    @extend .h3, .block-title;
+    @extend .boxy-uppercase-title;
     margin-top: 0;
     @include uw-bottom-accent-heading();
     i {

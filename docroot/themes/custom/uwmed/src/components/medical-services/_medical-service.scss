@@ -329,6 +329,10 @@
         @media(min-width: $screen-md-min) {
           padding: 10px 15px;
         }
+        .field.field--name-field-heading .item {
+          @extend .h5;
+        }
+
       }
     }
 
@@ -489,7 +493,7 @@
     background-size: cover;
     background-position: center;
 
-    min-height: 400px;
+    min-height: 430px;
     @include angled-edge('inside bottom', 'upper right', #fff, 50);
     &::after {
       width: 100%;
@@ -638,8 +642,9 @@
   }
 
   .find-a-location__heading {
-    text-transform: uppercase;
-
+    h2 {
+      @extend .boxy-uppercase-title;
+    }
     .uwmed-slant span {
       background-color: $uwmed-accent-yellow;
     }
@@ -843,8 +848,10 @@
   }
 
   .condition-spotlight__heading {
-    text-transform: uppercase;
-
+    @extend .boxy-uppercase-title;
+    h3 {
+      @extend .boxy-uppercase-title;
+    }
     .uwmed-slant span {
       background-color: $uwmed-accent-orange;
     }
@@ -898,7 +905,7 @@
     }
 
     @media (min-width: $screen-lg-min) {
-      height: 375px;
+      height: 400px;
     }
 
     .field--name-field-link {
@@ -955,7 +962,8 @@
 
     .field--name-field-link {
 
-      @include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
+      //@include uw-ghost-button('a', 'i.u-ips', $uwmed-accent-orange);
+      @include uw-ghost-button('.item', 'i.u-ips', $uwmed-accent-orange);
 
       a {
         @extend .btn;
@@ -1186,7 +1194,6 @@
   }
 
 
-
   #resources {
     .eCare__information {
       margin-bottom: $padding-base-vertical * 3;
@@ -1280,6 +1287,12 @@
     }
 
     .patient-resources {
+
+      h3 {
+        @extend .block-title, .boxy-uppercase-title;
+        margin-top: 0;
+      }
+
       ul {
         margin: 0;
         padding: 0;
@@ -1376,9 +1389,9 @@
 
     .block-title {
       text-align: center;
-      @extend .h3, .block-title;
+      @extend .boxy-uppercase-title, .h3;
       @include uw-bottom-accent-heading();
-      margin-bottom: 30px;
+      padding: 20px 0;
 
       &:after {
         position: relative;

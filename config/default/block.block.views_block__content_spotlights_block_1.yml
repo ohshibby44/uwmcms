@@ -1,11 +1,11 @@
-uuid: 01ef174a-fe67-4e55-9f9e-3fae5a20da98
+uuid: 9f7bc989-ba0e-4477-a1f0-991f5ece479c
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.content_spotlights
   module:
-    - node
+    - ctools
     - views
   theme:
     - uwmed
@@ -23,8 +23,8 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  node_type:
-    id: node_type
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     bundles:
       uwm_provider: uwm_provider
     negate: false

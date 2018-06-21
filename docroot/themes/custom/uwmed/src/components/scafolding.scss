@@ -52,6 +52,9 @@ body {
 
   }
 
+
+
+
   footer {
 
   }
@@ -67,7 +70,23 @@ body {
 
 }
 
+body.page-node-type-page, body.path-webform {
 
+  .main-container {
+    @extend .container-lg;
+    padding-top: 0;
+  }
+
+}
+
+@media(min-width: $screen-md-min) {
+
+  form.webform-submission-form {
+    max-width: 700px;
+    margin-right: 18%;
+  }
+
+}
 
 .remove-padding {
   padding-left: 0 !important;
@@ -114,7 +133,7 @@ h2.accent, h3.accent, h4.accent {
 @include uw-equal-height-row('.flex-row', '.flex-item');
 
 div.uwm-right-letterbox {
-  @extend .well, .uw-well, .col-xs-12, .col-sm-2;
+  @extend .well, .uw-well, .col-xs-4, .col-sm-2, .pull-right;
   margin: 15px;
   padding: 15px;
   border-top: 1px solid $uwmed-light-gray;
