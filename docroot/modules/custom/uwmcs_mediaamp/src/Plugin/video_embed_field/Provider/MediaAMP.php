@@ -42,6 +42,21 @@ class MediaAMP extends ProviderPluginBase {
   /**
    * {@inheritdoc}
    */
+  public static function getThumbnailFromInput($input) {
+
+    $id = self::getIdFromInput($input);
+
+    if (!empty($id)) {
+
+      return self::fetchMediaAmpFeedData('defaultThumbnailUrl', $id);
+
+    }
+
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function renderEmbedCode($width, $height, $autoplay) {
 
     $width = $width ? $width : '480';
@@ -97,7 +112,7 @@ class MediaAMP extends ProviderPluginBase {
    */
   public function getRemoteThumbnailUrl() {
 
-    return self::fetchMediaAmpFeedData('defaultThumbnailUrl');
+    $this->fetchMediaAmpFeedData('defaultThumbnailUrl', $this->getVideoId());
 
   }
 
@@ -118,7 +133,7 @@ class MediaAMP extends ProviderPluginBase {
    */
   public function getName() {
 
-    return self::fetchMediaAmpFeedData('title');
+    return $this->fetchMediaAmpFeedData('title', $this->getVideoId());
 
   }
 
@@ -134,22 +149,22 @@ class MediaAMP extends ProviderPluginBase {
   /**
    * {@inheritdoc}
    */
-  private function fetchMediaAmpFeedData($fieldName) {
+  private static function fetchMediaAmpFeedData($jsonField, $videoId) {
 
-    $uri = sprintf(self::$accountFeedUrl, $this->getVideoId());
+    $uri = sprintf(self::$accountFeedUrl, $videoId);
     try {
 
       $response = \Drupal::httpClient()->get($uri);
       $data = Json::decode($response->getBody());
 
-      if (!empty($data[$fieldName])) {
+      if (!empty($data[$jsonField])) {
 
-        return $data[$fieldName];
+        return $data[$jsonField];
 
       }
-      if (!empty($data['entries'][0][$fieldName])) {
+      if (!empty($data['entries'][0][$jsonField])) {
 
-        return $data['entries'][0][$fieldName];
+        return $data['entries'][0][$jsonField];
 
       }
 
@@ -165,6 +180,32 @@ class MediaAMP extends ProviderPluginBase {
 /*
  *
  *
+
+MEDIA AMP FEED URL FOR UWM DRUPAL:
+http://feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid={{ MEDIA_ID/ PID }}
+(Shows configured feed fields for video)
+
+MEDIA AMP URL FOR VIDEO WITH PLAYER:
+https://player.mediaamp.io/p/U8-EDC/{{ PLAYER_ID }}/embed/select/media
+/{{ MEDIA_ID/ PID }}?form=html
+(Player for use in iframe)
+
+PLAYER:
+https://player.mediaamp.io/p/U8-EDC/gQh_1ek3wdLT/embed/select/media/
+ViWDFnXGVkrf?form=html
+
+
+OTHER MediaAMP SAMPLES:
+
+
+<iframe src="http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/
+media/2j4IXUPa_kv0?form=html" width="482" height="272" frameBorder="0"
+seamless="seamless" allowFullScreen></iframe>
+
+<iframe src="http://player.theplatform.com/p/U8-EDC/gQh_1ek3wdLT?form=html"
+width="482" height="272" frameBorder="0" seamless="seamless"
+allowFullScreen></iframe>
+
 
 JSON:
 http://feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=ViWDFnXGVkrf
@@ -203,14 +244,20 @@ Script
 http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/_KkGEnglfZ9q
 ?form=javascript"></script></div>
 
+https://player.mediaamp.io/p/U8-EDC/{{ PLAYER_ID }}/embed/select/
+media/{{ MEDIA_ID/ PID }}?form=javascript
+
+
 <div style="width: 480px; height: 270px"><script type="text/javascript" src="
 http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5
 ?form=javascript"></script></div>
 
 Link
-http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/_KkGEnglfZ9q?form=html
+http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/
+media/_KkGEnglfZ9q?form=html
 
-http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/ellmMECE9wA5?form=html
+http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/
+media/ellmMECE9wA5?form=html
 
 Flash Only
 <embed src="http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/swf/select/media/
@@ -221,7 +268,8 @@ allowFullScreen="true" bgcolor="0x000000"/>
 ellmMECE9wA5" width="480" height="270" type="application/x-shockwave-flash"
 allowFullScreen="true" bgcolor="0x000000"/>
 
-Caption URL: http://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/449/455/Dr.%20Dudley%20-final%20cut.srt
+Caption URL: http://lyeqby-md.storage.googleapis.com/UWMC_-_Marketing_VMS/
+449/455/Dr.%20Dudley%20-final%20cut.srt
  *
  *
  */

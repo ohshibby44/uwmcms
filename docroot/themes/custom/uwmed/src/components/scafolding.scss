@@ -10,7 +10,6 @@ body {
 
   div.main-container {
 
-
     padding-top: 100px;
     min-height: 400px;
 
@@ -48,12 +47,7 @@ body {
 
     }
 
-
-
   }
-
-
-
 
   footer {
 
@@ -119,7 +113,6 @@ h2.accent, h3.accent, h4.accent {
   background-image: none;
 }
 
-
 .well, .uw-well {
   @include uw-well();
 }
@@ -138,4 +131,29 @@ div.uwm-right-letterbox {
   padding: 15px;
   border-top: 1px solid $uwmed-light-gray;
   border-bottom: 1px solid $uwmed-light-gray;
+}
+
+.uwm-video-wrapper {
+  .thumbnail {
+    position: relative;
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      .play-button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        font-size: 80px;
+        margin-left: -40px;
+        opacity: .7;
+      }
+      &:hover .play-button {
+        opacity: 1;
+      }
+    }
+  }
+
 }

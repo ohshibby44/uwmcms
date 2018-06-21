@@ -9,41 +9,68 @@ use field defaults.
 #}
 {% block content %}
 
-    {% if captionUrl.0.uri is not empty
-    and 'mp4' in videoUrl.0.uri %}
+    {#{{ devel_breakpoint() }}#}
 
-        {#{{ devel_breakpoint() }}#}
 
-        {% set videoHTML %}
+    {% if mpxPlayerId is not empty and mpxVideoId is not empty %}
+        {###
+        #
+        # USE CUTOM MPX PLAYER:
+        #}
+        {% set html %}
+            <iframe id="{{ uwm_field_uuid }}"
+                    src="http://player.mediaamp.io/p/U8-EDC/{{ mpxPlayerId }}/embed/select/media/{{ mpxVideoId }}?form=html"
+                    width="482" height="272" frameBorder="0"
+                    seamless="seamless" allowFullScreen>
+            </iframe>
+        {% endset %}
+
+    {% elseif 'mp4' in videoSourceUrl and videoCaptionUrl is not empty %}
+        {###
+        #
+        # USE HTML5 IF MP4
+        #}
+        {% set html %}
             <video id="{{ uwm_field_uuid }}" style="max-width: 100%;"
                    controls="" preload="metadata" crossorigin="anonymous">
-                <source src="{{ videoUrl.0.uri }}" type="video/mp4">
+                <source src="{{ videoSourceUrl }}" type="video/mp4">
                 <track label="English" kind="captions" srclang="en"
-                       src="{{ captionUrl.0.uri }}" default="">
+                       src="{{ videoCaptionUrl }}" default="">
             </video>
         {% endset %}
 
+    {% endif %}
 
-        <div class="video-wrapper hidden">
-            {{ videoHTML }}
+
+    {% if html is not empty %}
+        {###
+        #
+        # SHOW PLAYER AND THUMBNAIL:
+        #}
+
+        {{ attach_library('uwmed/colorbox') }}
+
+        <div class="uwm-video-wrapper">
+            <div class="player hidden">
+                {{ html }}
+            </div>
+            <div class="thumbnail">
+                <a href="#{{ uwm_field_uuid }}" class="colorbox launch-video">
+                    {% if videoThumbnailUrl is not empty %}
+                        <img src="{{ videoThumbnailUrl }}">
+                        <i class="play-button fa svg-inline--fa fa-play-circle fa-w-16 fa-5x"></i>
+                    {% else %}
+                        {{ html }}
+                    {% endif %}
+                </a>
+            </div>
         </div>
-
-        <div class="video-thumbnail-wrapper">
-            <a href="#{{ uwm_field_uuid }}" class="colorbox launch-video">
-                {% if element.0['children']['#attributes']['data-thumbnail'] %}
-                    <img src="{{ element.0['children']['#attributes']['data-thumbnail'] }}">
-                    <i class="vplay fa svg-inline--fa fa-play-circle fa-w-16 fa-5x"></i>
-                {% else %}
-                    {{ videoHTML }}
-                {% endif %}
-            </a>
-
-        </div>
-
-
 
     {% else %}
-
+        {###
+        #
+        # SHOW FIELD DEFAULTS:
+        #}
         {% include 'field.html.twig' %}
 
     {% endif %}

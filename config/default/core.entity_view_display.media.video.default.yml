@@ -10,6 +10,7 @@ dependencies:
     - field.field.media.video.field_media_video_caption_url
     - field.field.media.video.field_media_video_data_url
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_player_id
     - media_entity.bundle.video
   module:
     - text
@@ -61,5 +62,6 @@ hidden:
   field_media_in_library: true
   field_media_video_caption_url: true
   field_media_video_data_url: true
+  field_video_player_id: true
   thumbnail: true
   uid: true
