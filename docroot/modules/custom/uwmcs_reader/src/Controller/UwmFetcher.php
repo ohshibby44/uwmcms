@@ -16,7 +16,7 @@ use Httpful\Response;
  */
 class UwmFetcher {
 
-  protected static $apiUri = 'http://webservices.uwmedicine.org';
+  protected static $apiUri = 'https://webservices.uwmedicine.org';
 
   protected static $clinicEndpoint = '/api/clinic';
 
