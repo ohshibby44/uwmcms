@@ -87,7 +87,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       }
 
       $data->bioPublicationsDetails = $fetcher->getUrl(
-        'http://webservices.uwmedicine.org/api/publications?ids=' .
+        'https://webservices.uwmedicine.org/api/publications?ids=' .
         implode(',', $pubIds));
 
     }
@@ -123,12 +123,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     // Fetch Information Manager (IM) data from API.
     $fetcher = new UwmFetcher();
 
-    $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
+    $urgent_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/60');
     if (!empty($urgent_care_data->clinics)) {
       $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
     }
 
-    $primary_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/57');
+    $primary_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/57');
     if (!empty($primary_care_data->clinics)) {
       $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
     }
