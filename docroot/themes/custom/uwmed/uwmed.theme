@@ -226,10 +226,20 @@ function uwmed_preprocess_field(&$variables) {
   /***
    * Add video URL's for theming:
    */
-  if ($obj && $obj->hasField('field_video_player_id')) {
+  if ($obj && $obj->hasField('field_media_video_embed_field')) {
 
-    $v = $obj->get('field_video_player_id')->getValue();
-    $variables['mpxPlayerId'] = $v[0]['value'] ?? NULL;
+    if ($obj->hasField('field_video_player_id')) {
+
+      $v = $obj->get('field_video_player_id')->getValue();
+      $variables['mpxPlayerId'] = $v[0]['value'] ?? NULL;
+
+      $v = $obj->get('field_media_video_data_url')->getValue();
+      $variables['videoSourceUrl'] = $v[0]['uri'] ?? NULL;
+
+      $v = $obj->get('field_media_video_caption_url')->getValue();
+      $variables['videoCaptionUrl'] = $v[0]['uri'] ?? NULL;
+
+    }
 
     $v = $obj->get('field_media_video_embed_field')->getValue();
     $v = $v[0]['value'] ?? NULL;
@@ -238,12 +248,6 @@ function uwmed_preprocess_field(&$variables) {
     $v = $obj->get('field_media_video_embed_field')->getValue();
     $v = $v[0]['value'] ?? NULL;
     $variables['videoThumbnailUrl'] = MediaAMP::getThumbnailFromInput($v);
-
-    $v = $obj->get('field_media_video_data_url')->getValue();
-    $variables['videoSourceUrl'] = $v[0]['uri'] ?? NULL;
-
-    $v = $obj->get('field_media_video_caption_url')->getValue();
-    $variables['videoCaptionUrl'] = $v[0]['uri'] ?? NULL;
 
   }
 

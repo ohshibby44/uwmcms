@@ -11,32 +11,44 @@ use field defaults.
 
     {#{{ devel_breakpoint() }}#}
 
+    {% if 'mp4' in videoSourceUrl %}
+        {###
+        #
+        # USE HTML5 FOR MP4 SOURCE:
+        #}
+        {% set html %}
+            <video class="uw-mpx-video" id="{{ uwm_field_uuid }}"
+                   controls="" preload="metadata" crossorigin="anonymous">
+                <source src="{{ videoSourceUrl }}" type="video/mp4">
+                {% if videoCaptionUrl is not empty %}
+                    <track label="English" kind="captions" srclang="en"
+                           src="{{ videoCaptionUrl }}" default="">
+                {% endif %}
+            </video>
+        {% endset %}
 
-    {% if mpxPlayerId is not empty and mpxVideoId is not empty %}
+    {% elseif mpxPlayerId is not empty and mpxVideoId is not empty %}
         {###
         #
         # USE CUTOM MPX PLAYER:
         #}
         {% set html %}
-            <iframe id="{{ uwm_field_uuid }}"
+            <iframe class="uw-mpx-video" id="{{ uwm_field_uuid }}"
                     src="http://player.mediaamp.io/p/U8-EDC/{{ mpxPlayerId }}/embed/select/media/{{ mpxVideoId }}?form=html"
-                    width="482" height="272" frameBorder="0"
-                    seamless="seamless" allowFullScreen>
+                    frameBorder="0" seamless="seamless" allowFullScreen>
             </iframe>
         {% endset %}
 
-    {% elseif 'mp4' in videoSourceUrl and videoCaptionUrl is not empty %}
+    {% elseif mpxVideoId is not empty %}
         {###
         #
-        # USE HTML5 IF MP4
+        # USE CUTOM MPX PLAYER:
         #}
         {% set html %}
-            <video id="{{ uwm_field_uuid }}" style="max-width: 100%;"
-                   controls="" preload="metadata" crossorigin="anonymous">
-                <source src="{{ videoSourceUrl }}" type="video/mp4">
-                <track label="English" kind="captions" srclang="en"
-                       src="{{ videoCaptionUrl }}" default="">
-            </video>
+            <iframe class="uw-mpx-video" id="{{ uwm_field_uuid }}"
+                    src="http://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/{{ mpxVideoId }}?form=html"
+                    frameBorder="0" seamless="seamless" allowFullScreen>
+            </iframe>
         {% endset %}
 
     {% endif %}
@@ -50,15 +62,15 @@ use field defaults.
 
         {{ attach_library('uwmed/colorbox') }}
 
-        <div class="uwm-video-wrapper">
-            <div class="player hidden">
+        <div class="uw-video-wrapper">
+            <div class="v-player hidden">
                 {{ html }}
             </div>
-            <div class="thumbnail">
+            <div class="v-thumbnail">
                 <a href="#{{ uwm_field_uuid }}" class="colorbox launch-video">
                     {% if videoThumbnailUrl is not empty %}
                         <img src="{{ videoThumbnailUrl }}">
-                        <i class="play-button fa svg-inline--fa fa-play-circle fa-w-16 fa-5x"></i>
+                        <i class="v-play-button fa svg-inline--fa fa-play-circle fa-w-16 fa-5x"></i>
                     {% else %}
                         {{ html }}
                     {% endif %}
