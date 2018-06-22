@@ -228,6 +228,11 @@ function uwmed_preprocess_field(&$variables) {
    */
   if ($obj && $obj->hasField('field_media_video_embed_field')) {
 
+    $v = $obj->get('field_media_video_embed_field')->getValue();
+    $v = $v[0]['value'] ?? NULL;
+    $variables['mpxVideoId'] = MediaAMP::getIdFromInput($v);
+    $variables['videoThumbnailUrl'] = MediaAMP::getThumbnailFromInput($v);
+
     if ($obj->hasField('field_video_player_id')) {
 
       $v = $obj->get('field_video_player_id')->getValue();
@@ -240,14 +245,6 @@ function uwmed_preprocess_field(&$variables) {
       $variables['videoCaptionUrl'] = $v[0]['uri'] ?? NULL;
 
     }
-
-    $v = $obj->get('field_media_video_embed_field')->getValue();
-    $v = $v[0]['value'] ?? NULL;
-    $variables['mpxVideoId'] = MediaAMP::getIdFromInput($v);
-
-    $v = $obj->get('field_media_video_embed_field')->getValue();
-    $v = $v[0]['value'] ?? NULL;
-    $variables['videoThumbnailUrl'] = MediaAMP::getThumbnailFromInput($v);
 
   }
 
