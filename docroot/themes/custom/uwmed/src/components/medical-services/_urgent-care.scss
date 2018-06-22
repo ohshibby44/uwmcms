@@ -98,3 +98,28 @@
     }
   }
 }
+
+ul.boxy-ordered-list.list-check-marks {
+
+  @extend .row;
+  margin-bottom: 15px;
+  li {
+    @extend .col-sm-12, .col-md-6;
+
+    position: relative;
+    list-style-type: none;
+    //border-top: 1px solid #b5b5b5;
+    padding: 6px 0 6px 20px;
+    &:before {
+      content: "\e902";
+      font-family: "uwmico";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 10px;
+      color: #4B2E83;
+      padding: 6px 0 0 0;
+      border-top: 1px solid #b5b5b5;
+    }
+  }
+}

@@ -59,3 +59,9 @@
 }
 
 
+//
+// OPEN STATE FOR OTHER TOGGLES:
+a[aria-expanded="true"] .fa.fa-plus-circle:before {
+  //.fa-minus-circle:before
+  content: "\f056";
+}
