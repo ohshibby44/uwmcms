@@ -328,6 +328,15 @@ a.btn, a.btn-default {
   }
 }
 
+.no-underline, .no-underline a {
+  &, &:link, &:visited, &:active, &:focus, &:hover {
+    text-decoration: none;
+  }
+  //&:hover {
+  //  text-decoration: none;
+  //}
+}
+
 // Body text
 // -------------------------
 
