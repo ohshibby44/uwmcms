@@ -56,9 +56,9 @@ div.paragraph, section.block {
 
     > .item a.btn.btn-default {
       border-bottom: 1px solid #dcdcdc;
-      &:last-of-type a.btn.btn-default {
-        border-bottom: 0 none;
-      }
+    }
+    > .item:last-of-type a.btn.btn-default {
+      border-bottom: 0 none;
     }
 
     div.field.field--name-field-link {
@@ -68,8 +68,6 @@ div.paragraph, section.block {
     }
 
   }
-
-
 
 }
 
