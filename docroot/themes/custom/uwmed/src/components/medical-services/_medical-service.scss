@@ -553,26 +553,13 @@
     .field--name-field-text-snippet {
 
       .list__check-circle-o {
-        padding-left: 0;
 
         li {
-          list-style-type: none;
           border-top: 1px solid $uwmed-gray;
-          padding: 6px 0 6px 1.5em;
 
           &:last-of-type {
             border-bottom: 1px solid $uwmed-gray;
           }
-        }
-
-        li:before {
-          content: "\e902";
-          font-family: "uwmico";
-          width: 10px;
-          height: 10px;
-          margin-left: -1.5em;
-          float: left;
-          color: $uwmed-purple-icon;
         }
 
         li:nth-child(3) {

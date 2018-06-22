@@ -168,6 +168,14 @@ body.page-node-type-fact-page {
     @extend .hidden;
   }
 
+  /**Extreme hack for boxes on eCare page until component library launches**/
+  #ppg-3406 > div > div {//left column
+    min-height: 286px;
+  }
+  #ppg-3341 > div { // middle column
+    min-height: 319px;
+  }
+
 }
 
 
@@ -264,6 +272,8 @@ body.page-node-type-fact-page {
         @extend .transparent;
         > .wrapper {
           border-left: 1px solid #dcdcdc;
+          margin: 0;
+          padding-bottom: 0;
         }
         div.field.field--name-field-heading {
           @extend .h3, .block-title;
