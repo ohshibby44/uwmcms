@@ -9,7 +9,7 @@
 # Later, if wishing to create new .htaccess file, run this patch, make your new
 # htaccess additions, then create an updated patch file:
 #
-# $git diff -p ./docroot/.htaccess > ./patches/drupal-htaccess/htaccess.patch
+# $ git diff -p ./docroot/.htaccess > ./patches/drupal-htaccess/htaccess.patch
 #
 # @endexample
 #

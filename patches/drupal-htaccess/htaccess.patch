@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index 83cb71a0..8d5ec096 100755
+index efce187..f9d077c 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,1907 @@
+@@ -1,3 +1,1908 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -71,6 +71,7 @@ index 83cb71a0..8d5ec096 100755
 +  RewriteCond %{REQUEST_URI} !^/(views|editor|media_browser|toolbar|filter|contextual|history)/.+
 +  RewriteCond %{REQUEST_URI} !^/?$
 +  RewriteCond %{REQUEST_URI} !^/patient-care/making-an-appointment$
++  RewriteCond %{REQUEST_URI} !^/patient-care/ecare$
 +  RewriteCond %{REQUEST_URI} !^/services/primary-care/?.*
 +  RewriteCond %{REQUEST_URI} !^/locations/location-hours/.*
 +  RewriteCond %{REQUEST_URI} !^/locations/adult-medicine-harborview/?.*
@@ -1910,7 +1911,7 @@ index 83cb71a0..8d5ec096 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +2054,10 @@ AddEncoding gzip svgz
+@@ -150,6 +2055,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -1921,3 +1922,10 @@ index 83cb71a0..8d5ec096 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
+@@ -186,4 +2095,4 @@ AddEncoding gzip svgz
+   Header always set X-Content-Type-Options nosniff
+   # Disable Proxy header, since it's an attack vector.
+   RequestHeader unset Proxy
+-</IfModule>
+\ No newline at end of file
++</IfModule>
