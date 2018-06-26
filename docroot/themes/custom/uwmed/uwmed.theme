@@ -74,6 +74,15 @@ function uwmed_page_attachments_alter(&$variables) {
     }
 
   }
+  $http_error_pages = [
+    'system.401',
+    'system.403',
+    'system.404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_pages[$route_name])) {
+    $variables['#attached']['library'][] = 'uwmed/custom-404';
+  }
 
 }
 

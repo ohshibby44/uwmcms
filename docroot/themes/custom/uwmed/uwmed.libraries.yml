@@ -168,3 +168,9 @@ modal-play-video:
     - uwmed/colorbox
       - core/jquery
       - core/drupalSettings
+
+custom-404:
+  js:
+    dist/js/uwm-custom-404s.js: {}
+  dependencies:
+    - core/jquery
