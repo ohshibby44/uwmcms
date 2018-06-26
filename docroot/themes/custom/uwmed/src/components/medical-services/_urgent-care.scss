@@ -9,7 +9,7 @@
     z-index: 1;
 
     .opens-at {
-      background: url(/themes/custom/uwmed/dist/assets/UrgentCareWait_Clock.png) bottom right -80px no-repeat #f5f5f5;
+      //background: url(/themes/custom/uwmed/dist/assets/UrgentCareWait_Clock.png) bottom right -80px no-repeat transparent;
       padding-top: 20px;
       padding-bottom: 20px;
       color: $uwmed-dark-purple;
@@ -27,9 +27,24 @@
     left: -70px;
     bottom: -1px;
     top: 0px;
-    background-color: #f5f5f5;
+    //background-color: #f5f5f5;
     z-index: -1;
     transform: skewX(-10deg);
+    //opacity: .7;
+
+    background: rgba(245, 245, 245, 1);
+    //background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right -80px no-repeat rgba(245, 245, 245, 1);
+    background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 0%,
+            rgba(245, 245, 245, 1) 65%,
+            rgba(245, 245, 245, .8) 85%,
+            rgba(245, 245, 255, .6) 100%);
+  }
+  .urgent-care-hours-desktop::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right -80px no-repeat transparent;
+
   }
 
   .clinic-hours-container {
@@ -101,25 +116,42 @@
 
 ul.boxy-ordered-list.list-check-marks {
 
-  @extend .row;
+  @extend .col-xs-12;
+  padding: 0;
   margin-bottom: 15px;
-  li {
-    @extend .col-sm-12, .col-md-6;
 
-    position: relative;
+  li {
+    @extend .col-xs-12, .col-sm-6;
     list-style-type: none;
-    //border-top: 1px solid #b5b5b5;
-    padding: 6px 0 6px 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 1px solid #b5b5b5;
+
     &:before {
       content: "\e902";
       font-family: "uwmico";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 10px;
+      float: left;
+      margin-left: -16px;
       color: #4B2E83;
-      padding: 6px 0 0 0;
-      border-top: 1px solid #b5b5b5;
     }
   }
+
+  @media(min-width: $screen-xs-max) {
+
+    margin-right: 45px;
+    li {
+      width: 50%;
+      position: relative;
+      &:nth-child(even) {
+        right: -45px;
+      }
+      &:nth-child(odd) {
+        clear: left;
+      }
+    }
+
+  }
+
 }
+
+

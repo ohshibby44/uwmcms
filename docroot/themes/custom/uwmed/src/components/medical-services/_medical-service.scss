@@ -300,6 +300,7 @@
   }
 
   .field--name-field-proof-points {
+
     //display: inline-block;
     //width: 100%;
     display: flex;
@@ -329,7 +330,7 @@
           padding: 10px 15px;
         }
         .field.field--name-field-heading .item {
-          @extend .h5;
+          @extend .h5, %heart-icon-title-field;
         }
 
       }
@@ -378,7 +379,6 @@
       @extend .no-accent, .h5;
     }
   }
-
 
   .field--name-field-proof-points > div:nth-child(2) > div:nth-child(2) {
     @media(max-width: $screen-md-max) {
@@ -453,7 +453,7 @@
     //}
 
     .views-field-title {
-      @extend .h5;
+      @extend .h5, %heart-icon-title-field;
     }
 
     .views-field-path {
@@ -1192,7 +1192,6 @@
     }
   }
 
-
   #resources {
     .eCare__information {
       margin-bottom: $padding-base-vertical * 3;
@@ -1464,3 +1463,10 @@
   }
 }
 
+%heart-icon-title-field {
+  &:before {
+    @extend .uw-ico, .heart;
+    float: left;
+    padding: 2px;
+  }
+}

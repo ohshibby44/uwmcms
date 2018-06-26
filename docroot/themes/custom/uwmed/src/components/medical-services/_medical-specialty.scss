@@ -1,26 +1,39 @@
+
 .page-node-type-uwm-medical-specialty {
+
+  .medical-service-hero {
+    overflow: hidden;
+  }
+
   .medical-specialty__back-button {
 
-    background-color: #e5e5e6;
+    //background-color: #e5e5e6;
+    background: none;
+    position: absolute;
+    bottom: -1px;
+    padding: 0;
 
-    @media(min-width: $screen-sm-min) {
-      background: none;
-      padding: 0;
-      margin-top: -41px;
-      position: relative;
-      float: left;
-    }
+    //@media(min-width: $screen-sm-min) {
+    //  background: none;
+    //  padding: 0;
+    //  margin-top: -46px;
+    //  height: 45px;
+    //  overflow: hidden;
+    //  position: relative;
+    //  float: left;
+    //}
 
     a {
       background-color: #e5e5e6;
       padding: 12px;
+      height: 45px;
       text-transform: uppercase;
       color: $uwmed-pop-blue;
       text-decoration: none;
       display: inline-block;
+      position: relative;
 
       @media(min-width: $screen-sm-min) {
-        position: relative;
         padding: 12px 19px 12px 30px;
       }
 
@@ -33,7 +46,7 @@
       transform: skew(18deg);
       position: absolute;
       width: 20px;
-      height: 42px;
+      bottom: 0;
       top: 0;
       right: -13px;
       border-right: 5px solid #cfcfcf;
