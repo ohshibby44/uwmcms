@@ -98,6 +98,16 @@
   </section>
 {% endblock hero %}
 
+{% block common_services %}
+  <div class="medical-service__common-services uwm-toggle col-xs-12">
+    <div class="container container-lg">
+      <h2>{{ 'We treat the following non-life threatening problems:'|t }}</h2>
+      <div class="row common_services">
+        {{ content.field_common_services }}
+    </div>
+  </div>
+{% endblock common_services %}
+
 {% block custom_content %}
 
   <div class="urgent-care-hours hidden-lg">
