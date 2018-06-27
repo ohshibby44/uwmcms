@@ -11,7 +11,9 @@
     background: none;
     position: absolute;
     bottom: -1px;
+    left: 0;
     padding: 0;
+
 
     //@media(min-width: $screen-sm-min) {
     //  background: none;
@@ -32,6 +34,10 @@
       text-decoration: none;
       display: inline-block;
       position: relative;
+
+      @media(max-width: $screen-xs-max) {
+        width: 100%;
+      }
 
       @media(min-width: $screen-sm-min) {
         padding: 12px 19px 12px 30px;
