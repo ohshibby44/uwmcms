@@ -94,7 +94,7 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 l">
 
-                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}{% if isPrimaryCareClinic %}{{ " for Primary Care"|t }}{% endif %}
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
 
