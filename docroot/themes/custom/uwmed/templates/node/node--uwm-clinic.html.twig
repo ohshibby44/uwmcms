@@ -19,6 +19,15 @@ view_mode ? view_mode|clean_class,
 
 {% set address = [ _cli.address, _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode ]|uwm_join_parts(', ') %}
 
+{# Check if this is a primary care clinic, set header appropriate #}
+{% set apiMedicalServices = _cli.medicalServices %}
+{% set medicalServices = [] %}
+{% for service in apiMedicalServices %}
+{% set medicalServices = medicalServices|merge([service.name]) %}
+{% endfor %}
+
+{% set isPrimaryCareClinic = "Primary Care" in medicalServices %}
+
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
     {#<pre>#}
 
@@ -44,6 +53,8 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 m-hours">
                         {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
+                          {% if isPrimaryCareClinic %}{{ drupal_entity('block_content', 81) }}{% endif %}
+
                     </div>
 
                     <div class="col-xs-12 m-address">
@@ -146,7 +157,9 @@ view_mode ? view_mode|clean_class,
                         {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
 
                     </div>
-
+                    <div class="col-sm-12 foot">
+                      {% if isPrimaryCareClinic %}{{ drupal_entity('block_content', 81) }}{% endif %}
+                    </div>
                     <div class="col-sm-12 foot">
                         <div class="u-911">
                             <i class="fa u-911i"></i>
@@ -232,6 +245,8 @@ view_mode ? view_mode|clean_class,
                                         {{ "This clinic offers primary care, including:"|t }}
                                     {% endif %}
                                 </h2>
+
+
 
                                 <ul class="expt">
 

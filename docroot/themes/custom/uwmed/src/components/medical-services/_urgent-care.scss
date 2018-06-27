@@ -118,6 +118,15 @@
       display: block;
     }
   }
+
+  .special-hours {
+    color: $uwmed-body-text-color;
+    margin-bottom: 10px;
+
+    @media(min-width: $screen-lg-min) {
+      padding-top: 10px;
+    }
+  }
 }
 
 ul.boxy-ordered-list.list-check-marks {
