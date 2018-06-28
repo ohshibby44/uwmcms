@@ -169,3 +169,10 @@ modal-play-video:
     - uwmed/colorbox
       - core/jquery
       - core/drupalSettings
+
+urgent-care-hours:
+  js:
+    dist/js/urgent-care-hours.js: {}
+  dependencies:
+      - core/jquery
+      - core/drupalSettings
