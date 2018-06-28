@@ -36,7 +36,7 @@
 
           <p class="clinic__directions">
             <a class="btn btn-default"
-               href="https://www.google.com/maps/place/{{ p_name|render|striptags|trim|replace(" ", "+") }}">
+               href="{{ clinic.clinicUrl|replace({'urgent': 'primary'}) }}#directions-tab">
               <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
 
           </p>
@@ -49,5 +49,5 @@
 {% endblock clinic_list %}
 
  {% block content_immediate_prompt %}
-   <p class="find-a-location__immediate-prompt"><strong>Need immediate care?</strong> <a href="/locations/virtual-clinic">Virtual clinic</a> is available online 24/7.</p>
+   <p class="find-a-location__immediate-prompt"><strong>Need immediate care?</strong> <a href="/locations/virtual-clinic">UW Medicine Virtual clinic</a> is available online 24/7.</p>
  {% endblock content_immediate_prompt %}
