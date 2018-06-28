@@ -169,7 +169,7 @@ body.page-node-type-fact-page {
   }
 
   /**Extreme hack for boxes on eCare page until component library launches**/
-  #ppg-3406 > div > div {//left column
+  #ppg-3406 > div > div { //left column
     min-height: 286px;
   }
   #ppg-3341 > div { // middle column
@@ -178,9 +178,9 @@ body.page-node-type-fact-page {
 
 }
 
-
 %paragraphs-flex-height {
 
+  // TOP BLOCKS:
   .field.field--name-field-top-content-blocks {
     float: left;
     width: 100%;
@@ -198,6 +198,7 @@ body.page-node-type-fact-page {
     @extend .sticky-cta;
   }
 
+  // MIDDLE BLOCKS:
   .field.field--name-field-content-blocks {
     float: left;
     width: 100%;
@@ -214,9 +215,24 @@ body.page-node-type-fact-page {
     @extend .sticky-cta;
   }
 
+  // BOTTOM BLOCKS:
+  .field.field--name-field-bottom-content-blocks {
+    float: left;
+    width: 100%;
+  }
+  .field.field--name-field-bottom-content-blocks,
+  .field.field--name-field-bottom-content-blocks > .item,
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph {
+    @extend .flex-row, .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph > .wrapper {
+    @extend .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks .paragraph {
+    @extend .sticky-cta;
+  }
+
 }
-
-
 
 %toggle-body-summary {
 
