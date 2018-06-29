@@ -306,6 +306,13 @@ function uwmed_preprocess_views_view(&$variables) {
 }
 
 /**
+ * Implements template_preproccess_views() for clinic_hours view.
+ */
+function uwmed_preprocess_views_view__clinic_hours(&$variables) {
+  $variables['timeNow'] = new DateTime('now');
+}
+
+/**
  * Implements theme_preprocess_page().
  */
 function uwmed_page_bottom(array &$page_bottom) {

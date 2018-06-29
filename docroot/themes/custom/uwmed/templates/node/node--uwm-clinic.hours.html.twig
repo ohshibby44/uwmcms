@@ -39,7 +39,7 @@
     {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
     {% set shortDays = {1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat', 0: 'Sun'} %}
 
-  {% set _dn = 'now'|date('w')|number_format %}
+  {% set _dn = timeNow|date('w')|number_format %}
     {% set _isOpen = false %}
     {% set _opensNext = false %}
     {% set _opensSoon = false %}
@@ -51,9 +51,9 @@
         {% if s.dayOfWeek == _dn %}
 
             {% set t = {
-            'now': 'now'|date('U'),
-            'starts': ('now'|date('Y-m-d ')~' '~ s.startTime)|date('U'),
-            'ends': ('now'|date('Y-m-d ')~' '~ s.endTime)|date('U')
+            'now': timeNow|date('U'),
+            'starts': (timeNow|date('Y-m-d ')~' '~ s.startTime)|date('U'),
+            'ends': (timeNow|date('Y-m-d ')~' '~ s.endTime)|date('U')
             } %}
 
             <!--  n: {{ t.now }}
