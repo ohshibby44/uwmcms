@@ -10,7 +10,7 @@ dependencies:
 id: acceleratepromotionfullwidth
 theme: uwmed
 region: content
-weight: -2
+weight: -3
 provider: null
 plugin: accelerate_promotion_full_width_block
 settings:
