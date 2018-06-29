@@ -1,0 +1,28 @@
+
+.paragraph form.webform-submission-health-news-signup-form {
+
+  .form-item-privacy-confirmation.checkbox {
+    float: right;
+    width: 70%;
+
+    .description {
+      display: inline-block;
+
+      .webform-element-more--link, .form-required:after {
+        display: none !important;
+      }
+      .webform-element-more--content {
+        display: inline-block !important;
+        color: #474747;
+      }
+
+    }
+
+  }
+  .form-actions.form-wrapper {
+    float: left;
+    width: 29%;
+  }
+
+
+}
