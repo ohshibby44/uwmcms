@@ -82,7 +82,6 @@
     a {
       text-decoration: none;
       width: 100%;
-      font-size: 16px;
       text-align: left;
       background: none;
     }
@@ -301,12 +300,13 @@
   }
 
   .field--name-field-proof-points {
+
     //display: inline-block;
     //width: 100%;
     display: flex;
     flex-wrap: wrap;
 
-    margin-bottom: 38px;
+    margin-bottom: 15px;
 
     > .item {
       flex: none;
@@ -330,7 +330,7 @@
           padding: 10px 15px;
         }
         .field.field--name-field-heading .item {
-          @extend .h5;
+          @extend .h5, %heart-icon-title-field;
         }
 
       }
@@ -364,10 +364,6 @@
     }
     //article.contextual-region:nth-child(3)
 
-    .field--name-field-heading {
-      @extend .no-accent, .h5;
-    }
-
     .field--name-field-text-snippet {
       li {
         padding-bottom: $padding-base-vertical;
@@ -378,8 +374,10 @@
     }
   }
 
-  .field--name-field-heading {
-    @extend .no-accent, .h5;
+  .field--name-field-bottom-content-blocks {
+    .field--name-field-heading {
+      @extend .no-accent, .h5;
+    }
   }
 
   .field--name-field-proof-points > div:nth-child(2) > div:nth-child(2) {
@@ -455,7 +453,7 @@
     //}
 
     .views-field-title {
-      @extend .h5;
+      @extend .h5, %heart-icon-title-field;
     }
 
     .views-field-path {
@@ -485,123 +483,6 @@
   //  border-right: none;
   //  border-bottom: none;
   //}
-
-  .medical-service__common-services {
-    padding-top: 30px;
-    position: relative;
-    background-color: #f5f5f5;
-    @extend .clearfix;
-    padding-bottom: 30px;
-    margin-top: -1px;
-    z-index: 2;
-
-    .common_services {
-      display: flex;
-      flex-wrap: wrap;
-
-      > .item {
-        flex: none;
-        width: 100%;
-        padding: 0 15px;
-
-        @media(min-width: $screen-sm-min) {
-          flex: 1;
-          min-width: 49%;
-        }
-
-        @media(min-width: $screen-md-min) {
-          min-width: 32%;
-          margin-bottom: 19px;
-        }
-      }
-
-      .item-last-row-column-1 {
-        margin-right: 66%;
-      }
-
-      .item-last-row-column-2 {
-        margin-right: 33%;
-      }
-
-      .field--name-field-heading {
-        @extend .no-accent, .h5;
-      }
-    }
-
-    //.field--name-field-common-services {
-    //}
-    //.common-services__item {
-    //  .paragraph--type--content-snippet {
-    //    @include make-md-column(5);
-    //  }
-    //
-    //  &:nth-of-type(even) {
-    //    @media(max-width: $screen-sm-max) {
-    //      margin-top: $padding-base-vertical * 5;
-    //    }
-    //  }
-    //}
-    //
-    //.common-services__item:nth-of-type(even) {
-    //  .paragraph--type--content-snippet {
-    //    @include make-md-column-offset(2);
-    //  }
-    //}
-
-
-
-    .field--name-field-text-snippet {
-
-      .list__check-circle-o {
-
-        li {
-          border-top: 1px solid $uwmed-gray;
-
-          &:last-of-type {
-            border-bottom: 1px solid $uwmed-gray;
-          }
-        }
-
-        li:nth-child(3) {
-          position: relative;
-        }
-
-        li:nth-child(3):after {
-          content: "";
-          display: block;
-          background: linear-gradient(rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 1) 100%);
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 50px;
-        }
-
-        li:last-child:after {
-          display: none;
-        }
-      }
-    }
-
-    &.uwm-toggle {
-
-      li:nth-child(n+4) {
-        display: none;
-      }
-      &.on li:nth-child(n+4),
-      li.on:nth-child(n+4) {
-        display: block;
-      }
-      li.on:nth-child(3):after {
-        display: none;
-      }
-      .uw-more {
-        @extend .col-xs-12;
-      }
-
-    }
-
-  }
 
   .feature-story {
     position: relative;
@@ -728,6 +609,8 @@
 
   .find-a-location {
     margin-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
 
     @media(max-width: $screen-md-max) {
       background-color: #f5f5f5;
@@ -738,6 +621,22 @@
       @media(min-width: $screen-lg-min) {
         @include make-row();
       }
+    }
+  }
+
+  .find-a-location__content {
+    h2 {
+      margin-bottom: 19px;
+    }
+
+    @media(min-width: $screen-lg-min) {
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    .wait-link {
+      margin-left: 17px;
     }
   }
 
@@ -758,6 +657,15 @@
       width: 200px;
     }
 
+  }
+
+  .find-a-location__immediate-prompt {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media(min-width: $screen-lg-min) {
+      margin-top: 40px;
+    }
   }
 
   .find-a-location .links-with-icon__item {
@@ -827,10 +735,6 @@
   .find-a-location__clinic-info {
     margin-top: $padding-base-vertical * 2;
     margin-bottom: $padding-base-vertical * 3;
-
-    .h5 {
-      margin-top: 0;
-    }
   }
 
   .find-a-location__controls {
@@ -845,6 +749,8 @@
 
   .find-a-location__clinic-list {
     padding-bottom: $padding-base-vertical * 3;
+    padding-top: $padding-base-vertical * 6;
+    clear: both;
   }
 
   .find-a-location__clinic {
@@ -1390,115 +1296,6 @@
 
   }
 
-  //.virtual-clinic {
-  //  position: relative;
-  //  width: 100%;
-  //  padding: 0;
-  //  background-size: cover;
-  //
-  //  @media(max-width: $screen-md-max) {
-  //    background-color: #f5f5f5;
-  //    background-image: none;
-  //    padding: 20px;
-  //  }
-  //
-  //  .container-lg {
-  //    @media(min-width: $screen-md-min) {
-  //      margin-top: 50px;
-  //      margin-bottom: 50px;
-  //    }
-  //  }
-  //
-  //  @media (max-width: $screen-lg-min) {
-  //    .row {
-  //      margin: 0;
-  //    }
-  //
-  //    .virtual-clinic__title {
-  //      margin-bottom: -1px;
-  //    }
-  //  }
-  //
-  //
-  //  .virtual-clinic__title {
-  //    background-color: white;
-  //    display: inline-block;
-  //    float: left;
-  //
-  //    .h3 {
-  //      text-transform: uppercase;
-  //      letter-spacing: .05em;
-  //      margin-bottom: 6px;
-  //      margin-top: 38px;
-  //    }
-  //
-  //    padding-left: 38px;
-  //    padding-right: 38px;
-  //
-  //    @media(max-width: $screen-sm-max) {
-  //      width: 100%;
-  //    }
-  //    @media(min-width: $screen-lg-min) {
-  //      background-color: rgba(255, 255, 255, 0.9);
-  //    }
-  //
-  //    .uwmed-slant span {
-  //      background-color: $uwmed-accent-blue;
-  //    }
-  //  }
-  //
-  //  .virtual-clinic__content {
-  //    background-color: white;
-  //    padding-bottom: 38px;
-  //    padding-left: 38px;
-  //    padding-right: 38px;
-  //    float: left;
-  //
-  //    @media(min-width: $screen-lg-min) {
-  //      background-color: rgba(255, 255, 255, .9);
-  //    }
-  //
-  //    .h2 {
-  //      color: $uwmed-accent-blue;
-  //      margin-bottom: 20px;
-  //    }
-  //
-  //    .virtual-clinic__subheading {
-  //      //margin-top: $line-height-computed;
-  //      //margin-bottom: $line-height-computed;
-  //    }
-  //
-  //    .virtual-clinic__cta {
-  //      @include uw-ghost-button('.virtual-clinic__link', 'i.u-ips', $uwmed-accent-blue);
-  //    }
-  //    .virtual-clinic__link {
-  //      margin-top: 20px;
-  //      //text-transform: uppercase;
-  //      //text-decoration: none;
-  //      //font-weight: 600;
-  //      //font-family: $headings-font-family;
-  //      //font-size: $font-size-h6;
-  //
-  //      @media(min-width: $screen-lg-min) {
-  //        padding-left: 18px;
-  //        padding-right: 18px;
-  //      }
-  //
-  //      //&:hover {
-  //      //  color: white;
-  //      //}
-  //      //
-  //      //@include angled-edge('inside top', 'lower right', $uwmed-accent-blue, 15, 15);
-  //      //&::before {
-  //      //  background-position: left 0;
-  //      //}
-  //      //&:hover {
-  //      //  background-color: $uwmed-accent-blue;
-  //      //}
-  //    }
-  //  }
-  //}
-
   #resources {
     .eCare__information {
       margin-bottom: $padding-base-vertical * 3;
@@ -1770,3 +1567,10 @@
   }
 }
 
+%heart-icon-title-field {
+  &:before {
+    @extend .uw-ico, .heart;
+    float: left;
+    padding: 2px;
+  }
+}

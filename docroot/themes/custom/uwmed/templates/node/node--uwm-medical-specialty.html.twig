@@ -15,13 +15,17 @@ node.isPromoted() ? 'is-promoted',
 node.isSticky() ? 'is-sticky',
 not node.isPublished() ? 'is-unpublished',
 view_mode ? view_mode|clean_class,
-'clearfix'
+'clearfix',
+"node-#{node.id}",
 ] %}
 
+{% block libraries %}
 {{ attach_library('uwmed/slickquiz') }}
 {{ attach_library('uwmed/condition-spotlight-swipe') }}
+{% endblock libraries %}
 
 <article{{ attributes.addClass(classes) }}>
+  {% block hero %}
   <section>
     <div class="medical-service-hero">
       <div class="medical-service-hero__background full-width-image"
@@ -55,21 +59,67 @@ view_mode ? view_mode|clean_class,
     <div class="medical-service-hero__links-with-icon hidden-lg"> {# row #}
       {{ content.field_links_with_icon }}
     </div>
-
-
   </section>
+  {% endblock hero %}
 
+  {% block custom_content %}
+  {% endblock custom_content %}
+
+  {% block proof_points %}
   <div class="container-lg container-proof-points">
     <h2>{{ content.field_sub_title }}</h2>
     <div class="row">
       {{ content.field_proof_points }}
     </div>
   </div>
+  {% endblock proof_points %}
 
+  {% block accordion %}
   <div class="row">
     {{ content.field_accordion }}
   </div>
+  {% endblock accordion %}
 
+  {% block common_services %}
+    <div class="medical-service__common-services uwm-toggle col-xs-12">
+      <div class="container container-lg">
+        <h2>{{ 'Some of our common services:'|t }}</h2>
+        <div class="row common_services">
+          {{ content.field_common_services }}
+
+          <div class="uw-more with-gradient">
+            <a href="#"
+               data-uwm-toggle
+               data-on-text="{{ 'View less'|t }}" data-off-text="{{ 'View more'|t }}"
+               data-toggle-selector=".medical-service__common-services ul li"
+               data-toggle-style="on"
+               data-parent-selector=".medical-service__common-services.uwm-toggle"
+               data-parent-style="on">{{ 'View more'|t }}
+              <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a></div>
+        </div>
+      </div>
+    </div>
+  {% endblock common_services %}
+
+  {% block patient_resources %}
+    {% if content.field_content_blocks |render is not empty %}
+      <section class="clinic-paragraphs">
+        <div class="bg"></div>
+        <div class="container-lg">
+
+          {% if content.field_content_blocks_heading|render is not empty %}
+            <h2 class="bi-line"> {{ content.field_content_blocks_heading }}</h2>
+          {% endif %}
+
+          {{ content.field_content_blocks }}
+        </div>
+
+      </section>
+    {% endif %}
+  {% endblock patient_resources %}
+
+  {% block patient_engagement %}
   {% if content.field_quiz|render|trim is not empty %}
   <div class="row">
     <div class="patient-engagement col-xs-12">
@@ -145,11 +195,13 @@ view_mode ? view_mode|clean_class,
     </div>
   </div>
   {% endif %}
+  {% endblock patient_engagement %}
 
 
+  {% block condition_spotlight %}
   <div id="condition-spotlight" class="condition-spotlight">
     {{ content.field_condition_spotlight }}
   </div>
-
+  {% endblock condition_spotlight %}
 </article>
 

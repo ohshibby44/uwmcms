@@ -224,6 +224,15 @@ body.page-node-type-uwm-clinic {
           }
         }
 
+        .special-hours {
+          margin-bottom: 10px;
+
+          @media(min-width: $screen-sm-min) {
+            margin-top: -35px;
+            margin-bottom: 20px;
+          }
+        }
+
         address {
           @extend .h4;
           color: $uwmed-pop-blue;
