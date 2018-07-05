@@ -78,33 +78,36 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
     }
 
-    // Fetch details for publications.
-    if (!empty($data->bioPublications[0]->pubMedId)) {
+    if ($view_mode == "full") {
+      // Fetch details for publications.
+      if (!empty($data->bioPublications[0]->pubMedId)) {
 
-      $pubIds = [];
-      foreach ($data->bioPublications as $k => $v) {
-        array_push($pubIds, $v->pubMedId);
+        $pubIds = [];
+        foreach ($data->bioPublications as $k => $v) {
+          array_push($pubIds, $v->pubMedId);
+        }
+
+        $data->bioPublicationsDetails = $fetcher->getUrl(
+          'https://webservices.uwmedicine.org/api/publications?ids=' .
+          implode(',', $pubIds));
+
       }
 
-      $data->bioPublicationsDetails = $fetcher->getUrl(
-        'https://webservices.uwmedicine.org/api/publications?ids=' .
-        implode(',', $pubIds));
+      // If provider has clinics, populate full clinic details.
+      // @TODO: Change this to node-load locations.
+      if (!empty($data->careNetworks[0]->clinicBases)) {
 
-    }
+        foreach ($data->careNetworks as &$network) {
 
-    // If provider has clinics, populate full clinic details.
-    // @TODO: Change this to node-load locations.
-    if (!empty($data->careNetworks[0]->clinicBases)) {
+          foreach ($network->clinicBases as &$clinic) {
 
-      foreach ($data->careNetworks as &$network) {
+            if (!empty($clinic->url)) {
 
-        foreach ($network->clinicBases as &$clinic) {
+              $detail = $fetcher->getUrl($clinic->url);
+              if (!empty($clinic->id)) {
+                $clinic = $detail;
+              }
 
-          if (!empty($clinic->url)) {
-
-            $detail = $fetcher->getUrl($clinic->url);
-            if (!empty($clinic->id)) {
-              $clinic = $detail;
             }
 
           }
@@ -112,7 +115,6 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         }
 
       }
-
     }
 
     $entity->uwmcs_reader_api_values = $data;
