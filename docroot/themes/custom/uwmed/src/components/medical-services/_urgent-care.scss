@@ -2,6 +2,13 @@
   .medical-service-hero__background {
     background-position: left;
   }
+
+  .medical-specialty__back-button {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    padding: 0;
+  }
   
   .urgent-care-hours-desktop {
     width: 30%;

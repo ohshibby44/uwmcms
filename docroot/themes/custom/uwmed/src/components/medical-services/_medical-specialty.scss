@@ -7,23 +7,7 @@
 
   .medical-specialty__back-button {
 
-    //background-color: #e5e5e6;
-    background: none;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    padding: 0;
-
-
-    //@media(min-width: $screen-sm-min) {
-    //  background: none;
-    //  padding: 0;
-    //  margin-top: -46px;
-    //  height: 45px;
-    //  overflow: hidden;
-    //  position: relative;
-    //  float: left;
-    //}
+    margin-top: -45px;
 
     a {
       background-color: #e5e5e6;
@@ -111,28 +95,28 @@
     }
   }
 
-  div.field.field--name-field-content-blocks,
-  div.field.field--name-field-bottom-content-blocks {
+  .clinic-paragraphs {
+    div.field.field--name-field-content-blocks,
+    div.field.field--name-field-bottom-content-blocks {
 
-    @extend .row;
+      @extend .row;
 
-    div.paragraph {
-      @extend .col-sm-6;
-      @extend .col-md-4;
+      div.paragraph {
+        @extend .col-sm-6;
+        @extend .col-md-4;
 
-      p.h1.hero__heading {
-        display: none;
-      }
+        p.h1.hero__heading {
+          display: none;
+        }
 
-      .field--name-field-link {
-        padding: 0;
-      }
-      div.field.field--name-field-links-paragraph > .item ul li {
-        padding: 0 0 1em 0;
+        .field--name-field-link {
+          padding: 0;
+        }
+        div.field.field--name-field-links-paragraph > .item ul li {
+          padding: 0 0 1em 0;
+        }
       }
     }
   }
-
-
 
 }
