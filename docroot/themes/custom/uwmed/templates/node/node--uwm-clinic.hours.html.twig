@@ -1,32 +1,3 @@
-{% macro uwOpensNextSnippet_withRefresh(apiData, clinicNid = FALSE) %}
-
-    {% if clinicNid|number_format > 0 %}
-        {% set atr =
-        ' data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid|raw ~ '"' ~
-        ' data-uwm-refresh-id="hours-macro-short-wrapper-' ~ clinicNid|raw ~ '"' ~
-        ' class="fade-out"'
-        %}
-    {% endif %}
-    {{ _self.uwOpensNextSnippet(apiData, FALSE, atr) }}
-
-{% endmacro %}
-
-
-
-{% macro uwOpenHoursTable_withRefresh(apiData, clinicNid = FALSE) %}
-
-    {% if clinicNid|number_format > 0 %}
-        {% set atr =
-        ' data-uwm-refresh-from="/locations/location-hours/' ~ clinicNid|raw ~ '"' ~
-        ' data-uwm-refresh-id="hours-macro-wrapper-' ~ clinicNid|raw ~ '"' ~
-        ' class="fade-out"'
-        %}
-    {% endif %}
-    {{ _self.uwOpenHoursTable(apiData, TRUE, atr) }}
-
-{% endmacro %}
-
-
 
 
 {% macro uwOpensNextSnippet(apiData, briefText = FALSE, wrapperAttributes = FALSE) %}
@@ -166,6 +137,21 @@
     {% endfor %}
 
     <div {{ wrapperAttributes|raw }}>
+
+        <pre>
+            {{ apiData.clinicTimeUseMasters[0].opens | date('r') }}
+            {{ apiData.clinicTimeUseMasters[0].closes | date('r') }}
+            {{ apiData.clinicTimeUseMasters[0].nextOpens | date('r') }}
+            {{ apiData.clinicTimeUseMasters[0].nextCloses | date('r') }}
+            {{ dump(apiData.clinicTimeUseMasters[0]) }}
+        </pre>
+        <pre>
+            {{ apiData.clinicTimeUseMasters[1].opens | date('r') }}
+            {{ apiData.clinicTimeUseMasters[1].closes | date('r') }}
+            {{ apiData.clinicTimeUseMasters[1].nextOpens | date('r') }}
+            {{ apiData.clinicTimeUseMasters[1].nextCloses | date('r') }}
+            {{ dump(apiData.clinicTimeUseMasters[1]) }}
+        </pre>
 
         {% if primaryCareTimes and not open24Hours %}
 

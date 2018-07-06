@@ -61,6 +61,49 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
     }
 
+    // If location has hours, get unix time for javascripts.
+    $unixTime = function ($dayOfWeek, $timeOfDay, $useNext = FALSE) {
+      $days = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+      ];
+      $day = $days[$dayOfWeek];
+      list($hours, $minutes, $seconds) = explode(':', $timeOfDay);
+
+      // PHP next is the following, not next week:
+      $time = strtotime(($useNext ? "Next " : "") . $day);
+      $time = strtotime("+ $hours hours", $time);
+      $time = strtotime("+ $minutes minutes", $time);
+      $time = strtotime("+ $seconds seconds", $time);
+
+      return $time;
+
+    };
+
+    foreach ($data->clinicTimeUseMasters as &$collection) {
+
+      $opens = $closes = $nextOpens = $nextCloses = [];
+      foreach ($collection->hoursOfOperation as &$entry) {
+
+        $opens[] = $unixTime($entry->dayOfWeek, $entry->startTime);
+        $closes[] = $unixTime($entry->dayOfWeek, $entry->endTime);
+        $nextOpens[] = $unixTime($entry->dayOfWeek, $entry->startTime, TRUE);
+        $nextCloses[] = $unixTime($entry->dayOfWeek, $entry->endTime, TRUE);
+
+      }
+
+      $collection->opens = min($opens);
+      $collection->closes = min($closes);
+      $collection->nextOpens = min($nextOpens);
+      $collection->nextCloses = min($nextCloses);
+
+    }
+
     $entity->uwmcs_reader_api_values = $data;
 
   }
@@ -137,6 +180,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
       }
     }
+
   }
 
 }
