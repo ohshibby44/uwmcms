@@ -49,11 +49,7 @@
                 </p>
 
                 <div class="location-hours k">
-                    {% set nid = uwm_get_api_nid(clinic.url) %}
-                    {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
-                    {% if hours and nid %}
-                        {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
-                    {% endif %}
+                    {{ _clinicHours.uwOpenNowSnippet(clinic.clinicTimeUseMasters[0]) }}
                 </div>
 
             </div>

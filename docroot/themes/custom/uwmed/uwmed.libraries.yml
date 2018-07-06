@@ -56,6 +56,7 @@ font-awesome:
 clinic-hours:
   js:
     //www.clockwisemd.com/hospitals/clockwise_api.js: {}
+    dist/js/moment.js: {}
     dist/js/uwm-refresh-from.js: {}
     dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}

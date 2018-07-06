@@ -1,161 +1,121 @@
+{% macro uwOpenNowSnippet(timesData, briefText = FALSE) %}
 
+    {% set attributes %}
+        {% for j, k in {
+        'uwm-opens-next': true,
+        'data-opens': timesData.opens,
+        'data-closes': timesData.closes,
+        'data-next-opens': timesData.nextOpens,
+        'data-next-closes': timesData.nextCloses
+        } %}{{ j }}="{{ k }}" {% endfor %}{% endset %}
 
-{% macro uwOpensNextSnippet(apiData, briefText = FALSE, wrapperAttributes = FALSE) %}
-    {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
-    {% set shortDays = {1: 'Mon', 2: 'Tue', 3: 'Wed', 4: 'Thu', 5: 'Fri', 6: 'Sat', 0: 'Sun'} %}
-
-  {% set _dn = 'now'|date('w')|number_format %}
-    {% set _isOpen = false %}
-    {% set _opensNext = false %}
-    {% set _opensSoon = false %}
-    {% set _closesSoon = false %}
-
-    <span {{ wrapperAttributes|raw }}>
-
-    {% for s in apiData %}
-        {% if s.dayOfWeek == _dn %}
-
-            {% set t = {
-            'now': 'now'|date('U'),
-            'starts': ('now'|date('Y-m-d ')~' '~ s.startTime)|date('U'),
-            'ends': ('now'|date('Y-m-d ')~' '~ s.endTime)|date('U')
-            } %}
-
-            <!--  n: {{ t.now }}
-            s: {{ t.starts }}
-            e: {{ t.ends }}
-            rn: {{ t.now|date('r') }}
-            rs: {{ t.starts|date('r') }}
-            re: {{ t.ends|date('r') }}   -->
-
-            {% if (t.now < t.starts - 3600)  %}
-                {% set _opensNext = s %}
-            {% elseif (t.now > t.starts - 3660 and t.now < t.starts) %}
-                {% set _opensSoon = s %}
-            {% elseif (t.ends - 3660 < t.now and t.now < t.ends) %}
-                {% set _closesSoon = s %}
-            {% elseif (t.starts < t.now and t.now < t.ends) %}
-                {% set _isOpen = s %}
-            {% endif %}
-        {% endif %}
-
-        {% if s.dayOfWeek > _dn and not _opensNext %}
-            {% set _opensNext = s %}
-        {% endif %}
-
-    {% endfor %}
-
-        {% if not _opensNext %}
-            {% set _opensNext = apiData|first %}
-        {% endif %}
-
-        {% if briefText %}
-
-            {% if _isOpen %}
-                <em><strong>Open - </strong> Closes at {{ "@end" | t({
-                        '@end': _isOpen.endTime|date ('g:ia')|trim('m') }) }}</em>
-            {% elseif _opensSoon %}
-                <em><strong>Opens soon - </strong> {{ "@start" | t({
-                        '@start': _opensSoon.startTime|date ('g:ia')|trim('m'),
-                        '@end': _opensSoon.endTime|date ('g:ia')|trim('m') }) }}
-                </em>
-            {% elseif _closesSoon %}
-              <em><strong>Closes soon - </strong> {{ "@end" | t({
-                  '@start': _closesSoon.startTime|date ('g:ia')|trim('m'),
-                  '@end': _closesSoon.endTime|date ('g:ia')|trim('m') }) }}
-                </em>
-            {% elseif _opensNext %}
-              {% set displayDay = _opensNext.dayOfWeek == _dn ? "" : shortDays[_opensNext.dayOfWeek] %}
-              <em><strong>Closed - </strong> {{ "Opens @day at @start" | t({
-                        '@day': displayDay,
-                        '@start': _opensNext.startTime|date ('g:ia')|trim('m') }) }}</em>
-            {% endif %}
-
+    {% if briefText %}
+        <em class="opens-at" {{ attributes }}></em>
     {% else %}
-            {% set icon %} <i
-                    class="uw-ico uw-ico-md uwmed-icon__appointment"></i> {% endset %}
-
-        {% if _isOpen %}
-                <p class="opens-at">{{ icon }}
-                    Open now: <em>{{ "Closes at @end" | t({
-                            '@end': _isOpen.endTime|date ('g:ia') }) }}</em>
-                </p>
-        {% elseif _opensSoon %}
-                <p class="opens-at">{{ icon }}
-                    Opens soon: <em>{{ "@start - @end" | t({
-                            '@start': _opensSoon.startTime|date ('g:ia'),
-                            '@end': _opensSoon.endTime|date ('g:ia') }) }}</em>
-                </p>
-            {% elseif _closesSoon %}
-
-                <p class="opens-at">{{ icon }}
-
-                  Closes soon: <em>{{ "@end" | t({
-                            '@end': _closesSoon.endTime|date ('g:ia') }) }}</em>
-                </p>
-          {% elseif _opensNext %}
-            {% set displayDay = _opensNext.dayOfWeek == _dn ? "" : days[_opensNext.dayOfWeek] %}
-
-            <p class="opens-at">{{ icon }}
-              Closed: <em>{{ "Opens @day at @start" | t({
-                  '@day': displayDay,
-                  '@start': _opensNext.startTime|date ('g:ia') }) }}</em>
-                </p>
-            {% endif %}
-
-        {% endif %}
-    </span>
+        <p class="opens-at" {{ attributes }}><i
+                    class="uw-ico uw-ico-md uwmed-icon__appointment"></i>
+            <em></em></p>
+    {% endif %}
 
 {% endmacro %}
 
 
+{% macro uwHoursColumn(timesArray, timesHeader) %}
+
+    {% set tableId = tableHeader|replace(' ', '') %}
+    {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
+
+    <div class="col-xs-12 col-md-6 clinic-hours-table">
+
+        <div class="visible-xs-block intro">
+            <h4>
+                <a role="button" data-toggle="collapse"
+                   href="#table{{ tableId }}"
+                   aria-expanded="false"
+                   aria-controls="table{{ tableId }}">
+                    {{ timesHeader ?? ""|t }}:
+                    {{ _self.uwOpenNowSnippet(timesArray, true) }}
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+                </a>
+            </h4>
+        </div>
+        <div class="hidden-xs intro">
+
+            <h4>{{ tableHeader ?? ""|t }}</h4>
+
+            {{ _self.uwOpenNowSnippet(timesArray) }}
+
+        </div>
+
+        <div class="wrapper collapse-mobile" id="table{{ tableId }}">
+            <ul>
+
+                {% for n, day in days %}
+                    {% set inBusiness = false %}
+
+                    <li>
+
+                        {% for s in timesArray.hoursOfOperation %}
+                            {% if s.dayOfWeek == n %}
+
+                                {% set inBusiness = true %}
+
+                                <span class="day">{{ day }}</span>
+                                <span class="hours"><span>
+                                        {{ "@start - @end"
+                                        |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
+                                            '@end': s.endTime|date ('g:ia')|trim('m')
+                                        }) }}
+                                        </span></span>
+
+                            {% endif %}
+                        {% endfor %}
+                        {% if not inBusiness %}
+
+                            <span class="day">{{ day }}</span>
+                            <span class="hours"><span>{{ "Closed"|t }}</span></span>
+
+                        {% endif %}
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+
+    </div>
+
+{% endmacro %}
 
 
 {% macro uwOpenHoursTable(apiData, clinicNid = FALSE, wrapperAttributes = FALSE) %}
 
-    {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
-    {% set primaryCareTimes = apiData.clinicTimeUseMasters[0].hoursOfOperation %}
-    {% set urgentCareTimes = apiData.clinicTimeUseMasters[1].hoursOfOperation %}
 
     {# Check if this is a primary care clinic, set header appropriate #}
     {% set apiMedicalServices = apiData.medicalServices %}
     {% set medicalServices = [] %}
     {% for service in apiMedicalServices %}
-      {% set medicalServices = medicalServices|merge([service.name]) %}
+        {% set medicalServices = medicalServices|merge([service.name]) %}
     {% endfor %}
 
-    {% set firstHoursHeader = "Primary Care" in medicalServices ? "Primary Care" : "Clinic Hours" %}
 
     {# Check if this is a 24/7 clinic #}
     {% set open24Hours = null %}
-    {% for day in primaryCareTimes %}
-      {% if (day.startTime == "00:00:00") and (open24Hours or open24Hours is null) %}
-        {% set open24Hours = true %}
-      {% else %}
-        {% set open24Hours = false %}
-      {% endif %}
+    {% for day in apiData.clinicTimeUseMasters[0] %}
+        {% if (day.startTime == "00:00:00") and (open24Hours or open24Hours is null) %}
+            {% set open24Hours = true %}
+        {% else %}
+            {% set open24Hours = false %}
+        {% endif %}
     {% endfor %}
 
     <div {{ wrapperAttributes|raw }}>
 
-        <pre>
-            {{ apiData.clinicTimeUseMasters[0].opens | date('r') }}
-            {{ apiData.clinicTimeUseMasters[0].closes | date('r') }}
-            {{ apiData.clinicTimeUseMasters[0].nextOpens | date('r') }}
-            {{ apiData.clinicTimeUseMasters[0].nextCloses | date('r') }}
-            {{ dump(apiData.clinicTimeUseMasters[0]) }}
-        </pre>
-        <pre>
-            {{ apiData.clinicTimeUseMasters[1].opens | date('r') }}
-            {{ apiData.clinicTimeUseMasters[1].closes | date('r') }}
-            {{ apiData.clinicTimeUseMasters[1].nextOpens | date('r') }}
-            {{ apiData.clinicTimeUseMasters[1].nextCloses | date('r') }}
-            {{ dump(apiData.clinicTimeUseMasters[1]) }}
-        </pre>
+        {% if open24Hours %}
 
-        {% if primaryCareTimes and not open24Hours %}
-
-            <div class="col-xs-12 col-md-6 clinic-hours-table">
+            <div class="col-xs-12 col-md-6 clinic-hours-table always-open">
 
                 <div class="visible-xs-block intro">
                     <h4>
@@ -164,149 +124,39 @@
                            aria-expanded="false"
                            aria-controls="primaryCareTimes">
                             {{ "#{firstHoursHeader}:"|t }}
-                            {{ _self.uwOpensNextSnippet(primaryCareTimes, TRUE) }}
+                            <em><strong>{{ "Always Open"|t }}</strong></em>
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
                     </h4>
                 </div>
                 <div class="hidden-xs intro">
-                    <h4>{{ firstHoursHeader|t }}</h4>
-                    {{ _self.uwOpensNextSnippet(primaryCareTimes) }}
+                    <h4>{{ "Primary Care" in medicalServices ? "Primary Care" : "Clinic Hours" |t }}</h4>
+                    <p class="opens-at">
+                        <em><strong>{{ "Always Open"|t }}</strong></em>
+                    </p>
                 </div>
 
                 <div class="wrapper collapse-mobile" id="primaryCareTimes">
-                    <ul>
-
-                        {% for n,day in days %}
-                            {% set timeExists = false %}
-
-                            <li>
-
-                                {% for s in primaryCareTimes %}
-                                    {% if s.dayOfWeek == n %}
-
-                                        {% set timeExists = true %}
-                                        <span class="day">{{ day }}</span>
-                                        <span class="hours"><span>
-
-                                            {{ "@start - @end"
-                                            |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                                '@end': s.endTime|date ('g:ia')|trim('m')
-                                            }) }}
-                                        </span></span>
-
-                                    {% endif %}
-                                {% endfor %}
-                                {% if not timeExists %}
-
-                                    <span class="day">{{ day }}</span>
-                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                                {% endif %}
-
-                            </li>
-
-                        {% endfor %}
-
-                    </ul>
+                    <p>{{ "This location is open 24 hours a day, 7 days a week."|t }}</p>
                 </div>
 
             </div>
 
-        {% endif %}
-
-        {% if urgentCareTimes and not open24Hours %}
-
-            <div class="col-xs-12 col-md-6 clinic-hours-table urgent-care">
-
-                <div class="visible-xs-block intro">
-                    <h4>
-                        <a role="button" data-toggle="collapse"
-                           href="#urgentCareTimes"
-                           aria-expanded="false"
-                           aria-controls="urgentCareTimes">
-                            {{ "Urgent Care:"|t }}
-                            {{ _self.uwOpensNextSnippet(urgentCareTimes, TRUE) }}
-
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                        </a>
-
-                    </h4>
-                </div>
-
-                <div class="hidden-xs intro">
-                    <h4>{{ "Urgent Care"|t }}</h4>
-                    {{ _self.uwOpensNextSnippet(urgentCareTimes) }}
-                </div>
+        {% else %}
 
 
-                <div class="wrapper collapse-mobile" id="urgentCareTimes">
+            {% if apiData.clinicTimeUseMasters[0].hoursOfOperation %}
 
-                    <ul>
+                {{ _self.uwHoursColumn(apiData.clinicTimeUseMasters[0], "Primary Care") }}
 
-                        {% for n,day in days %}
-                            {% set timeExists = false %}
+            {% endif %}
 
-                            <li>
+            {% if apiData.clinicTimeUseMasters[1].hoursOfOperation %}
 
-                                {% for s in urgentCareTimes %}
-                                    {% if s.dayOfWeek == n %}
+                {{ _self.uwHoursColumn(apiData.clinicTimeUseMasters[1], "Urgent Care") }}
 
-                                        {% set timeExists = true %}
-                                        <span class="day">{{ day }}</span>
-                                        <span class="hours"><span>
+            {% endif %}
 
-                                        {{ "@start - @end"
-                                        |t({ '@start': s.startTime|date ('g:ia')|trim('m'),
-                                            '@end': s.endTime|date ('g:ia')|trim('m')
-                                        }) }}
-                                    </span></span>
-
-                                    {% endif %}
-                                {% endfor %}
-                                {% if not timeExists %}
-
-                                    <span class="day">{{ day }}</span>
-                                    <span class="hours"><span>{{ "Closed"|t }}</span></span>
-
-                                {% endif %}
-
-                            </li>
-
-                        {% endfor %}
-
-                    </ul>
-                </div>
-
-            </div>
-
-        {% endif %}
-
-        {% if open24Hours %}
-          <div class="col-xs-12 col-md-6 clinic-hours-table always-open">
-
-            <div class="visible-xs-block intro">
-              <h4>
-                <a role="button" data-toggle="collapse"
-                   href="#primaryCareTimes"
-                   aria-expanded="false"
-                   aria-controls="primaryCareTimes">
-                  {{ "#{firstHoursHeader}:"|t }}
-                  <em><strong>Always Open</strong></em>
-                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                </a>
-              </h4>
-            </div>
-            <div class="hidden-xs intro">
-              <h4>{{ firstHoursHeader|t }}</h4>
-              <p class="opens-at"><em><strong>Always Open</strong></em></p>
-            </div>
-
-            <div class="wrapper collapse-mobile" id="primaryCareTimes">
-              <p>This location is open 24 hours a day, 7 days a week.</p>
-            </div>
-
-          </div>
         {% endif %}
 
     </div>

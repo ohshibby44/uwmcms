@@ -43,7 +43,7 @@ view_mode ? view_mode|clean_class,
                     </div>
 
                     <div class="col-xs-12 m-hours">
-                        {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
+                        {{ _hoursMacro.uwOpenHoursTable(_cli) }}
                     </div>
 
                     <div class="col-xs-12 m-address">
@@ -143,7 +143,7 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 col-md-9 remove-padding clinic-hours-container">
 
-                        {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, node.id) }}
+                        {{ _hoursMacro.uwOpenHoursTable(_cli, node.id) }}
 
                     </div>
 
