@@ -54,8 +54,28 @@
         content: "\f106";
       }
     }
+
+  }
+
+  .uw-more.with-gradient::before {
+    background: linear-gradient(rgba(245, 245, 245, .1) 0%, rgba(245, 245, 245, 1) 45%);
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    content: " ";
   }
 
 }
 
 
+//
+// OPEN STATE FOR OTHER TOGGLES:
+a[aria-expanded="true"] .fa.fa-plus-circle:before {
+  //.fa-minus-circle:before
+  content: "\f056";
+}
+.on .with-gradient::before, .on.with-gradient::before {
+  display: none;
+}
