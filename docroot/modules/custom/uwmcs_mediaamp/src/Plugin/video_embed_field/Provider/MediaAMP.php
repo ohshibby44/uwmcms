@@ -19,9 +19,9 @@ class MediaAMP extends ProviderPluginBase {
 
   protected static $providerIdMatch = '\/media\/(?<mediaid>[^?\/]+)';
 
-  protected static $accountEmbedUrl = '//player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/%s';
+  protected static $accountEmbedUrl = 'https://player.mediaamp.io/p/U8-EDC/PfS6F0yR_GNu/embed/select/media/%s';
 
-  protected static $accountFeedUrl = '//feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=%s';
+  protected static $accountFeedUrl = 'https://feed.theplatform.com/f/U8-EDC/DmdisEvWzzBl?byPid=%s';
 
   /**
    * {@inheritdoc}
