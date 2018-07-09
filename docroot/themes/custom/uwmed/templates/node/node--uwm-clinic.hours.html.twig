@@ -9,11 +9,11 @@
 
     {% if briefText %}
         <span class="opens-at" data-uwm-opens-at="{{ data|json_encode() }}" data-show-brief>
-            <em></em></span>
+            <span></span></span>
     {% else %}
         <p class="opens-at" data-uwm-opens-at="{{ data|json_encode() }}">
             <i class="uw-ico uw-ico-md uwmed-icon__appointment"></i>
-            <em></em></p>
+            <span></span></p>
     {% endif %}
 
 {% endmacro %}
