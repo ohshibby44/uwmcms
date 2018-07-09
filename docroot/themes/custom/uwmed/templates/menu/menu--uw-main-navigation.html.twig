@@ -115,10 +115,15 @@
 
 
                 {% endfor %}
-            </ul>
+              {% if menu_level == 0 %}
+              </ul>
+                {% else %}
+
+                </ul>
+
+                  {% endif %}
             {% endif %}
             {% endmacro %}
-        </ul>
     </div>
 
 </div>

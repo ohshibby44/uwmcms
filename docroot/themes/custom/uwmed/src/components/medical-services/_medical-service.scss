@@ -1284,8 +1284,8 @@
 
     }
 
-    @include uw-equal-height-row('.row.flex-row');
-    @include uw-equal-height-row('.row.flex-row > article', '.row.flex-row > article > .wrapper');
+    //@include uw-equal-height-row('.row.flex-row');
+    //@include uw-equal-height-row('.row.flex-row > article', '.row.flex-row > article > .wrapper');
 
     .row.flex-row > article > .wrapper {
       background-color: #F5F5F5;
