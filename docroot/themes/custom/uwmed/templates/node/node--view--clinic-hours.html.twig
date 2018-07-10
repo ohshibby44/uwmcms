@@ -1,0 +1,43 @@
+{#}
+
+This template is called on some clinic pages via AJAX.
+
+Hours listed on the page are refreshed by this non-cached version.
+
+
+{#}
+
+
+{% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as hoursMacro %}
+
+
+{% set clinic = node.uwmcs_reader_api_values %}
+{% set nid = node.id %}
+{% set clinicHours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
+{#{% set nid = uwm_get_path_nid(clinic.url) %}#}
+
+{#{{ devel_breakpoint() }}#}
+
+{% if nid == 12861 %}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
+    {{ hoursMacro.uwOpenNowSnippet(clinicHours) }}
+{% else %}
+    {% if clinicHours %}
+        {{ hoursMacro.clinicHours(clinicHours, nid) }}
+    {% endif %}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
+
+{% endif %}
+
+
+
+
+{#
+    For Olympia clinic show wait-time field value:
+#}
+{% if content.field_clinic_wait_time_snippet.0 is not empty %}
+    <div class="fade-out" data-uwm-refresh-id="wait-{{ nid }}">
+        <i class="uw-ico uwmed-icon__appointment" aria-hidden="true"></i>
+        {{ content.field_clinic_wait_time_snippet.0 }}
+    </div>
+{% endif %}

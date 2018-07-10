@@ -197,6 +197,11 @@ function uwmed_preprocess_node(&$variables) {
         }
       }
     }
+
+    if ($node->nid->value === "21036") {
+      $variables["#attached"]['drupalSettings']['uwmcms_reader_map_clinics'] = $variables["node"]->uwmcms_reader_map_clinics;
+    }
+
   }
 
   if ($node->getType() === 'fact_page') {
@@ -298,6 +303,13 @@ function uwmed_preprocess_taxonomy_term(&$variables) {
  * Implements template_preprocess_views_view().
  */
 function uwmed_preprocess_views_view(&$variables) {
+}
+
+/**
+ * Implements template_preproccess_views() for clinic_hours view.
+ */
+function uwmed_preprocess_views_view__clinic_hours(&$variables) {
+  $variables['timeNow'] = new DateTime('now');
 }
 
 /**
@@ -439,7 +451,7 @@ function uwmed_preprocess_field__node__field_homepage_sections(&$variables) {
  */
 function uwmed_preprocess_node__uwm_medical_service(&$variables) {
   $variables["#attached"]['drupalSettings']['uwmcms_reader_primary_care_clinics'] = $variables["node"]->uwmcms_reader_primary_care_clinics;
-  $variables["#attached"]['drupalSettings']['uwmcms_reader_medical_service_clinics'] = $variables["node"]->uwmcms_reader_medical_service_clinics;
+  $variables["#attached"]['drupalSettings']['uwmcms_reader_map_clinics'] = $variables["node"]->uwmcms_reader_map_clinics;
 
   $webform = \Drupal::entityTypeManager()
     ->getStorage('webform')

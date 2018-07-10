@@ -1,7 +1,7 @@
-alternatives: ''
-exclusions: '/locations/location-hours/*'
+alternatives: '/locations/location-hours/*'
+exclusions: ''
 lifetime:
-  alternatives: 0
+  alternatives: 900
   301: 0
   302: 0
   404: 0

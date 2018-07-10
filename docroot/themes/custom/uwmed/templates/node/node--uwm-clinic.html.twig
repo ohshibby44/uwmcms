@@ -19,6 +19,9 @@ view_mode ? view_mode|clean_class,
 
 {% set address = [ _cli.address, _cli.city ~ ' '~  _cli.state  ~ ' '~  _cli.zipcode ]|uwm_join_parts(', ') %}
 
+{# Check if this clinic displays urgent care hours #}
+{% set hasUrgentCare = _cli.clinicTimeUseMasters[1].hoursOfOperation %}
+
 <article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
     {#<pre>#}
 
@@ -43,7 +46,8 @@ view_mode ? view_mode|clean_class,
                     </div>
 
                     <div class="col-xs-12 m-hours">
-                        {{ _hoursMacro.uwOpenHoursTable(_cli) }}
+			{{ _hoursMacro.uwOpenHoursTable(_cli) }}
+			{% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
                     </div>
 
                     <div class="col-xs-12 m-address">
@@ -83,7 +87,7 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 l">
 
-                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}
+                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}{% if hasUrgentCare %}{{ " for Primary Care"|t }}{% endif %}
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
 
@@ -146,7 +150,9 @@ view_mode ? view_mode|clean_class,
                         {{ _hoursMacro.uwOpenHoursTable(_cli, node.id) }}
 
                     </div>
-
+                    <div class="col-sm-12 foot">
+                      {% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
+                    </div>
                     <div class="col-sm-12 foot">
                         <div class="u-911">
                             <i class="fa u-911i"></i>
@@ -232,6 +238,8 @@ view_mode ? view_mode|clean_class,
                                         {{ "This clinic offers primary care, including:"|t }}
                                     {% endif %}
                                 </h2>
+
+
 
                                 <ul class="expt">
 

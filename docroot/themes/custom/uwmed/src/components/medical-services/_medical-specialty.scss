@@ -1,26 +1,29 @@
+
 .page-node-type-uwm-medical-specialty {
+
+  .medical-service-hero {
+    overflow: hidden;
+  }
+
   .medical-specialty__back-button {
 
-    background-color: #e5e5e6;
-
-    @media(min-width: $screen-sm-min) {
-      background: none;
-      padding: 0;
-      margin-top: -41px;
-      position: relative;
-      float: left;
-    }
+    margin-top: -45px;
 
     a {
       background-color: #e5e5e6;
       padding: 12px;
+      height: 45px;
       text-transform: uppercase;
       color: $uwmed-pop-blue;
       text-decoration: none;
       display: inline-block;
+      position: relative;
+
+      @media(max-width: $screen-xs-max) {
+        width: 100%;
+      }
 
       @media(min-width: $screen-sm-min) {
-        position: relative;
         padding: 12px 19px 12px 30px;
       }
 
@@ -33,7 +36,7 @@
       transform: skew(18deg);
       position: absolute;
       width: 20px;
-      height: 42px;
+      bottom: 0;
       top: 0;
       right: -13px;
       border-right: 5px solid #cfcfcf;
@@ -62,4 +65,58 @@
 
 
   }
+
+  section.clinic-paragraphs {
+
+    position: relative;
+    //padding: 0 25px;
+    background-color: #f8f8f8;
+    min-height: 450px;
+
+    .bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background-image: url(/themes/custom/uwmed/dist/assets/angled-bg-light.png);
+      background-color: #F8F8F8;
+    }
+
+    div.paragraph > .wrapper {
+      @extend .col-xs-12;
+      margin: 30px 0;
+      padding: 20px 28px;
+      background: $uwmed-white;
+      opacity: .8;
+      box-shadow: 0 0 4px 0 #dcdcdc;
+      min-height: 340px;
+    }
+  }
+
+  .clinic-paragraphs {
+    div.field.field--name-field-content-blocks,
+    div.field.field--name-field-bottom-content-blocks {
+
+      @extend .row;
+
+      div.paragraph {
+        @extend .col-sm-6;
+        @extend .col-md-4;
+
+        p.h1.hero__heading {
+          display: none;
+        }
+
+        .field--name-field-link {
+          padding: 0;
+        }
+        div.field.field--name-field-links-paragraph > .item ul li {
+          padding: 0 0 1em 0;
+        }
+      }
+    }
+  }
+
 }

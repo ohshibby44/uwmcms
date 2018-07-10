@@ -68,27 +68,29 @@
 #}
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
-{% set wrapper_classes = wrapper_classes ?: [] |merge( ['field', 'field--name-' ~ field_name|clean_class] ) %}
+{% set wrapper_classes = wrapper_classes ?: [] %}
+{% set wrapper_classes = wrapper_classes|merge( ['field', 'field--name-' ~ field_name|clean_class] )%}
+{% set wrapper_id = wrapper_id ?: '' %}
 {% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
 {% set item_element = item_element ?: 'div' %}
 
 {% block content %}
 
     {% if include_wrapper %}
-        <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }} {{ attributes.setAttribute('id', wrapper_id) }}>
+        <{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }} {% if wrapper_id %}{{ attributes.setAttribute('id', wrapper_id) }}{% endif %}>
     {% endif %}
 
-    {#{% if not label_hidden %}#}
-    {#<div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>#}
-    {#{% endif %}#}
+    {% if not label_hidden %}
+    <div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>
+    {% endif %}
 
     {% for item in items %}
         {#{% set t = ['item', 'item-' ~ loop.index] %}#}{#, loop.first ? 'first', loop.last ? 'last'#}
         {% block item %}
-            <{{ item_element ?: 'div' }}{{ item.attributes.addClass(item_classes).addClass(['item', 'item-' ~ loop.index, (loop.first ? 'first'), (loop.last ? 'last')]) }}>
+            <{{ item_element }}{{ item.attributes.addClass(item_classes).addClass(['item', 'item-' ~ loop.index, (loop.first ? 'first'), (loop.last ? 'last')]) }}>
             {% if accent_tag %}<{{ accent_tag }} class="hidden u-ips"></{{ accent_tag }}>{% endif %}
             {{ item.content }}
-            </{{ item_element ?: 'div' }}>
+            </{{ item_element }}>
         {% endblock item %}
     {% endfor %}
 

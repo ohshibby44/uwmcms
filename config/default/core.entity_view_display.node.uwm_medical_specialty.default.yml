@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.field.node.uwm_medical_specialty.field_accordion
     - field.field.node.uwm_medical_specialty.field_body_summary
+    - field.field.node.uwm_medical_specialty.field_common_services
     - field.field.node.uwm_medical_specialty.field_condition_spotlight
+    - field.field.node.uwm_medical_specialty.field_content_blocks
     - field.field.node.uwm_medical_specialty.field_feature_story
     - field.field.node.uwm_medical_specialty.field_featured_specialties
     - field.field.node.uwm_medical_specialty.field_image
@@ -53,6 +55,15 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_common_services:
+    weight: 13
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
   field_condition_spotlight:
     weight: 1
     label: hidden
@@ -61,6 +72,15 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_content_blocks:
+    weight: 14
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
   field_image:
     weight: 2

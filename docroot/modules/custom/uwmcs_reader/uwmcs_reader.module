@@ -146,4 +146,30 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
 
   }
 
+  if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and $args[1] === "urgent-care") {
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
+
+    $urgent_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/60');
+    if (!empty($urgent_care_data->clinics)) {
+      $clinics = $urgent_care_data->clinics;
+      $entity->uwmcms_reader_urgent_care_clinics = $clinics;
+
+      foreach ($clinics as $key => $clinic) {
+        // Remove virtual clinic from list.
+        if ($clinic->id === 7613) {
+          unset($clinics[$key]);
+        }
+      }
+      $entity->uwmcms_reader_map_clinics = $clinics;
+
+      // Get first urgent care clinic so we can display hours (same for all) on
+      // the page. @TODO: Get better data from new API.
+      $uc_clinic = $urgent_care_data->clinics[0]->id;
+      $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
+      $entity->uwmcms_reader_uc_clinic = $uc_clinic;
+    }
+
+  }
+
 }
