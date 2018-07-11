@@ -19,25 +19,14 @@ Hours listed on the page are refreshed by this non-cached version.
 {#{{ devel_breakpoint() }}#}
 
 {% if nid == 12861 %}
-  {% set atr =
-  ' data-uwm-refresh-from="/locations/location-hours/' ~ nid|raw ~ '"' ~
-  ' data-uwm-refresh-id="urgent-care-hours-desktop' ~ nid|raw ~ '"' ~
-  ' class="fade-out"'
-  %}
-  {{ hoursMacro.urgentCareDekstopHours(clinic, nid, atr) }}
-
-  {% set atr =
-  ' data-uwm-refresh-from="/locations/location-hours/' ~ nid|raw ~ '"' ~
-  ' data-uwm-refresh-id="urgent-care-hours-mobile' ~ nid|raw ~ '"' ~
-  ' class="fade-out"'
-  %}
-  {{ hoursMacro.urgentCareMobileHours(clinic, nid, atr) }}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
+    {{ hoursMacro.uwOpenNowSnippet(clinicHours) }}
 {% else %}
-    {{ hoursMacro.uwOpenHoursTable_withRefresh(clinic, nid) }}
-
     {% if clinicHours %}
-        {{ hoursMacro.uwOpensNextSnippet_withRefresh(clinicHours, nid) }}
+        {{ hoursMacro.clinicHours(clinicHours, nid) }}
     {% endif %}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
+
 {% endif %}
 
 

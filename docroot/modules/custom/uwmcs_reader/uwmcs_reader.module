@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\uwmcs_reader\Controller\UwmApiFields;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
@@ -38,22 +39,19 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       }
     }
 
-    if ($view_mode === "full") {
-      // If clinic has providers, populate full provider details.
-      // @TODO: Change this attach bio-node.
-      if (!empty($data->careNetworks)) {
+    // If clinic has providers, populate full provider details.
+    // @TODO: Change this attach bio-node.
+    if (!empty($data->careNetworks)) {
 
-        foreach ($data->careNetworks as &$network) {
+      foreach ($data->careNetworks as &$network) {
 
-          foreach ($network->bioInformations as &$bio) {
+        foreach ($network->bioInformations as &$bio) {
 
-            if (!empty($bio->url)) {
+          if (!empty($bio->url)) {
 
-              $detail = $fetcher->getUrl($bio->url);
-              if (!empty($bio->id)) {
-                $bio = $detail;
-              }
-
+            $detail = $fetcher->getUrl($bio->url);
+            if (!empty($bio->id)) {
+              $bio = $detail;
             }
 
           }
@@ -61,7 +59,10 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         }
 
       }
+
     }
+    $data->clinicTimeUseMasters =
+      UwmApiFields::getClinicHoursArray($data->clinicTimeUseMasters);
 
     $entity->uwmcs_reader_api_values = $data;
 
@@ -78,36 +79,36 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
     }
 
-    if ($view_mode == "full") {
-      // Fetch details for publications.
-      if (!empty($data->bioPublications[0]->pubMedId)) {
+    // Fetch details for publications.
+    if (!empty($data->bioPublications[0]->pubMedId)) {
 
-        $pubIds = [];
-        foreach ($data->bioPublications as $k => $v) {
-          array_push($pubIds, $v->pubMedId);
-        }
-
-        $data->bioPublicationsDetails = $fetcher->getUrl(
-          'https://webservices.uwmedicine.org/api/publications?ids=' .
-          implode(',', $pubIds));
-
+      $pubIds = [];
+      foreach ($data->bioPublications as $k => $v) {
+        array_push($pubIds, $v->pubMedId);
       }
 
-      // If provider has clinics, populate full clinic details.
-      // @TODO: Change this to node-load locations.
-      if (!empty($data->careNetworks[0]->clinicBases)) {
+      $data->bioPublicationsDetails = $fetcher->getUrl(
+        'https://webservices.uwmedicine.org/api/publications?ids=' .
+        implode(',', $pubIds));
 
-        foreach ($data->careNetworks as &$network) {
+    }
 
-          foreach ($network->clinicBases as &$clinic) {
+    // If provider has clinics, populate full clinic details.
+    // @TODO: Change this to node-load locations.
+    if (!empty($data->careNetworks[0]->clinicBases)) {
 
-            if (!empty($clinic->url)) {
+      foreach ($data->careNetworks as &$network) {
 
-              $detail = $fetcher->getUrl($clinic->url);
-              if (!empty($clinic->id)) {
-                $clinic = $detail;
-              }
+        foreach ($network->clinicBases as &$clinic) {
 
+          if (!empty($clinic->url)) {
+
+            $detail = $fetcher->getUrl($clinic->url);
+            if (!empty($clinic->id)) {
+              $detail->clinicTimeUseMasters =
+                UwmApiFields::getClinicHoursArray($detail->clinicTimeUseMasters);
+
+              $clinic = $detail;
             }
 
           }
@@ -115,6 +116,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
         }
 
       }
+
     }
 
     $entity->uwmcs_reader_api_values = $data;
@@ -138,9 +140,10 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     if (isset($entity->field_information_manager_url->value)) {
       $medical_service_data = $fetcher->getUrl($entity->field_information_manager_url->value);
       if (!empty($medical_service_data)) {
-        $entity->uwmcms_reader_map_clinics = $medical_service_data->clinics;
+        $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
       }
     }
+
   }
 
   if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and $args[1] === "urgent-care") {
@@ -164,6 +167,8 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       // the page. @TODO: Get better data from new API.
       $uc_clinic = $urgent_care_data->clinics[0]->id;
       $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
+      $uc_clinic->clinicTimeUseMasters =
+        UwmApiFields::getClinicHoursArray($uc_clinic->clinicTimeUseMasters);
       $entity->uwmcms_reader_uc_clinic = $uc_clinic;
     }
 

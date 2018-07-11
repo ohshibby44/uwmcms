@@ -170,6 +170,12 @@ var options = {
         bootstrapDestination: paths.scripts.bootstrapDestination
     },
 
+    // ----- Libraries ----- //
+    libraries: {
+        files: 'src/libraries/**/*.js',
+        destination: 'dist/libraries/'
+    },
+
     // ----- Images ----- //
     images: {
         files: path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
@@ -257,6 +263,7 @@ require('./gulp-tasks/clean-css')(gulp, plugins, options);
 require('./gulp-tasks/clean-images')(gulp, plugins, options);
 require('./gulp-tasks/clean-styleguide')(gulp, plugins, options);
 require('./gulp-tasks/compile-sass')(gulp, plugins, options);
+require('./gulp-tasks/compile-js-includes')(gulp, plugins, options);
 require('./gulp-tasks/compile-js')(gulp, plugins, options);
 require('./gulp-tasks/compile-styleguide')(gulp, plugins, options);
 require('./gulp-tasks/compress-images')(gulp, plugins, options);

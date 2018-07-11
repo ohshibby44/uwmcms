@@ -29,15 +29,17 @@
 
                 var $this = $(b);
                 var refreshFromUri = $this.attr('data-uwm-refresh-from');
-                var refreshSelectorMatch = $this.attr('data-uwm-refresh-id');
+                var refreshSelector = $this.attr('data-uwm-refresh-match-selector');
+
                 $this.attr('data-uwm-refresh-start', new Date().toLocaleString());
 
                 $.get(refreshFromUri, function (data) {
 
-                    var $target = $('[data-uwm-refresh-id=' + refreshSelectorMatch + ']', document);
-                    var $replacement = $('[data-uwm-refresh-id=' + refreshSelectorMatch + ']', data);
+                    var $target = $(refreshSelector, document);
+                    var $replacement = $(refreshSelector, data);
 
                     if ($replacement.length > 0) {
+
                         $target.html($replacement.html())
                             .removeClass('fade-out hidden invisible')
                             .attr('data-uwm-refresh-end', new Date().toLocaleString());

@@ -5,73 +5,81 @@
 {% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _hoursMacro %}
 
 {% block libraries %}
-  {{ attach_library('uwmed/googlemaps') }}
-  {{ attach_library('uwmed/uwm-toggle') }}
-  {{ attach_library('uwmed/urgent-care-hours') }}
+    {{ attach_library('uwmed/googlemaps') }}
+    {{ attach_library('uwmed/uwm-toggle') }}
+    {{ attach_library('uwmed/clinic-hours') }}
 {% endblock libraries %}
 
 {% block hero %}
-  <section>
-    <div class="medical-service-hero">
-      <div class="medical-service-hero__background full-width-image"
-           style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})"></div>
-      <div class="container container-lg">
-        <div class="row">
-          <div class="medical-service-hero__content col-lg-7">
-            <h1 class="medical-service-hero__heading">{{ label }}</h1>
-            <img class="hero__angle-divider hidden-lg"
-                 src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png') }}"
-                 alt=""/>
-            {{ content.field_subheading }}
-          </div>
-          <div class="urgent-care-hours-desktop hidden-xs hidden-sm hidden-md">
-            {{ _hoursMacro.uwOpenHoursTable_withRefresh(first_uc_clinic, 12861, FALSE) }}
-          </div>
+    <section>
+        <div class="medical-service-hero">
+            <div class="medical-service-hero__background full-width-image"
+                 style="background-image: url({{ node.field_image.entity.uri.value | image_style('hero') }})"></div>
+            <div class="container container-lg">
+                <div class="row">
+                    <div class="medical-service-hero__content col-lg-7">
+                        <h1 class="medical-service-hero__heading">{{ label }}</h1>
+                        <img class="hero__angle-divider hidden-lg"
+                             src="{{ file_url('themes/custom/uwmed/dist/assets/hero-angle-lines.png') }}"
+                             alt=""/>
+                        {{ content.field_subheading }}
+                    </div>
+                    <div class="hours-wrapper hidden-xs hidden-sm hidden-md">
+                        {{ _hoursMacro.uwOpenNowSnippet(first_uc_clinic.clinicTimeUseMasters[0]) }}
+                        {{ _hoursMacro.uwOpenHoursTable(first_uc_clinic, 12861, FALSE) }}
+                        <div class="block-81">{{ drupal_entity('block_content', 81) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="medical-specialty__back-button col-xs-12">
+                <a href="{{ content.field_medical_service.0["#url"] }}"><i
+                            class="fa fa-angle-left"></i> Back
+                    to {{ content.field_medical_service.0["#title"] }}
+                    <i class="right-border-angle hidden-xs"
+                       aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
-      </div>
-        <div class="medical-specialty__back-button col-xs-12">
-            <a href="{{ content.field_medical_service.0["#url"] }}"><i class="fa fa-angle-left"></i> Back to {{ content.field_medical_service.0["#title"] }}
-                <i class="right-border-angle hidden-xs" aria-hidden="true"></i>
-            </a>
-        </div>
-    </div>
 
 
-    {#<div class="row">#}
-      {#<div class="medical-specialty__back-button col-md-12">#}
+        {#<div class="row">#}
+        {#<div class="medical-specialty__back-button col-md-12">#}
         {#<a href="{{ content.field_medical_service.0["#url"] }}"><i class="fa fa-angle-left"></i> Back to {{ content.field_medical_service.0["#title"] }}#}
-          {#<i class="right-border-angle hidden-xs" aria-hidden="true"></i>#}
+        {#<i class="right-border-angle hidden-xs" aria-hidden="true"></i>#}
         {#</a>#}
-      {#</div>#}
-    {#</div>#}
-  </section>
+        {#</div>#}
+        {#</div>#}
+    </section>
 {% endblock hero %}
 
 {% block common_services %}
-  <div class="medical-service__common-services uwm-toggle col-xs-12">
-    <div class="container container-lg">
-      <h2>{{ 'We treat the following non-life threatening problems:'|t }}</h2>
-      <div class="row common_services">
-        {{ content.field_common_services }}
-      </div>
+    <div class="medical-service__common-services uwm-toggle col-xs-12">
+        <div class="container container-lg">
+            <h2>{{ 'We treat the following non-life threatening problems:'|t }}</h2>
+            <div class="row common_services">
+                {{ content.field_common_services }}
+            </div>
+        </div>
     </div>
-  </div>
-<section id="block-emergencymedicine" class="block block-block-content clearfix">
-  {{ drupal_entity('block_content', 71) }}
-</section>
+    <section id="block-emergencymedicine"
+             class="block block-block-content clearfix">
+        {{ drupal_entity('block_content', 71) }}
+    </section>
 
-<section id="block-virtualclinic" class="block block-block-content clearfix">
-  {{ drupal_entity('block_content', 76) }}
-</section>
+    <section id="block-virtualclinic"
+             class="block block-block-content clearfix">
+        {{ drupal_entity('block_content', 76) }}
+    </section>
 {% endblock common_services %}
 
 {% block custom_content %}
 
-  <div class="urgent-care-hours hidden-lg">
-    {{ _hoursMacro.uwOpenHoursTable_withRefresh(_cli, 12861, TRUE) }}
-  </div>
-  {% include 'node--uwm-medical-service.care-now.html.twig' %}
-  {% include 'node--uwm-medical-service.location-map__urgent-care.html.twig' %}
+    <div class="hours-wrapper hidden-lg">
+        {{ _hoursMacro.uwOpenHoursTable(first_uc_clinic, 12861, TRUE) }}
+        <div class="block-81">{{ drupal_entity('block_content', 81) }}</div>
+    </div>
+    {% include 'node--uwm-medical-service.care-now.html.twig' %}
+    {% include 'node--uwm-medical-service.location-map__urgent-care.html.twig' %}
 
 
 {% endblock custom_content %}

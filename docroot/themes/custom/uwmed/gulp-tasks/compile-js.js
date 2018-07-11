@@ -12,6 +12,7 @@ module.exports = function (gulp, plugins, options) {
     return gulp.src([
       options.js.files
     ])
+      .pipe(plugins.include())
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.babel({
