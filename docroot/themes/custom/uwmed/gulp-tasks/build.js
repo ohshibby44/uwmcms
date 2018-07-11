@@ -16,6 +16,7 @@ module.exports = function (gulp, plugins, options) {
     'lint:js-gulp',
     'lint:js-with-fail',
     'lint:css-with-fail',
+    'compile:js-includes',
     'compile:js',
     'compress:images',
     'move:bootstrap-fonts',
