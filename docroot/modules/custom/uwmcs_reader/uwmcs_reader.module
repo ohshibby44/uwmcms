@@ -167,6 +167,8 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       // the page. @TODO: Get better data from new API.
       $uc_clinic = $urgent_care_data->clinics[0]->id;
       $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
+      $uc_clinic->clinicTimeUseMasters =
+        UwmApiFields::getClinicHoursArray($uc_clinic->clinicTimeUseMasters);
       $entity->uwmcms_reader_uc_clinic = $uc_clinic;
     }
 

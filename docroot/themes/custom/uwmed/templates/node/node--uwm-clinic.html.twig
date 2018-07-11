@@ -46,8 +46,8 @@ view_mode ? view_mode|clean_class,
                     </div>
 
                     <div class="col-xs-12 m-hours">
-			{{ _hoursMacro.uwOpenHoursTable(_cli) }}
-			{% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
+                        {{ _hoursMacro.uwOpenHoursTable(_cli) }}
+                        {% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
                     </div>
 
                     <div class="col-xs-12 m-address">
@@ -102,20 +102,22 @@ view_mode ? view_mode|clean_class,
                     </div>
 
                     {% set classes = [
-                        content.field_clinic_wait_time_snippet|render is not empty ? 'fade-in' : '',
+                    content.field_clinic_wait_time_snippet|render is not empty ? 'fade-in' : '',
                     ] %}
                     <div class="col-xs-12 get-in-line fade-out {{ classes|uwm_join_parts(' ') }}"
                          data-uwm-clockwise-wait-time="{{ content.field_clockwise_id[0]['#markup'] }}">
                         {% set node_path =  path('entity.node.canonical', {'node': node.nid.value}) %}
-                        <h4><span class="uc-landing"><a href="{{ node_path|replace({'locations': "services", 'primary': "urgent", 'care-': "care/"}) }}">{{ "Urgent Care"|t }}</a></span>
-                            <span class="wait-link"><a href="/patient-care/making-an-appointment">
+                        <h4><span class="uc-landing"><a
+                                        href="{{ node_path|replace({'locations': "services", 'primary': "urgent", 'care-': "care/"}) }}">{{ "Urgent Care"|t }}</a></span>
+                            <span class="wait-link"><a
+                                        href="/patient-care/making-an-appointment">
                                 Get in line<i
-                                class="fa fa-angle-right"
-                                aria-hidden="true"></i></a>
+                                            class="fa fa-angle-right"
+                                            aria-hidden="true"></i></a>
                             </span></h4>
-                            <p class="wait-text wait">
-                                <span class="m">{{ content.field_clinic_wait_time_snippet }}</span>
-                            </p>
+                        <p class="wait-text wait">
+                            <span class="m">{{ content.field_clinic_wait_time_snippet }}</span>
+                        </p>
                     </div>
 
                 </div>
@@ -151,7 +153,7 @@ view_mode ? view_mode|clean_class,
 
                     </div>
                     <div class="col-sm-12 foot">
-                      {% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
+                        {% if hasUrgentCare %}{{ drupal_entity('block_content', 81) }}{% endif %}
                     </div>
                     <div class="col-sm-12 foot">
                         <div class="u-911">
@@ -238,7 +240,6 @@ view_mode ? view_mode|clean_class,
                                         {{ "This clinic offers primary care, including:"|t }}
                                     {% endif %}
                                 </h2>
-
 
 
                                 <ul class="expt">
@@ -366,8 +367,6 @@ view_mode ? view_mode|clean_class,
         {% endif %}
 
     </section>
-
-
 
 
     {#<pre>{{ dump(_cli) }}</pre>#}

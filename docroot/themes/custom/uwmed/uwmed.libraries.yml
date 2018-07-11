@@ -130,6 +130,7 @@ medical-service:
     - uwmed/slickquiz
     - uwmed/colorbox
     - uwmed/condition-spotlight-swipe
+    - uwmed/clinic-hours
 
 node--fact-page:
   js:

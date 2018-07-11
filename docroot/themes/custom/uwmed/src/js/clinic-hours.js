@@ -20,7 +20,7 @@
                 var data = $this.data('uwm-opens-at');
                 var markup = hoursMarkup(data, $this.is('[data-show-brief]'));
 
-                $this.find('span').html(markup);
+                $this.find('em').html(markup);
 
             });
 
@@ -61,7 +61,7 @@
                     moment.unix(opens).format('h:mm')
                 );
             } else {
-                markup = uwf('<strong>Closed -</strong> Opens {1} at {2}',
+                markup = uwf('<strong>Closed:</strong> Opens {1} at {2}',
                     moment.unix(opens).format('dddd'),
                     moment.unix(opens).format('h:mm a')
                 );

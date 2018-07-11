@@ -9,11 +9,11 @@
 
     {% if briefText %}
         <span class="opens-at" data-uwm-opens-at="{{ data|json_encode() }}" data-show-brief>
-            <span></span></span>
+            <em></em></span>
     {% else %}
         <p class="opens-at" data-uwm-opens-at="{{ data|json_encode() }}">
             <i class="uw-ico uw-ico-md uwmed-icon__appointment"></i>
-            <span></span></p>
+            <em></em></p>
     {% endif %}
 
 {% endmacro %}
@@ -21,7 +21,7 @@
 
 {% macro uwHoursColumn(timesArray, tableHeader) %}
 
-    {% set tableId = tableHeader|replace(' ', '') %}
+    {% set tableId = tableHeader |clean_class ~ random() %}
     {% set days = {1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 0: 'Sunday'} %}
 
     <div class="col-xs-12 col-md-6 clinic-hours-table">
@@ -29,9 +29,9 @@
         <div class="visible-xs-block intro">
             <h4>
                 <a role="button" data-toggle="collapse"
-                   href="#table{{ tableId }}"
+                   href="#{{ tableId }}"
                    aria-expanded="false"
-                   aria-controls="table{{ tableId }}">
+                   aria-controls="{{ tableId }}">
                     {{ tableHeader ?? ""|t }}:
                     {{ _self.uwOpenNowSnippet(timesArray, true) }}
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
 
         </div>
 
-        <div class="wrapper collapse-mobile" id="table{{ tableId }}">
+        <div class="wrapper hours-column collapse-mobile" id="{{ tableId }}">
             <ul>
 
                 {% for n, day in days %}
@@ -110,8 +110,8 @@
         {% endif %}
     {% endfor %}
 
-    <div {{ wrapperAttributes|raw }}>
-
+    {#<div {{ wrapperAttributes|raw }}>#}
+    <div>
         {% if open24Hours %}
 
             <div class="col-xs-12 col-md-6 clinic-hours-table always-open">
@@ -147,9 +147,8 @@
             {% if apiData.clinicTimeUseMasters[0].hoursOfOperation %}
 
                 {% set header = "Primary Care" %}
-                {% if not apiData.clinicTimeUseMasters[1].hoursOfOperation %}
-                    {% set header = "Clinic Hours" %}
-                {% endif %}
+                {% set header = apiData.clinicTimeUseMasters[1].hoursOfOperation is empty ? "Clinic Hours" : header %}
+                {% set header = (clinicNid == 12861) ? "Urgent Care Clinic Hours" : header %}
 
                 {{ _self.uwHoursColumn(apiData.clinicTimeUseMasters[0], header) }}
 
