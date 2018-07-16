@@ -973,7 +973,7 @@ display:
   entity_browser_1:
     display_plugin: entity_browser
     id: entity_browser_1
-    display_title: Browser
+    display_title: 'UWM Media Browser'
     position: 2
     display_options:
       display_extenders: {  }
@@ -1002,6 +1002,71 @@ display:
         type: fields
         options: {  }
       fields:
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: media
+          entity_field: bundle
+          plugin_id: field
         view_media:
           id: view_media
           table: media
@@ -1012,8 +1077,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'View {{ bundle }} ⧉'
             make_link: true
             path: ''
             absolute: false
@@ -1050,7 +1115,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: 'View ⧉'
+          text: ''
           entity_type: media
           plugin_id: entity_link
         thumbnail__target_id:
@@ -1246,10 +1311,10 @@ display:
           operator: '='
           value: '1'
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: ''
-            label: 'True'
+            label: 'Publishing status'
             description: null
             use_operator: false
             operator: status_op
@@ -1522,7 +1587,7 @@ display:
   entity_browser_2:
     display_plugin: entity_browser
     id: entity_browser_2
-    display_title: 'Image Browser'
+    display_title: 'UWM Image Browser'
     position: 3
     display_options:
       display_extenders: {  }
@@ -1884,10 +1949,10 @@ display:
           operator: '='
           value: '1'
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: ''
-            label: 'True'
+            label: 'Publishing status'
             description: null
             use_operator: false
             operator: status_op
@@ -1931,7 +1996,7 @@ display:
           value:
             image: image
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: bundle_op
             label: Bundle
@@ -2009,6 +2074,54 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: string
+        field_digital_properties_target_id:
+          id: field_digital_properties_target_id
+          table: media__field_digital_properties
+          field: field_digital_properties_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_digital_properties_target_id_op
+            label: 'Digital Properties'
+            description: ''
+            use_operator: false
+            operator: field_digital_properties_target_id_op
+            identifier: field_digital_properties_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_ed: '0'
+              content_: '0'
+              staff_clinic_manager: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: uwm_digital_property
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       filter_groups:
         operator: AND
         groups:
@@ -2065,12 +2178,13 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags: {  }
   media_page_list:
     display_plugin: page
     id: media_page_list
-    display_title: Media
+    display_title: 'UWM Media List'
     position: 1
     display_options:
       display_extenders: {  }

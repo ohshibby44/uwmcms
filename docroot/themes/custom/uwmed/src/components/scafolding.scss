@@ -122,6 +122,9 @@ h2.accent, h3.accent, h4.accent {
 .well, .uw-well {
   @include uw-well();
 }
+#colorbox .well, #colorbox .uw-well {
+  background-color: white;
+}
 
 .full-float {
   float: left;

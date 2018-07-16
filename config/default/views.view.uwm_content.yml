@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - system.menu.admin
   module:
     - lightning_workflow
     - node
@@ -594,12 +595,14 @@ display:
     display_options:
       path: admin/content
       menu:
-        type: 'default tab'
+        type: normal
         title: Content
         description: ''
-        menu_name: admin
+        expanded: true
+        parent: ''
         weight: -10
-        context: ''
+        context: '0'
+        menu_name: admin
       tab_options:
         type: normal
         title: Content
