@@ -143,7 +143,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     }
   }
 
-  if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and $args[1] === "urgent-care") {
+  if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and preg_match("~urgent-care(\?.*)?~", $args[1])) {
     // Fetch Information Manager (IM) data from API.
     $fetcher = new UwmFetcher();
 
