@@ -61,7 +61,7 @@
                     moment.unix(opens).format('h:mm')
                 );
             } else {
-                markup = uwf('<strong>Closed:</strong> Opens {1} at {2}',
+                markup = uwf('<strong>Closed:</strong> <em>Opens {1} at {2}</em>',
                     moment.unix(opens).format('dddd'),
                     moment.unix(opens).format('h:mm a')
                 );
@@ -81,8 +81,9 @@
         if (now < opens && now + 3600 > opens) {
 
             if (showBrief) {
-                markup = uwf('<strong>Opens soon -</strong> {1}',
-                    moment.unix(opens).toNow()
+                markup = uwf('<strong>Opens soon -</strong> {1} - {2}',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
                 );
             } else {
                 markup = uwf('<strong>Opens soon:</strong> <em>{1} - {2}</em>',
@@ -104,7 +105,6 @@
                 markup = uwf('<strong>Open now:</strong> <em>Closes at {1}</em>',
                     moment.unix(closes).format('h:mm a')
                 );
-
             }
 
         }
@@ -112,13 +112,15 @@
         else if (now > opens && now < closes && now + 3600 > closes) {
 
             if (showBrief) {
-                markup = uwf('<strong>Closes soon -</strong> {0}',
-                    moment.unix(closes).toNow()
+                markup = uwf('<strong>Closes soon-</strong> {1} - {2}',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
                 );
             }
             else {
-                markup = uwf('<strong>Closes soon: </strong> <em>{0}</em>',
-                    moment.unix(closes).toNow()
+                markup = uwf('<strong>Closes soon:</strong> <em>{1} - {2}</em>',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
                 );
             }
 

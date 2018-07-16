@@ -18,10 +18,10 @@ module.exports = function (gulp, plugins, options) {
     'lint:css-with-fail',
     'compile:js-includes',
     'compile:js',
+    'compile:admin-page-assets',
     'compress:images',
     'move:bootstrap-fonts',
-    'move:bootstrap-scripts',
-    'compile:admin-page-assets'
+    'move:bootstrap-scripts'
   ]);
 
   gulp.task('build:dev', [
