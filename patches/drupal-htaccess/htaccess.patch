@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..d144142b 100755
+index efce1877..016e6d3d 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,2364 @@
+@@ -1,3 +1,2358 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -68,16 +68,10 @@ index efce1877..d144142b 100755
 +  # DRUPAL RULES #
 +  # Redirect migrated location directions sub-page to tab on redesigned clinic template
 +  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-+  RewriteRule ^/locations/(.*)/directions/?(.*)?$ "https://www.uwmedicine.org/locations/$1#directions-tab" [NE,L,R=301]
-+
-+  # Redirect migrated location providers sub-page to tab on redesigned clinic template
-+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-+  RewriteRule ^/locations/(.*)/care-providers/?(.*)?$ "https://www.uwmedicine.org/locations/$1#providers-tab" [NE,L,R=301]
-+
-+  # Redirect migrated urgent care pages to UWNC landing pages
-+  RewriteCond %{HTTP_HOST} ^www.uwmedicine(test)?.org
-+  RewriteRule ^/services/urgent-care/(providers|locations)$ "https://www.uwmedicine.org/services/urgent-care" [NE,L,R=301]
-+  RewriteRule ^/services/urgent-care/(.+)$ "https://www.uwmedicine.org/locations/primary-care-$1" [NE,L,R=301]
++  RewriteRule ^locations/(.*)/directions/?(.*)?$ "https://www.uwmedicine.org/locations/$1#directions-tab" [L,R=301]
++  RewriteRule ^locations/(.*)/care-providers/?(.*)?$ "https://www.uwmedicine.org/locations/$1#providers-tab" [L,R=301]
++  RewriteRule ^services/urgent-care/(providers|locations)$ "https://www.uwmedicine.org/services/urgent-care" [L,R=301]
++  RewriteRule ^services/urgent-care/(.+)$ "https://www.uwmedicine.org/locations/primary-care-$1" [L,R=301]
 +
 +  # Reverse proxy rules for launched pages. These paths should be served from Drupal
 +  RewriteCond %{HTTP_HOST} ^www.uwmedicine.org
@@ -2367,7 +2361,7 @@ index efce1877..d144142b 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +2511,10 @@ AddEncoding gzip svgz
+@@ -150,6 +2505,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -2378,7 +2372,7 @@ index efce1877..d144142b 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
-@@ -186,4 +2551,4 @@ AddEncoding gzip svgz
+@@ -186,4 +2545,4 @@ AddEncoding gzip svgz
    Header always set X-Content-Type-Options nosniff
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
