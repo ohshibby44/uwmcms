@@ -7,7 +7,8 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\uwmcs_reader\Controller\UwmApiFields;
+use Drupal\uwmcs_reader\Controller\UwmApiClinicFields;
+use Drupal\uwmcs_reader\Controller\UwmApiProviderFields;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
@@ -26,43 +27,9 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    // If missing, try to find data by current url.
-    if (empty((array) $data)) {
-      $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
+    if (!empty($data->id)) {
+      UwmApiClinicFields::addFieldData($data);
     }
-
-    // If clinic has location, fetch full location details.
-    if (!empty($data->location->url)) {
-      $location = $fetcher->getUrl($data->location->url);
-      if (!empty($location->id)) {
-        $data->location = $location;
-      }
-    }
-
-    // If clinic has providers, populate full provider details.
-    // @TODO: Change this attach bio-node.
-    if (!empty($data->careNetworks)) {
-
-      foreach ($data->careNetworks as &$network) {
-
-        foreach ($network->bioInformations as &$bio) {
-
-          if (!empty($bio->url)) {
-
-            $detail = $fetcher->getUrl($bio->url);
-            if (!empty($bio->id)) {
-              $bio = $detail;
-            }
-
-          }
-
-        }
-
-      }
-
-    }
-    $data->clinicTimeUseMasters =
-      UwmApiFields::getClinicHoursArray($data->clinicTimeUseMasters);
 
     $entity->uwmcs_reader_api_values = $data;
 
@@ -74,52 +41,12 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    // If missing, try to find clinic using current URL.
-    if (empty((array) $data)) {
-      $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
-    }
-
-    // Fetch details for publications.
-    if (!empty($data->bioPublications[0]->pubMedId)) {
-
-      $pubIds = [];
-      foreach ($data->bioPublications as $k => $v) {
-        array_push($pubIds, $v->pubMedId);
-      }
-
-      $data->bioPublicationsDetails = $fetcher->getUrl(
-        'https://webservices.uwmedicine.org/api/publications?ids=' .
-        implode(',', $pubIds));
-
-    }
-
-    // If provider has clinics, populate full clinic details.
-    // @TODO: Change this to node-load locations.
-    if (!empty($data->careNetworks[0]->clinicBases)) {
-
-      foreach ($data->careNetworks as &$network) {
-
-        foreach ($network->clinicBases as &$clinic) {
-
-          if (!empty($clinic->url)) {
-
-            $detail = $fetcher->getUrl($clinic->url);
-            if (!empty($clinic->id)) {
-              $detail->clinicTimeUseMasters =
-                UwmApiFields::getClinicHoursArray($detail->clinicTimeUseMasters);
-
-              $clinic = $detail;
-            }
-
-          }
-
-        }
-
-      }
-
+    if (!empty($data->id)) {
+      UwmApiProviderFields::addFieldData($data);
     }
 
     $entity->uwmcs_reader_api_values = $data;
+
   }
 
   if ($entity->getType() === "uwm_medical_service") {
@@ -168,7 +95,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
       $uc_clinic = $urgent_care_data->clinics[0]->id;
       $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
       $uc_clinic->clinicTimeUseMasters =
-        UwmApiFields::getClinicHoursArray($uc_clinic->clinicTimeUseMasters);
+        UwmApiClinicFields::getClinicHoursArray($uc_clinic->clinicTimeUseMasters);
       $entity->uwmcms_reader_uc_clinic = $uc_clinic;
     }
 
