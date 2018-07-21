@@ -5,6 +5,9 @@
  * Module for reading an API and providing API data to themes.
  */
 
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\uwmcs_reader\Controller\UwmApiFields;
@@ -25,11 +28,6 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     // Fetch Information Manager (IM) data from API endpoint.
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
-
-    // If missing, try to find data by current url.
-    if (empty((array) $data)) {
-      $data = $fetcher->getClinic(['clinicUrl' => '/locations/' . $args[1]]);
-    }
 
     // If clinic has location, fetch full location details.
     if (!empty($data->location->url)) {
@@ -73,11 +71,6 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     // Fetch Information Manager (IM) data from API.
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
-
-    // If missing, try to find clinic using current URL.
-    if (empty((array) $data)) {
-      $data = $fetcher->getProvider(['friendlyUrl' => $args[1]]);
-    }
 
     // Fetch details for publications.
     if (!empty($data->bioPublications[0]->pubMedId)) {
@@ -173,5 +166,34 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     }
 
   }
+
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function uwmcs_reader_node_access(NodeInterface $node, $op, AccountInterface $account) {
+
+  if ($op === 'view') {
+
+    if ($node->hasField('field_information_manager_url')) {
+
+      if (!empty($node->field_information_manager_url->value)) {
+
+        $fetcher = new UwmFetcher();
+        $data = $fetcher->getUrl($node->field_information_manager_url->value);
+
+        if (empty($data->id)) {
+
+          return AccessResult::forbidden();
+        }
+
+      }
+
+    }
+
+  }
+
+  return AccessResult::neutral();
 
 }
