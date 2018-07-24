@@ -223,14 +223,32 @@ body.page-node-type-fact-page {
   .field.field--name-field-bottom-content-blocks,
   .field.field--name-field-bottom-content-blocks > .item,
   .field.field--name-field-bottom-content-blocks > .item > .paragraph {
-    @extend .flex-row, .flex-item;
+    //@extend .flex-row, .flex-item;
   }
   .field.field--name-field-bottom-content-blocks > .item > .paragraph > .wrapper {
-    @extend .flex-item;
+    //@extend .flex-item;
   }
   .field.field--name-field-bottom-content-blocks .paragraph {
     @extend .sticky-cta;
   }
+
+  .field.field--name-field-bottom-content-blocks {
+    @extend .flex-row, .flex-item;
+    border: 1px solid brown;
+  }
+  .field.field--name-field-bottom-content-blocks > .item {
+    @extend .flex-row, .flex-item;
+    border: 1px solid green;
+  }
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph {
+    @extend .flex-row, .flex-item;
+    border: 1px solid yellow;
+  }
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph > .wrapper {
+    @extend .flex-item;
+    border: 1px solid red;
+  }
+
 
 }
 
