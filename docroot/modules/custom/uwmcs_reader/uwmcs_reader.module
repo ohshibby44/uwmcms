@@ -91,7 +91,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
           unset($clinics[$key]);
         }
       }
-      $entity->uwmcms_reader_map_clinics = $clinics;
+      $entity->uwmcms_reader_medical_service_clinics = $clinics;
 
       // Get first urgent care clinic so we can display hours (same for all) on
       // the page. @TODO: Get better data from new API.
