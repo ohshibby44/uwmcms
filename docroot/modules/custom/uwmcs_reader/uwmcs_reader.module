@@ -30,7 +30,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    if (!empty($data->id)) {
+    if (!empty($data->id) && $view_mode == "full") {
       UwmApiClinicFields::addFieldData($data);
     }
 
@@ -44,7 +44,7 @@ function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityVi
     $fetcher = new UwmFetcher();
     $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-    if (!empty($data->id)) {
+    if (!empty($data->id) && $view_mode == "full") {
       UwmApiProviderFields::addFieldData($data);
     }
 
