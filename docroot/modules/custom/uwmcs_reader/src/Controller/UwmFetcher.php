@@ -154,6 +154,11 @@ class UwmFetcher {
       if ($this->isResponseValid($response)) {
         return $response->body;
       }
+      else {
+        \Drupal::logger(__CLASS__)
+          ->error('Missing response body from ' . $apiUri);
+
+      }
 
     }
 

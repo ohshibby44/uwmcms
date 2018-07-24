@@ -76,11 +76,12 @@ class UwmCreator extends ControllerBase {
     }
 
     if (!$this->isAliasValid()) {
+      // Only create pages with an alias.
       return;
     }
 
     if ($this->isAliasTaken()) {
-      // The alias exists. Nothing to do.
+      // A page already exists. Nothing to do.
       return;
 
     }
@@ -94,7 +95,7 @@ class UwmCreator extends ControllerBase {
 
         $result = $fetcher->getProvider(['friendlyUrl' => $this->apiAlias]);
 
-        if (empty($result->fullName)) {
+        if (empty($result->id)) {
           return;
         }
         $node = $this->createRemoteNode(
@@ -107,7 +108,7 @@ class UwmCreator extends ControllerBase {
 
         $result = $fetcher->getClinic(['clinicUrl' => $this->apiAlias]);
 
-        if (empty($result->clinicName)) {
+        if (empty($result->id)) {
           return;
         }
         $node = $this->createRemoteNode(

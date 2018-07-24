@@ -50,7 +50,7 @@ function uwmcs_utils_entity_field_access($operation, FieldDefinitionInterface $f
   ];
 
   $account = \Drupal::currentUser();
-  if ($operation === 'edit' &&
+  if ($operation === 'edit' && !$account->hasPermission('administer nodes') &&
       in_array('staff_clinic_manager', $account->getRoles())
   ) {
 
