@@ -1,6 +1,10 @@
 .node-21036 {
   .medical-service-hero__background {
     background-position: left;
+
+    @media(max-width: $screen-md-max) {
+      left: -150px;
+    }
   }
 
   .medical-specialty__back-button {
