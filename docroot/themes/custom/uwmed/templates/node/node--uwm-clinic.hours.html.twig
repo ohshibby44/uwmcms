@@ -102,7 +102,7 @@
 
     {# Check if this is a 24/7 clinic #}
     {% set open24Hours = null %}
-    {% for day in apiData.clinicTimeUseMasters[0] %}
+    {% for day in apiData.clinicTimeUseMasters[0].hoursOfOperation %}
         {% if (day.startTime == "00:00:00") and (open24Hours or open24Hours is null) %}
             {% set open24Hours = true %}
         {% else %}

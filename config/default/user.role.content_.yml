@@ -34,6 +34,7 @@ permissions:
   - 'administer meta tags'
   - 'administer moderation states'
   - 'administer nodes'
+  - 'administer site configuration'
   - 'administer taxonomy'
   - 'administer users'
   - 'administer webform'
