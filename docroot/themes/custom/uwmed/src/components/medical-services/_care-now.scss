@@ -31,6 +31,12 @@
       }
     }
 
+    .clinic__name {
+      a {
+        text-decoration: underline;
+      }
+    }
+
     .clinic__info {
       @extend .well;
       margin: 0;

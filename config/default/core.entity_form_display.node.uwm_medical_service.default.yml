@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.uwm_medical_service.field_image
     - field.field.node.uwm_medical_service.field_information_manager_url
     - field.field.node.uwm_medical_service.field_links_with_icon
+    - field.field.node.uwm_medical_service.field_meta_tags
     - field.field.node.uwm_medical_service.field_proof_points
     - field.field.node.uwm_medical_service.field_quiz
     - field.field.node.uwm_medical_service.field_sub_title
@@ -22,6 +23,7 @@ dependencies:
   module:
     - entity_browser
     - field_group
+    - metatag
     - paragraphs
     - path
     - text
@@ -246,6 +248,12 @@ content:
       default_paragraph_type: link_with_icon
     third_party_settings: {  }
     type: paragraphs
+    region: content
+  field_meta_tags:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_proof_points:
     type: entity_reference_paragraphs

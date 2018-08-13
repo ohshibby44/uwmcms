@@ -607,6 +607,13 @@
     }
   }
 
+  .lg-gray-background {
+    @media(min-width: $screen-lg-min) {
+      background: #f5f5f5;
+      margin-bottom: 20px;
+    }
+  }
+
   .find-a-location {
     margin-top: 30px;
     padding-bottom: 20px;
@@ -967,6 +974,7 @@
       a {
         @extend .btn;
         @extend .btn-default;
+        padding: 0;
         //
         //text-transform: uppercase;
         //text-decoration: none;
@@ -977,10 +985,7 @@
         //position: absolute;
         //bottom: 10px;
 
-        @media(min-width: $screen-lg-min) {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
+
 
         &:hover {
           text-decoration: none;
@@ -1201,6 +1206,19 @@
     article.uwm-clinic {
 
       @extend .col-lg-3, .col-md-4, .col-sm-6;
+
+      @media(min-width: $screen-sm-min) {
+        width: 49.9%;
+      }
+
+      @media(min-width: $screen-md-min) {
+        width: 33%;
+      }
+
+      @media(min-width: $screen-lg-min) {
+        width: 24.5%;
+
+      }
 
       .f-li {
         position: relative;

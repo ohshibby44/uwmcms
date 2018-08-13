@@ -73,7 +73,7 @@
 {% set wrapper_id = wrapper_id ?: '' %}
 {% set label_classes = ['field--label', label_display == 'visually_hidden' ? 'sr-only',] %}
 {% set item_element = item_element ?: 'div' %}
-
+{% set accent_tag = accent_tag ?: 'i' %}
 {% block content %}
 
     {% if include_wrapper %}

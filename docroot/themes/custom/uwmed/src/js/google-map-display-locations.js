@@ -5,7 +5,7 @@ window.initMap = function() {}; // initialize function in time for google maps t
     attach: function () {
 
       window.initMap = function () {
-        var clinics = drupalSettings['uwmcms_reader_map_clinics'];
+        var clinics = drupalSettings['uwmcms_reader_medical_service_clinics'];
 
         var initialIcon = {
           url: "/themes/custom/uwmed/dist/assets/map-marker-purple.svg",

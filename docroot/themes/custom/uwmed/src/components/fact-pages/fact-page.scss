@@ -223,14 +223,28 @@ body.page-node-type-fact-page {
   .field.field--name-field-bottom-content-blocks,
   .field.field--name-field-bottom-content-blocks > .item,
   .field.field--name-field-bottom-content-blocks > .item > .paragraph {
+    //@extend .flex-row, .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph > .wrapper {
+    //@extend .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks .paragraph {
+    @extend .sticky-cta;
+  }
+
+  .field.field--name-field-bottom-content-blocks {
+    @extend .flex-row, .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks > .item {
+    @extend .flex-row, .flex-item;
+  }
+  .field.field--name-field-bottom-content-blocks > .item > .paragraph {
     @extend .flex-row, .flex-item;
   }
   .field.field--name-field-bottom-content-blocks > .item > .paragraph > .wrapper {
     @extend .flex-item;
   }
-  .field.field--name-field-bottom-content-blocks .paragraph {
-    @extend .sticky-cta;
-  }
+
 
 }
 
