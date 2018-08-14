@@ -25,15 +25,14 @@
 
 {% set _bio = node.uwmcs_reader_api_values %}
 {% set locations = uwm_extract_parts(_bio, 'clinicBases') %}
-{% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ?
-'/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
+{% set publicationIds = uwm_extract_parts(_bio, 'pubMedId') %}
+{% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ? '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
 {% set locationUrls = uwm_extract_parts(locations, 'clinicUrl') %}
 {% set aptsLink = 'hall-health-center' in locationUrls[0] ?
 'http://depts.washington.edu/hhpccweb/' : '/patient-care/making-an-appointment' %}
 
 
-<article{{ attributes.addClass(classes) }}>
-
+<article{{ attributes.addClass(classes) }} data-publication-ids="{{ publicationIds|json_encode() }}">
 
     <div class="row">
 
@@ -194,8 +193,8 @@
                     </li>
                 {% endif %}
 
-                {% if _bio.bioPublicationsDetails %}
-                    <li role="presentation"><a href="#publications"
+                {#{% if _bio.bioPublicationsDetails %}#}
+                    <li role="presentation" class="pubs-ajax fade-out"><a href="#publications"
                                                name="publications"
                                                role="tab"
                                                id="publications-tab"
@@ -207,7 +206,7 @@
 
                         </a>
                     </li>
-                {% endif %}
+                {#{% endif %}#}
 
             </ul>
 
@@ -258,14 +257,14 @@
                     </div>
                 {% endif %}
 
-                {% if _bio.bioPublicationsDetails %}
-                    <div class="row tab-pane publications-tab" role="tabpanel"
+                {#{% if _bio.bioPublicationsDetails %}#}
+                    <div class="row tab-pane publications-tab pubs-ajax fade-out" role="tabpanel"
                          id="publications" aria-labelledby="publications-tab">
 
-                        {% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}
+                        {#{% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}#}
 
                     </div>
-                {% endif %}
+                {#{% endif %}#}
 
             </div>
 
@@ -281,5 +280,6 @@
         </section>
 
     </div>
+
 </article>
 

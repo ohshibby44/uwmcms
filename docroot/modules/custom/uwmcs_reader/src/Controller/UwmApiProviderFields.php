@@ -16,10 +16,9 @@ class UwmApiProviderFields implements UwmImFieldsInterface {
   public static function addFieldData(\stdClass &$imApiProvider) {
 
     // Fetch details for publications.
-    if (!empty($imApiProvider->bioPublications[0]->pubMedId)) {
-      self::getProviderPublications($imApiProvider);
-    }
-
+    // if (!empty($imApiProvider->bioPublications[0]->pubMedId)) {
+    // self::getProviderPublications($imApiProvider);
+    // }
     // If provider has clinics, get full clinic details.
     if (!empty($imApiProvider->careNetworks[0]->clinicBases)) {
       self::getProviderLocations($imApiProvider);
