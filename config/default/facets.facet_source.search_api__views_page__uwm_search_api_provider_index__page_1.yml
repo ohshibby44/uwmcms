@@ -1,0 +1,12 @@
+uuid: 56d8fa17-c59d-4beb-bedc-f12dda44fb88
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__uwm_search_api_provider_index__page_1
+name: 'search_api:views_page__uwm_search_api_provider_index__page_1'
+filter_key: ''
+url_processor: query_string
+breadcrumb:
+  active: true
+  before: true
+  group: false

@@ -1,0 +1,28 @@
+uuid: 49893cb4-f837-409a-b4fd-008e5608c413
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.locations_content_blocks_facet
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: locationscontentblocksfacet
+theme: uwmed
+region: sidebar_second
+weight: -4
+provider: null
+plugin: 'facet_block:locations_content_blocks_facet'
+settings:
+  id: 'facet_block:locations_content_blocks_facet'
+  label: 'Locations Content Blocks Facet'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/index/locations
+    negate: false
+    context_mapping: {  }
