@@ -1,23 +1,14 @@
 (function ($, Drupal) {
   Drupal.behaviors.medicalServices = {
     attach: function() {
-      $('.find-a-location__content a[href^="#"]').click(function () {
-        var href = $(this).attr('href').slice(0, -4);
+      // trigger main tab when user clicks on find a location overview, then jump
+      $('div.medical-service-hero__links-with-icon__desktop a[href="#find-a-location-jump"]').off().click(function (e) {
+        e.preventDefault();
+        var href = "#approach";
+
         $('.nav-tabs a[href="' + href + '"]').trigger('click');
+        window.setTimeout("window.location.href = '#find-a-location-jump';", 250);
       });
-
-      // add a hash to the URL when the user clicks on a tab
-      // $('a[data-toggle="tab"]').on('click', function(e) {
-      //   history.pushState(null, "hello", $(this).attr('href'));
-      // });
-
-      // navigate to a tab when the history changes
-      // window.addEventListener("popstate", function(e) {
-      //   var activeTab = $('[href="' + location.hash + '"]');
-      //   if (activeTab.length) {
-      //     activeTab.tab('show');
-      //   }
-      // });
 
       $('a#approach-tab')
         .on('shown.bs.tab', function () {

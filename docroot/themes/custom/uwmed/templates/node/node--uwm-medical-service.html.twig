@@ -27,6 +27,7 @@
 {% set urgent_care_clinics = node.uwmcms_reader_urgent_care_clinics %}
 {% set primary_care_clinics = node.uwmcms_reader_primary_care_clinics %}
 {% set map_clinics = node.uwmcms_reader_medical_service_clinics %}
+{% set is_primary_care_service_page = primary_care_clinics == map_clinics %}
 
 <article{{ attributes.addClass(classes) }}>
   <section>
@@ -88,6 +89,7 @@
 
             </a>
           </li>
+          {% if is_primary_care_service_page %}
           <li role="presentation"><a href="#carenow"
                                      role="tab"
                                      id="carenow-tab"
@@ -102,6 +104,7 @@
 
             </a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -232,6 +235,12 @@
             {#</div>#}
           {#</div>#}
 
+        {% if not is_primary_care_service_page %}
+        <section id="block-emergencymedicine" class="block block-block-content clearfix">
+          {{ drupal_entity('block_content', 126) }}
+        </section>
+        {% endif %}
+
         {% if content.field_featured_specialties|render|striptags|trim is not empty %}
         <div class="featured-specialties uwm-toggle col-xs-12">
           <div class="container container-lg">
@@ -339,6 +348,7 @@
 
       </div>
 
+      {% if is_primary_care_service_page %}
       <div class="tab-pane fade" role="tabpanel" id="carenow"
            aria-labelledby="carenow-tab">
 
@@ -347,6 +357,7 @@
           {{ drupal_entity('block_content', 71) }}
         </section>
       </div>
+      {% endif %}
     </div>
 
     <div id="condition-spotlight" class="condition-spotlight">

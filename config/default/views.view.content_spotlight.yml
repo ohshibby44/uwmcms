@@ -168,7 +168,7 @@ display:
         header: false
         title: false
       header: {  }
-      title: 'Related Content'
+      title: 'Stories from Around UW Medicine'
     cache_metadata:
       max-age: -1
       contexts:

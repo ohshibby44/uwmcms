@@ -915,7 +915,7 @@
     }
 
     .field--name-field-link {
-      margin-top: auto;
+      margin-top: 10px;
     }
   }
 
@@ -964,6 +964,7 @@
 
     .field--name-field-text-snippet {
       padding-bottom: $padding-base-vertical;
+      margin-bottom: 0;
     }
 
     .field--name-field-link {
