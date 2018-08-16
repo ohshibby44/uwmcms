@@ -8,7 +8,9 @@
 
 #}
 
+{{ attach_library('uwmed/node--uwm-provider') }}
 {{ attach_library('uwmed/bootstrap-tab-history') }}
+{{ attach_library('uwmed/modal-play-video') }}
 
 {% set classes = [
     node.bundle|clean_class,
@@ -38,7 +40,9 @@
         <section class="col-xs-12 col-sm-3 hidden-xs left">
 
             <div class="col-xs-6 col-sm-12 profile-image">
+                {% if profileImage %}
                 <img src="{{ profileImage }}">
+                {% endif %}
             </div>
 
             <div class="col-sm-12 accepting-apts l">

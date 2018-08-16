@@ -1,16 +1,16 @@
 {{ attach_library('uwmed/clinic-hours') }}
 
-
 {% import directory ~'/templates/node/node--uwm-clinic.hours.html.twig' as _clinicHours %}
 
 <div class="row">
+
     {% for clinic in locations %}
 
 
         <div class="col-xs-12 col-xl-6 provider-location">
 
             <div class="col-xs-12 col-sm-5 location-image">
-                <img src="{{ clinic.externalUrl|replace({'http://': 'https://'}) ~ '/PublishingImages/splash1.jpg' }}">
+                <img src="{{ 'https://www.uwmedicine.org' ~ clinic.clinicUrl ~ '/PublishingImages/splash1.jpg' }}">
             </div>
 
             <div class="col-xs-12 col-sm-7">
@@ -49,10 +49,8 @@
                 </p>
 
                 <div class="location-hours k">
-                    {% set nid = uwm_get_api_nid(clinic.url) %}
-                    {% set hours = clinic.clinicTimeUseMasters[0].hoursOfOperation %}
-                    {% if hours and nid %}
-                        {{ _clinicHours.uwOpensNextSnippet_withRefresh(hours, nid) }}
+                    {% if clinic.clinicTimeUseMasters[0] %}
+                    {{ _clinicHours.uwOpenNowSnippet(clinic.clinicTimeUseMasters[0]) }}
                     {% endif %}
                 </div>
 

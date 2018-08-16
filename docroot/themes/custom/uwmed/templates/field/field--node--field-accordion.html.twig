@@ -37,34 +37,6 @@
  *
  * @see template_preprocess_field()
  */
-
-{% if label_hidden %}
-    {% if multiple %}
-        <div{{ attributes }}>
-            {% for item in items %}
-                <div{{ item.attributes }}>{{ item.content }}</div>
-            {% endfor %}
-        </div>
-    {% else %}
-        {% for item in items %}
-            <div{{ attributes }}>{{ item.content }}</div>
-        {% endfor %}
-    {% endif %}
-{% else %}
-    <div{{ attributes }}>
-        <div{{ title_attributes }}>{{ label }}</div>
-        {% if multiple %}
-        <div>
-            {% endif %}
-            {% for item in items %}
-                <div{{ item.attributes }}>{{ item.content }}</div>
-            {% endfor %}
-            {% if multiple %}
-        </div>
-        {% endif %}
-    </div>
-{% endif %}
-
 #}
 {% set include_wrapper = include_wrapper ?: 'true' %}
 {% set wrapper_element = wrapper_element ?: 'div' %}
@@ -78,19 +50,17 @@
 
 {% block content %}
 
-  {#{% if include_wrapper == 'true' %}#}
-    {#<{{ wrapper_element }}{{ attributes.addClass(wrapper_classes) }}{% if wrapper_id %}{{ attributes.setAttribute('id', wrapper_id) }}{% endif %}>#}
-  {#{% endif %}#}
-
-  {#{% if not label_hidden %}#}
-    {#<div{{ title_attributes.addClass(label_classes) }}>{{ label }}</div>#}
-  {#{% endif %}#}
-
-  {#{% for item in items %}#}
-  {#{% set n = n+1 %}#}
   {% block item %}
+    {# check if first paragraph has any content #}
+    {% if items[0].content["#paragraph"].field_heading.value|render|trim is not empty %}
 
-
+    <div class="container accordion-mobile-header">
+      <div class="visible-xs visible-sm">
+        <div class="col-xs-12">
+          <h2>Some of our common services:</h2>
+        </div>
+      </div>
+    </div>
 
     {# paragraph: accordion for mobile #}
     <div class="panel-group visible-xs visible-sm" id="accordion-mobile" role="tablist"
@@ -172,6 +142,12 @@
     <div class="accordion-desktop-container">
       <div class="panel hidden-xs hidden-sm col-xs-12 panel-list-group-top-level" id="accordion-desktop" role="tablist"
            aria-multiselectable="true">
+        <div class="container-lg accordion-desktop-header">
+          <div class="col-xs-12">
+            <h2>Some of our common services:</h2>
+          </div>
+        </div>
+
         {# for each item create a list item control #}
         <ul class="list-group container-lg list-group-top-level">
           {% for key, item in items %}
@@ -261,12 +237,7 @@
       </div>
     </div>
 
-
+  {% endif %}
   {% endblock item %}
-  {#{% endfor %}#}
-
-  {#{% if include_wrapper == 'true' %}#}
-    {#</{{ wrapper_element }}>#}
-  {#{% endif %}#}
 
 {% endblock content %}

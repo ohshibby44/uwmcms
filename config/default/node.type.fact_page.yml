@@ -4,11 +4,20 @@ status: true
 dependencies:
   module:
     - menu_ui
+    - workbench_moderation
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'Fact Page'
+  workbench_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - published
+      - archived
+      - draft
+      - needs_review
+    default_moderation_state: published
+name: 'UW Fact Page'
 type: fact_page
 description: ''
 help: ''

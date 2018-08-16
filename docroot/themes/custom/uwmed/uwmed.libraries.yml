@@ -32,7 +32,7 @@ clinic-nodes:
 
 uwm-toggle:
   js:
-    dist/js/toggle.js: {}
+    dist/js/uwm-toggle.js: {}
   dependencies:
       - core/jquery
       - core/drupalSettings
@@ -56,7 +56,8 @@ font-awesome:
 clinic-hours:
   js:
     //www.clockwisemd.com/hospitals/clockwise_api.js: {}
-    dist/js/refresh-from.js: {}
+    dist/libraries/moment.min.js: {}
+    dist/js/uwm-refresh-from.js: {}
     dist/js/clinic-hours.js: {}
     dist/js/clinic-clockwise-wait-times.js: {}
   dependencies:
@@ -65,9 +66,11 @@ clinic-hours:
 
 googlemaps:
   js:
+    dist/js/google-map-display-locations.js: {}
     //maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDtdMuu9kpdNE--4xUNT1aSuy-wh9vxFtg&callback=initMap: {type: external, attributes: {async: true, defer: true}}
   dependencies:
-    - uwmed/medical-service
+    - core/drupalSettings
+
 
 swipejs:
   js:
@@ -78,11 +81,13 @@ swipejs:
 slickquiz:
   js:
     dist/js/slickQuiz.js: {}
+    dist/js/loadSlickQuiz.js: {}
   css:
     theme:
       dist/styles/slickQuiz.css: {}
   dependencies:
     - core/jquery
+    - core/drupalSettings
 
 screenfull:
   js:
@@ -106,11 +111,16 @@ patient-care-video:
     - uwmed/screenfull
     - uwmed/colorbox
 
+condition-spotlight-swipe:
+  js:
+    dist/js/condition-spotlight-swipe.js: {}
+  dependencies:
+    - core/drupal
+    - uwmed/swipejs
+    
 medical-service:
   js:
-    dist/js/back-pain-quiz.js: {}
     dist/js/medical-service.js: {}
-    dist/js/google-map-display-locations.js: {}
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -119,6 +129,8 @@ medical-service:
     - uwmed/swipejs
     - uwmed/slickquiz
     - uwmed/colorbox
+    - uwmed/condition-spotlight-swipe
+    - uwmed/clinic-hours
 
 node--fact-page:
   js:
@@ -126,6 +138,16 @@ node--fact-page:
   css: {}
   dependencies:
     - uwmed/colorbox
+#  css:
+#    theme:
+#      dist/components/fact-pages/fact-page.css: {}
+
+node--uwm-provider:
+  js: {}
+  css: {}
+  dependencies:
+    - uwmed/colorbox
+    - uwmed/modal-play-video
 #  css:
 #    theme:
 #      dist/components/fact-pages/fact-page.css: {}
@@ -140,3 +162,19 @@ homepage-animation:
     dist/js/homepage-animation.js: {}
   dependencies:
     - uwmed/scroll-magic
+
+
+modal-play-video:
+  js:
+    dist/js/uwm-modal-play-video.js: {}
+  dependencies:
+    - uwmed/colorbox
+      - core/jquery
+      - core/drupalSettings
+
+urgent-care-hours:
+  js:
+    dist/js/urgent-care-hours.js: {}
+  dependencies:
+      - core/jquery
+      - core/drupalSettings

@@ -11,7 +11,7 @@ dependencies:
     - uwmed
 id: uwmed_views_block__uwm_terms_block_1
 theme: uwmed
-region: content
+region: content_header
 weight: -6
 provider: null
 plugin: 'views_block:uwm_terms-block_1'

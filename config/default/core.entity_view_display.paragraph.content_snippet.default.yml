@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.content_snippet.field_heading
     - field.field.paragraph.content_snippet.field_link
     - field.field.paragraph.content_snippet.field_text_snippet
+    - image.style.medium
     - paragraphs.paragraphs_type.content_snippet
   module:
     - image
@@ -18,14 +19,14 @@ bundle: content_snippet
 mode: default
 content:
   field_featured_image:
-    weight: 3
+    type: image
+    weight: 2
+    region: content
     label: hidden
     settings:
-      image_style: ''
+      image_style: medium
       image_link: ''
     third_party_settings: {  }
-    type: image
-    region: content
   field_heading:
     weight: 0
     label: hidden
@@ -34,7 +35,9 @@ content:
     type: text_default
     region: content
   field_link:
-    weight: 2
+    type: link
+    weight: 3
+    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -43,13 +46,11 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
-    region: content
   field_text_snippet:
+    type: text_default
     weight: 1
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
 hidden: {  }

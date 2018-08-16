@@ -10,8 +10,8 @@ _core:
   default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
 id: uwmed_page_title
 theme: uwmed
-region: content
-weight: -2
+region: content_header
+weight: -7
 provider: null
 plugin: page_title_block
 settings:
@@ -25,6 +25,7 @@ visibility:
     bundles:
       homepage: homepage
       uwm_medical_service: uwm_medical_service
+      uwm_medical_specialty: uwm_medical_specialty
     negate: true
     context_mapping:
       node: '@node.node_route_context:node'

@@ -9,24 +9,126 @@
 
 
     Drupal.behaviors.showCurrentHours = {
+
         attach: function (context, settings) {
 
-            var nodeId = $('div#main-container article.uwm-clinic')
-                .attr('data-node-id');
-            var $hrsDiv = $('.clinic-hours-wrapper');
+            var $elm = $('[data-uwm-opens-at]', context);
 
-            if (nodeId > 0 && $hrsDiv.length > 0) {
+            $elm.each(function (a, b) {
 
-                $.get('/locations/location-hours/' + nodeId, function (data) {
+                var $this = $(b);
+                var data = $this.data('uwm-opens-at');
+                var markup = hoursMarkup(data, $this.is('[data-show-brief]'));
 
-                    var $newHrs = $('.clinic-hours-wrapper', data);
-                    if ($newHrs.length > 0) {
-                        $hrsDiv.html($newHrs.html()).removeClass('hidden');
-                    }
+                $this.find('em').html(markup);
 
-                });
-            }
+            });
+
         }
+
     };
+
+
+    function uwf() {
+
+        var s = arguments[0],
+            i = arguments.length;
+
+        while (i--) {
+            s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+        }
+        return s;
+
+    }
+
+
+    function hoursMarkup(data, showBrief) {
+
+        var now = moment().format('X') * 1;
+        var opens = now > data.closes ? data.nextOpens : data.opens;
+        var closes = now > data.closes ? data.nextCloses : data.closes;
+        var dayToday = moment().format('dddd');
+        var dayOpens = moment.unix(opens).format('dddd');
+
+        var markup = '';
+
+        // Opens later:
+        if (now < opens) {
+
+            if (showBrief) {
+                markup = uwf('<strong>Closed -</strong> Opens {1} at {2}',
+                    moment.unix(opens).format('ddd'),
+                    moment.unix(opens).format('h:mm')
+                );
+            } else {
+                markup = uwf('<strong>Closed:</strong> <em>Opens {1} at {2}</em>',
+                    moment.unix(opens).format('dddd'),
+                    moment.unix(opens).format('h:mm a')
+                );
+            }
+
+        }
+
+        // Opens today:
+        if (now < opens && dayOpens === dayToday && showBrief) {
+
+            markup = uwf('<strong>Closed -</strong> Opens today at {1}',
+                moment.unix(opens).format('h:mm')
+            );
+
+        }
+        // Opens soon:
+        if (now < opens && now + 3600 > opens) {
+
+            if (showBrief) {
+                markup = uwf('<strong>Opens soon -</strong> {1} - {2}',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
+                );
+            } else {
+                markup = uwf('<strong>Opens soon:</strong> <em>{1} - {2}</em>',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
+                );
+            }
+
+        }
+        // Open now:
+        if (now > opens && now < closes) {
+
+            if (showBrief) {
+                markup = uwf('<strong>Open -</strong> Closes at {1}',
+                    moment.unix(closes).format('h:mm a')
+                );
+            }
+            else {
+                markup = uwf('<strong>Open now:</strong> <em>Closes at {1}</em>',
+                    moment.unix(closes).format('h:mm a')
+                );
+            }
+
+        }
+        // Closes soon:
+        else if (now > opens && now < closes && now + 3600 > closes) {
+
+            if (showBrief) {
+                markup = uwf('<strong>Closes soon-</strong> {1} - {2}',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
+                );
+            }
+            else {
+                markup = uwf('<strong>Closes soon:</strong> <em>{1} - {2}</em>',
+                    moment.unix(opens).format('h:mm a'),
+                    moment.unix(closes).format('h:mm a')
+                );
+            }
+
+        }
+
+        return markup;
+
+    }
+
 
 })(jQuery, Drupal, drupalSettings);

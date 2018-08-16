@@ -1,5 +1,21 @@
+//.page-node-type-uwm-medical-service {
+//  .accordion-desktop-container {
+//    .panel-list-group-top-level {
+//      padding-bottom: 20px;
+//
+//      .panel {
+//        padding-bottom: 40px;
+//      }
+//    }
+//  }
+//}
 
-.page-node-type-uwm-medical-specialty {
+.page-node-type-uwm-medical-specialty, .page-node-type-uwm-medical-service {
+  .accordion-mobile-header {
+    background-color: #f5f5f5;
+    width: 100%;
+  }
+
   #accordion-mobile {
 
     // Both top-level and sub-level panel styles
@@ -24,6 +40,7 @@
         display: block;
         padding: 10px 15px;
         font-size: $font-size-base;
+        text-decoration: none;
       }
 
       a:focus {
@@ -99,6 +116,11 @@
   }
 
   .accordion-desktop-container {
+    .accordion-desktop-header::after {
+      clear: both;
+      content: " ";
+      display: table;
+    }
 
     & >.panel {
       background: #f5f5f5;
@@ -107,6 +129,7 @@
     .panel-list-group-top-level {
       border: none;
       box-shadow: none;
+      margin-bottom: 38px;
     }
 
     .list-group-top-level {
@@ -130,7 +153,7 @@
       display: flex;
 
       a {
-        flex-grow: 1;
+        flex: 1;
         text-decoration: none;
         background: $uwmed-accent-orange;
         color: white;

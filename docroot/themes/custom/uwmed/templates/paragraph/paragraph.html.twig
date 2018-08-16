@@ -40,25 +40,22 @@
 #}
 
 {% set element = element ?: 'div' %}
-{% set classes = classes ?: [
-'paragraph',
-'paragraph--type--' ~ paragraph.bundle|clean_class,
-view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-] %}
+{% set classes = classes ?: ['paragraph', 'paragraph--type--' ~ paragraph.bundle|clean_class, view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,] %}
+
 {% block paragraph %}
     <{{ element }}{{ attributes.addClass(classes) }} id="ppg-{{ paragraph.id() }}">
 
-        {% if content.field_featured_image.0['#item'] %}
-            {% set bg = file_url(content.field_featured_image.0['#item'].entity.uri.value) %}
-            <div class="hidden bg-featured-image" style="background-image: url('{{ bg }}')"></div>
-        {% endif %}
+    {% if content.field_featured_image.0['#item'] %}
+        {% set bg = file_url(content.field_featured_image.0['#item'].entity.uri.value) %}
+        <div class="hidden bg-featured-image"
+             style="background-image: url('{{ bg }}')"></div>
+    {% endif %}
 
-        <div class="wrapper">
-            {% block content %}
-                {{ content }}
-            {% endblock %}
-        </div>
+    <div class="wrapper">
+        {% block content %}
+            {{ content }}
+        {% endblock %}
+    </div>
 
     </{{ element }}>
-
 {% endblock paragraph %}

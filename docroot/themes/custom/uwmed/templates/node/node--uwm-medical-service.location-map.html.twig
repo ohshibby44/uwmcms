@@ -1,0 +1,95 @@
+<div class="col-xs-12{% if content.field_accordion|render|trim is not empty %} lg-gray-background{% endif %}">
+  <div class="find-a-location container">
+
+    <div class="row-lg">
+      <div class="find-a-location__content col-lg-6">
+        {% block content %}
+        <h2>{{ 'Convenient care, in your neighborhood.'|t }}</h2>
+
+        <p class="find-a-location__instructions"><span class="find-a-location__no-geolocation">We were unable to pinpoint your current location.</span> Click a pin on the map for more information about a specific location.</p>
+
+        <div class="find-a-location__heading col-xs-12 remove-padding" style="display: none;">
+          <h2 class="block-title">
+            <span class="find-a-location__closest-indicator" style="display: none;">{{ 'Closest location to you'|t }}</span>
+            <span class="find-a-location__selected-indicator" style="display: none;">{{ 'Location selected on map'|t }}</span>
+          </h2>
+          {% include '@uwmed/accents/uwmed-slant.twig' %}
+        </div>
+
+        <div class="find-a-location__clinic-info">
+        </div>
+
+        {% block content_immediate_prompt %}
+          <p class="find-a-location__immediate-prompt"><strong>Need immediate care?</strong> <a href="/services/urgent-care">Urgent care</a> is available 7 days a week at locations throughout the Puget Sound region. <a href="/locations/virtual-clinic">Virtual clinic</a> is available online 24/7. </p>
+        {% endblock content_immediate_prompt %}
+        {% endblock content %}
+      </div>
+
+      <div class="col-lg-6">
+        <div class="find-a-location__map" id="locationMap"></div>
+        {% block controls %}
+        <div class="find-a-location__controls">
+          <p class="find-a-location__clinic-list__view-all btn btn-default" id="viewAllLocations"><span id="label">List All Locations</span> <span id="arrow" class="fa fa-angle-down fa-fw fa-lg" aria-hidden="true"></span></p>
+        </div>
+        {% endblock controls %}
+      </div>
+
+      {% block clinic_list %}
+      <div class="find-a-location__clinic-list" style="display: none;">
+        {% for clinic in map_clinics %}
+          {% set phone = clinic.seoPhone|slice(0, 3)
+          ~'-'~ clinic.seoPhone|slice(3, 3)
+          ~'-'~ clinic.seoPhone|slice(6, 4) %}
+
+          {% set url = clinic.clinicUrl ? clinic.clinicUrl : clinic.externalUrl %}
+          <div class="find-a-location__clinic col-lg-6" data-location-id='{{ clinic.locationId }}'>
+            <address>
+              <h4 class="h5">{{ clinic.name }}</h4>
+              <p>{{ clinic.address }}, {{ clinic.city }}, {{ clinic.state }} {{ clinic.zipcode }}
+                /
+                <a href="tel:{{ phone }}">{{ phone|replace({'-': '.'}) }}</a></p>
+            </address>
+            <p><a class="btn btn-default" href="{{ url }}">
+                <i class="hidden u-ips"></i>
+                View<span class="sr-only"> {{ clinic.name }}</span> Clinic Information</a></p>
+          </div>
+        {% endfor %}
+      </div>
+      {% endblock clinic_list %}
+
+    </div>
+  </div>
+</div>
+
+{#<ul class="links-with-icon__list list-unstyled">#}
+  {#<li class="links-with-icon__item">#}
+    {#{% spaceless %}#}
+      {#<a class="btn btn-default" href="/search/locations#k=primary%20care">#}
+        {#<i class="hidden u-ips"></i>#}
+        {#{{ 'Find a location'|t }}#}
+        {#<span class="fa fa-angle-right fa-fw fa-lg"#}
+              {#aria-hidden="true"></span>#}
+      {#</a>#}
+    {#{% endspaceless %}#}
+  {#</li>#}
+  {#<li class="links-with-icon__item">#}
+    {#{% spaceless %}#}
+      {#<a class="btn btn-default" href="#carenow-tab">#}
+        {#<i class="hidden u-ips"></i>#}
+        {#{{ 'Urgent care'|t }}#}
+        {#<span class="fa fa-angle-right fa-fw fa-lg"#}
+              {#aria-hidden="true"></span>#}
+      {#</a>#}
+    {#{% endspaceless %}#}
+  {#</li>#}
+  {#<li class="links-with-icon__item">#}
+    {#{% spaceless %}#}
+      {#<a class="btn btn-default" href="/locations/virtual-clinic">#}
+        {#<i class="hidden u-ips"></i>#}
+        {#{{ 'Virtual clinic'|t }}#}
+        {#<span class="fa fa-angle-right fa-fw fa-lg"#}
+              {#aria-hidden="true"></span>#}
+      {#</a>#}
+    {#{% endspaceless %}#}
+  {#</li>#}
+{#</ul>#}

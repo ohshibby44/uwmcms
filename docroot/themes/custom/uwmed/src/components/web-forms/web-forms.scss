@@ -1,0 +1,39 @@
+
+.paragraph form.webform-submission-health-news-signup-form {
+
+  .form-item-privacy-confirmation {
+    display: block;
+    font-size: 10px;
+    font-style: italic;
+  }
+
+  label {
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type="checkbox"] {
+    margin: 0;
+    position: relative;
+    padding: 0;
+  }
+
+  @media(min-width: $screen-md-min) {
+
+    .form-item-privacy-confirmation {
+      float: right;
+      width: 60%;
+      margin-top: 0;
+    }
+    
+    .form-actions.form-wrapper {
+      float: left;
+      width: 40%;
+      button {
+        width: 95%;
+      }
+    }
+
+  }
+
+}

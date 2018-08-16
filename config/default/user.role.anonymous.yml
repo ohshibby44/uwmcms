@@ -14,6 +14,7 @@ permissions:
   - 'generate uwmcs reader'
   - 'use text format simple_formatted_text'
   - 'view media'
+  - 'view paragraph content accordion_panel'
   - 'view paragraph content content_snippet'
   - 'view paragraph content feature_story'
   - 'view paragraph content homepage_section'

@@ -85,4 +85,32 @@ body.adminimal {
     }
   }
 
+  // Content manager content page:
+  .view-id-uwm_content.view-display-id-page_2 {
+
+    .form-item-title, .form-item-title input {
+      float: left;
+      width: 90%;
+      clear: both;
+    }
+    form#views-form-uwm-content-page-2 {
+      border-top: 1px solid #dcdcdc;
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+  }
+
+  nav.eb-tabs ul li {
+
+    a {
+      border: 1px solid #d6d6d6;
+      border-radius: 10px;
+      margin: 6px;
+    }
+    .active a {
+    }
+
+  }
+
+
 }

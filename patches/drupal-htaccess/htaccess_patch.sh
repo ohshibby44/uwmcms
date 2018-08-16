@@ -2,13 +2,14 @@
 # Shell script aplies any patch.
 #
 # @example
-# To apply our .htaccess patch file:
-# $sh ./patches/drupal-htaccess/htaccess_patch.sh ./patches/drupal-htaccess/htaccess.patch
+# To apply this patch and generate a new ./.htaccess file, run:
 #
-# To create a new patch file, make desired changes, for example by
-# running our patch then adding a few new lines in the target file. Then create
-# a new patch file by running
-# $git diff -p ./docroot/.htaccess > ./patches/drupal-htaccess/htaccess.patch
+# $ sh ./patches/drupal-htaccess/htaccess_patch.sh ./patches/drupal-htaccess/htaccess.patch
+#
+# Later, if wishing to create new .htaccess file, run this patch, make your new
+# htaccess additions, then create an updated patch file:
+#
+# $ git diff -p ./docroot/.htaccess > ./patches/drupal-htaccess/htaccess.patch
 #
 # @endexample
 #

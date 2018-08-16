@@ -12,8 +12,8 @@ id: node.uwm_medical_specialty.field_accordion
 field_name: field_accordion
 entity_type: node
 bundle: uwm_medical_specialty
-label: 'Common Services'
-description: ''
+label: 'Common Services Accordion'
+description: 'On desktop displays, accordions will print in 3 columns from left to right. On mobile displays, accordions will print in one column in the order displayed below.'
 required: false
 translatable: false
 default_value: {  }
@@ -48,5 +48,8 @@ settings:
         enabled: false
       reusable_content:
         weight: 16
+        enabled: false
+      quiz_question:
+        weight: 17
         enabled: false
 field_type: entity_reference_revisions

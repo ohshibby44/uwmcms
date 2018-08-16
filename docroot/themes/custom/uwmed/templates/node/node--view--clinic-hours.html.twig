@@ -18,12 +18,18 @@ Hours listed on the page are refreshed by this non-cached version.
 
 {#{{ devel_breakpoint() }}#}
 
+{% if nid == 12861 %}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
+    {{ hoursMacro.uwOpenNowSnippet(clinicHours) }}
+{% else %}
+    {% if clinicHours %}
+        {{ hoursMacro.clinicHours(clinicHours, nid) }}
+    {% endif %}
+    {{ hoursMacro.uwOpenHoursTable(clinic, nid) }}
 
-{{ hoursMacro.uwOpenHoursTable_withRefresh(clinic, nid) }}
-
-{% if clinicHours %}
-    {{ hoursMacro.uwOpensNextSnippet_withRefresh(clinicHours, nid) }}
 {% endif %}
+
+
 
 
 {#

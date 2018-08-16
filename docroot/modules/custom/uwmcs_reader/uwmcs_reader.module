@@ -5,59 +5,124 @@
  * Module for reading an API and providing API data to themes.
  */
 
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\uwmcs_reader\Controller\UwmApiClinicFields;
+use Drupal\uwmcs_reader\Controller\UwmApiProviderFields;
 use Drupal\uwmcs_reader\Controller\UwmFetcher;
 
 /**
- * Implements hook_entity_load().
+ * Implements hook_node_view().
+ *
+ * @TODO: Change this to node_load().
  */
-function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
+function uwmcs_reader_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
 
-  foreach ($entities as $entity) {
+  $args = explode('/', trim(
+    \Drupal::request()->getRequestUri(), '/'));
 
-    if ($entity_type_id === 'node') {
+  if ($entity->getType() === "uwm_clinic") {
 
-      $args = explode('/', trim(
-        \Drupal::request()->getRequestUri(), '/'));
-      $slug = $args[1] ?? '';
-      $nodeType = $entity->getType();
-      $fetcher = new UwmFetcher();
+    // Fetch Information Manager (IM) data from API endpoint.
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
 
-      if ($nodeType === 'uwm_clinic') {
+    if (!empty($data->id) && $view_mode == "full") {
+      UwmApiClinicFields::addFieldData($data);
+    }
 
-        // Fetch Information Manager (IM) data from API endpoint.
-        $itemUrl = $entity->field_information_manager_url->value ?? '';
-        $possibleSearch = ['clinicUrl' => '/locations/' . $slug];
-        $resultData = $fetcher->getClinic($itemUrl, $possibleSearch);
+    $entity->uwmcs_reader_api_values = $data;
 
-        $entity->uwmcs_reader_api_values = $resultData;
+  }
 
+  if ($entity->getType() === "uwm_provider") {
+
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
+    $data = $fetcher->getUrl($entity->field_information_manager_url->value);
+
+    if (!empty($data->id) && $view_mode == "full") {
+      UwmApiProviderFields::addFieldData($data);
+    }
+
+    $entity->uwmcs_reader_api_values = $data;
+
+  }
+
+  if ($entity->getType() === "uwm_medical_service") {
+
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
+
+    $urgent_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/60');
+    if (!empty($urgent_care_data->clinics)) {
+      $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
+    }
+
+    $primary_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/57');
+    if (!empty($primary_care_data->clinics)) {
+      $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
+    }
+
+    if (isset($entity->field_information_manager_url->value)) {
+      $medical_service_data = $fetcher->getUrl($entity->field_information_manager_url->value);
+      if (!empty($medical_service_data)) {
+        $entity->uwmcms_reader_medical_service_clinics = $medical_service_data->clinics;
       }
+    }
 
-      if ($nodeType === 'uwm_provider') {
+  }
 
-        // Fetch Information Manager (IM) data from API.
-        $fetcher = new UwmFetcher();
-        $itemUrl = $entity->field_information_manager_url->value ?? '';
-        $possibleSearch = ['friendlyUrl' => $slug];
-        $resultData = $fetcher->getProvider($itemUrl, $possibleSearch);
+  if ($entity->getType() === "uwm_medical_specialty" and $args[0] === "services" and preg_match("~urgent-care(\?.*)?~", $args[1])) {
+    // Fetch Information Manager (IM) data from API.
+    $fetcher = new UwmFetcher();
 
-        $entity->uwmcs_reader_api_values = $resultData;
+    $urgent_care_data = $fetcher->getUrl('https://webservices.uwmedicine.org/api/medicalservice/60');
+    if (!empty($urgent_care_data->clinics)) {
+      $clinics = $urgent_care_data->clinics;
+      $entity->uwmcms_reader_urgent_care_clinics = $clinics;
 
-      }
-
-      if ($nodeType === 'uwm_medical_service') {
-
-        // Fetch Information Manager (IM) data from API.
-        $fetcher = new UwmFetcher();
-
-        $urgent_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/60');
-        if (!empty($urgent_care_data->clinics)) {
-          $entity->uwmcms_reader_urgent_care_clinics = $urgent_care_data->clinics;
+      foreach ($clinics as $key => $clinic) {
+        // Remove virtual clinic from list.
+        if ($clinic->id === 7613) {
+          unset($clinics[$key]);
         }
+      }
+      $entity->uwmcms_reader_medical_service_clinics = $clinics;
 
-        $primary_care_data = $fetcher->getUrl('http://webservices.uwmedicine.org/api/medicalservice/57');
-        if (!empty($primary_care_data->clinics)) {
-          $entity->uwmcms_reader_primary_care_clinics = $primary_care_data->clinics;
+      // Get first urgent care clinic so we can display hours (same for all) on
+      // the page. @TODO: Get better data from new API.
+      $uc_clinic = $urgent_care_data->clinics[0]->id;
+      $uc_clinic = $fetcher->getUrl('https://webservices.uwmedicine.org/api/clinic/' . $uc_clinic);
+      $uc_clinic->clinicTimeUseMasters =
+        UwmApiClinicFields::getClinicHoursArray($uc_clinic->clinicTimeUseMasters);
+      $entity->uwmcms_reader_uc_clinic = $uc_clinic;
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function uwmcs_reader_node_access(NodeInterface $node, $op, AccountInterface $account) {
+
+  if ($op === 'view') {
+
+    if ($node->hasField('field_information_manager_url')) {
+
+      if (!empty($node->field_information_manager_url->value)) {
+
+        $fetcher = new UwmFetcher();
+        $data = $fetcher->getUrl($node->field_information_manager_url->value);
+
+        if (empty($data->id)) {
+
+          return AccessResult::forbidden();
         }
 
       }
@@ -65,5 +130,7 @@ function uwmcs_reader_entity_load(array $entities, $entity_type_id) {
     }
 
   }
+
+  return AccessResult::neutral();
 
 }

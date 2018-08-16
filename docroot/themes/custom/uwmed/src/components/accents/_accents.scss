@@ -3,3 +3,22 @@
   text-align: center;
   color: white;
 }
+
+.list__check-circle-o {
+  padding-left: 0;
+
+  li {
+    list-style-type: none;
+    padding: 6px 0 6px 1.5em;
+  }
+
+  li:before {
+    content: "\e902";
+    font-family: "uwmico";
+    width: 10px;
+    height: 10px;
+    margin-left: -1.5em;
+    float: left;
+    color: $uwmed-purple-icon;
+  }
+}

@@ -1,0 +1,264 @@
+.node-21036 {
+  .medical-service-hero__background {
+    background-position: left;
+
+    @media(max-width: $screen-md-max) {
+      left: -150px;
+    }
+  }
+
+  .medical-specialty__back-button {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    padding: 0;
+  }
+
+  .hours-wrapper {
+
+    // Desktop container:
+    &.hidden-xs {
+
+      width: 30%;
+      float: left;
+      position: absolute;
+      right: 0;
+      height: 100%;
+      z-index: 1;
+      &::before {
+        content: "";
+        width: 1000px;
+        position: absolute;
+        left: -70px;
+        bottom: -1px;
+        top: 0px;
+        //background-color: #f5f5f5;
+        z-index: -1;
+        transform: skewX(-10deg);
+        //opacity: .7;
+
+        background: rgba(245, 245, 245, 1);
+        //background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right -80px no-repeat rgba(245, 245, 245, 1);
+        background: linear-gradient(to bottom, rgba(245, 245, 245, 1) 0%,
+                rgba(245, 245, 245, 1) 65%,
+                rgba(245, 245, 245, .8) 85%,
+                rgba(245, 245, 255, .6) 100%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: url("#{$uw-images-folder}/UrgentCareWait_Clock.png") bottom right -80px no-repeat transparent;
+      }
+
+      .clinic-hours-table {
+        .opens-at {
+          display: none;
+        }
+      }
+
+      h4 {
+        @extend .h5;
+        color: $uwmed-purple;
+      }
+
+      .opens-at {
+        @extend .h4;
+        padding-top: 20px;
+        padding-bottom: 4px;
+        color: $uwmed-dark-purple;
+        strong {
+          font-weight: normal;
+        }
+        .uw-ico {
+          display: none;
+        }
+      }
+
+    }
+
+    // Mobile container:
+    &.hidden-lg {
+      @extend .col-xs-12;
+      background-color: #f5f5f5;
+
+
+      // The jiggieness -
+      // show small on medium screens:
+      @media (min-width: 1px) {
+        .visible-xs-block.intro {
+          display: block !important;
+        }
+        .hidden-xs.intro {
+          display: none !important;
+        }
+        .collapse-mobile {
+          display: none !important;
+        }
+        .collapse-mobile.in {
+          display: block !important;
+        }
+      }
+
+      .hours-column, .block-81, p.opens-at {
+        max-width: 500px;
+        clear: both;
+      }
+
+
+    }
+
+    h4 a, .h4 a {
+      color: $uwmed-dark-purple;
+      text-decoration: none;
+
+      @media(max-width: $screen-md-max) {
+        font-size: $font-size-h4-mobile;
+        line-height: $line-height-h4-mobile;
+      }
+    }
+    ul {
+      color: $uwmed-body-text-color;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        padding-bottom: 6px;
+        float: left;
+        width: 100%;
+      }
+    }
+
+    strong {
+      font-weight: 400;
+    }
+
+    span.day {
+      float: left;
+    }
+
+    span.hours {
+      float: right;
+    }
+
+    ul li:last-child {
+      padding-bottom: 21px;
+    }
+
+    .clinic-hours-table, .block-81, p.opens-at {
+      @extend .col-md-11;
+    }
+
+    //.opens-at, .hours-header {
+    //  color: $uwmed-light-purple;
+    //}
+
+    //.clinic-hours-container {
+    //  min-height: 300px;
+    //  padding-top: 15px;
+    //  .hours-header {
+    //    margin-top: 30px;
+    //    margin-bottom: 20px;
+    //  }
+    //  .clinic-hours-table {
+    //    //margin-bottom: 40px;
+    //
+    //    h2 {
+    //      color: $uwmed-light-purple;
+    //    }
+    //
+    //    ul {
+    //      color: $uwmed-body-text-color;
+    //      padding: 0;
+    //
+    //      li {
+    //        list-style-type: none;
+    //        padding-bottom: 6px;
+    //        float: left;
+    //        width: 100%;
+    //      }
+    //    }
+    //
+    //    strong {
+    //      font-weight: 400;
+    //    }
+    //
+    //    span.day {
+    //      float: left;
+    //    }
+    //
+    //    span.hours {
+    //      float: right;
+    //    }
+    //
+    //    .opens-at {
+    //      @extend .hidden;
+    //    }
+    //  }
+    //}
+
+  }
+
+  .medical-service__common-services.uwm-toggle {
+    li {
+      display: block;
+    }
+  }
+
+  .special-hours {
+    color: $uwmed-body-text-color;
+    margin-bottom: 10px;
+
+    @media(min-width: $screen-lg-min) {
+      padding-top: 10px;
+    }
+
+    float: left;
+  }
+}
+
+ul.boxy-ordered-list.list-check-marks {
+
+  @extend .col-xs-12;
+  padding: 0;
+  margin-bottom: 15px;
+
+  li {
+    @extend .col-xs-12, .col-sm-6;
+    list-style-type: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 1px solid #b5b5b5;
+
+    &:before {
+      content: "\e902";
+      font-family: "uwmico";
+      float: left;
+      margin-left: -16px;
+      color: #4B2E83;
+    }
+  }
+
+  @media(min-width: $screen-xs-max) {
+
+    margin-right: 45px;
+    li {
+      width: 50%;
+      position: relative;
+      &:nth-child(even) {
+        right: -45px;
+      }
+      &:nth-child(odd) {
+        clear: left;
+      }
+    }
+
+  }
+
+}
+
+

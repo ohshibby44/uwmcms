@@ -25,17 +25,17 @@ content:
   field_sub:
     type: entity_reference_revisions_entity_view
     weight: 2
+    region: content
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    region: content
   field_text_snippet:
+    type: text_default
     weight: 1
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
 hidden: {  }

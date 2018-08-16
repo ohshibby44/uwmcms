@@ -9,24 +9,73 @@
   }
 
   .uw-more {
-
     @extend .col-xs-12;
     margin: 30px 0 20px 0;
     padding-top: 10px;
-    border-top: 1px solid #f8f8f8;
+    border-top: 1px solid $uwmed-light-gray;
     text-align: center;
     opacity: .8;
 
-    a {
+    i {
+      margin-left: 8px;
+    }
+
+    &.on, .on {
+      i.fa-angle-down:before {
+        content: "\f106";
+      }
+    }
+
+    &.toggle-text {
+      &:before {
+        content: "View more";
+      }
+      i:before {
+        content: "\f107";
+      }
+
+    }
+
+  }
+
+  a.uw-more, .uw-more a {
+    &:link, &:hover, &:active, &:focus, &:visited {
       color: $uwmed-pop-blue;
       text-decoration: none;
-      &.on i.fa-angle-down:before {
-        // angle-up content:
-        content: "\f106";
+    }
+  }
 
+  &.on, .on {
+    .toggle-text {
+      &:before {
+        content: "View less";
+      }
+      i:before {
+        content: "\f106";
       }
     }
 
   }
 
+  .uw-more.with-gradient::before {
+    background: linear-gradient(rgba(245, 245, 245, .1) 0%, rgba(245, 245, 245, 1) 45%);
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    content: " ";
+  }
+
+}
+
+
+//
+// OPEN STATE FOR OTHER TOGGLES:
+a[aria-expanded="true"] .fa.fa-plus-circle:before {
+  //.fa-minus-circle:before
+  content: "\f056";
+}
+.on .with-gradient::before, .on.with-gradient::before {
+  display: none;
 }

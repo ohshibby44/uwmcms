@@ -57,9 +57,11 @@
 
 {# Header #}
 {% if page.header %}
-  {% block header %}
-      <div class="col-sm-12 page-header" role="heading">
-          {{ page.header }}
-      </div>
-  {% endblock %}
+    {% block header %}
+        <div class="row page-heading" role="heading">
+            <div class="col-xs-12">
+                {{ page.header }}
+            </div>
+        </div>
+    {% endblock %}
 {% endif %}

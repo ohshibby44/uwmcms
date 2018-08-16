@@ -7,6 +7,39 @@
   transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
+@mixin uwmed-link-color-transition-timing() {
+  transition: color 400ms, text-decoration 500ms;
+}
+
+@mixin uwmed-box-show-hide-transition($show-selector, $hide-selector) {
+
+  #{$show-selector} {
+    opacity: 1;
+    display: block;
+    animation: showAnimation 350ms ease-in;
+  }
+  #{$hide-selector} {
+    opacity: 0;
+    display: none;
+    animation: showAnimation 120ms ease-in-out;
+  }
+
+  @keyframes showAnimation {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+}
+
 @mixin uwmed-no-transition() {
   transition-timing-function: unset;
   transition: none !important;
@@ -20,6 +53,16 @@
   // Chrome jagged line fix
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
+}
+
+@mixin uw-well() {
+  @extend .well;
+  border: 0 none;
+  margin: 15px 0 30px 0;
+  padding: 15px;
+  background: transparent;
+  box-shadow: none;
+  @content;
 }
 
 @mixin uw-separator($angle: false) {
@@ -49,8 +92,6 @@
 
   position: relative;
   margin-bottom: 20px;
-  text-transform: uppercase;
-
   &:after {
     position: absolute;
     content: " ";
@@ -61,8 +102,8 @@
     border-style: solid;
     border-width: 3px 2px 0 0;
     border-color: $border-color transparent transparent transparent;
-    @content;
   }
+
   &.teal:after {
     border-color: $uwmed-accent-teal transparent transparent transparent;
   }
@@ -76,14 +117,10 @@
     border-color: $uwmed-accent-tan transparent transparent transparent;
   }
 
+  @content;
 }
 
 @mixin uw-ghost-button($button-el, $accent-el, $accent-color: $uwmed-menu-yellow) {
-
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 6px;
-  margin-top: 6px;
 
   #{$button-el}, #{$button-el} a {
     color: $uwmed-body-text-color;
@@ -124,7 +161,6 @@
     }
 
     &:hover {
-      
       color: $uwmed-light-purple;
       @if $accent-color != $uwmed-menu-yellow {
         color: $uwmed-white;
@@ -142,6 +178,11 @@
       }
 
     }
+
+    &active, &:hover, &:focus {
+      outline: none;
+      box-shadow: none;
+    }
   }
 
   #{$accent-el} {
@@ -158,25 +199,39 @@
   @content;
 }
 
-@mixin uw-equal-height-row($row-container, $cell-container, $cell-cell: false) {
+@mixin uw-equal-height-row($flex-row, $flex-item: null) {
 
-  #{$row-container} > #{$cell-container} {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+  @media(min-width: $screen-sm-min) {
 
-    @if #{$cell-cell} {
-      > #{$cell-cell} {
-        height: 100%;
+    #{$flex-row} {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @if $flex-item {
+      #{$flex-item} {
+        flex: 1;
       }
     }
 
+    @content;
   }
 
-  #{$row-container} {
-    display: flex;
-    flex-wrap: wrap;
-  }
+}
 
-  @content;
+
+@mixin uw-open-scheduling-rules() {
+  .open-scheduling-enabled {
+    .os-show {
+      display: block;
+    }
+    a.os-show, span.os-show {
+      display: inline-block;
+    }
+    .os-hide {
+      display: none;
+    }
+  }
+  .os-show {
+    display: none;
+  }
 }

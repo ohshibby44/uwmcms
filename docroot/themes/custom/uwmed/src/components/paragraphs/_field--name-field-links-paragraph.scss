@@ -15,7 +15,7 @@ div.paragraph, section.block {
 
           list-style-type: none;
           margin: 0;
-          padding: 0 0 1em 1em;
+          padding: 0 0 1em 0;
         }
       }
 
@@ -28,7 +28,6 @@ div.paragraph, section.block {
         text-align: left;
         text-decoration: none;
         background-color: transparent;
-        border-bottom: 1px solid #dcdcdc;
         box-shadow: none;
         white-space: normal;
         //word-break: break-all;
@@ -53,22 +52,22 @@ div.paragraph, section.block {
 
       }
 
-      &.item-1 li a.btn.btn-default {
-        border-top: 1px solid #dcdcdc;
-      }
+    }
 
-
+    > .item a.btn.btn-default {
+      border-bottom: 1px solid #dcdcdc;
+    }
+    > .item:last-of-type a.btn.btn-default {
+      border-bottom: 0 none;
     }
 
     div.field.field--name-field-link {
       @include uw-ghost-button('.item', 'i.u-ips');
-      @extend .col-xs-12;
-      margin: 1em 0 0 0;
+      @extend .full-float;
+      margin: 20px 0 0 0;
     }
 
   }
-
-
 
 }
 

@@ -20,9 +20,30 @@
  *
  */
 
- (function ($, Drupal, drupalSettings) {
+(function ($, Drupal, drupalSettings) {
 
     'use strict';
+
+    Drupal.behaviors.uwmToggleStyleLight = {
+
+        attach: function (context, settings) {
+
+            var $toggleControl = $('[data-uwm-toggle-class]', context);
+
+            $toggleControl.on('click', function (e) {
+
+                var $this = $(this),
+                    toggleTarget = $this.attr('data-toggle-target'),
+                    toggleClass = $this.attr('data-toggle-class');
+
+                $(toggleTarget).toggleClass(toggleClass);
+
+                e.preventDefault();
+
+            });
+
+        }
+    };
 
     Drupal.behaviors.uwmToggleCssClass = {
 

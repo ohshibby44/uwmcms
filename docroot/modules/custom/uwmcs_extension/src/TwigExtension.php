@@ -62,9 +62,7 @@ class TwigExtension extends \Twig_Extension {
       new \Twig_SimpleFilter(
         'uwm_format_phone', [$this, 'formatPhone']),
       new \Twig_SimpleFilter(
-        'uwm_summary_text', [$this, 'summaryText']),
-      new \Twig_SimpleFilter(
-        'uwm_expand_abbreviations', [$this, 'expandAbbreviations']),
+        'uwm_arraycount_styles', [$this, 'collectionCssClasses']),
 
     ];
   }
@@ -188,6 +186,9 @@ class TwigExtension extends \Twig_Extension {
     $cleanArr = [];
 
     foreach ((array) $parts as $part) {
+      if (is_array($part)) {
+        $part = self::joinArray($part, $separator);
+      }
       $cleanPart = trim(
         preg_replace('/\s+/', ' ', $part)
       );
@@ -258,6 +259,10 @@ class TwigExtension extends \Twig_Extension {
    *   Description here.
    */
   public static function sortArrayByValues($data = [], string $sortKey = NULL) {
+
+    if (!is_array($data)) {
+      return $data;
+    }
 
     usort($data, function ($a, $b) use ($sortKey) {
 
@@ -331,40 +336,29 @@ class TwigExtension extends \Twig_Extension {
   /**
    * Description text.
    *
-   * @param string $text
-   *   Description text.
-   * @param string|null $format
-   *   Description text.
-   * @param int|null $size
+   * @param mixed|null $collectionItems
    *   Description text.
    *
-   * @return bool|string
+   * @return array
    *   Description text.
    */
-  public static function summaryText(string $text = '', string $format = NULL, int $size = NULL) {
+  public static function collectionCssClasses($collectionItems = NULL) {
 
-    return text_summary($text, $format, $size);
+    $cssClasses = [];
 
-  }
+    if (method_exists($collectionItems, 'getValue')) {
+      $collectionItems = $collectionItems->getValue();
+    }
 
-  /**
-   * Description text.
-   *
-   * @param string $text
-   *   Description text.
-   *
-   * @return string
-   *   Description text.
-   */
-  public static function expandAbbreviations(string $text = '') {
+    $collection = (array) $collectionItems;
+    $cssClasses[] = 'group-of-' . count($collection) . '-total';
+    for ($i = 2; $i <= 10; $i++) {
+      if (count($collection) % $i === 0) {
+        $cssClasses[] = 'group-of-' . $i . 's';
+      }
+    }
 
-    $abbreviations = [
-      'Dr.' => 'Doctor',
-      'dr.' => 'doctor',
-      'M.D.' => 'Medical Doctor',
-    ];
-
-    return strtr($text, $abbreviations);
+    return $cssClasses;
 
   }
 

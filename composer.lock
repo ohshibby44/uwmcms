@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eef28493d50d35a489a3f9c3fe1ccce6",
+    "content-hash": "51fb0a9374ca6e536b4fe89ecad6651b",
     "packages": [
         {
             "name": "acquia/blt",
@@ -954,7 +954,7 @@
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fengyuanchen/cropper.git",
+                "url": "git@github.com:fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -2468,7 +2468,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07 10:47:07"
+            "time": "2013-11-07T10:47:07+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3485,7 +3485,7 @@
                 "source": "http://cgit.drupalcode.org/calendar",
                 "issues": "https://www.drupal.org/project/issues/calendar"
             },
-            "time": "2017-09-13 12:29:50"
+            "time": "2017-09-13T12:29:50+00:00"
         },
         {
             "name": "drupal/calendar_datetime",
@@ -4803,7 +4803,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/date"
             },
-            "time": "2012-10-28 09:20:01"
+            "time": "2012-10-28T09:20:01+00:00"
         },
         {
             "name": "drupal/devel",
@@ -6017,7 +6017,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/fb_instant_articles"
             },
-            "time": "2017-09-13 21:49:59"
+            "time": "2017-09-13T21:49:59+00:00"
         },
         {
             "name": "drupal/features",
@@ -6272,7 +6272,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/google_tag"
             },
-            "time": "2017-06-16 21:53:17"
+            "time": "2017-06-16T21:53:17+00:00"
         },
         {
             "name": "drupal/hierarchical_term_formatter",
@@ -8646,17 +8646,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "93021b77f225a3035fbee361a21850a36a8cd684"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "ac503fbfbd15523c65f38d8b326e5f2159683cdb"
             },
             "require": {
                 "drupal/core": "~8"
@@ -8667,8 +8667,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1513767485",
+                    "version": "8.x-1.2",
+                    "datestamp": "1525419785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9041,62 +9041,6 @@
             }
         },
         {
-            "name": "drupal/search_api_page",
-            "version": "1.0.0-alpha11",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/search_api_page",
-                "reference": "8.x-1.0-alpha11"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_page-8.x-1.0-alpha11.zip",
-                "reference": "8.x-1.0-alpha11",
-                "shasum": "021baad1b03d2b3dc4be659043d6471569dfffb7"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/search_api": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha11",
-                    "datestamp": "1467834839",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "borisson_",
-                    "homepage": "https://www.drupal.org/user/2393360"
-                },
-                {
-                    "name": "drunken monkey",
-                    "homepage": "https://www.drupal.org/user/205582"
-                },
-                {
-                    "name": "swentel",
-                    "homepage": "https://www.drupal.org/user/107403"
-                }
-            ],
-            "description": "Create search pages using Search API indexes.",
-            "homepage": "https://www.drupal.org/project/search_api_page",
-            "support": {
-                "source": "http://cgit.drupalcode.org/search_api_page"
-            }
-        },
-        {
             "name": "drupal/search_api_solr",
             "version": "1.1.0",
             "source": {
@@ -9276,7 +9220,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20 15:43:48"
+            "time": "2016-10-20T15:43:48+00:00"
         },
         {
             "name": "drupal/sharethis",
@@ -9370,7 +9314,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/sharethis"
             },
-            "time": "2017-11-11 14:33:23"
+            "time": "2017-11-11T14:33:23+00:00"
         },
         {
             "name": "drupal/shield",
@@ -13043,7 +12987,7 @@
                 "GPL-3.0+"
             ],
             "description": "Library used to find lowest common ancestor in graphs.",
-            "time": "2017-04-30 16:26:14"
+            "time": "2017-04-30T16:26:14+00:00"
         },
         {
             "name": "robrichards/xmlseclibs",
@@ -16409,7 +16353,6 @@
         "drupal/webform": 5,
         "drupal/entityqueue": 15,
         "drupal/page_manager": 10,
-        "drupal/search_api_page": 15,
         "drupal/facets": 10
     },
     "prefer-stable": true,
