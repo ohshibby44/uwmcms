@@ -70,7 +70,7 @@ content:
     region: content
   field_clinic_image:
     weight: 1
-    label: above
+    label: hidden
     settings:
       responsive_image_style: default_responsive_image
       image_link: ''
