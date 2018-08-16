@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-xl-6 provider-location">
 
             <div class="col-xs-12 col-sm-5 location-image">
-              {% if clinicNid %}
+              {% if clinicNid and drupal_field('field_clinic_image', 'node', clinicNid)[0] %}
                 {{ drupal_field('field_clinic_image', 'node', clinicNid) }}
               {% else %}
                 <img src="{{ 'https://www.uwmedicine.org' ~ clinic.clinicUrl ~ '/PublishingImages/splash1.jpg' }}">
