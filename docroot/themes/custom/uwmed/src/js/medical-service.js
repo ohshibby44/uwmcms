@@ -2,11 +2,11 @@
   Drupal.behaviors.medicalServices = {
     attach: function() {
       // trigger main tab when user clicks on find a location overview, then jump
-      $('div.medical-service-hero__links-with-icon__desktop a[href="#find-a-location-jump"]').off().click(function (e) {
+      $('a[href="#find-a-location-jump"]').click(function (e) {
         e.preventDefault();
         var href = "#approach";
-
         $('.nav-tabs a[href="' + href + '"]').trigger('click');
+
         window.setTimeout("window.location.href = '#find-a-location-jump';", 250);
       });
 
