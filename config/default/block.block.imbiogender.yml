@@ -1,0 +1,28 @@
+uuid: 6c026cdb-47f1-4406-8734-b4bfdd8fe683
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.imbiogender
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: imbiogender
+theme: uwmed
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:imbiogender'
+settings:
+  id: 'facet_block:imbiogender'
+  label: ImBioGender
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search/index/providers*'
+    negate: false
+    context_mapping: {  }

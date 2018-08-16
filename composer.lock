@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c776cdf4cf6fae8db8560e30828e3d1",
+    "content-hash": "2a140a2feae566c85ebbfe145d890945",
     "packages": [
         {
             "name": "acquia/blt",
@@ -954,7 +954,7 @@
             "version": "v2.3.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fengyuanchen/cropper.git",
+                "url": "git@github.com:fengyuanchen/cropper.git",
                 "reference": "30c58b29ee21010e17e58ebab165fbd84285c685"
             },
             "dist": {
@@ -2468,7 +2468,7 @@
                 "Apache-2.0"
             ],
             "description": "The official PHP client library for disqus, with added composer.json.",
-            "time": "2013-11-07 10:47:07"
+            "time": "2013-11-07T10:47:07+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -3485,7 +3485,7 @@
                 "source": "http://cgit.drupalcode.org/calendar",
                 "issues": "https://www.drupal.org/project/issues/calendar"
             },
-            "time": "2017-09-13 12:29:50"
+            "time": "2017-09-13T12:29:50+00:00"
         },
         {
             "name": "drupal/calendar_datetime",
@@ -4803,7 +4803,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/date"
             },
-            "time": "2012-10-28 09:20:01"
+            "time": "2012-10-28T09:20:01+00:00"
         },
         {
             "name": "drupal/devel",
@@ -5895,6 +5895,66 @@
             }
         },
         {
+            "name": "drupal/facets",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/facets",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "d916790b16da4e42b1615bc03221d4d81905ec3f"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/search_api": "~1.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1533065280",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See all contributors",
+                    "homepage": "https://www.drupal.org/node/2348769/committers"
+                },
+                {
+                    "name": "StryKaizer",
+                    "homepage": "https://www.drupal.org/user/462700"
+                },
+                {
+                    "name": "borisson_",
+                    "homepage": "https://www.drupal.org/user/2393360"
+                }
+            ],
+            "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
+            "homepage": "https://www.drupal.org/project/facets",
+            "support": {
+                "source": "git://git.drupal.org/project/facets.git",
+                "issues": "https://www.drupal.org/project/issues/facets",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
             "name": "drupal/fb_instant_articles",
             "version": "dev-2.x",
             "source": {
@@ -5957,7 +6017,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/fb_instant_articles"
             },
-            "time": "2017-09-13 21:49:59"
+            "time": "2017-09-13T21:49:59+00:00"
         },
         {
             "name": "drupal/features",
@@ -6212,7 +6272,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/google_tag"
             },
-            "time": "2017-06-16 21:53:17"
+            "time": "2017-06-16T21:53:17+00:00"
         },
         {
             "name": "drupal/hierarchical_term_formatter",
@@ -8981,6 +9041,87 @@
             }
         },
         {
+            "name": "drupal/search_api_solr",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_api_solr",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "ff124407b883c9e56030e8c10dcd8827c922cceb"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/search_api": "~1.3",
+                "solarium/solarium": "3.8.*"
+            },
+            "require-dev": {
+                "drupal/facets": "1.x-dev",
+                "drupal/geofield": "1.x-dev",
+                "drupal/search_api_autocomplete": "1.x-dev",
+                "drupal/search_api_location": "1.x-dev"
+            },
+            "suggest": {
+                "drupal/facets": "Provides facetted search.",
+                "drupal/search_api_solr_multilingual": "Highly recommended if installation is multilingual or uses a language different than English."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1509541985",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Kalkbrenner",
+                    "homepage": "https://www.drupal.org/u/mkalkbrenner"
+                },
+                {
+                    "name": "Other contributors",
+                    "homepage": "https://www.drupal.org/node/982682/committers"
+                },
+                {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "cspitzlay",
+                    "homepage": "https://www.drupal.org/user/419305"
+                },
+                {
+                    "name": "drunken monkey",
+                    "homepage": "https://www.drupal.org/user/205582"
+                },
+                {
+                    "name": "mkalkbrenner",
+                    "homepage": "https://www.drupal.org/user/124705"
+                }
+            ],
+            "description": "Offers an implementation of the Search API that uses an Apache Solr server for indexing content.",
+            "homepage": "https://www.drupal.org/project/search_api_solr",
+            "support": {
+                "source": "http://git.drupal.org/project/search_api_solr.git",
+                "issues": "https://www.drupal.org/project/issues/search_api_solr",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
             "name": "drupal/seckit",
             "version": "1.0.0-alpha2",
             "source": {
@@ -9079,7 +9220,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20 15:43:48"
+            "time": "2016-10-20T15:43:48+00:00"
         },
         {
             "name": "drupal/sharethis",
@@ -9173,7 +9314,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/sharethis"
             },
-            "time": "2017-11-11 14:33:23"
+            "time": "2017-11-11T14:33:23+00:00"
         },
         {
             "name": "drupal/shield",
@@ -12846,7 +12987,7 @@
                 "GPL-3.0+"
             ],
             "description": "Library used to find lowest common ancestor in graphs.",
-            "time": "2017-04-30 16:26:14"
+            "time": "2017-04-30T16:26:14+00:00"
         },
         {
             "name": "robrichards/xmlseclibs",
@@ -13424,6 +13565,64 @@
                 "ws-federation"
             ],
             "time": "2017-09-04T12:11:47+00:00"
+        },
+        {
+            "name": "solarium/solarium",
+            "version": "3.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/solariumphp/solarium.git",
+                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/c353babec89fdbe8c64054bfec8e77bcb5da6705",
+                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^3.8 || ^6.2",
+                "phpunit/phpunit": "~3.7",
+                "satooshi/php-coveralls": "~1.0",
+                "squizlabs/php_codesniffer": "~1.4",
+                "zendframework/zendframework1": "~1.12"
+            },
+            "suggest": {
+                "minimalcode/search": "Query builder compatible with Solarium, allows simplified solr-query handling"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Solarium\\": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "See GitHub contributors",
+                    "homepage": "https://github.com/basdenooijer/solarium/contributors"
+                }
+            ],
+            "description": "PHP Solr client",
+            "homepage": "http://www.solarium-project.org",
+            "keywords": [
+                "php",
+                "search",
+                "solr"
+            ],
+            "time": "2017-02-02T13:32:22+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -16153,7 +16352,8 @@
         "drupal/xmlsitemap": 15,
         "drupal/webform": 5,
         "drupal/entityqueue": 15,
-        "drupal/page_manager": 10
+        "drupal/page_manager": 10,
+        "drupal/facets": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

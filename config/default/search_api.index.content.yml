@@ -3,11 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_body_summary
+    - field.storage.node.field_content_blocks
+    - field.storage.node.field_bottom_content_blocks
+    - field.storage.node.field_content_topics
     - search_api.server.database
     - core.entity_view_mode.node.full
   module:
     - search_api
     - node
+    - media_entity
+    - taxonomy
 _core:
   default_config_hash: 5oGmbthAOm65ilSVAb2fnEb6u3IBMfKIw3sPA8KuqXU
 id: content
@@ -41,20 +47,6 @@ field_settings:
       type: first
       fields:
         - 'entity:node/title'
-  status:
-    label: null
-    datasource_id: 'entity:node'
-    property_path: status
-    type: boolean
-    indexed_locked: true
-    type_locked: true
-  uid:
-    label: null
-    datasource_id: 'entity:node'
-    property_path: uid
-    type: integer
-    indexed_locked: true
-    type_locked: true
   node_grants:
     label: 'Node access information'
     property_path: search_api_node_grants
@@ -62,11 +54,77 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  field_body_summary:
+    label: 'Body Summary'
+    datasource_id: 'entity:node'
+    property_path: field_body_summary
+    type: text
+    boost: 0.3
+    dependencies:
+      config:
+        - field.storage.node.field_body_summary
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    boost: 0.1
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  field_bottom_content_blocks:
+    label: 'Sidebar Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_bottom_content_blocks
+    type: text
+    boost: 0.2
+    dependencies:
+      config:
+        - field.storage.node.field_bottom_content_blocks
+  field_content_topics:
+    label: 'Content Topics'
+    datasource_id: 'entity:node'
+    property_path: field_content_topics
+    type: text
+    boost: 0.5
+    dependencies:
+      config:
+        - field.storage.node.field_content_topics
 datasource_settings:
   'entity:node':
     bundles:
       default: true
       selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:media':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: false
+      selected:
+        - content_topics
+        - uwm_digital_property
     languages:
       default: true
       selected: {  }
@@ -77,6 +135,7 @@ processor_settings:
     weights:
       preprocess_query: -10
   html_filter:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -91,17 +150,53 @@ processor_settings:
     weights:
       preprocess_index: -10
       preprocess_query: -9
-    all_fields: false
   ignorecase:
+    all_fields: false
     fields:
       - rendered
       - label
     weights:
       preprocess_index: -9
       preprocess_query: -8
+  ignore_character:
     all_fields: false
+    fields:
+      - rendered
+      - label
+      - node_grants
+      - field_body_summary
+      - field_content_blocks
+      - field_bottom_content_blocks
+      - field_content_topics
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
   rendered_item: {  }
   stopwords:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -144,8 +239,8 @@ processor_settings:
     weights:
       preprocess_index: -5
       preprocess_query: -4
-    all_fields: false
   tokenizer:
+    all_fields: false
     fields:
       - rendered
       - label
@@ -155,18 +250,46 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -5
-    all_fields: false
   transliteration:
+    all_fields: false
     fields:
       - rendered
       - label
     weights:
       preprocess_index: -4
       preprocess_query: -3
-    all_fields: false
+  type_boost:
+    boosts:
+      'entity:node':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          condition_spotlight: !!float 0
+          content_spotlight: !!float 0
+          fact_page: !!float 0
+          homepage: !!float 0
+          landing_page: !!float 0
+          page: !!float 0
+          uwm_clinic: !!float 3
+          uwm_medical_service: !!float 0
+          uwm_provider: !!float 3
+      'entity:media':
+        datasource_boost: !!float 1
+        bundle_boosts:
+          document: !!float 2
+          image: !!float 0
+          instagram: !!float 0
+          tweet: !!float 0
+          video: !!float 0
+      'entity:taxonomy_term':
+        datasource_boost: 0.5
+        bundle_boosts:
+          content_topics: !!float 0
+          uwm_digital_property: !!float 0
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default: {  }
 options:
   index_directly: true
-  cron_limit: 50
+  cron_limit: 300
 server: database

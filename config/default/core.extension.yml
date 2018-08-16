@@ -1,6 +1,7 @@
 module:
   acquia_connector: 0
   acquia_purge: 0
+  acquia_search: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   allowed_formats: 0
@@ -32,6 +33,7 @@ module:
   entity_reference_revisions: 0
   entityqueue: 0
   externalauth: 0
+  facets: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -98,6 +100,7 @@ module:
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
+  search_api_solr: 0
   serialization: 0
   shield: 0
   shortcut: 0
@@ -113,6 +116,7 @@ module:
   uwmcs_extension: 0
   uwmcs_mediaamp: 0
   uwmcs_reader: 0
+  uwmcs_searchfields: 0
   uwmcs_utils: 0
   uwmed_uwmcms_blocks: 0
   video_embed_field: 0

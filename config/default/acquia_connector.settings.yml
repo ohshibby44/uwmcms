@@ -26,6 +26,17 @@ subscription_data:
         secret_key: ''
         js_path: ''
     search_service_enabled: 1
+    search_cores:
+      -
+        balancer: uswest2-c69.acquia-search.com
+        core_id: BEXY-148616
+      -
+        balancer: uswest2-c69.acquia-search.com
+        core_id: BEXY-148616.test.default
+      -
+        balancer: uswest2-c69.acquia-search.com
+        core_id: BEXY-148616.test.uwmedstg
+    search_service_colony: uswest2-c69.acquia-search.com
 subscription_name: ''
 debug: false
 cron_interval: 30
@@ -72,8 +83,9 @@ spi:
     variables: {  }
     time: 0
   cron_interval: 28800
-  site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmed
-  site_uuid: 3b1793fd-299e-4c26-8c17-c62c3f07068d
+  site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmedstg
+  site_uuid: 1e59fe17-8d6b-429c-a4d3-bf4883b5cb63
+  site_name: null
 mapping:
   acquia_spi_send_node_user:
     - acquia_connector.settings
