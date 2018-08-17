@@ -141,7 +141,7 @@ function uwmed_preprocess_node(&$variables) {
 
   }
 
-  if ($node->getType() === 'uwm_medical_service' || 'uwm_medical_specialty') {
+  if ($variables['view_mode'] !== 'search_result' && ($node->getType() === 'uwm_medical_service' || 'uwm_medical_specialty')) {
     $has_quiz = !is_null($node->field_quiz);
     if ($has_quiz) {
       if (isset($node->field_quiz->getValue()[0])) {
