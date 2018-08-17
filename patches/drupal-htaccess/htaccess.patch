@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..c730a930 100755
+index efce1877..1a945896 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,3349 @@
+@@ -1,3 +1,3472 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -2978,7 +2978,8 @@ index efce1877..c730a930 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/psychiatric-emergency-harborview$
 +  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-outpatient-uwmc-roosevelt$
 +  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-consultation-service-harborview$
-+  RewriteCond %{REQUEST_URI} !^/services/mens-health/?.*
++  RewriteCond %{REQUEST_URI} !^/services/mental-health-care/?.*
++  RewriteCond %{REQUEST_URI} !^/services/psychiatry/?.*
 +  # End Mental Health Care #
 +  # Start Digestive Health Care #
 +  RewriteCond %{REQUEST_URI} !^/bios/anne-linge$
@@ -3230,8 +3231,8 @@ index efce1877..c730a930 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/hepatitis-and-liver-harborview$
 +  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-services-uwmc$
 +  RewriteCond %{REQUEST_URI} !^/locations/liver-tumor-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/services/mental-health-care/?.*
-+  RewriteCond %{REQUEST_URI} !^/services/psychiatry/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/digestive-health-center-eastside-specialty-center$
++  RewriteCond %{REQUEST_URI} !^/services/digestive-health/?.*
 +  # End Digestive Health Care #
 +  # Start Dermatology Care #
 +  RewriteCond %{REQUEST_URI} !^/bios/kim-abson$
@@ -3326,8 +3327,130 @@ index efce1877..c730a930 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc$
 +  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview$
 +  RewriteCond %{REQUEST_URI} !^/services/ear-nose-and-throat-care/?.*
-+  RewriteCond %{REQUEST_URI} !^/services/services/otolaryngology/?.*
++  RewriteCond %{REQUEST_URI} !^/services/otolaryngology/?.*
 +  # End ENT #
++  # Start Heart Institute #
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-eastside-specialty-center$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-edmonds$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-harborview$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-uwmc$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-imaging-echocardiography-ecg-nuclear-medicine-uwmc$
++  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-ballard$
++  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-nwhmc$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiac-fitness-northwest$
++  RewriteCond %{REQUEST_URI} !^/services/heart-institute/?.*
++  RewriteCond %{REQUEST_URI} !^/services/cardiology/?.*
++  RewriteCond %{REQUEST_URI} !^/bios/nazem-akoum$
++  RewriteCond %{REQUEST_URI} !^/bios/gabriel-aldea$
++  RewriteCond %{REQUEST_URI} !^/bios/elizabeth-bayley$
++  RewriteCond %{REQUEST_URI} !^/bios/jennifer-beckman$
++  RewriteCond %{REQUEST_URI} !^/bios/laura-bicknell$
++  RewriteCond %{REQUEST_URI} !^/bios/kelley-branch$
++  RewriteCond %{REQUEST_URI} !^/bios/jennifer-branham$
++  RewriteCond %{REQUEST_URI} !^/bios/yonatan-buber$
++  RewriteCond %{REQUEST_URI} !^/bios/carlos-alberto-camal-sanchez$
++  RewriteCond %{REQUEST_URI} !^/bios/jonathan-chen$
++  RewriteCond %{REQUEST_URI} !^/bios/michael-chen$
++  RewriteCond %{REQUEST_URI} !^/bios/andrew-cheng$
++  RewriteCond %{REQUEST_URI} !^/bios/richard-cheng$
++  RewriteCond %{REQUEST_URI} !^/bios/i-hui-chiang$
++  RewriteCond %{REQUEST_URI} !^/bios/hui-san-chung$
++  RewriteCond %{REQUEST_URI} !^/bios/stephanie-cooper$
++  RewriteCond %{REQUEST_URI} !^/bios/marshall-corson$
++  RewriteCond %{REQUEST_URI} !^/bios/todd-dardas$
++  RewriteCond %{REQUEST_URI} !^/bios/larry-dean$
++  RewriteCond %{REQUEST_URI} !^/bios/michaelene-deelstra$
++  RewriteCond %{REQUEST_URI} !^/bios/jason-deen$
++  RewriteCond %{REQUEST_URI} !^/bios/david-dichek$
++  RewriteCond %{REQUEST_URI} !^/bios/george-dolack$
++  RewriteCond %{REQUEST_URI} !^/bios/creighton-don$
++  RewriteCond %{REQUEST_URI} !^/bios/danny-dvir$
++  RewriteCond %{REQUEST_URI} !^/bios/daniel-fishbein$
++  RewriteCond %{REQUEST_URI} !^/bios/rosario-freeman$
++  RewriteCond %{REQUEST_URI} !^/bios/edward-gibbons$
++  RewriteCond %{REQUEST_URI} !^/bios/zachary-goldberger$
++  RewriteCond %{REQUEST_URI} !^/bios/julie-heyn$
++  RewriteCond %{REQUEST_URI} !^/bios/ravi-hira$
++  RewriteCond %{REQUEST_URI} !^/bios/nicola-kaye$
++  RewriteCond %{REQUEST_URI} !^/bios/kathleen-kearney$
++  RewriteCond %{REQUEST_URI} !^/bios/francis-kim$
++  RewriteCond %{REQUEST_URI} !^/bios/james-kirkpatrick$
++  RewriteCond %{REQUEST_URI} !^/bios/eric-krieger$
++  RewriteCond %{REQUEST_URI} !^/bios/peter-kudenchuk$
++  RewriteCond %{REQUEST_URI} !^/bios/lyle-larson$
++  RewriteCond %{REQUEST_URI} !^/bios/wayne-levy$
++  RewriteCond %{REQUEST_URI} !^/bios/laura-lewis$
++  RewriteCond %{REQUEST_URI} !^/bios/shin-lin$
++  RewriteCond %{REQUEST_URI} !^/bios/david-linker$
++  RewriteCond %{REQUEST_URI} !^/bios/william-lombardi$
++  RewriteCond %{REQUEST_URI} !^/bios/georg-mackensen$
++  RewriteCond %{REQUEST_URI} !^/bios/william-maclellan$
++  RewriteCond %{REQUEST_URI} !^/bios/arun-raghav-mahankali-sridhar$
++  RewriteCond %{REQUEST_URI} !^/bios/claudius-w-mahr$
++  RewriteCond %{REQUEST_URI} !^/bios/linda-marriott$
++  RewriteCond %{REQUEST_URI} !^/bios/s-carolina-masri$
++  RewriteCond %{REQUEST_URI} !^/bios/james-mccabe$
++  RewriteCond %{REQUEST_URI} !^/bios/brea-mclaughlin$
++  RewriteCond %{REQUEST_URI} !^/bios/roxana-mendoza$
++  RewriteCond %{REQUEST_URI} !^/bios/elina-minami$
++  RewriteCond %{REQUEST_URI} !^/bios/alec-moorman$
++  RewriteCond %{REQUEST_URI} !^/bios/farid-moussavi-harami$
++  RewriteCond %{REQUEST_URI} !^/bios/rache-mureau-haines$
++  RewriteCond %{REQUEST_URI} !^/bios/kenta-nakamura$
++  RewriteCond %{REQUEST_URI} !^/bios/kevin-obrien$
++  RewriteCond %{REQUEST_URI} !^/bios/jamie-olaf$
++  RewriteCond %{REQUEST_URI} !^/bios/rachel-ostrander$
++  RewriteCond %{REQUEST_URI} !^/bios/catherine-otto$
++  RewriteCond %{REQUEST_URI} !^/bios/david-owens$
++  RewriteCond %{REQUEST_URI} !^/bios/kristen-patton$
++  RewriteCond %{REQUEST_URI} !^/bios/james-pautz$
++  RewriteCond %{REQUEST_URI} !^/bios/jeanne-poole$
++  RewriteCond %{REQUEST_URI} !^/bios/jordan-prutkin$
++  RewriteCond %{REQUEST_URI} !^/bios/chetan-pungoti$
++  RewriteCond %{REQUEST_URI} !^/bios/kari-k-ranum$
++  RewriteCond %{REQUEST_URI} !^/bios/mark-reisman$
++  RewriteCond %{REQUEST_URI} !^/bios/melissa-robinson$
++  RewriteCond %{REQUEST_URI} !^/bios/rebecca-robinson$
++  RewriteCond %{REQUEST_URI} !^/bios/gregory-roth$
++  RewriteCond %{REQUEST_URI} !^/bios/sarah-salce$
++  RewriteCond %{REQUEST_URI} !^/bios/werner-samson$
++  RewriteCond %{REQUEST_URI} !^/bios/thomas-sawyer$
++  RewriteCond %{REQUEST_URI} !^/bios/stephen-seslar$
++  RewriteCond %{REQUEST_URI} !^/bios/christopher-slivka$
++  RewriteCond %{REQUEST_URI} !^/bios/jason-smith$
++  RewriteCond %{REQUEST_URI} !^/bios/laurie-soine$
++  RewriteCond %{REQUEST_URI} !^/bios/nona-sotoodehnia$
++  RewriteCond %{REQUEST_URI} !^/bios/daniel-stambor$
++  RewriteCond %{REQUEST_URI} !^/bios/william-stanley$
++  RewriteCond %{REQUEST_URI} !^/bios/april-stempien-otero$
++  RewriteCond %{REQUEST_URI} !^/bios/b-stewart$
++  RewriteCond %{REQUEST_URI} !^/bios/douglas-stewart$
++  RewriteCond %{REQUEST_URI} !^/bios/karen-stout$
++  RewriteCond %{REQUEST_URI} !^/bios/sumeet-subherwal$
++  RewriteCond %{REQUEST_URI} !^/bios/christina-tan$
++  RewriteCond %{REQUEST_URI} !^/bios/deanna-tregoning$
++  RewriteCond %{REQUEST_URI} !^/bios/edward-verrier$
++  RewriteCond %{REQUEST_URI} !^/bios/david-warth$
++  RewriteCond %{REQUEST_URI} !^/bios/gary-weeks$
++  RewriteCond %{REQUEST_URI} !^/bios/daniel-wilkinson-jr$
++  RewriteCond %{REQUEST_URI} !^/bios/gregory-wood$
++  RewriteCond %{REQUEST_URI} !^/bios/marko-yakovlevitch$
++  RewriteCond %{REQUEST_URI} !^/bios/eugene-yang$
++  RewriteCond %{REQUEST_URI} !^/bios/sinclair-blake$
++  RewriteCond %{REQUEST_URI} !^/bios/jean-blue$
++  RewriteCond %{REQUEST_URI} !^/bios/thomas-jones$
++  RewriteCond %{REQUEST_URI} !^/bios/dana-klanderud$
++  RewriteCond %{REQUEST_URI} !^/bios/rebecca-kochner$
++  RewriteCond %{REQUEST_URI} !^/bios/kevin-koomalsingh$
++  RewriteCond %{REQUEST_URI} !^/bios/ryan-martin$
++  RewriteCond %{REQUEST_URI} !^/bios/deana-phinney$
++  RewriteCond %{REQUEST_URI} !^/bios/kristina-ramilo$
++  RewriteCond %{REQUEST_URI} !^/bios/eric-ramos-malpica$
++  RewriteCond %{REQUEST_URI} !^/bios/zachary-steinberg$
++  RewriteCond %{REQUEST_URI} !^/bios/mark-sullivan$
++  RewriteCond %{REQUEST_URI} !^/bios/thomas-treacy$
++  RewriteCond %{REQUEST_URI} !^/bios/margaret-hanrahan$
++  # End Heart Institute #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -3352,7 +3475,7 @@ index efce1877..c730a930 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +3496,10 @@ AddEncoding gzip svgz
+@@ -150,6 +3619,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -3363,7 +3486,7 @@ index efce1877..c730a930 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
-@@ -186,4 +3536,4 @@ AddEncoding gzip svgz
+@@ -186,4 +3659,4 @@ AddEncoding gzip svgz
    Header always set X-Content-Type-Options nosniff
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
