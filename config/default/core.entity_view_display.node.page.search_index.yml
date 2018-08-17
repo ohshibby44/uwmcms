@@ -1,0 +1,52 @@
+uuid: 4384a4a5-a247-4481-a862-374efb6ba668
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.page.body
+    - field.field.node.page.field_content_topics
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_node_media
+    - field.field.node.page.field_ttest_field
+    - field.field.node.page.panelizer
+    - field.field.node.page.scheduled_update
+    - node.type.page
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+_core:
+  default_config_hash: wQOp0Gtvf-nibo11pyMBzr9dcDrKIc6BA96c3lyY_bM
+id: node.page.search_index
+targetEntityType: node
+bundle: page
+mode: search_index
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_content_topics: true
+  field_meta_tags: true
+  field_node_media: true
+  field_ttest_field: true
+  panelizer: true
+  scheduled_update: true
+  workbench_moderation_control: true

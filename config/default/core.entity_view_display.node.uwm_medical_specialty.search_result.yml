@@ -1,9 +1,9 @@
-uuid: bdfef641-e4af-4917-be1c-a23797067ece
+uuid: 796ac7d6-8482-4cd9-a293-be79d0894774
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.search_result
     - field.field.node.uwm_medical_specialty.field_accordion
     - field.field.node.uwm_medical_specialty.field_body_summary
     - field.field.node.uwm_medical_specialty.field_common_services
@@ -24,6 +24,8 @@ dependencies:
     - node.type.uwm_medical_specialty
   module:
     - panelizer
+    - paragraphs
+    - text
     - user
 third_party_settings:
   panelizer:
@@ -31,22 +33,62 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.uwm_medical_specialty.teaser
+id: node.uwm_medical_specialty.search_result
 targetEntityType: node
 bundle: uwm_medical_specialty
-mode: teaser
+mode: search_result
 content:
-  links:
+  field_accordion:
+    type: paragraph_summary
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_body_summary:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  field_common_services:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_summary
+    region: content
+  field_content_blocks:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_summary
+    region: content
+  field_proof_points:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_summary
+    region: content
+  field_sub_title:
     weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_accordion: true
-  field_body_summary: true
-  field_common_services: true
   field_condition_spotlight: true
-  field_content_blocks: true
   field_feature_story: true
   field_featured_specialties: true
   field_image: true
@@ -54,9 +96,7 @@ hidden:
   field_links_with_icon: true
   field_medical_service: true
   field_meta_tags: true
-  field_proof_points: true
   field_quiz: true
-  field_sub_title: true
   field_subheading: true
   field_weight: true
   workbench_moderation_control: true

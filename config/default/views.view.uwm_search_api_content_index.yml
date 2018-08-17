@@ -70,21 +70,23 @@ display:
         options:
           view_modes:
             'entity:node':
-              condition_spotlight: teaser
-              content_spotlight: teaser
-              fact_page: teaser
-              homepage: teaser
-              landing_page: teaser
-              page: teaser
-              uwm_clinic: teaser
-              uwm_medical_service: teaser
-              uwm_provider: teaser
+              condition_spotlight: search_result
+              content_spotlight: search_result
+              fact_page: search_result
+              homepage: search_result
+              landing_page: search_result
+              page: search_result
+              quiz: search_result
+              uwm_clinic: search_result
+              uwm_medical_service: search_result
+              uwm_medical_specialty: search_result
+              uwm_provider: search_result
             'entity:media':
-              document: embedded
-              image: embedded
-              instagram: embedded
-              tweet: embedded
-              video: embedded
+              document: thumbnail
+              image: thumbnail
+              instagram: thumbnail
+              tweet: thumbnail
+              video: thumbnail
             'entity:taxonomy_term':
               content_topics: default
               uwm_digital_property: ''

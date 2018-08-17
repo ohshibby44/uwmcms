@@ -1,29 +1,23 @@
-uuid: fe6d15a4-0014-4965-b77d-a3b798eb3989
+uuid: fdd568c8-dce6-468b-8d15-eca9152877f8
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.search_index
     - field.field.node.landing_page.body
     - field.field.node.landing_page.field_meta_tags
     - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - metatag
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 _core:
   default_config_hash: VtoRRpaZ4Fv6BvSXrqsgVf_jyO6mWxMmyMNjkymLh1M
-id: node.landing_page.default
+id: node.landing_page.search_index
 targetEntityType: node
 bundle: landing_page
-mode: default
+mode: search_index
 content:
   body:
     weight: 102
@@ -42,13 +36,13 @@ content:
     region: content
   links:
     weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
   workbench_moderation_control:
     weight: -20
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   panelizer: true

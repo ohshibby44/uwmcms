@@ -6,6 +6,7 @@ dependencies:
     - image.style.portrait_large
     - image.style.portrait_medium
     - image.style.portrait_small
+    - image.style.thumbnail
 id: portrait_responsive_image
 label: 'Portrait Responsive Image'
 image_style_mappings:
@@ -19,5 +20,6 @@ image_style_mappings:
         - portrait_large
         - portrait_medium
         - portrait_small
+        - thumbnail
 breakpoint_group: responsive_image
-fallback_image_style: portrait_medium
+fallback_image_style: thumbnail

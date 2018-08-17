@@ -1,0 +1,44 @@
+uuid: 6b6afca9-aef1-457c-bdae-24cba251449f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.uwm_provider.field_content_blocks
+    - field.field.node.uwm_provider.field_information_manager_url
+    - field.field.node.uwm_provider.field_meta_tags
+    - field.field.node.uwm_provider.field_node_media
+    - node.type.uwm_provider
+  module:
+    - panelizer
+    - paragraphs
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.uwm_provider.search_result
+targetEntityType: node
+bundle: uwm_provider
+mode: search_result
+content:
+  field_content_blocks:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_summary
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_information_manager_url: true
+  field_meta_tags: true
+  field_node_media: true
+  field_provider_npi: true
+  workbench_moderation_control: true

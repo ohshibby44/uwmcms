@@ -59,3 +59,4 @@ empty_behavior:
   behavior: text
   text_format: plain_text
   text: 'Empty text'
+show_title: null

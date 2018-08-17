@@ -164,6 +164,8 @@ content:
   workbench_moderation_control:
     weight: -20
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_feature_story: true
   field_featured_specialties: true
