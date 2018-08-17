@@ -37,65 +37,58 @@
                 //
                 // });
 
-                $.ajax({
-                    url: 'http://webservices.uwmedicine.org/api/publications',
-                    // jsonp: "result",
-                    dataType: "jsonp",
-                    jsonpCallback: 'result',
-                    data: {
-                        ids: pubMedIds.join(',')
-                    },
-                    success: function (data) {
-
+                $.get('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=' + pubMedIds.join(','), function (data) {
                         var items = [];
-                        $.each(data, function (a, b) {
+                        var results = data['result'];
+                        $.each(results, function (a, b) {
 
                             var str = '';
 
-                            if (b.Authors) {
-                                str += b.Authors
+                            if (b.authors) {
+                                var authors = [];
+                                $.each(b.authors, function(a, b) {
+                                    authors.push(b.name);
+                                });
+                                str += authors.join(", ") + ' ';
                             }
 
-                            if (b.PubMedId) {
+                            if (b.uid) {
 
                                 str += '<a href="http://www.ncbi.nlm.nih.gov/sites/' +
-                                    'entrez?cmd=retrieve&db=PubMed&tool=UWMedicine&dopt=Abstract&list_uids=' + b.PubMedId + '" ' +
-                                    'target="_blank">' + b.ArticleTitle + '</a>';
+                                    'entrez?cmd=retrieve&db=PubMed&tool=UWMedicine&dopt=Abstract&list_uids=' + b.uid + '" ' +
+                                    'target="_blank">' + b.title + '</a> ';
 
                             }
 
-                            if (b.JournalTitle) {
-                                str += '<em>' + b.JournalTitle + '</em>&nbsp;';
+                            if (b.fulljournalname) {
+                                str += '<em>' + b.fulljournalname + '</em> ';
                             }
 
-                            if (b.JournalYear) {
-                                str += b.JournalYear + '&nbsp;';
+                            if (b.pubdate) {
+                                str += b.pubdate + '; ';
                             }
 
-                            if (b.JournalMonth) {
-                                str += b.JournalMonth + '&nbsp;';
+                            if (b.volume) {
+                                str += b.volume + '; ';
                             }
 
-                            if (b.JournalVolume) {
-                                str += b.JournalVolume + '&nbsp;';
+                            if (b.issue) {
+                                str += b.issue + '; ';
                             }
 
-                            if (b.JournalIssue) {
-                                str += b.JournalIssue + '&nbsp;';
+                            if (b.pages) {
+                                str += b.pages + ';';
                             }
 
-                            if (b.PagingNumber) {
-                                str += b.PagingNumber + '&nbsp;';
+                            if(str !== '') {
+                              items.push('<li class="pubs">' + str + '</li>');
                             }
-
-                            items.push('<li class="pubs">' + str + '</li>')
                         });
 
+                        items = items.reverse();
                         $(context).find('.pubs-ajax.publications-tab').html('<ul>' + items.join('') + '</ul>');
-                        $(context).find('.pubs-ajax').addClass('fade-in');
+                        $(context).find('.pubs-ajax').removeClass('disabled');
 
-
-                    }
                 });
 
             }
