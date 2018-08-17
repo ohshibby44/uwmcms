@@ -1,0 +1,75 @@
+uuid: e244a3a7-3466-4a8c-8079-66d25c84a951
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.fact_page.body
+    - field.field.node.fact_page.field_body_style_terms
+    - field.field.node.fact_page.field_bottom_content_blocks
+    - field.field.node.fact_page.field_bottom_content_blocks_head
+    - field.field.node.fact_page.field_content_blocks
+    - field.field.node.fact_page.field_content_blocks_footer
+    - field.field.node.fact_page.field_content_blocks_heading
+    - field.field.node.fact_page.field_content_blocks_style
+    - field.field.node.fact_page.field_link
+    - field.field.node.fact_page.field_meta_tags
+    - field.field.node.fact_page.field_sidebar_content_blocks
+    - field.field.node.fact_page.field_title_subheading
+    - field.field.node.fact_page.field_title_suffix
+    - field.field.node.fact_page.field_top_content_blocks
+    - field.field.node.fact_page.field_top_content_blocks_footer
+    - field.field.node.fact_page.field_top_content_blocks_heading
+    - node.type.fact_page
+  module:
+    - panelizer
+    - paragraphs
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.fact_page.search_result
+targetEntityType: node
+bundle: fact_page
+mode: search_result
+content:
+  body:
+    label: above
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_content_blocks:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: paragraph_summary
+    region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_body_style_terms: true
+  field_bottom_content_blocks: true
+  field_bottom_content_blocks_head: true
+  field_content_blocks_footer: true
+  field_content_blocks_heading: true
+  field_content_blocks_style: true
+  field_link: true
+  field_meta_tags: true
+  field_sidebar_content_blocks: true
+  field_title_subheading: true
+  field_title_suffix: true
+  field_top_content_blocks: true
+  field_top_content_blocks_footer: true
+  field_top_content_blocks_heading: true
+  workbench_moderation_control: true

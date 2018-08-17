@@ -46,12 +46,15 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  aggregated_field: {  }
   rendered_item: {  }
   add_url:
     plugin_id: add_url
     settings: {  }
+  aggregated_field: {  }
+  ImBioLanguage: {  }
   ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
 tracker_settings:
   default:
     plugin_id: default

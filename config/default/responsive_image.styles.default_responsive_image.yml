@@ -22,4 +22,4 @@ image_style_mappings:
         - medium
         - thumbnail
 breakpoint_group: responsive_image
-fallback_image_style: medium
+fallback_image_style: thumbnail
