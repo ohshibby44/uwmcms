@@ -193,20 +193,23 @@
                     </li>
                 {% endif %}
 
-                {#{% if _bio.bioPublicationsDetails %}#}
+                {% if _bio.bioPublications %}
                     <li role="presentation" class="pubs-ajax disabled"><a href="#publications"
                                                name="publications"
                                                role="tab"
                                                id="publications-tab"
                                                data-toggle="tab"
                                                aria-controls="publications"
-                                               aria-expanded="false">
+                                               aria-expanded="false"
+                                               data-tab-history="true"
+                                               data-tab-history-changer="push"
+                                               data-tab-history-update-url="true">
                             <i class="uw-ico heart" aria-hidden="true"></i>
                             {{ 'Publications'|t }}
 
                         </a>
                     </li>
-                {#{% endif %}#}
+                {% endif %}
 
             </ul>
 
@@ -257,14 +260,14 @@
                     </div>
                 {% endif %}
 
-                {#{% if _bio.bioPublicationsDetails %}#}
+                {% if _bio.bioPublications %}
                     <div class="row tab-pane publications-tab pubs-ajax" role="tabpanel"
                          id="publications" aria-labelledby="publications-tab">
 
                         {#{% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}#}
 
                     </div>
-                {#{% endif %}#}
+                {% endif %}
 
             </div>
 
