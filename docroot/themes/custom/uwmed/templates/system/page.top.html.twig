@@ -1,0 +1,16 @@
+{# Help #}
+{% if page.help %}
+    {% block help %}
+        {{ page.help }}
+    {% endblock %}
+{% endif %}
+
+
+{# Page Top #}
+{% if page.content_header %}
+    {% block content_header %}
+        <section class="content-header">
+            {{ page.content_header }}
+        </section>
+    {% endblock %}
+{% endif %}
