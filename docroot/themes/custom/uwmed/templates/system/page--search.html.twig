@@ -1,7 +1,5 @@
-{# Browsersync #}
-{#{% include 'themes/custom/uwmed/templates/system/browsersync-snippet.html.twig' %}#}
-
-{#{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}#}
+{{ attach_library('uwmed/search') }}
+{{ attach_library('uwmed/search-locations') }}
 
 {# Navbar #}
 {% include directory ~'/templates/system/page.header.html.twig' %}
@@ -11,10 +9,8 @@
 {% block main %}
     <div id="main-container" role="main" class="main-container container-fluid">
 
-
         {# Top #}
         {% include directory ~'/templates/system/page.top.html.twig' %}
-
 
         <div class="wrapper">
 
@@ -36,7 +32,7 @@
             page.sidebar_first is empty and page.sidebar_second is empty ? ''
             ] %}
             <section{{ content_attributes.addClass(content_classes).addClass('page-center') }}>
-
+11111111
                 {# Content #}
                 {% block content %}
                     <a id="main-content"></a>

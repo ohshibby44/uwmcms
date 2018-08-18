@@ -184,19 +184,16 @@ urgent-care-hours:
 search:
   js:
     dist/component-packages/search/search.js: { }
-  css: {}
+  css:
+    theme:
+      dist/component-packages/search/search.css: { }
   dependencies:
-
-search-providers:
-  js:
-    dist/component-packages/search/search-providers.js: { }
-  css: {}
-  dependencies:
-    - uwmed/search
 
 search-locations:
   js:
     dist/component-packages/search/search-locations.js: { }
-  css: {}
+  css:
+    theme:
+      dist/component-packages/search/search-locations.css: { }
   dependencies:
     - uwmed/search

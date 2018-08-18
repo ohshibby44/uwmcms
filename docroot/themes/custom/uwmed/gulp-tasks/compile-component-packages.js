@@ -6,23 +6,13 @@
 /* global module */
 
 
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, plugins, options) {
     'use strict';
 
 
     gulp.task('compile:component-packages', function () {
-
-        var opts = {
-            packages: {
-                src: [
-                    './src/component-packages/'
-                ],
-                dest: './dist/component-packages'
-            }
-        };
-
-
-        gulp.src(opts.packages.src + '**/*.js')
+        
+        gulp.src([options.component_packages.files + '**/*.js'])
             .pipe(plugins.include())
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
@@ -31,9 +21,9 @@ module.exports = function (gulp, plugins) {
             }))
             .pipe(plugins.sourcemaps.write())
             .pipe(plugins.plumber.stop())
-            .pipe(gulp.dest(opts.packages.dest));
+            .pipe(gulp.dest(options.component_packages.destination));
 
-        return gulp.src(opts.packages.src + '**/*.scss')
+        gulp.src([options.component_packages.files + '**/*.scss'])
             .pipe(plugins.plumber())
             //.pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass({
@@ -49,7 +39,7 @@ module.exports = function (gulp, plugins) {
             }))
             //.pipe(plugins.sourcemaps.write())
             //.pipe(gulp.concat('styles.css'))
-            .pipe(gulp.dest(opts.packages.dest));
+            .pipe(gulp.dest(options.component_packages.destination));
 
     });
 
