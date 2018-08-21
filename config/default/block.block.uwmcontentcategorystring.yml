@@ -1,0 +1,29 @@
+uuid: 159c348e-cc3b-42d4-ae5d-82ae3b7c42f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.uwmcontentcategory_string
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: uwmcontentcategorystring
+theme: uwmed
+region: content_header
+weight: 0
+provider: null
+plugin: 'facet_block:uwmcontentcategory_string'
+settings:
+  id: 'facet_block:uwmcontentcategory_string'
+  label: 'UwmContentCategory - String'
+  provider: facets
+  label_display: visible
+  block_id: uwmcontentcategorystring
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }

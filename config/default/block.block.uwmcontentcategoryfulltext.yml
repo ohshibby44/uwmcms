@@ -1,26 +1,26 @@
-uuid: ed5067ce-87ed-4950-b5d4-cde497ff2c2c
+uuid: ff930669-8c50-4cd1-8413-03b9e8180051
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.content_topics_facet
+    - facets.facet.uwmcontentcategory_full_text
   module:
     - facets
     - system
   theme:
     - uwmed
-id: contenttopicsfacet_2
+id: uwmcontentcategoryfulltext
 theme: uwmed
 region: content_header
 weight: 0
 provider: null
-plugin: 'facet_block:content_topics_facet'
+plugin: 'facet_block:uwmcontentcategory_full_text'
 settings:
-  id: 'facet_block:content_topics_facet'
-  label: 'Content Topics Facet'
+  id: 'facet_block:uwmcontentcategory_full_text'
+  label: 'UwmContentCategory - Full Text'
   provider: facets
   label_display: visible
-  block_id: contenttopicsfacet_2
+  block_id: uwmcontentcategoryfulltext
 visibility:
   request_path:
     id: request_path

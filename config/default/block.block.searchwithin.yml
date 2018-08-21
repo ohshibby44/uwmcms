@@ -19,7 +19,7 @@ settings:
   id: 'facet_block:search_within'
   label: 'Search within'
   provider: facets
-  label_display: visible
+  label_display: '0'
   block_id: searchwithin
 visibility:
   request_path:
