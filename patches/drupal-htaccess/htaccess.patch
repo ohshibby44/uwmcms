@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..3e35b634 100755
+index efce1877..076a41c1 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,3478 @@
+@@ -1,3 +1,3599 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -1610,8 +1610,11 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/hall-health-center/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/infant-development-uwmc/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/maternal-and-infant-care-uwmc/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/maternal-fetal-medicine-prenatal-diagnosis-clinic-arlington/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/obstetrics-arlington/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/maternal-fetal-medicine-prenatal-diagnosis-clinic-yakima/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/maternal-fetal-medicine-yvmh/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/birth-center-uwmc/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/maternal-infant-center/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/meridian-womens-health-ballard/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/meridian-womens-health-NWHMC/?(directions|care-providers)?$
@@ -1621,13 +1624,21 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/pediatric-care-center-uwmc-roosevelt/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/pediatrics-harborview/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/pediatric-trauma-burn-harborview/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/pelvic-health-clinic-eastside-specialty-center/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/pelvic-health-center-uwmc/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/prenatal-diagnostic-springbrook/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/reproductive-health-fertility-clinic-roosevelt/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/reproductive-care-uwmc-roosevelt/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/seattle-breast-center/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-cancer-care-northwest/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/womens-cancer-care-of-seattle/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-cancer-care-uwmc/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/womens-center-scca/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/womens-harborview/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-health-clinic-ballard/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-health-clinic-harborview/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-health-clinic-northwest/?(directions|care-providers)?$
++  RewriteCond %{REQUEST_URI} !^/locations/womens-health-clinic-opmc/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/womens-health-care-center-uwmc-roosevelt/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/locations/womens-health-mill-creek/?(directions|care-providers)?$
 +  RewriteCond %{REQUEST_URI} !^/bios/a-luana-stanescu$
@@ -2577,32 +2588,32 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/vicki-johnson$
 +  RewriteCond %{REQUEST_URI} !^/bios/michelle-abernathy$
 +  RewriteCond %{REQUEST_URI} !^/bios/kristoffer-rhoads$
-+  RewriteCond %{REQUEST_URI} !^/locations/alvord-brain-tumor-center$
-+  RewriteCond %{REQUEST_URI} !^/locations/cerebrovascular-lab-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/comprehensive-outpatient-rehabilitation-program-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/eeg-neurophysiology-lab-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/gamma-knife-center-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/headache-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/multiple-sclerosis-center$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurodiagnostic-lab-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurological-surgery-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurological-surgery-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurology-eastside$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurology-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurology-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/neuromuscular-respiratory-failure-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/neuropsychological-assessment-services-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/neurology-eastside$
-+  RewriteCond %{REQUEST_URI} !^/locations/northwest-neurology$
-+  RewriteCond %{REQUEST_URI} !^/locations/northwest-neurosurgery$
-+  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/regional-epilepsy-center-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/stroke-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/stroke-rehabilitation-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/memory-wellness$
++  RewriteCond %{REQUEST_URI} !^/locations/alvord-brain-tumor-center/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cerebrovascular-lab-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/comprehensive-outpatient-rehabilitation-program-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/eeg-neurophysiology-lab-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/gamma-knife-center-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/headache-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/multiple-sclerosis-center/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurodiagnostic-lab-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurological-surgery-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurological-surgery-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurology-eastside/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurology-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neuromuscular-respiratory-failure-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neuropsychological-assessment-services-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/neurology-eastside/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/northwest-neurology/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/northwest-neurosurgery/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/regional-epilepsy-center-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/stroke-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/stroke-rehabilitation-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/memory-wellness/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/neurosciences/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/neurological-surgery/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/neurology/?.*
@@ -2633,11 +2644,11 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/nam-tran$
 +  RewriteCond %{REQUEST_URI} !^/bios/sarah-whitehead$
 +  RewriteCond %{REQUEST_URI} !^/bios/robert-zierler$
-+  RewriteCond %{REQUEST_URI} !^/locations/vascular-surgery-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/vascular-and-endovascular-surgery-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/vascular-laboratory-at-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/vascular-laboratory-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/vascular-surgery-eastside-specialty-center$
++  RewriteCond %{REQUEST_URI} !^/locations/vascular-surgery-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/vascular-and-endovascular-surgery-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/vascular-laboratory-at-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/vascular-laboratory-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/vascular-surgery-eastside-specialty-center/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/vascular/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/vascular-care/?.*
 +  # End Vascular #
@@ -2684,13 +2695,13 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/maahum-haider$
 +  RewriteCond %{REQUEST_URI} !^/bios/karen-munger$
 +  RewriteCond %{REQUEST_URI} !^/bios/robert-sweet$
-+  RewriteCond %{REQUEST_URI} !^/locations/kidney-stone-center-nwhmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/mens-fertility$
-+  RewriteCond %{REQUEST_URI} !^/locations/mens-health-center$
-+  RewriteCond %{REQUEST_URI} !^/locations/urology-eastside$
-+  RewriteCond %{REQUEST_URI} !^/locations/urology-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/urology-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/urology-nw$
++  RewriteCond %{REQUEST_URI} !^/locations/kidney-stone-center-nwhmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/mens-fertility/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/mens-health-center/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/urology-eastside/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/urology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/urology-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/urology-nw/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/mens-health/?.*
 +  # End Urology and Men's Health #
 +  # Start Mental Health Care #
@@ -2971,13 +2982,14 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/prachi-munshi$
 +  RewriteCond %{REQUEST_URI} !^/bios/delilah-warrick$
 +  RewriteCond %{REQUEST_URI} !^/bios/elliot-twiggs$
-+  RewriteCond %{REQUEST_URI} !^/locations/geropsychiatric-center-northwest-hospital$
-+  RewriteCond %{REQUEST_URI} !^/locations/inpatient-psychiatry-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/inpatient-psychiatry-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/addictions-program-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/psychiatric-emergency-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-outpatient-uwmc-roosevelt$
-+  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-consultation-service-harborview$
++  RewriteCond %{REQUEST_URI} !^/locations/geropsychiatric-center-northwest-hospital/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/geropsychiatric-northwest/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/inpatient-psychiatry-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/inpatient-psychiatry-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/addictions-program-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/psychiatric-emergency-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-outpatient-uwmc-roosevelt/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/psychiatry-consultation-service-harborview/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/mental-health-care/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/psychiatry/?.*
 +  # End Mental Health Care #
@@ -3223,20 +3235,25 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/evan-yu$
 +  RewriteCond %{REQUEST_URI} !^/bios/rachel-yung$
 +  RewriteCond %{REQUEST_URI} !^/bios/david-zhen$
-+  RewriteCond %{REQUEST_URI} !^/locations/colorectal-services$
-+  RewriteCond %{REQUEST_URI} !^/locations/digestive-health-center-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/endoscopy-suite-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/esophageal-and-gastric-diseases-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/gastroenterology-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/hepatitis-and-liver-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-services-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/liver-tumor-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/digestive-health-center-eastside-specialty-center$
-+  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/nutrition-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/nutrition-uwmc-roosevelt$
-+  RewriteCond %{REQUEST_URI} !^/locations/nutrition-services-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/weight-loss-management-uwmc$
++  RewriteCond %{REQUEST_URI} !^/locations/colorectal-services/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/digestive-health-center-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/endoscopy-suite-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/esophageal-and-gastric-diseases-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/gastroenterology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/hepatitis-and-liver-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/hepatology-clinic-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/hepatology-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-services-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-transplant-clinic-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-transplant-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-tumor-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/digestive-health-center-eastside-specialty-center/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/liver-care-transplantation-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/nutrition-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/nutrition-uwmc-roosevelt/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/nutrition-services-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/weight-loss-management-uwmc/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/digestive-health/?.*
 +  # End Digestive Health Care #
 +  # Start Dermatology Care #
@@ -3270,9 +3287,9 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/james-vary$
 +  RewriteCond %{REQUEST_URI} !^/bios/hao-wang$
 +  RewriteCond %{REQUEST_URI} !^/bios/heather-pullen$
-+  RewriteCond %{REQUEST_URI} !^/locations/dermatological-surgery-center-uwmc-roosevelt$
-+  RewriteCond %{REQUEST_URI} !^/locations/dermatology-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/dermatology-uwmc-roosevelt$
++  RewriteCond %{REQUEST_URI} !^/locations/dermatological-surgery-center-uwmc-roosevelt/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/dermatology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/dermatology-uwmc-roosevelt/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/dermatology/?.*
 +  # End Dermatology Care #
 +  # Start ENT #
@@ -3326,24 +3343,24 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/maya-sardesai$
 +  RewriteCond %{REQUEST_URI} !^/bios/edward-weaver$
 +  RewriteCond %{REQUEST_URI} !^/bios/mark-whipple$
-+  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/northwest-otolaryngology$
-+  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-eastside$
-+  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview$
++  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/northwest-otolaryngology/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-eastside/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/ear-nose-and-throat-care/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/otolaryngology/?.*
 +  # End ENT #
 +  # Start Heart Institute #
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiology-eastside-specialty-center$
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiology-edmonds$
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiology-harborview$
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiology-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiology-imaging-echocardiography-ecg-nuclear-medicine-uwmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-ballard$
-+  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-nwhmc$
-+  RewriteCond %{REQUEST_URI} !^/locations/cardiac-fitness-northwest$
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-eastside-specialty-center/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-edmonds/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cardiology-imaging-echocardiography-ecg-nuclear-medicine-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-ballard/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-nwhmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/cardiac-fitness-northwest/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/heart-institute/?.*
 +  RewriteCond %{REQUEST_URI} !^/services/cardiology/?.*
 +  RewriteCond %{REQUEST_URI} !^/bios/nazem-akoum$
@@ -3457,6 +3474,110 @@ index efce1877..3e35b634 100755
 +  RewriteCond %{REQUEST_URI} !^/bios/thomas-treacy$
 +  RewriteCond %{REQUEST_URI} !^/bios/margaret-hanrahan$
 +  # End Heart Institute #
++  # Start Eye Institute #
++  RewriteCond %{REQUEST_URI} !^/services/eye-institute/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/eye-center-uwmc/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/eye-institute-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/eyes-on-james/?.*
++  RewriteCond %{REQUEST_URI} !^/locations/ophthalmology-harborview/?.*
++  RewriteCond %{REQUEST_URI} !^/bios/aj-amadi$
++  RewriteCond %{REQUEST_URI} !^/bios/claire-angel$
++  RewriteCond %{REQUEST_URI} !^/bios/michael-banitt$
++  RewriteCond %{REQUEST_URI} !^/bios/francine-baran$
++  RewriteCond %{REQUEST_URI} !^/bios/andrew-barloon$
++  RewriteCond %{REQUEST_URI} !^/bios/christopher-chambers$
++  RewriteCond %{REQUEST_URI} !^/bios/shu-hong-chang$
++  RewriteCond %{REQUEST_URI} !^/bios/jennifer-chao$
++  RewriteCond %{REQUEST_URI} !^/bios/yewlin-chee$
++  RewriteCond %{REQUEST_URI} !^/bios/philip-chen$
++  RewriteCond %{REQUEST_URI} !^/bios/susan-dini$
++  RewriteCond %{REQUEST_URI} !^/bios/alexander-foster$
++  RewriteCond %{REQUEST_URI} !^/bios/courtney-francis$
++  RewriteCond %{REQUEST_URI} !^/bios/eissa-hanna$
++  RewriteCond %{REQUEST_URI} !^/bios/erin-herlihy$
++  RewriteCond %{REQUEST_URI} !^/bios/tiffany-hollenbeck$
++  RewriteCond %{REQUEST_URI} !^/bios/hoon-jung$
++  RewriteCond %{REQUEST_URI} !^/bios/joon-bom-kim$
++  RewriteCond %{REQUEST_URI} !^/bios/james-kinyoun$
++  RewriteCond %{REQUEST_URI} !^/bios/anne-ko$
++  RewriteCond %{REQUEST_URI} !^/bios/deborah-lam$
++  RewriteCond %{REQUEST_URI} !^/bios/aaron-lee$
++  RewriteCond %{REQUEST_URI} !^/bios/cecilia-lee$
++  RewriteCond %{REQUEST_URI} !^/bios/daniel-lemor$
++  RewriteCond %{REQUEST_URI} !^/bios/thellea-leveque$
++  RewriteCond %{REQUEST_URI} !^/bios/shivali-menda$
++  RewriteCond %{REQUEST_URI} !^/bios/raghu-mudumbai$
++  RewriteCond %{REQUEST_URI} !^/bios/lisa-olmos-de-koo$
++  RewriteCond %{REQUEST_URI} !^/bios/kathryn-pepple$
++  RewriteCond %{REQUEST_URI} !^/bios/kasra-attaran-rezaei$
++  RewriteCond %{REQUEST_URI} !^/bios/nancy-ross$
++  RewriteCond %{REQUEST_URI} !^/bios/steven-saraf$
++  RewriteCond %{REQUEST_URI} !^/bios/tueng-shen$
++  RewriteCond %{REQUEST_URI} !^/bios/nora-silverman$
++  RewriteCond %{REQUEST_URI} !^/bios/andrew-stacey$
++  RewriteCond %{REQUEST_URI} !^/bios/parisa-taravati$
++  RewriteCond %{REQUEST_URI} !^/bios/kristina-tarczy-hornoch$
++  RewriteCond %{REQUEST_URI} !^/bios/russell-van-gelder$
++  RewriteCond %{REQUEST_URI} !^/bios/jessica-weinstein$
++  RewriteCond %{REQUEST_URI} !^/bios/avery-weiss$
++  RewriteCond %{REQUEST_URI} !^/bios/joanne-wen$
++  RewriteCond %{REQUEST_URI} !^/bios/jennifer-yu$
++  RewriteCond %{REQUEST_URI} !^/bios/ashley-mccain$
++  RewriteCond %{REQUEST_URI} !^/bios/samantha-alspach$
++  RewriteCond %{REQUEST_URI} !^/bios/grace-bechle$
++  RewriteCond %{REQUEST_URI} !^/bios/emily-bulley$
++  RewriteCond %{REQUEST_URI} !^/bios/alexander-dragnich$
++  RewriteCond %{REQUEST_URI} !^/bios/melanie-frank$
++  RewriteCond %{REQUEST_URI} !^/bios/wendy-hansen$
++  RewriteCond %{REQUEST_URI} !^/bios/corinne-heinen$
++  RewriteCond %{REQUEST_URI} !^/bios/adam-jayne-jensen$
++  RewriteCond %{REQUEST_URI} !^/bios/marina-kazulin$
++  RewriteCond %{REQUEST_URI} !^/bios/alexander-logan$
++  RewriteCond %{REQUEST_URI} !^/bios/nina-maisterra$
++  RewriteCond %{REQUEST_URI} !^/bios/jaclyn-mcloughlin$
++  RewriteCond %{REQUEST_URI} !^/bios/nancy-mugisha$
++  RewriteCond %{REQUEST_URI} !^/bios/elijah-mun$
++  RewriteCond %{REQUEST_URI} !^/bios/joseph-nadler$
++  RewriteCond %{REQUEST_URI} !^/bios/elizabeth-paesch$
++  RewriteCond %{REQUEST_URI} !^/bios/karen-palalay$
++  RewriteCond %{REQUEST_URI} !^/bios/michelle-rappaport$
++  RewriteCond %{REQUEST_URI} !^/bios/elise-rasmussen$
++  RewriteCond %{REQUEST_URI} !^/bios/claire-richardson$
++  RewriteCond %{REQUEST_URI} !^/bios/margaret-tebbs$
++  RewriteCond %{REQUEST_URI} !^/bios/mary-thomas$
++  RewriteCond %{REQUEST_URI} !^/bios/adam-van-buskirk$
++  RewriteCond %{REQUEST_URI} !^/bios/linda-wilson$
++  RewriteCond %{REQUEST_URI} !^/bios/denise-chang$
++  RewriteCond %{REQUEST_URI} !^/bios/thomas-cherry$
++  RewriteCond %{REQUEST_URI} !^/bios/lucy-hwang$
++  RewriteCond %{REQUEST_URI} !^/bios/deborah-katz$
++  RewriteCond %{REQUEST_URI} !^/bios/crystal-kong-wong$
++  RewriteCond %{REQUEST_URI} !^/bios/peter-mcgough$
++  RewriteCond %{REQUEST_URI} !^/bios/sue-moreni$
++  RewriteCond %{REQUEST_URI} !^/bios/tina-neogi$
++  RewriteCond %{REQUEST_URI} !^/bios/licia-raymond$
++  RewriteCond %{REQUEST_URI} !^/bios/tim-rhodes$
++  RewriteCond %{REQUEST_URI} !^/bios/heather-riley$
++  RewriteCond %{REQUEST_URI} !^/bios/jordan-stevens$
++  RewriteCond %{REQUEST_URI} !^/bios/zubin-vasavada$
++  RewriteCond %{REQUEST_URI} !^/bios/dayamal-waas$
++  RewriteCond %{REQUEST_URI} !^/bios/brandon-ware$
++  RewriteCond %{REQUEST_URI} !^/bios/melanie-andersen$
++  RewriteCond %{REQUEST_URI} !^/bios/tamara-atkins$
++  RewriteCond %{REQUEST_URI} !^/bios/seth-bagan$
++  RewriteCond %{REQUEST_URI} !^/bios/heather-chilcote$
++  RewriteCond %{REQUEST_URI} !^/bios/anita-chopra$
++  RewriteCond %{REQUEST_URI} !^/bios/suzanne-el-attar$
++  RewriteCond %{REQUEST_URI} !^/bios/marion-folkemer$
++  RewriteCond %{REQUEST_URI} !^/bios/claire-jenkins$
++  RewriteCond %{REQUEST_URI} !^/bios/neysa-koury$
++  RewriteCond %{REQUEST_URI} !^/bios/elizabeth-okane$
++  RewriteCond %{REQUEST_URI} !^/bios/kaity-pak$
++  RewriteCond %{REQUEST_URI} !^/bios/sarah-roskam$
++  RewriteCond %{REQUEST_URI} !^/bios/jennifer-shen$
++  RewriteCond %{REQUEST_URI} !^/bios/anna-shope$
++  RewriteCond %{REQUEST_URI} !^/bios/kathleen-mckeegan$
++  # End Eye Institue #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -3481,7 +3602,7 @@ index efce1877..3e35b634 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +3625,10 @@ AddEncoding gzip svgz
+@@ -150,6 +3746,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -3492,7 +3613,7 @@ index efce1877..3e35b634 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
-@@ -186,4 +3665,4 @@ AddEncoding gzip svgz
+@@ -186,4 +3786,4 @@ AddEncoding gzip svgz
    Header always set X-Content-Type-Options nosniff
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
