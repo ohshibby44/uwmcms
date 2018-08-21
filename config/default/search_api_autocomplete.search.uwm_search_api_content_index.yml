@@ -1,6 +1,6 @@
 uuid: bed4be25-034d-467c-8de4-f78d28921145
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - search_api.index.content
