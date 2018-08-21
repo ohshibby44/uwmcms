@@ -1,4 +1,4 @@
-uuid: 625494ab-c885-4383-a047-a36379ca21c8
+uuid: 9fb0a173-b86d-4ca1-a2b4-6fe2633e8dd7
 langcode: en
 status: true
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
     - views.view.uwm_search_api_content_index
   module:
     - search_api
-id: uwmcontentcategory_string
-name: 'UwmContentCategory - String'
-url_alias: uwmcontentcategory_string
+id: uwmsearchwithin_full_text
+name: 'UwmSearchWithin - Full Text'
+url_alias: uwmsearchwithin_full_text
 weight: 0
 min_count: 0
 show_only_one_result: false
-field_identifier: uwmcontentcategory_2
+field_identifier: uwmsearchwithin_2fulltext
 facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
   type: links

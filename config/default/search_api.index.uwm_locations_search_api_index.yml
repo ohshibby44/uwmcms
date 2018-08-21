@@ -9,12 +9,20 @@ dependencies:
     - search_api.server.database
   module:
     - search_api
+    - uwmcs_searchfields
     - node
 id: uwm_locations_search_api_index
 name: 'UWM Locations Index'
 description: ''
 read_only: false
 field_settings:
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -48,26 +56,19 @@ field_settings:
       config:
         - field.storage.node.field_bottom_content_blocks
   status:
-    label: null
+    label: status
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
     indexed_locked: true
     type_locked: true
   uid:
-    label: null
+    label: uid
     datasource_id: 'entity:node'
     property_path: uid
     type: integer
     indexed_locked: true
     type_locked: true
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
 datasource_settings:
   'entity:node':
     bundles:
@@ -80,12 +81,22 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  stemmer:
+    all_fields: false
+    fields:
+      - body
+      - title
+      - field_content_blocks
+      - field_bottom_content_blocks
+    exceptions:
+      texan: texa
+      mexican: mexic
+    weights:
+      preprocess_index: -43
+      preprocess_query: -43
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -50
-  entity_status: {  }
   highlight:
     highlight: always
     highlight_partial: true
@@ -96,24 +107,32 @@ processor_settings:
     suffix: '</tt>'
     weights:
       postprocess_query: 0
-  html_filter:
+  entity_status: {  }
+  tokenizer:
     all_fields: false
     fields:
       - body
       - title
       - field_content_blocks
       - field_bottom_content_blocks
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
     weights:
-      preprocess_index: -46
-      preprocess_query: -46
+      preprocess_index: -45
+      preprocess_query: -45
+  stopwords:
+    all_fields: false
+    fields:
+      - body
+      - field_content_blocks
+      - field_bottom_content_blocks
+    stopwords:
+      - clinic
+      - care
+    weights:
+      preprocess_index: -44
+      preprocess_query: -44
   ignorecase:
     all_fields: false
     fields:
@@ -157,45 +176,6 @@ processor_settings:
     weights:
       preprocess_index: -47
       preprocess_query: -47
-  rendered_item: {  }
-  stemmer:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    exceptions:
-      texan: texa
-      mexican: mexic
-    weights:
-      preprocess_index: -43
-      preprocess_query: -43
-  stopwords:
-    all_fields: false
-    fields:
-      - body
-      - field_content_blocks
-      - field_bottom_content_blocks
-    stopwords:
-      - clinic
-      - care
-    weights:
-      preprocess_index: -44
-      preprocess_query: -44
-  tokenizer:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -45
-      preprocess_query: -45
   type_boost:
     boosts:
       'entity:node':
@@ -206,6 +186,32 @@ processor_settings:
           uwm_medical_service: !!float 2
     weights:
       preprocess_index: -42
+  content_access:
+    weights:
+      preprocess_query: -50
+  html_filter:
+    all_fields: false
+    fields:
+      - body
+      - title
+      - field_content_blocks
+      - field_bottom_content_blocks
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -46
+      preprocess_query: -46
+  UwmSearchWithin: {  }
+  ImBioLanguage: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
 tracker_settings:
   default: {  }
 options:

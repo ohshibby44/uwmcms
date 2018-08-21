@@ -17,10 +17,10 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  * us to create a custom general content type category.
  *
  * @SearchApiProcessor(
- *   id = "UwmContentCategory",
- *   label = @Translation("UwmContentCategory"),
- *   description = @Translation("Adds a general content area, like Education or
- *   Medical Services field to the search API."), stages = {
+ *   id = "UwmSearchWithin",
+ *   label = @Translation("UwmSearchWithin"),
+ *   description = @Translation("Adds a the general content area to search."),
+ *   stages = {
  *     "add_properties" = 0,
  *   },
  *   locked = true,
@@ -29,9 +29,9 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  *
  * @TODO: Make search facet use a taxonomy and move code to a node_load().
  */
-class UwmContentCategory extends ProcessorPluginBase {
+class UwmSearchWithin extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'UwmContentCategory';
+  const FIELD_NAME = 'UwmSearchWithin';
 
   const VALUE_PROVIDER = 'Providers';
 
@@ -84,7 +84,7 @@ class UwmContentCategory extends ProcessorPluginBase {
     if (method_exists($entity, 'getType') && !empty($entity->nid->value)) {
 
       $node = Node::load($entity->nid->value);
-      self::setValueForContentType($node, $newValues);
+      self::setValueForContentTypes($node, $newValues);
       self::setValueForContentTerms($node, $newValues);
       self::setValueForContentAlias($node, $newValues);
 
@@ -115,7 +115,7 @@ class UwmContentCategory extends ProcessorPluginBase {
    * @param array $matches
    *   Description here.
    */
-  private function setValueForContentType(Node $node, array &$matches) {
+  private function setValueForContentTypes(Node $node, array &$matches) {
 
     $nodeType = $node->getType();
 
