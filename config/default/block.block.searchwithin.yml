@@ -1,28 +1,29 @@
-uuid: 6c026cdb-47f1-4406-8734-b4bfdd8fe683
+uuid: 1357b99e-9969-4e4b-a058-aa510501ecc5
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.imbiogender
+    - facets.facet.search_within
   module:
     - facets
     - system
   theme:
     - uwmed
-id: imbiogender
+id: searchwithin
 theme: uwmed
-region: sidebar_second
-weight: -9
+region: content_header
+weight: 0
 provider: null
-plugin: 'facet_block:imbiogender'
+plugin: 'facet_block:search_within'
 settings:
-  id: 'facet_block:imbiogender'
-  label: ImBioGender
+  id: 'facet_block:search_within'
+  label: 'Search within'
   provider: facets
   label_display: visible
+  block_id: searchwithin
 visibility:
   request_path:
     id: request_path
-    pages: '/search/index/providers*'
+    pages: /search
     negate: false
     context_mapping: {  }

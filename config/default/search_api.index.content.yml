@@ -11,8 +11,8 @@ dependencies:
     - core.entity_view_mode.node.full
   module:
     - search_api
+    - uwmcs_searchfields
     - node
-    - media_entity
     - taxonomy
 _core:
   default_config_hash: 5oGmbthAOm65ilSVAb2fnEb6u3IBMfKIw3sPA8KuqXU
@@ -54,6 +54,15 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  uwmcontentcategory:
+    label: UwmContentCategory
+    property_path: uwmcontentcategory
+    type: text
+    boost: !!float 0
+  uwmcontentcategory_1:
+    label: UwmContentCategory
+    property_path: uwmcontentcategory
+    type: string
   status:
     label: status
     datasource_id: 'entity:node'
@@ -112,13 +121,6 @@ datasource_settings:
     languages:
       default: true
       selected: {  }
-  'entity:media':
-    bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
   'entity:taxonomy_term':
     bundles:
       default: false
@@ -129,72 +131,20 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -10
-  html_filter:
+  tokenizer:
     all_fields: false
     fields:
       - rendered
       - label
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
     weights:
-      preprocess_index: -10
-      preprocess_query: -9
-  ignorecase:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    weights:
-      preprocess_index: -9
-      preprocess_query: -8
-  ignore_character:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-      - node_grants
-      - field_body_summary
-      - field_content_blocks
-      - field_bottom_content_blocks
-      - field_content_topics
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
-        Sc: 0
-        Sk: 0
-        Sm: 0
-        So: 0
-        Zl: 0
-        Zp: 0
-        Zs: 0
-    weights:
-      preprocess_index: -10
-      preprocess_query: -10
-  rendered_item: {  }
+      preprocess_index: -6
+      preprocess_query: -5
   stopwords:
     all_fields: false
     fields:
@@ -239,17 +189,14 @@ processor_settings:
     weights:
       preprocess_index: -5
       preprocess_query: -4
-  tokenizer:
+  ignorecase:
     all_fields: false
     fields:
       - rendered
       - label
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
     weights:
-      preprocess_index: -6
-      preprocess_query: -5
+      preprocess_index: -9
+      preprocess_query: -8
   transliteration:
     all_fields: false
     fields:
@@ -258,6 +205,42 @@ processor_settings:
     weights:
       preprocess_index: -4
       preprocess_query: -3
+  ignore_character:
+    all_fields: false
+    fields:
+      - rendered
+      - label
+      - node_grants
+      - field_body_summary
+      - field_content_blocks
+      - field_bottom_content_blocks
+      - field_content_topics
+    ignorable: '[''¿¡!?,.:;]'
+    strip:
+      character_sets:
+        Pc: Pc
+        Pd: Pd
+        Pe: Pe
+        Pf: Pf
+        Pi: Pi
+        Po: Po
+        Ps: Ps
+        Cc: 0
+        Cf: 0
+        Co: 0
+        Mc: 0
+        Me: 0
+        Mn: 0
+        Sc: 0
+        Sk: 0
+        Sm: 0
+        So: 0
+        Zl: 0
+        Zp: 0
+        Zs: 0
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
   type_boost:
     boosts:
       'entity:node':
@@ -287,6 +270,30 @@ processor_settings:
           uwm_digital_property: !!float 0
     weights:
       preprocess_index: 0
+  content_access:
+    weights:
+      preprocess_query: -10
+  html_filter:
+    all_fields: false
+    fields:
+      - rendered
+      - label
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -10
+      preprocess_query: -9
+  ImBioLanguage: {  }
+  UwmContentCategory: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
 tracker_settings:
   default: {  }
 options:

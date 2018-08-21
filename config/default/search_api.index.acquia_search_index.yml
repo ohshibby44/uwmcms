@@ -52,6 +52,7 @@ processor_settings:
     settings: {  }
   aggregated_field: {  }
   ImBioLanguage: {  }
+  UwmContentCategory: {  }
   ImBioExpertise: {  }
   ImBioBodyFields: {  }
   ImBioGender: {  }
