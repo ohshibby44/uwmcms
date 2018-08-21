@@ -379,6 +379,7 @@ display:
       display_extenders: {  }
       path: search
       exposed_block: true
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:

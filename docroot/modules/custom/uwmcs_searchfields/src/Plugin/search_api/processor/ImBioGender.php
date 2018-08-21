@@ -25,9 +25,9 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  */
 class ImBioGender extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'ImBioGender';
-  const IM_FIELD_ROOT = NULL;
-  const IM_FIELD_NAME = 'gender';
+  const FACET_NAME = 'ImBioGender';
+
+  const FIELD_NAME = 'gender';
 
   /**
    * {@inheritdoc}
@@ -39,13 +39,13 @@ class ImBioGender extends ProcessorPluginBase {
     if (!$datasource) {
 
       $definition = [
-        'label' => self::FIELD_NAME,
-        'description' => $this->t('Provider expertises from the Information Manager(IM) API'),
+        'label' => self::FACET_NAME,
+        'description' => $this->t('Provides value from the IM-API'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
 
-      $properties[strtolower(self::FIELD_NAME)] = new ProcessorProperty($definition);
+      $properties[strtolower(self::FACET_NAME)] = new ProcessorProperty($definition);
 
     }
 
@@ -58,29 +58,32 @@ class ImBioGender extends ProcessorPluginBase {
    */
   public function addFieldValues(ItemInterface $item) {
 
-    // $item->itemId == 'entity:node/10006:und';.
-    $entity = $item->getOriginalObject(TRUE)->getValue();
+    $facetValues = [];
 
+    $entity = $item->getOriginalObject(TRUE)->getValue();
     if ($entity->getType() === 'uwm_provider') {
 
       $node = Node::load($entity->nid->value);
-      $nodeData = $node->uwmcs_reader_api_values;
+      if (!empty($node->uwmcs_reader_api_values)) {
 
-      $dict = ['M' => 'Male', 'F' => 'Female'];
-      $nodeValue = UwmSearchUtils::extractFirstMatch($nodeData, self::IM_FIELD_NAME);
-      $values = [$dict[$nodeValue] ?? 'Other'];
+        $data = UwmSearchUtils::extractAllMatches($node->uwmcs_reader_api_values, self::FIELD_NAME);
+        foreach ($data as $value) {
+          $facetValues[] = $value;
+        }
+      }
+
+    }
+
+    if (!empty($facetValues)) {
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($fields, NULL,
-          strtolower(self::FIELD_NAME));
+          strtolower(self::FACET_NAME));
 
       foreach ($fields as $field) {
-
-        foreach ($values as $value) {
-
+        foreach ($facetValues as $value) {
           $field->addValue($value);
-
         }
 
       }

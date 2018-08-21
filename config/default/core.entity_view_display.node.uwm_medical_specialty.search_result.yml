@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
     region: content
   field_body_summary:
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       trim_length: 600
@@ -68,14 +68,14 @@ content:
     type: paragraph_summary
     region: content
   field_proof_points:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: paragraph_summary
     region: content
   field_sub_title:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false

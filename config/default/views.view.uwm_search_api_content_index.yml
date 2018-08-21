@@ -36,10 +36,10 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: true
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
@@ -191,7 +191,7 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: 'Content Search'
+      title: Search
       header:
         result:
           id: result
@@ -222,11 +222,12 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: search/index/content
+      path: search
       cache:
         type: none
       defaults:
         cache: false
+      exposed_block: true
     cache_metadata:
       max-age: -1
       contexts:
