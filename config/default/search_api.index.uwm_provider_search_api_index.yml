@@ -15,27 +15,6 @@ name: 'UWM Provider Index'
 description: ''
 read_only: false
 field_settings:
-  imbiogender:
-    label: ImBioGender
-    property_path: imbiogender
-    type: string
-  imbiolanguage:
-    label: ImBioLanguage
-    property_path: imbiolanguage
-    type: string
-  imbioexpertise:
-    label: ImBioExpertise
-    property_path: imbioexpertise
-    type: string
-  imbioexpertise_1:
-    label: ImBioExpertise
-    property_path: imbioexpertise
-    type: text
-    boost: 0.5
-  imbiobodyfields:
-    label: ImBioBodyFields
-    property_path: imbiobodyfields
-    type: text
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -81,9 +60,9 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  entity_status: {  }
   highlight:
     highlight: always
     highlight_partial: false
@@ -94,30 +73,34 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
-  html_filter:
+  entity_status: {  }
+  tokenizer:
     all_fields: false
     fields:
-      - imbiogender
-      - imbiolanguage
-      - imbioexpertise
-      - imbioexpertise_1
-      - imbiobodyfields
       - body
       - type
       - title
       - field_content_blocks
-      - title_1
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
     weights:
-      preprocess_index: -50
-      preprocess_query: -50
+      preprocess_index: -45
+      preprocess_query: -46
+  stopwords:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    stopwords:
+      - urgent
+      - care
+      - primary
+    weights:
+      preprocess_index: -44
+      preprocess_query: -45
   ignorecase:
     all_fields: false
     fields:
@@ -128,6 +111,16 @@ processor_settings:
     weights:
       preprocess_index: -47
       preprocess_query: -47
+  transliteration:
+    all_fields: false
+    fields:
+      - body
+      - type
+      - title
+      - field_content_blocks
+    weights:
+      preprocess_index: -49
+      preprocess_query: -49
   ignore_character:
     all_fields: false
     fields:
@@ -161,48 +154,30 @@ processor_settings:
     weights:
       preprocess_index: -48
       preprocess_query: -48
-  rendered_item: {  }
-  stopwords:
+  html_filter:
     all_fields: false
     fields:
       - body
       - type
       - title
       - field_content_blocks
-    stopwords:
-      - urgent
-      - care
-      - primary
+      - title_1
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
     weights:
-      preprocess_index: -44
-      preprocess_query: -45
-  tokenizer:
-    all_fields: false
-    fields:
-      - body
-      - type
-      - title
-      - field_content_blocks
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -45
-      preprocess_query: -46
-  transliteration:
-    all_fields: false
-    fields:
-      - body
-      - type
-      - title
-      - field_content_blocks
-    weights:
-      preprocess_index: -49
-      preprocess_query: -49
-  ImBioBodyFields: {  }
-  ImBioExpertise: {  }
-  ImBioGender: {  }
+      preprocess_index: -50
+      preprocess_query: -50
+  UwmSearchWithin: {  }
   ImBioLanguage: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
 tracker_settings:
   default: {  }
 options:

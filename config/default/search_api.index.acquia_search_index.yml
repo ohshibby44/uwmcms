@@ -51,8 +51,8 @@ processor_settings:
     plugin_id: add_url
     settings: {  }
   aggregated_field: {  }
+  UwmSearchWithin: {  }
   ImBioLanguage: {  }
-  UwmContentCategory: {  }
   ImBioExpertise: {  }
   ImBioBodyFields: {  }
   ImBioGender: {  }
