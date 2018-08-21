@@ -54,12 +54,12 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
-  uwmcontentcategory_ft:
+  uwmcontentcategory_1:
     label: 'UwmContentCategory - Full Text'
     property_path: uwmcontentcategory
     type: text
-    boost: !!float 0
-  uwmcontentcategory_st:
+    boost: !!float 21
+  uwmcontentcategory_2:
     label: 'UwmContentCategory - String'
     property_path: uwmcontentcategory
     type: string
