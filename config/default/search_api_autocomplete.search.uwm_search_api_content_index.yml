@@ -1,0 +1,24 @@
+uuid: bed4be25-034d-467c-8de4-f78d28921145
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.content
+    - views.view.uwm_search_api_content_index
+  module:
+    - views
+    - search_api_autocomplete
+id: uwm_search_api_content_index
+label: 'UWM Search - General Search Index'
+index_id: content
+suggester_settings:
+  server:
+    fields: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:uwm_search_api_content_index':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

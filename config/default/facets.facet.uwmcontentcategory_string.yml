@@ -1,4 +1,4 @@
-uuid: e523045e-8162-4009-b1ab-add08eee6ae6
+uuid: 625494ab-c885-4383-a047-a36379ca21c8
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ url_alias: uwmcontentcategory_string
 weight: 0
 min_count: 0
 show_only_one_result: false
-field_identifier: uwmcontentcategory_st
+field_identifier: uwmcontentcategory_2
 facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
   type: links
@@ -27,7 +27,7 @@ query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: 10
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
