@@ -8,7 +8,6 @@ dependencies:
     - search_api.server.database
   module:
     - search_api
-    - uwmcs_searchfields
     - node
 id: uwm_provider_search_api_index
 name: 'UWM Provider Index'
@@ -173,11 +172,6 @@ processor_settings:
     weights:
       preprocess_index: -50
       preprocess_query: -50
-  UwmSearchWithin: {  }
-  ImBioLanguage: {  }
-  ImBioExpertise: {  }
-  ImBioBodyFields: {  }
-  ImBioGender: {  }
 tracker_settings:
   default: {  }
 options:

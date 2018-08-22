@@ -12,8 +12,8 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
  * Adds the item's URL to the indexed data.
  *
  * @SearchApiProcessor(
- *   id = "ImBioLanguage",
- *   label = @Translation("ImBioLanguage"),
+ *   id = "ImClinicCity",
+ *   label = @Translation("ImClinicCity"),
  *   description = @Translation("Provides additional UWM values to search."),
  *   stages = {
  *     "add_properties" = 0,
@@ -22,11 +22,11 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
  *   hidden = false,
  * )
  */
-class ImBioLanguage extends ProcessorPluginBase {
+class ImClinicCity extends ProcessorPluginBase {
 
-  const FACET_NAME = 'ImBioLanguage';
+  const FACET_NAME = 'ImClinicCity';
 
-  const FIELD_NAME = 'languageName';
+  const FIELD_NAME = 'city';
 
   /**
    * {@inheritdoc}
@@ -39,7 +39,7 @@ class ImBioLanguage extends ProcessorPluginBase {
 
       $definition = [
         'label' => self::FACET_NAME,
-        'description' => $this->t('Provider expertises from the Information Manager(IM) API'),
+        'description' => $this->t('Provider extra values for search.'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
@@ -57,9 +57,8 @@ class ImBioLanguage extends ProcessorPluginBase {
    */
   public function addFieldValues(ItemInterface $item) {
 
-    // $item->itemId == 'entity:node/10006:und';.
     $entity = $item->getOriginalObject(TRUE)->getValue();
-    if ($entity->getType() === 'uwm_provider') {
+    if ($entity->getType() === 'uwm_clinic') {
 
       $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
       $newValues = UwmSearchInfoMgrHelper::extractAllApiMatches($data, self::FIELD_NAME);

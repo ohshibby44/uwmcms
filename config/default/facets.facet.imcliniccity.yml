@@ -1,4 +1,4 @@
-uuid: ee1c1cda-b02b-43fe-8a43-5f83981c75bc
+uuid: 0406afbd-ce87-46d5-b26e-121541aec860
 langcode: en
 status: true
 dependencies:
@@ -7,27 +7,24 @@ dependencies:
     - views.view.uwm_search_api_content_index
   module:
     - search_api
-id: uwmsearchwithin_fulltext_tokens
-name: 'UwmSearchWithin - Fulltext Tokens'
-url_alias: uwmsearchwithin_fulltext_tokens
+id: imcliniccity
+name: ImClinicCity
+url_alias: imcliniccity
 weight: 0
 min_count: 0
 show_only_one_result: false
-field_identifier: uwmsearchwithin_3fttokens
+field_identifier: imcliniccity
 facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: true
-    soft_limit: 0
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: 0
+hard_limit: 15
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
