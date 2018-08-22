@@ -1,4 +1,4 @@
-uuid: 85ad2ae8-4291-45d2-9be5-bd5389a39ed0
+uuid: 72360257-1948-4032-a202-e71450f17f93
 langcode: en
 status: true
 dependencies:
@@ -13,16 +13,13 @@ url_alias: uwmsearchwithin_string
 weight: 0
 min_count: 0
 show_only_one_result: false
-field_identifier: uwmsearchwithin_1string
+field_identifier: uwmsearchwithin_1
 facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: true
-    soft_limit: 0
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

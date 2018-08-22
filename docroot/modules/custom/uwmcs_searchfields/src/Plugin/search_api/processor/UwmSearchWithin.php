@@ -2,12 +2,13 @@
 
 namespace Drupal\uwmcs_searchfields\Plugin\search_api\Processor;
 
+use Drupal\node\NodeInterface;
 use Drupal\node\Entity\Node;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
 
 /**
  * Provides a value to the Search API for the "Search within" drop-down.
@@ -19,7 +20,7 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  * @SearchApiProcessor(
  *   id = "UwmSearchWithin",
  *   label = @Translation("UwmSearchWithin"),
- *   description = @Translation("Adds a the general content area to search."),
+ *   description = @Translation("Provides additional UWM values to search."),
  *   stages = {
  *     "add_properties" = 0,
  *   },
@@ -31,7 +32,9 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  */
 class UwmSearchWithin extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'UwmSearchWithin';
+  const FACET_NAME = 'UwmSearchWithin';
+
+  const FIELD_NAME = '';
 
   const VALUE_PROVIDER = 'Providers';
 
@@ -57,13 +60,13 @@ class UwmSearchWithin extends ProcessorPluginBase {
     if (!$datasource) {
 
       $definition = [
-        'label' => self::FIELD_NAME,
+        'label' => self::FACET_NAME,
         'description' => $this->t('General area or type of content item.'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
 
-      $properties[strtolower(self::FIELD_NAME)] = new ProcessorProperty($definition);
+      $properties[strtolower(self::FACET_NAME)] = new ProcessorProperty($definition);
 
     }
 
@@ -76,30 +79,26 @@ class UwmSearchWithin extends ProcessorPluginBase {
    */
   public function addFieldValues(ItemInterface $item) {
 
-    // $item->itemId == 'entity:node/10006:und';.
-    $newValues = [];
     $entity = $item->getOriginalObject(TRUE)->getValue();
+    if ($entity instanceof NodeInterface) {
 
-    // Provide a general search bucket based on different node values.
-    if (method_exists($entity, 'getType') && !empty($entity->nid->value)) {
+      // $data = UwmSearchUtils::extractAllApiMatches($node, self::FIELD_NAME);.
+      $newValues = [];
 
-      $node = Node::load($entity->nid->value);
-      self::setValueForContentTypes($node, $newValues);
-      self::setValueForContentTerms($node, $newValues);
-      self::setValueForContentAlias($node, $newValues);
-
-    }
-
-    if (!empty($newValues)) {
+      self::setValueForContentTypes($entity, $newValues);
+      self::setValueForContentTerms($entity, $newValues);
+      self::setValueForContentAlias($entity, $newValues);
 
       $itemFields = $item->getFields(FALSE);
       $itemFields = $this->getFieldsHelper()
         ->filterForPropertyPath($itemFields, NULL,
-          strtolower(self::FIELD_NAME));
+          strtolower(self::FACET_NAME));
 
-      foreach ($itemFields as $field) {
-        foreach ($newValues as $value) {
-          $field->addValue($value);
+      foreach ($newValues as $value) {
+        if (is_string($value) && !empty($value)) {
+          foreach ($itemFields as $field) {
+            $field->addValue($value);
+          }
         }
       }
 
@@ -155,26 +154,19 @@ class UwmSearchWithin extends ProcessorPluginBase {
    * @param array $matches
    *   Description here.
    */
-  private function setValueForContentAlias(Node $node, array &$matches) {
+  private function setValueForContentTerms(Node $node, array &$matches) {
 
-    $alias = \Drupal::service('path.alias_manager')
-      ->getAliasByPath('/node/' . $node->nid->value);
+    if ($node->getType() === 'uwm_clinic' || $node->getType() === 'uwm_provider') {
 
-    if (!empty($alias)) {
+      $data = UwmSearchInfoMgrHelper::getEntityApiData($node);
 
-      if (stripos($alias, 'education') !== FALSE) {
-        $matches[] = self::VALUE_EDUCATION;
+      $medicalService = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'lineOfCareName');
+      if (!empty($medicalService)) {
+        $matches[] = self::VALUE_MEDICAL_SERVICE;
       }
 
-      if (stripos($alias, 'research') !== FALSE) {
-        $matches[] = self::VALUE_RESEARCH;
-      }
-
-      if (stripos($alias, 'about') !== FALSE || stripos($alias, 'patient-care') !== FALSE || stripos($alias, 'patient-resources') !== FALSE) {
-        $matches[] = self::VALUE_PATIENT_RESOURCES;
-      }
-
-      if (stripos($alias, 'services') !== FALSE) {
+      $expertise = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'expertiseName');
+      if (!empty($expertise)) {
         $matches[] = self::VALUE_MEDICAL_SERVICE;
       }
 
@@ -190,19 +182,29 @@ class UwmSearchWithin extends ProcessorPluginBase {
    * @param array $matches
    *   Description here.
    */
-  private function setValueForContentTerms(Node $node, array &$matches) {
+  private function setValueForContentAlias(Node $node, array &$matches) {
 
-    $apiData = $node->uwmcs_reader_api_values;
+    $alias = \Drupal::service('path.alias_manager')
+      ->getAliasByPath('/node/' . $node->nid->value);
 
-    if ($node->getType() === 'uwm_clinic' || $node->getType() === 'uwm_provider') {
+    if (!empty($alias)) {
 
-      $medicalServices = UwmSearchUtils::extractFirstMatch($apiData, 'lineOfCareName');
-      if (!empty($medicalServices)) {
-        $matches[] = self::VALUE_MEDICAL_SERVICE;
+      if (stripos($alias, 'education') !== FALSE) {
+        $matches[] = self::VALUE_EDUCATION;
       }
 
-      $expertises = UwmSearchUtils::extractFirstMatch($apiData, 'expertiseName');
-      if (!empty($medicalServices)) {
+      if (stripos($alias, 'research') !== FALSE) {
+        $matches[] = self::VALUE_RESEARCH;
+      }
+
+      if (stripos($alias, 'about') !== FALSE ||
+          stripos($alias, 'patient-care') !== FALSE ||
+          stripos($alias, 'patient-resources') !== FALSE
+      ) {
+        $matches[] = self::VALUE_PATIENT_RESOURCES;
+      }
+
+      if (stripos($alias, 'services') !== FALSE) {
         $matches[] = self::VALUE_MEDICAL_SERVICE;
       }
 

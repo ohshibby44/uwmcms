@@ -1,4 +1,4 @@
-uuid: 8c3bd698-114a-4dae-9883-cb7ff80e8773
+uuid: c091572a-b3e7-428a-92c4-81829de7a9b1
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 id: uwm_search_api_content_index
-label: 'UWM Search - General Search Index'
+label: uwm_search_api_content_index
 module: views
 description: ''
 tag: ''
@@ -39,21 +39,16 @@ display:
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
+          expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
           items_per_page: 6
           offset: 0
           id: 0
           total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -62,7 +57,9 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: default
       row:
@@ -81,15 +78,9 @@ display:
               uwm_medical_service: search_result
               uwm_medical_specialty: search_result
               uwm_provider: search_result
-            'entity:media':
-              document: thumbnail
-              image: thumbnail
-              instagram: thumbnail
-              tweet: thumbnail
-              video: thumbnail
             'entity:taxonomy_term':
               content_topics: default
-              uwm_digital_property: ''
+              uwm_digital_property: default
       fields:
         rendered:
           table: search_api_index_content
@@ -191,18 +182,8 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: Search
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          content: 'Displaying @start - @end of @total'
-          plugin_id: result
+      title: uwm_search_api_content_index
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -223,11 +204,11 @@ display:
     display_options:
       display_extenders: {  }
       path: search
+      exposed_block: true
       cache:
         type: none
       defaults:
         cache: false
-      exposed_block: true
     cache_metadata:
       max-age: -1
       contexts:
