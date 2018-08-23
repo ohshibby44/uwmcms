@@ -67,20 +67,11 @@ display:
         options:
           view_modes:
             'entity:node':
-              condition_spotlight: search_result
-              content_spotlight: search_result
               fact_page: search_result
-              homepage: search_result
-              landing_page: search_result
               page: search_result
-              quiz: search_result
               uwm_clinic: search_result
               uwm_medical_service: search_result
               uwm_medical_specialty: search_result
-              uwm_provider: search_result
-            'entity:taxonomy_term':
-              content_topics: default
-              uwm_digital_property: default
       fields:
         rendered:
           table: search_api_index_content
@@ -144,13 +135,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: and
+          operator: or
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            label: 'What can we help you find? '
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -182,10 +173,21 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: uwm_search_api_content_index
+      title: Search
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<p>We couldn''t find anything matching your search.</p>'
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }

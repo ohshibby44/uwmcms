@@ -176,9 +176,11 @@ var options = {
     },
 
     // ----- Custom Packages ----- //
-    component_packages: {
-        files: 'src/component-packages/',
-        destination: 'dist/component-packages/'
+    custom_packages: {
+        files: 'src/custom-packages/',
+        sass: 'src/custom-packages/**/*.scss',
+        js: 'src/custom-packages/**/*.js',
+        destination: 'dist/custom-packages/'
     },
 
     // ----- Images ----- //
@@ -283,7 +285,7 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
-require('./gulp-tasks/compile-component-packages')(gulp, plugins, options);
+require('./gulp-tasks/compile-custom-packages')(gulp, plugins, options);
 
 
 // Credits:
