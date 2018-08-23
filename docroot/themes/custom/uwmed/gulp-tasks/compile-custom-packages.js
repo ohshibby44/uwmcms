@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins, options) {
 
     gulp.task('compile:component-packages', function () {
         
-        gulp.src([options.component_packages.files + '**/*.js'])
+        gulp.src([options.custom_packages.js])
             .pipe(plugins.include())
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
@@ -21,9 +21,9 @@ module.exports = function (gulp, plugins, options) {
             }))
             .pipe(plugins.sourcemaps.write())
             .pipe(plugins.plumber.stop())
-            .pipe(gulp.dest(options.component_packages.destination));
+            .pipe(gulp.dest(options.custom_packages.destination));
 
-        gulp.src([options.component_packages.files + '**/*.scss'])
+        gulp.src([options.custom_packages.sass])
             .pipe(plugins.plumber())
             //.pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass({
@@ -39,7 +39,7 @@ module.exports = function (gulp, plugins, options) {
             }))
             //.pipe(plugins.sourcemaps.write())
             //.pipe(gulp.concat('styles.css'))
-            .pipe(gulp.dest(options.component_packages.destination));
+            .pipe(gulp.dest(options.custom_packages.destination));
 
     });
 

@@ -1,5 +1,4 @@
 {{ attach_library('uwmed/search') }}
-{{ attach_library('uwmed/search-locations') }}
 
 {# Navbar #}
 {% include directory ~'/templates/system/page.header.html.twig' %}
@@ -32,7 +31,7 @@
             page.sidebar_first is empty and page.sidebar_second is empty ? ''
             ] %}
             <section{{ content_attributes.addClass(content_classes).addClass('page-center') }}>
-11111111
+
                 {# Content #}
                 {% block content %}
                     <a id="main-content"></a>

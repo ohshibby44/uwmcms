@@ -7,6 +7,9 @@ dependencies:
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
     - field.storage.node.field_content_topics
+    - field.storage.node.field_content_blocks_footer
+    - field.storage.node.field_top_content_blocks_footer
+    - field.storage.node.field_top_content_blocks
     - search_api.server.database
     - core.entity_view_mode.node.full
   module:
@@ -80,7 +83,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_body_summary
     type: text
-    boost: 0.3
+    boost: !!float 13
     dependencies:
       config:
         - field.storage.node.field_body_summary
@@ -89,7 +92,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_content_blocks
     type: text
-    boost: 0.1
     dependencies:
       config:
         - field.storage.node.field_content_blocks
@@ -98,7 +100,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_bottom_content_blocks
     type: text
-    boost: 0.2
+    boost: !!float 0
     dependencies:
       config:
         - field.storage.node.field_bottom_content_blocks
@@ -111,6 +113,44 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_content_topics
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 21
+  field_content_blocks_footer:
+    label: Afterwards
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks_footer
+    type: text
+    boost: !!float 0
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks_footer
+  field_top_content_blocks_footer:
+    label: Afterwards
+    datasource_id: 'entity:node'
+    property_path: field_top_content_blocks_footer
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_top_content_blocks_footer
+  field_top_content_blocks:
+    label: 'Top Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_top_content_blocks
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_top_content_blocks
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
 datasource_settings:
   'entity:node':
     bundles:
