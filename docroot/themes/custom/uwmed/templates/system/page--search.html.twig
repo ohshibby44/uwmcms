@@ -1,0 +1,62 @@
+{{ attach_library('uwmed/search') }}
+
+{# Navbar #}
+{% include directory ~'/templates/system/page.header.html.twig' %}
+
+
+{# Main #}
+{% block main %}
+    <div id="main-container" role="main" class="main-container container-fluid">
+
+        {# Top #}
+        {% include directory ~'/templates/system/page.top.html.twig' %}
+
+        <div class="wrapper">
+
+            {# Sidebar First #}
+            {% if page.sidebar_first %}
+                {% block sidebar_first %}
+                    <aside class="col-sm-3 page-left" role="complementary">
+                        {{ page.sidebar_first }}
+                    </aside>
+                {% endblock %}
+            {% endif %}
+
+
+            {# Content #}
+            {% set content_classes = [
+            page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+            page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+            page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+            page.sidebar_first is empty and page.sidebar_second is empty ? ''
+            ] %}
+            <section{{ content_attributes.addClass(content_classes).addClass('page-center') }}>
+
+                {# Content #}
+                {% block content %}
+                    <a id="main-content"></a>
+                    {{ page.content }}
+                {% endblock %}
+
+            </section>
+
+
+            {# Sidebar Second #}
+            {% if page.sidebar_second %}
+                {% block sidebar_second %}
+                    <aside class="col-sm-3 page-right" role="complementary">
+                        {{ page.sidebar_second }}
+                    </aside>
+                {% endblock %}
+            {% endif %}
+
+
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+{# Footer #}
+{% include directory ~'/templates/system/page.footer.html.twig' %}

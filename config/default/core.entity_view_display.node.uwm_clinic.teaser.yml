@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.uwm_clinic.field_bottom_content_blocks
     - field.field.node.uwm_clinic.field_bottom_content_blocks_head
     - field.field.node.uwm_clinic.field_clinic_image
+    - field.field.node.uwm_clinic.field_clinic_services_header
     - field.field.node.uwm_clinic.field_clinic_wait_time_snippet
     - field.field.node.uwm_clinic.field_clockwise_id
     - field.field.node.uwm_clinic.field_content_blocks
@@ -36,24 +37,16 @@ bundle: uwm_clinic
 mode: teaser
 content:
   body:
-    type: text_trimmed
-    weight: 3
-    region: content
-    label: above
-    settings:
-      trim_length: 220
-    third_party_settings: {  }
-  field_body_summary:
-    type: text_trimmed
+    type: text_summary_or_trimmed
     weight: 2
     region: content
-    label: above
+    label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
   field_clinic_image:
     weight: 1
-    label: above
+    label: hidden
     settings:
       responsive_image_style: default_responsive_image
       image_link: ''
@@ -62,20 +55,22 @@ content:
     region: content
   field_sub_title:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   links:
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_body_summary: true
   field_bottom_content_blocks: true
   field_bottom_content_blocks_head: true
+  field_clinic_services_header: true
   field_clinic_wait_time_snippet: true
   field_clockwise_id: true
   field_content_blocks: true

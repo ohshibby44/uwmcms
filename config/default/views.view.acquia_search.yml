@@ -1,6 +1,6 @@
 uuid: e2b3b4c3-1cae-4263-8731-234d7f3dd09b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - search_api.index.acquia_search_index
@@ -234,6 +234,7 @@ display:
         context: '0'
         menu_name: main
       display_description: ''
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:

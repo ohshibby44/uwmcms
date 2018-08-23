@@ -2,12 +2,11 @@
 
 namespace Drupal\uwmcs_searchfields\Plugin\search_api\Processor;
 
-use Drupal\node\Entity\Node;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
 
 /**
  * Adds the item's URL to the indexed data.
@@ -15,8 +14,8 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  * @SearchApiProcessor(
  *   id = "ImBioBodyFields",
  *   label = @Translation("ImBioBodyFields"),
- *   description = @Translation("Adds  Information Manager fields to the indexed
- *   data."), stages = {
+ *   description = @Translation("Provides additional UWM values to search."),
+ *   stages = {
  *     "add_properties" = 0,
  *   },
  *   locked = true,
@@ -25,7 +24,10 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  */
 class ImBioBodyFields extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'ImBioBodyFields';
+
+  const FACET_NAME = 'ImBioBodyFields';
+
+  const FIELD_NAME = 'gender';
 
   /**
    * {@inheritdoc}
@@ -37,13 +39,13 @@ class ImBioBodyFields extends ProcessorPluginBase {
     if (!$datasource) {
 
       $definition = [
-        'label' => self::FIELD_NAME,
+        'label' => self::FACET_NAME,
         'description' => $this->t('Information Manager (IM) API Provider fields'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
 
-      $properties[strtolower(self::FIELD_NAME)] = new ProcessorProperty($definition);
+      $properties[strtolower(self::FACET_NAME)] = new ProcessorProperty($definition);
 
     }
 
@@ -58,33 +60,31 @@ class ImBioBodyFields extends ProcessorPluginBase {
 
     // $item->itemId == 'entity:node/10006:und';.
     $entity = $item->getOriginalObject(TRUE)->getValue();
-
     if ($entity->getType() === 'uwm_provider') {
 
-      $node = Node::load($entity->nid->value);
-      $nodeData = $node->uwmcs_reader_api_values;
+      $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
 
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'fullBio');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'researchInterests');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'personalInterests');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'clinicalInterests');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'teachingInterests');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'patientCarePhilosophy');
-      $values[] = UwmSearchUtils::extractFirstMatch($nodeData, 'scopeOfCare');
+      $newValues = [];
+      $newValues[] = UwmSearchInfoMgrHelper::extractAllApiMatches($data, self::FIELD_NAME);
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'fullBio');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'researchInterests');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'personalInterests');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'clinicalInterests');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'teachingInterests');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'patientCarePhilosophy');
+      $newValues[] = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'scopeOfCare');
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($fields, NULL,
-          strtolower(self::FIELD_NAME));
+          strtolower(self::FACET_NAME));
 
-      foreach ($fields as $field) {
-
-        foreach ($values as $value) {
-
-          $field->addValue($value);
-
+      foreach ($newValues as $value) {
+        foreach ($fields as $field) {
+          if (!empty($value)) {
+            $field->addValue($value);
+          }
         }
-
       }
 
     }

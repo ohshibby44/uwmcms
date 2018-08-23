@@ -6,6 +6,7 @@ dependencies:
     - image.style.hero
     - image.style.hero_1x_1140_width_
     - image.style.hero_667px_width_
+    - image.style.thumbnail
 id: landscape_responsive_image
 label: 'Landscape Responsive Image'
 image_style_mappings:
@@ -19,5 +20,6 @@ image_style_mappings:
         - hero
         - hero_1x_1140_width_
         - hero_667px_width_
+        - thumbnail
 breakpoint_group: responsive_image
-fallback_image_style: hero_1x_1140_width_
+fallback_image_style: thumbnail

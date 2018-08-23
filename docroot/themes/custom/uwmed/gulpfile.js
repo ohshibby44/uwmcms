@@ -68,7 +68,7 @@
 var gulp = require('gulp');
 gulp.gutil = require('gulp-util');
 gulp.concat = require('gulp-concat');
-
+gulp.path = require('path');
 
 // Setting pattern this way allows non gulp- plugins to be loaded as well.
 var plugins = require('gulp-load-plugins')({
@@ -85,7 +85,6 @@ var plugins = require('gulp-load-plugins')({
 });
 
 // Used to generate relative paths for style guide output.
-var path = require('path');
 
 // These are used in the options below.
 var paths = {
@@ -139,34 +138,34 @@ var options = {
     // ----- ASSETS ----- //
 
     assets: {
-        files: path.join(paths.assets.source, '**/*'),
-        destination: path.join(paths.assets.destination)
+        files: gulp.path.join(paths.assets.source, '**/*'),
+        destination: gulp.path.join(paths.assets.destination)
     },
 
     // ----- CSS ----- //
 
     css: {
-        files: path.join(paths.styles.destination, '**/*.css'),
-        file: path.join(paths.styles.destination, '/styles.css'),
-        destination: path.join(paths.styles.destination)
+        files: gulp.path.join(paths.styles.destination, '**/*.css'),
+        file: gulp.path.join(paths.styles.destination, '/styles.css'),
+        destination: gulp.path.join(paths.styles.destination)
     },
 
     // ----- Sass ----- //
 
     sass: {
-        lintFiles: path.join(paths.styles.lintSource, '**/*.scss'),
-        files: path.join(paths.styles.source, '**/*.scss'),
-        componentFiles: path.join(paths.styles.themeComponents, '**/*.scss'),
-        file: path.join(paths.styles.source, 'styles.scss'),
-        destination: path.join(paths.styles.destination),
+        lintFiles: gulp.path.join(paths.styles.lintSource, '**/*.scss'),
+        files: gulp.path.join(paths.styles.source, '**/*.scss'),
+        componentFiles: gulp.path.join(paths.styles.themeComponents, '**/*.scss'),
+        file: gulp.path.join(paths.styles.source, 'styles.scss'),
+        destination: gulp.path.join(paths.styles.destination),
         bootstrapFiles: paths.styles.bootstrapSource
     },
 
     // ----- JS ----- //
     js: {
-        files: path.join(paths.scripts.source, '**/*.js'),
-        destination: path.join(paths.scripts.destination),
-        bootstrapFiles: path.join(paths.scripts.bootstrapSource, '*.js'),
+        files: gulp.path.join(paths.scripts.source, '**/*.js'),
+        destination: gulp.path.join(paths.scripts.destination),
+        bootstrapFiles: gulp.path.join(paths.scripts.bootstrapSource, '*.js'),
         bootstrapDestination: paths.scripts.bootstrapDestination
     },
 
@@ -176,16 +175,24 @@ var options = {
         destination: 'dist/libraries/'
     },
 
+    // ----- Custom Packages ----- //
+    custom_packages: {
+        files: 'src/custom-packages/',
+        sass: 'src/custom-packages/**/*.scss',
+        js: 'src/custom-packages/**/*.js',
+        destination: 'dist/custom-packages/'
+    },
+
     // ----- Images ----- //
     images: {
-        files: path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
-        cleanFiles: path.join(paths.images.destination, '**/*.{png,gif,jpg,svg}'),
-        destination: path.join(paths.images.destination)
+        files: gulp.path.join(paths.images.source, '**/*.{png,gif,jpg,svg}'),
+        cleanFiles: gulp.path.join(paths.images.destination, '**/*.{png,gif,jpg,svg}'),
+        destination: gulp.path.join(paths.images.destination)
     },
 
     // ----- Fonts ----- //
     fonts: {
-        bootstrapFiles: path.join(paths.fonts.bootstrapSource, '*'),
+        bootstrapFiles: gulp.path.join(paths.fonts.bootstrapSource, '*'),
         bootstrapDestination: paths.fonts.bootstrapDestination
     },
 
@@ -212,14 +219,14 @@ var options = {
         builder: 'src/styleguide/builder',
         destination: 'styleguide/',
         css: [
-            path.relative(paths.styleGuide.destination, paths.styles.destination + '/style.css')
+            gulp.path.relative(paths.styleGuide.destination, paths.styles.destination + '/style.css')
         ],
         js: [
-            path.relative(paths.styleGuide.destination, paths.scripts.bootstrapDestination + '/collapse.js')
+            gulp.path.relative(paths.styleGuide.destination, paths.scripts.bootstrapDestination + '/collapse.js')
         ],
         homepage: '../styleguide/homepage.md',
         title: 'UW Medicine Drupal Style Guide',
-        watchSource: path.join(paths.styleGuide.watchSource, '**/*.*')
+        watchSource: gulp.path.join(paths.styleGuide.watchSource, '**/*.*')
     },
 
     // ------ pa11y ----- //
@@ -278,6 +285,7 @@ require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
 require('./gulp-tasks/pa11y')(gulp, plugins, options);
+require('./gulp-tasks/compile-custom-packages')(gulp, plugins, options);
 
 
 // Credits:

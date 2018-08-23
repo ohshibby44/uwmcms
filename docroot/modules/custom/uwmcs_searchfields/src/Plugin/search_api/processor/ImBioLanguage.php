@@ -2,21 +2,20 @@
 
 namespace Drupal\uwmcs_searchfields\Plugin\search_api\Processor;
 
-use Drupal\node\Entity\Node;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
 
 /**
  * Adds the item's URL to the indexed data.
  *
  * @SearchApiProcessor(
  *   id = "ImBioLanguage",
- *   label = @Translation("Bio Expertise List"),
- *   description = @Translation("Adds the Information Manager to the indexed
- *   data."), stages = {
+ *   label = @Translation("ImBioLanguage"),
+ *   description = @Translation("Provides additional UWM values to search."),
+ *   stages = {
  *     "add_properties" = 0,
  *   },
  *   locked = true,
@@ -25,9 +24,9 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  */
 class ImBioLanguage extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'ImBioLanguage';
-  const IM_FIELD_ROOT = 'languages';
-  const IM_FIELD_NAME = 'languageName';
+  const FACET_NAME = 'ImBioLanguage';
+
+  const FIELD_NAME = 'languageName';
 
   /**
    * {@inheritdoc}
@@ -39,13 +38,13 @@ class ImBioLanguage extends ProcessorPluginBase {
     if (!$datasource) {
 
       $definition = [
-        'label' => self::FIELD_NAME,
+        'label' => self::FACET_NAME,
         'description' => $this->t('Provider expertises from the Information Manager(IM) API'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
 
-      $properties[strtolower(self::FIELD_NAME)] = new ProcessorProperty($definition);
+      $properties[strtolower(self::FACET_NAME)] = new ProcessorProperty($definition);
 
     }
 
@@ -60,27 +59,22 @@ class ImBioLanguage extends ProcessorPluginBase {
 
     // $item->itemId == 'entity:node/10006:und';.
     $entity = $item->getOriginalObject(TRUE)->getValue();
-
     if ($entity->getType() === 'uwm_provider') {
 
-      $node = Node::load($entity->nid->value);
-      $nodeData = $node->uwmcs_reader_api_values->{self::IM_FIELD_ROOT} ?? [];
-
-      $values = UwmSearchUtils::extractAllMatches($nodeData, self::IM_FIELD_NAME);
+      $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
+      $newValues = UwmSearchInfoMgrHelper::extractAllApiMatches($data, self::FIELD_NAME);
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($fields, NULL,
-          strtolower(self::FIELD_NAME));
+          strtolower(self::FACET_NAME));
 
-      foreach ($fields as $field) {
-
-        foreach ($values as $value) {
-
-          $field->addValue($value);
-
+      foreach ($newValues as $value) {
+        foreach ($fields as $field) {
+          if (!empty($value)) {
+            $field->addValue($value);
+          }
         }
-
       }
 
     }

@@ -9,8 +9,15 @@ dependencies:
     - node.type.landing_page
   module:
     - metatag
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 _core:
   default_config_hash: VtoRRpaZ4Fv6BvSXrqsgVf_jyO6mWxMmyMNjkymLh1M
 id: node.landing_page.default
@@ -35,13 +42,13 @@ content:
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   workbench_moderation_control:
     weight: -20
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   panelizer: true

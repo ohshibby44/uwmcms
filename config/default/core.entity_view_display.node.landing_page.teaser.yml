@@ -9,9 +9,14 @@ dependencies:
     - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
-    - metatag
-    - text
+    - panelizer
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 _core:
   default_config_hash: 4DcUJSG7AwfUUQw6SruGAyoSKsD5CIITpSsDzQvvHls
 id: node.landing_page.teaser
@@ -19,30 +24,13 @@ targetEntityType: node
 bundle: landing_page
 mode: teaser
 content:
-  body:
-    weight: 102
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    type: text_summary_or_trimmed
-    region: content
-  field_meta_tags:
-    weight: 101
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: metatag_empty_formatter
-    region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-  workbench_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  body: true
+  field_meta_tags: true
   panelizer: true
+  workbench_moderation_control: true

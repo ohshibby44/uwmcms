@@ -1,0 +1,28 @@
+uuid: b2c8eb54-b3f5-47b5-90e6-23e01e721cb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.uwm_digital_property
+  module:
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: taxonomy_term.uwm_digital_property.default
+targetEntityType: taxonomy_term
+bundle: uwm_digital_property
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

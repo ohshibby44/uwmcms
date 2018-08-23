@@ -179,3 +179,21 @@ urgent-care-hours:
   dependencies:
       - core/jquery
       - core/drupalSettings
+
+
+search:
+  js:
+    dist/component-packages/search/search.js: { }
+  css:
+    theme:
+      dist/component-packages/search/search.css: { }
+  dependencies:
+
+search-locations:
+  js:
+    dist/component-packages/search/search-locations.js: { }
+  css:
+    theme:
+      dist/component-packages/search/search-locations.css: { }
+  dependencies:
+    - uwmed/search

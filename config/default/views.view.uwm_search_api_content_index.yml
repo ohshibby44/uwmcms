@@ -1,4 +1,4 @@
-uuid: 8c3bd698-114a-4dae-9883-cb7ff80e8773
+uuid: c091572a-b3e7-428a-92c4-81829de7a9b1
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - search_api
 id: uwm_search_api_content_index
-label: 'UWM Search - General Search Index'
+label: uwm_search_api_content_index
 module: views
 description: ''
 tag: ''
@@ -36,24 +36,19 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: true
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
           items_per_page: 6
           offset: 0
           id: 0
           total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -62,7 +57,9 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: default
       row:
@@ -70,24 +67,11 @@ display:
         options:
           view_modes:
             'entity:node':
-              condition_spotlight: teaser
-              content_spotlight: teaser
-              fact_page: teaser
-              homepage: teaser
-              landing_page: teaser
-              page: teaser
-              uwm_clinic: teaser
-              uwm_medical_service: teaser
-              uwm_provider: teaser
-            'entity:media':
-              document: embedded
-              image: embedded
-              instagram: embedded
-              tweet: embedded
-              video: embedded
-            'entity:taxonomy_term':
-              content_topics: default
-              uwm_digital_property: ''
+              fact_page: search_result
+              page: search_result
+              uwm_clinic: search_result
+              uwm_medical_service: search_result
+              uwm_medical_specialty: search_result
       fields:
         rendered:
           table: search_api_index_content
@@ -151,13 +135,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: and
+          operator: or
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            label: 'What can we help you find? '
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -189,20 +173,21 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: 'Content Search'
-      header:
-        result:
-          id: result
+      title: Search
+      header: {  }
+      footer: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
           table: views
-          field: result
+          field: area_text_custom
           relationship: none
           group_type: group
           admin_label: ''
           empty: true
-          content: 'Displaying @start - @end of @total'
-          plugin_id: result
-      footer: {  }
-      empty: {  }
+          tokenize: false
+          content: '<p>We couldn''t find anything matching your search.</p>'
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
@@ -220,7 +205,8 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: search/index/content
+      path: search
+      exposed_block: true
       cache:
         type: none
       defaults:

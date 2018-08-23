@@ -1,0 +1,31 @@
+uuid: b84569e6-b5a2-46d8-b5af-59e4d1407dbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.condition_spotlight.field_content_blocks
+    - field.field.node.condition_spotlight.field_content_topics
+    - node.type.condition_spotlight
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.condition_spotlight.search_result
+targetEntityType: node
+bundle: condition_spotlight
+mode: search_result
+content:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_content_blocks: true
+  field_content_topics: true

@@ -7,7 +7,6 @@ dependencies:
     - search_api.server.acquia_search_server
   module:
     - search_api
-    - uwmcs_searchfields
     - node
 _core:
   default_config_hash: '-ggwZpvT2-Ey1fqPkREitA6TGI_m5dTHD9vZm9FrlSQ'
@@ -46,12 +45,11 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  aggregated_field: {  }
   rendered_item: {  }
   add_url:
     plugin_id: add_url
     settings: {  }
-  ImBioExpertise: {  }
+  aggregated_field: {  }
 tracker_settings:
   default:
     plugin_id: default

@@ -2,21 +2,20 @@
 
 namespace Drupal\uwmcs_searchfields\Plugin\search_api\Processor;
 
-use Drupal\node\Entity\Node;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Processor\ProcessorProperty;
-use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
 
 /**
  * Adds the item's URL to the indexed data.
  *
  * @SearchApiProcessor(
  *   id = "ImBioGender",
- *   label = @Translation("Bio Expertise List"),
- *   description = @Translation("Adds the Information Manager to the indexed
- *   data."), stages = {
+ *   label = @Translation("ImBioGender"),
+ *   description = @Translation("Provides additional UWM values to search."),
+ *   stages = {
  *     "add_properties" = 0,
  *   },
  *   locked = true,
@@ -25,9 +24,9 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchUtils;
  */
 class ImBioGender extends ProcessorPluginBase {
 
-  const FIELD_NAME = 'ImBioGender';
-  const IM_FIELD_ROOT = NULL;
-  const IM_FIELD_NAME = 'gender';
+  const FACET_NAME = 'ImBioGender';
+
+  const FIELD_NAME = 'gender';
 
   /**
    * {@inheritdoc}
@@ -39,13 +38,13 @@ class ImBioGender extends ProcessorPluginBase {
     if (!$datasource) {
 
       $definition = [
-        'label' => self::FIELD_NAME,
-        'description' => $this->t('Provider expertises from the Information Manager(IM) API'),
+        'label' => self::FACET_NAME,
+        'description' => $this->t('Provider extra values for search.'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
 
-      $properties[strtolower(self::FIELD_NAME)] = new ProcessorProperty($definition);
+      $properties[strtolower(self::FACET_NAME)] = new ProcessorProperty($definition);
 
     }
 
@@ -58,31 +57,23 @@ class ImBioGender extends ProcessorPluginBase {
    */
   public function addFieldValues(ItemInterface $item) {
 
-    // $item->itemId == 'entity:node/10006:und';.
     $entity = $item->getOriginalObject(TRUE)->getValue();
-
     if ($entity->getType() === 'uwm_provider') {
 
-      $node = Node::load($entity->nid->value);
-      $nodeData = $node->uwmcs_reader_api_values;
-
-      $dict = ['M' => 'Male', 'F' => 'Female'];
-      $nodeValue = UwmSearchUtils::extractFirstMatch($nodeData, self::IM_FIELD_NAME);
-      $values = [$dict[$nodeValue] ?? 'Other'];
+      $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
+      $newValues = UwmSearchInfoMgrHelper::extractAllApiMatches($data, self::FIELD_NAME);
 
       $fields = $item->getFields(FALSE);
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($fields, NULL,
-          strtolower(self::FIELD_NAME));
+          strtolower(self::FACET_NAME));
 
-      foreach ($fields as $field) {
-
-        foreach ($values as $value) {
-
-          $field->addValue($value);
-
+      foreach ($newValues as $value) {
+        foreach ($fields as $field) {
+          if (!empty($value)) {
+            $field->addValue($value);
+          }
         }
-
       }
 
     }

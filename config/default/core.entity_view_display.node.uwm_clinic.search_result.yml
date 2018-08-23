@@ -1,0 +1,78 @@
+uuid: 8e375855-4e69-4d6c-8fab-c82ed9700a26
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.uwm_clinic.body
+    - field.field.node.uwm_clinic.field_body_summary
+    - field.field.node.uwm_clinic.field_bottom_content_blocks
+    - field.field.node.uwm_clinic.field_bottom_content_blocks_head
+    - field.field.node.uwm_clinic.field_clinic_image
+    - field.field.node.uwm_clinic.field_clinic_services_header
+    - field.field.node.uwm_clinic.field_clinic_wait_time_snippet
+    - field.field.node.uwm_clinic.field_clockwise_id
+    - field.field.node.uwm_clinic.field_content_blocks
+    - field.field.node.uwm_clinic.field_content_blocks_heading
+    - field.field.node.uwm_clinic.field_information_manager_url
+    - field.field.node.uwm_clinic.field_meta_tags
+    - field.field.node.uwm_clinic.field_node_media
+    - field.field.node.uwm_clinic.field_sub_title
+    - node.type.uwm_clinic
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.uwm_clinic.search_result
+targetEntityType: node
+bundle: uwm_clinic
+mode: search_result
+content:
+  body:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    type: text_summary_or_trimmed
+    region: content
+  field_body_summary:
+    type: text_trimmed
+    weight: 1
+    region: content
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_sub_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bottom_content_blocks: true
+  field_bottom_content_blocks_head: true
+  field_clinic_image: true
+  field_clinic_services_header: true
+  field_clinic_wait_time_snippet: true
+  field_clockwise_id: true
+  field_content_blocks: true
+  field_content_blocks_heading: true
+  field_information_manager_url: true
+  field_meta_tags: true
+  field_node_media: true
+  workbench_moderation_control: true

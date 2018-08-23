@@ -7,13 +7,15 @@ dependencies:
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
     - field.storage.node.field_content_topics
+    - field.storage.node.field_content_blocks_footer
+    - field.storage.node.field_top_content_blocks_footer
+    - field.storage.node.field_top_content_blocks
     - search_api.server.database
     - core.entity_view_mode.node.full
   module:
     - search_api
+    - uwmcs_searchfields
     - node
-    - media_entity
-    - taxonomy
 _core:
   default_config_hash: 5oGmbthAOm65ilSVAb2fnEb6u3IBMfKIw3sPA8KuqXU
 id: content
@@ -54,6 +56,14 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  imcliniccity:
+    label: ImClinicCity
+    property_path: imcliniccity
+    type: string
+  uwmsearchwithin_1:
+    label: 'UwmSearchWithin - String'
+    property_path: uwmsearchwithin
+    type: string
   status:
     label: status
     datasource_id: 'entity:node'
@@ -73,7 +83,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_body_summary
     type: text
-    boost: 0.3
+    boost: !!float 13
     dependencies:
       config:
         - field.storage.node.field_body_summary
@@ -82,7 +92,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_content_blocks
     type: text
-    boost: 0.1
     dependencies:
       config:
         - field.storage.node.field_content_blocks
@@ -91,7 +100,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_bottom_content_blocks
     type: text
-    boost: 0.2
+    boost: !!float 0
     dependencies:
       config:
         - field.storage.node.field_bottom_content_blocks
@@ -104,160 +113,65 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_content_topics
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 21
+  field_content_blocks_footer:
+    label: Afterwards
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks_footer
+    type: text
+    boost: !!float 0
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks_footer
+  field_top_content_blocks_footer:
+    label: Afterwards
+    datasource_id: 'entity:node'
+    property_path: field_top_content_blocks_footer
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_top_content_blocks_footer
+  field_top_content_blocks:
+    label: 'Top Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_top_content_blocks
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_top_content_blocks
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
-  'entity:media':
-    bundles:
-      default: true
-      selected: {  }
-    languages:
-      default: true
-      selected: {  }
-  'entity:taxonomy_term':
-    bundles:
       default: false
       selected:
-        - content_topics
-        - uwm_digital_property
+        - condition_spotlight
+        - content_spotlight
+        - fact_page
+        - landing_page
+        - page
+        - uwm_clinic
+        - uwm_medical_service
+        - uwm_medical_specialty
+        - uwm_provider
     languages:
       default: true
       selected: {  }
 processor_settings:
+  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -10
-  html_filter:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
-    weights:
-      preprocess_index: -10
-      preprocess_query: -9
-  ignorecase:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    weights:
-      preprocess_index: -9
-      preprocess_query: -8
-  ignore_character:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-      - node_grants
-      - field_body_summary
-      - field_content_blocks
-      - field_bottom_content_blocks
-      - field_content_topics
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
-        Sc: 0
-        Sk: 0
-        Sm: 0
-        So: 0
-        Zl: 0
-        Zp: 0
-        Zs: 0
-    weights:
-      preprocess_index: -10
-      preprocess_query: -10
-  rendered_item: {  }
-  stopwords:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    stopwords:
-      - a
-      - an
-      - and
-      - are
-      - as
-      - at
-      - be
-      - but
-      - by
-      - for
-      - if
-      - in
-      - into
-      - is
-      - it
-      - 'no'
-      - not
-      - of
-      - 'on'
-      - or
-      - s
-      - such
-      - t
-      - that
-      - the
-      - their
-      - then
-      - there
-      - these
-      - they
-      - this
-      - to
-      - was
-      - will
-      - with
-    weights:
-      preprocess_index: -5
-      preprocess_query: -4
-  tokenizer:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -6
-      preprocess_query: -5
-  transliteration:
-    all_fields: false
-    fields:
-      - rendered
-      - label
-    weights:
-      preprocess_index: -4
-      preprocess_query: -3
   type_boost:
     boosts:
       'entity:node':
@@ -269,17 +183,11 @@ processor_settings:
           homepage: !!float 0
           landing_page: !!float 0
           page: !!float 0
+          quiz: !!float 0
           uwm_clinic: !!float 3
           uwm_medical_service: !!float 0
+          uwm_medical_specialty: !!float 0
           uwm_provider: !!float 3
-      'entity:media':
-        datasource_boost: !!float 1
-        bundle_boosts:
-          document: !!float 2
-          image: !!float 0
-          instagram: !!float 0
-          tweet: !!float 0
-          video: !!float 0
       'entity:taxonomy_term':
         datasource_boost: 0.5
         bundle_boosts:
@@ -287,6 +195,15 @@ processor_settings:
           uwm_digital_property: !!float 0
     weights:
       preprocess_index: 0
+  content_access:
+    weights:
+      preprocess_query: -10
+  UwmSearchWithin: {  }
+  ImBioLanguage: {  }
+  ImClinicCity: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
 tracker_settings:
   default: {  }
 options:

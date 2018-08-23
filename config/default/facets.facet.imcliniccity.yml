@@ -1,20 +1,20 @@
-uuid: 611b2b3f-5b23-4a83-855a-90ec9760846e
+uuid: 0406afbd-ce87-46d5-b26e-121541aec860
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.uwm_provider_search_api_index
-    - views.view.uwm_search_api_provider_index
+    - search_api.index.content
+    - views.view.uwm_search_api_content_index
   module:
     - search_api
-id: imbiogender
-name: ImBioGender
-url_alias: imbiogender
+id: imcliniccity
+name: ImClinicCity
+url_alias: imcliniccity
 weight: 0
-min_count: 1
-show_only_one_result: true
-field_identifier: imbiogender
-facet_source_id: 'search_api:views_page__uwm_search_api_provider_index__page_1'
+min_count: 0
+show_only_one_result: false
+field_identifier: imcliniccity
+facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
   type: dropdown
   config:
@@ -24,10 +24,22 @@ query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: 0
+hard_limit: 15
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -41,6 +53,5 @@ processor_configs:
       build: -10
     settings: {  }
 empty_behavior:
-  behavior: text
-  text_format: plain_text
-  text: 'Empty text'
+  behavior: none
+show_title: false

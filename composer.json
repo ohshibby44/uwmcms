@@ -103,7 +103,8 @@
         "drupal/panels": "^4.2",
 	"drupal/page_manager": "^4.0@beta",
 	"drupal/search_api_solr": "1.1",
-	"drupal/facets": "^1.0@beta"
+	"drupal/facets": "^1.0@beta",
+        "drupal/search_api_autocomplete": "^1.0"
     },
     "require-dev": {},
     "extra": {
