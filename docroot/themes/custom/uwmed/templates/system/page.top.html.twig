@@ -1,7 +1,9 @@
 {# Help #}
 {% if page.help %}
     {% block help %}
-        {{ page.help }}
+        <section class="page-help">
+            {{ page.help }}
+        </section>
     {% endblock %}
 {% endif %}
 
