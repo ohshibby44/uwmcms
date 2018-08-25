@@ -43,12 +43,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 6
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: Previous
+            next: Next
+            first: First
+            last: Last
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -57,9 +62,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 4
       style:
         type: default
       row:
@@ -67,11 +70,15 @@ display:
         options:
           view_modes:
             'entity:node':
+              condition_spotlight: search_result
+              content_spotlight: search_result
               fact_page: search_result
+              landing_page: search_result
               page: search_result
               uwm_clinic: search_result
               uwm_medical_service: search_result
               uwm_medical_specialty: search_result
+              uwm_provider: search_result
       fields:
         rendered:
           table: search_api_index_content
@@ -174,7 +181,17 @@ display:
           plugin_id: search_api_fulltext
       sorts: {  }
       title: Search
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
       footer: {  }
       empty:
         area_text_custom:
