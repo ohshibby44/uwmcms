@@ -16,10 +16,13 @@ show_only_one_result: false
 field_identifier: uwmsearchwithin_1
 facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_1'
 widget:
-  type: dropdown
+  type: links
   config:
     show_numbers: true
-    default_option_label: Choose
+    soft_limit: 0
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

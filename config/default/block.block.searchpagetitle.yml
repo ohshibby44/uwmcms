@@ -1,0 +1,31 @@
+uuid: 305908dc-b26f-4724-8556-6faefd733905
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e4a255fc-c353-43c4-9587-743902901195'
+  module:
+    - block_content
+    - system
+  theme:
+    - uwmed
+id: searchpagetitle
+theme: uwmed
+region: content_header
+weight: -9
+provider: null
+plugin: 'block_content:e4a255fc-c353-43c4-9587-743902901195'
+settings:
+  id: 'block_content:e4a255fc-c353-43c4-9587-743902901195'
+  label: 'Search page title'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/search*'
+    negate: false
+    context_mapping: {  }
