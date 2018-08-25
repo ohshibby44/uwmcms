@@ -48,6 +48,7 @@ body div.main-container {
           right: 15px;
         }
         div#edit-actions {
+          @include uw-ghost-button('button', '.u-ips', $uwmed-accent-orange);
         }
 
       }
