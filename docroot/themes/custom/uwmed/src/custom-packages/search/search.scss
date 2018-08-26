@@ -25,6 +25,9 @@ body div.main-container {
   }
 
   section.content-header {
+    width: auto;
+    max-width: auto;
+    padding: 0;
 
     section#block-exposedformuwm-search-api-content-indexpage-1 {
       margin: 15px 0;
@@ -86,4 +89,10 @@ body div.main-container {
     }
 
   }
+
+}
+
+.ui-widget {
+  font-size: $font-size-base;
+  font-family: $font-family-sans-serif-condensed;
 }
