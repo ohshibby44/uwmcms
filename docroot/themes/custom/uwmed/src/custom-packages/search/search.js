@@ -3,43 +3,42 @@
  * Custom JavaScript for UW Medicine.
  */
 
-(function($, Drupal) {
+(function ($, Drupal) {
 
 
-  Drupal.behaviors.uwmSearchLayout = {
+    Drupal.behaviors.uwmSearchLayout = {
 
-    attach: function(context, settings) {
+        attach: function (context, settings) {
 
-      var $searchField = $('.content-header .form-item.form-item-search-api-fulltext.form-group', context);
-      var $searchFacet = $('.content-header section div.facets-widget', context).clone(true);
+            var $searchField = $('.content-header .form-item.form-item-search-api-fulltext.form-group', context);
+            var $searchFacet = $('.content-header section div.facets-widget', context).clone(true);
 
-      $searchField.once('rearrange').each(function() {
-        $searchField.after($searchFacet);
-      });
+            $searchField.once('rearrange').each(function () {
+                $searchField.after($searchFacet);
+            });
 
-    }
+        }
 
-  };
-  
-  Drupal.behaviors.uwmSearchRedirect = {
+    };
 
-    attach: function(context, settings) {
+    Drupal.behaviors.uwmSearchRedirect = {
 
-      var search = $('input#edit-search-api-fulltext').val();
+        attach: function (context, settings) {
 
-      $('.content-header form .facets-widget a[href*="Locations"]', context).click(function() {
-        window.location = '/search/locations/?' + search;
-        return false;
-      })
-      $('.content-header form .facets-widget a[href*="Providers"]', context).click(function() {
-        window.location = '/search/providers/?' + search;
-        return false;
-      })
+            var search = $('input#edit-search-api-fulltext').val();
 
-    }
+            $('.content-header a[href*="Locations"]', context).click(function (e) {
+                window.location = '/search/locations/?' + search;
+                e.preventDefault();
+            });
+            $('.content-header a[href*="Providers"]', context).click(function (e) {
+                window.location = '/search/providers/?' + search;
+                e.preventDefault();
+            });
 
-  };
+        }
 
+    };
 
 
 })(jQuery, Drupal);
