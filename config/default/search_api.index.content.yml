@@ -172,6 +172,17 @@ processor_settings:
   rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
+  highlight:
+    highlight: always
+    highlight_partial: true
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<code class="highlight">'
+    suffix: '</code>'
+    weights:
+      postprocess_query: 0
+  entity_status: {  }
   type_boost:
     boosts:
       'entity:node':
@@ -180,24 +191,45 @@ processor_settings:
           condition_spotlight: !!float 0
           content_spotlight: !!float 0
           fact_page: !!float 0
-          homepage: !!float 0
           landing_page: !!float 0
           page: !!float 0
-          quiz: !!float 0
           uwm_clinic: !!float 3
           uwm_medical_service: !!float 0
           uwm_medical_specialty: !!float 0
           uwm_provider: !!float 3
-      'entity:taxonomy_term':
-        datasource_boost: 0.5
-        bundle_boosts:
-          content_topics: !!float 0
-          uwm_digital_property: !!float 0
     weights:
       preprocess_index: 0
   content_access:
     weights:
       preprocess_query: -10
+  html_filter:
+    all_fields: false
+    fields:
+      - rendered
+      - label
+      - node_grants
+      - imcliniccity
+      - uwmsearchwithin_1
+      - field_body_summary
+      - field_content_blocks
+      - field_bottom_content_blocks
+      - field_content_topics
+      - title
+      - field_content_blocks_footer
+      - field_top_content_blocks_footer
+      - field_top_content_blocks
+      - title_1
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
   UwmSearchWithin: {  }
   ImBioLanguage: {  }
   ImClinicCity: {  }
