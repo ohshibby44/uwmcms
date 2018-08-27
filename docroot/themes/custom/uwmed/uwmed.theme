@@ -461,3 +461,12 @@ function uwmed_preprocess_node__uwm_medical_service(&$variables) {
   $build = $view_builder->view($webform);
   $variables['health_news_you_can_use'] = $build;
 }
+
+/**
+ * Implements hook_preprocess_video_embed_iframe() for YouTube videos.
+ */
+function uwmed_preprocess_video_embed_iframe__youtube(&$variables) {
+  // Force captions on by default. Only works for videos with uploaded
+  // caption files, not YouTube's auto-generated captions.
+  $variables['query']['cc_load_policy'] = '1';
+}
