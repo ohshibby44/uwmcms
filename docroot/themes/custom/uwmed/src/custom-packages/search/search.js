@@ -10,8 +10,8 @@
 
     attach: function(context, settings) {
 
-      var $searchField = $('.form-item.form-item-search-api-fulltext.form-group', context);
-      var $searchFacet = $('section#block-uwmsearchwithinstring div.facets-widget', context).clone(true);
+      var $searchField = $('.content-header .form-item.form-item-search-api-fulltext.form-group', context);
+      var $searchFacet = $('.content-header section div.facets-widget', context).clone(true);
 
       $searchField.once('rearrange').each(function() {
             $searchField.after($searchFacet);

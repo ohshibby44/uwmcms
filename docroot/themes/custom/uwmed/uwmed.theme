@@ -101,7 +101,7 @@ function uwmed_page_attachments_alter(&$variables) {
    * Add libraries for search pages
    */
   $currentPath = \Drupal::service('path.current')->getPath();
-  if ($currentPath === '/search') {
+  if ($currentPath === '/search' || $currentPath === '/search/default') {
     $variables['#attached']['library'][] = 'uwmed/search';
   }
 
