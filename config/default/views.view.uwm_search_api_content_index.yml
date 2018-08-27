@@ -190,7 +190,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: 'Displaying @start - @end of @total'
+          content: "<div class=\"search-all\"><a>All results for <em>search</em> (@total)</a></div>\n<div class=\"search-providers\"><a href=\"/search/providers\">Find providers <em>(@total)</em> &rsaquo;</a></div>\n<div class=\"search-locations\"><a href=\"/search/locations\">Find locations <em>(@total)</em> &rsaquo;</a></div>\n"
           plugin_id: result
       footer: {  }
       empty:
