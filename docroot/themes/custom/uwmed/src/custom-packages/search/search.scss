@@ -13,8 +13,8 @@ body div.main-container {
 
 .main-container {
   padding: 0;
-  >section,
-  >.wrapper .page-center {
+  > section,
+  > .wrapper .page-center {
     @include make-xs-column(12);
   }
 }
@@ -33,6 +33,8 @@ body div.main-container {
   section.content-header {
 
     background: darken($uwmed-off-white, 4%);
+    width: 100% !important;
+
     section.views-exposed-form {
       margin: 15px 0;
 
@@ -41,9 +43,7 @@ body div.main-container {
         padding: 0;
         .input-group {
           width: 96%;
-          input {
-            box-shadow: 0px 0px 4px 2px #f8f8f8;
-          }
+          box-shadow: 0 0 4px 2px #dcdcdc;
         }
         span.input-group-addon {
           //display: none;
@@ -55,7 +55,7 @@ body div.main-container {
         button.btn.btn-default.dropdown-toggle {
           width: 96%;
           text-align: left;
-          box-shadow: 0px 0px 4px 0px #dcdcdc;
+          box-shadow: 0 0 4px 2px #dcdcdc;
         }
         .dropdown-menu {
           left: 0;
@@ -72,10 +72,6 @@ body div.main-container {
   }
 
   section.page-center {
-
-    h2.page-title a:link {
-      color: $uwmed-pop-blue;
-    }
 
     .view-header {
       background: darken($uwmed-off-white, 4%);
@@ -104,18 +100,33 @@ body div.main-container {
       }
     }
 
+    .view-content {
+
+      h1, h2, h3, h4, h5, h6, p, div, small, big,
+      p.h1, p.h2, p.h3, p.h4, p.h5 {
+        font-size: $font-size-base;
+      }
+      h2.page-title a:link {
+        color: $uwmed-pop-blue;
+        font-size: $font-size-h2-mobile;
+        @media (min-width: $screen-sm-min) {
+          font-size: $font-size-h2;
+        }
+      }
+
+    }
+
     nav.pager-nav {
 
       text-transform: uppercase;
       font-size: smaller; //font-variant: all-small-caps;
       text-align: left !important;
       li.pager__item.pager__item--first,
-      li.pager__item.pager__item--last {}
+      li.pager__item.pager__item--last {
+      }
 
-
-
-      .pagination>li>a,
-      .pagination>li>span {
+      .pagination > li > a,
+      .pagination > li > span {
         color: $uwmed-pop-blue;
         border-color: transparent !important;
         background-color: transparent !important;
