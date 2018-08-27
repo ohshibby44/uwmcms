@@ -1,29 +1,29 @@
-uuid: 4cf8272b-ce4b-4d6b-b56c-49bc9465ac51
+uuid: 0342fdf9-7e41-43c1-ba50-46b29585e8e2
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.uwmsearchwithin_string
+    - facets.facet.uwmsearchwithin_string2
   module:
     - facets
     - system
   theme:
     - uwmed
-id: uwmsearchwithinstring
+id: uwmsearchwithinstring_2
 theme: uwmed
 region: content_header
-weight: -3
+weight: 0
 provider: null
-plugin: 'facet_block:uwmsearchwithin_string'
+plugin: 'facet_block:uwmsearchwithin_string2'
 settings:
-  id: 'facet_block:uwmsearchwithin_string'
+  id: 'facet_block:uwmsearchwithin_string2'
   label: 'UwmSearchWithin - String'
   provider: facets
   label_display: '0'
-  block_id: uwmsearchwithinstring
+  block_id: uwmsearchwithinstring_2
 visibility:
   request_path:
     id: request_path
-    pages: /search/default
+    pages: /search
     negate: false
     context_mapping: {  }

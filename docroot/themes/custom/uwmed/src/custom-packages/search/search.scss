@@ -11,6 +11,12 @@ body div.main-container {
   padding-top: 0;
 }
 
+body div.main-container section.content-header {
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+}
+
 .main-container {
 
   background: $uwmed-off-white;
@@ -25,11 +31,8 @@ body div.main-container {
   }
 
   section.content-header {
-    width: auto;
-    max-width: auto;
-    padding: 0;
 
-    section#block-exposedformuwm-search-api-content-indexpage-1 {
+    section.views-exposed-form {
       margin: 15px 0;
 
       div.form-group.form-type-search-api-autocomplete {
@@ -47,10 +50,10 @@ body div.main-container {
           text-align: left;
         }
         .dropdown-menu {
-          left: 15px;
+          left: 0;
           right: 15px;
         }
-        div#edit-actions {
+        div.form-actions {
           @include uw-ghost-button('button', '.u-ips', $uwmed-accent-orange);
         }
 

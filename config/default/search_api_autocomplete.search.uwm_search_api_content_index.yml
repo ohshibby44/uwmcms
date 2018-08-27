@@ -13,8 +13,7 @@ label: uwm_search_api_content_index
 index_id: content
 suggester_settings:
   live_results:
-    fields:
-      - title
+    fields: {  }
     view_modes:
       'entity:node':
         condition_spotlight: ''
