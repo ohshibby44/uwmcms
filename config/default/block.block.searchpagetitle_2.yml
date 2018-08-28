@@ -12,7 +12,7 @@ dependencies:
 id: searchpagetitle_2
 theme: uwmed
 region: content_header
-weight: -11
+weight: -12
 provider: null
 plugin: 'block_content:86312b43-4887-419e-91a9-32d89405502a'
 settings:

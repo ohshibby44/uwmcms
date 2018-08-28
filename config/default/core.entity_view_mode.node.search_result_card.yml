@@ -1,0 +1,14 @@
+uuid: 128844ea-11fa-41ae-baa0-1e9240939b61
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.search_result_card
+label: 'Search Result Card'
+targetEntityType: node
+cache: true

@@ -10,11 +10,11 @@
 
         attach: function (context, settings) {
 
-            var $searchField = $('.content-header .form-item-search.form-group', context);
+            var $searchField = $('.content-header form .form-group', context).eq(0);
             var $searchFacet = $('.content-header section div.facets-widget', context).clone(true);
 
             $searchField.once('rearrange').each(function () {
-                $searchField.after($searchFacet);
+                $(this).after($searchFacet);
             });
 
         }

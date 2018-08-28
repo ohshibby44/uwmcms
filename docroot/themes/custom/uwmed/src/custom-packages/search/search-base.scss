@@ -39,33 +39,38 @@
     .views-exposed-form {
       margin: 15px 0;
 
-      div.form-group.form-type-search-api-autocomplete {
+      %wide-searchfield {
         @include make-md-column(5);
         padding: 0;
         .input-group {
           width: 96%;
           box-shadow: 0 0 4px 2px #dcdcdc;
         }
-        span.input-group-addon {
-          //display: none;
-        }
       }
-      .facets-widget.btn-group.facets-widget-links {
+
+      %search-filter-dropdown {
         @include make-md-column(3);
-        padding: 0;
         button.btn.btn-default.dropdown-toggle {
-          width: 96%;
+          width: 100%;
           text-align: left;
           box-shadow: 0 0 4px 2px #dcdcdc;
         }
         .dropdown-menu {
-          left: 0;
+          left: 15px;
           right: 15px;
           > li > a {
             text-decoration: none !important;
             white-space: normal;
           }
         }
+      }
+
+
+      div.form-group.form-type-search-api-autocomplete, div.form-group.form-item-search-api-fulltext {
+        @extend %wide-searchfield;
+      }
+      div.facets-widget.btn-group {
+        @extend %search-filter-dropdown;
       }
       .form-actions {
         @include uw-ghost-button('button', '.u-ips');

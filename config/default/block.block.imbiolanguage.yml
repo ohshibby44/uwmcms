@@ -1,29 +1,29 @@
-uuid: c230f514-c071-42b9-861f-37fca3032985
+uuid: ffea2dfe-8d39-4b58-9d07-ff9bad2a8de9
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.imclinicservices
+    - facets.facet.imbiolanguage
   module:
     - facets
     - system
   theme:
     - uwmed
-id: imclinicservices
+id: imbiolanguage
 theme: uwmed
 region: content_header
-weight: -1
+weight: 1
 provider: null
-plugin: 'facet_block:imclinicservices'
+plugin: 'facet_block:imbiolanguage'
 settings:
-  id: 'facet_block:imclinicservices'
-  label: ImClinicServices
+  id: 'facet_block:imbiolanguage'
+  label: ImBioLanguage
   provider: facets
   label_display: '0'
-  block_id: imclinicservices
+  block_id: imbiolanguage
 visibility:
   request_path:
     id: request_path
-    pages: /search/locations
+    pages: /search/providers
     negate: false
     context_mapping: {  }

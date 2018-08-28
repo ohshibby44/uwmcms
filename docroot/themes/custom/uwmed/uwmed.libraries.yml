@@ -204,3 +204,11 @@ search-locations:
       dist/custom-packages/search/search-locations.css: { }
   dependencies:
     - uwmed/search-base
+search-providers:
+  js:
+    dist/custom-packages/search/search-providers.js: { }
+  css:
+    theme:
+      dist/custom-packages/search/search-providers.css: { }
+  dependencies:
+    - uwmed/search-base
