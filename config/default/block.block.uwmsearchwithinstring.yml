@@ -12,7 +12,7 @@ dependencies:
 id: uwmsearchwithinstring
 theme: uwmed
 region: content_header
-weight: -3
+weight: -4
 provider: null
 plugin: 'facet_block:uwmsearchwithin_string'
 settings:

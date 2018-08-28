@@ -5,8 +5,8 @@
  * Custom PHP code for the UWMed theme.
  */
 
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
@@ -87,7 +87,19 @@ function uwmed_preprocess_region(&$variables) {
  */
 function uwmed_preprocess_block(&$variables) {
 
-  if ($variables['plugin_id'] === 'views_exposed_filter_block:uwm_search_api_content_index-page_1') {
+  /***
+   * Load view results details for block template. We cannot query the
+   * current view's results in proprocess form because of recursion.
+   */
+  $pluginId = $variables['derivative_plugin_id'] ?? NULL;
+  if ($pluginId && in_array($pluginId, [
+    'uwm_locations_search_api_index-page_1',
+    'uwm_search_api_content_index-page_2',
+  ])
+  ) {
+
+    $variables['uwm_total_rows'] = $GLOBALS['pager_total_items'][0] ?? '';
+
   }
 
 }
@@ -102,7 +114,10 @@ function uwmed_page_attachments_alter(&$variables) {
    */
   $currentPath = \Drupal::service('path.current')->getPath();
   if ($currentPath === '/search' || $currentPath === '/search/default') {
-    $variables['#attached']['library'][] = 'uwmed/search';
+    $variables['#attached']['library'][] = 'uwmed/search-content';
+  }
+  if ($currentPath === '/search/locations') {
+    $variables['#attached']['library'][] = 'uwmed/search-locations';
   }
 
   /***
@@ -150,6 +165,13 @@ function uwmed_preprocess_html(&$variables) {
  * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
+
+  $currentPath = \Drupal::service('path.current')->getPath();
+  $variables['current_path'] = $currentPath ? str_replace('/', '-', trim($currentPath, ' /')) : '';
+  if ($currentPath === '/search/locations') {
+    $variables['page']['sidebar_second'][] = [];
+  }
+
 }
 
 /**
@@ -529,22 +551,10 @@ function uwmed_preprocess_node__uwm_medical_service(&$variables) {
  * Implements template_preprocess_views_exposed_form().
  */
 function uwmed_preprocess_views_exposed_form(&$variables) {
-
-  // $form =& $variables['form'];.
 }
 
 /**
  * Implements hook_form_alter().
  */
 function uwmed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
-  if ($form_id === 'views_exposed_form') {
-  }
-
-  if ($form['#id'] === 'views-exposed-form-uwm-search-api-content-index-page-1') {
-
-    // Can't load the facet here because the facet loads the view.
-    // $b = Drupal::service('plugin.manager.block')->createInstance("facet_block:uwmsearchwithin_string")->build();
-  }
-
 }

@@ -12,7 +12,7 @@ dependencies:
 id: exposedformuwm_search_api_content_indexpage_2
 theme: uwmed
 region: content_header
-weight: -2
+weight: -3
 provider: null
 plugin: 'views_exposed_filter_block:uwm_search_api_content_index-page_2'
 settings:
