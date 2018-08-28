@@ -1,0 +1,14 @@
+uuid: 27efc220-b013-4d4b-bc77-ac2aca2473fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.search_map_row
+label: 'Search Map Row'
+targetEntityType: node
+cache: true

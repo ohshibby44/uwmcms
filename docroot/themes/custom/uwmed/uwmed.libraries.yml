@@ -181,14 +181,21 @@ urgent-care-hours:
       - core/drupalSettings
 
 
-search:
+search-base:
   js:
-    dist/custom-packages/search/search.js: { }
+    dist/custom-packages/search/search-base.js: { }
   css:
     theme:
-      dist/custom-packages/search/search.css: { }
+      dist/custom-packages/search/search-base.css: { }
   dependencies:
-
+search-content:
+  js:
+    dist/custom-packages/search/search-content.js: { }
+  css:
+    theme:
+      dist/custom-packages/search/search-content.css: { }
+  dependencies:
+    - uwmed/search-base
 search-locations:
   js:
     dist/custom-packages/search/search-locations.js: { }
@@ -196,4 +203,4 @@ search-locations:
     theme:
       dist/custom-packages/search/search-locations.css: { }
   dependencies:
-    - uwmed/search
+    - uwmed/search-base

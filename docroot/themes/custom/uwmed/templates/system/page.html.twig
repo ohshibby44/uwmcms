@@ -16,7 +16,7 @@
         {% include directory ~'/templates/system/page.top.html.twig' %}
 
 
-        <div class="wrapper">
+        <div class="wrapper columns">
 
             {# Sidebar First #}
             {% if page.sidebar_first %}
@@ -50,7 +50,13 @@
             {% if page.sidebar_second %}
                 {% block sidebar_second %}
                     <aside class="col-sm-3 page-right" role="complementary">
+
                         {{ page.sidebar_second }}
+
+                        {% if current_path == 'search-locations' %}
+                            {% include directory ~'/templates/region/page-right.search-locations.html.twig' %}
+                        {% endif %}
+
                     </aside>
                 {% endblock %}
             {% endif %}

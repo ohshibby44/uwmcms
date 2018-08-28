@@ -10,7 +10,7 @@
 
         attach: function (context, settings) {
 
-            var $searchField = $('.content-header .form-item.form-item-search-api-fulltext.form-group', context);
+            var $searchField = $('.content-header .form-item-search.form-group', context);
             var $searchFacet = $('.content-header section div.facets-widget', context).clone(true);
 
             $searchField.once('rearrange').each(function () {
@@ -25,14 +25,14 @@
 
         attach: function (context, settings) {
 
-            var search = $('input#edit-search-api-fulltext').val();
+            var terms = $('input#edit-search-api-fulltext').val();
 
             $('.content-header a[href*="Locations"]', context).click(function (e) {
-                window.location = '/search/locations/?' + search;
+                window.location = '/search/locations/?' + terms;
                 e.preventDefault();
             });
             $('.content-header a[href*="Providers"]', context).click(function (e) {
-                window.location = '/search/providers/?' + search;
+                window.location = '/search/providers/?' + terms;
                 e.preventDefault();
             });
 

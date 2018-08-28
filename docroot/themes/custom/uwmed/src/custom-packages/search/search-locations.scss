@@ -1,7 +1,26 @@
 // Bootstrap Framework.
 // Core variables and mixins
-//@import "bootstrap/variables";
-//@import "bootstrap/mixins";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/clearfix";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid";
+@import "../../scss/bootstrap_variables";
+@import "../../scss/uwmed_variables";
+@import "../../scss/mixins";
 
-body { background: yellow; }
+.main-container {
 
+  section.col-sm-9.page-center {
+    @include make-md-column(7);
+
+    .view-header {
+    }
+
+    .view-content {
+    }
+
+  }
+  aside.col-sm-3.page-right {
+    @include make-md-column(5);
+  }
+
+}
