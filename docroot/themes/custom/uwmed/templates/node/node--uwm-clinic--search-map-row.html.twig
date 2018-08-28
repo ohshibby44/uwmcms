@@ -1,0 +1,66 @@
+{% set classes = [
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+] %}
+
+{{ attach_library('uwmed/clinic-hours') }}
+
+{% set clinic = node.uwmcs_reader_api_values %}
+
+<article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
+
+    <div class="wrapper">
+
+        {{ content.field_clinic_image }}
+        {#<img class="clinic__image img img-responsive"#}
+        {#src="{{ clinic.image_url | image_style('large') }}" alt=""/>#}
+
+        <div class="clinic__info">
+
+            <h3 class="clinic__name h4 page-title"><a
+                        href="{{ clinic.clinicUrl|replace({'urgent': 'primary'}) }}">{{ clinic.clinicName | trim('Urgent Care in', 'left') }}</a>
+            </h3>
+
+            {% if clinic.seoPhone %}
+                <p class="clinic__clinic-phone f-li">
+                    <i class="uw-ico call_solid"></i>
+                    <a href="tel:{{ clinic.seoPhone|uwm_format_phone }}">
+                        {{ clinic.seoPhone|uwm_format_phone('.') }}</a>
+                </p>
+            {% endif %}
+
+            {% if clinic.city %}
+                <address class="f-li"><i
+                            class="uw-ico clinic_locations"></i>
+                    {{ clinic.address }}</address>
+            {% endif %}
+
+            {% if content.field_body_summary|render is not empty %}
+                <div class="clinic__clinic-snippet f-li">
+                    <i class="uw-ico uwmed-icon__heart-waveform"></i>
+                    {% set text = content.field_body_summary|render|striptags %}
+                    {{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}
+                </div>
+            {% endif %}
+
+            <p class="clinic__directions">
+                {% if 'Virtual' in clinic.clinicName %}
+                    <a class="btn btn-default" href="{{ clinic.clinicUrl }}">
+                        <i class="hidden u-ips"></i> {{ 'Get Care Now'|t }}</a>
+                {% else %}
+                    <a class="btn btn-default"
+                       href="{{ clinic.clinicUrl|replace({'urgent': 'primary'}) }}#directions-tab">
+                        <i class="hidden u-ips"></i> {{ 'Directions'|t }}</a>
+
+                {% endif %}
+            </p>
+
+        </div>
+
+    </div>
+
+</article>

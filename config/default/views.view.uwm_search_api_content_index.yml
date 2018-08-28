@@ -152,7 +152,7 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: search_api_fulltext
+            identifier: search
             required: true
             remember: false
             multiple: false
@@ -181,17 +181,7 @@ display:
           plugin_id: search_api_fulltext
       sorts: {  }
       title: Search
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: "<div class=\"search-all\"><a>All results for <em>search</em> (@total)</a></div>\n<div class=\"search-providers\"><a href=\"/search/providers\">Find providers <em>(@total)</em> &rsaquo;</a></div>\n<div class=\"search-locations\"><a href=\"/search/locations\">Find locations <em>(@total)</em> &rsaquo;</a></div>\n"
-          plugin_id: result
+      header: {  }
       footer: {  }
       empty:
         area_text_custom:
