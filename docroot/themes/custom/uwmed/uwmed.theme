@@ -92,11 +92,8 @@ function uwmed_preprocess_block(&$variables) {
    * current view's results in proprocess form because of recursion.
    */
   $pluginId = $variables['derivative_plugin_id'] ?? NULL;
-  if ($pluginId && in_array($pluginId, [
-    'uwm_locations_search_api_index-page_1',
-    'uwm_search_api_content_index-page_2',
-  ])
-  ) {
+  if ($pluginId && in_array($pluginId,
+      ['uwm_locations_search_api_index-page_1', 'uwm_search_api_content_index-page_2'])) {
 
     $variables['uwm_total_rows'] = $GLOBALS['pager_total_items'][0] ?? '';
 
@@ -118,6 +115,9 @@ function uwmed_page_attachments_alter(&$variables) {
   }
   if ($currentPath === '/search/locations') {
     $variables['#attached']['library'][] = 'uwmed/search-locations';
+  }
+  if ($currentPath === '/search/providers') {
+    $variables['#attached']['library'][] = 'uwmed/search-providers';
   }
 
   /***

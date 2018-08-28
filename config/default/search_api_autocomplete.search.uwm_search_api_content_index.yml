@@ -1,6 +1,6 @@
 uuid: ecc92f24-4f9b-4cdf-868c-7e751b6662dd
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - search_api.index.content
