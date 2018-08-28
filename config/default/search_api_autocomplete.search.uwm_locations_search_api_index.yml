@@ -1,6 +1,6 @@
 uuid: ffdc1886-bcb8-4ca4-8cb7-b5149ac72df4
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - search_api.index.uwm_locations_search_api_index
