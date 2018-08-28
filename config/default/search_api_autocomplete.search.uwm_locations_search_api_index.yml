@@ -24,10 +24,6 @@ suggester_weights:
   server: 0
 suggester_limits: {  }
 search_settings:
-  'views:uwm_locations_search_api_index':
-    displays:
-      default: true
-      selected: {  }
 options:
   limit: 10
   min_length: 1
