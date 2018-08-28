@@ -1,15 +1,15 @@
-uuid: ecc92f24-4f9b-4cdf-868c-7e751b6662dd
+uuid: 941a7d13-e450-464b-8ef7-b1ce0903f932
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.content
-    - views.view.uwm_search_api_content_index
+    - views.view.search
   module:
     - views
     - search_api_autocomplete
-id: uwm_search_api_content_index
-label: uwm_search_api_content_index
+id: search
+label: Search
 index_id: content
 suggester_settings:
   server:
@@ -17,7 +17,7 @@ suggester_settings:
 suggester_weights: {  }
 suggester_limits: {  }
 search_settings:
-  'views:uwm_search_api_content_index':
+  'views:search':
     displays:
       default: true
       selected: {  }
