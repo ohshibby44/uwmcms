@@ -1,0 +1,45 @@
+uuid: a8e36739-eeab-4bec-9aab-13af1fcc4e2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.content
+    - views.view.uwm_search_api_content_index
+  module:
+    - views
+    - search_api_autocomplete
+id: uwm_search_api_content_index
+label: uwm_search_api_content_index
+index_id: content
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes:
+      'entity:node':
+        condition_spotlight: ''
+        content_spotlight: ''
+        fact_page: ''
+        landing_page: ''
+        page: ''
+        uwm_clinic: ''
+        uwm_medical_service: ''
+        uwm_medical_specialty: ''
+        uwm_provider: ''
+  server:
+    fields: {  }
+suggester_weights:
+  live_results: 0
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:uwm_search_api_content_index':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: null
