@@ -87,6 +87,12 @@ body.page-node-type-uwm-provider {
           margin-bottom: 0;
         }
 
+        .nav-tab-publications {
+          @media(max-width: 490px) {
+            display: none;
+          }
+        }
+
         .uwm-nav-tabs {
           .uw-ico {
             display: none;
