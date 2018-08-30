@@ -204,3 +204,75 @@ display:
         - url
         - url.query_args
       tags: {  }
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: 'Geo Page'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: search/locations/geo
+      cache:
+        type: none
+      defaults:
+        cache: false
+        filters: false
+        filter_groups: false
+      exposed_block: true
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_uwm_locations_search_api_index
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              anonymous: '0'
+              authenticated: '0'
+              administrator: '0'
+              content_ed: '0'
+              content_: '0'
+              staff_clinic_manager: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags: {  }

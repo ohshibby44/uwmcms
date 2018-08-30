@@ -10,3 +10,10 @@
  */
 function uwmcs_searchfields_entity_load(array $entities, $entity_type_id) {
 }
+
+/**
+ * Implements hook_search_api_field_type_mapping_alter().
+ */
+function uwmcs_searchfields_search_api_field_type_mapping_alter(&$mapping) {
+  $mapping['location'] = ['location'];
+}

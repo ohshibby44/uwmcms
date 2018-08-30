@@ -12,7 +12,7 @@ dependencies:
 id: imbiolanguage
 theme: uwmed
 region: content_header
-weight: 1
+weight: -1
 provider: null
 plugin: 'facet_block:imbiolanguage'
 settings:

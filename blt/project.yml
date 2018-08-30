@@ -30,7 +30,7 @@ drush:
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
-    uninstall: [acsf, acquia_connector, shield, simplesamlphp_auth]
+    uninstall: [acsf, acquia_connector, acquia_purge, shield, simplesamlphp_auth]
   ci:
     enable: {  }
     uninstall: [acquia_connector, shield]

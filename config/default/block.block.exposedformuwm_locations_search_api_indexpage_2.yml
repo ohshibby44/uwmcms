@@ -1,4 +1,4 @@
-uuid: eef524f6-f2d4-4b5e-ab6c-55a08de4b2d3
+uuid: b3fcacc3-0e76-422f-b173-9ab26ada44bb
 langcode: en
 status: true
 dependencies:
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - uwmed
-id: exposedformuwm_locations_search_api_indexpage_1
+id: exposedformuwm_locations_search_api_indexpage_2
 theme: uwmed
 region: content_header
-weight: 0
+weight: 2
 provider: null
-plugin: 'views_exposed_filter_block:uwm_locations_search_api_index-page_1'
+plugin: 'views_exposed_filter_block:uwm_locations_search_api_index-page_2'
 settings:
-  id: 'views_exposed_filter_block:uwm_locations_search_api_index-page_1'
+  id: 'views_exposed_filter_block:uwm_locations_search_api_index-page_2'
   label: ''
   provider: views
   label_display: visible
@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /search/locations
+    pages: /search/locations/geo
     negate: false
     context_mapping: {  }

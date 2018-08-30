@@ -20,7 +20,7 @@ class UwmSearchInfoMgrHelper {
    * @param array $currentIndex
    *   Description here.
    *
-   * @return array|mixed
+   * @return mixed|null
    *   Description here.
    */
   public static function extractFirstApiMatch($data, string $desiredKeyName = NULL, array &$currentIndex = []) {
@@ -33,13 +33,13 @@ class UwmSearchInfoMgrHelper {
 
       elseif (is_array($value) || is_object($value)) {
 
-        self::extractAllApiMatches($value, $desiredKeyName, $currentIndex);
+        self::extractFirstApiMatch($value, $desiredKeyName, $currentIndex);
 
       }
 
     }
 
-    return (array) $currentIndex;
+    return NULL;
 
   }
 

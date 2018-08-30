@@ -1,23 +1,23 @@
-uuid: f30640c7-4816-4b20-ba27-420f50c35bd2
+uuid: 95b712bb-ea78-4826-932d-3f4c2270321f
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:86312b43-4887-419e-91a9-32d89405502a'
+    - 'block_content:basic:988d9949-e2ae-49e4-95e4-7ce608a594e0'
   module:
     - block_content
     - system
   theme:
     - uwmed
-id: searchpagetitle_2
+id: searchproviderspagetitle
 theme: uwmed
 region: content_header
-weight: -14
+weight: -12
 provider: null
-plugin: 'block_content:86312b43-4887-419e-91a9-32d89405502a'
+plugin: 'block_content:988d9949-e2ae-49e4-95e4-7ce608a594e0'
 settings:
-  id: 'block_content:86312b43-4887-419e-91a9-32d89405502a'
-  label: 'Search page title'
+  id: 'block_content:988d9949-e2ae-49e4-95e4-7ce608a594e0'
+  label: 'Search providers page title'
   provider: block_content
   label_display: '0'
   status: true
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /search
+    pages: '/search/providers*'
     negate: false
     context_mapping: {  }

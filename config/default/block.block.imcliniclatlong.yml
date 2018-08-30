@@ -1,0 +1,29 @@
+uuid: c042c5ac-06f5-4fc4-84f5-b59e7130016b
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.imcliniclatlong
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: imcliniclatlong
+theme: uwmed
+region: content_header
+weight: 3
+provider: null
+plugin: 'facet_block:imcliniclatlong'
+settings:
+  id: 'facet_block:imcliniclatlong'
+  label: ImClinicLatLong
+  provider: facets
+  label_display: visible
+  block_id: imcliniclatlong
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/locations/geo
+    negate: false
+    context_mapping: {  }
