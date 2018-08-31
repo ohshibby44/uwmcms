@@ -56,6 +56,7 @@ processor_settings:
   UwmSearchWithin: {  }
   ImClinicCity: {  }
   ImBioBodyFields: {  }
+  ImClinicServices: {  }
   ImBioLanguage: {  }
 tracker_settings:
   default:
