@@ -1,0 +1,29 @@
+uuid: c230f514-c071-42b9-861f-37fca3032985
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.imclinicservices
+  module:
+    - facets
+    - system
+  theme:
+    - uwmed
+id: imclinicservices
+theme: uwmed
+region: content_header
+weight: -1
+provider: null
+plugin: 'facet_block:imclinicservices'
+settings:
+  id: 'facet_block:imclinicservices'
+  label: ImClinicServices
+  provider: facets
+  label_display: '0'
+  block_id: imclinicservices
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/locations
+    negate: false
+    context_mapping: {  }

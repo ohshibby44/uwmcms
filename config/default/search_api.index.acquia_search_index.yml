@@ -46,17 +46,18 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
+  aggregated_field: {  }
   rendered_item: {  }
   add_url:
     plugin_id: add_url
     settings: {  }
-  aggregated_field: {  }
-  UwmSearchWithin: {  }
-  ImBioLanguage: {  }
-  ImClinicCity: {  }
   ImBioExpertise: {  }
-  ImBioBodyFields: {  }
   ImBioGender: {  }
+  UwmSearchWithin: {  }
+  ImClinicCity: {  }
+  ImBioBodyFields: {  }
+  ImClinicServices: {  }
+  ImBioLanguage: {  }
 tracker_settings:
   default:
     plugin_id: default
@@ -70,5 +71,4 @@ options:
       weight: -50
       settings: {  }
       processorPluginId: language
-  overridden_by_acquia_search: 2
 server: acquia_search_server

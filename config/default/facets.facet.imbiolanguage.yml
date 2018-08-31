@@ -1,20 +1,20 @@
-uuid: e1d34f5e-3de1-4247-afe8-ea4849393388
+uuid: a0fd9a1a-5cdd-4a52-8bc5-1efae23952f4
 langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.content
-    - views.view.uwm_search_api_content_index
+    - search_api.index.uwm_provider_search_api_index
+    - views.view.uwm_provider_search_api_index
   module:
     - search_api
-id: uwmsearchwithin_string2
-name: 'UwmSearchWithin - String'
-url_alias: searchwithin
+id: imbiolanguage
+name: ImBioLanguage
+url_alias: imbiolanguage
 weight: 0
 min_count: 0
 show_only_one_result: false
-field_identifier: uwmsearchwithin_1
-facet_source_id: 'search_api:views_page__uwm_search_api_content_index__page_2'
+field_identifier: imbiolanguage
+facet_source_id: 'search_api:views_page__uwm_provider_search_api_index__page_1'
 widget:
   type: links
   config:
@@ -31,8 +31,14 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
-  raw_value_widget_order:
-    processor_id: raw_value_widget_order
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
     weights:
       sort: -10
     settings:

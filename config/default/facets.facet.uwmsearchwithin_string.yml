@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: uwmsearchwithin_string
 name: 'UwmSearchWithin - String'
-url_alias: uwmsearchwithin_string
+url_alias: searchwithin
 weight: 0
 min_count: 0
 show_only_one_result: false
@@ -29,22 +29,10 @@ expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
 hard_limit: 0
 exclude: false
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
+  raw_value_widget_order:
+    processor_id: raw_value_widget_order
     weights:
       sort: -10
     settings:

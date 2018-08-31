@@ -1,0 +1,22 @@
+uuid: 685f37dc-6c56-4c06-8655-5d74edde263f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geo_location
+    - node.type.uwm_clinic
+  module:
+    - geofield
+id: node.uwm_clinic.field_geo_location
+field_name: field_geo_location
+entity_type: node
+bundle: uwm_clinic
+label: 'Geo Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

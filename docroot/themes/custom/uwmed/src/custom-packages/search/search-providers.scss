@@ -7,20 +7,22 @@
 @import "../../scss/uwmed_variables";
 @import "../../scss/mixins";
 
+
 .main-container {
 
-  section.col-sm-9.page-center {
-    @include make-md-column(7);
+  .page-center {
+    //@include make-xs-column(12);
 
-    .view-header {
+    article.search-result-card {
+
+      @include make-xs-column(12);
+      @include make-sm-column(6);
+      @include make-md-column(4);
+      @include make-lg-column(3);
+
     }
 
-    .view-content {
-    }
 
-  }
-  aside.col-sm-3.page-right {
-    @include make-md-column(5);
   }
 
 }

@@ -1,18 +1,22 @@
-{# Help #}
-{% if page.help %}
-    {% block help %}
-        <section class="page-help">
-            {{ page.help }}
-        </section>
-    {% endblock %}
-{% endif %}
+<div class="wrapper top">
+
+    {# Help #}
+    {% if page.help|render is not empty %}
+        {% block help %}
+            <section class="page-help">
+                {{ page.help }}
+            </section>
+        {% endblock %}
+    {% endif %}
 
 
-{# Page Top #}
-{% if page.content_header %}
-    {% block content_header %}
-        <section class="content-header">
-            {{ page.content_header }}
-        </section>
-    {% endblock %}
-{% endif %}
+    {# Page Top #}
+    {% if page.content_header|render is not empty %}
+        {% block content_header %}
+            <section class="content-header">
+                {{ page.content_header }}
+            </section>
+        {% endblock %}
+    {% endif %}
+
+</div>
