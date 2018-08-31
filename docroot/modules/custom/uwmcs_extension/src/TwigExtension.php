@@ -32,6 +32,8 @@ class TwigExtension extends \Twig_Extension {
         'uwm_get_api_nid', [$this, 'getApiPathNid']),
       new \Twig_SimpleFunction(
         'uwm_extract_parts', [$this, 'extractArrayValues']),
+      new \Twig_SimpleFunction(
+        'uwm_get_sharepoint_location_image', [$this, 'getSharepointLocationImage']),
 
     ];
   }
@@ -245,6 +247,32 @@ class TwigExtension extends \Twig_Extension {
 
     return (array) $resultArray;
 
+  }
+
+  /**
+   * Try to get a clinic image URL SharePoint or return generic placeholder.
+   *
+   * @param string $clinicUrl
+   *   A clinicUrl formatted like /locations/clinic-name.
+   *
+   * @return string
+   *   Returns a URL for either the clinic image or a generic placeholder.
+   */
+  public static function getSharepointLocationImage(string $clinicUrl = NULL) {
+
+    $imageUrl = NULL;
+    if ($clinicUrl) {
+      $url = 'https://www.uwmedicine.org' . $clinicUrl . '/PublishingImages/splash1.jpg';
+      $responseCode = get_headers($url);
+      $imageExists = $responseCode[0] == ('HTTP/2 200' or 'HTTP/1.1 200 OK');
+      if ($imageExists) {
+        $imageUrl = $url;
+      }
+    }
+    else {
+      $imageUrl = "/themes/custom/uwmed/dist/assets/missing-img-horizontal.png";
+    }
+    return $imageUrl;
   }
 
   /**

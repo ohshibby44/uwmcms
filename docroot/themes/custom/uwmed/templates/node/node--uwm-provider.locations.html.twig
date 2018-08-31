@@ -14,7 +14,7 @@
               {% if clinicNid and drupal_field('field_clinic_image', 'node', clinicNid)[0] %}
                 {{ drupal_field('field_clinic_image', 'node', clinicNid) }}
               {% else %}
-                <img src="{{ 'https://www.uwmedicine.org' ~ clinic.clinicUrl ~ '/PublishingImages/splash1.jpg' }}">
+                <img src="{{ uwm_get_sharepoint_location_image(clinic.clinicUrl) }}">
               {% endif %}
             </div>
 
