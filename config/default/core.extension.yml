@@ -21,7 +21,6 @@ module:
   ctools_block: 0
   datetime: 0
   dblog: 0
-  devel: 0
   devel_generate: 0
   diff: 0
   dynamic_page_cache: 0
@@ -41,6 +40,8 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  geocoder: 0
+  geofield: 0
   google_tag: 0
   help: 0
   history: 0
@@ -101,8 +102,10 @@ module:
   responsive_image: 0
   scheduled_updates: 0
   search_api: 0
-  search_api_autocomplete: 0
   search_api_db: 0
+  search_api_location: 0
+  search_api_location_geocoder: 0
+  search_api_location_views: 0
   search_api_solr: 0
   serialization: 0
   shield: 0
@@ -125,7 +128,6 @@ module:
   video_embed_field: 0
   video_embed_media: 0
   views_infinite_scroll: 0
-  views_ui: 0
   webform: 0
   webform_ui: 0
   workbench_moderation: 0
