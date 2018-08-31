@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
     - field.storage.node.field_geo_location
-    - search_api.server.database
+    - search_api.server.acquia_search_server
   module:
     - search_api_location
     - search_api
@@ -16,7 +16,7 @@ dependencies:
 id: uwm_locations_search_api_index
 name: 'UWM Locations Index'
 description: ''
-read_only: false
+read_only: true
 field_settings:
   node_grants:
     label: 'Node access information'
@@ -243,4 +243,5 @@ tracker_settings:
 options:
   index_directly: true
   cron_limit: 300
-server: database
+  overridden_by_acquia_search: 2
+server: acquia_search_server
