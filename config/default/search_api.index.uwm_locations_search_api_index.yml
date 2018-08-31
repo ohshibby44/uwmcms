@@ -6,10 +6,8 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
-    - field.storage.node.field_geo_location
     - search_api.server.database
   module:
-    - search_api_location
     - search_api
     - uwmcs_searchfields
     - node
@@ -79,22 +77,6 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-  field_geo_location:
-    label: 'Geo Location'
-    datasource_id: 'entity:node'
-    property_path: field_geo_location
-    type: location
-    dependencies:
-      config:
-        - field.storage.node.field_geo_location
-  latlon:
-    label: 'Geo Location » LatLong Pair'
-    datasource_id: 'entity:node'
-    property_path: 'field_geo_location:latlon'
-    type: location
-    dependencies:
-      config:
-        - field.storage.node.field_geo_location
 datasource_settings:
   'entity:node':
     bundles:

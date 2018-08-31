@@ -1,0 +1,37 @@
+uuid: 5bb0fdf0-512d-4095-9066-567369c11ef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.uwm_locations_search_api_index
+    - views.view.uwm_locations_search_api_index
+  module:
+    - views
+    - search_api_autocomplete
+id: uwm_locations_search_api_index
+label: uwm_locations_search_api_index
+index_id: uwm_locations_search_api_index
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes:
+      'entity:node':
+        uwm_clinic: ''
+  server:
+    fields: {  }
+suggester_weights:
+  live_results: 0
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:uwm_locations_search_api_index':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: null

@@ -1,0 +1,37 @@
+uuid: 1cf356e6-4c96-43bb-a81c-0f5bcc35554d
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.uwm_provider_search_api_index
+    - views.view.uwm_provider_search_api_index
+  module:
+    - views
+    - search_api_autocomplete
+id: uwm_provider_search_api_index
+label: uwm_provider_search_api_index
+index_id: uwm_provider_search_api_index
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes:
+      'entity:node':
+        uwm_provider: ''
+  server:
+    fields: {  }
+suggester_weights:
+  live_results: 0
+  server: 0
+suggester_limits: {  }
+search_settings:
+  'views:uwm_provider_search_api_index':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: null

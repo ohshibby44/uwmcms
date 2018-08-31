@@ -102,6 +102,7 @@ module:
   responsive_image: 0
   scheduled_updates: 0
   search_api: 0
+  search_api_autocomplete: 0
   search_api_db: 0
   search_api_location: 0
   search_api_location_geocoder: 0

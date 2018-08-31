@@ -37,9 +37,9 @@
 
         <div class="specialities s-{{ provider.id }}">
 
-            {% set specialities = uwm_extract_parts(provider.expertise, 'expertiseName') %}
-            {% if specialities %}
-                <p><strong>{{ "Specialities"| t }}: </strong><br>
+            {% set specialities = uwm_extract_parts(provider, 'expertiseName')|slice(0, 4)|uwm_join_parts(', ') %}
+            {% if specialities is not empty %}
+                <p><strong>{{ "Specialities"| t }}: {{ specialities }}</strong><br>
 
             {% endif %}
         </div>
