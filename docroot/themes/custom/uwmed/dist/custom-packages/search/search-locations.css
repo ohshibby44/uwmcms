@@ -1,0 +1,38 @@
+/* Typography Colors */
+/* Font Families */
+/* Base Font Family */
+/* Base Font Color */
+/* Base Font Sizes */
+/* Base Line Heights */
+/* Heading Font Sizes */
+/* Heading Font Weights */
+/* Heading Line Heights */
+/* Heading Font Colors */
+/* See Base Font Family, Base Font Color, and Base Font Sizes above */
+.main-container section.col-sm-9.page-center {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+  .main-container section.col-sm-9.page-center {
+    float: left;
+    width: 58.33333%;
+  }
+}
+
+.main-container aside.col-sm-3.page-right {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+  .main-container aside.col-sm-3.page-right {
+    float: left;
+    width: 41.66667%;
+  }
+}

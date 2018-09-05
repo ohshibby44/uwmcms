@@ -1,0 +1,16 @@
+"use strict";
+
+/**
+ * @file
+ * Custom JavaScript for UW Medicine.
+ */
+
+(function ($, Drupal) {
+
+    Drupal.behaviors.uwmSearchLocations = {
+
+        attach: function attach(context, settings) {}
+
+    };
+})(jQuery, Drupal);
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaC9zZWFyY2gtbG9jYXRpb25zLmpzIl0sIm5hbWVzIjpbIiQiLCJEcnVwYWwiLCJiZWhhdmlvcnMiLCJ1d21TZWFyY2hMb2NhdGlvbnMiLCJhdHRhY2giLCJjb250ZXh0Iiwic2V0dGluZ3MiLCJqUXVlcnkiXSwibWFwcGluZ3MiOiI7O0FBQUE7Ozs7O0FBS0EsQ0FBQyxVQUFVQSxDQUFWLEVBQWFDLE1BQWIsRUFBcUI7O0FBR2xCQSxXQUFPQyxTQUFQLENBQWlCQyxrQkFBakIsR0FBc0M7O0FBRWxDQyxnQkFBUSxnQkFBVUMsT0FBVixFQUFtQkMsUUFBbkIsRUFBNkIsQ0FFcEM7O0FBSmlDLEtBQXRDO0FBU0gsQ0FaRCxFQVlHQyxNQVpILEVBWVdOLE1BWlgiLCJmaWxlIjoic2VhcmNoL3NlYXJjaC1sb2NhdGlvbnMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBDdXN0b20gSmF2YVNjcmlwdCBmb3IgVVcgTWVkaWNpbmUuXG4gKi9cblxuKGZ1bmN0aW9uICgkLCBEcnVwYWwpIHtcblxuXG4gICAgRHJ1cGFsLmJlaGF2aW9ycy51d21TZWFyY2hMb2NhdGlvbnMgPSB7XG5cbiAgICAgICAgYXR0YWNoOiBmdW5jdGlvbiAoY29udGV4dCwgc2V0dGluZ3MpIHtcblxuICAgICAgICB9XG5cbiAgICB9O1xuXG5cbn0pKGpRdWVyeSwgRHJ1cGFsKTtcbiJdfQ==

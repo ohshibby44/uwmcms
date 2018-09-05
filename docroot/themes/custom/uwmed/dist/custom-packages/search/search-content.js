@@ -1,0 +1,6 @@
+/**
+ * @file
+ * Custom JavaScript for UW Medicine.
+ */
+"use strict";
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlYXJjaC9zZWFyY2gtY29udGVudC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJzZWFyY2gvc2VhcmNoLWNvbnRlbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBmaWxlXG4gKiBDdXN0b20gSmF2YVNjcmlwdCBmb3IgVVcgTWVkaWNpbmUuXG4gKi9cblxuIl19

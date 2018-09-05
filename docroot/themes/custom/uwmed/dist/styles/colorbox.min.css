@@ -1,0 +1,1 @@
+#cboxOverlay{background-color:#000;position:absolute;top:0;right:0;left:0;bottom:0;z-index:100}#colorbox{z-index:500}#colorbox:focus{outline-color:#37236a}#colorbox #cboxContent>#cboxLoadedContent>.hidden{display:block!important}#colorbox #cboxContent #cboxClose{background-color:#f5f5f5;border:1px solid #e3e3e3;min-width:30px;min-height:30px}
