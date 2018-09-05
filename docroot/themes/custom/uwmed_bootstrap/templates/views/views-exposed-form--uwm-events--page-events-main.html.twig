@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+<div class="events-filters-wrap">
+  <div class="events-filters">
+    <div class="events-filters__header">
+      <p>Filter Events</p>
+      <a title="Open Filter" data-toggle="collapse" data-target="#events-filter" class="filters-button collapsed"><i class="fa fa-chevron-down" aria-hidden="true"></i><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    </div>
+    <div class="events-filters__inner collapse" id="events-filter">
+      {{ form }}
+    </div>
+  </div>
+</div>

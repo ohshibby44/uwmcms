@@ -26,7 +26,7 @@
 {% set _bio = node.uwmcs_reader_api_values %}
 {% set locations = uwm_extract_parts(_bio, 'clinicBases') %}
 {% set publicationIds = uwm_extract_parts(_bio, 'pubMedId') %}
-{% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ? '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : _bio.bioImageUrl %}
+{% set profileImage = ('noimage.jpg' in _bio.bioImageUrl) ? '/' ~ directory ~ '/dist/assets/provider-silhouette-brand.png' : _bio.bioImageUrl %}
 {% set locationUrls = uwm_extract_parts(locations, 'clinicUrl') %}
 {% set aptsLink = 'hall-health-center' in locationUrls[0] ?
 'http://depts.washington.edu/hhpccweb/' : '/patient-care/making-an-appointment' %}
@@ -158,6 +158,7 @@
                     </a>
                 </li>
 
+              {% if locations %}
                 <li role="presentation"><a href="#locations"
                                            name="locations"
                                            role="tab"
@@ -174,7 +175,7 @@
 
                     </a>
                 </li>
-
+                {% endif %}
                 {% if _bio.educationHistories %}
                     <li role="presentation"><a href="#education"
                                                name="education"
@@ -193,20 +194,23 @@
                     </li>
                 {% endif %}
 
-                {#{% if _bio.bioPublicationsDetails %}#}
-                    <li role="presentation" class="pubs-ajax fade-out"><a href="#publications"
+                {% if publicationIds %}
+                    <li role="presentation" class="pubs-ajax nav-tab-publications disabled"><a href="#publications"
                                                name="publications"
                                                role="tab"
                                                id="publications-tab"
                                                data-toggle="tab"
                                                aria-controls="publications"
-                                               aria-expanded="false">
+                                               aria-expanded="false"
+                                               data-tab-history="true"
+                                               data-tab-history-changer="push"
+                                               data-tab-history-update-url="true">
                             <i class="uw-ico heart" aria-hidden="true"></i>
                             {{ 'Publications'|t }}
 
                         </a>
                     </li>
-                {#{% endif %}#}
+                {% endif %}
 
             </ul>
 
@@ -240,14 +244,14 @@
                     {% endif %}
 
                 </div>
-
+                {% if locations %}
                 <div class="row tab-pane locations-tab" role="tabpanel"
                      id="locations" aria-labelledby="locations-tab">
 
                     {% include directory ~'/templates/node/node--uwm-provider.locations.html.twig' %}
 
                 </div>
-
+                {% endif %}
                 {% if _bio.educationHistories %}
                     <div class="row tab-pane education-tab" role="tabpanel"
                          id="education" aria-labelledby="providers-tab">
@@ -257,14 +261,14 @@
                     </div>
                 {% endif %}
 
-                {#{% if _bio.bioPublicationsDetails %}#}
-                    <div class="row tab-pane publications-tab pubs-ajax fade-out" role="tabpanel"
+                {% if publicationIds %}
+                    <div class="row tab-pane publications-tab pubs-ajax" role="tabpanel"
                          id="publications" aria-labelledby="publications-tab">
 
                         {#{% include directory ~'/templates/node/node--uwm-provider.publications.html.twig' %}#}
 
                     </div>
-                {#{% endif %}#}
+                {% endif %}
 
             </div>
 

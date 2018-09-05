@@ -6,11 +6,16 @@
 
     {% for clinic in locations %}
 
+      {% set clinicNid = uwm_get_api_nid(clinic.url) %}
 
         <div class="col-xs-12 col-xl-6 provider-location">
 
             <div class="col-xs-12 col-sm-5 location-image">
-                <img src="{{ 'https://www.uwmedicine.org' ~ clinic.clinicUrl ~ '/PublishingImages/splash1.jpg' }}">
+              {% if clinicNid and drupal_field('field_clinic_image', 'node', clinicNid)[0] %}
+                {{ drupal_field('field_clinic_image', 'node', clinicNid) }}
+              {% else %}
+                <img src="{{ uwm_get_sharepoint_location_image(clinic.clinicUrl) }}">
+              {% endif %}
             </div>
 
             <div class="col-xs-12 col-sm-7">

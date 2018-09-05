@@ -1,0 +1,18 @@
+// UWMED - Large Desktop Styles
+// Bear Group, www.beargroup.com
+// Author: Chris Bovard
+// June 20, 2017
+
+// =Import Files for Mixin Usage - ETC
+//the variable file is the one that will be modified by the themer - chris bovard
+@import "custom_uwmed_variables";
+//bootstrap mixins
+@import "bootstrap/mixins";
+
+//Header Area -----------------------------------------------------------------------
+#block-uwmed-bootstrap-branding {
+  .slogan-link-wrap {
+    width: 918px;
+  }
+}
+//Header Area ends ------------------------------------------------------------------
