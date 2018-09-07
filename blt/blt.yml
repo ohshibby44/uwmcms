@@ -14,12 +14,8 @@ git:
   hooks:
     pre-commit: '${repo.root}/git-config/hooks'
     commit-msg: '${repo.root}/git-config/hooks'
-disable-targets:
-  validate:
-    twig: true
-validate:
-  twig:
-    filesets: [files.twig.null.custom]
+deploy:
+  tag_source: true
 drush:
   aliases:
     remote: '${project.machine_name}.dev'
@@ -42,6 +38,12 @@ modules:
   prod:
     enable: [acquia_connector, shield]
     uninstall: [devel, views_ui]
+disable-targets:
+  validate:
+    twig: true
+validate:
+  twig:
+    filesets: [files.twig.null.custom]
 target-hooks:
   frontend-setup:
     dir: '${docroot}'

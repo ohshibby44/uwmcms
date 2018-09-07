@@ -7,15 +7,16 @@ vagrant_ip: 192.168.218.145
 
 # Use Ubuntu 16.04 LTS to match Acquia Cloud environments.
 vagrant_box: geerlingguy/ubuntu1604
+workspace: /root
 
 # Set drupal_site_name to the project's human-readable name.
 drupal_site_name: "UW Medicine"
 
 # Provide the path to the project root to Vagrant.
 vagrant_synced_folders:
-#  # Set the local_path for the first synced folder to `.`.
+  # Set the local_path for the first synced folder to `.`.
   - local_path: .
-#    # Set the destination to the Acquia Cloud subscription machine name.
+    # Set the destination to the Acquia Cloud subscription machine name.
     destination: /var/www/uwmed
     type: nfs
 
@@ -28,26 +29,34 @@ drupal_composer_install_dir: "/var/www/uwmed"
 drupal_core_path: "/var/www/uwmed/docroot"
 ssh_home: /var/www/uwmed
 
-# Manually set vhosts to accomodate multisites
+# Multisite installations should configure additional domains here.
 apache_vhosts:
+  # Drupal VM's default domain, evaluating to whatever `vagrant_hostname` is set to (drupalvm.dev by default).
   - servername: "{{ drupal_domain }}"
     serveralias: "www.{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
-
+  # Domain for the Drupal VM Dashboard
+  - servername: "dashboard.{{ drupal_domain }}"
+    serveralias: "www.dashboard.{{ drupal_domain }}"
+    documentroot: "/var/www/dashboard"
+    extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
   - servername: "chew.{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
-
   - servername: "huddle.{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
-
   - servername: "calendar.{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
+#  - servername: "local.second-drupal-site.com"
+#    documentroot: "{{ drupal_core_path }}"
+#    extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
 
-# Manually set MySQL databases and users to accomodate multisite
+# Multisite installations should configure additional databases here.
+# It's recommended to prefix database names with 'drupal'. Otherwise,
+# you'll need to add additional users in the 'mysql_users' section.
 mysql_databases:
   - name: drupal
     encoding: utf8
@@ -61,6 +70,9 @@ mysql_databases:
   - name: calendar
     encoding: utf8
     collation: utf8_general_ci
+#  - name: drupal_two
+#    encoding: utf8
+#    collation: utf8_general_ci
 
 mysql_users:
   - name: drupal
@@ -79,9 +91,10 @@ mysql_users:
     host: "%"
     password: calendar
     priv: "calendar.*:ALL"
+    
 
 # Set this to 'false' if you don't need to install drupal (using the drupal_*
-# settings below), but instead copy down a database (e.g. using drush sql-sync).
+# settings below), but instead copy down a database (e.g., using drush sql-sync).
 drupal_install_site: false
 
 # Drupal VM automatically creates a drush alias file in your ~/.drush folder if
@@ -93,19 +106,12 @@ nodejs_version: "6.x"
 nodejs_npm_global_packages:
   - name: bower
   - name: gulp-cli
+  - name: yarn
 nodejs_install_npm_user: "{{ drupalvm_user }}"
 npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
-installed_extras:
-  - adminer
-  - drush
-  - mailhog
-  - nodejs
-  - selenium
-  - xdebug
-#  - blackfire
+installed_extras: [adminer, selenium, drush, mailhog, memcached, nodejs, solr, xdebug]
 
-# PHP 5.6 (PHP 7.1 is being tested, see: https://docs.acquia.com/node/25726).
-# -- UWMED Upgrade to 7.1 since 7.1 is running now in Acquia Cloud --
+# PHP 7.1.
 php_version: "7.1"
 php_packages_extra:
   - "php{{ php_version }}-bz2"
@@ -113,11 +119,11 @@ php_packages_extra:
   - imagemagick
 
 # XDebug configuration.
+php_xdebug_version: 2.5.0
 # Change this value to 1 in order to enable xdebug by default.
 php_xdebug_default_enable: 0
 php_xdebug_coverage_enable: 0
 # Change this value to 1 in order to enable xdebug on the cli.
-php_xdebug_cli_enable: 0
 php_xdebug_remote_enable: 1
 php_xdebug_remote_connect_back: 1
 # Use PHPSTORM for PHPStorm, sublime.xdebug for Sublime Text.
@@ -126,5 +132,9 @@ php_xdebug_max_nesting_level: 256
 php_xdebug_remote_port: "9000"
 php_memory_limit: "512M"
 
+# Acquia Search defaults to 4.5.1.
+solr_version: "4.5.1"
+
 post_provision_scripts:
-  - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
+  - "../../../acquia/blt/scripts/drupal-vm/configure-solr.sh"
+  - "../../../acquia/blt/scripts/drupal-vm/post-provision.php"
