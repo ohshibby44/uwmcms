@@ -1,4 +1,0 @@
-drush:
-  aliases:
-    local: self
-    remote: calendar.cmsdev.uwmedicine.org

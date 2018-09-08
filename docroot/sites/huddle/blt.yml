@@ -1,4 +1,0 @@
-drush:
-  aliases:
-    local: self
-    remote: huddle.cmsdev.uwmedicine.org

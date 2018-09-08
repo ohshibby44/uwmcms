@@ -1,4 +1,0 @@
-drush:
-  aliases:
-    local: self
-    remote: chew.cmsdev.uwmedicine.org
