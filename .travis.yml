@@ -60,8 +60,8 @@ before_install:
   - source ${BLT_DIR}/scripts/travis/exit_early
 
 install:
-#  - source ${BLT_DIR}/scripts/travis/setup_environment
-#  - source ${BLT_DIR}/scripts/travis/setup_project
+  - source ${BLT_DIR}/scripts/travis/setup_environment
+  - source ${BLT_DIR}/scripts/travis/setup_project
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_environment
   - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_project
 
@@ -78,15 +78,15 @@ deploy:
        branch: develop
        php: 5.6
    - provider: script
-#     script: "${BLT_DIR}/scripts/travis/deploy_branch"
-     script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_branch"
+     script: "${BLT_DIR}/scripts/travis/deploy_branch"
+     #script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: master
        php: 5.6
    - provider: script
-#     script: "${BLT_DIR}/scripts/travis/deploy_tag"
-     script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_tag"
+     script: "${BLT_DIR}/scripts/travis/deploy_tag"
+     #script: "$LOCAL_BLT_DIR/custom-scripts/travis/deploy_tag"
      skip_cleanup: true
      on:
        tags: true
