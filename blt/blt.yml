@@ -21,7 +21,8 @@ drush:
     remote: '${project.machine_name}.dev'
     local: self
     ci: self
-  default_alias: '${drush.aliases.local}'
+    #default_alias: self
+    default_alias: '${drush.aliases.local}'
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
@@ -43,7 +44,7 @@ disable-targets:
     twig: true
 validate:
   twig:
-    filesets: [files.twig.null.custom]
+    filesets: []
 target-hooks:
   frontend-setup:
     dir: '${docroot}'
