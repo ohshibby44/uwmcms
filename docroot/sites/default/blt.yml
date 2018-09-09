@@ -1,0 +1,9 @@
+project:
+  local:
+    hostname: uwmed.local
+    protocol: http
+  machine_name: uwmed
+drush:
+  aliases:
+    local: self
+    remote: uwmed.dev

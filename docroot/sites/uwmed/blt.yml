@@ -1,0 +1,10 @@
+project:
+  local:
+    hostname: null
+    protocol: null
+  machine_name: uwmed
+  human_name: uwmed
+drush:
+  aliases:
+    local: uwmed.local
+    remote: uwmed.local

@@ -44,7 +44,7 @@ disable-targets:
     twig: true
 validate:
   twig:
-    filesets: []
+    filesets: {  }
 target-hooks:
   frontend-setup:
     dir: '${docroot}'
@@ -69,8 +69,10 @@ multisites:
   - chew
   - huddle
   - calendar
-behat:
-  web-driver: selenium
+#behat:
+#  web-driver: selenium
 vm:
   enable: true
-cm.allow-overrides: true
+cm:
+  allow-overrides: true
+  strategy: config-split
