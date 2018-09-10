@@ -1,4 +1,10 @@
+project:
+  local:
+    hostname: calendar.uwmed.local
+    protocol: http
+  machine_name: calendar
+  human_name: calendar
 drush:
   aliases:
-    local: self
-    remote: calendar.cmsdev.uwmedicine.org
+    local: calendar.local
+    remote: calendar.local

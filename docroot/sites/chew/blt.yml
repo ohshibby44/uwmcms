@@ -1,4 +1,10 @@
+project:
+  local:
+    hostname: chew.uwmed.local
+    protocol: http
+  machine_name: chew
+  human_name: chew
 drush:
   aliases:
-    local: self
-    remote: chew.cmsdev.uwmedicine.org
+    local: chew.local
+    remote: chew.local

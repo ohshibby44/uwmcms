@@ -12,5 +12,5 @@ dev:
     options: { ac-env: dev, ac-realm: prod, ac-site: calendar }
     paths: { drush-script: drush9 }
     root: /var/www/html/uwmed.dev/docroot
-    uri: calendar.cmsdev.uwmedicine.org
+    uri: 'http://calendar.cmsdev.uwmedicine.org'
     user: uwmed.dev

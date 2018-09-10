@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Acquia Lift and Content Hub Configuration Overrides: calendar
+ * Acquia Lift and Content Hub Configuration Overrides: chew
  *
  * Some configuration for Lift and Content Hub is sensitive (API keys,
  * client secrets) but are the same across environments. These sensitive
@@ -18,7 +18,7 @@
  * drush @[sitename].uwmed.[environment] cget acquia_contenthub.admin_settings
  */
 
-$SITENAME = 'calendar';
+$SITENAME = 'chew';
 
 if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   // Lift for all Acquia Cloud Environments

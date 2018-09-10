@@ -1,5 +1,7 @@
 <?php
 
+// @codingStandardsIgnoreFile
+
 /**
  * @file
  * Drupal site-specific configuration file.
@@ -440,6 +442,15 @@ $settings['update_free_access'] = FALSE;
  */
 # $settings['cache_ttl_4xx'] = 3600;
 
+/**
+ * Expiration of cached forms.
+ *
+ * Drupal's Form API stores details of forms in a cache and these entries are
+ * kept for at least 6 hours by default. Expired entries are cleared by cron.
+ *
+ * @see \Drupal\Core\Form\FormCache::setCache()
+ */
+# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -643,6 +654,7 @@ if ($settings['hash_salt']) {
  * configuration values in settings.php will not fire any of the configuration
  * change events.
  */
+# $config['system.file']['path']['temporary'] = '/tmp';
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['system.theme']['default'] = 'stark';
 # $config['user.settings']['anonymous'] = 'Visitor';
@@ -750,6 +762,16 @@ $settings['file_scan_ignore_directories'] = [
 ];
 
 /**
+ * The default number of entities to update in a batch process.
+ *
+ * This is used by update and post-update functions that need to go through and
+ * change all the entities on a site, so it is useful to increase this number
+ * if your hosting configuration (i.e. RAM allocation, CPU speed) allows for a
+ * larger number of entities to be processed in a single batch run.
+ */
+$settings['entity_update_batch_size'] = 50;
+
+/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -768,8 +790,21 @@ if (file_exists('/var/www/site-php')) {
   require '/var/www/site-php/uwmed/calendar-settings.inc';
 }
 
+if (isset($settings['memcache']['servers'])) { 
+  // Memcache settings.
+  $settings['cache']['default'] = 'cache.backend.memcache';
+}
+
 if (file_exists(DRUPAL_ROOT . '/sites/calendar/settings')) {
   require DRUPAL_ROOT . '/sites/calendar/settings/acquia.lift.contenthub.settings.php';
+}
+
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  $secrets_file = sprintf('/mnt/gfs/%s.%s/nobackup/calendar.secrets.settings.php',
+    $_ENV['AH_SITE_GROUP'],$_ENV['AH_SITE_ENVIRONMENT']);
+  if (file_exists($secrets_file)) {
+    require $secrets_file;
+  }
 }
 
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";

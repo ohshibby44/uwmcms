@@ -4,9 +4,7 @@ project:
   human_name: 'UW Medicine'
   profile:
     name: lightning
-  local:
-    protocol: http
-    hostname: '${project.machine_name}.local'
+  local: {  }
 git:
   default_branch: develop
   remotes:
@@ -18,10 +16,8 @@ deploy:
   tag_source: true
 drush:
   aliases:
-    remote: '${project.machine_name}.dev'
-    local: self
     ci: self
-    #default_alias: self
+    local: self
     default_alias: '${drush.aliases.local}'
 modules:
   local:
@@ -39,40 +35,11 @@ modules:
   prod:
     enable: [acquia_connector, shield]
     uninstall: [devel, views_ui]
-disable-targets:
-  validate:
-    twig: true
-validate:
-  twig:
-    filesets: {  }
-target-hooks:
-  frontend-setup:
-    dir: '${docroot}'
-    command: 'echo ''No frontend-setup configured.'''
-  frontend-build:
-    dir: '${docroot}'
-    command: 'echo ''No frontend-build configured.'''
-  pre-config-import:
-    dir: '${docroot}'
-    command: 'echo ''No pre-config-import configured.'''
-  post-deploy-build:
-    dir: '${deploy.dir}/docroot'
-    command: 'echo ''No post-deploy build configured.'''
-  post-setup-build:
-    dir: '${docroot}'
-    command: 'echo ''No post-setup build configured.'''
-  post-deploy:
-    dir: '${docroot}'
-    command: 'echo ''No post-deploy build configured.'''
 multisites:
   - default
   - chew
   - huddle
   - calendar
-#behat:
-#  web-driver: selenium
-vm:
-  enable: true
 cm:
   allow-overrides: true
   strategy: config-split

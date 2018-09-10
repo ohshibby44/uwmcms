@@ -16,7 +16,6 @@ env:
   global:
     - COMPOSER_BIN=$TRAVIS_BUILD_DIR/vendor/bin
     - BLT_DIR=$TRAVIS_BUILD_DIR/vendor/acquia/blt
-    - LOCAL_BLT_DIR=$TRAVIS_BUILD_DIR/blt/
     - BUILD_DIR=$TRAVIS_BUILD_DIR
 
 jdk:
@@ -34,15 +33,10 @@ cache:
   # Cache front end dependencies to dramatically improve build time.
   # - "docroot/themes/custom/mytheme/node_modules"
   # - "docroot/themes/custom/mytheme/bower_components"
-  - "docroot/themes/custom/chew/node_modules"
-  - "docroot/themes/custom/uwmed/node_modules"
-
 
 addons:
   ssh_known_hosts:
   # - svn-4786.devcloud.hosting.acquia.com
-  - svn-23450.prod.hosting.acquia.com
-  - staging-23664.prod.hosting.acquia.com
   chrome: stable
 
 # @see https://docs.travis-ci.com/user/notifications
@@ -60,8 +54,8 @@ before_install:
   - source ${BLT_DIR}/scripts/travis/exit_early
 
 install:
-  # - source ${BLT_DIR}/scripts/travis/setup_environment
-  # - source ${BLT_DIR}/scripts/travis/setup_project
+  - source ${BLT_DIR}/scripts/travis/setup_environment
+  - source ${BLT_DIR}/scripts/travis/setup_project
   - source $(LOCAL_BLT_DIR}/custom-scripts/travis/setup_environment
   - source $(LOCAL_BLT_DIR}/custom-scripts/travis/setup_project
 
@@ -71,21 +65,21 @@ script:
 # The version below MUST match the php version indicated at the top of this file, otherwise the artifact won't build.
 deploy:
    - provider: script
-     # script: "${BLT_DIR}/scripts/travis/deploy_branch"
+     script: "${BLT_DIR}/scripts/travis/deploy_branch"
      script: "$(LOCAL_BLT_DIR}/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: develop
-       php: 7.1
+       php: 5.6
    - provider: script
-     # script: "${BLT_DIR}/scripts/travis/deploy_branch"
+     script: "${BLT_DIR}/scripts/travis/deploy_branch"
      script: "$(LOCAL_BLT_DIR}/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: master
        php: 7.1
    - provider: script
-     #script: "${BLT_DIR}/scripts/travis/deploy_tag"
+     script: "${BLT_DIR}/scripts/travis/deploy_tag"
      script: "$(LOCAL_BLT_DIR}/custom-scripts/travis/deploy_tag"
      skip_cleanup: true
      on:

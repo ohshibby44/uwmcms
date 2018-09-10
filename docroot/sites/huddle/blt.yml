@@ -1,4 +1,10 @@
+project:
+  local:
+    hostname: huddle.uwmed.local
+    protocol: http
+  machine_name: huddle
+  human_name: huddle
 drush:
   aliases:
-    local: self
-    remote: huddle.cmsdev.uwmedicine.org
+    local: huddle.local
+    remote: huddle.local
