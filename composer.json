@@ -4,12 +4,16 @@
     "type": "project",
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
-    ],
+    },
     "scripts": {
         "uwmcms-update-saml": [
             "sh ./patches/simplesaml/setup_simplesaml_patch.sh"
@@ -30,7 +34,8 @@
         ]
     },
     "require": {
-        "acquia/blt": "^8.9.0",
+        "acquia/blt": "^9.1.0",
+        "acquia/lightning": "~3.1.7",
         "drupal/redirect": "^1.0",
         "drupal/admin_toolbar": "^1.20",
         "drupal/adminimal_admin_toolbar": "^1.4",
@@ -84,7 +89,6 @@
         "drupal/access_unpublished": "^1.0@alpha",
         "drupal/link_attributes": "^1.1",
         "drupal/siteimprove": "^1.0",
-        "geerlingguy/drupal-vm": "~4.3",
         "drupal/acquia_purge": "^1.0@beta",
         "drupal/search_api": "1.3.0",
         "nategood/httpful": "^0.2.20",
@@ -99,13 +103,21 @@
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/ape": "^1.2",
         "drupal/minifyhtml": "^1.1",
-        "drupal/core": "8.3.9",
         "drupal/panels": "^4.2",
         "drupal/page_manager": "^4.0@beta"
     },
-    "require-dev": {},
+    "require-dev": {
+        "geerlingguy/drupal-vm": "^4.8"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "enable-patching": true,
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"
@@ -133,31 +145,22 @@
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "drush/contrib/{$name}": [
+            "drush/Commands/{$name}": [
+                "type:drupal-drush",
                 "type:drupal-drush"
             ]
         },
         "merge-plugin": {
             "require": [
-                "vendor/acquia/blt/composer.required.json",
-                "vendor/acquia/blt/composer.suggested.json"
-            ],
-            "include": [
-                "blt/composer.overrides.json"
+                "blt/composer.required.json",
+                "blt/composer.suggested.json"
             ],
             "merge-extra": true,
             "merge-extra-deep": true,
             "merge-scripts": true,
-            "replace": true
+            "replace": false,
+            "ignore-duplicates": true
         },
-        "installer-types": [
-            "bower-asset",
-            "npm-asset"
-        ],
-        "patches": {
-            "drupal/core": {
-                "Drupal core - Critical - Remote Code Execution - SA-CORE-2018-004": "https://cgit.drupalcode.org/drupal/rawdiff/?h=8.5.x&id=bb6d396609600d1169da29456ba3db59abae4b7e"
-            }
-        }
+        "patches": []
     }
 }

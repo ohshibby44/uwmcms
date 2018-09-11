@@ -1,6 +1,6 @@
 project:
   machine_name: uwmed
-  prefix: UWM
+  prefix: 'UWM'
   human_name: 'UW Medicine'
   profile:
     name: lightning
@@ -16,11 +16,10 @@ git:
     commit-msg: '${repo.root}/git-config/hooks'
 disable-targets:
   validate:
-      twig: true
+    twig: true
 validate:
   twig:
-    filesets:
-      - files.twig.null.custom
+    filesets: []
 drush:
   aliases:
     remote: '${project.machine_name}.dev'
