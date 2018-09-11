@@ -134,3 +134,4 @@ drush/sites/.checksums
 
 # Deprecation detector rules
 .rules
+docroot/themes/custom/uwmed/dist
