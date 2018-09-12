@@ -11,8 +11,10 @@ dependencies:
 third_party_settings:
   allowed_formats:
     simple_formatted_text: simple_formatted_text
-    rich_text: '0'
+    basic_html: basic_html
+    full_html: full_html
     plain_text: '0'
+    no_wysiwyg: '0'
 id: paragraph.feature_story.field_subheading
 field_name: field_subheading
 entity_type: paragraph
