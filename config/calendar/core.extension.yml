@@ -1,4 +1,5 @@
 module:
+  acquia_connector: 0
   acquia_contenthub: 0
   acquia_contenthub_subscriber: 0
   acquia_lift: 0
@@ -58,6 +59,7 @@ module:
   lightning_media_video: 0
   lightning_page: 0
   lightning_roles: 0
+  lightning_scheduled_updates: 0
   lightning_search: 0
   lightning_workflow: 0
   link: 0
@@ -71,6 +73,7 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  page_manager: 0
   panelizer: 0
   panelizer_quickedit: 0
   panels: 0
@@ -79,13 +82,13 @@ module:
   quickedit: 0
   rdf: 0
   rest: 0
-  robotstxt: 0
   scheduled_updates: 0
   search_api: 0
   search_api_db: 0
   search_api_views_taxonomy: 0
   seckit: 0
   serialization: 0
+  shield: 0
   shortcut: 0
   system: 0
   taxonomy: 0
@@ -100,7 +103,6 @@ module:
   views_infinite_scroll: 0
   views_taxonomy_term_name_depth: 0
   views_templates: 0
-  views_ui: 0
   workbench_moderation: 0
   menu_link_content: 1
   views: 10

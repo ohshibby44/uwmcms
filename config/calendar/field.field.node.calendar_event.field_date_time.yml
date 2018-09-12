@@ -11,7 +11,7 @@ id: node.calendar_event.field_date_time
 field_name: field_date_time
 entity_type: node
 bundle: calendar_event
-label: 'Start Date and Time'
+label: 'Date and Start Time'
 description: 'Use the calendar date picker to choose a date. Time must be entered in 24 hour format: HH:MM:SS.'
 required: true
 translatable: false

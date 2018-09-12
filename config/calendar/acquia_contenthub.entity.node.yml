@@ -1,0 +1,31 @@
+uuid: f72fffba-0e94-4cfb-adb1-458866219b9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.calendar_event
+    - node.type.event_location
+  module:
+    - node
+id: node
+bundles:
+  calendar_event:
+    enable_index: true
+    enable_viewmodes: false
+    rendering:
+      default: default
+  event_location:
+    enable_index: true
+    enable_viewmodes: false
+    rendering:
+      default: default
+  landing_page:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  page:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
