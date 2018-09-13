@@ -20,7 +20,7 @@ dependencies:
     - datetime
     - disqus
     - field_group
-    - image
+    - focal_point
     - metatag
     - paragraphs
     - path
@@ -154,8 +154,10 @@ content:
     settings:
       preview_image_style: thumbnail_scaled_200px_wide_
       progress_indicator: throbber
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   field_image_credit:
     weight: 31
@@ -211,6 +213,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
