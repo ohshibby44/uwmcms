@@ -1,12 +1,12 @@
-uuid: 73077bda-8b6d-4e0f-853c-d26f28151651
+uuid: ba6d68bf-8fdb-493c-9a18-4e514cf2318b
 langcode: en
 status: true
 dependencies:
   module:
-    - crop
-id: crop
+    - file
+id: file
 bundles:
-  focal_point:
+  file:
     enable_index: false
     enable_viewmodes: false
     rendering: {  }

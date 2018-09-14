@@ -12,7 +12,7 @@ dependencies:
   module:
     - allowed_formats
     - datetime
-    - image
+    - focal_point
     - path
     - text
     - workbench_moderation
@@ -48,8 +48,10 @@ content:
     settings:
       preview_image_style: 266x152
       progress_indicator: throbber
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   field_teaser:
     weight: 3
@@ -68,6 +70,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0

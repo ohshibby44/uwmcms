@@ -1,0 +1,24 @@
+uuid: ccfc80ba-8dcc-49e6-8925-54b701447699
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.campus
+    - taxonomy.vocabulary.event_audience
+    - taxonomy.vocabulary.event_tags
+  module:
+    - taxonomy
+id: taxonomy_term
+bundles:
+  campus:
+    enable_index: true
+    enable_viewmodes: false
+    rendering: {  }
+  event_audience:
+    enable_index: true
+    enable_viewmodes: false
+    rendering: {  }
+  event_tags:
+    enable_index: true
+    enable_viewmodes: false
+    rendering: {  }

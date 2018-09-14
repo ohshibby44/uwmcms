@@ -1,0 +1,13 @@
+uuid: 0c0b1141-7685-4261-86ac-6c0138787c3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content
+bundles:
+  basic:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

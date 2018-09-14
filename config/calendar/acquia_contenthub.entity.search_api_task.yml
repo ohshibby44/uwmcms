@@ -1,0 +1,12 @@
+uuid: ceb90e0f-c4c5-420c-9888-60d0af02685f
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api
+id: search_api_task
+bundles:
+  search_api_task:
+    enable_index: false
+    enable_viewmodes: false
+    rendering: {  }

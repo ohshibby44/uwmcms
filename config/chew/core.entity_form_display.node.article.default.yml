@@ -223,6 +223,13 @@ content:
       entity_browser_entity_form:
         entity_browser_id: _none
     region: content
+  status:
+    type: boolean_checkbox
+    weight: 18
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     weight: 11

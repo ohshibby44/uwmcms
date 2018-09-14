@@ -5,6 +5,7 @@ dependencies:
   module:
     - link
     - redirect
+    - system
     - user
 id: redirect
 label: Redirect
