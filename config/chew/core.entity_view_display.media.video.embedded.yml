@@ -4,11 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
-    - field.field.media.video.field_caption
-    - field.field.media.video.field_credit
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
-    - field.field.media.video.field_preview_image
     - media.type.video
   module:
     - video_embed_field
@@ -32,10 +29,7 @@ content:
     region: content
 hidden:
   created: true
-  field_caption: true
-  field_credit: true
   field_media_in_library: true
-  field_preview_image: true
   name: true
   thumbnail: true
   uid: true

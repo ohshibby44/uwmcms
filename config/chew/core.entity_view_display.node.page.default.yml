@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.page.field_sections
     - field.field.node.page.field_webform
     - field.field.node.page.panelizer
+    - field.field.node.page.scheduled_update
     - node.type.page
   module:
     - entity_reference_revisions
@@ -54,3 +55,4 @@ hidden:
   field_promotion: true
   links: true
   panelizer: true
+  scheduled_update: true

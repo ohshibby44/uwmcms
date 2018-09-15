@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
-    - field.field.node.article.field_syndication
+    - field.field.node.article.publish
     - node.type.article
   module:
     - entity_reference_revisions
@@ -73,5 +73,5 @@ hidden:
   field_meta_tags: true
   field_promotion: true
   field_short_summary: true
-  field_syndication: true
   links: true
+  publish: true
