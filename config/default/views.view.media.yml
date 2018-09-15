@@ -7,14 +7,15 @@ dependencies:
     - field.storage.media.field_digital_properties
     - image.style.medium
     - image.style.thumbnail
-    - media_entity.bundle.image
+    - media.type.image
     - taxonomy.vocabulary.content_topics
     - taxonomy.vocabulary.uwm_digital_property
   module:
     - entity_browser
     - file
     - image
-    - media_entity
+    - media
+    - system
     - taxonomy
     - user
     - views_infinite_scroll
@@ -1492,7 +1493,7 @@ display:
             format: default_summary
           specify_validation: true
           validate:
-            type: 'entity:media_bundle'
+            type: 'entity:media_type'
             fail: ignore
           validate_options:
             operation: view

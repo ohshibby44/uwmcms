@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_content_topics
-    - media_entity.bundle.video
+    - media.type.video
     - taxonomy.vocabulary.content_topics
 id: media.video.field_content_topics
 field_name: field_content_topics

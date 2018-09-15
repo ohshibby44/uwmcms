@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
+    - field.field.media.video.field_content_topics
+    - field.field.media.video.field_digital_properties
     - field.field.media.video.field_media_caption
     - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_caption_url
+    - field.field.media.video.field_media_video_data_url
     - field.field.media.video.field_media_video_embed_field
-    - media_entity.bundle.video
+    - media.type.video
   module:
     - video_embed_field
 _core:
@@ -30,8 +34,13 @@ content:
     region: content
 hidden:
   created: true
+  field_content_topics: true
+  field_digital_properties: true
   field_media_caption: true
   field_media_in_library: true
+  field_media_video_caption_url: true
+  field_media_video_data_url: true
   name: true
+  scheduled_publication: true
   thumbnail: true
   uid: true

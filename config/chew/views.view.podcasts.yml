@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
-    - media_entity.bundle.podcast
+    - media.type.podcast
   module:
     - entity_browser
     - image
-    - media_entity
+    - media
     - user
     - views_infinite_scroll
 id: podcasts

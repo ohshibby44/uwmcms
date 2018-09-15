@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_banner
-    - media_entity.bundle.banner_image
+    - media.type.banner_image
     - taxonomy.vocabulary.categories
 id: taxonomy_term.categories.field_banner
 field_name: field_banner

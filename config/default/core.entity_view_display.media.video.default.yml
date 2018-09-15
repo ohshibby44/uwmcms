@@ -10,7 +10,7 @@ dependencies:
     - field.field.media.video.field_media_video_caption_url
     - field.field.media.video.field_media_video_data_url
     - field.field.media.video.field_media_video_embed_field
-    - media_entity.bundle.video
+    - media.type.video
   module:
     - text
     - video_embed_field

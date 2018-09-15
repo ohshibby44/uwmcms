@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_video_caption_url
-    - media_entity.bundle.video
+    - media.type.video
   module:
     - link
 id: media.video.field_media_video_caption_url

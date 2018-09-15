@@ -10,11 +10,9 @@ dependencies:
     - field.field.node.page.field_node_media
     - field.field.node.page.field_ttest_field
     - field.field.node.page.panelizer
-    - field.field.node.page.scheduled_update
     - node.type.page
   module:
     - entity_browser
-    - inline_entity_form
     - metatag
     - path
     - text
@@ -83,26 +81,6 @@ content:
     weight: 6
     third_party_settings: {  }
     region: content
-  scheduled_update:
-    type: inline_entity_form_complex
-    weight: 9
-    settings:
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      form_mode: default
-    third_party_settings: {  }
-    region: content
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -128,8 +106,11 @@ content:
     third_party_settings: {  }
     region: content
   url_redirects:
-    weight: 50
+    weight: 11
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_ttest_field: true
   panelizer: true
+  status: true

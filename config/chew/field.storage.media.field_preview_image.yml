@@ -5,7 +5,7 @@ dependencies:
   module:
     - file
     - image
-    - media_entity
+    - media
 id: media.field_preview_image
 field_name: field_preview_image
 entity_type: media

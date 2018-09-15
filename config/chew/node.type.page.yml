@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - lightning_scheduled_updates
     - menu_ui
     - workbench_moderation
 third_party_settings:
@@ -19,8 +18,6 @@ third_party_settings:
       - draft
       - needs_review
     default_moderation_state: draft
-  lightning_scheduled_updates:
-    embargo: true
 _core:
   default_config_hash: w4w704fK55VMBXppvSopFSIWDgwzfa2_ph3tfAcEES8
 name: 'Basic page'

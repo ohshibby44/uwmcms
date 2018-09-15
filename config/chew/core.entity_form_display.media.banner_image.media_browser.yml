@@ -9,7 +9,7 @@ dependencies:
     - field.field.media.banner_image.field_subheading
     - field.field.media.banner_image.image
     - image.style.thumbnail
-    - media_entity.bundle.banner_image
+    - media.type.banner_image
   module:
     - allowed_formats
     - focal_point

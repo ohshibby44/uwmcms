@@ -6,7 +6,7 @@ dependencies:
     - 'file:file:3ef7fb2d-6fb6-4811-925f-82e0337d7a45'
   module:
     - entity_embed
-    - media_entity
+    - media
 _core:
   default_config_hash: WL4ta6NxAdlxtbpkNqiftH4cpFhdh5ceYCO28Iy1IgU
 label: 'Media browser'

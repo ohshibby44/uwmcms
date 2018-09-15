@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
+    - field.field.media.image.field_content_topics
+    - field.field.media.image.field_digital_properties
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 _core:
@@ -27,7 +29,10 @@ content:
     region: content
 hidden:
   created: true
+  field_content_topics: true
+  field_digital_properties: true
   field_media_in_library: true
   name: true
+  scheduled_publication: true
   thumbnail: true
   uid: true

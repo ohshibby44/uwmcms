@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_media
-    - media_entity.bundle.document
-    - media_entity.bundle.image
-    - media_entity.bundle.instagram
-    - media_entity.bundle.tweet
-    - media_entity.bundle.video
+    - media.type.document
+    - media.type.image
+    - media.type.instagram
+    - media.type.tweet
+    - media.type.video
     - paragraphs.paragraphs_type.media_feature
 id: paragraph.media_feature.field_media
 field_name: field_media

@@ -6,7 +6,7 @@ dependencies:
     - core.entity_form_mode.media.media_browser
     - field.field.media.podcast.field_media_in_library
     - field.field.media.podcast.field_url
-    - media_entity.bundle.podcast
+    - media.type.podcast
   module:
     - link
     - workbench_moderation

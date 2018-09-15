@@ -141,7 +141,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_content_blocks:
-    weight: 45
+    weight: 16
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -263,11 +263,11 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
+    weight: 18
+    region: content
     settings:
       display_label: true
-    weight: 121
     third_party_settings: {  }
-    region: content
   sticky:
     type: boolean_checkbox
     settings:
@@ -293,8 +293,10 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 17
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_feature_story: true
   field_featured_specialties: true

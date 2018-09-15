@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_url
-    - media_entity.bundle.podcast
+    - media.type.podcast
   module:
     - link
 id: media.podcast.field_url

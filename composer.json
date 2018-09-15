@@ -62,7 +62,7 @@
         "drupal/address": "^1.0",
         "drupal/hierarchical_term_formatter": "^1.0@alpha",
         "drupal/ckeditor_liststyle": "^1.1",
-        "drupal/media_entity_soundcloud": "^1.0@RC",
+        "drupal/media_entity_soundcloud": "2.x-dev",
         "drupal/taxonomy_menu": "^3.3",
         "drupal/menu_block": "^1.4",
         "drupal/permissions_by_term": "^1.19",
@@ -103,10 +103,10 @@
         "drupal/minifyhtml": "^1.1",
         "drupal/panels": "^4.2",
         "drupal/page_manager": "^4.0@beta",
-        "acquia/lightning": "2.2.0",
-        "balsama/lightning_strict": "2.2.0",
-        "consolidation/robo": ">=1.1.0 <1.3.0"
-
+        "acquia/lightning": "2.2.4",
+        "balsama/lightning_strict": "2.2.4",
+        "consolidation/robo": ">=1.1.0 <1.3.0",
+        "drupal/media_entity_actions": "^1.0@alpha"
     },
     "require-dev": {},
     "extra": {

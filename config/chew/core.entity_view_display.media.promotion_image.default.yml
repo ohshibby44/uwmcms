@@ -6,7 +6,7 @@ dependencies:
     - field.field.media.promotion_image.field_media_in_library
     - field.field.media.promotion_image.image
     - image.style.promotion
-    - media_entity.bundle.promotion_image
+    - media.type.promotion_image
   module:
     - image
 id: media.promotion_image.default

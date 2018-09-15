@@ -5,15 +5,16 @@ dependencies:
   config:
     - image.style.medium
     - image.style.thumbnail
-    - media_entity.bundle.banner_image
-    - media_entity.bundle.image
-    - media_entity.bundle.promotion_image
-    - media_entity.bundle.video
+    - media.type.banner_image
+    - media.type.image
+    - media.type.promotion_image
+    - media.type.video
   module:
     - entity_browser
     - file
     - image
-    - media_entity
+    - media
+    - system
     - user
     - views_infinite_scroll
 _core:
@@ -1237,7 +1238,7 @@ display:
             format: default_summary
           specify_validation: true
           validate:
-            type: 'entity:media_bundle'
+            type: 'entity:media_type'
             fail: ignore
           validate_options:
             operation: view
@@ -2047,7 +2048,7 @@ display:
             format: default_summary
           specify_validation: true
           validate:
-            type: 'entity:media_bundle'
+            type: 'entity:media_type'
             fail: ignore
           validate_options:
             operation: view
