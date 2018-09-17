@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..9e868d39 100755
+index efce1877..292b9d32 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,431 @@
+@@ -1,3 +1,445 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -400,8 +400,10 @@ index efce1877..9e868d39 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-ballard(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/summit-cardiology-nwhmc(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/cardiac-fitness-northwest(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/transplant-services-uwmc(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/services/heart-institute(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/services/cardiology(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/transplant/heart-transplant(/)?(?(1).*|$)
 +  # End Heart Institute #
 +  # Start Eye Institute #
 +  RewriteCond %{REQUEST_URI} !^/services/eye-institute(/)?(?(1).*|$)
@@ -410,6 +412,18 @@ index efce1877..9e868d39 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/eyes-on-james(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/ophthalmology-harborview(/)?(?(1).*|$)
 +  # End Eye Institue #
++  # Start Palliative Care #
++  RewriteCond %{REQUEST_URI} !^/services/palliative(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/palliative-care(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/palliative-care-outpatient-hmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/palliative-northwest(/)?(?(1).*|$)
++  # End Palliative Care #
++  # Start Sleep Medicine #
++  RewriteCond %{REQUEST_URI} !^/services/sleep-institute(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/sleep-medicine(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc(/)?(?(1).*|$)
++  # End Sleep Medicine #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -434,7 +448,7 @@ index efce1877..9e868d39 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +578,10 @@ AddEncoding gzip svgz
+@@ -150,6 +592,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -445,7 +459,7 @@ index efce1877..9e868d39 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
-@@ -186,4 +618,4 @@ AddEncoding gzip svgz
+@@ -186,4 +632,4 @@ AddEncoding gzip svgz
    Header always set X-Content-Type-Options nosniff
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
