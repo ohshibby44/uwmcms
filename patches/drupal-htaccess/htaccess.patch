@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..c3f07734 100755
+index efce1877..d9006ddb 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,452 @@
+@@ -1,3 +1,481 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -205,9 +205,22 @@ index efce1877..c3f07734 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/eyes-on-james(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/ophthalmology-harborview(/)?(?(1).*|$)
 +  # End Eye Institue #
++  # Start ENT #
++  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/audiology-services-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/northwest-otolaryngology(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-eastside(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-center-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/otolaryngology-head-and-neck-surgery-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/ear-nose-and-throat-care(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/otolaryngology(/)?(?(1).*|$)
++  # End ENT #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
++  ######################
++  ### UWMEDICINETEST ###
++  ######################
 +  # Reverse proxy rules for stakeholder review pages. These should be served from Drupal.
 +  RewriteCond %{HTTP_HOST} ^www.uwmedicinetest.org
 +  RewriteCond %{REQUEST_URI} !^/index.php$
@@ -431,6 +444,22 @@ index efce1877..c3f07734 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc(/)?(?(1).*|$)
 +  # End Sleep Medicine #
++  # Start Allergy & Immunology #
++  RewriteCond %{REQUEST_URI} !^/services/allergy-immunology(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-eastside(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-asthma-and-immunology-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-harborview(/)?(?(1).*|$)
++  # End Allergy & Immunology #
++  # Start Laboratory Medicine & Pathology #
++  RewriteCond %{REQUEST_URI} !^/services/laboratory-medicine-and-pathology(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-northwest(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-eastside(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-uwmc-roosevelt(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/clinical-lab-outpatient-medical-center(/)?(?(1).*|$)
++  # End Laboratory Medicine & Pathology #
++
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -455,7 +484,7 @@ index efce1877..c3f07734 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -150,6 +599,10 @@ AddEncoding gzip svgz
+@@ -150,6 +628,10 @@ AddEncoding gzip svgz
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.
    RewriteCond %{REQUEST_URI} !/core/modules/statistics/statistics.php$
@@ -466,7 +495,7 @@ index efce1877..c3f07734 100755
    # Deny access to any other PHP files that do not match the rules above.
    # Specifically, disallow autoload.php from being served directly.
    RewriteRule "^(.+/.*|autoload)\.php($|/)" - [F]
-@@ -186,4 +639,4 @@ AddEncoding gzip svgz
+@@ -186,4 +668,4 @@ AddEncoding gzip svgz
    Header always set X-Content-Type-Options nosniff
    # Disable Proxy header, since it's an attack vector.
    RequestHeader unset Proxy
