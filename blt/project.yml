@@ -68,6 +68,4 @@ multisites:
   - calendar
 behat:
   web-driver: selenium
-vm:
-  enable: true
 cm.allow-overrides: true
