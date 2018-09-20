@@ -1,0 +1,19 @@
+uuid: c9431243-ad45-4060-999d-af90d02c9492
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_soundcloud
+    - media.type.podcast
+id: media.podcast.field_media_soundcloud
+field_name: field_media_soundcloud
+entity_type: media
+bundle: podcast
+label: Soundcloud
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -15,7 +15,7 @@ dependencies:
     - user.role.site_administrator
   module:
     - draggableviews
-    - media_entity
+    - media
     - node
     - text
     - user

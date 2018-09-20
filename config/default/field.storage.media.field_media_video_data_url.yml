@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - link
-    - media_entity
+    - media
 id: media.field_media_video_data_url
 field_name: field_media_video_data_url
 entity_type: media

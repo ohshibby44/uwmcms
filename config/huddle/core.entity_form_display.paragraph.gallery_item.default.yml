@@ -10,7 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.gallery_item
   module:
     - allowed_formats
-    - image
+    - focal_point
     - text
     - workbench_moderation
 _core:
@@ -36,8 +36,10 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   field_image_credit:
     weight: 1

@@ -67,9 +67,8 @@ module:
   lightning_page: 0
   link: 0
   link_attributes: 0
-  media_entity: 0
-  media_entity_document: 0
-  media_entity_image: 0
+  media: 0
+  media_entity_actions: 0
   media_entity_instagram: 0
   media_entity_twitter: 0
   memcache: 0

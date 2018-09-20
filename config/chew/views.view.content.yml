@@ -608,15 +608,6 @@ display:
           admin_label: author
           required: true
           plugin_id: standard
-        latest_revision__node:
-          id: latest_revision__node
-          table: workbench_revision_tracker
-          field: latest_revision__node
-          relationship: none
-          group_type: group
-          admin_label: 'latest revision'
-          required: false
-          plugin_id: standard
       show_admin_links: false
       filter_groups:
         operator: AND

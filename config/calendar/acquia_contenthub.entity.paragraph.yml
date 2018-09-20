@@ -1,0 +1,28 @@
+uuid: fd99420f-5932-4dcf-8ca0-6a7ec904f9a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph
+bundles:
+  call_to_action:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  contact_information:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  description:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default
+  facilitator:
+    enable_index: false
+    enable_viewmodes: false
+    rendering:
+      default: default

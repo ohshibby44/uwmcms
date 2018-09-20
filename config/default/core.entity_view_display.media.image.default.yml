@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_digital_properties
     - field.field.media.image.field_media_in_library
     - field.field.media.image.image
-    - media_entity.bundle.image
+    - media.type.image
     - responsive_image.styles.default_responsive_image
   module:
     - responsive_image

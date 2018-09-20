@@ -18,3 +18,4 @@ content:
     region: content
 hidden:
   field_address: true
+  field_campus: true

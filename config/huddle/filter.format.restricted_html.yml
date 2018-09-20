@@ -14,7 +14,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a> <em> <strong>'
+      allowed_html: '<a href> <em> <strong>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:

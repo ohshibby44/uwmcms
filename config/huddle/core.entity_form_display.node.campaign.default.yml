@@ -9,7 +9,7 @@ dependencies:
     - image.style.thumbnail_scaled_200px_wide_
     - node.type.campaign
   module:
-    - image
+    - focal_point
     - link
     - path
     - text
@@ -49,8 +49,10 @@ content:
     settings:
       preview_image_style: thumbnail_scaled_200px_wide_
       progress_indicator: throbber
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   path:
     type: path
@@ -58,6 +60,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0

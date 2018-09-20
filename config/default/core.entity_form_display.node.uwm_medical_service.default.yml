@@ -250,7 +250,7 @@ content:
     type: paragraphs
     region: content
   field_meta_tags:
-    weight: 30
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -305,6 +305,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 4
@@ -320,5 +326,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  status: true
   sticky: true
   uid: true

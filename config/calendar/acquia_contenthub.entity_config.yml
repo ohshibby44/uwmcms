@@ -2,3 +2,9 @@ user_role: anonymous
 use_block_content_view_builder: false
 _core:
   default_config_hash: zWy0ErBCi4VtDunsp8B56VGggT2Dn8twaPSdykgMQT4
+import_with_queue: false
+import_queue_batch_size: 1
+import_queue_wait_time: 3
+export_queue_nodes_per_item: 1
+export_queue_batch_size: 1
+export_queue_waiting_time: 3

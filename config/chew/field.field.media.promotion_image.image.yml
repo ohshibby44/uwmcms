@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.image
-    - media_entity.bundle.promotion_image
+    - media.type.promotion_image
   module:
     - image
 id: media.promotion_image.image

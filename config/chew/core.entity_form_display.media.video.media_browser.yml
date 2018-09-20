@@ -10,9 +10,10 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_preview_image
     - image.style.thumbnail
-    - media_entity.bundle.video
+    - media.type.video
   module:
-    - image
+    - focal_point
+    - path
     - workbench_moderation
 _core:
   default_config_hash: ggUvzzCujjyCEfAyWiJyvfcbQdARZ9_0vH9wGeGHbqo
@@ -29,11 +30,13 @@ content:
     third_party_settings: {  }
     region: content
   field_preview_image:
-    type: image_image
+    type: image_focal_point
     weight: 0
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
+      preview_link: true
+      offsets: '50,50'
     region: content
     third_party_settings: {  }
   name:
@@ -44,6 +47,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_caption: true

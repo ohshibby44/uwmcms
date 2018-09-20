@@ -397,11 +397,21 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:core.entity_view_display.paragraph.blurb_and_list.default'
+        - 'config:core.entity_view_display.paragraph.accordion_panel.default'
+        - 'config:core.entity_view_display.paragraph.accordion_panel.preview'
         - 'config:core.entity_view_display.paragraph.content_snippet.default'
+        - 'config:core.entity_view_display.paragraph.content_snippet.image_header_paragraph'
+        - 'config:core.entity_view_display.paragraph.content_snippet.medical_service'
+        - 'config:core.entity_view_display.paragraph.content_snippet.preview'
+        - 'config:core.entity_view_display.paragraph.feature_story.default'
+        - 'config:core.entity_view_display.paragraph.feature_story.medical_service'
         - 'config:core.entity_view_display.paragraph.homepage_section.default'
-        - 'config:core.entity_view_display.paragraph.link_with_icon.default'
         - 'config:core.entity_view_display.paragraph.links_list.default'
+        - 'config:core.entity_view_display.paragraph.link_with_icon.default'
+        - 'config:core.entity_view_display.paragraph.media_feature.default'
+        - 'config:core.entity_view_display.paragraph.media_feature.media_paragraph_minimal_display'
+        - 'config:core.entity_view_display.paragraph.quiz_question.default'
+        - 'config:core.entity_view_display.paragraph.reusable_content.default'
   page_1:
     display_plugin: page
     id: page_1
@@ -420,8 +430,18 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:core.entity_view_display.paragraph.blurb_and_list.default'
+        - 'config:core.entity_view_display.paragraph.accordion_panel.default'
+        - 'config:core.entity_view_display.paragraph.accordion_panel.preview'
         - 'config:core.entity_view_display.paragraph.content_snippet.default'
+        - 'config:core.entity_view_display.paragraph.content_snippet.image_header_paragraph'
+        - 'config:core.entity_view_display.paragraph.content_snippet.medical_service'
+        - 'config:core.entity_view_display.paragraph.content_snippet.preview'
+        - 'config:core.entity_view_display.paragraph.feature_story.default'
+        - 'config:core.entity_view_display.paragraph.feature_story.medical_service'
         - 'config:core.entity_view_display.paragraph.homepage_section.default'
         - 'config:core.entity_view_display.paragraph.links_list.default'
         - 'config:core.entity_view_display.paragraph.link_with_icon.default'
+        - 'config:core.entity_view_display.paragraph.media_feature.default'
+        - 'config:core.entity_view_display.paragraph.media_feature.media_paragraph_minimal_display'
+        - 'config:core.entity_view_display.paragraph.quiz_question.default'
+        - 'config:core.entity_view_display.paragraph.reusable_content.default'

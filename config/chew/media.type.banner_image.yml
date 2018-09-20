@@ -1,0 +1,19 @@
+uuid: 8ade1aac-b187-4026-b9a5-b6441c9fe0bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: image
+id: banner_image
+label: 'Banner Image'
+description: 'This image should be 3600 x 1200 px or bigger.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: image
+  gather_exif: false
+field_map: {  }

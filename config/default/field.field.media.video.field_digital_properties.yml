@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_digital_properties
-    - media_entity.bundle.video
+    - media.type.video
     - taxonomy.vocabulary.uwm_digital_property
 id: media.video.field_digital_properties
 field_name: field_digital_properties

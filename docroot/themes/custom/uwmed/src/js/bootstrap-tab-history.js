@@ -101,7 +101,7 @@ const BootstrapTabHistory = {
     }
   });
 
-  jQuery(window).load(function () {
+  jQuery(window).on('load', function () {
     if(getUrlParameter('scrollTo') && window.scrollY === 0) {
       var scrollEvent = new UIEvent('scroll');
       window.dispatchEvent(scrollEvent);

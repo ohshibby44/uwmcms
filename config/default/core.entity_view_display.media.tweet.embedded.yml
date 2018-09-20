@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.media.embedded
     - field.field.media.tweet.embed_code
     - field.field.media.tweet.field_media_in_library
-    - media_entity.bundle.tweet
+    - media.type.tweet
   module:
     - media_entity_twitter
 _core:
@@ -27,5 +27,6 @@ hidden:
   created: true
   field_media_in_library: true
   name: true
+  scheduled_publication: true
   thumbnail: true
   uid: true
