@@ -1,0 +1,47 @@
+local:
+    host: chew.uwmed.local
+    options: {  }
+    root: /var/www/uwmed/docroot
+    uri: 'http://chew.uwmed.local'
+    user: vagrant
+    ssh: { options: '-o PasswordAuthentication=no -i $HOME/.vagrant.d/insecure_private_key' }
+dev:
+    uri: chew.cmsdev.uwmedicine.org
+    host: staging-23664.prod.hosting.acquia.com
+    options: {  }
+    paths: { dump-dir: /mnt/tmp }
+    root: /var/www/html/uwmed.dev/docroot
+    user: uwmed.dev
+    ssh: { options: '-p 22' }
+prod:
+    uri: rightasrain.uwmedicine.org
+    host: ded-23660.prod.hosting.acquia.com
+    options: {  }
+    paths: { dump-dir: /mnt/tmp }
+    root: /var/www/html/uwmed.prod/docroot
+    user: uwmed.prod
+    ssh: { options: '-p 22' }
+ra:
+    uri: chew.cmsra.uwmedicine.org
+    host: staging-19934.prod.hosting.acquia.com
+    options: {  }
+    paths: { dump-dir: /mnt/tmp }
+    root: /var/www/html/uwmed.ra/docroot
+    user: uwmed.ra
+    ssh: { options: '-p 22' }
+sandbox:
+    uri: chew.uwmedsandbox.prod.acquia-sites.com
+    host: staging-23664.prod.hosting.acquia.com
+    options: {  }
+    paths: { dump-dir: /mnt/tmp }
+    root: /var/www/html/uwmed.sandbox/docroot
+    user: uwmed.sandbox
+    ssh: { options: '-p 22' }
+test:
+    uri: chew.cmsstage.uwmedicine.org
+    host: staging-23664.prod.hosting.acquia.com
+    options: {  }
+    paths: { dump-dir: /mnt/tmp }
+    root: /var/www/html/uwmed.test/docroot
+    user: uwmed.test
+    ssh: { options: '-p 22' }

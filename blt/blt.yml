@@ -14,12 +14,14 @@ git:
   hooks:
     pre-commit: '${repo.root}/git-config/hooks'
     commit-msg: '${repo.root}/git-config/hooks'
+deploy:
+  tag_source: true
 drush:
   aliases:
     remote: '${project.machine_name}.dev'
     local: self
     ci: self
-  default_alias: '${drush.aliases.local}'
+  default_alias: self
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
@@ -41,7 +43,7 @@ disable-targets:
     twig: true
 validate:
   twig:
-    filesets: [files.twig.null.custom]
+    filesets: []
 target-hooks:
   frontend-setup:
     dir: '${docroot}'
@@ -69,3 +71,5 @@ multisites:
 behat:
   web-driver: selenium
 cm.allow-overrides: true
+cloud:
+  appId: 9394ee80-5a9e-429f-a976-264b955abd86

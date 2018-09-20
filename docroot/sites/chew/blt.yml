@@ -1,0 +1,8 @@
+project:
+  local:
+    protocol: http
+    hostname: chew.uwmed.local
+drush:
+  aliases:
+    local: chew.uwmed.local
+    remote: chew.uwmed.dev

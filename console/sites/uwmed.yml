@@ -1,0 +1,7 @@
+# DrupalVM Example
+local:
+  root: /var/www/uwmed
+  host: 192.168.218.145
+  user: vagrant
+  extra-options: '-o PasswordAuthentication=no -i ~/.vagrant.d/insecure_private_key'
+  type: ssh

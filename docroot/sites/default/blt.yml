@@ -1,0 +1,4 @@
+drush:
+  aliases:
+    local: uwmed.local
+    remote: uwmed.dev

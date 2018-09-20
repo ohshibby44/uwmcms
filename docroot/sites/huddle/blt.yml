@@ -1,0 +1,8 @@
+project:
+  local:
+    protocol: http
+    hostname: huddle.uwmed.local
+drush:
+  aliases:
+    local: huddle.uwmed.local
+    remote: huddle.uwmed.dev

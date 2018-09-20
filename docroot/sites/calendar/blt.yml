@@ -1,0 +1,8 @@
+project:
+  local:
+    protocol: http
+    hostname: calendar.uwmed.local
+drush:
+  aliases:
+    local: calendar.uwmed.local
+    remote: calendar.uwmed.dev
