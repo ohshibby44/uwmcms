@@ -23,10 +23,10 @@ git config --global user.name "Travis-CI"
 git config --global user.email "noreply@travis-ci.org"
 
 # Create MySQL DBs.
-mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON `drupal%`.`*` TO 'drupal'@'localhost';"
-mysql -u root -e "CREATE DATABASE drupal_chew;"
-mysql -u root -e "CREATE DATABASE drupal_huddle;"
-mysql -u root -e "CREATE DATABASE drupal_calendar;"
+mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON 'drupal'.'*' TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_chew; GRANT ALL ON 'drupal_chew'.'*' TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_huddle; GRANT ALL ON 'drupal_huddle'.'*' TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_calendar; GRANT ALL ON 'drupal_calendar'.'*' TO 'drupal'@'localhost';"
 
 # Clear drush release history cache, to pick up new releases.
 rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
