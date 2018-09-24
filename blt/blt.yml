@@ -10,7 +10,7 @@ project:
 git:
   default_branch: develop
   remotes:
-    - 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
+    cloud: 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
   hooks:
     pre-commit: '${repo.root}/git-config/hooks'
     commit-msg: '${repo.root}/git-config/hooks'
