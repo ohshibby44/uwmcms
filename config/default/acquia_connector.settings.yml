@@ -11,7 +11,7 @@ subscription_data:
   derived_key_salt: 507a9e192c8925a819a74b907dd7f4e2
   update_service: '1'
   search_service_enabled: 1
-  rpc_version: '3'
+  rpc_version: '3.1'
   update: {  }
   heartbeat_data:
     acquia_lift:
@@ -74,6 +74,8 @@ spi:
   cron_interval: 28800
   site_machine_name: 9394ee80_5a9e_429f_a976_264b955abd86__uwmed
   site_uuid: 3b1793fd-299e-4c26-8c17-c62c3f07068d
+  site_environment: prod
+  env_detection_enabled: true
 mapping:
   acquia_spi_send_node_user:
     - acquia_connector.settings
