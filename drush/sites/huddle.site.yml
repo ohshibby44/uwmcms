@@ -1,5 +1,5 @@
 local:
-    host: huddle.uwmed.local
+    host: uwmed.local
     options: {  }
     root: /var/www/uwmed/docroot
     uri: 'http://huddle.uwmed.local'

@@ -1,12 +1,12 @@
 local:
-    host: calendar.uwmed.local
+    host: uwmed.local
     options: {  }
     root: /var/www/uwmed/docroot
-    uri: 'http://calendar.uwmed.local'
+    uri: 'http://chew.uwmed.local'
     user: vagrant
     ssh: { options: '-o PasswordAuthentication=no -i $HOME/.vagrant.d/insecure_private_key' }
 dev:
-    uri: calendar.cmsdev.uwmedicine.org
+    uri: chew.cmsdev.uwmedicine.org
     host: staging-23664.prod.hosting.acquia.com
     options: {  }
     paths: { dump-dir: /mnt/tmp }
@@ -14,7 +14,7 @@ dev:
     user: uwmed.dev
     ssh: { options: '-p 22' }
 prod:
-    uri: calendar.uwmedicine.org
+    uri: rightasrain.uwmedicine.org
     host: ded-23660.prod.hosting.acquia.com
     options: {  }
     paths: { dump-dir: /mnt/tmp }
@@ -22,7 +22,7 @@ prod:
     user: uwmed.prod
     ssh: { options: '-p 22' }
 ra:
-    uri: calendar.cmsra.uwmedicine.org
+    uri: chew.cmsra.uwmedicine.org
     host: staging-19934.prod.hosting.acquia.com
     options: {  }
     paths: { dump-dir: /mnt/tmp }
@@ -30,7 +30,7 @@ ra:
     user: uwmed.ra
     ssh: { options: '-p 22' }
 sandbox:
-    uri: calendar.uwmedsandbox.prod.acquia-sites.com
+    uri: chew.uwmedsandbox.prod.acquia-sites.com
     host: staging-23664.prod.hosting.acquia.com
     options: {  }
     paths: { dump-dir: /mnt/tmp }
@@ -38,7 +38,7 @@ sandbox:
     user: uwmed.sandbox
     ssh: { options: '-p 22' }
 test:
-    uri: calendar.cmsstage.uwmedicine.org
+    uri: chew.cmsstage.uwmedicine.org
     host: staging-23664.prod.hosting.acquia.com
     options: {  }
     paths: { dump-dir: /mnt/tmp }
