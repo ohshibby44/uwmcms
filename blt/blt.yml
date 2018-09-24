@@ -112,7 +112,8 @@ multisites:
   - huddle
   - calendar
 behat:
-  web-driver: selenium
+  paths: []
+  web-driver: chrome
 cm.allow-overrides: true
 cloud:
   appId: 9394ee80-5a9e-429f-a976-264b955abd86
