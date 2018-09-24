@@ -70,6 +70,7 @@ validate:
       - uwm_get_api_nid
       - uwm_extract_parts
       - uwm_get_sharepoint_location_image
+      - uwm_test_func
     filters:
       - token_replace
       - preg_replace
@@ -84,6 +85,7 @@ validate:
       - uwm_sort_parts
       - uwm_format_phone
       - uwm_arraycount_styles
+      - uwm_test_filter
 
 target-hooks:
   frontend-setup:
