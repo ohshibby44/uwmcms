@@ -3,7 +3,7 @@ vagrant_hostname: uwmed.local
 vagrant_machine_name: uwmed
 
 # Set the IP address so it doesn't conflict with other Drupal VM instances.
-vagrant_ip: 192.168.21.238
+vagrant_ip: 192.168.159.240
 
 # Use Ubuntu 16.04 LTS to match Acquia Cloud environments.
 vagrant_box: beet/box
@@ -43,15 +43,18 @@ apache_vhosts:
 
   - servername: "huddle.{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
+    extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
+
+  - servername: "calendar.{{ drupal_domain }}"
+    documentroot: "{{ drupal_core_path }}"
+    extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
+
   # Domain for the Drupal VM Dashboard
   - servername: "dashboard.{{ drupal_domain }}"
     serveralias: "www.dashboard.{{ drupal_domain }}"
     documentroot: "/var/www/dashboard"
     extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
 
-  - servername: "calendar.{{ drupal_domain }}"
-    documentroot: "{{ drupal_core_path }}"
-    extra_parameters: "{{ apache_vhost_php_fpm_parameters }}"
 # Multisite installations should configure additional databases here.
 # It's recommended to prefix database names with 'drupal'. Otherwise,
 # you'll need to add additional users in the 'mysql_users' section.
