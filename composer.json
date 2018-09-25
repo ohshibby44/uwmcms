@@ -65,6 +65,7 @@
         "drupal/draggableviews": "^1.0",
         "drupal/duration_field": "^1.1",
         "drupal/editor_advanced_link": "^1.4",
+        "drupal/entity": "^1.0",
         "drupal/entityqueue": "^1.0@alpha",
         "drupal/externalauth": "^1.0",
         "drupal/fb_instant_articles": "2.x-dev",
