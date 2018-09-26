@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.block_reference.field_block
     - paragraphs.paragraphs_type.block_reference
-  module:
-    - workbench_moderation
 _core:
   default_config_hash: dhehQOkro5SLp3YWPkvX6adkNDTjLIUQPtYv4h7P8dY
 id: paragraph.block_reference.default

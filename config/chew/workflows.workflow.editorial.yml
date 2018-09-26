@@ -1,19 +1,11 @@
-uuid: fce9e7f6-b5cd-43e9-a87a-9bf4d667897c
+uuid: 447c460e-16d1-49bb-9377-4168bbc3f78b
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.condition_spotlight
-    - node.type.content_spotlight
-    - node.type.fact_page
-    - node.type.homepage
-    - node.type.landing_page
-    - node.type.page
-    - node.type.quiz
-    - node.type.uwm_clinic
-    - node.type.uwm_medical_service
-    - node.type.uwm_medical_specialty
-    - node.type.uwm_provider
+    - node.type.article
+    - node.type.promotion
+    - node.type.webform
   module:
     - content_moderation
 _core:
@@ -73,14 +65,6 @@ type_settings:
         - published
   entity_types:
     node:
-      - condition_spotlight
-      - content_spotlight
-      - fact_page
-      - homepage
-      - landing_page
-      - page
-      - quiz
-      - uwm_clinic
-      - uwm_medical_service
-      - uwm_medical_specialty
-      - uwm_provider
+      - article
+      - promotion
+      - webform

@@ -21,7 +21,6 @@ dependencies:
     - focal_point
     - link_attributes
     - text
-    - workbench_moderation
 _core:
   default_config_hash: _JY_wSOo2cR3fLnlzXarlPy85o5lJYHq90Ff64Nhel8
 id: node.event.default

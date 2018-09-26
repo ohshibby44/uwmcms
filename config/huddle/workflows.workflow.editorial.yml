@@ -1,19 +1,20 @@
-uuid: fce9e7f6-b5cd-43e9-a87a-9bf4d667897c
+uuid: a6df69d9-25a7-4bc1-8cef-9b4e5344db86
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.condition_spotlight
-    - node.type.content_spotlight
-    - node.type.fact_page
-    - node.type.homepage
+    - node.type.article
+    - node.type.award
+    - node.type.bookshelf
+    - node.type.calendar_event
+    - node.type.campaign
+    - node.type.event
+    - node.type.event_location
+    - node.type.gallery
     - node.type.landing_page
+    - node.type.news_brief
     - node.type.page
-    - node.type.quiz
-    - node.type.uwm_clinic
-    - node.type.uwm_medical_service
-    - node.type.uwm_medical_specialty
-    - node.type.uwm_provider
+    - node.type.question
   module:
     - content_moderation
 _core:
@@ -73,14 +74,15 @@ type_settings:
         - published
   entity_types:
     node:
-      - condition_spotlight
-      - content_spotlight
-      - fact_page
-      - homepage
+      - article
+      - award
+      - bookshelf
+      - calendar_event
+      - campaign
+      - event
+      - event_location
+      - gallery
       - landing_page
+      - news_brief
       - page
-      - quiz
-      - uwm_clinic
-      - uwm_medical_service
-      - uwm_medical_specialty
-      - uwm_provider
+      - question

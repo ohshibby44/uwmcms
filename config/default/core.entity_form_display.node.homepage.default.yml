@@ -12,11 +12,11 @@ dependencies:
     - field.field.node.homepage.field_subheading
     - node.type.homepage
   module:
+    - datetime
     - entity_browser
     - metatag
     - paragraphs
     - text
-    - workbench_moderation
 id: node.homepage.default
 targetEntityType: node
 bundle: homepage
@@ -87,6 +87,12 @@ content:
     third_party_settings: {  }
     type: text_textfield
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:

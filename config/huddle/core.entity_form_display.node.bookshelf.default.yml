@@ -23,7 +23,6 @@ dependencies:
     - metatag
     - path
     - text
-    - workbench_moderation
 id: node.bookshelf.default
 targetEntityType: node
 bundle: bookshelf

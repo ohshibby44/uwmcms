@@ -10,7 +10,6 @@ dependencies:
     - path
     - text
     - webform
-    - workbench_moderation
 _core:
   default_config_hash: A3evv2pt6d-bKCPcgjXA5VGTemXWOxG3lSXvWiRWcck
 id: node.webform.default

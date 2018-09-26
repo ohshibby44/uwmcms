@@ -9,10 +9,10 @@ dependencies:
     - field.field.node.content_spotlight.field_link
     - node.type.content_spotlight
   module:
+    - datetime
     - entity_browser
     - link
     - path
-    - workbench_moderation
 id: node.content_spotlight.default
 targetEntityType: node
 bundle: content_spotlight
@@ -66,6 +66,12 @@ content:
       display_label: true
     weight: 15
     region: content
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

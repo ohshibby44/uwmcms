@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.minimum
     - entity_browser.browser.promotion_browser
     - field.field.node.article.field_author
     - field.field.node.article.field_categories
@@ -15,19 +16,16 @@ dependencies:
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
     - field.field.node.article.field_syndication
-    - field.field.node.article.publish
     - node.type.article
   module:
     - allowed_formats
     - entity_browser
-    - entity_browser_entity_form
     - field_group
     - inline_entity_form
     - metatag
     - paragraphs
     - path
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_for_featured_articles:
@@ -208,21 +206,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  publish:
-    type: inline_entity_form_complex
-    weight: 13
-    settings:
-      form_mode: default
-      override_labels: true
-      label_singular: Schedule
-      label_plural: Schedules
-      allow_new: true
-      match_operator: CONTAINS
-      allow_existing: false
-    third_party_settings:
-      entity_browser_entity_form:
-        entity_browser_id: _none
-    region: content
   status:
     type: boolean_checkbox
     settings:

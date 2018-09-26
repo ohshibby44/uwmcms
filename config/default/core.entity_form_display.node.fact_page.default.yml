@@ -22,13 +22,13 @@ dependencies:
     - node.type.fact_page
   module:
     - allowed_formats
+    - datetime
     - field_group
     - link
     - metatag
     - paragraphs
     - path
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_content_blocks:

@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.simple
   module:
     - text
-    - workbench_moderation
 _core:
   default_config_hash: FXuzeB9SnbBfj99wEzFFbzDRK4m5suYSrnIKb7ioFHk
 id: paragraph.simple.default

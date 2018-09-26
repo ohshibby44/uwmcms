@@ -12,7 +12,6 @@ dependencies:
     - allowed_formats
     - focal_point
     - text
-    - workbench_moderation
 _core:
   default_config_hash: RtU-W1Z_4qFO0Xm64yN8BIacWegEIVtzkeDGcn3BTGA
 id: paragraph.gallery_item.default

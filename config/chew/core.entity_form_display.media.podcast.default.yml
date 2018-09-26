@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.media.podcast.field_media_in_library
+    - field.field.media.podcast.field_media_soundcloud
     - field.field.media.podcast.field_url
     - media.type.podcast
   module:
     - link
-    - workbench_moderation
+    - path
 id: media.podcast.default
 targetEntityType: media
 bundle: podcast
@@ -43,6 +44,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 3
@@ -52,4 +66,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_media_soundcloud: true

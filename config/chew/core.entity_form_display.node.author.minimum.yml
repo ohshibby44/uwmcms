@@ -5,8 +5,6 @@ dependencies:
   config:
     - core.entity_form_mode.node.minimum
     - node.type.author
-  module:
-    - workbench_moderation
 id: node.author.minimum
 targetEntityType: node
 bundle: author

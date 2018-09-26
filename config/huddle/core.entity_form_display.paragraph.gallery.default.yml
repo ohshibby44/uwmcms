@@ -7,7 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.gallery
   module:
     - paragraphs
-    - workbench_moderation
 _core:
   default_config_hash: eCP1GbdbHi38u_D0ydpQjJjUN7QzFkRxtL97KE97STY
 id: paragraph.gallery.default

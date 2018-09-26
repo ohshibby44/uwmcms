@@ -13,7 +13,6 @@ dependencies:
     - focal_point
     - link
     - text
-    - workbench_moderation
 _core:
   default_config_hash: zoDcGdAEfrk_xLF4ihVwu_OHa0CPqWi_iaKTN94fSPg
 id: block_content.promotional.default

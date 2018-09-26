@@ -98,7 +98,7 @@ class ChewInstantArticleContentEntityNormalizer extends InstantArticleContentEnt
 
     // Get the image field.
     $image_field = $media_entity->get($image_field_name);
-    if (empty($image_field)) {
+    if (empty($image_field->entity)) {
       return NULL;
     }
 

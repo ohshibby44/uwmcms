@@ -9,16 +9,13 @@ dependencies:
     - field.field.node.page.field_information
     - field.field.node.page.field_meta_tags
     - field.field.node.page.panelizer
-    - field.field.node.page.scheduled_update
     - node.type.page
   module:
     - entity_browser
     - entity_reference_revisions
-    - inline_entity_form
     - metatag
     - path
     - text
-    - workbench_moderation
 _core:
   default_config_hash: REvJbUqTIymX9RPtmwNz2c13OKbrTk8Y3UfJWXLl8CY
 id: node.page.default
@@ -80,18 +77,6 @@ content:
     settings:
       display_label: true
     weight: 3
-    third_party_settings: {  }
-    region: content
-  scheduled_update:
-    type: inline_entity_form_complex
-    weight: 8
-    settings:
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
     third_party_settings: {  }
     region: content
   status:

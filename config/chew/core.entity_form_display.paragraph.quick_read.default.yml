@@ -10,7 +10,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-    - workbench_moderation
 id: paragraph.quick_read.default
 targetEntityType: paragraph
 bundle: quick_read

@@ -11,10 +11,10 @@ dependencies:
     - field.field.paragraph.feature_story.field_title
     - paragraphs.paragraphs_type.feature_story
   module:
+    - datetime
     - entity_browser
     - link_attributes
     - text
-    - workbench_moderation
 id: paragraph.feature_story.default
 targetEntityType: paragraph
 bundle: feature_story
@@ -73,6 +73,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

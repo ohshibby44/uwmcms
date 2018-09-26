@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.contact_information
   module:
     - telephone
-    - workbench_moderation
 id: paragraph.contact_information.default
 targetEntityType: paragraph
 bundle: contact_information

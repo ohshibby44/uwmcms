@@ -8,7 +8,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-    - workbench_moderation
 id: paragraph.body_text.default
 targetEntityType: paragraph
 bundle: body_text

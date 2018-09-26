@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.instagram.field_media_in_library
     - media.type.instagram
   module:
-    - workbench_moderation
+    - path
 _core:
   default_config_hash: jDN_C9WDRGh8kbivibYIFFgSscT2mELFjSQGoCppakY
 id: media.instagram.default
@@ -38,9 +38,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   preview:
     weight: 0
     region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
 hidden:
   created: true
   uid: true

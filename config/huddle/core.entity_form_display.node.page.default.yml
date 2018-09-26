@@ -7,13 +7,11 @@ dependencies:
     - field.field.node.page.field_body
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_sections
-    - field.field.node.page.scheduled_update
     - node.type.page
   module:
     - paragraphs
     - path
     - text
-    - workbench_moderation
 _core:
   default_config_hash: 95HsrUKv3ZJlmLDDvkRjO1q6lBfC5rJ7ySz7ohCTBdI
 id: node.page.default
@@ -81,5 +79,4 @@ hidden:
   body: true
   field_meta_tags: true
   promote: true
-  scheduled_update: true
   sticky: true

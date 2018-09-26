@@ -7,7 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.video
   module:
     - text
-    - workbench_moderation
 _core:
   default_config_hash: bKY9be0V5QAu85En9kb_GjSaEcr5tY3IjekJqmFgTao
 id: paragraph.video.default

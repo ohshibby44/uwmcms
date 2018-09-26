@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.facilitator
   module:
     - text
-    - workbench_moderation
 id: paragraph.facilitator.default
 targetEntityType: paragraph
 bundle: facilitator

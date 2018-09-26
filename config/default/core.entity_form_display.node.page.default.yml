@@ -12,11 +12,11 @@ dependencies:
     - field.field.node.page.panelizer
     - node.type.page
   module:
+    - datetime
     - entity_browser
     - metatag
     - path
     - text
-    - workbench_moderation
 _core:
   default_config_hash: REvJbUqTIymX9RPtmwNz2c13OKbrTk8Y3UfJWXLl8CY
 id: node.page.default

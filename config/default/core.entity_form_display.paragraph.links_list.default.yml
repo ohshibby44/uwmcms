@@ -11,11 +11,11 @@ dependencies:
     - paragraphs.paragraphs_type.links_list
   module:
     - allowed_formats
+    - datetime
     - field_group
     - link
     - paragraphs
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_list_of_links:
@@ -81,6 +81,12 @@ content:
         hide_guidelines: '1'
     type: text_textarea
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_content_link: true

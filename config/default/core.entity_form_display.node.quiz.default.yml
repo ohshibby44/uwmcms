@@ -10,11 +10,11 @@ dependencies:
     - field.field.node.quiz.field_quiz_questions
     - node.type.quiz
   module:
+    - datetime
     - entity_browser
     - paragraphs
     - path
     - text
-    - workbench_moderation
 id: node.quiz.default
 targetEntityType: node
 bundle: quiz
@@ -65,6 +65,12 @@ content:
   path:
     type: path
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
