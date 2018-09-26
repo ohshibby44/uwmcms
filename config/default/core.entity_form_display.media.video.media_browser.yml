@@ -4,15 +4,19 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.video.field_content_topics
+    - field.field.media.video.field_digital_properties
     - field.field.media.video.field_media_caption
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_caption_url
+    - field.field.media.video.field_media_video_data_url
     - field.field.media.video.field_media_video_embed_field
     - media.type.video
   module:
+    - datetime
     - link
+    - path
     - video_embed_field
-    - workbench_moderation
 _core:
   default_config_hash: ggUvzzCujjyCEfAyWiJyvfcbQdARZ9_0vH9wGeGHbqo
 id: media.video.media_browser
@@ -42,13 +46,34 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   preview:
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
 hidden:
   created: true
+  field_content_topics: true
+  field_digital_properties: true
   field_media_caption: true
   field_media_in_library: true
   field_media_video_data_url: true

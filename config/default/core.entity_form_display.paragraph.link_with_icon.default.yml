@@ -7,9 +7,9 @@ dependencies:
     - field.field.paragraph.link_with_icon.field_link
     - paragraphs.paragraphs_type.link_with_icon
   module:
+    - datetime
     - field_group
     - link_attributes
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_link_group:
@@ -52,6 +52,12 @@ content:
     third_party_settings: {  }
     type: link_attributes
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

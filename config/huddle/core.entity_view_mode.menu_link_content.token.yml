@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - lightning_core
     - menu_link_content
+third_party_settings:
+  lightning_core:
+    internal: true
 _core:
   default_config_hash: TTHbJnnmzx02KP2FNkAlzqP_BFdKZwAVb8hfUbRbxuk
 id: menu_link_content.token

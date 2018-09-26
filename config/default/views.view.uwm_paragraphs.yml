@@ -296,6 +296,7 @@ display:
               administrator: '0'
               content_ed: '0'
               content_: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''

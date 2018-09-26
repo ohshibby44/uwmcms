@@ -13,7 +13,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-    - workbench_moderation
 _core:
   default_config_hash: 0A5jB2WFxbphvuTRw3Wpi0NQ8tLgVEasjs8oxql6yNc
 id: paragraph.answer.default

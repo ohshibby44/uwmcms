@@ -15,7 +15,6 @@ dependencies:
     - file
     - image
     - media
-    - system
     - taxonomy
     - user
     - views_infinite_scroll
@@ -819,6 +818,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1054,6 +1054,8 @@ display:
           text: 'View ⧉'
           entity_type: media
           plugin_id: entity_link
+          output_url_as_text: false
+          absolute: false
         thumbnail__target_id:
           id: thumbnail__target_id
           table: media_field_data
@@ -1359,6 +1361,7 @@ display:
               administrator: '0'
               content_ed: '0'
               content_: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1995,6 +1998,7 @@ display:
               content_ed: '0'
               content_: '0'
               staff_clinic_manager: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''

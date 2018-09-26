@@ -7,7 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.call_to_action
   module:
     - link_attributes
-    - workbench_moderation
 id: paragraph.call_to_action.default
 targetEntityType: paragraph
 bundle: call_to_action

@@ -7,7 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.description
   module:
     - text
-    - workbench_moderation
 id: paragraph.description.default
 targetEntityType: paragraph
 bundle: description

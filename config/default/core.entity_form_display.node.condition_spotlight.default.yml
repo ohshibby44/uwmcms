@@ -7,9 +7,9 @@ dependencies:
     - field.field.node.condition_spotlight.field_content_topics
     - node.type.condition_spotlight
   module:
+    - datetime
     - paragraphs
     - path
-    - workbench_moderation
 id: node.condition_spotlight.default
 targetEntityType: node
 bundle: condition_spotlight
@@ -56,6 +56,12 @@ content:
       display_label: true
     weight: 2
     region: content
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

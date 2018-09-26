@@ -21,13 +21,13 @@ dependencies:
     - field.field.node.uwm_medical_service.field_subheading
     - node.type.uwm_medical_service
   module:
+    - datetime
     - entity_browser
     - field_group
     - metatag
     - paragraphs
     - path
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_hero_area:

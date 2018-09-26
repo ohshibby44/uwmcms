@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - lightning_core
     - taxonomy
+third_party_settings:
+  lightning_core:
+    internal: true
 _core:
   default_config_hash: AQZt3mTM-HGFLxai2IPOFFyGtOVC-P26IQaOLYmI1b8
 id: taxonomy_term.token

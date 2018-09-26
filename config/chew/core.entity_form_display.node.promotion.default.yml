@@ -11,7 +11,6 @@ dependencies:
     - entity_browser
     - link
     - path
-    - workbench_moderation
 id: node.promotion.default
 targetEntityType: node
 bundle: promotion

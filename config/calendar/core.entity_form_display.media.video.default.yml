@@ -9,7 +9,6 @@ dependencies:
   module:
     - path
     - video_embed_field
-    - workbench_moderation
 _core:
   default_config_hash: HCTWpOqXTYYpuBfqfQIjmSqcpM7jmFEFxQj_RMQWRAU
 id: media.video.default
@@ -47,6 +46,13 @@ content:
   preview:
     weight: 0
     region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
 hidden:
   created: true
   uid: true

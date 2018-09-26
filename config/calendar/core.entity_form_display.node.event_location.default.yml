@@ -8,7 +8,6 @@ dependencies:
     - node.type.event_location
   module:
     - address
-    - workbench_moderation
 id: node.event_location.default
 targetEntityType: node
 bundle: event_location

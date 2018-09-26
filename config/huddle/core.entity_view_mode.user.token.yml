@@ -3,7 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - lightning_core
     - user
+third_party_settings:
+  lightning_core:
+    internal: true
 _core:
   default_config_hash: Ta5_n_jXyfP3WcRw_Rmp1QPg-aSHbXzg3_Qr5UE1ieY
 id: user.token

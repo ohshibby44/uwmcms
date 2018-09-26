@@ -9,7 +9,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-    - workbench_moderation
 id: paragraph.aside.default
 targetEntityType: paragraph
 bundle: aside

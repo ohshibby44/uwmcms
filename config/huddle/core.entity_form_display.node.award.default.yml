@@ -15,7 +15,6 @@ dependencies:
     - focal_point
     - path
     - text
-    - workbench_moderation
 _core:
   default_config_hash: SVDdTYgSanV6VcXE0s0ZBpiNkYTeD5vVVRpTgtqEhok
 id: node.award.default

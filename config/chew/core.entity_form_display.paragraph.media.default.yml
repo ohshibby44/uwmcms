@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.media
   module:
     - entity_browser
-    - workbench_moderation
 id: paragraph.media.default
 targetEntityType: paragraph
 bundle: media

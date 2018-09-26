@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.quote
   module:
     - text
-    - workbench_moderation
 _core:
   default_config_hash: '-6BFr3a-nT5min265O3RWC_fDpgJCTkr16D4mbfAdug'
 id: paragraph.quote.default

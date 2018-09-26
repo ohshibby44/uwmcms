@@ -8,7 +8,7 @@ dependencies:
     - field.field.media.tweet.field_media_in_library
     - media.type.tweet
   module:
-    - workbench_moderation
+    - path
 _core:
   default_config_hash: WYt7qUipUVviLaZYZEdzc047DMFB_ghGY8gwU0OenB0
 id: media.tweet.media_browser
@@ -31,11 +31,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   preview:
     weight: null
     settings: {  }
     third_party_settings: {  }
     region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
 hidden:
   created: true
   embed_code: true

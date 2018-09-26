@@ -10,12 +10,12 @@ dependencies:
     - field.field.node.uwm_provider.field_node_media
     - node.type.uwm_provider
   module:
+    - datetime
     - entity_browser
     - field_group
     - metatag
     - paragraphs
     - path
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_letterbox_appearance:
@@ -122,6 +122,12 @@ content:
       display_label: true
     weight: 3
     region: content
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

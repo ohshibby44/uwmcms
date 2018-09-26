@@ -8,15 +8,12 @@ dependencies:
     - field.field.node.page.field_sections
     - field.field.node.page.field_webform
     - field.field.node.page.panelizer
-    - field.field.node.page.scheduled_update
     - node.type.page
   module:
-    - inline_entity_form
     - metatag
     - paragraphs
     - path
     - webform
-    - workbench_moderation
 _core:
   default_config_hash: REvJbUqTIymX9RPtmwNz2c13OKbrTk8Y3UfJWXLl8CY
 id: node.page.default
@@ -67,19 +64,6 @@ content:
     type: path
     weight: 3
     settings: {  }
-    third_party_settings: {  }
-    region: content
-  scheduled_update:
-    type: inline_entity_form_complex
-    weight: 7
-    settings:
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      form_mode: default
     third_party_settings: {  }
     region: content
   status:

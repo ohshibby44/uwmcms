@@ -247,6 +247,8 @@ display:
           text: 'Last Week''s Answers >'
           entity_type: node
           plugin_id: entity_link
+          output_url_as_text: false
+          absolute: false
       filters:
         status:
           value: '1'
@@ -513,6 +515,8 @@ display:
           text: 'Answer >'
           entity_type: node
           plugin_id: entity_link
+          output_url_as_text: false
+          absolute: false
       defaults:
         fields: false
     cache_metadata:

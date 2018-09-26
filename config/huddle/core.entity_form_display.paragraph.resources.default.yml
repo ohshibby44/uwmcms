@@ -10,7 +10,6 @@ dependencies:
     - allowed_formats
     - link
     - text
-    - workbench_moderation
 _core:
   default_config_hash: Hp8HTxr8QQxYuxamsQyMsKh9ZUxDpxhZGHYIF14NXwk
 id: paragraph.resources.default

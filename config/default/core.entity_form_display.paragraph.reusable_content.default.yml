@@ -9,10 +9,10 @@ dependencies:
     - paragraphs.paragraphs_type.reusable_content
   module:
     - allowed_formats
+    - datetime
     - field_group
     - text
     - webform
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_default:
@@ -59,6 +59,12 @@ content:
     third_party_settings: {  }
     type: webform_entity_reference_select
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

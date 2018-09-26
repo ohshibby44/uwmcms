@@ -7,7 +7,6 @@ dependencies:
     - field.field.block_content.disqus_comments.field_disqus_comments
   module:
     - disqus
-    - workbench_moderation
 _core:
   default_config_hash: ZXjEfFDMBF1AvyjCw-WYuB4BpRoP7n8l9bJAM1SzdwY
 id: block_content.disqus_comments.default

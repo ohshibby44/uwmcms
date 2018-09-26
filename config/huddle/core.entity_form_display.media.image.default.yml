@@ -10,7 +10,6 @@ dependencies:
   module:
     - focal_point
     - path
-    - workbench_moderation
 _core:
   default_config_hash: i8n8ZG9FN7dla2mgdxzezUBX7qa1Y7wIuh_yKNHnv8c
 id: media.image.default
@@ -48,6 +47,13 @@ content:
     weight: 30
     region: content
     settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
     third_party_settings: {  }
 hidden:
   created: true

@@ -14,12 +14,12 @@ dependencies:
     - field.field.paragraph.homepage_section.field_title
     - paragraphs.paragraphs_type.homepage_section
   module:
+    - datetime
     - entity_browser
     - field_group
     - link
     - paragraphs
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_homepage_section:
@@ -119,6 +119,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

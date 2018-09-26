@@ -13,7 +13,6 @@ dependencies:
     - link
     - path
     - text
-    - workbench_moderation
 _core:
   default_config_hash: 6VfdaiRoM6i8XCk9Inl5i_nvAY9tQMwhODUu_PhO4KI
 id: node.campaign.default

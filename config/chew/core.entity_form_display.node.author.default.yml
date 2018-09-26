@@ -6,7 +6,6 @@ dependencies:
     - node.type.author
   module:
     - path
-    - workbench_moderation
 id: node.author.default
 targetEntityType: node
 bundle: author
