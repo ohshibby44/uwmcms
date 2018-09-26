@@ -1,12 +1,7 @@
 uuid: 374b8be6-8808-4e5d-a55c-7c0cf2ca72bb
 langcode: en
 status: true
-dependencies:
-  module:
-    - lightning
-third_party_settings:
-  lightning:
-    bundled: true
+dependencies: {  }
 _core:
   default_config_hash: FINNLf2pkhqumdQngtjMqoiVaOgXv2cHfnLPCCbB4n0
 id: layout_manager

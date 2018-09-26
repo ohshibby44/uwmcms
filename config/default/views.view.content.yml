@@ -3,7 +3,7 @@ langcode: en
 status: false
 dependencies:
   module:
-    - lightning_workflow
+    - content_moderation
     - node
     - user
 _core:
@@ -425,6 +425,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -600,7 +601,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:workflow_list'
   page_1:
     display_options:
       path: admin/content/node
@@ -631,4 +633,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:workflow_list'

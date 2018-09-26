@@ -4,6 +4,10 @@ status: true
 dependencies:
   module:
     - block
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    internal: true
 _core:
   default_config_hash: AJ4KPUipTz1VsDPfMT_D9pamgbfXUJBgvYVel4P1DHE
 id: block.token

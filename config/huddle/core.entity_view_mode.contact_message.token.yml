@@ -4,6 +4,10 @@ status: true
 dependencies:
   module:
     - contact
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    internal: true
 _core:
   default_config_hash: X-u-oHfskJg3f8koTCKJndfJyBWavJ5aWeHGYn2arnE
 id: contact_message.token

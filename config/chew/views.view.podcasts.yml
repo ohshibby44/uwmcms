@@ -320,6 +320,7 @@ display:
               administrator: '0'
               site_administrator: '0'
               editor: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
