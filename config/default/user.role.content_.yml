@@ -98,6 +98,7 @@ permissions:
   - 'use editorial transition archived_published'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'
+  - 'use moderation sidebar'
   - 'use needs_review_draft transition'
   - 'use needs_review_needs_review transition'
   - 'use needs_review_published transition'

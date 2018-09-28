@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.uwm_clinic.field_clockwise_id
     - field.field.node.uwm_clinic.field_content_blocks
     - field.field.node.uwm_clinic.field_content_blocks_heading
+    - field.field.node.uwm_clinic.field_geo_location
     - field.field.node.uwm_clinic.field_information_manager_url
     - field.field.node.uwm_clinic.field_meta_tags
     - field.field.node.uwm_clinic.field_node_media
@@ -21,6 +22,7 @@ dependencies:
     - responsive_image.styles.default_responsive_image
   module:
     - entity_reference_revisions
+    - geofield
     - metatag
     - panelizer
     - responsive_image
@@ -43,6 +45,9 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  content_moderation_control:
+    weight: -20
     region: content
   field_body_summary:
     weight: 5
@@ -119,6 +124,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_geo_location:
+    weight: 16
+    label: above
+    settings:
+      output_format: wkt
+    third_party_settings: {  }
+    type: geofield_default
+    region: content
   field_information_manager_url:
     type: string
     weight: 12
@@ -160,4 +173,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  scheduled_publication: true

@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Adds values for search indexing.
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
+
+/**
+ * Implements hook_entity_load().
+ */
+function uwmcs_searchfields_entity_load(array $entities, $entity_type_id) {
+
+  foreach ($entities as $entity) {
+
+    if ($entity instanceof NodeInterface) {
+
+      if ($entity->hasField('field_geo_location')) {
+
+        $geolocation = $entity->get('field_geo_location')->getValue();
+
+        if (empty($geolocation[0]['lat'])) {
+
+          $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
+          $lat = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'latitude');
+          $long = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'longitude');
+
+          if (!empty($lat) && !empty($long)) {
+
+            $entity->field_geo_location = [
+              [
+                'lat' => $lat,
+                'long' => $long,
+              ],
+            ];
+
+            // $entity->save();
+          }
+        }
+
+      }
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_search_api_field_type_mapping_alter().
+ */
+function uwmcs_searchfields_search_api_field_type_mapping_alter(&$mapping) {
+
+  $mapping['location'] = ['location'];
+
+}
