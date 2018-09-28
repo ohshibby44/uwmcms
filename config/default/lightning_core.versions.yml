@@ -129,3 +129,9 @@ lightning: 3.003.0
 entity: 1.0.0-beta1
 views_ui: 0.0.0
 moderation_sidebar: 1.1.0
+geofield: 0.0.0
+search_api_location: 0.0.0
+search_api_autocomplete: 0.0.0
+search_api_location_views: 0.0.0
+uwmcs_searchfields: 0.0.0
+facets: 1.1.0
