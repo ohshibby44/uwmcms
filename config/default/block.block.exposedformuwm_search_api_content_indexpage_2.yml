@@ -1,0 +1,29 @@
+uuid: 825651cf-2a02-4465-8e57-b0408bae5ded
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_search_api_content_index
+  module:
+    - system
+    - views
+  theme:
+    - uwmed
+id: exposedformuwm_search_api_content_indexpage_2
+theme: uwmed
+region: content_header
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:uwm_search_api_content_index-page_2'
+settings:
+  id: 'views_exposed_filter_block:uwm_search_api_content_index-page_2'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }

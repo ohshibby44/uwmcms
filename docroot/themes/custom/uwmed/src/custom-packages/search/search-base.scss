@@ -1,0 +1,152 @@
+// Bootstrap Framework.
+// Core variables and mixins
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/clearfix";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid";
+@import "../../scss/bootstrap_variables";
+@import "../../scss/uwmed_variables";
+@import "../../scss/mixins";
+
+.main-container {
+  padding-top: 0 !important;
+  background: $uwmed-off-white;
+  .wrapper.top {
+    background: darken($uwmed-off-white, 4%);
+  }
+  .wrapper.top, .wrapper.columns {
+    @include make-row();
+    > section , > aside {
+      @include make-xs-column(12);
+    }
+  }
+  .wrapper.columns {
+    .view-header {
+      @include make-row();
+      background: darken($uwmed-off-white, 4%);
+    }
+  }
+}
+
+
+.main-container {
+
+  section.block.block-facets {
+    display: none;
+  }
+
+  .wrapper.top {
+
+    .views-exposed-form {
+      margin: 15px 0;
+
+      %wide-searchfield {
+        @include make-md-column(5);
+        padding: 0;
+        .input-group {
+          width: 96%;
+          box-shadow: 0 0 4px 2px #dcdcdc;
+        }
+      }
+
+      %search-filter-dropdown {
+        @include make-md-column(3);
+        button.btn.btn-default.dropdown-toggle {
+          width: 100%;
+          text-align: left;
+          box-shadow: 0 0 4px 2px #dcdcdc;
+        }
+        .dropdown-menu {
+          left: 15px;
+          right: 15px;
+          > li > a {
+            text-decoration: none !important;
+            white-space: normal;
+          }
+        }
+      }
+
+
+      div.form-group.form-type-search-api-autocomplete, div.form-group.form-item-search-api-fulltext {
+        @extend %wide-searchfield;
+      }
+      div.facets-widget.btn-group {
+        @extend %search-filter-dropdown;
+      }
+      .form-actions {
+        @include uw-ghost-button('button', '.u-ips');
+      }
+    }
+
+    .results-summary {
+      padding: 15px;
+      text-transform: uppercase;
+      div {
+        display: inline;
+        padding-right: 30px;
+      }
+      .search-all a,
+      .search-providers a,
+      .search-locations a {
+        text-transform: uppercase;
+        text-decoration: none !important;
+        color: $uwmed-pop-blue;
+        em {
+          display: none;
+        }
+      }
+      .search-all a {
+        color: #333;
+        em {
+          display: inline;
+        }
+      }
+    }
+
+  }
+
+  .page-center {
+
+    
+
+    .view-content {
+
+      h1, h2, h3, h4, h5, h6, p, div, small, big,
+      p.h1, p.h2, p.h3, p.h4, p.h5 {
+        font-size: $font-size-base;
+      }
+      h2.page-title a:link {
+        color: $uwmed-pop-blue !important;
+        font-size: $font-size-h2-mobile;
+        @media (min-width: $screen-sm-min) {
+          font-size: $font-size-h2;
+        }
+        span.small { display: none; }
+      }
+
+    }
+
+    .pager-nav {
+
+      text-transform: uppercase;
+      font-size: smaller; //font-variant: all-small-caps;
+      text-align: left !important;
+      li.pager__item.pager__item--first,
+      li.pager__item.pager__item--last {
+      }
+
+      .pagination > li > a,
+      .pagination > li > span {
+        color: $uwmed-pop-blue;
+        border-color: transparent !important;
+        background-color: transparent !important;
+        border-right-color: $uwmed-gray;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+.ui-widget {
+  font-size: $font-size-base;
+  font-family: $font-family-sans-serif-condensed;
+}

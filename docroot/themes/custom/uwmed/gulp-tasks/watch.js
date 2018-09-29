@@ -12,11 +12,12 @@ module.exports = function (gulp, plugins, options) {
 
   gulp.task('watch:js', function () {
     return gulp.watch([
-      options.js.files
+      options.js.files, options.custom_packages.js
     ], function () {
       plugins.runSequence(
         'lint:js',
         'compile:js',
+        'compile:component-packages',
         'browser-sync:reload'
       );
     });
@@ -24,10 +25,11 @@ module.exports = function (gulp, plugins, options) {
 
   gulp.task('watch:sass', function () {
     return gulp.watch([
-        options.sass.files, options.sass.componentFiles
+        options.sass.files, options.sass.componentFiles, options.custom_packages.sass
     ], function () {
       plugins.runSequence(
         'compile:sass',
+        'compile:component-packages',
         'minify:css',
         'browser-sync:reload'
       );
