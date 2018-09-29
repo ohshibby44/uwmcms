@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
     - field.storage.node.field_geo_location
-    - search_api.server.acquia_search_server
+    - search_api.server.database
   module:
     - search_api_location
     - search_api
@@ -16,15 +16,8 @@ dependencies:
 id: uwm_locations_search_api_index
 name: 'UWM Locations Index'
 description: ''
-read_only: true
+read_only: false
 field_settings:
-  node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
   imcliniccity:
     label: ImClinicCity
     property_path: imcliniccity
@@ -70,27 +63,15 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
-    indexed_locked: true
-    type_locked: true
   uid:
     label: uid
     datasource_id: 'entity:node'
     property_path: uid
     type: integer
-    indexed_locked: true
-    type_locked: true
   field_geo_location:
     label: 'Geo Location'
     datasource_id: 'entity:node'
     property_path: field_geo_location
-    type: location
-    dependencies:
-      config:
-        - field.storage.node.field_geo_location
-  latlon:
-    label: 'Geo Location » LatLong Pair'
-    datasource_id: 'entity:node'
-    property_path: 'field_geo_location:latlon'
     type: location
     dependencies:
       config:
@@ -105,132 +86,9 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  stemmer:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    exceptions:
-      texan: texa
-      mexican: mexic
-    weights:
-      preprocess_index: -43
-      preprocess_query: -43
   rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  highlight:
-    highlight: always
-    highlight_partial: true
-    excerpt: true
-    excerpt_length: 256
-    exclude_fields: {  }
-    prefix: '<tt class="highlight">'
-    suffix: '</tt>'
-    weights:
-      postprocess_query: 0
-  entity_status: {  }
-  tokenizer:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -45
-      preprocess_query: -45
-  stopwords:
-    all_fields: false
-    fields:
-      - body
-      - field_content_blocks
-      - field_bottom_content_blocks
-    stopwords:
-      - clinic
-      - care
-    weights:
-      preprocess_index: -44
-      preprocess_query: -44
-  ignorecase:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    weights:
-      preprocess_index: -49
-      preprocess_query: -49
-  ignore_character:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    ignorable: '[''¿¡!?,.:;]'
-    strip:
-      character_sets:
-        Pc: Pc
-        Pd: Pd
-        Pe: Pe
-        Pf: Pf
-        Pi: Pi
-        Po: Po
-        Ps: Ps
-        Cc: 0
-        Cf: 0
-        Co: 0
-        Mc: 0
-        Me: 0
-        Mn: 0
-        Sc: 0
-        Sk: 0
-        Sm: 0
-        So: 0
-        Zl: 0
-        Zp: 0
-        Zs: 0
-    weights:
-      preprocess_index: -47
-      preprocess_query: -47
-  type_boost:
-    boosts:
-      'entity:node':
-        datasource_boost: !!float 1
-        bundle_boosts:
-          page: !!float 5
-          uwm_clinic: !!float 0
-          uwm_medical_service: !!float 2
-    weights:
-      preprocess_index: -42
-  content_access:
-    weights:
-      preprocess_query: -50
-  html_filter:
-    all_fields: false
-    fields:
-      - body
-      - title
-      - field_content_blocks
-      - field_bottom_content_blocks
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
-    weights:
-      preprocess_index: -46
-      preprocess_query: -46
   UwmSearchWithin: {  }
   ImBioLanguage: {  }
   ImClinicCity: {  }
@@ -239,9 +97,10 @@ processor_settings:
   ImBioGender: {  }
   ImClinicServices: {  }
 tracker_settings:
-  default: {  }
+  default:
+    indexing_order: fifo
 options:
   index_directly: true
   cron_limit: 300
   overridden_by_acquia_search: 2
-server: acquia_search_server
+server: database

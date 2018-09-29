@@ -1,0 +1,29 @@
+uuid: eef524f6-f2d4-4b5e-ab6c-55a08de4b2d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.uwm_locations_search_api_index
+  module:
+    - system
+    - views
+  theme:
+    - uwmed
+id: exposedformuwm_locations_search_api_indexpage_1
+theme: uwmed
+region: content_header
+weight: -1
+provider: null
+plugin: 'views_exposed_filter_block:uwm_locations_search_api_index-page_1'
+settings:
+  id: 'views_exposed_filter_block:uwm_locations_search_api_index-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /search/locations
+    negate: false
+    context_mapping: {  }

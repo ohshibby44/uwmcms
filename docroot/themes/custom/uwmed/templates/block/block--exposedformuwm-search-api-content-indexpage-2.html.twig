@@ -1,0 +1,21 @@
+<div{{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% block content %}
+        {{ content }}
+
+
+        {#{{ devel_breakpoint() }}#}
+        <div class="results-summary">
+
+            {% if uwm_total_rows %}<div class="search-all"><a>All results for <em>search</em> ({{ uwm_total_rows }})</a></div>{% endif %}
+            <div class="search-providers"><a href="/search/providers">Find providers <em></em> &rsaquo;</a></div>
+            <div class="search-locations"><a href="/search/locations">Find locations <em></em> &rsaquo;</a></div>
+        </div>
+
+    {% endblock %}
+</div>
+

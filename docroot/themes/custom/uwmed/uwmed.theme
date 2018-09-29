@@ -6,11 +6,12 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\uwmcs_reader\Controller\UwmMapper;
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
 function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 
@@ -25,9 +26,44 @@ function uwmed_theme_suggestions_page_alter(&$suggestions, $variables) {
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ * Implements template_theme_suggestions_views_exposed_form_alter().
+ */
+function uwmed_theme_suggestions_views_exposed_form_alter(array &$suggestions, array $variables) {
+  $machineName = str_replace('-', '_', $variables['form']['#id'] ?? '');
+  if (!empty($machineName)) {
+    $suggestions[] = $machineName;
+    $suggestions[] = 'views__' . $machineName;
+  }
+  $machineName = str_replace('-', '_', $variables['form']['#view_id'] ?? '');
+  if (!empty($machineName)) {
+    $suggestions[] = $machineName;
+    $suggestions[] = 'views__' . $machineName;
+  }
+}
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
 function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  /*
+   * Several node-types have their own template but, no view-mode template. This
+   * sets the node__teaser or node__search_result templates above the generic
+   * node__node_type option.
+   */
+  if (!empty($variables['elements']['#node']) && method_exists($variables['elements']['#node'], 'getType')) {
+
+    $viewModeSuggestion = 'node__' . $variables['elements']['#view_mode'];
+    $nodeTypeSuggestion = 'node__' . $variables['elements']['#node']->getType();
+
+    $vm = array_search($viewModeSuggestion, $suggestions);
+    $nt = array_search($nodeTypeSuggestion, $suggestions);
+
+    if ($vm !== FALSE && $nt !== FALSE) {
+      $suggestions[$nt] = $viewModeSuggestion;
+      $suggestions[$vm] = $nodeTypeSuggestion;
+    }
+
+  }
+
 }
 
 /**
@@ -35,12 +71,49 @@ function uwmed_theme_suggestions_node_alter(array &$suggestions, array $variable
  */
 function uwmed_preprocess_region(&$variables) {
 
+  $region = $variables['elements']['#region'];
+  if ($region === 'content_header') {
+  }
+
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function uwmed_preprocess_block(&$variables) {
+
+  /***
+   * Load view results details for block template. We cannot query the
+   * current view's results in proprocess form because of recursion.
+   */
+  $pluginId = $variables['derivative_plugin_id'] ?? NULL;
+  if ($pluginId && in_array($pluginId,
+      ['uwm_locations_search_api_index-page_1', 'uwm_search_api_content_index-page_2'])) {
+
+    $variables['uwm_total_rows'] = $GLOBALS['pager_total_items'][0] ?? '';
+
+  }
+
 }
 
 /**
  * Implements hook_page_attachments_alter().
  */
 function uwmed_page_attachments_alter(&$variables) {
+
+  /***
+   * Add libraries for search pages
+   */
+  $currentPath = \Drupal::service('path.current')->getPath();
+  if ($currentPath === '/search' || $currentPath === '/search/default') {
+    $variables['#attached']['library'][] = 'uwmed/search-content';
+  }
+  if ($currentPath === '/search/locations') {
+    $variables['#attached']['library'][] = 'uwmed/search-locations';
+  }
+  if ($currentPath === '/search/providers') {
+    $variables['#attached']['library'][] = 'uwmed/search-providers';
+  }
 
   /***
    * Add meta-description from Information Manager (IM):
@@ -87,6 +160,13 @@ function uwmed_preprocess_html(&$variables) {
  * Implements theme_preprocess_page().
  */
 function uwmed_preprocess_page(&$variables) {
+
+  $currentPath = \Drupal::service('path.current')->getPath();
+  $variables['current_path'] = $currentPath ? str_replace('/', '-', trim($currentPath, ' /')) : '';
+  if ($currentPath === '/search/locations') {
+    $variables['page']['sidebar_second'][] = [];
+  }
+
 }
 
 /**
@@ -120,7 +200,7 @@ function uwmed_preprocess_node(&$variables) {
 
   }
 
-  if ($node->getType() === 'uwm_medical_service' || 'uwm_medical_specialty') {
+  if ($variables['view_mode'] !== 'search_result' && ($node->getType() === 'uwm_medical_service' || 'uwm_medical_specialty')) {
     $has_quiz = !is_null($node->field_quiz);
     if ($has_quiz) {
       if (isset($node->field_quiz->getValue()[0])) {
@@ -460,6 +540,18 @@ function uwmed_preprocess_node__uwm_medical_service(&$variables) {
     ->getViewBuilder('webform');
   $build = $view_builder->view($webform);
   $variables['health_news_you_can_use'] = $build;
+}
+
+/**
+ * Implements template_preprocess_views_exposed_form().
+ */
+function uwmed_preprocess_views_exposed_form(&$variables) {
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function uwmed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 }
 
 /**
