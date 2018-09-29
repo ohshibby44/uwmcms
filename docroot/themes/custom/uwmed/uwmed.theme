@@ -40,6 +40,7 @@ function uwmed_theme_suggestions_views_exposed_form_alter(array &$suggestions, a
     $suggestions[] = 'views__' . $machineName;
   }
 }
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
