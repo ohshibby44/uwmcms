@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_content_blocks
     - field.storage.node.field_bottom_content_blocks
     - field.storage.node.field_geo_location
-    - search_api.server.database
+    - search_api.server.uwmcms_localhost
   module:
     - search_api_location
     - search_api
@@ -103,4 +103,4 @@ options:
   index_directly: true
   cron_limit: 300
   overridden_by_acquia_search: 2
-server: database
+server: uwmcms_localhost
