@@ -5,11 +5,19 @@ dependencies:
   config:
     - core.entity_form_mode.node.minimum
     - node.type.author
+  module:
+    - content_moderation
 id: node.author.minimum
 targetEntityType: node
 bundle: author
 mode: minimum
 content:
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -28,6 +36,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   path: true

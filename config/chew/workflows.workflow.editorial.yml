@@ -37,14 +37,8 @@ type_settings:
         - published
       to: archived
       weight: 2
-    archived_draft:
-      label: 'Restore to Draft'
-      from:
-        - archived
-      to: draft
-      weight: 3
     archived_published:
-      label: Restore
+      label: 'Restore from archive'
       from:
         - archived
       to: published
@@ -54,6 +48,7 @@ type_settings:
       to: draft
       weight: 0
       from:
+        - archived
         - draft
         - published
     publish:

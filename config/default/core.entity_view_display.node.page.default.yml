@@ -34,6 +34,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_content_topics:
     weight: 2
     label: hidden
@@ -64,4 +69,3 @@ hidden:
   field_meta_tags: true
   field_ttest_field: true
   panelizer: true
-  scheduled_publication: true

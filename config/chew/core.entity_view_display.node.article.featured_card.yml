@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.article.field_categories
     - field.field.node.article.field_feature_category
     - field.field.node.article.field_long_summary
+    - field.field.node.article.field_meta_tags
     - field.field.node.article.field_primary_media
     - field.field.node.article.field_promotion
     - field.field.node.article.field_quick_read
     - field.field.node.article.field_sections
     - field.field.node.article.field_short_summary
+    - field.field.node.article.field_syndication
     - node.type.article
   module:
     - panelizer
@@ -29,6 +31,11 @@ targetEntityType: node
 bundle: article
 mode: featured_card
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_feature_category:
     type: string
     weight: 0
@@ -57,7 +64,9 @@ hidden:
   field_author: true
   field_categories: true
   field_long_summary: true
+  field_meta_tags: true
   field_promotion: true
   field_quick_read: true
   field_sections: true
+  field_syndication: true
   links: true

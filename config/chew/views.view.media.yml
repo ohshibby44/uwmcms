@@ -318,7 +318,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Provider
+          label: Type
           exclude: false
           alter:
             alter_text: false
@@ -686,11 +686,11 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: Provider
+            label: Type
             description: ''
             use_operator: false
             operator: bundle_op
-            identifier: provider
+            identifier: type
             required: false
             remember: false
             multiple: false
@@ -698,7 +698,10 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              site_administrator: '0'
+              editor: '0'
             reduce: false
+            argument: ''
           is_grouped: false
           group_info:
             label: ''

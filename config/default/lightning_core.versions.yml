@@ -127,3 +127,5 @@ pathauto: 1.0.0
 views: 8.4.5
 lightning: 3.003.0
 entity: 1.0.0-beta1
+views_ui: 0.0.0
+moderation_sidebar: 1.1.0

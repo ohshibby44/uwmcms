@@ -1,0 +1,14 @@
+drush:
+  aliases:
+    remote: 'chew.dev'
+    local: 'chew.local'
+
+command-hooks:
+  frontend-reqs:
+    dir: '${docroot}/themes/custom/chew'
+    command: 'npm install'
+  frontend-assets:
+    dir: '${docroot}/themes/custom/chew'
+    command: 'gulp'
+
+cm.core.dirs.sync.path: ${cm.core.path}/chew

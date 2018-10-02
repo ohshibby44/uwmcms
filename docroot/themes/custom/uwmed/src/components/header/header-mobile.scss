@@ -2,7 +2,7 @@ $transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
 @media(max-width: $screen-xs-max) {
 
-  body > header {
+  body > .dialog-off-canvas-main-canvas > header {
 
     position: static;
 

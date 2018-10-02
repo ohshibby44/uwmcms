@@ -26,6 +26,11 @@ targetEntityType: node
 bundle: article
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_date:
     type: datetime_default
     weight: 1
@@ -48,7 +53,11 @@ content:
     weight: 10
     region: content
 hidden:
+  field_body: true
   field_category: true
+  field_disqus_comments: true
+  field_featured_content: true
+  field_image_caption: true
   field_image_credit: true
   field_meta_tags: true
   field_name: true

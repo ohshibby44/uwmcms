@@ -26,6 +26,11 @@ targetEntityType: node
 bundle: gallery
 mode: full
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_category:
     type: entity_reference_label
     weight: 2

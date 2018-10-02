@@ -9,7 +9,7 @@ id: media.banner_image.field_media_in_library
 field_name: field_media_in_library
 entity_type: media
 bundle: banner_image
-label: 'Save to my media library'
+label: 'Show in media library'
 description: ''
 required: false
 translatable: true

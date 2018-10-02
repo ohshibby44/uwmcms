@@ -1,4 +1,0 @@
-drush:
-  aliases:
-    remote: 'calendar.${project.machine_name}.dev'
-    local: 'calendar.${project.machine_name}.local'

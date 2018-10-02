@@ -6,14 +6,16 @@ project:
     name: lightning
   local:
     protocol: http
-    hostname: '${project.machine_name}.local'
+    hostname: uwmed.local
 git:
   default_branch: develop
   remotes:
-    - 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
+    cloud: 'uwmed@svn-23450.prod.hosting.acquia.com:uwmed.git'
   hooks:
     pre-commit: '${repo.root}/git-config/hooks'
     commit-msg: '${repo.root}/git-config/hooks'
+deploy:
+  tag_source: true
 drush:
   aliases:
     remote: '${project.machine_name}.dev'
@@ -23,25 +25,27 @@ drush:
 modules:
   local:
     enable: [dblog, devel, seckit, views_ui]
-    uninstall: [acsf, acquia_connector, shield, simplesamlphp_auth]
+    uninstall: [acquia_connector, shield, simplesamlphp_auth]
   ci:
     enable: {  }
-    uninstall: [acquia_connector, shield]
+    uninstall: [acquia_connector]
   dev:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector]
     uninstall: {  }
   test:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector]
     uninstall: [devel, views_ui]
   prod:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector]
     uninstall: [devel, views_ui]
 disable-targets:
   validate:
     twig: true
 validate:
   twig:
-    filesets: [files.twig.null.custom]
+    filesets: {  }
+    functions: [drupal_block, drupal_field, drupal_view, drupal_view_result, drupal_block, drupal_region, drupal_entity, drupal_entity_form, drupal_field, drupal_menu, drupal_form, drupal_image, drupal_token, drupal_config, drupal_title, drupal_url, drupal_link, drupal_messages, drupal_breadcrumb, drupal_dump, drupal_breakpoint, uwm_get_path_nid, uwm_get_api_nid, uwm_extract_parts, uwm_get_sharepoint_location_image, uwm_test_func]
+    filters: [token_replace, preg_replace, image_style, transliterate, check_markup, truncate, view, with, uwm_replace_markup, uwm_join_parts, uwm_sort_parts, uwm_format_phone, uwm_arraycount_styles, uwm_test_filter]
 target-hooks:
   frontend-setup:
     dir: '${docroot}'
@@ -67,5 +71,11 @@ multisites:
   - huddle
   - calendar
 behat:
+  paths: {  }
   web-driver: selenium
-cm.allow-overrides: true
+cm.allow-overrides: false
+cloud:
+  appId: 9394ee80-5a9e-429f-a976-264b955abd86
+
+setup:
+  strategy: sync

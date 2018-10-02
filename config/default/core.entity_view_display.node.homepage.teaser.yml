@@ -6,9 +6,13 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.homepage.field_heading
     - field.field.node.homepage.field_homepage_sections
+    - field.field.node.homepage.field_image
+    - field.field.node.homepage.field_links_with_icon
+    - field.field.node.homepage.field_meta_tags
     - field.field.node.homepage.field_subheading
     - node.type.homepage
   module:
+    - panelizer
     - user
 third_party_settings:
   panelizer:
@@ -20,7 +24,12 @@ id: node.homepage.teaser
 targetEntityType: node
 bundle: homepage
 mode: teaser
-content: {  }
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_heading: true
   field_homepage_sections: true

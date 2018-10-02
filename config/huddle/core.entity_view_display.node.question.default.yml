@@ -19,6 +19,11 @@ targetEntityType: node
 bundle: question
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_body:
     weight: 2
     label: above
