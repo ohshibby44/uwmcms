@@ -13,34 +13,37 @@ use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
  */
 function uwmcs_searchfields_entity_load(array $entities, $entity_type_id) {
 
-  foreach ($entities as $entity) {
 
-    if ($entity instanceof NodeInterface) {
+}
 
-      if ($entity->hasField('field_geo_location')) {
 
-        $geolocation = $entity->get('field_geo_location')->getValue();
+function uwmcs_searchfields_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
 
-        if (empty($geolocation[0]['lat'])) {
+  if ($entity instanceof NodeInterface) {
 
-          $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
-          $lat = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'latitude');
-          $long = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'longitude');
+    if ($entity->hasField('field_geo_location')) {
 
-          if (!empty($lat) && !empty($long)) {
+      if (empty($geolocation[0]['lat'])) {
 
-            $entity->field_geo_location = [
-              [
-                'lat' => $lat,
-                'long' => $long,
-              ],
-            ];
+        $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
+        $lat = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'latitude');
+        $lat = isset($lat[0]) ? $lat[0] : $lat;
+        $long = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'longitude');
+        $long = isset($long[0]) ? $long[0] : $long;
 
-            // $entity->save();
-          }
+
+        if (!empty($lat) && (is_numeric($lat))) {
+
+         // && !empty($long) && ‌‌(is_numeric($long))) {
+
+            $point = \Drupal::service('geofield.wkt_generator')->WktBuildPoint([$long, $lat,]);
+            $entity->set('field_geo_location', $point);
+
+
         }
 
       }
+
     }
 
   }
