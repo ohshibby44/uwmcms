@@ -135,3 +135,8 @@ search_api_autocomplete: 0.0.0
 search_api_location_views: 0.0.0
 uwmcs_searchfields: 0.0.0
 facets: 1.1.0
+geocoder: 2.0.0-beta5
+search_api_location_geocoder: 1.0.0-alpha1
+facets_map_widget: 1.0.0-alpha1
+geocoder_field: 2.0.0-beta5
+geocoder_geofield: 2.0.0-beta5

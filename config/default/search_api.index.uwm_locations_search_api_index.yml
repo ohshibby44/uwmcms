@@ -76,6 +76,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_geo_location
+  field_geo_location_1:
+    label: 'Geo Location'
+    datasource_id: 'entity:node'
+    property_path: field_geo_location
+    type: rpt
+    dependencies:
+      config:
+        - field.storage.node.field_geo_location
 datasource_settings:
   'entity:node':
     bundles:

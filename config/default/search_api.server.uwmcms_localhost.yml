@@ -5,7 +5,7 @@ dependencies:
   module:
     - search_api_solr
 id: uwmcms_localhost
-name: uwmcms-localhost
+name: 'UWMCMS Localhost'
 description: ''
 backend: search_api_solr
 backend_config:
@@ -22,7 +22,7 @@ backend_config:
     commit_within: 1000
     solr_version: ''
     http_method: AUTO
-  retrieve_data: false
+  retrieve_data: true
   highlight_data: false
   excerpt: false
   skip_schema_check: false
