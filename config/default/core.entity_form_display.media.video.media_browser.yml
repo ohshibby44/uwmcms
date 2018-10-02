@@ -13,7 +13,7 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - media.type.video
   module:
-    - datetime
+    - content_moderation
     - link
     - path
     - video_embed_field
@@ -38,6 +38,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -54,12 +60,6 @@ content:
     third_party_settings: {  }
   preview:
     weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }

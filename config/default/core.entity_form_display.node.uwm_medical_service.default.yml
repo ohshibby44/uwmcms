@@ -292,6 +292,12 @@ content:
     third_party_settings: {  }
     type: text_textfield
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 8
@@ -304,12 +310,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
-    region: content
-    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield

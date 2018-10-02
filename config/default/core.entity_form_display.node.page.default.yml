@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.page.panelizer
     - node.type.page
   module:
-    - datetime
+    - content_moderation
     - entity_browser
     - metatag
     - path
@@ -68,6 +68,12 @@ content:
       open: false
     region: content
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 10
@@ -81,12 +87,6 @@ content:
     weight: 6
     third_party_settings: {  }
     region: content
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:

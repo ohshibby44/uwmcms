@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.content_spotlight.field_link
     - node.type.content_spotlight
   module:
-    - datetime
+    - content_moderation
     - entity_browser
     - link
     - path
@@ -54,6 +54,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 30
@@ -66,12 +72,6 @@ content:
       display_label: true
     weight: 15
     region: content
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -107,4 +107,6 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

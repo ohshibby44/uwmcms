@@ -22,6 +22,11 @@ targetEntityType: node
 bundle: promotion
 mode: thumbnail
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_link:
     weight: 1
     label: hidden

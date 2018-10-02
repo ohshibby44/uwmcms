@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.condition_spotlight.field_content_topics
     - node.type.condition_spotlight
   module:
-    - datetime
+    - content_moderation
     - paragraphs
     - path
 id: node.condition_spotlight.default
@@ -44,6 +44,12 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 6
@@ -56,12 +62,6 @@ content:
       display_label: true
     weight: 2
     region: content
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
-    region: content
-    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -97,4 +97,6 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

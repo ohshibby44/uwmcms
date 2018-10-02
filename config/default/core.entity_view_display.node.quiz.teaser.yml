@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.quiz.body
+    - field.field.node.quiz.field_body_body_second
+    - field.field.node.quiz.field_image
+    - field.field.node.quiz.field_quiz_questions
     - node.type.quiz
   module:
     - text
@@ -22,9 +25,16 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_body_body_second: true
   field_image: true

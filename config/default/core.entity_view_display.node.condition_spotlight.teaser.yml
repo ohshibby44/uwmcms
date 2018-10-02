@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.condition_spotlight.field_content_blocks
+    - field.field.node.condition_spotlight.field_content_topics
     - node.type.condition_spotlight
   module:
     - user
@@ -12,8 +14,16 @@ targetEntityType: node
 bundle: condition_spotlight
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_content_blocks: true
+  field_content_topics: true

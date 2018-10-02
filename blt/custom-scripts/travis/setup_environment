@@ -24,9 +24,9 @@ git config --global user.email "noreply@travis-ci.org"
 
 # Create MySQL DBs.
 mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
-mysql -u root -e "CREATE DATABASE chew; CREATE USER 'chew'@'localhost' IDENTIFIED BY 'chew'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
-mysql -u root -e "CREATE DATABASE huddle; CREATE USER 'huddle'@'localhost' IDENTIFIED BY 'huddle'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
-mysql -u root -e "CREATE DATABASE calendar; CREATE USER 'calendar'@'localhost' IDENTIFIED BY 'calendar'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_chew; GRANT ALL ON drupal_chew.* TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_huddle; GRANT ALL ON drupal_huddle.* TO 'drupal'@'localhost';"
+mysql -u root -e "CREATE DATABASE drupal_calendar; GRANT ALL ON drupal_calenda.* TO 'drupal'@'localhost';"
 
 # Clear drush release history cache, to pick up new releases.
 rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
@@ -43,5 +43,11 @@ rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
 
 # Install gulp globally
 npm install -g gulp-cli
+
+# Add ssh key so we can sync drush into the Acqua Cloud
+openssl aes-256-cbc -K $encrypted_02aeaa5f32a9_key -iv $encrypted_02aeaa5f32a9_iv -in travis-deploy-key.enc -out travis-deploy-key -d
+rm travis-deploy-key.enc
+chmod 600 travis-deploy-key
+mv travis-deploy-key ~/.ssh/id_rsa
 
 set +v

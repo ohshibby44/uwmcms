@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.quiz.field_quiz_questions
     - node.type.quiz
   module:
-    - datetime
+    - content_moderation
     - entity_browser
     - paragraphs
     - path
@@ -62,15 +62,15 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -92,6 +92,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   promote: true

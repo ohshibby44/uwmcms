@@ -20,6 +20,11 @@ targetEntityType: node
 bundle: question
 mode: full
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_body:
     type: text_default
     weight: 1

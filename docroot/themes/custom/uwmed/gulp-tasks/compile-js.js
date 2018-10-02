@@ -16,7 +16,7 @@ module.exports = function (gulp, plugins, options) {
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.babel({
-        presets: ['babel-preset-env']
+        presets: ['@babel/preset-env']
       }))
       .pipe(plugins.sourcemaps.write())
       .pipe(plugins.plumber.stop())

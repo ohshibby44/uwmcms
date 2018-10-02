@@ -9,7 +9,7 @@ id: media.podcast.field_media_in_library
 field_name: field_media_in_library
 entity_type: media
 bundle: podcast
-label: 'Save to my media library'
+label: 'Show in media library'
 description: ''
 required: false
 translatable: true

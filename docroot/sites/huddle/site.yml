@@ -1,4 +1,0 @@
-drush:
-  aliases:
-    remote: 'huddle.${project.machine_name}.dev'
-    local: 'huddle.${project.machine_name}.local'

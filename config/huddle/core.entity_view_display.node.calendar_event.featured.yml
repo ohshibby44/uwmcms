@@ -28,6 +28,11 @@ targetEntityType: node
 bundle: calendar_event
 mode: featured
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_date_time:
     type: datetime_default
     weight: 1
@@ -62,6 +67,7 @@ hidden:
   field_event_audiences: true
   field_event_categories: true
   field_event_location: true
+  field_featured_content: true
   field_meta_tags: true
   field_private_note: true
   field_room_name: true

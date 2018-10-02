@@ -30,6 +30,11 @@ targetEntityType: node
 bundle: calendar_event
 mode: full
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_address:
     weight: 4
     label: hidden
@@ -104,6 +109,7 @@ content:
 hidden:
   field_event_audiences: true
   field_event_categories: true
+  field_featured_content: true
   field_meta_tags: true
   field_private_note: true
   links: true

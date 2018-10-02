@@ -5,6 +5,21 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.fact_page.body
+    - field.field.node.fact_page.field_body_style_terms
+    - field.field.node.fact_page.field_bottom_content_blocks
+    - field.field.node.fact_page.field_bottom_content_blocks_head
+    - field.field.node.fact_page.field_content_blocks
+    - field.field.node.fact_page.field_content_blocks_footer
+    - field.field.node.fact_page.field_content_blocks_heading
+    - field.field.node.fact_page.field_content_blocks_style
+    - field.field.node.fact_page.field_link
+    - field.field.node.fact_page.field_meta_tags
+    - field.field.node.fact_page.field_sidebar_content_blocks
+    - field.field.node.fact_page.field_title_subheading
+    - field.field.node.fact_page.field_title_suffix
+    - field.field.node.fact_page.field_top_content_blocks
+    - field.field.node.fact_page.field_top_content_blocks_footer
+    - field.field.node.fact_page.field_top_content_blocks_heading
     - node.type.fact_page
   module:
     - text
@@ -22,12 +37,31 @@ content:
       trim_length: 600
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_body_body_second: true
+  field_body_style_terms: true
   field_bottom_content_blocks: true
+  field_bottom_content_blocks_head: true
   field_content_blocks: true
+  field_content_blocks_footer: true
+  field_content_blocks_heading: true
+  field_content_blocks_style: true
   field_link: true
+  field_meta_tags: true
+  field_sidebar_content_blocks: true
   field_subheading: true
+  field_title_subheading: true
+  field_title_suffix: true
+  field_top_content_blocks: true
+  field_top_content_blocks_footer: true
+  field_top_content_blocks_heading: true

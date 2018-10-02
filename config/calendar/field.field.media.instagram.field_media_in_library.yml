@@ -11,7 +11,7 @@ id: media.instagram.field_media_in_library
 field_name: field_media_in_library
 entity_type: media
 bundle: instagram
-label: 'Save to my media library'
+label: 'Show in media library'
 description: ''
 required: false
 translatable: false
