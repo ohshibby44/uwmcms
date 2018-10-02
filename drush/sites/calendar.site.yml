@@ -1,7 +1,11 @@
 local:
+  host: uwmed.local
   options: {  }
   root: /var/www/uwmed/docroot
   uri: 'http://calendar.uwmed.local'
+  user: vagrant
+  ssh:
+    options: '-o PasswordAuthentication=no -i $HOME/.vagrant.d/insecure_private_key'
 dev:
   host: uwmeddev.ssh.prod.acquia-sites.com
   options: { ac-env: dev, ac-realm: prod, ac-site: calendar }

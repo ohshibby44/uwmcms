@@ -1,7 +1,6 @@
 drush:
   aliases:
     remote: 'chew.dev'
-    local: 'chew.local'
 
 command-hooks:
   frontend-reqs:

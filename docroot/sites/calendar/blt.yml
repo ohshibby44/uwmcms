@@ -1,6 +1,5 @@
 drush:
   aliases:
     remote: 'calendar.dev'
-    local: 'calendar.local'
 
 cm.core.dirs.sync.path: ${cm.core.path}/calendar

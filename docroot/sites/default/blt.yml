@@ -1,7 +1,6 @@
 drush:
   aliases:
     remote: 'uwmed.dev'
-    local: 'uwmed.local'
 
 command-hooks:
   frontend-reqs:

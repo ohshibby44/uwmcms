@@ -1,6 +1,5 @@
 drush:
   aliases:
     remote: 'huddle.dev'
-    local: 'huddle.local'
 
 cm.core.dirs.sync.path: ${cm.core.path}/huddle
