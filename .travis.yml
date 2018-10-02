@@ -56,8 +56,8 @@ before_install:
   - source ${BLT_DIR}/scripts/travis/exit_early
 
 install:
-  - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_environment
-  - source $LOCAL_BLT_DIR/custom-scripts/travis/setup_project
+  - source ${LOCAL_BLT_DIR}/custom-scripts/travis/setup_environment
+  - source ${LOCAL_BLT_DIR}/custom-scripts/travis/setup_project
 
 script:
   - source ${BLT_DIR}/scripts/travis/run_tests
@@ -65,19 +65,19 @@ script:
 # The version below MUST match the php version indicated at the top of this file, otherwise the artifact won't build.
 deploy:
    - provider: script
-     script: "${BLT_LOCAL_DIR}/custom-scripts/travis/deploy_branch"
+     script: "${LOCAL_BLT_DIR}/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: develop
        php: 7.1
    - provider: script
-     script: "${BLT_LOCAL_DIR}/custom-scripts/travis/deploy_branch"
+     script: "${LOCAL_BLT_DIR}/custom-scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
        branch: master
        php: 7.1
    - provider: script
-     script: "${BLT_LOCAL_DIR}/custom-scripts/travis/deploy_tag"
+     script: "${LOCAL_BLT_DIR}/custom-scripts/travis/deploy_tag"
      skip_cleanup: true
      on:
        tags: true
