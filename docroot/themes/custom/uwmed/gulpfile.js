@@ -284,7 +284,7 @@ require('./gulp-tasks/move-bootstrap-scripts')(gulp, plugins, options);
 require('./gulp-tasks/serve')(gulp, plugins, options);
 require('./gulp-tasks/test-css')(gulp, plugins, options);
 require('./gulp-tasks/watch')(gulp, plugins, options);
-require('./gulp-tasks/pa11y')(gulp, plugins, options);
+//require('./gulp-tasks/pa11y')(gulp, plugins, options);
 require('./gulp-tasks/compile-custom-packages')(gulp, plugins, options);
 
 
