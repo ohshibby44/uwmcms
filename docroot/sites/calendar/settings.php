@@ -787,4 +787,6 @@ $blt_override_config_directories = FALSE;
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
 $config_directories['sync'] = '../config/calendar';
+$config_directories['vcs'] = '../config/calendar';
+
 
