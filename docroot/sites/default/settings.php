@@ -249,7 +249,21 @@
  *   );
  * @endcode
  */
-$config_directories = array();
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => '../config/default',
+);
+
+/**
+ * BLT makes the assumption that, if using multisite, the default configuration
+ * directory should be shared between all multi-sites, and each multisite will
+ * override this selectively using configuration splits. However, some
+ * applications may prefer to manage the configuration for each multisite
+ * completely separately. If this is the case, they can set
+ * $blt_override_config_directories to FALSE and
+ * $config_directories['sync'] = $dir . "/config/$site_dir" in settings.php,
+ * and we will not overwrite it.
+ */
+$blt_override_config_directories = FALSE;
 
 /**
  * Settings:
@@ -764,19 +778,6 @@ $settings['file_scan_ignore_directories'] = [
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-
-/**
- * BLT makes the assumption that, if using multisite, the default configuration
- * directory should be shared between all multi-sites, and each multisite will
- * override this selectively using configuration splits. However, some
- * applications may prefer to manage the configuration for each multisite
- * completely separately. If this is the case, they can set
- * $blt_override_config_directories to FALSE and
- * $config_directories['sync'] = $dir . "/config/$site_dir" in settings.php,
- * and we will not overwrite it.
- */
-$blt_override_config_directories = FALSE;
-$config_directories['sync'] = "../config/default";
 
 if (!file_exists('/var/www/site-php') && empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
