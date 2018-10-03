@@ -90,7 +90,15 @@ nodejs_npm_global_packages:
   - name: yarn
 nodejs_install_npm_user: "{{ drupalvm_user }}"
 npm_config_prefix: "/home/{{ drupalvm_user }}/.npm-global"
-installed_extras: [drush, nodejs, xdebug, selenium]
+installed_extras:
+  - adminer
+  - drush
+  - mailhog
+  - nodejs
+  - selenium
+  - xdebug
+  - solr
+#  - blackfire
 
 # PHP 7.1.
 php_version: "7.1"
@@ -98,6 +106,11 @@ php_packages_extra:
   - "php{{ php_version }}-bz2"
   - "php{{ php_version }}-imagick"
   - imagemagick
+
+php_display_errors: "On"
+php_upload_max_filesize: "200M"
+php_post_max_size: "200M"
+php_error_reporting: "E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING"
 
 # XDebug configuration.
 php_xdebug_version: 2.5.0
@@ -117,5 +130,6 @@ php_memory_limit: "512M"
 solr_version: "4.5.1"
 
 post_provision_scripts:
-  - "../../../acquia/blt/scripts/drupal-vm/configure-solr.sh"
-  - "../../../acquia/blt/scripts/drupal-vm/post-provision.php"
+  - "../../../acquia/blt/scripts/drupal-vm/post-provision.sh"
+  - "../../../../blt/custom-scripts/solr/configure-solr.sh"
+
