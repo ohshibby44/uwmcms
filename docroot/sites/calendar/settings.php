@@ -249,21 +249,7 @@ $databases = array();
  *   );
  * @endcode
  */
-$config_directories = array(
-  CONFIG_SYNC_DIRECTORY => '../config/calendar',
-);
-
-/**
- * BLT makes the assumption that, if using multisite, the default configuration
- * directory should be shared between all multi-sites, and each multisite will
- * override this selectively using configuration splits. However, some
- * applications may prefer to manage the configuration for each multisite
- * completely separately. If this is the case, they can set
- * $blt_override_config_directories to FALSE and
- * $config_directories['sync'] = $dir . "/config/$site_dir" in settings.php,
- * and we will not overwrite it.
- */
-$blt_override_config_directories = FALSE;
+$config_directories = array();
 
 /**
  * Settings:
@@ -786,5 +772,19 @@ if (file_exists(DRUPAL_ROOT . '/sites/calendar/settings')) {
   require DRUPAL_ROOT . '/sites/calendar/settings/acquia.lift.contenthub.settings.php';
 }
 
+/**
+ * BLT makes the assumption that, if using multisite, the default configuration
+ * directory should be shared between all multi-sites, and each multisite will
+ * override this selectively using configuration splits. However, some
+ * applications may prefer to manage the configuration for each multisite
+ * completely separately. If this is the case, they can set
+ * $blt_override_config_directories to FALSE and
+ * $config_directories['sync'] = $dir . "/config/$site_dir" in settings.php,
+ * and we will not overwrite it.
+ */
+$blt_override_config_directories = FALSE;
+
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
+$config_directories['sync'] = '../config/calendar';
+
