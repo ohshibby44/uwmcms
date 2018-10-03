@@ -156,3 +156,21 @@ function _chew_get_term_banner(TermInterface $term) {
 
   return $banner;
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for button input templates.
+ */
+function chew_preprocess_media(&$variables) {
+  // Add back classes that media_entity contrib provided before porting to
+  // core media.
+  $media = $variables['media'];
+
+  $variables['attributes']['class'][] = 'media';
+  $variables['attributes']['class'][] = 'media-' . $media->bundle();
+  if (!$media->isPublished()) {
+    $variables['attributes']['class'][] = 'unpublished';
+  }
+  if ($variables['view_mode']) {
+    $variables['attributes']['class'][] = 'view-mode-' . $variables['view_mode'];
+  }
+}
