@@ -48,7 +48,7 @@
                 <p><strong>{{ "Specialities"| t }}: </strong><br>
                     {% for i in specialities %}
 
-                        {% if loop.index > 3 %}
+                        {% if loop.index > 4 %}
                             <i class="collapse">
                                 {% if not loop.first %}
                                     |
@@ -63,7 +63,7 @@
 
                     {% endfor %}
 
-                    {% if specialities|length > 3 %}
+                    {% if specialities|length > 4 %}
                         <i class="toggle" data-toggle="collapse"
                            data-target=".s-{{ bio.id }} .collapse">...</i>
                     {% endif %}
