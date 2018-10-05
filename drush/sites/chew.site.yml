@@ -25,5 +25,5 @@ prod:
   options: { ac-env: prod, ac-realm: prod, ac-site: chew }
   paths: { drush-script: drush9 }
   root: /var/www/html/uwmed.prod/docroot
-  uri: 'chew.cms.uwmedicine.org'
+  uri: 'rightasrain.uwmedicine.org'
   user: uwmed.prod
