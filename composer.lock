@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7af65b8d4e34cef4da8ad0d4f256c6f8",
+    "content-hash": "9ba0d748334aaa40ed010056d4245c02",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2693,17 +2693,17 @@
         },
         {
             "name": "drupal/access_unpublished",
-            "version": "1.0.0-alpha3",
+            "version": "1.0.0-alpha7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/access_unpublished",
-                "reference": "8.x-1.0-alpha3"
+                "reference": "8.x-1.0-alpha7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/access_unpublished-8.x-1.0-alpha3.zip",
-                "reference": "8.x-1.0-alpha3",
-                "shasum": "a7c5d2074f37d32919d961a862ae3ccc763cd89f"
+                "url": "https://ftp.drupal.org/files/projects/access_unpublished-8.x-1.0-alpha7.zip",
+                "reference": "8.x-1.0-alpha7",
+                "shasum": "617bef359d18df0631b6974f93227714e0ac6566"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2714,8 +2714,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha3",
-                    "datestamp": "1519830784",
+                    "version": "8.x-1.0-alpha7",
+                    "datestamp": "1531380221",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -19131,11 +19131,6 @@
         {
             "name": "webflo/drupal-core-require-dev",
             "version": "8.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webflo/drupal-core-require-dev.git",
-                "reference": "75f73363165a450e9a2f9f1ce3930f148184c964"
-            },
             "require": {
                 "behat/mink": "1.7.x-dev",
                 "behat/mink-goutte-driver": "^1.2",
