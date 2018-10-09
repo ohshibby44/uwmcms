@@ -1,0 +1,11 @@
+drush:
+  aliases:
+    remote: contentrepo.dev
+    local: contentrepo.local
+cm.core.dirs.sync.path: '${cm.core.path}/contentrepo'
+project:
+  machine_name: contentrepo
+  human_name: contentrepo
+  local:
+    protocol: http
+    hostname: content.uwmed.local

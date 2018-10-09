@@ -72,3 +72,15 @@ $sites['calendar.cms.uwmedicine.org'] = 'calendar';
 $sites['calendar.cmsdev.uwmedicine.org'] = 'calendar';
 $sites['calendar.cmsstage.uwmedicine.org'] = 'calendar';
 $sites['calendar.cmsra.uwmedicine.org'] = 'calendar';
+
+$sites['content.uwmed.local'] = 'contentrepo';
+$sites['content.cms.uwmedicine.org'] = 'contentrepo';
+$sites['content.cmsdev.uwmedicine.org'] = 'contentrepo';
+$sites['content.cmsstage.uwmedicine.org'] = 'contentrepo';
+$sites['content.cmsra.uwmedicine.org'] = 'contentrepo';
+
+$sites['beta.uwmed.local'] = 'uwmedicineorg';
+$sites['beta.cms.uwmedicine.org'] = 'uwmedicineorg';
+$sites['beta.cmsdev.uwmedicine.org'] = 'uwmedicineorg';
+$sites['beta.cmsstage.uwmedicine.org'] = 'uwmedicineorg';
+$sites['beta.cmsra.uwmedicine.org'] = 'uwmedicineorg';
