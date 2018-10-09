@@ -1,0 +1,84 @@
+uuid: a17ae5d7-db62-448d-b394-38082731ba88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_blocks
+    - search_api.server.database
+  module:
+    - search_api
+    - uwmcs_searchfields
+    - node
+id: uwm_provider_search_api_index
+name: 'UWM Provider Index'
+description: ''
+read_only: false
+field_settings:
+  imbiolanguage:
+    label: ImBioLanguage
+    property_path: imbiolanguage
+    type: string
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: text
+    boost: !!float 0
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 0.1
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - uwm_provider
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  rendered_item: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  ignorecase:
+    all_fields: false
+    fields:
+      - type
+      - title
+      - field_content_blocks
+      - title_1
+    weights:
+      preprocess_index: -47
+      preprocess_query: -47
+  UwmSearchWithin: {  }
+  ImBioLanguage: {  }
+  ImClinicCity: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
+  ImClinicServices: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 400
+server: database

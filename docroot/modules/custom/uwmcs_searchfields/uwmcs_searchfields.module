@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Adds values for search indexing.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\uwmcs_searchfields\Controller\UwmSearchInfoMgrHelper;
+
+/**
+ * Implements hook_entity_load().
+ */
+function uwmcs_searchfields_entity_load(array $entities, $entity_type_id) {
+
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function uwmcs_searchfields_entity_presave(EntityInterface $entity) {
+
+  if ($entity instanceof NodeInterface) {
+
+    if ($entity->hasField('field_geo_location')) {
+
+      if (empty($geolocation[0]['lat'])) {
+
+        $data = UwmSearchInfoMgrHelper::getEntityApiData($entity);
+        $lat = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'latitude');
+        $lat = isset($lat[0]) ? $lat[0] : $lat;
+        $long = UwmSearchInfoMgrHelper::extractFirstApiMatch($data, 'longitude');
+        $long = isset($long[0]) ? $long[0] : $long;
+
+        if (!empty($lat) && (is_numeric($lat))) {
+
+          // && !empty($long) && ‌‌(is_numeric($long))) {.
+          $point = \Drupal::service('geofield.wkt_generator')->WktBuildPoint([$long, $lat]);
+          $entity->set('field_geo_location', $point);
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_search_api_field_type_mapping_alter().
+ */
+function uwmcs_searchfields_search_api_field_type_mapping_alter(&$mapping) {
+
+  $mapping['location'] = ['location'];
+
+}

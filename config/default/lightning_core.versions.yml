@@ -130,3 +130,11 @@ entity: 1.0.0-beta1
 views_ui: 0.0.0
 moderation_sidebar: 1.1.0
 media_library: 8.6.1
+geocoder: 2.0.0-beta6
+search_api_location: 1.0.0-alpha1
+search_api_location_geocoder: 1.0.0-alpha1
+search_api_location_views: 1.0.0-alpha1
+facets: 1.1.0
+geocoder_field: 2.0.0-beta6
+geofield: 1.0.0-beta4
+geocoder_geofield: 2.0.0-beta6

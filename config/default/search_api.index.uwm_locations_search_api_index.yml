@@ -1,0 +1,114 @@
+uuid: 39752cdc-1ca9-4dd0-a7e7-47120d96a1fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_content_blocks
+    - field.storage.node.field_bottom_content_blocks
+    - field.storage.node.field_geo_location
+    - search_api.server.database
+  module:
+    - search_api_location
+    - search_api
+    - uwmcs_searchfields
+    - node
+id: uwm_locations_search_api_index
+name: 'UWM Locations Index'
+description: ''
+read_only: false
+field_settings:
+  imcliniccity:
+    label: ImClinicCity
+    property_path: imcliniccity
+    type: string
+  imclinicservices:
+    label: ImClinicServices
+    property_path: imclinicservices
+    type: string
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    boost: 0.8
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 0.5
+  field_content_blocks:
+    label: 'Content Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_content_blocks
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_content_blocks
+  field_bottom_content_blocks:
+    label: 'Sidebar Blocks'
+    datasource_id: 'entity:node'
+    property_path: field_bottom_content_blocks
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_bottom_content_blocks
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+  field_geo_location:
+    label: 'Geo Location'
+    datasource_id: 'entity:node'
+    property_path: field_geo_location
+    type: location
+    dependencies:
+      config:
+        - field.storage.node.field_geo_location
+  field_geo_location_1:
+    label: 'Geo Location'
+    datasource_id: 'entity:node'
+    property_path: field_geo_location
+    type: rpt
+    dependencies:
+      config:
+        - field.storage.node.field_geo_location
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - uwm_clinic
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  rendered_item: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  UwmSearchWithin: {  }
+  ImBioLanguage: {  }
+  ImClinicCity: {  }
+  ImBioExpertise: {  }
+  ImBioBodyFields: {  }
+  ImBioGender: {  }
+  ImClinicServices: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 300
+  overridden_by_acquia_search: 2
+server: database
