@@ -1,4 +1,5 @@
 module:
+  acquia_connector: 0
   acquia_lift: 0
   acquia_lift_inspector: 0
   acquia_purge: 0
