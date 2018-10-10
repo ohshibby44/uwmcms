@@ -11,25 +11,12 @@
 {% block main %}
     <div id="main-container" role="main" class="main-container container-fluid">
 
-        {# Help #}
-        {% if page.help %}
-            {% block help %}
-                    {{ page.help }}
-            {% endblock %}
-        {% endif %}
+
+        {# Top #}
+        {% include directory ~'/templates/system/page.top.html.twig' %}
 
 
-        {# Page Top #}
-        {% if page.content_header %}
-            {% block content_header %}
-                <section class="content-header">
-                    {{ page.content_header }}
-                </section>
-            {% endblock %}
-        {% endif %}
-
-
-        <div class="wrapper">
+        <div class="wrapper columns">
 
             {# Sidebar First #}
             {% if page.sidebar_first %}
@@ -63,7 +50,13 @@
             {% if page.sidebar_second %}
                 {% block sidebar_second %}
                     <aside class="col-sm-3 page-right" role="complementary">
+
                         {{ page.sidebar_second }}
+
+                        {% if current_path == 'search-locations' %}
+                            {% include directory ~'/templates/region/page-right.search-locations.html.twig' %}
+                        {% endif %}
+
                     </aside>
                 {% endblock %}
             {% endif %}

@@ -1,0 +1,49 @@
+{% set classes = [
+    node.bundle|clean_class,
+    node.isPromoted() ? 'is-promoted',
+    node.isSticky() ? 'is-sticky',
+    not node.isPublished() ? 'is-unpublished',
+    view_mode ? view_mode|clean_class,
+    'clearfix',
+    ] %}
+
+
+{% set provider = node.uwmcs_reader_api_values %}
+
+<article{{ attributes.addClass(classes) }} data-node-id="{{ node.id }}">
+
+    <div class="profile-image">
+        {% set profileImage = ('noimage.jpg' in provider.bioImageUrl) ?
+        '/' ~ directory ~ '/dist/assets/provider-silhouette.jpg' : provider.bioImageUrl %}
+        <img src="{{ profileImage }}" class="img-thumbnail">
+
+        {# @TODO: Add responsive image cutdown. #}
+    </div>
+
+    <div class="profile-details">
+
+        <h4 class="page-title"><a href="{{ '/bios/'~ provider.friendlyUrl }}">{{ provider.fullName }}</a></h4>
+
+        <div class="accepting-apts">
+            {% if provider.acceptingAppointments %}
+                <i class="fa fa-check-circle"
+                   aria-hidden="true"></i>
+                {{ "Accepting new patients"| t }}
+            {% else %}
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                {{ "Not accepting patients"| t }}
+            {% endif %}
+        </div>
+
+        <div class="specialities s-{{ provider.id }}">
+
+            {% set specialities = uwm_extract_parts(provider.expertise, 'expertiseName') %}
+            {% if specialities %}
+                <p><strong>{{ "Specialities"| t }}: </strong><br>
+
+            {% endif %}
+        </div>
+
+    </div>
+
+</article>
