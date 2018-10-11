@@ -43,18 +43,21 @@
                  alt=""/>
             {{ content.field_subheading }}
           </div>
+          {% if content.field_links_with_icon %}
           <div
             class="medical-service-hero__links-with-icon__desktop col-lg-3 visible-lg">
             {{ content.field_links_with_icon }}
           </div>
+          {% endif %}
         </div>
       </div>
     </div>
 
+    {% if content.field_links_with_icon %}
     <div class="medical-service-hero__links-with-icon hidden-lg"> {# row #}
       {{ content.field_links_with_icon }}
     </div>
-
+{% endif %}
 
   </section>
 
@@ -365,4 +368,3 @@
     </div>
   </section>
 </article>
-
