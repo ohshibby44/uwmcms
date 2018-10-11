@@ -75,9 +75,15 @@ view_mode ? view_mode|clean_class,
 'clearfix',
 ]
 %}
+
+{% set heading = "Condition Spotlight" %}
+{% if content.field_condition_spotlight_type[0] %}
+  {% set heading = content.field_condition_spotlight_type[0] %}
+{% endif %}
+
 <div class="container">
   <div class="condition-spotlight__heading">
-    <h3>Condition Spotlight</h3>
+    <h3>{{ heading }}</h3>
     {% include '@uwmed/accents/uwmed-slant.twig' %}
   </div>
   <article{{ attributes.addClass(classes) }}>

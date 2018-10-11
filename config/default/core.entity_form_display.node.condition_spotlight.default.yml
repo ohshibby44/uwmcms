@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.condition_spotlight.field_condition_spotlight_type
     - field.field.node.condition_spotlight.field_content_blocks
     - field.field.node.condition_spotlight.field_content_topics
     - node.type.condition_spotlight
@@ -21,6 +22,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_condition_spotlight_type:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_content_blocks:
     weight: 1
     settings:
