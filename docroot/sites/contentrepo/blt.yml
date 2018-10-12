@@ -1,7 +1,7 @@
 drush:
   aliases:
     remote: contentrepo.dev
-    local: contentrepo.local
+    local: self
 cm.core.dirs.sync.path: '${cm.core.path}/contentrepo'
 project:
   machine_name: contentrepo

@@ -87,7 +87,9 @@ view_mode ? view_mode|clean_class,
 
                     <div class="col-xs-12 l">
 
-                        <a href="/patient-care/making-an-appointment">{{ "Make an Appointment"|t }}{% if hasUrgentCare %}{{ " for Primary Care"|t }}{% endif %}
+                        {% set customApptLink = content.field_custom_appointment_link[0]['#url'] %}
+
+                        <a href="{% if customApptLink %}{{ customApptLink }}{% else %}/patient-care/making-an-appointment{% endif %}">{{ "Make an Appointment"|t }}{% if hasUrgentCare %}{{ " for Primary Care"|t }}{% endif %}
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                         </a>
 
@@ -200,7 +202,13 @@ view_mode ? view_mode|clean_class,
 
                     </a>
                 </li>
-                <li role="presentation"><a href="#providers-tab"
+                {% if "Hide" in content.field_hide_providers_tab[0] %}
+                    {% set hideProvidersTab = true %}
+                {% else %}
+                    {% set hideProvidersTab = false %}
+                {% endif %}
+                {% if not hideProvidersTab %}
+                  <li role="presentation"><a href="#providers-tab"
                                            role="tab"
                                            data-toggle="tab"
                                            aria-controls="providers-tab"
@@ -214,6 +222,7 @@ view_mode ? view_mode|clean_class,
 
                     </a>
                 </li>
+                {% endif %}
             </ul>
 
         </div>
@@ -324,6 +333,7 @@ view_mode ? view_mode|clean_class,
 
             </div>
 
+          {% if not hideProvidersTab %}
             <div class="row tab-pane providers-tab" role="tabpanel"
                  id="providers-tab" aria-labelledby="providers-tab">
                 <a name="providers" id="providers"></a>
@@ -338,6 +348,7 @@ view_mode ? view_mode|clean_class,
 
                 </div>
             </div>
+            {% endif %}
         </div>
 
 

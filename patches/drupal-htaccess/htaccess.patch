@@ -1,8 +1,8 @@
 diff --git a/docroot/.htaccess b/docroot/.htaccess
-index efce1877..0a0b0fe0 100755
+index efce1877..78a2e642 100755
 --- a/docroot/.htaccess
 +++ b/docroot/.htaccess
-@@ -1,3 +1,571 @@
+@@ -1,3 +1,596 @@
 +##
 +#
 +# Begin UW Medicine special .htaccess rules
@@ -266,6 +266,19 @@ index efce1877..0a0b0fe0 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/palliative-northwest(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/palliative-care-services-uwmc(/)?(?(1).*|$)
 +  # End Palliative Care #
++ # Start Sleep Medicine #
++  RewriteCond %{REQUEST_URI} !^/services/sleep-institute(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/services/sleep-medicine(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/general-pulmonary-uwmc(/)?(?(1).*|$)
++  # End Sleep Medicine #
++  # Start Allergy & Immunology #
++  RewriteCond %{REQUEST_URI} !^/services/allergy-immunology(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-eastside(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-asthma-and-immunology-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/allergy-harborview(/)?(?(1).*|$)
++  # End Allergy & Immunology #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -496,6 +509,7 @@ index efce1877..0a0b0fe0 100755
 +  RewriteCond %{REQUEST_URI} !^/services/sleep-medicine(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-center-harborview(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/sleep-medicine-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/general-pulmonary-uwmc(/)?(?(1).*|$)
 +  # End Sleep Medicine #
 +  # Start Allergy & Immunology #
 +  RewriteCond %{REQUEST_URI} !^/services/allergy-immunology(/)?(?(1).*|$)
@@ -550,6 +564,17 @@ index efce1877..0a0b0fe0 100755
 +  RewriteCond %{REQUEST_URI} !^/locations/diagnostic-imaging-northwest(/)?(?(1).*|$)
 +  RewriteCond %{REQUEST_URI} !^/locations/northwest-outpatient-imaging(/)?(?(1).*|$)
 +  # End Radiolology #
++  # Start Cancer Care #
++  RewriteCond %{REQUEST_URI} !^/services/cancer-care(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/orthopedic-oncology-center-uwmc-roosevelt(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/oncology-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/endocrine-tumor-uwmc-roosevelt(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/cancer-center-radiation-oncology-services-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/plastic-and-reconstructive-surgery-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/thoracic-surgery-uwmc(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/thoracic-surgery-harborview(/)?(?(1).*|$)
++  RewriteCond %{REQUEST_URI} !^/locations/breast-clinic-northwest(/)?(?(1).*|$)
++  # End Cancer Care #
 +  RewriteRule ^(.*)$ - [CO=uwm-proxied-page-visit:true:%{HTTP_HOST}:0:/,C]
 +  RewriteRule ^(.*)$ https://www2.uwmedicine.org%{REQUEST_URI} [L,P]
 +
@@ -574,7 +599,7 @@ index efce1877..0a0b0fe0 100755
  #
  # Apache/PHP/Drupal settings:
  #
-@@ -149,7 +717,11 @@ AddEncoding gzip svgz
+@@ -149,7 +742,11 @@ AddEncoding gzip svgz
    # Allow access to Statistics module's custom front controller.
    # Copy and adapt this rule to directly execute PHP files in contributed or
    # custom modules or to run another PHP application in the same directory.

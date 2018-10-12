@@ -1,7 +1,7 @@
 drush:
   aliases:
     remote: uwmedicineorg.dev
-    local: uwmedicineorg.local
+    local: self
 cm.core.dirs.sync.path: '${cm.core.path}/uwmedicineorg'
 project:
   machine_name: uwmedicineorg
