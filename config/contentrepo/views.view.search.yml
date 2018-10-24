@@ -77,8 +77,9 @@ display:
         options:
           view_modes:
             'entity:node':
-              landing_page: teaser
-              page: teaser
+              uwm_basic_page: default
+              uwm_homepage: default
+              uwm_hub_page: default
       fields:
         rendered:
           table: search_api_index_content
