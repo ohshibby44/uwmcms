@@ -20,4 +20,7 @@ content:
 hidden:
   content_moderation_control: true
   field_meta_tags: true
+  field_uwm_hero: true
+  field_uwm_page_path_name: true
+  field_uwm_parent_page: true
   field_uwm_sections: true
