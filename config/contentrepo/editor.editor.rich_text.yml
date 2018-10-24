@@ -19,42 +19,54 @@ settings:
           items:
             - Bold
             - Italic
-            - Strike
-            - Superscript
-            - Subscript
             - '-'
             - RemoveFormat
+            - '-'
+            - Cut
+            - PasteFromWord
+            - Copy
         -
           name: Linking
           items:
-            - DrupalLink
+            - Linkit
             - DrupalUnlink
         -
           name: Lists
           items:
             - BulletedList
             - NumberedList
+            - Indent
+            - Outdent
         -
           name: Media
           items:
-            - Blockquote
-            - Table
-            - HorizontalRule
             - media_browser
         -
           name: 'Block Formatting'
           items:
             - Format
+            - Styles
+        -
+          name: Templates
+          items:
+            - bs_grid
+            - Templates
         -
           name: Tools
           items:
             - ShowBlocks
             - Source
+            - Maximize
   plugins:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "a.btn.btn-cta.btn-purple|Purple CTA Button\r\na.btn.btn-cta.btn-green|Green CTA Button\r\np.subheading|Subheading"
+    templates:
+      template_path: ''
+      replace_content: 0
+    linkit:
+      linkit_profile: content
 image_upload:
   status: true
   scheme: public
