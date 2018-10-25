@@ -15,6 +15,17 @@
         @media (min-width: $screen-lg) {
           margin-left: 50px;
         }
+        .caret {
+	        display:none;
+	        @media (min-width: $screen-md) {
+	          display:inline-block;
+	        }
+        }
+      }
+      .dropdown-menu {
+	    @media (max-width: $screen-md) {
+		    display:none !important;
+		}
       }
     }
   }
