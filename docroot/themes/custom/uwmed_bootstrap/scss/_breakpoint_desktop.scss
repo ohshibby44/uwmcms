@@ -2011,7 +2011,8 @@ article.webform {
     width: 800px;
     padding: 0;
     position: absolute;
-    top: 667px;
+    top: auto;
+    bottom:3px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -2019,6 +2020,7 @@ article.webform {
   }
   .carousel-controls {
     top: 238px;
+    position:absolute;
     .carousel-control {
       @include font-size(4.2, 4.2);
       background-color: transparent;
@@ -2044,8 +2046,8 @@ article.webform {
     @include center-block();
   }
   .field--name-field-image-credit {
-    margin-bottom: 35px;
-    padding: 15px 0 74px;
+    margin-bottom: 15px;
+    padding: 15px 0 30px;
   }
   .field--name-field-caption {
     clear: both;

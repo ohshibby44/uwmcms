@@ -3745,8 +3745,8 @@ blockquote {
     padding: 0 38px;
     overflow: hidden;
     width: 100%;
-    position: absolute;
-    top: 260px;
+    position: relative;
+    top: 40px;
     left: 0;
     text-align: center;
     @include font-size(1.6, 1.6);
@@ -3757,8 +3757,9 @@ blockquote {
   .carousel-controls {
     height: 60px;
     width: 100%;
-    position: absolute;
-    top: 238px;
+    position: relative;
+    top: auto;
+    bottom:0;
     left: 0;
     .carousel-control {
       background: none;
@@ -3811,6 +3812,7 @@ blockquote {
     font-weight: 700;
     color: #fff;
     text-transform: uppercase;
+    margin:10px auto;
     .field--label,
     .field--item {
       display: inline-block;
@@ -3820,6 +3822,7 @@ blockquote {
     clear: both;
     @include font-size(1.4, 2.1);
     color: #fff;
+    margin:10px auto;
   }
 }
 //----
