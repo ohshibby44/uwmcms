@@ -24,7 +24,7 @@ drush:
   default_alias: '${drush.aliases.local}'
 modules:
   local:
-    enable: [dblog, devel, seckit, views_ui]
+    enable: [dblog, devel, views_ui]
     uninstall: [ shield, simplesamlphp_auth]
   ci:
     enable: {  }

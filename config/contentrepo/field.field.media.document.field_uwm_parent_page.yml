@@ -1,17 +1,19 @@
-uuid: d2d63c6d-b0e7-4c49-912f-942bb95ab30a
+uuid: 79ca9500-4b50-42e0-84a1-66e3a3c4c3b8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_uwm_parent_page
+    - field.storage.media.field_uwm_parent_page
+    - media.type.document
     - node.type.uwm_basic_page
+    - node.type.uwm_homepage
     - node.type.uwm_hub_page
-id: node.uwm_basic_page.field_uwm_parent_page
+id: media.document.field_uwm_parent_page
 field_name: field_uwm_parent_page
-entity_type: node
-bundle: uwm_basic_page
+entity_type: media
+bundle: document
 label: 'Parent Page'
-description: 'Choosing a parent page will help generate a structured URL for this page.'
+description: 'Selecting a parent page will add the parent page''s URL path to the start of the URL path for this uploaded file.'
 required: false
 translatable: false
 default_value: {  }
@@ -21,6 +23,7 @@ settings:
   handler_settings:
     target_bundles:
       uwm_basic_page: uwm_basic_page
+      uwm_homepage: uwm_homepage
       uwm_hub_page: uwm_hub_page
     sort:
       field: _none

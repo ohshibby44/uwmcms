@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - file
     - node
 id: content
 label: Content
@@ -19,15 +18,12 @@ matchers:
       bundles: {  }
       group_by_bundle: false
       include_unpublished: false
-  118b262d-635e-48fc-b6e3-b21429344219:
-    uuid: 118b262d-635e-48fc-b6e3-b21429344219
-    id: 'entity:file'
+  6c14c016-2cdb-446c-834d-c461f35ebfd7:
+    uuid: 6c14c016-2cdb-446c-834d-c461f35ebfd7
+    id: 'entity:media'
     weight: 0
     settings:
-      result_description: Files
-      bundles: null
-      group_by_bundle: null
-      images:
-        show_dimensions: false
-        show_thumbnail: false
-        thumbnail_image_style: null
+      result_description: 'Uploaded Documents'
+      bundles:
+        document: document
+      group_by_bundle: true
