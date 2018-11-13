@@ -992,9 +992,27 @@ body {
   .field--name-field-description {
     .align-left {
       margin: 0 15px 0 0;
+      display: table;
+      @media (max-width: $screen-sm) {
+	    width: 100%;
+	  } 
+	  img {
+		@media (max-width: $screen-sm) {
+		  margin: 0 auto;
+		}  
+	  }
     }
     .align-right {
       margin: 0 0 0 15px;
+      display: table;
+      @media (max-width: $screen-sm) {
+	    width: 100%;
+	  } 
+	  img {
+		@media (max-width: $screen-sm) {
+		  margin: 0 auto;
+		}  
+	  }
     }
     img {
       @include img-responsive-important;
@@ -1005,6 +1023,13 @@ body {
       color: $uw-grey;
       margin-bottom: 20px;
       margin-top: 15px;
+      display: table-caption;
+      caption-side: bottom;
+      max-width: none;
+      @media (max-width: $screen-sm) {
+	    display: block;
+		text-align: center;
+	  }
     }
     h2 {
       @include font-size(2.4, 2.8);
