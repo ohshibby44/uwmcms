@@ -12,7 +12,7 @@
 }
 
 .block-views-blockfeatured-content-block {
-  display: none;
+  display: block;
   @media (min-width: $screen-md) {
     display: block;
   }
@@ -25,7 +25,7 @@
 }
 
 .block-views-blockfeatured-content-block-2 {
-  display: block;
+  display: none;
   margin-bottom: 4rem;
   @media (min-width: $screen-md) {
     display: none;
